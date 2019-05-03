@@ -1,0 +1,69 @@
+{
+  "name": "solr-react-faceted-search",
+  "version": "0.12.1",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": {
+    "name": "René van der Ark",
+    "email": "rene.van.der.ark@huygens.knaw.nl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HuygensING/solr-faceted-search-react.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">= 16",
+    "react-dom": ">= 16"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.7.2",
+    "typescript-fsa": "^3.0.0-beta-2",
+    "typescript-fsa-reducers": "^1.2.0",
+    "xhr": "^2.5.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.14",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-transform-es2015-destructuring": "^6.9.0",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.0",
+    "css-loader": "^0.23.1",
+    "derequire": "^2.0.3",
+    "envify": "^3.4.1",
+    "eslint": "^1.5.1",
+    "eslint-plugin-react": "^3.16.1",
+    "expect": "^1.14.0",
+    "file-loader": "^0.9.0",
+    "mocha": "^2.4.5",
+    "nodemon": "^1.8.1",
+    "sinon": "^7.3.2",
+    "watchify": "^3.7.0"
+  },
+  "jest": {
+    "automock": false,
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "preset": "ts-jest",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "lib"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "ts-jest"
+    },
+    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
+  }
+}
