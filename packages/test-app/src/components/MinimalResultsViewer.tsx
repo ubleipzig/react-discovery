@@ -2,7 +2,7 @@ import React, {ReactElement} from 'react'
 import {connect} from 'react-redux'
 
 const MinimalResultsViewerComponent: React.FC<any> = (props): ReactElement => {
-  const {fields, results} = props
+  const {searchFields, results} = props
   const renderValue = (field, doc) => {
     const value = [].concat(doc[field] || null).filter((v) => v !== null);
     return value.join(", ");
@@ -14,7 +14,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props): ReactElement => {
         {results && results.docs.map((doc, i) => (
           <li key={i} className={"list-group-item"}>
             <ul>
-            {fields.filter((field) => field.field !== "*").map((field, i) =>
+            {searchFields.filter((field) => field.field !== "*").map((field, i) =>
                 <li key={i}>
                   <label>{field.label || field.field}</label>
                   {renderValue(field.field, doc)}
@@ -29,7 +29,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props): ReactElement => {
 }
 
 const mapStateToProps = (state): any => ({
-  query: state && state.query,
+  searchFields: state && state.query && state.query.searchFields,
   results: state && state.results
 })
 

@@ -3,6 +3,10 @@
 ### Quick Start
 
 #### Setup Test Solr Instance
+- start docker composition 
+    ```bash
+    $ docker-compose up
+    ```
 - create core in docker:
     ```
     $ docker exec solr1 /opt/solr/bin/solr create_collection -c gettingstarted

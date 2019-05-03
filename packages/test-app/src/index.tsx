@@ -10,10 +10,8 @@ import {
 } from "solr-react-faceted-search";
 import {gettingstarted} from './config'
 
-const solrClient = new SolrClient({
-  url: "http://localhost/solr/gettingstarted/query",
-  searchFields: gettingstarted.searchFields,
-  sortFields: gettingstarted.sortFields,
+const {searchFields, sortFields, url} = gettingstarted
+const solrClient = new SolrClient({searchFields, sortFields, url,
   onChange: (state) => store.dispatch({type: "SET_SOLR_STATE", state: state})
 })
 
@@ -23,9 +21,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <MinimalResultsViewer
-      fields={gettingstarted.searchFields}
-    />
+    <MinimalResultsViewer/>
   </Provider>,
   document.getElementById("app")
 )

@@ -3,7 +3,7 @@ FROM node:latest
 MAINTAINER Christopher Johnson <chjohnson39@gmail.com>
 LABEL description = "Solr React Test Implementation"
 
-WORKDIR /srv/mirador
+WORKDIR /srv/solr-react
 RUN git clone https://github.com/ubl-chj/solr-react.git ./
 RUN npm i npm@latest -g
 RUN npm install --global lerna

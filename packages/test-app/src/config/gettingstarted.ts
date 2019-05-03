@@ -39,5 +39,6 @@ export const gettingstarted = {
       label: "Date of death",
       field: "deathDate_i"
     }
-  ]
+  ],
+  url: "http://localhost/solr/gettingstarted/query"
 }
