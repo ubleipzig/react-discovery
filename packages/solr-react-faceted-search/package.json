@@ -25,6 +25,8 @@
     "prop-types": "^15.7.2",
     "typescript-fsa": "^3.0.0-beta-2",
     "typescript-fsa-reducers": "^1.2.0",
+    "typescript-fsa-redux-thunk": "^2.0.0-beta.11",
+    "uuidv5": "^1.0.0",
     "xhr": "^2.5.0"
   },
   "devDependencies": {

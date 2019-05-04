@@ -1,5 +1,5 @@
 export * from './query'
+export * from './response'
 export * from './results'
-export * from './solrReducer'
 export * from './suggestions'
 export * from './suggestQuery'

@@ -1,28 +1,22 @@
-import {queryReducer, resultsReducer, suggestionsReducer, suggestQueryReducer} from "../state/reducers";
+import {query, resultsReducer, suggestionsReducer, suggestQueryReducer} from "../state/reducers";
 // import { submitQuery, fetchCsv } from "./server";
 import server from "./server";
+import {fetchSolrResponseWorker, setQueryFields, setSolrState} from '../state/actions'
+import { solrQuery } from "./solr-query";
 
 interface ISolrClientOptions {
   onChange: Function
 }
 
-class SolrClient {
-  onChange: Function
+export class SolrClient {
+  store: any
   state: any
-  settings: any
+  query: any
 
-  static mock(settings = {}): SolrClient {
-    return new SolrClient(settings);
-  }
-
-  constructor(settings: any) {
-    const {onChange} = settings;
-
-    this.onChange = onChange;
-    delete settings.onChange;
-
+  constructor(query: any, store) {
+    this.store = store
     this.state = {
-      query: settings,
+      query,
       results: {
         facets: [],
         docs: [],
@@ -30,7 +24,7 @@ class SolrClient {
         numFound: 0
       }
     };
-    this.settings = {...settings};
+    this.query = {...query};
 
     if (!this.state.query.pageStrategy) {
       this.state.query.pageStrategy = "paginate";
@@ -42,8 +36,8 @@ class SolrClient {
     if (this.state.query.pageStrategy === "cursor" && !this.state.query.idField) {
       throw new Error("Pagination strategy 'cursor' requires a unique 'idField' to be passed.");
     }
+    this.initialize()
   }
-
 
   setInitialQuery(queryToMerge) {
     const searchFieldsToMerge = queryToMerge.searchFields || [];
@@ -61,35 +55,28 @@ class SolrClient {
   }
 
   initialize() {
-    const {query} = this.state;
-    const {pageStrategy} = query;
-    const payload = {
-      type: "SET_QUERY_FIELDS",
-      ...query,
-      start: pageStrategy === "paginate" ? 0 : null
-    };
-    this.sendQuery(queryReducer(this.state.query, payload));
+    const {pageStrategy} = this.state.query;
+    this.store.dispatch(setQueryFields({query: this.state.query, start: pageStrategy === "paginate" ? 0 : null}))
+    const q = this.store.getState()
+    const {query} = q
+    this.sendQuery(query)
   }
 
   resetSearchFields() {
-    const {query} = this.state;
-    const {pageStrategy} = query;
+    const {pageStrategy} = this.state.query;
     const payload = {
       type: "SET_QUERY_FIELDS",
-      ...this.settings,
+      ...this.query,
       start: pageStrategy === "paginate" ? 0 : null
     };
-    this.sendQuery(queryReducer(this.state.query, payload));
+    this.sendQuery(query(this.state.query, payload));
   }
 
-  sendQuery(query = this.state.query) {
+  sendQuery(query) {
     delete query.cursorMark;
-    this.state.query = query;
-    server.submitQuery(query, (action) => {
-      this.state.results = resultsReducer(this.state.results, action);
-      this.state.query = queryReducer(this.state.query, action);
-      this.onChange(this.state, this.getHandlers());
-    });
+    const queryString = solrQuery(query);
+    const url = `${query.url}?${queryString}`
+    this.store.dispatch(fetchSolrResponseWorker({url}))
   }
 
   setSuggestQuery(query, autocomplete, value) {
@@ -123,7 +110,7 @@ class SolrClient {
     server.submitSuggestQuery(suggestQuery, (action) => {
       this.state.suggestions = suggestionsReducer(this.state.suggestions, action);
       this.state.suggestQuery = suggestQueryReducer(this.state.suggestQuery, action);
-      this.onChange(this.state, this.getHandlers());
+      this.store.dispatch(setSolrState({state: this.state}));
     });
   }
 
@@ -133,8 +120,8 @@ class SolrClient {
         ...action,
         type: action.type === "SET_RESULTS" ? "SET_NEXT_RESULTS" : action.type
       });
-      this.state.query = queryReducer(this.state.query, action);
-      this.onChange(this.state, this.getHandlers());
+      this.state.query = query(this.state.query, action);
+      this.store.dispatch(setSolrState({state: this.state}));
     });
   }
 
@@ -151,25 +138,23 @@ class SolrClient {
   }
 
   setCurrentPage(page) {
-    const {query} = this.state;
-    const {rows} = query;
+    const {rows} = this.state.query;
     const payload = {type: "SET_START", newStart: page * rows};
-    this.sendQuery(queryReducer(this.state.query, payload));
+    this.sendQuery(query(this.state.query, payload));
   }
 
   setGroup(group) {
     const payload = {type: "SET_GROUP", group};
-    this.sendQuery(queryReducer(this.state.query, payload));
+    this.sendQuery(query(this.state.query, payload));
   }
 
 
   setSearchFieldValue(field, value) {
-    const {query} = this.state;
-    const {searchFields} = query;
+    const {searchFields} = this.state.query;
     const newFields = searchFields
       .map((searchField) => searchField.field === field ? {...searchField, value} : searchField);
     const payload = {type: "SET_SEARCH_FIELDS", newFields};
-    this.sendQuery(queryReducer(this.state.query, payload));
+    this.sendQuery(query(this.state.query, payload));
     // Enable the the autosuggest input to be cleared cleared
     // but only if autocomplete has been configured.
     if (Object.hasOwnProperty.call(this.state, "suggestQuery")) {
@@ -178,54 +163,32 @@ class SolrClient {
   }
 
   setFacetSort(field, value) {
-    const {query} = this.state;
-    const {searchFields} = query;
+    const {searchFields} = this.state.query;
     const newFields = searchFields
       .map((searchField) => searchField.field === field ? {...searchField, facetSort: value} : searchField);
     const payload = {type: "SET_SEARCH_FIELDS", newFields};
-    this.sendQuery(queryReducer(this.state.query, payload));
+    this.sendQuery(query(this.state.query, payload));
   }
 
   setSortFieldValue(field, value) {
-    const {query} = this.state;
-    const {sortFields} = query;
+    const {sortFields} = this.state.query;
     const newSortFields = sortFields
       .map((sortField) => sortField.field === field ? {...sortField, value} : {...sortField, value: null});
     const payload = {type: "SET_SORT_FIELDS", newSortFields};
-    this.sendQuery(queryReducer(this.state.query, payload));
+    this.sendQuery(query(this.state.query, payload));
   }
 
   setFilters(filters) {
     const payload = {type: "SET_FILTERS", newFilters: filters};
-    this.sendQuery(queryReducer(this.state.query, payload));
+    this.sendQuery(query(this.state.query, payload));
   }
 
   setCollapse(field, value) {
-    const {query} = this.state;
-    const {searchFields} = query;
+    const {searchFields} = this.state.query;
     const newFields = searchFields
       .map((searchField) => searchField.field === field ? {...searchField, collapse: value} : searchField);
     const payload = {type: "SET_SEARCH_FIELDS", newFields};
-    this.state.query = queryReducer(this.state.query, payload);
-    this.onChange(this.state, this.getHandlers());
-  }
-
-  getHandlers() {
-    return {
-      onTextInputChange: this.setSuggestQuery.bind(this),
-      onSortFieldChange: this.setSortFieldValue.bind(this),
-      onSearchFieldChange: this.setSearchFieldValue.bind(this),
-      onFacetSortChange: this.setFacetSort.bind(this),
-      onPageChange: this.setCurrentPage.bind(this),
-      onNextCursorQuery: this.sendNextCursorQuery.bind(this),
-      onSetCollapse: this.setCollapse.bind(this),
-      onNewSearch: this.resetSearchFields.bind(this),
-      onCsvExport: this.fetchCsv.bind(this),
-      onGroupChange: this.setGroup.bind(this)
-    };
+    this.state.query = query(this.state.query, payload);
+    this.store.dispatch(setSolrState({state: this.state}));
   }
 }
-
-export {
-  SolrClient
-};

@@ -1,23 +1,35 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {Provider} from 'react-redux'
-import { createStore } from "redux"
-import { devToolsEnhancer } from 'redux-devtools-extension'
+import thunkMiddleware, { ThunkMiddleware } from 'redux-thunk'
+import {AnyAction, applyMiddleware, createStore} from "redux"
+import { composeWithDevTools } from 'redux-devtools-extension'
 import {MinimalResultsViewer} from './components'
 import {
   SolrClient,
-  solrReducer
+  query,
+  response,
 } from "solr-react-faceted-search";
 import {gettingstarted} from './config'
+import { combineReducers } from 'redux'
+const thunk: ThunkMiddleware<{}, AnyAction> = thunkMiddleware;
 
-const {searchFields, sortFields, url} = gettingstarted
-const solrClient = new SolrClient({searchFields, sortFields, url,
-  onChange: (state) => store.dispatch({type: "SET_SOLR_STATE", state: state})
-})
+export const rootReducer = (): any => combineReducers({
+  query,
+  response,
+});
 
 const store = createStore(
-  solrReducer,
-  devToolsEnhancer({}));
+  rootReducer(),
+  composeWithDevTools(
+    applyMiddleware(
+      thunk
+    )
+  )
+)
+
+const {searchFields, sortFields, url} = gettingstarted
+const solrClient = new SolrClient({searchFields, sortFields, url}, store)
 
 ReactDOM.render(
   <Provider store={store}>
@@ -25,7 +37,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("app")
 )
-
-document.addEventListener("DOMContentLoaded", () => {
-  solrClient.initialize();
-});
