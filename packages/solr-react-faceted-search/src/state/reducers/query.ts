@@ -3,14 +3,14 @@ const initialState: any = {};
 const setQueryFields = (state, action) => {
   return {
     ...state,
-    searchFields: action.payload.query.searchFields,
-    sortFields: action.payload.query.sortFields,
-    url: action.payload.query.url,
-    rows: action.payload.query.rows,
-    pageStrategy: action.payload.query.pageStrategy,
+    searchFields: action.payload.searchFields,
+    sortFields: action.payload.sortFields,
+    url: action.payload.url,
+    rows: action.payload.rows,
+    pageStrategy: action.payload.pageStrategy,
     start: action.payload.start,
-    group: action.payload.query.group,
-    hl: action.payload.query.hl
+    group: action.payload.group,
+    hl: action.payload.hl
   };
 };
 

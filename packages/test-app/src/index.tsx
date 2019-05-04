@@ -6,11 +6,9 @@ import {AnyAction, applyMiddleware, createStore} from "redux"
 import { composeWithDevTools } from 'redux-devtools-extension'
 import {MinimalResultsViewer} from './components'
 import {
-  SolrClient,
   query,
   response,
-} from "solr-react-faceted-search";
-import {gettingstarted} from './config'
+} from "solr-react-faceted-search"
 import { combineReducers } from 'redux'
 const thunk: ThunkMiddleware<{}, AnyAction> = thunkMiddleware;
 
@@ -27,9 +25,6 @@ const store = createStore(
     )
   )
 )
-
-const {searchFields, sortFields, url} = gettingstarted
-const solrClient = new SolrClient({searchFields, sortFields, url}, store)
 
 ReactDOM.render(
   <Provider store={store}>

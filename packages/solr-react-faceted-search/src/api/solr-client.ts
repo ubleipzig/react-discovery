@@ -1,7 +1,7 @@
 import {query, resultsReducer, suggestionsReducer, suggestQueryReducer} from "../state/reducers";
 // import { submitQuery, fetchCsv } from "./server";
 import server from "./server";
-import {fetchSolrResponseWorker, setQueryFields, setSolrState} from '../state/actions'
+import {setQueryFields} from '../state/actions'
 import { solrQuery } from "./solr-query";
 
 interface ISolrClientOptions {
@@ -9,12 +9,14 @@ interface ISolrClientOptions {
 }
 
 export class SolrClient {
-  store: any
+  setQueryFields: any
+  fetchSolrResponseWorker: any
   state: any
   query: any
 
-  constructor(query: any, store) {
-    this.store = store
+  constructor(query: any, setQueryFields, fetchSolrResponseWorker) {
+    this.setQueryFields = setQueryFields
+    this.fetchSolrResponseWorker = fetchSolrResponseWorker
     this.state = {
       query,
       results: {
@@ -55,10 +57,9 @@ export class SolrClient {
   }
 
   initialize() {
-    const {pageStrategy} = this.state.query;
-    this.store.dispatch(setQueryFields({query: this.state.query, start: pageStrategy === "paginate" ? 0 : null}))
-    const q = this.store.getState()
-    const {query} = q
+    const query = this.state.query
+    const {pageStrategy} = query;
+    setQueryFields({...query, start: pageStrategy === "paginate" ? 0 : null})
     this.sendQuery(query)
   }
 
@@ -76,7 +77,7 @@ export class SolrClient {
     delete query.cursorMark;
     const queryString = solrQuery(query);
     const url = `${query.url}?${queryString}`
-    this.store.dispatch(fetchSolrResponseWorker({url}))
+    this.fetchSolrResponseWorker({url})
   }
 
   setSuggestQuery(query, autocomplete, value) {
@@ -110,7 +111,7 @@ export class SolrClient {
     server.submitSuggestQuery(suggestQuery, (action) => {
       this.state.suggestions = suggestionsReducer(this.state.suggestions, action);
       this.state.suggestQuery = suggestQueryReducer(this.state.suggestQuery, action);
-      this.store.dispatch(setSolrState({state: this.state}));
+      // this.store.dispatch(setSolrState({state: this.state}));
     });
   }
 
@@ -121,7 +122,7 @@ export class SolrClient {
         type: action.type === "SET_RESULTS" ? "SET_NEXT_RESULTS" : action.type
       });
       this.state.query = query(this.state.query, action);
-      this.store.dispatch(setSolrState({state: this.state}));
+      // this.store.dispatch(setSolrState({state: this.state}));
     });
   }
 
@@ -189,6 +190,6 @@ export class SolrClient {
       .map((searchField) => searchField.field === field ? {...searchField, collapse: value} : searchField);
     const payload = {type: "SET_SEARCH_FIELDS", newFields};
     this.state.query = query(this.state.query, payload);
-    this.store.dispatch(setSolrState({state: this.state}));
+    // this.store.dispatch(setSolrState({state: this.state}));
   }
 }
