@@ -1,32 +1,13 @@
-import React, {useEffect, useState, ReactElement} from 'react'
+import React, {ReactElement} from 'react'
 import {connect} from 'react-redux'
-import {fetchSolrResponseWorker, setQueryFields, solrQuery, usePrevious} from 'solr-react-faceted-search'
+import {fetchSolrResponseWorker, setQueryFields, SolrResponseProvider} from 'solr-react-faceted-search'
 import {gettingstarted} from "../config"
 import {Pagination} from '.'
 
 const MinimalResultsViewerComponent: React.FC<any> = (props): ReactElement => {
-  const {fetchSolrResponseWorker, setQueryFields, results, rows, start} = props
+  const {results, rows, start} = props
   const {searchFields, sortFields, url} = gettingstarted
-  const prevStart = usePrevious(start)
-  const [isInitialized, setIsInitialized] = useState(false)
-
-  useEffect(() => {
-    const fetchResponse = (query) => {
-      const queryString = solrQuery(query);
-      const requestUrl = `${query.url}?${queryString}`
-      fetchSolrResponseWorker({requestUrl})
-      return true
-    }
-    const query = {searchFields, sortFields, url, start, rows}
-    if (!isInitialized) {
-      setQueryFields({...query})
-      setIsInitialized(fetchResponse(query))
-    }
-    if (isInitialized && prevStart !== start) {
-      setQueryFields({...query})
-      fetchResponse(query)
-    }
-  }, [fetchSolrResponseWorker, isInitialized, prevStart, rows, searchFields, setQueryFields, sortFields, start, url])
+  const query = {searchFields, sortFields, url, start, rows}
 
   const renderValue = (field, doc) => {
     const value = [].concat(doc[field] || null).filter((v) => v !== null);
@@ -34,7 +15,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props): ReactElement => {
   }
 
   return (
-    <>
+    <SolrResponseProvider query={query}>
       <Pagination/>
       <div className={"solr-search-results"}>
         <ul className={"list-group"}>
@@ -52,7 +33,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props): ReactElement => {
           ))}
         </ul>
       </div>
-    </>
+    </SolrResponseProvider>
   );
 }
 
