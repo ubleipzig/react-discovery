@@ -1,22 +1,22 @@
 import React, {useEffect, useState, ReactElement} from 'react'
 import {connect} from 'react-redux'
-import {fetchSolrResponseWorker, setQueryFields, setStart, solrQuery, usePrevious} from 'solr-react-faceted-search'
+import {fetchSolrResponseWorker, setQueryFields, solrQuery, usePrevious} from 'solr-react-faceted-search'
 import {gettingstarted} from "../config"
+import {Pagination} from '.'
 
 const MinimalResultsViewerComponent: React.FC<any> = (props): ReactElement => {
-  const {fetchSolrResponseWorker, setQueryFields, results, rows, setStart, start} = props
+  const {fetchSolrResponseWorker, setQueryFields, results, rows, start} = props
   const {searchFields, sortFields, url} = gettingstarted
   const prevStart = usePrevious(start)
   const [isInitialized, setIsInitialized] = useState(false)
 
-  const fetchResponse = (query) => {
-    const queryString = solrQuery(query);
-    const requestUrl = `${query.url}?${queryString}`
-    fetchSolrResponseWorker({requestUrl})
-    return true
-  }
-
   useEffect(() => {
+    const fetchResponse = (query) => {
+      const queryString = solrQuery(query);
+      const requestUrl = `${query.url}?${queryString}`
+      fetchSolrResponseWorker({requestUrl})
+      return true
+    }
     const query = {searchFields, sortFields, url, start, rows}
     if (!isInitialized) {
       setQueryFields({...query})
@@ -26,43 +26,16 @@ const MinimalResultsViewerComponent: React.FC<any> = (props): ReactElement => {
       setQueryFields({...query})
       fetchResponse(query)
     }
-  }, [isInitialized, start])
+  }, [fetchSolrResponseWorker, isInitialized, prevStart, rows, searchFields, setQueryFields, sortFields, start, url])
 
   const renderValue = (field, doc) => {
     const value = [].concat(doc[field] || null).filter((v) => v !== null);
     return value.join(", ");
   }
 
-  const {numFound} = results;
-  const pageAmt = Math.ceil(numFound / rows);
-  const currentPage = start / rows;
-
-  const onPageChange = (page, pageAmt) =>
-  {
-    if (page >= pageAmt || page < 0) {
-      return;
-    }
-    setStart({newStart: page * rows});
-  }
-
   return (
     <>
-      <div>
-        <ul>
-          <li key="start">
-            <a onClick={() => onPageChange( 0, pageAmt)}>&lt;&lt;</a>
-          </li>
-          <li key="prev">
-            <a onClick={() => onPageChange(currentPage - 1, pageAmt)}>&lt;</a>
-          </li>
-          <li key="next">
-            <a onClick={() => onPageChange(currentPage + 1, pageAmt)}>&gt;</a>
-          </li>
-          <li key="end">
-            <a onClick={() => onPageChange(pageAmt - 1, pageAmt)}>&gt;&gt;</a>
-          </li>
-        </ul>
-      </div>
+      <Pagination/>
       <div className={"solr-search-results"}>
         <ul className={"list-group"}>
           {results && Object.keys(results).length && results.docs && results.docs.map((doc, i) => (
@@ -92,7 +65,7 @@ const mapStateToProps = (state): any => ({
   start: state.query.start ? pageStrategy === "paginate" ? state.query.start : 0 : 0,
   results: state.response
 })
-const mapDispatchToProps = {fetchSolrResponseWorker, setQueryFields, setStart}
+const mapDispatchToProps = {fetchSolrResponseWorker, setQueryFields}
 
 export const MinimalResultsViewer = connect(mapStateToProps, mapDispatchToProps)(MinimalResultsViewerComponent)
 
