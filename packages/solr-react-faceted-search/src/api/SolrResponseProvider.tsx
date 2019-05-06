@@ -12,27 +12,32 @@ interface ISolrResponseProvider {
 
 const SolrResponseProviderComponent: React.FC<ISolrResponseProvider> = (props): ReactElement => {
   const {fetchSolrResponseWorker, setQueryFields, query} = props
-  const {searchFields, sortFields, url, start, rows} = query
+  const {searchFields, sortFields, url, start, rows, typeDef, stringInput} = query
   const prevStart = usePrevious(start)
+  const prevStringInput = usePrevious(stringInput)
   const [isInitialized, setIsInitialized] = useState(false)
 
+  const fetchResponse = (query) => {
+    const queryString = solrQuery(query)
+    const requestUrl = `${query.url}?${queryString}`
+    fetchSolrResponseWorker({requestUrl})
+    return true
+  }
+
   useEffect(() => {
-    const fetchResponse = (query) => {
-      const queryString = solrQuery(query);
-      const requestUrl = `${query.url}?${queryString}`
-      fetchSolrResponseWorker({requestUrl})
-      return true
-    }
-    const query = {searchFields, sortFields, url, start, rows}
+    const query = {searchFields, sortFields, url, start, rows, typeDef, stringInput}
     if (!isInitialized) {
       setQueryFields({...query})
       setIsInitialized(fetchResponse(query))
     }
     if (isInitialized && prevStart !== start) {
-      setQueryFields({...query})
       fetchResponse(query)
     }
-  }, [fetchSolrResponseWorker, isInitialized, prevStart, rows, searchFields, setQueryFields, sortFields, start, url])
+    if (isInitialized && prevStringInput !== stringInput) {
+      fetchResponse(query)
+    }
+  }, [fetchResponse, isInitialized, prevStart, prevStringInput, rows, searchFields,
+    setQueryFields, sortFields, start, stringInput, url])
 
   return (
     <>

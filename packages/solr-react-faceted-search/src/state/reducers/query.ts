@@ -1,36 +1,34 @@
+import {reducerWithInitialState} from 'typescript-fsa-reducers'
+import {setDisMaxQuery, setQueryFields, setSearchFields, setSortFields, setStart} from "../actions"
 const initialState: any = {};
 
-const setQueryFields = (state, action) => {
-  return {
+export const query = reducerWithInitialState(initialState)
+  .caseWithAction(setQueryFields, (state, action: any) => ({
     ...state,
+    group: action.payload.group,
+    hl: action.payload.hl,
+    pageStrategy: action.payload.pageStrategy,
     searchFields: action.payload.searchFields,
     sortFields: action.payload.sortFields,
-    url: action.payload.url,
     rows: action.payload.rows,
-    pageStrategy: action.payload.pageStrategy,
     start: action.payload.start,
-    group: action.payload.group,
-    hl: action.payload.hl
-  };
-};
-
-export const query = (state = initialState, action) => {
-  switch (action.type) {
-    case "SET_QUERY_FIELDS":
-      return setQueryFields(state, action);
-    case "SET_SEARCH_FIELDS":
-      return {...state, searchFields: action.payload.newFields, start: state.pageStrategy === "paginate" ? 0 : null};
-    case "SET_SORT_FIELDS":
-      return {...state, sortFields: action.payload.newSortFields, start: state.pageStrategy === "paginate" ? 0 : null};
-    case "SET_FILTERS":
-      return {...state, filters: action.payload.newFilters, start: state.pageStrategy === "paginate" ? 0 : null};
-    case "SET_START":
-      return {...state, start: action.payload.newStart};
-    case "SET_RESULTS":
-      return action.data.nextCursorMark ? {...state, cursorMark: action.payload.data.nextCursorMark} : state;
-    case "SET_GROUP":
-      return {...state, group: action.payload.group};
-    default:
-      return state
-  }
-}
+  }))
+  .caseWithAction(setDisMaxQuery, (state, action: any) => ({
+    ...state,
+    stringInput: action.payload.stringInput,
+    typeDef: action.payload.typeDef,
+  }))
+  .caseWithAction(setSearchFields, (state, action: any) => ({
+    ...state,
+    searchFields: action.payload.searchFields,
+    start: state.query.pageStrategy === "paginate" ? 0 : null
+  }))
+  .caseWithAction(setSortFields, (state, action: any) => ({
+    ...state,
+    sortFields: action.payload.sortFields,
+    start: state.query.pageStrategy === "paginate" ? 0 : null
+  }))
+  .caseWithAction(setStart, (state, action: any) => ({
+    ...state,
+    start: action.payload.newStart
+  }))

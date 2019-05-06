@@ -95,6 +95,17 @@ export const buildMainQuery = (fields, mainQueryField, isD7, proxyIsDisabled) =>
   // If query field exists but is null/empty/undefined send the wildcard query.
   return `${mainParam}=*:*`;
 };
+export const buildDisMaxQuery = (searchFields, stringInput) => {
+  const mainParam = "q";
+  const qfList = searchFields.map((searchField) => {
+    return searchField.field
+  }).join(" ")
+  if (stringInput) {
+    return `defType=edismax&${mainParam}=${stringInput}&qf=${qfList}`;
+  } else {
+    return `defType=edismax&${mainParam}=*&qf=${qfList}`;
+  }
+}
 
 export const buildHighlight = (highlight) => {
   let hlQs = "";
@@ -118,8 +129,10 @@ export const buildHighlight = (highlight) => {
 
 export const solrQuery = (query, format = {wt: "json"}) => {
   const {
+    typeDef,
     searchFields,
     sortFields,
+    stringInput,
     rows,
     start,
     facetLimit,
@@ -133,33 +146,63 @@ export const solrQuery = (query, format = {wt: "json"}) => {
     proxyIsDisabled
   } = query;
 
-  const mainQueryField = Object.hasOwnProperty.call(query, "mainQueryField") ? query.mainQueryField : null;
-  const filters = (query.filters || []).map((filter) => ({...filter, type: filter.type || "text"}));
-  const mainQuery = buildMainQuery(searchFields.concat(filters), mainQueryField, isD7, proxyIsDisabled);
-  const queryParams = buildQuery(searchFields.concat(filters), mainQueryField);
-  const facetFieldParam = facetFields(searchFields);
-  const facetSortParams = facetSorts(searchFields);
-  const facetLimitParam = `facet.limit=${facetLimit || -1}`;
-  const facetSortParam = `facet.sort=${facetSort || "index.ts"}`;
-  const cursorMarkParam = pageStrategy === "cursor" ? `cursorMark=${encodeURIComponent(cursorMark || "*")}` : "";
-  const idSort = pageStrategy === "cursor" ? [{field: idField, value: "asc"}] : [];
-  const sortParam = buildSort(sortFields.concat(idSort));
-  const groupParam = group && group.field ? `group=on&group.field=${encodeURIComponent(group.field)}` : "";
-  const highlightParam = buildHighlight(hl);
-  return mainQuery +
-    `${queryParams.length > 0 ? `&${queryParams}` : ""}` +
-    `${sortParam.length > 0 ? `&sort=${sortParam}` : ""}` +
-    `${facetFieldParam.length > 0 ? `&${facetFieldParam}` : ""}` +
-    `${facetSortParams.length > 0 ? `&${facetSortParams}` : ""}` +
-    `${groupParam.length > 0 ? `&${groupParam}` : ""}` +
-    `&rows=${rows}` +
-    `&${facetLimitParam}` +
-    `&${facetSortParam}` +
-    `&${cursorMarkParam}` +
-    (start === null ? "" : `&start=${start}`) +
-    "&facet=on" +
-    (highlightParam === "" ? "" : `&${highlightParam}`) +
-    `&${buildFormat(format)}`;
+  if (typeDef !== 'dismax') {
+    const mainQueryField = Object.hasOwnProperty.call(query, "mainQueryField") ? query.mainQueryField : null;
+    const filters = (query.filters || []).map((filter) => ({...filter, type: filter.type || "text"}));
+    const mainQuery = buildMainQuery(searchFields.concat(filters), mainQueryField, isD7, proxyIsDisabled);
+    const queryParams = buildQuery(searchFields.concat(filters), mainQueryField);
+    const facetFieldParam = facetFields(searchFields);
+    const facetSortParams = facetSorts(searchFields);
+    const facetLimitParam = `facet.limit=${facetLimit || -1}`;
+    const facetSortParam = `facet.sort=${facetSort || "index.ts"}`;
+    const cursorMarkParam = pageStrategy === "cursor" ? `cursorMark=${encodeURIComponent(cursorMark || "*")}` : "";
+    const idSort = pageStrategy === "cursor" ? [{field: idField, value: "asc"}] : [];
+    const sortParam = buildSort(sortFields.concat(idSort));
+    const groupParam = group && group.field ? `group=on&group.field=${encodeURIComponent(group.field)}` : "";
+    const highlightParam = buildHighlight(hl);
+    return mainQuery +
+      `${queryParams.length > 0 ? `&${queryParams}` : ""}` +
+      `${sortParam.length > 0 ? `&sort=${sortParam}` : ""}` +
+      `${facetFieldParam.length > 0 ? `&${facetFieldParam}` : ""}` +
+      `${facetSortParams.length > 0 ? `&${facetSortParams}` : ""}` +
+      `${groupParam.length > 0 ? `&${groupParam}` : ""}` +
+      `&rows=${rows}` +
+      `&${facetLimitParam}` +
+      `&${facetSortParam}` +
+      `&${cursorMarkParam}` +
+      (start === null ? "" : `&start=${start}`) +
+      "&facet=on" +
+      (highlightParam === "" ? "" : `&${highlightParam}`) +
+      `&${buildFormat(format)}`;
+  } else {
+    const mainQueryField = Object.hasOwnProperty.call(query, "mainQueryField") ? query.mainQueryField : null;
+    const filters = (query.filters || []).map((filter) => ({...filter, type: filter.type || "text"}));
+    const mainQuery = buildDisMaxQuery(searchFields.concat(filters), stringInput);
+    const queryParams = buildQuery(searchFields.concat(filters), mainQueryField);
+    const facetFieldParam = facetFields(searchFields);
+    const facetSortParams = facetSorts(searchFields);
+    const facetLimitParam = `facet.limit=${facetLimit || -1}`;
+    const facetSortParam = `facet.sort=${facetSort || "index.ts"}`;
+    const cursorMarkParam = pageStrategy === "cursor" ? `cursorMark=${encodeURIComponent(cursorMark || "*")}` : "";
+    const idSort = pageStrategy === "cursor" ? [{field: idField, value: "asc"}] : [];
+    const sortParam = buildSort(sortFields.concat(idSort));
+    const groupParam = group && group.field ? `group=on&group.field=${encodeURIComponent(group.field)}` : "";
+    const highlightParam = buildHighlight(hl);
+    return mainQuery +
+      `${queryParams.length > 0 ? `&${queryParams}` : ""}` +
+      `${sortParam.length > 0 ? `&sort=${sortParam}` : ""}` +
+      `${facetFieldParam.length > 0 ? `&${facetFieldParam}` : ""}` +
+      `${facetSortParams.length > 0 ? `&${facetSortParams}` : ""}` +
+      `${groupParam.length > 0 ? `&${groupParam}` : ""}` +
+      `&rows=${rows}` +
+      `&${facetLimitParam}` +
+      `&${facetSortParam}` +
+      `&${cursorMarkParam}` +
+      (start === null ? "" : `&start=${start}`) +
+      "&facet=on" +
+      (highlightParam === "" ? "" : `&${highlightParam}`) +
+      `&${buildFormat(format)}`;
+  }
 };
 
 export const buildSuggestQuery = (fields, mainQueryField, appendWildcard, isProxyDisabled, isD7) => {

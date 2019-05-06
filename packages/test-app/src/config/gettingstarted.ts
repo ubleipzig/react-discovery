@@ -1,11 +1,6 @@
 export const gettingstarted = {
   searchFields: [
     {
-      label: "All text fields",
-      field: "*",
-      type: "text"
-    },
-    {
       label: "Name",
       field: "name_t",
       type: "text"

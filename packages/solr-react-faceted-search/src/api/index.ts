@@ -20,4 +20,6 @@ export interface IQuery {
   url: string
   start: number
   rows: number
+  stringInput: string
+  typeDef: string
 }
