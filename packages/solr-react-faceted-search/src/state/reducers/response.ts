@@ -15,6 +15,21 @@ const tryGroupedResultCount = (data) => {
   return 0;
 };
 
+const buildBuckets = (fields) => {
+  return Object.entries(fields).reduce((object, [k, v]) => {
+    const buckets = []
+    const keys = (v as []).filter(({}, i) => i % 2 === 0)
+    const values = (v as []).filter(({}, i) => i % 2 === 1)
+    keys.map((k, i) => {
+      buckets.push({key: k, docCount: values[i]})
+    })
+    return {
+      ...object,
+      [k]: {buckets}
+    }
+  }, {})
+}
+
 export const response = reducerWithInitialState(initialState)
   .case(fetchSolrResponse.started, state => ({
     ...state,
@@ -28,7 +43,7 @@ export const response = reducerWithInitialState(initialState)
     grouped: action.payload.result.grouped || {},
     numFound: action.payload.result.response ?
       action.payload.result.response.numFound : tryGroupedResultCount(action.payload.result),
-    facets: action.payload.result.facet_counts.facet_fields,
+    facets: buildBuckets(action.payload.result.facet_counts.facet_fields),
     highlighting: action.payload.result.highlighting ? action.data.highlighting : [],
     updating: false,
   }))
