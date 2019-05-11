@@ -1,4 +1,5 @@
 ## Solr-React
+[![CircleCI](https://circleci.com/gh/ubl-chj/solr-react.svg?style=shield)](https://circleci.com/gh/ubl-chj/solr-react)
 
 ### Quick Start
 

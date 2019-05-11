@@ -2,11 +2,15 @@ import * as React from "react"
 import {ReactElement} from "react"
 import {CheckboxItem} from './ItemComponent'
 import {connect} from "react-redux"
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import ExpansionPanel from '@material-ui/core/ExpansionPanel'
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
 import {setDisMaxQuery, setStart} from "solr-react-faceted-search"
 
 export interface ListProps {
@@ -35,34 +39,49 @@ export interface IBucket extends IAggregation {
 
 export interface ItemListProps extends ListProps {
   field: string
+  label: string
   itemComponent?: any
   setDisMaxQuery: Function
+  setStart: Function
 }
 
 const useStyles = makeStyles(theme => ({
-  formControl: {
-    margin: theme.spacing(3),
-  },
   content: {
     flex: '1 0 auto',
     padding: 0,
     display: 'flex'
   },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    flexBasis: '33.33%',
+    flexShrink: 0,
+  },
   inline: {
     display: 'inline',
   },
-}));
+  secondaryHeading: {
+    fontSize: theme.typography.pxToRem(15),
+    color: theme.palette.text.secondary,
+  }
+}))
 
 export const ItemListComponent: React.FC<any> = (props: ItemListProps): ReactElement => {
-  const {aggregation, setDisMaxQuery} = props
-  const classes = useStyles();
+  const {aggregation, label, setDisMaxQuery, setStart} = props
+  const classes = useStyles()
+  const [isExpanded, setExpanded] = React.useState(false)
+
+  const handleExpand = panel => ({}, isExpanded) => {
+    setExpanded(isExpanded ? panel : false)
+  }
 
   const handleChange = (key) => {
     setDisMaxQuery({typeDef: "dismax", stringInput: encodeURI(`"${key}"`)})
+    setStart({newStart: 0})
   }
 
-  const actions = (agg) => {
-    return agg.buckets.sort((a, b) => (a.docCount < b.docCount) ? 1 : -1).map((bucket) => {
+  const actions = (aggregation) => {
+    return aggregation.buckets.sort((a, b) => (a.docCount < b.docCount) ? 1 : -1)
+      .filter((bucket) => bucket.docCount > 0).map((bucket) => {
       return (
         <ListItem
           component={"div"}
@@ -96,10 +115,23 @@ export const ItemListComponent: React.FC<any> = (props: ItemListProps): ReactEle
     })
   }
 
+  const PANEL_ID = 'panel1'
+
   return (
+    <ExpansionPanel expanded={isExpanded} onChange={handleExpand(PANEL_ID)}>
+      <ExpansionPanelSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel1bh-content"
+        id="panel1bh-header"
+      >
+        <Typography className={classes.heading}>{label}</Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
       <List component="nav">
         {aggregation && actions(aggregation)}
       </List>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
   )
 }
 

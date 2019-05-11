@@ -29,6 +29,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
         <Grid item xs={2}>
           <ItemList
             field={"characteristics_ss"}
+            label={"Characteristics"}
             itemComponent={ItemList}/>
         </Grid>
         <Grid
