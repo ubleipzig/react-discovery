@@ -43,42 +43,53 @@ const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(3),
   },
+  content: {
+    flex: '1 0 auto',
+    padding: 0,
+    display: 'flex'
+  },
   inline: {
     display: 'inline',
   },
 }));
 
-const handleChange = () => {
-  setDisMaxQuery({typeDef: "dismax", stringInput: ""})
-}
-
 export const ItemListComponent: React.FC<any> = (props: ItemListProps): ReactElement => {
   const {aggregation, setDisMaxQuery} = props
   const classes = useStyles();
 
-  const isActive = (bucket): boolean => {
-    const { selectedItems, multiselect } = props
-      if (selectedItems.length === 0) return null
-      return selectedItems[0] === bucket.key
+  const handleChange = (key) => {
+    setDisMaxQuery({typeDef: "dismax", stringInput: encodeURI(`"${key}"`)})
   }
 
   const actions = (agg) => {
     return agg.buckets.sort((a, b) => (a.docCount < b.docCount) ? 1 : -1).map((bucket) => {
       return (
-        <ListItem key={bucket.key} role={undefined} dense button={false} onClick={handleChange}>
+        <ListItem
+          component={"div"}
+          key={bucket.key}
+          role={undefined}
+          dense
+          button={true}
+          onClick={() => handleChange(bucket.key)}
+        >
           <ListItemText
-            primary={bucket.key}
+            className={classes.content}
+            primary={
+              <div style={{margin: "0 20px 0 0", width: 120}}>
+                <Typography component="span">
+                  {bucket.key}
+                </Typography>
+              </div>
+            }
             secondary={
-            <>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-                {bucket.docCount}
-              </Typography>
-            </>
+                <Typography
+                  component="span"
+                  variant="body2"
+                  className={classes.inline}
+                  color="textPrimary"
+                >
+                  {bucket.docCount}
+                </Typography>
           }/>
         </ListItem>
       )
@@ -86,7 +97,7 @@ export const ItemListComponent: React.FC<any> = (props: ItemListProps): ReactEle
   }
 
   return (
-      <List component="ul" >
+      <List component="nav">
         {aggregation && actions(aggregation)}
       </List>
   )
@@ -102,7 +113,7 @@ ItemListComponent.defaultProps = {
 const mapDispatchToProps = {setDisMaxQuery, setStart}
 
 const mapStateToProps = (state, {field}): any => ({
-  aggregation: state.response.aggregations[field]
+  aggregation: state.response && state.response.aggregations !== null && state.response.aggregations[field]
 })
 
-export const ItemList = connect(mapStateToProps, mapDispatchToProps)(ItemListComponent)
+export const ItemList: any = connect(mapStateToProps, mapDispatchToProps)(ItemListComponent)

@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    machine:
+      docker_layer_caching: false
+    steps:
+      - checkout
+      - run:
+          working_directory: ~/project/packages/test-app
+          name: 'build docker image'
+          command: docker build .
+workflows:
+  build:
+    jobs:
+      - build
+  version: 2
+

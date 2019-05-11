@@ -15,9 +15,7 @@ export interface ItemComponentProps {
 }
 
 function itemRenderer(props: ItemComponentProps) {
-  const {
-    onClick, active, disabled, itemKey,
-    label, count, showCount, showCheckbox} = props
+  const {active, itemKey, label, count, showCount, showCheckbox} = props
 
   const hasCount = showCount && (count !== undefined) && (count != null)
   return (

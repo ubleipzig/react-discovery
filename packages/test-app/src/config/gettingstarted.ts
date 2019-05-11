@@ -1,4 +1,6 @@
-export const gettingstarted = {
+import {IConfig} from "."
+
+export const gettingstarted: IConfig = {
   searchFields: [
     {
       label: "Name",
