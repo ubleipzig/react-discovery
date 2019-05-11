@@ -10,7 +10,7 @@ export const query = reducerWithInitialState(initialState)
     pageStrategy: action.payload.pageStrategy,
     searchFields: action.payload.searchFields,
     sortFields: action.payload.sortFields,
-    rows: action.payload.rows,
+    size: action.payload.rows,
     start: action.payload.start,
   }))
   .caseWithAction(setDisMaxQuery, (state, action: any) => ({

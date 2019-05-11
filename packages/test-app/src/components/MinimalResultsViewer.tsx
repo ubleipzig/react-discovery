@@ -3,11 +3,11 @@ import {connect} from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
-import Paper from '@material-ui/core/Paper'
-import { makeStyles } from '@material-ui/core/styles'
-import {fetchSolrResponseWorker, setQueryFields, SolrResponseProvider} from 'solr-react-faceted-search'
+import Typography from '@material-ui/core/Typography'
+import {makeStyles} from '@material-ui/core/styles'
+import {fetchSolrResponseWorker, setQueryFields, IHits, SolrResponseProvider} from 'solr-react-faceted-search'
 import {gettingstarted} from "../config"
-import {Pagination, SearchBox} from '.'
+import {ItemList, ItemListComponent, Pagination, SearchBox} from '.'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,59 +19,90 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flex: '1 0 auto',
-    padding: 0
+    padding: 0,
+    display: 'flex'
+  },
+  inline: {
+    display: 'inline',
   },
 }));
 
-const MinimalResultsViewerComponent: React.FC<any> = (props): ReactElement => {
+interface IMinimalResultsViewer {
+  aggregations: {}
+  hits: IHits
+  size: number
+  start: number
+  stringInput: string
+  typeDef: string
+}
+
+const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsViewer): ReactElement => {
   const classes = useStyles()
-  const {results, rows, start, stringInput, typeDef} = props
+  const {aggregations, hits, size, start, stringInput, typeDef} = props
   const {searchFields, sortFields, url} = gettingstarted
+  const rows = size
   const query = {searchFields, sortFields, url, start, rows, typeDef, stringInput}
 
-  const renderValue = (field, doc) => {
-    const value = [].concat(doc[field] || null).filter((v) => v !== null);
+  const renderValue = (field, hit) => {
+    const value = [].concat(hit[field] || null).filter((v) => v !== null);
     return value.join(", ");
   }
+
+  const buildHits = (): JSX.Element[] => {
+     return hits.hits && hits.hits.map((hit, i) => (
+      <Card key={i}>
+        {searchFields.map((field, i) =>
+          <CardContent  className={classes.content} key={i}>
+            <div style={{margin: "0 20px 0 0", width: 120}}>
+              <Typography component="span">
+                {field.label || field.field}
+              </Typography>
+            </div>
+            <div style={{flex: 'auto'}}>
+              <Typography color="textSecondary" className={classes.inline} component="span">
+                {renderValue(field.field, hit)}
+              </Typography>
+            </div>
+          </CardContent>
+        )}
+      </Card>
+     ))}
 
   return (
     <SolrResponseProvider query={query}>
       <SearchBox/>
       <Pagination/>
       <Grid container spacing={3}>
-        <Grid item xs={3}>
-          <Paper/>
+        <Grid item xs={2}>
+          <ItemListComponent
+            aggregation={aggregations && aggregations["characteristics_ss"]}
+            itemComponent={ItemList}/>
         </Grid>
         <Grid
           style={{padding: 20}}
-          item xs={9}
+          item xs={10}
         >
-            {Object.keys(results).length && results.docs && results.docs.map((doc, i) => (
-              <Card key={i}>
-                {searchFields.map((field, i) =>
-                    <CardContent  className={classes.content} key={i}>
-                      <label style={{margin: "0 20px 0 0", width: 120}}>{field.label || field.field}</label>
-                      {renderValue(field.field, doc)}
-                    </CardContent>
-                  )}
-              </Card>
-            ))}
+          {hits ? buildHits(): "Loading"}
         </Grid>
       </Grid>
     </SolrResponseProvider>
-  );
+  )
 }
 
-const pageStrategy = "paginate"
+MinimalResultsViewerComponent.defaultProps = {
+  size: 20,
+  start: 0
+}
 
 const mapStateToProps = (state): any => ({
   query: state.query,
-  rows: state.query.rows ? state.query.rows: 20,
+  size: state.query.size,
   stringInput: state.query.stringInput,
   typeDef: state.query.typeDef,
   searchFields: state.query && state.query.searchFields,
-  start: state.query.start ? pageStrategy === "paginate" ? state.query.start : 0 : 0,
-  results: state.response
+  start: state.query.start,
+  hits: state.response.hits,
+  aggregations: state.response.aggregations
 })
 const mapDispatchToProps = {fetchSolrResponseWorker, setQueryFields}
 

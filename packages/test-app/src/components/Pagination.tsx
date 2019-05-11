@@ -1,34 +1,26 @@
-import PropTypes from "prop-types";
 import React, {ReactElement} from "react";
 import {connect} from 'react-redux'
-import cx from "classnames";
 import {setStart} from "solr-react-faceted-search"
+import Button from '@material-ui/core/Button'
 
 export const PaginationComponent: React.FC<any> = (props): ReactElement => {
-  const bootstrapCss = true
-  const {query, results} = props;
+  const {query, response, setStart} = props;
   const {start, rows} = query;
-  const {numFound} = results;
+  const {numFound} = Object.keys(response).length && response.hits !== null && response.hits
   const pageAmt = Math.ceil(numFound / rows);
   const currentPage = start / rows;
-  const {setStart} = props
 
-  const onPageChange = (page, pageAmt) =>
-  {
+  const onPageChange = (page, pageAmt) => {
     if (page >= pageAmt || page < 0) {
       return;
     }
     setStart({newStart: page * rows})
   }
 
-  const renderPage = (page, currentPage, key) =>
-  {
-    return (
-      <li className={cx({"active": page === currentPage})} key={key}>
-        <button onClick={() => onPageChange(page, pageAmt)}>{page + 1}</button>
-      </li>
-    );
-  }
+  const renderPages = (pages) => {
+    return pages.map((page, i) =>
+      <Button variant="outlined" color="primary" key={i} href='' onClick={() => onPageChange(page, pageAmt)}>{page + 1}</Button>
+    )}
 
   let rangeStart = currentPage - 2 < 0 ? 0 : currentPage - 2;
   let rangeEnd = rangeStart + 5 > pageAmt ? pageAmt : rangeStart + 5;
@@ -48,36 +40,19 @@ export const PaginationComponent: React.FC<any> = (props): ReactElement => {
   }
 
   return (
-    <div className={cx({"panel-body": bootstrapCss, "text-center": bootstrapCss})}>
-      <ul className={cx("pagination", {"pagination-sm": bootstrapCss})}>
-        <li className={cx({"disabled": currentPage === 0})} key="start">
-          <button onClick={() => onPageChange( 0, pageAmt)}>&lt;&lt;</button>
-        </li>
-        <li className={cx({"disabled": currentPage - 1 < 0})} key="prev">
-          <button onClick={() => onPageChange(currentPage - 1, pageAmt)}>&lt;</button>
-        </li>
-        {pages.map((page, idx) => renderPage(page, currentPage, idx))}
-        <li className={cx({"disabled": currentPage + 1 >= pageAmt})} key="next">
-          <button onClick={() => onPageChange(currentPage + 1, pageAmt)}>&gt;</button>
-        </li>
-        <li className={cx({"disabled": currentPage === pageAmt - 1})} key="end">
-          <button onClick={() => onPageChange(pageAmt - 1, pageAmt)}>&gt;&gt;</button>
-        </li>
-      </ul>
-    </div>
+    <>
+      <Button variant="outlined" color="primary" href='' onClick={() => onPageChange( 0, pageAmt)}>&lt;&lt;</Button>
+      <Button variant="outlined" color="primary" href='' onClick={() => onPageChange(currentPage - 1, pageAmt)}>&lt;</Button>
+        {renderPages(pages)}
+      <Button variant="outlined" color="primary" href='' onClick={() => onPageChange(currentPage + 1, pageAmt)}>&gt;</Button>
+      <Button variant="outlined" color="primary" href='' onClick={() => onPageChange(pageAmt - 1, pageAmt)}>&gt;&gt;</Button>
+    </>
   );
 }
 
-PaginationComponent.propTypes = {
-  bootstrapCss: PropTypes.bool,
-  onChange: PropTypes.func,
-  query: PropTypes.object,
-  results: PropTypes.object
-};
-
 const mapStateToProps = (state): any => ({
   query: state.query,
-  results: state.response
+  response: state.response
 })
 
 const mapDispatchToProps = {setStart}

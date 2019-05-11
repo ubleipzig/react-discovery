@@ -1,0 +1,3623 @@
+{
+      responseHeader: {
+        zkConnected: true,
+        warnings: [
+          'Raising facet.mincount from 0 to 1, because field birthDate_i is Points-based.',
+          'Raising facet.mincount from 0 to 1, because field deathDate_i is Points-based.'
+        ],
+        status: 0,
+        QTime: 117,
+        params: {
+          q: '*:*',
+          'facet.limit': '-1',
+          'facet.field': [
+            'characteristics_ss',
+            'birthDate_i',
+            'deathDate_i'
+          ],
+          start: '0',
+          rows: '20',
+          facet: 'on',
+          wt: 'json',
+          'facet.sort': 'index.ts'
+        }
+      },
+      response: {
+        numFound: 449,
+        start: 0,
+        docs: [
+          {
+            birthDate_i: 1858,
+            characteristics_ss: [
+              'Criminoloog',
+              'Publicist',
+              'Schrijver',
+              'Criticus',
+              'Docent',
+              'Medicus'
+            ],
+            combinedDomains_ss: [
+              'Letteren en Taal/*',
+              'Letteren en Taal/Letteren',
+              'Recht/*',
+              'Geneeskunde/*',
+              'Onderwijs/*'
+            ],
+            deathDate_i: 1916,
+            domains_ss: [
+              'Geneeskunde',
+              'Letteren en Taal',
+              'Onderwijs',
+              'Recht'
+            ],
+            gender_s: 'MALE',
+            id: '4d1ffce1-dc8d-45c0-8ad7-f4a010e85562',
+            koppelnaam_s: 'Aletrino, Arnold',
+            memberships_ss: [
+              'Flanor',
+              'Amsterdamsch Studenten Corps'
+            ],
+            name_t: 'Arnold Aletrino',
+            networkDomains_ss: [
+              'Witsen',
+              'Verwey'
+            ],
+            periodicals_ss: [
+              'Nieuwe Gids: Tweemaandelijksch Tijdschrift voor Letteren, Kunst en Wetenschap, De',
+              'Beweging: Algemeen Maandschrift voor Letteren, Kunst, Wetenschap en Staatkunde, De',
+              'Tweemaandelijksch Tijdschrift voor Letteren, Kunst, Wetenschap en Politiek',
+              'Elseviers Geïllustreerd Maandschrift: Verzameling van Nederlandsche Letterkundige Kunstwerken Geïllustreerd door Nederlandsche Kunstenaars',
+              'Nosokómos: Tijdschrift der Nederlandsche Vereeniging tot Bevordering der Belangen van Verpleegsters en Verplegers',
+              'XXe Eeuw: Maandschrift voor Letteren, Kunst, Wetenschap en Politiek, De'
+            ],
+            subDomains_ss: [
+              'Letteren'
+            ],
+            _version_: 1632592710040813600
+          },
+          {
+            birthDate_i: 1838,
+            characteristics_ss: [
+              'Hoogleraar',
+              'Publicist',
+              'Aquarellist',
+              'Directielid hoger onderwijs',
+              'Lithograaf',
+              'Schilder',
+              'Tekenaar'
+            ],
+            combinedDomains_ss: [
+              'Letteren en Taal/*',
+              'Letteren en Taal/Letteren',
+              'Beeldende kunsten/*',
+              'Onderwijs/*',
+              'Beeldende kunsten/Visuele kunsten'
+            ],
+            deathDate_i: 1927,
+            domains_ss: [
+              'Letteren en Taal',
+              'Onderwijs',
+              'Beeldende kunsten'
+            ],
+            gender_s: 'MALE',
+            id: '162a3cc2-dc2a-4660-a843-71952cc408b9',
+            koppelnaam_s: 'Allebé, Augustus',
+            memberships_ss: [
+              'Société Royale Belge des Aquarellistes',
+              'Maatschappij Arti et Amicitiae'
+            ],
+            name_t: 'Augustus Allebé',
+            networkDomains_ss: [
+              'Witsen',
+              'Verwey'
+            ],
+            periodicals_ss: [
+              'Kunstkronijk: Uitgegeven ter Aanmoediging en Verspreiding der Schoone Kunsten'
+            ],
+            subDomains_ss: [
+              'Letteren',
+              'Visuele kunsten'
+            ],
+            _version_: 1632592710102679600
+          },
+          {
+            birthDate_i: 1841,
+            characteristics_ss: [
+              'Drukker',
+              'Uitgever'
+            ],
+            combinedDomains_ss: [
+              'Economie en Financiën/*',
+              'Letteren en Taal/*',
+              'Letteren en Taal/Letteren',
+              'Economie en Financiën/Midden- en kleinbedrijf'
+            ],
+            deathDate_i: 1905,
+            domains_ss: [
+              'Letteren en Taal',
+              'Economie en Financiën'
+            ],
+            gender_s: 'MALE',
+            id: '72ed83b7-b640-4d6a-985f-3b9caf98c8fc',
+            koppelnaam_s: 'Berqueman, Alexandre',
+            memberships_ss: [
+              '(leeg)'
+            ],
+            name_t: 'Alexandre Berqueman',
+            networkDomains_ss: [
+              'Verwey'
+            ],
+            periodicals_ss: [
+              '(leeg)'
+            ],
+            subDomains_ss: [
+              'Letteren',
+              'Midden- en kleinbedrijf'
+            ],
+            _version_: 1632592710105825300
+          },
+          {
+            birthDate_i: 1867,
+            characteristics_ss: [
+              'Publicist',
+              'Redacteur',
+              'Criticus',
+              'Vertaler',
+              'Advocaat',
+              'Dichter'
+            ],
+            combinedDomains_ss: [
+              'Letteren en Taal/*',
+              'Letteren en Taal/Letteren',
+              'Recht/*'
+            ],
+            deathDate_i: 1945,
+            domains_ss: [
+              'Letteren en Taal',
+              'Recht'
+            ],
+            gender_s: 'MALE',
+            id: 'abc53dfb-4234-43a3-a679-a9562b38afa6',
+            koppelnaam_s: 'Graaf, Andrew de',
+            memberships_ss: [
+              'Dispuut Unica'
+            ],
+            name_t: 'Andrew de Graaf',
+            networkDomains_ss: [
+              'Witsen',
+              'Verwey'
+            ],
+            periodicals_ss: [
+              'Jaarboek van de Maatschappij der Nederlandsche Letterkunde te Leiden',
+              'Nieuwe Gids: Tweemaandelijksch Tijdschrift voor Letteren, Kunst en Wetenschap, De',
+              'Sexueele Hygiëne: Orgaan van de Nederlandsche Vereeniging tot Bestrijding der Geslachtsziekten',
+              'Woord en Daad: Tijdschrift voor Inwendige Zending',
+              'Propria Cures: Amsterdamsch Studentenweekblad',
+              'Tijdschrift voor Armwezen, Maatschappelijke Hulp en Kinderbescherming: Orgaan van de Nederlandsche Vereeniging voor Armenzorg en Weldadigheid',
+              'Eltheto: Orgaan der Nederlandsche Christen-Studenten Vereeniging',
+              'Gids: Nieuwe Vaderlandsche Letteroefeningen, De'
+            ],
+            subDomains_ss: [
+              'Letteren'
+            ],
+            _version_: 1632592710108971000
+          },
+          {
+            birthDate_i: 1840,
+            characteristics_ss: [
+              'Publicist',
+              'Schrijver',
+              'Officier van gezondheid',
+              'Polemist',
+              'Militair',
+              'Dichter'
+            ],
+            combinedDomains_ss: [
+              'Letteren en Taal/*',
+              'Letteren en Taal/Letteren',
+              'Krijgsmacht/*',
+              'Geneeskunde/*'
+            ],
+            deathDate_i: 1906,
+            domains_ss: [
+              'Geneeskunde',
+              'Krijgsmacht',
+              'Letteren en Taal'
+            ],
+            gender_s: 'MALE',
+            id: '2224eaeb-c444-4448-a859-a90420119e94',
+            koppelnaam_s: 'Vos, Amand de',
+            memberships_ss: [
+              '(leeg)'
+            ],
+            name_t: 'Amand de Vos',
+            networkDomains_ss: [
+              'Verwey'
+            ],
+            periodicals_ss: [
+              'Belfort: Tijdschrift toegewijd aan Letteren, Wetenschap en Kunst, Het',
+              'Verslagen en Mededeelingen der Koninklijke Vlaamsche Academie voor Taal- en Letterkunde'
+            ],
+            subDomains_ss: [
+              'Letteren'
+            ],
+            _version_: 1632592710112116700
+          },
+          {
+            birthDate_i: 1858,
+            characteristics_ss: [
+              'Publicist',
+              'Folklorist',
+              'Docent'
+            ],
+            combinedDomains_ss: [
+              'Letteren en Taal/*',
+              'Letteren en Taal/Letteren',
+              'Onderwijs/*'
+            ],
+            deathDate_i: 1909,
+            domains_ss: [
+              'Letteren en Taal',
+              'Onderwijs'
+            ],
+            gender_s: 'MALE',
+            id: '20cc6e6c-322e-4c38-bbdc-e740c275697f',
+            koppelnaam_s: 'Gittée, August',
+            memberships_ss: [
+              '(leeg)'
+            ],
+            name_t: 'August Gittée',
+            networkDomains_ss: [
+              'Verwey'
+            ],
+            periodicals_ss: [
+              'Taal en Letteren',
+              'Tweemaandelijksch Tijdschrift voor Letteren, Kunst, Wetenschap en Politiek',
+              'Dietsche Warande: Tijdschrift voor Nederlandsche Oudheden, en Nieuwere Kunst & Letteren, De',
+              'Volkskunde: Driemaandelijksch Tijdschrift voor de Studie van het Volksleven',
+              'Zingende vogels: Oorspronkelijke Bijdragen van Nederlandsche Dichters',
+              'Neerlandia: Orgaan van het Algemeen Nederlandsch Verbond',
+              'Gids: Nieuwe Vaderlandsche Letteroefeningen, De',
+              'Onze Eeuw: Maandschrift voor Staatkunde, Letteren, Wetenschap en Kunst'
+            ],
+            subDomains_ss: [
+              'Letteren'
+            ],
+            _version_: 1632592710114214000
+          },
+          {
+            characteristics_ss: [
+              'Bloemenkweker'
+            ],
+            combinedDomains_ss: [
+              'Familie/*',
+              'Landbouw/*'
+            ],
+            domains_ss: [
+              'Landbouw',
+              'Familie'
+            ],
+            gender_s: 'MALE',
+            id: '3e3a936d-ab06-4061-b601-bc90d3ae7bc2',
+            koppelnaam_s: 'Groenewegen, Ab',
+            memberships_ss: [
+              '(leeg)'
+            ],
+            name_t: 'Ab Groenewegen',
+            networkDomains_ss: [
+              'Verwey'
+            ],
+            periodicals_ss: [
+              '(leeg)'
+            ],
+            subDomains_ss: [
+              '(leeg)'
+            ],
+            _version_: 1632592710117359600
+          },
+          {
+            birthDate_i: 1870,
+            characteristics_ss: [
+              'Docent',
+              'Schilder',
+              'Tekenaar'
+            ],
+            combinedDomains_ss: [
+              'Beeldende kunsten/*',
+              'Onderwijs/*',
+              'Beeldende kunsten/Visuele kunsten'
+            ],
+            deathDate_i: 1955,
+            domains_ss: [
+              'Onderwijs',
+              'Beeldende kunsten'
+            ],
+            gender_s: 'MALE',
+            id: '00512a59-dcf3-4e2b-8742-27a914d770da',
+            koppelnaam_s: 'Markus, Antoon',
+            memberships_ss: [
+              'Artibus Sacrum',
+              'Maatschappij Arti et Amicitiae',
+              'Pictura Veluvensis'
+            ],
+            name_t: 'Antoon Markus',
+            networkDomains_ss: [
+              'Witsen'
+            ],
+            periodicals_ss: [
+              '(leeg)'
+            ],
+            subDomains_ss: [
+              'Visuele kunsten'
+            ],
+            _version_: 1632592710119456800
+          },
+          {
+            birthDate_i: 1838,
+            characteristics_ss: [
+              'Aquarellist',
+              'Etser',
+              'Graficus',
+              'Bestuurslid vakvereniging',
+              'Schilder',
+              'Tekenaar'
+            ],
+            combinedDomains_ss: [
+              'Familie/*',
+              'Beeldende kunsten/*',
+              'Beeldende kunsten/Visuele kunsten',
+              'Maatschappij/*'
+            ],
+            deathDate_i: 1888,
+            domains_ss: [
+              'Maatschappij',
+              'Familie',
+              'Beeldende kunsten'
+            ],
+            gender_s: 'MALE',
+            id: '873a1f26-a1bf-4f20-92ff-5eb2476741f8',
+            koppelnaam_s: 'Mauve, Anthonij',
+            memberships_ss: [
+              'Pulchri Studio',
+              'Hollandsche Teekenmaatschappij'
+            ],
+            name_t: 'Anthonij Mauve',
+            networkDomains_ss: [
+              'Witsen'
+            ],
+            periodicals_ss: [
+              '(leeg)'
+            ],
+            subDomains_ss: [
+              'Visuele kunsten'
+            ],
+            _version_: 1632592710123651000
+          },
+          {
+            birthDate_i: 1868,
+            characteristics_ss: [
+              'Directielid middelbaar onderwijs',
+              'Wever'
+            ],
+            combinedDomains_ss: [
+              'Familie/*',
+              'Beeldende kunsten/*',
+              'Onderwijs/*',
+              'Beeldende kunsten/Visuele kunsten',
+              'Beeldende kunsten/Toegepaste kunst'
+            ],
+            domains_ss: [
+              'Familie',
+              'Onderwijs',
+              'Beeldende kunsten'
+            ],
+            gender_s: 'FEMALE',
+            id: '37e3dd0d-cd6b-4671-849b-86dd4c12afb3',
+            koppelnaam_s: 'Mouzin, Alice',
+            memberships_ss: [
+              'Bond voor de Nederlandsche Handweefkunst'
+            ],
+            name_t: 'Alice Mouzin',
+            networkDomains_ss: [
+              'Witsen'
+            ],
+            periodicals_ss: [
+              '(leeg)'
+            ],
+            subDomains_ss: [
+              'Toegepaste kunst',
+              'Visuele kunsten'
+            ],
+            _version_: 1632592710125748200
+          },
+          {
+            birthDate_i: 1855,
+            characteristics_ss: [
+              'Bestuurslid sociale instelling',
+              'Filantroop',
+              'Jeugdzorg',
+              'Bestuurslid vakvereniging',
+              'Vrouwenbeweging'
+            ],
+            combinedDomains_ss: [
+              'Maatschappij/*'
+            ],
+            deathDate_i: 1940,
+            domains_ss: [
+              'Maatschappij'
+            ],
+            gender_s: 'FEMALE',
+            id: 'a84e1547-840b-4b9b-a7ae-e520219b96d7',
+            koppelnaam_s: 'Nacken, Amalie',
+            memberships_ss: [
+              'Verein für fraueninteressen',
+              'Stadtbunds münchner frauenvereine',
+              'Internationalen abolitionistischen föderation (afdeling beieren)'
+            ],
+            name_t: 'Amalie Nacken',
+            networkDomains_ss: [
+              'Verwey'
+            ],
+            periodicals_ss: [
+              '(leeg)'
+            ],
+            subDomains_ss: [
+              '(leeg)'
+            ],
+            _version_: 1632592710127845400
+          },
+          {
+            birthDate_i: 1831,
+            characteristics_ss: [
+              'Hoogleraar',
+              'Publicist',
+              'Voorganger',
+              'Schrijver',
+              'Criticus',
+              'Docent',
+              'Editeur',
+              'Bestuurslid vakvereniging',
+              'Historicus',
+              'Dichter'
+            ],
+            combinedDomains_ss: [
+              'Geschiedenis/*',
+              'Letteren en Taal/*',
+              'Letteren en Taal/Letteren',
+              'Filosofie, Psychologie, Religie/*',
+              'Onderwijs/*',
+              'Maatschappij/*'
+            ],
+            deathDate_i: 1896,
+            domains_ss: [
+              'Maatschappij',
+              'Filosofie, Psychologie, Religie',
+              'Geschiedenis',
+              'Letteren en Taal',
+              'Onderwijs'
+            ],
+            gender_s: 'MALE',
+            id: '5f543855-e727-4a37-be6d-fb34c858be31',
+            koppelnaam_s: 'Pierson, Allard',
+            memberships_ss: [
+              'Nederlandsch Toneel Verbond',
+              'Koninklijke Akademie van Wetenschappen'
+            ],
+            name_t: 'Allard Pierson',
+            networkDomains_ss: [
+              'Verwey'
+            ],
+            periodicals_ss: [
+              'Gids: Nieuwe Vaderlandsche Letteroefeningen, De'
+            ],
+            subDomains_ss: [
+              'Letteren'
+            ],
+            _version_: 1632592710129942500
+          },
+          {
+            birthDate_i: 1860,
+            characteristics_ss: [
+              'Bestuurslid sociale instelling',
+              'Publicist',
+              'Kunstverzamelaar',
+              'Journalist',
+              'Schrijver',
+              'Criticus',
+              'Directielid fabriek'
+            ],
+            combinedDomains_ss: [
+              'Economie en Financiën/*',
+              'Letteren en Taal/*',
+              'Letteren en Taal/Letteren',
+              'Beeldende kunsten/*',
+              'Economie en Financiën/Industrie',
+              'Beeldende kunsten/Visuele kunsten',
+              'Maatschappij/*'
+            ],
+            deathDate_i: 1922,
+            domains_ss: [
+              'Maatschappij',
+              'Letteren en Taal',
+              'Beeldende kunsten',
+              'Economie en Financiën'
+            ],
+            gender_s: 'MALE',
+            id: 'cd5476f9-d3d1-43ac-b664-3bbb332a6b15',
+            koppelnaam_s: 'Prins, Arij',
+            memberships_ss: [
+              'Maatschappij der Nederlandsche Letterkunde',
+              'Vereeniging van Letterkundigen'
+            ],
+            name_t: 'Arij Prins',
+            networkDomains_ss: [
+              'Witsen',
+              'Verwey'
+            ],
+            periodicals_ss: [
+              'Nieuwe Gids: Tweemaandelijksch Tijdschrift voor Letteren, Kunst en Wetenschap, De',
+              'Amsterdammer: Weekblad voor Handel, Industrie en Kunst, De',
+              'Tweemaandelijksch Tijdschrift voor Letteren, Kunst, Wetenschap en Politiek'
+            ],
+            subDomains_ss: [
+              'Industrie',
+              'Letteren',
+              'Visuele kunsten'
+            ],
+            _version_: 1632592710133088300
+          },
+          {
+            birthDate_i: 1865,
+            characteristics_ss: [
+              '(leeg)'
+            ],
+            combinedDomains_ss: [
+              'Familie/*'
+            ],
+            domains_ss: [
+              'Familie'
+            ],
+            gender_s: 'FEMALE',
+            id: '53946e56-d288-46f4-9688-d3195f4a5461',
+            koppelnaam_s: 'Rochussen, Agathe',
+            memberships_ss: [
+              '(leeg)'
+            ],
+            name_t: 'Agathe Rochussen',
+            networkDomains_ss: [
+              'Verwey'
+            ],
+            periodicals_ss: [
+              '(leeg)'
+            ],
+            subDomains_ss: [
+              '(leeg)'
+            ],
+            _version_: 1632592710135185400
+          },
+          {
+            birthDate_i: 1888,
+            characteristics_ss: [
+              'Publicist',
+              'Redacteur',
+              'Schrijver',
+              'Vertaler',
+              'Dichter'
+            ],
+            combinedDomains_ss: [
+              'Letteren en Taal/*',
+              'Letteren en Taal/Letteren'
+            ],
+            deathDate_i: 1976,
+            domains_ss: [
+              'Letteren en Taal'
+            ],
+            gender_s: 'MALE',
+            id: '1ab20b5d-2c33-44ce-8f6c-191b1ac52224',
+            koppelnaam_s: 'Roland Holst, Adrianus',
+            memberships_ss: [
+              'Litterair-Historische Kring (Utrecht)',
+              'Maatschappij der Nederlandsche Letterkunde',
+              'Vereeniging van Letterkundigen'
+            ],
+            name_t: 'Adrianus Roland Holst',
+            networkDomains_ss: [
+              'Witsen'
+            ],
+            periodicals_ss: [
+              'Tirade',
+              'Gemeenschap: Maandschrift voor Katholieke Reconstructie, De',
+              'Hollands Maandblad: Tijdschrift voor Literatuur en Politiek',
+              'Raster: Driemaandelijks Tijdschrift voor Literatuur',
+              'Verslagen en Mededeelingen van de Koninklijke Academie voor Nederlandse Taal- en Letterkunde',
+              'Erts: Letterkundige Almanak voor ….',
+              'Libertinage',
+              'Gids: Nieuwe Vaderlandsche Letteroefeningen, De',
+              'Maatstaf: Maandblad voor Letteren',
+              'Forum: Maandschrift voor Letteren en Kunst',
+              'XXe Eeuw: Maandschrift voor Letteren, Kunst, Wetenschap en Politiek, De'
+            ],
+            subDomains_ss: [
+              'Letteren'
+            ],
+            _version_: 1632592710137282600
+          },
+          {
+            birthDate_i: 1844,
+            characteristics_ss: [
+              'Uitgever'
+            ],
+            combinedDomains_ss: [
+              'Economie en Financiën/*',
+              'Letteren en Taal/*',
+              'Letteren en Taal/Letteren',
+              'Economie en Financiën/Midden- en kleinbedrijf'
+            ],
+            deathDate_i: 1925,
+            domains_ss: [
+              'Letteren en Taal',
+              'Economie en Financiën'
+            ],
+            gender_s: 'MALE',
+            id: 'dcc9a40b-be39-4be1-a329-8420eb97d65a',
+            koppelnaam_s: 'Rössing, Adrianus',
+            memberships_ss: [
+              '(leeg)'
+            ],
+            name_t: 'Adrianus Rössing',
+            networkDomains_ss: [
+              'Verwey'
+            ],
+            periodicals_ss: [
+              '(leeg)'
+            ],
+            subDomains_ss: [
+              'Letteren',
+              'Midden- en kleinbedrijf'
+            ],
+            _version_: 1632592710140428300
+          },
+          {
+            birthDate_i: 1843,
+            characteristics_ss: [
+              '(leeg)'
+            ],
+            combinedDomains_ss: [
+              'Familie/*'
+            ],
+            deathDate_i: 1894,
+            domains_ss: [
+              'Familie'
+            ],
+            gender_s: 'FEMALE',
+            id: '9149eec8-f8a0-44ad-87a5-0cdfbbf9b91f',
+            koppelnaam_s: 'Schaap, Aleida',
+            memberships_ss: [
+              '(leeg)'
+            ],
+            name_t: 'Aleida Schaap',
+            networkDomains_ss: [
+              'Verwey'
+            ],
+            periodicals_ss: [
+              '(leeg)'
+            ],
+            subDomains_ss: [
+              '(leeg)'
+            ],
+            _version_: 1632592710142525400
+          },
+          {
+            characteristics_ss: [
+              '(leeg)'
+            ],
+            combinedDomains_ss: [
+              '(leeg)'
+            ],
+            domains_ss: [
+              '(leeg)'
+            ],
+            gender_s: 'UNKNOWN',
+            id: '8e88ba73-c459-4e3c-95ca-57d39f36ee40',
+            koppelnaam_s: 'Scheltema, A.',
+            memberships_ss: [
+              '(leeg)'
+            ],
+            name_t: 'A. Scheltema',
+            networkDomains_ss: [
+              'Verwey'
+            ],
+            periodicals_ss: [
+              '(leeg)'
+            ],
+            subDomains_ss: [
+              '(leeg)'
+            ],
+            _version_: 1632592710144622600
+          },
+          {
+            birthDate_i: 1860,
+            characteristics_ss: [
+              'Redacteur',
+              'Acteur',
+              'Journalist'
+            ],
+            combinedDomains_ss: [
+              'Letteren en Taal/*',
+              'Letteren en Taal/Letteren',
+              'Muziek en Theater/*'
+            ],
+            deathDate_i: 1914,
+            domains_ss: [
+              'Muziek en Theater',
+              'Letteren en Taal'
+            ],
+            gender_s: 'MALE',
+            id: '39e617e5-f226-4e1c-9efe-982b533101ee',
+            koppelnaam_s: 'Sinclair de Rochemont, Albert',
+            memberships_ss: [
+              'Flanor'
+            ],
+            name_t: 'Albert Sinclair de Rochemont',
+            networkDomains_ss: [
+              'Verwey'
+            ],
+            periodicals_ss: [
+              '(leeg)'
+            ],
+            subDomains_ss: [
+              'Letteren'
+            ],
+            _version_: 1632592710145671200
+          },
+          {
+            birthDate_i: 1808,
+            characteristics_ss: [
+              'Houthandelaar',
+              'Bestuurslid kerk'
+            ],
+            combinedDomains_ss: [
+              'Familie/*',
+              'Economie en Financiën/*',
+              'Economie en Financiën/Midden- en kleinbedrijf',
+              'Filosofie, Psychologie, Religie/*'
+            ],
+            deathDate_i: 1893,
+            domains_ss: [
+              'Filosofie, Psychologie, Religie',
+              'Familie',
+              'Economie en Financiën'
+            ],
+            gender_s: 'MALE',
+            id: 'b8a3760d-7b0f-4608-b523-6bdda0adb611',
+            koppelnaam_s: 'Vijgh, Albert van der',
+            memberships_ss: [
+              '(leeg)'
+            ],
+            name_t: 'Albert van der Vijgh',
+            networkDomains_ss: [
+              'Verwey'
+            ],
+            periodicals_ss: [
+              '(leeg)'
+            ],
+            subDomains_ss: [
+              'Midden- en kleinbedrijf'
+            ],
+            _version_: 1632592710147768300
+          }
+        ]
+      },
+      facet_counts: {
+        facet_queries: {},
+        facet_fields: {
+          characteristics_ss: [
+            '(leeg)',
+            63,
+            'Acteur',
+            5,
+            'Advertising manager',
+            1,
+            'Advocaat',
+            19,
+            'Ambtenaar',
+            25,
+            'Apotheker',
+            1,
+            'Aquarellist',
+            40,
+            'Arbeidsinspecteur',
+            1,
+            'Archeoloog',
+            2,
+            'Architect',
+            5,
+            'Archivaris',
+            6,
+            'Assuradeur',
+            3,
+            'Astronoom',
+            1,
+            'Bacterioloog',
+            2,
+            'Bakker',
+            1,
+            'Bankier',
+            2,
+            'Bedrijfsleider',
+            3,
+            'Beeldhouwer',
+            8,
+            'Behanger',
+            1,
+            'Bestuurslid kerk',
+            1,
+            'Bestuurslid middelbaar onderwijs',
+            2,
+            'Bestuurslid museum',
+            1,
+            'Bestuurslid sociale instelling',
+            6,
+            'Bestuurslid vakvereniging',
+            106,
+            'Bibliothecaris',
+            9,
+            'Bierbrouwer',
+            1,
+            'Biograaf',
+            10,
+            'Bioloog',
+            2,
+            'Bloemenkweker',
+            2,
+            'Bloemlezer',
+            8,
+            'Boekhandelaar',
+            11,
+            'Boekhouder',
+            4,
+            'Boetseerder',
+            2,
+            'Botanicus',
+            2,
+            'Burgemeester',
+            1,
+            'Cabaretier',
+            1,
+            'Classicus',
+            11,
+            'Commissionair',
+            1,
+            'Componist',
+            5,
+            'Conservator bibliotheek',
+            3,
+            'Conservator museum',
+            6,
+            'Criminoloog',
+            1,
+            'Criticus',
+            55,
+            'Diamanthandelaar',
+            1,
+            'Dichter',
+            81,
+            'Directeur kledingmagazijn',
+            1,
+            'Directielid bank',
+            4,
+            'Directielid beursmakelaardij',
+            1,
+            'Directielid fabriek',
+            10,
+            'Directielid gezondheidsinstelling',
+            2,
+            'Directielid hoger onderwijs',
+            6,
+            'Directielid investeringsmaatschappij',
+            3,
+            'Directielid lager onderwijs',
+            7,
+            'Directielid middelbaar onderwijs',
+            6,
+            'Directielid museum',
+            6,
+            'Directielid ontginningsmaatschappij',
+            1,
+            'Directielid sociale instelling',
+            1,
+            'Directielid universiteitsbibliotheek',
+            2,
+            'Directielid verzekeringsmaatschappij',
+            2,
+            'Dirigent',
+            1,
+            'Docent',
+            70,
+            'Drukker',
+            13,
+            'Editeur',
+            30,
+            'Egyptoloog',
+            1,
+            'Eigenaar handelsbedrijf',
+            1,
+            'Emailleur',
+            1,
+            'Encyclopedist',
+            1,
+            'Etnoloog',
+            1,
+            'Etser',
+            44,
+            'Farmacoloog',
+            1,
+            'Filantroop',
+            6,
+            'Filosoof',
+            8,
+            'Folklorist',
+            4,
+            'Fotograaf',
+            4,
+            'Glazenier',
+            4,
+            'Gouverneur Suriname',
+            1,
+            'Graanhandelaar',
+            1,
+            'Graficus',
+            20,
+            'Graveur',
+            4,
+            'Griffier',
+            2,
+            'Historicus',
+            26,
+            'Hoogleraar',
+            34,
+            'Houthandelaar',
+            3,
+            'Houtsnijwerker',
+            4,
+            'Houtvester',
+            1,
+            'Huisknecht',
+            1,
+            'Ijzerhandelaar',
+            1,
+            'Illustrator',
+            12,
+            'Ingenieur',
+            7,
+            'Jeugdzorg',
+            5,
+            'Journalist',
+            33,
+            'Jurist',
+            14,
+            'Kantoorbediende',
+            4,
+            'Kassier',
+            2,
+            'Katoenhandelaar',
+            1,
+            'Keramist',
+            5,
+            'Kleermaker',
+            2,
+            'Kunsthandelaar',
+            9,
+            'Kunstverzamelaar',
+            10,
+            'Lexicograaf',
+            1,
+            'Lid Raad van State',
+            1,
+            'Lid diplomatieke dienst',
+            2,
+            'Lid volksraad van nederlands-indië',
+            1,
+            'Lithograaf',
+            30,
+            'Machinehandelaar',
+            1,
+            'Makelaar',
+            1,
+            'Mecenas',
+            6,
+            'Medailleur',
+            1,
+            'Medewerker Kamer van Koophandel',
+            1,
+            'Medewerker gezondheidsinstelling',
+            1,
+            'Medewerker uitgeverij',
+            1,
+            'Medewerker verzekeringsmaatschappij',
+            2,
+            'Medicus',
+            12,
+            'Metaalhandelaar',
+            1,
+            'Meubelhandelaar',
+            1,
+            'Meubelmaker',
+            1,
+            'Mezzotint-kunstenaar',
+            1,
+            'Militair',
+            12,
+            'Mozaïeklegger',
+            1,
+            'Musicus',
+            3,
+            'Natuurkundige',
+            4,
+            'Notaris',
+            3,
+            'Officier van gezondheid',
+            5,
+            'Onderwijsassistent',
+            2,
+            'Onderwijsinspecteur',
+            4,
+            'Onderwijzer',
+            19,
+            'Onroerendgoedhandelaar',
+            1,
+            'Ontwerper',
+            13,
+            'Oriëntalist',
+            2,
+            'Pastellist',
+            11,
+            'Pedagoog',
+            1,
+            'Pentekenaar',
+            1,
+            'Plantagehouder',
+            1,
+            'Polemist',
+            12,
+            'Politicoloog',
+            2,
+            'Politicus',
+            29,
+            'Politiek tekenaar',
+            1,
+            'Prentkunstenaar',
+            3,
+            'President-commissaris tabaksmaatschappij',
+            1,
+            'Procuratiehouder',
+            3,
+            'Publicist',
+            177,
+            'Rechter',
+            1,
+            'Rector magnificus',
+            4,
+            'Redacteur',
+            100,
+            'Redenaar',
+            3,
+            'Regisseur',
+            3,
+            'Repetitor',
+            1,
+            'Scheikundige',
+            4,
+            'Schilder',
+            62,
+            'Schoorsteenveger',
+            1,
+            'Schrijver',
+            91,
+            'Socioloog',
+            1,
+            'Taalkundige',
+            3,
+            'Tabakshandelaar',
+            1,
+            'Technoloog',
+            1,
+            'Tekenaar',
+            67,
+            'Telegrafist',
+            1,
+            'Textielhandelaar',
+            1,
+            'Textielkunstenaar',
+            4,
+            'Theoloog',
+            1,
+            'Typograaf',
+            1,
+            'Uitgever',
+            31,
+            'Verpleegkundige',
+            4,
+            'Vertaler',
+            53,
+            'Vertegenwoordiger',
+            1,
+            'Vicepresident Raad van Justitie',
+            1,
+            'Vicepresident arrondissementsrechtbank',
+            1,
+            'Voordrachtskunstenaar',
+            2,
+            'Voorganger',
+            10,
+            'Vrouwenbeweging',
+            8,
+            'Wereldverbeteraar',
+            6,
+            'Wever',
+            2,
+            'Wiskundige',
+            4,
+            'Zanger',
+            3
+          ],
+          birthDate_i: [
+            '1808',
+            1,
+            '1811',
+            1,
+            '1813',
+            1,
+            '1818',
+            1,
+            '1819',
+            2,
+            '1820',
+            2,
+            '1823',
+            2,
+            '1824',
+            2,
+            '1825',
+            1,
+            '1826',
+            3,
+            '1827',
+            1,
+            '1828',
+            1,
+            '1829',
+            3,
+            '1830',
+            2,
+            '1831',
+            5,
+            '1832',
+            1,
+            '1833',
+            2,
+            '1834',
+            1,
+            '1835',
+            3,
+            '1836',
+            4,
+            '1837',
+            3,
+            '1838',
+            2,
+            '1839',
+            4,
+            '1840',
+            4,
+            '1841',
+            6,
+            '1842',
+            4,
+            '1843',
+            3,
+            '1844',
+            4,
+            '1845',
+            7,
+            '1846',
+            2,
+            '1847',
+            3,
+            '1848',
+            9,
+            '1849',
+            4,
+            '1850',
+            4,
+            '1851',
+            7,
+            '1852',
+            4,
+            '1853',
+            5,
+            '1854',
+            5,
+            '1855',
+            7,
+            '1856',
+            14,
+            '1857',
+            17,
+            '1858',
+            11,
+            '1859',
+            16,
+            '1860',
+            19,
+            '1861',
+            14,
+            '1862',
+            14,
+            '1863',
+            13,
+            '1864',
+            23,
+            '1865',
+            17,
+            '1866',
+            21,
+            '1867',
+            11,
+            '1868',
+            10,
+            '1869',
+            5,
+            '1870',
+            6,
+            '1871',
+            7,
+            '1872',
+            3,
+            '1873',
+            3,
+            '1874',
+            8,
+            '1875',
+            9,
+            '1876',
+            4,
+            '1877',
+            1,
+            '1878',
+            5,
+            '1879',
+            3,
+            '1880',
+            1,
+            '1881',
+            2,
+            '1882',
+            1,
+            '1883',
+            2,
+            '1884',
+            1,
+            '1886',
+            1,
+            '1888',
+            2,
+            '1889',
+            1,
+            '1891',
+            1,
+            '1893',
+            2,
+            '1894',
+            1,
+            '1896',
+            1,
+            '1902',
+            1
+          ],
+          deathDate_i: [
+            '1883',
+            1,
+            '1885',
+            1,
+            '1886',
+            1,
+            '1888',
+            2,
+            '1889',
+            2,
+            '1890',
+            1,
+            '1891',
+            1,
+            '1892',
+            1,
+            '1893',
+            3,
+            '1894',
+            3,
+            '1895',
+            1,
+            '1896',
+            7,
+            '1898',
+            1,
+            '1899',
+            2,
+            '1901',
+            5,
+            '1902',
+            2,
+            '1903',
+            4,
+            '1904',
+            4,
+            '1905',
+            3,
+            '1906',
+            6,
+            '1907',
+            5,
+            '1908',
+            4,
+            '1909',
+            3,
+            '1910',
+            3,
+            '1911',
+            5,
+            '1912',
+            5,
+            '1913',
+            4,
+            '1914',
+            5,
+            '1915',
+            6,
+            '1916',
+            5,
+            '1917',
+            3,
+            '1918',
+            7,
+            '1919',
+            4,
+            '1920',
+            8,
+            '1921',
+            7,
+            '1922',
+            8,
+            '1923',
+            6,
+            '1924',
+            3,
+            '1925',
+            14,
+            '1926',
+            4,
+            '1927',
+            11,
+            '1928',
+            7,
+            '1929',
+            3,
+            '1930',
+            11,
+            '1931',
+            12,
+            '1932',
+            7,
+            '1933',
+            13,
+            '1934',
+            5,
+            '1935',
+            10,
+            '1936',
+            11,
+            '1937',
+            7,
+            '1938',
+            8,
+            '1939',
+            10,
+            '1940',
+            3,
+            '1941',
+            5,
+            '1942',
+            13,
+            '1943',
+            9,
+            '1944',
+            3,
+            '1945',
+            9,
+            '1946',
+            7,
+            '1947',
+            2,
+            '1948',
+            2,
+            '1949',
+            2,
+            '1950',
+            2,
+            '1951',
+            7,
+            '1952',
+            5,
+            '1953',
+            2,
+            '1954',
+            2,
+            '1955',
+            4,
+            '1957',
+            3,
+            '1960',
+            3,
+            '1962',
+            1,
+            '1964',
+            3,
+            '1965',
+            3,
+            '1967',
+            1,
+            '1968',
+            1,
+            '1969',
+            1,
+            '1970',
+            1,
+            '1971',
+            1,
+            '1972',
+            1,
+            '1976',
+            1,
+            '1981',
+            1,
+            '1982',
+            1
+          ]
+        },
+        facet_ranges: {},
+        facet_intervals: {},
+        facet_heatmaps: {}
+      }
+    },
+    docs: [
+      {
+        birthDate_i: 1858,
+        characteristics_ss: [
+          'Criminoloog',
+          'Publicist',
+          'Schrijver',
+          'Criticus',
+          'Docent',
+          'Medicus'
+        ],
+        combinedDomains_ss: [
+          'Letteren en Taal/*',
+          'Letteren en Taal/Letteren',
+          'Recht/*',
+          'Geneeskunde/*',
+          'Onderwijs/*'
+        ],
+        deathDate_i: 1916,
+        domains_ss: [
+          'Geneeskunde',
+          'Letteren en Taal',
+          'Onderwijs',
+          'Recht'
+        ],
+        gender_s: 'MALE',
+        id: '4d1ffce1-dc8d-45c0-8ad7-f4a010e85562',
+        koppelnaam_s: 'Aletrino, Arnold',
+        memberships_ss: [
+          'Flanor',
+          'Amsterdamsch Studenten Corps'
+        ],
+        name_t: 'Arnold Aletrino',
+        networkDomains_ss: [
+          'Witsen',
+          'Verwey'
+        ],
+        periodicals_ss: [
+          'Nieuwe Gids: Tweemaandelijksch Tijdschrift voor Letteren, Kunst en Wetenschap, De',
+          'Beweging: Algemeen Maandschrift voor Letteren, Kunst, Wetenschap en Staatkunde, De',
+          'Tweemaandelijksch Tijdschrift voor Letteren, Kunst, Wetenschap en Politiek',
+          'Elseviers Geïllustreerd Maandschrift: Verzameling van Nederlandsche Letterkundige Kunstwerken Geïllustreerd door Nederlandsche Kunstenaars',
+          'Nosokómos: Tijdschrift der Nederlandsche Vereeniging tot Bevordering der Belangen van Verpleegsters en Verplegers',
+          'XXe Eeuw: Maandschrift voor Letteren, Kunst, Wetenschap en Politiek, De'
+        ],
+        subDomains_ss: [
+          'Letteren'
+        ],
+        _version_: 1632592710040813600
+      },
+      {
+        birthDate_i: 1838,
+        characteristics_ss: [
+          'Hoogleraar',
+          'Publicist',
+          'Aquarellist',
+          'Directielid hoger onderwijs',
+          'Lithograaf',
+          'Schilder',
+          'Tekenaar'
+        ],
+        combinedDomains_ss: [
+          'Letteren en Taal/*',
+          'Letteren en Taal/Letteren',
+          'Beeldende kunsten/*',
+          'Onderwijs/*',
+          'Beeldende kunsten/Visuele kunsten'
+        ],
+        deathDate_i: 1927,
+        domains_ss: [
+          'Letteren en Taal',
+          'Onderwijs',
+          'Beeldende kunsten'
+        ],
+        gender_s: 'MALE',
+        id: '162a3cc2-dc2a-4660-a843-71952cc408b9',
+        koppelnaam_s: 'Allebé, Augustus',
+        memberships_ss: [
+          'Société Royale Belge des Aquarellistes',
+          'Maatschappij Arti et Amicitiae'
+        ],
+        name_t: 'Augustus Allebé',
+        networkDomains_ss: [
+          'Witsen',
+          'Verwey'
+        ],
+        periodicals_ss: [
+          'Kunstkronijk: Uitgegeven ter Aanmoediging en Verspreiding der Schoone Kunsten'
+        ],
+        subDomains_ss: [
+          'Letteren',
+          'Visuele kunsten'
+        ],
+        _version_: 1632592710102679600
+      },
+      {
+        birthDate_i: 1841,
+        characteristics_ss: [
+          'Drukker',
+          'Uitgever'
+        ],
+        combinedDomains_ss: [
+          'Economie en Financiën/*',
+          'Letteren en Taal/*',
+          'Letteren en Taal/Letteren',
+          'Economie en Financiën/Midden- en kleinbedrijf'
+        ],
+        deathDate_i: 1905,
+        domains_ss: [
+          'Letteren en Taal',
+          'Economie en Financiën'
+        ],
+        gender_s: 'MALE',
+        id: '72ed83b7-b640-4d6a-985f-3b9caf98c8fc',
+        koppelnaam_s: 'Berqueman, Alexandre',
+        memberships_ss: [
+          '(leeg)'
+        ],
+        name_t: 'Alexandre Berqueman',
+        networkDomains_ss: [
+          'Verwey'
+        ],
+        periodicals_ss: [
+          '(leeg)'
+        ],
+        subDomains_ss: [
+          'Letteren',
+          'Midden- en kleinbedrijf'
+        ],
+        _version_: 1632592710105825300
+      },
+      {
+        birthDate_i: 1867,
+        characteristics_ss: [
+          'Publicist',
+          'Redacteur',
+          'Criticus',
+          'Vertaler',
+          'Advocaat',
+          'Dichter'
+        ],
+        combinedDomains_ss: [
+          'Letteren en Taal/*',
+          'Letteren en Taal/Letteren',
+          'Recht/*'
+        ],
+        deathDate_i: 1945,
+        domains_ss: [
+          'Letteren en Taal',
+          'Recht'
+        ],
+        gender_s: 'MALE',
+        id: 'abc53dfb-4234-43a3-a679-a9562b38afa6',
+        koppelnaam_s: 'Graaf, Andrew de',
+        memberships_ss: [
+          'Dispuut Unica'
+        ],
+        name_t: 'Andrew de Graaf',
+        networkDomains_ss: [
+          'Witsen',
+          'Verwey'
+        ],
+        periodicals_ss: [
+          'Jaarboek van de Maatschappij der Nederlandsche Letterkunde te Leiden',
+          'Nieuwe Gids: Tweemaandelijksch Tijdschrift voor Letteren, Kunst en Wetenschap, De',
+          'Sexueele Hygiëne: Orgaan van de Nederlandsche Vereeniging tot Bestrijding der Geslachtsziekten',
+          'Woord en Daad: Tijdschrift voor Inwendige Zending',
+          'Propria Cures: Amsterdamsch Studentenweekblad',
+          'Tijdschrift voor Armwezen, Maatschappelijke Hulp en Kinderbescherming: Orgaan van de Nederlandsche Vereeniging voor Armenzorg en Weldadigheid',
+          'Eltheto: Orgaan der Nederlandsche Christen-Studenten Vereeniging',
+          'Gids: Nieuwe Vaderlandsche Letteroefeningen, De'
+        ],
+        subDomains_ss: [
+          'Letteren'
+        ],
+        _version_: 1632592710108971000
+      },
+      {
+        birthDate_i: 1840,
+        characteristics_ss: [
+          'Publicist',
+          'Schrijver',
+          'Officier van gezondheid',
+          'Polemist',
+          'Militair',
+          'Dichter'
+        ],
+        combinedDomains_ss: [
+          'Letteren en Taal/*',
+          'Letteren en Taal/Letteren',
+          'Krijgsmacht/*',
+          'Geneeskunde/*'
+        ],
+        deathDate_i: 1906,
+        domains_ss: [
+          'Geneeskunde',
+          'Krijgsmacht',
+          'Letteren en Taal'
+        ],
+        gender_s: 'MALE',
+        id: '2224eaeb-c444-4448-a859-a90420119e94',
+        koppelnaam_s: 'Vos, Amand de',
+        memberships_ss: [
+          '(leeg)'
+        ],
+        name_t: 'Amand de Vos',
+        networkDomains_ss: [
+          'Verwey'
+        ],
+        periodicals_ss: [
+          'Belfort: Tijdschrift toegewijd aan Letteren, Wetenschap en Kunst, Het',
+          'Verslagen en Mededeelingen der Koninklijke Vlaamsche Academie voor Taal- en Letterkunde'
+        ],
+        subDomains_ss: [
+          'Letteren'
+        ],
+        _version_: 1632592710112116700
+      },
+      {
+        birthDate_i: 1858,
+        characteristics_ss: [
+          'Publicist',
+          'Folklorist',
+          'Docent'
+        ],
+        combinedDomains_ss: [
+          'Letteren en Taal/*',
+          'Letteren en Taal/Letteren',
+          'Onderwijs/*'
+        ],
+        deathDate_i: 1909,
+        domains_ss: [
+          'Letteren en Taal',
+          'Onderwijs'
+        ],
+        gender_s: 'MALE',
+        id: '20cc6e6c-322e-4c38-bbdc-e740c275697f',
+        koppelnaam_s: 'Gittée, August',
+        memberships_ss: [
+          '(leeg)'
+        ],
+        name_t: 'August Gittée',
+        networkDomains_ss: [
+          'Verwey'
+        ],
+        periodicals_ss: [
+          'Taal en Letteren',
+          'Tweemaandelijksch Tijdschrift voor Letteren, Kunst, Wetenschap en Politiek',
+          'Dietsche Warande: Tijdschrift voor Nederlandsche Oudheden, en Nieuwere Kunst & Letteren, De',
+          'Volkskunde: Driemaandelijksch Tijdschrift voor de Studie van het Volksleven',
+          'Zingende vogels: Oorspronkelijke Bijdragen van Nederlandsche Dichters',
+          'Neerlandia: Orgaan van het Algemeen Nederlandsch Verbond',
+          'Gids: Nieuwe Vaderlandsche Letteroefeningen, De',
+          'Onze Eeuw: Maandschrift voor Staatkunde, Letteren, Wetenschap en Kunst'
+        ],
+        subDomains_ss: [
+          'Letteren'
+        ],
+        _version_: 1632592710114214000
+      },
+      {
+        characteristics_ss: [
+          'Bloemenkweker'
+        ],
+        combinedDomains_ss: [
+          'Familie/*',
+          'Landbouw/*'
+        ],
+        domains_ss: [
+          'Landbouw',
+          'Familie'
+        ],
+        gender_s: 'MALE',
+        id: '3e3a936d-ab06-4061-b601-bc90d3ae7bc2',
+        koppelnaam_s: 'Groenewegen, Ab',
+        memberships_ss: [
+          '(leeg)'
+        ],
+        name_t: 'Ab Groenewegen',
+        networkDomains_ss: [
+          'Verwey'
+        ],
+        periodicals_ss: [
+          '(leeg)'
+        ],
+        subDomains_ss: [
+          '(leeg)'
+        ],
+        _version_: 1632592710117359600
+      },
+      {
+        birthDate_i: 1870,
+        characteristics_ss: [
+          'Docent',
+          'Schilder',
+          'Tekenaar'
+        ],
+        combinedDomains_ss: [
+          'Beeldende kunsten/*',
+          'Onderwijs/*',
+          'Beeldende kunsten/Visuele kunsten'
+        ],
+        deathDate_i: 1955,
+        domains_ss: [
+          'Onderwijs',
+          'Beeldende kunsten'
+        ],
+        gender_s: 'MALE',
+        id: '00512a59-dcf3-4e2b-8742-27a914d770da',
+        koppelnaam_s: 'Markus, Antoon',
+        memberships_ss: [
+          'Artibus Sacrum',
+          'Maatschappij Arti et Amicitiae',
+          'Pictura Veluvensis'
+        ],
+        name_t: 'Antoon Markus',
+        networkDomains_ss: [
+          'Witsen'
+        ],
+        periodicals_ss: [
+          '(leeg)'
+        ],
+        subDomains_ss: [
+          'Visuele kunsten'
+        ],
+        _version_: 1632592710119456800
+      },
+      {
+        birthDate_i: 1838,
+        characteristics_ss: [
+          'Aquarellist',
+          'Etser',
+          'Graficus',
+          'Bestuurslid vakvereniging',
+          'Schilder',
+          'Tekenaar'
+        ],
+        combinedDomains_ss: [
+          'Familie/*',
+          'Beeldende kunsten/*',
+          'Beeldende kunsten/Visuele kunsten',
+          'Maatschappij/*'
+        ],
+        deathDate_i: 1888,
+        domains_ss: [
+          'Maatschappij',
+          'Familie',
+          'Beeldende kunsten'
+        ],
+        gender_s: 'MALE',
+        id: '873a1f26-a1bf-4f20-92ff-5eb2476741f8',
+        koppelnaam_s: 'Mauve, Anthonij',
+        memberships_ss: [
+          'Pulchri Studio',
+          'Hollandsche Teekenmaatschappij'
+        ],
+        name_t: 'Anthonij Mauve',
+        networkDomains_ss: [
+          'Witsen'
+        ],
+        periodicals_ss: [
+          '(leeg)'
+        ],
+        subDomains_ss: [
+          'Visuele kunsten'
+        ],
+        _version_: 1632592710123651000
+      },
+      {
+        birthDate_i: 1868,
+        characteristics_ss: [
+          'Directielid middelbaar onderwijs',
+          'Wever'
+        ],
+        combinedDomains_ss: [
+          'Familie/*',
+          'Beeldende kunsten/*',
+          'Onderwijs/*',
+          'Beeldende kunsten/Visuele kunsten',
+          'Beeldende kunsten/Toegepaste kunst'
+        ],
+        domains_ss: [
+          'Familie',
+          'Onderwijs',
+          'Beeldende kunsten'
+        ],
+        gender_s: 'FEMALE',
+        id: '37e3dd0d-cd6b-4671-849b-86dd4c12afb3',
+        koppelnaam_s: 'Mouzin, Alice',
+        memberships_ss: [
+          'Bond voor de Nederlandsche Handweefkunst'
+        ],
+        name_t: 'Alice Mouzin',
+        networkDomains_ss: [
+          'Witsen'
+        ],
+        periodicals_ss: [
+          '(leeg)'
+        ],
+        subDomains_ss: [
+          'Toegepaste kunst',
+          'Visuele kunsten'
+        ],
+        _version_: 1632592710125748200
+      },
+      {
+        birthDate_i: 1855,
+        characteristics_ss: [
+          'Bestuurslid sociale instelling',
+          'Filantroop',
+          'Jeugdzorg',
+          'Bestuurslid vakvereniging',
+          'Vrouwenbeweging'
+        ],
+        combinedDomains_ss: [
+          'Maatschappij/*'
+        ],
+        deathDate_i: 1940,
+        domains_ss: [
+          'Maatschappij'
+        ],
+        gender_s: 'FEMALE',
+        id: 'a84e1547-840b-4b9b-a7ae-e520219b96d7',
+        koppelnaam_s: 'Nacken, Amalie',
+        memberships_ss: [
+          'Verein für fraueninteressen',
+          'Stadtbunds münchner frauenvereine',
+          'Internationalen abolitionistischen föderation (afdeling beieren)'
+        ],
+        name_t: 'Amalie Nacken',
+        networkDomains_ss: [
+          'Verwey'
+        ],
+        periodicals_ss: [
+          '(leeg)'
+        ],
+        subDomains_ss: [
+          '(leeg)'
+        ],
+        _version_: 1632592710127845400
+      },
+      {
+        birthDate_i: 1831,
+        characteristics_ss: [
+          'Hoogleraar',
+          'Publicist',
+          'Voorganger',
+          'Schrijver',
+          'Criticus',
+          'Docent',
+          'Editeur',
+          'Bestuurslid vakvereniging',
+          'Historicus',
+          'Dichter'
+        ],
+        combinedDomains_ss: [
+          'Geschiedenis/*',
+          'Letteren en Taal/*',
+          'Letteren en Taal/Letteren',
+          'Filosofie, Psychologie, Religie/*',
+          'Onderwijs/*',
+          'Maatschappij/*'
+        ],
+        deathDate_i: 1896,
+        domains_ss: [
+          'Maatschappij',
+          'Filosofie, Psychologie, Religie',
+          'Geschiedenis',
+          'Letteren en Taal',
+          'Onderwijs'
+        ],
+        gender_s: 'MALE',
+        id: '5f543855-e727-4a37-be6d-fb34c858be31',
+        koppelnaam_s: 'Pierson, Allard',
+        memberships_ss: [
+          'Nederlandsch Toneel Verbond',
+          'Koninklijke Akademie van Wetenschappen'
+        ],
+        name_t: 'Allard Pierson',
+        networkDomains_ss: [
+          'Verwey'
+        ],
+        periodicals_ss: [
+          'Gids: Nieuwe Vaderlandsche Letteroefeningen, De'
+        ],
+        subDomains_ss: [
+          'Letteren'
+        ],
+        _version_: 1632592710129942500
+      },
+      {
+        birthDate_i: 1860,
+        characteristics_ss: [
+          'Bestuurslid sociale instelling',
+          'Publicist',
+          'Kunstverzamelaar',
+          'Journalist',
+          'Schrijver',
+          'Criticus',
+          'Directielid fabriek'
+        ],
+        combinedDomains_ss: [
+          'Economie en Financiën/*',
+          'Letteren en Taal/*',
+          'Letteren en Taal/Letteren',
+          'Beeldende kunsten/*',
+          'Economie en Financiën/Industrie',
+          'Beeldende kunsten/Visuele kunsten',
+          'Maatschappij/*'
+        ],
+        deathDate_i: 1922,
+        domains_ss: [
+          'Maatschappij',
+          'Letteren en Taal',
+          'Beeldende kunsten',
+          'Economie en Financiën'
+        ],
+        gender_s: 'MALE',
+        id: 'cd5476f9-d3d1-43ac-b664-3bbb332a6b15',
+        koppelnaam_s: 'Prins, Arij',
+        memberships_ss: [
+          'Maatschappij der Nederlandsche Letterkunde',
+          'Vereeniging van Letterkundigen'
+        ],
+        name_t: 'Arij Prins',
+        networkDomains_ss: [
+          'Witsen',
+          'Verwey'
+        ],
+        periodicals_ss: [
+          'Nieuwe Gids: Tweemaandelijksch Tijdschrift voor Letteren, Kunst en Wetenschap, De',
+          'Amsterdammer: Weekblad voor Handel, Industrie en Kunst, De',
+          'Tweemaandelijksch Tijdschrift voor Letteren, Kunst, Wetenschap en Politiek'
+        ],
+        subDomains_ss: [
+          'Industrie',
+          'Letteren',
+          'Visuele kunsten'
+        ],
+        _version_: 1632592710133088300
+      },
+      {
+        birthDate_i: 1865,
+        characteristics_ss: [
+          '(leeg)'
+        ],
+        combinedDomains_ss: [
+          'Familie/*'
+        ],
+        domains_ss: [
+          'Familie'
+        ],
+        gender_s: 'FEMALE',
+        id: '53946e56-d288-46f4-9688-d3195f4a5461',
+        koppelnaam_s: 'Rochussen, Agathe',
+        memberships_ss: [
+          '(leeg)'
+        ],
+        name_t: 'Agathe Rochussen',
+        networkDomains_ss: [
+          'Verwey'
+        ],
+        periodicals_ss: [
+          '(leeg)'
+        ],
+        subDomains_ss: [
+          '(leeg)'
+        ],
+        _version_: 1632592710135185400
+      },
+      {
+        birthDate_i: 1888,
+        characteristics_ss: [
+          'Publicist',
+          'Redacteur',
+          'Schrijver',
+          'Vertaler',
+          'Dichter'
+        ],
+        combinedDomains_ss: [
+          'Letteren en Taal/*',
+          'Letteren en Taal/Letteren'
+        ],
+        deathDate_i: 1976,
+        domains_ss: [
+          'Letteren en Taal'
+        ],
+        gender_s: 'MALE',
+        id: '1ab20b5d-2c33-44ce-8f6c-191b1ac52224',
+        koppelnaam_s: 'Roland Holst, Adrianus',
+        memberships_ss: [
+          'Litterair-Historische Kring (Utrecht)',
+          'Maatschappij der Nederlandsche Letterkunde',
+          'Vereeniging van Letterkundigen'
+        ],
+        name_t: 'Adrianus Roland Holst',
+        networkDomains_ss: [
+          'Witsen'
+        ],
+        periodicals_ss: [
+          'Tirade',
+          'Gemeenschap: Maandschrift voor Katholieke Reconstructie, De',
+          'Hollands Maandblad: Tijdschrift voor Literatuur en Politiek',
+          'Raster: Driemaandelijks Tijdschrift voor Literatuur',
+          'Verslagen en Mededeelingen van de Koninklijke Academie voor Nederlandse Taal- en Letterkunde',
+          'Erts: Letterkundige Almanak voor ….',
+          'Libertinage',
+          'Gids: Nieuwe Vaderlandsche Letteroefeningen, De',
+          'Maatstaf: Maandblad voor Letteren',
+          'Forum: Maandschrift voor Letteren en Kunst',
+          'XXe Eeuw: Maandschrift voor Letteren, Kunst, Wetenschap en Politiek, De'
+        ],
+        subDomains_ss: [
+          'Letteren'
+        ],
+        _version_: 1632592710137282600
+      },
+      {
+        birthDate_i: 1844,
+        characteristics_ss: [
+          'Uitgever'
+        ],
+        combinedDomains_ss: [
+          'Economie en Financiën/*',
+          'Letteren en Taal/*',
+          'Letteren en Taal/Letteren',
+          'Economie en Financiën/Midden- en kleinbedrijf'
+        ],
+        deathDate_i: 1925,
+        domains_ss: [
+          'Letteren en Taal',
+          'Economie en Financiën'
+        ],
+        gender_s: 'MALE',
+        id: 'dcc9a40b-be39-4be1-a329-8420eb97d65a',
+        koppelnaam_s: 'Rössing, Adrianus',
+        memberships_ss: [
+          '(leeg)'
+        ],
+        name_t: 'Adrianus Rössing',
+        networkDomains_ss: [
+          'Verwey'
+        ],
+        periodicals_ss: [
+          '(leeg)'
+        ],
+        subDomains_ss: [
+          'Letteren',
+          'Midden- en kleinbedrijf'
+        ],
+        _version_: 1632592710140428300
+      },
+      {
+        birthDate_i: 1843,
+        characteristics_ss: [
+          '(leeg)'
+        ],
+        combinedDomains_ss: [
+          'Familie/*'
+        ],
+        deathDate_i: 1894,
+        domains_ss: [
+          'Familie'
+        ],
+        gender_s: 'FEMALE',
+        id: '9149eec8-f8a0-44ad-87a5-0cdfbbf9b91f',
+        koppelnaam_s: 'Schaap, Aleida',
+        memberships_ss: [
+          '(leeg)'
+        ],
+        name_t: 'Aleida Schaap',
+        networkDomains_ss: [
+          'Verwey'
+        ],
+        periodicals_ss: [
+          '(leeg)'
+        ],
+        subDomains_ss: [
+          '(leeg)'
+        ],
+        _version_: 1632592710142525400
+      },
+      {
+        characteristics_ss: [
+          '(leeg)'
+        ],
+        combinedDomains_ss: [
+          '(leeg)'
+        ],
+        domains_ss: [
+          '(leeg)'
+        ],
+        gender_s: 'UNKNOWN',
+        id: '8e88ba73-c459-4e3c-95ca-57d39f36ee40',
+        koppelnaam_s: 'Scheltema, A.',
+        memberships_ss: [
+          '(leeg)'
+        ],
+        name_t: 'A. Scheltema',
+        networkDomains_ss: [
+          'Verwey'
+        ],
+        periodicals_ss: [
+          '(leeg)'
+        ],
+        subDomains_ss: [
+          '(leeg)'
+        ],
+        _version_: 1632592710144622600
+      },
+      {
+        birthDate_i: 1860,
+        characteristics_ss: [
+          'Redacteur',
+          'Acteur',
+          'Journalist'
+        ],
+        combinedDomains_ss: [
+          'Letteren en Taal/*',
+          'Letteren en Taal/Letteren',
+          'Muziek en Theater/*'
+        ],
+        deathDate_i: 1914,
+        domains_ss: [
+          'Muziek en Theater',
+          'Letteren en Taal'
+        ],
+        gender_s: 'MALE',
+        id: '39e617e5-f226-4e1c-9efe-982b533101ee',
+        koppelnaam_s: 'Sinclair de Rochemont, Albert',
+        memberships_ss: [
+          'Flanor'
+        ],
+        name_t: 'Albert Sinclair de Rochemont',
+        networkDomains_ss: [
+          'Verwey'
+        ],
+        periodicals_ss: [
+          '(leeg)'
+        ],
+        subDomains_ss: [
+          'Letteren'
+        ],
+        _version_: 1632592710145671200
+      },
+      {
+        birthDate_i: 1808,
+        characteristics_ss: [
+          'Houthandelaar',
+          'Bestuurslid kerk'
+        ],
+        combinedDomains_ss: [
+          'Familie/*',
+          'Economie en Financiën/*',
+          'Economie en Financiën/Midden- en kleinbedrijf',
+          'Filosofie, Psychologie, Religie/*'
+        ],
+        deathDate_i: 1893,
+        domains_ss: [
+          'Filosofie, Psychologie, Religie',
+          'Familie',
+          'Economie en Financiën'
+        ],
+        gender_s: 'MALE',
+        id: 'b8a3760d-7b0f-4608-b523-6bdda0adb611',
+        koppelnaam_s: 'Vijgh, Albert van der',
+        memberships_ss: [
+          '(leeg)'
+        ],
+        name_t: 'Albert van der Vijgh',
+        networkDomains_ss: [
+          'Verwey'
+        ],
+        periodicals_ss: [
+          '(leeg)'
+        ],
+        subDomains_ss: [
+          'Midden- en kleinbedrijf'
+        ],
+        _version_: 1632592710147768300
+      }
+    ],
+    grouped: {},
+    numFound: 449,
+    aggregations: {
+      characteristics_ss: {
+        buckets: [
+          {
+            key: '(leeg)',
+            docCount: 63
+          },
+          {
+            key: 'Acteur',
+            docCount: 5
+          },
+          {
+            key: 'Advertising manager',
+            docCount: 1
+          },
+          {
+            key: 'Advocaat',
+            docCount: 19
+          },
+          {
+            key: 'Ambtenaar',
+            docCount: 25
+          },
+          {
+            key: 'Apotheker',
+            docCount: 1
+          },
+          {
+            key: 'Aquarellist',
+            docCount: 40
+          },
+          {
+            key: 'Arbeidsinspecteur',
+            docCount: 1
+          },
+          {
+            key: 'Archeoloog',
+            docCount: 2
+          },
+          {
+            key: 'Architect',
+            docCount: 5
+          },
+          {
+            key: 'Archivaris',
+            docCount: 6
+          },
+          {
+            key: 'Assuradeur',
+            docCount: 3
+          },
+          {
+            key: 'Astronoom',
+            docCount: 1
+          },
+          {
+            key: 'Bacterioloog',
+            docCount: 2
+          },
+          {
+            key: 'Bakker',
+            docCount: 1
+          },
+          {
+            key: 'Bankier',
+            docCount: 2
+          },
+          {
+            key: 'Bedrijfsleider',
+            docCount: 3
+          },
+          {
+            key: 'Beeldhouwer',
+            docCount: 8
+          },
+          {
+            key: 'Behanger',
+            docCount: 1
+          },
+          {
+            key: 'Bestuurslid kerk',
+            docCount: 1
+          },
+          {
+            key: 'Bestuurslid middelbaar onderwijs',
+            docCount: 2
+          },
+          {
+            key: 'Bestuurslid museum',
+            docCount: 1
+          },
+          {
+            key: 'Bestuurslid sociale instelling',
+            docCount: 6
+          },
+          {
+            key: 'Bestuurslid vakvereniging',
+            docCount: 106
+          },
+          {
+            key: 'Bibliothecaris',
+            docCount: 9
+          },
+          {
+            key: 'Bierbrouwer',
+            docCount: 1
+          },
+          {
+            key: 'Biograaf',
+            docCount: 10
+          },
+          {
+            key: 'Bioloog',
+            docCount: 2
+          },
+          {
+            key: 'Bloemenkweker',
+            docCount: 2
+          },
+          {
+            key: 'Bloemlezer',
+            docCount: 8
+          },
+          {
+            key: 'Boekhandelaar',
+            docCount: 11
+          },
+          {
+            key: 'Boekhouder',
+            docCount: 4
+          },
+          {
+            key: 'Boetseerder',
+            docCount: 2
+          },
+          {
+            key: 'Botanicus',
+            docCount: 2
+          },
+          {
+            key: 'Burgemeester',
+            docCount: 1
+          },
+          {
+            key: 'Cabaretier',
+            docCount: 1
+          },
+          {
+            key: 'Classicus',
+            docCount: 11
+          },
+          {
+            key: 'Commissionair',
+            docCount: 1
+          },
+          {
+            key: 'Componist',
+            docCount: 5
+          },
+          {
+            key: 'Conservator bibliotheek',
+            docCount: 3
+          },
+          {
+            key: 'Conservator museum',
+            docCount: 6
+          },
+          {
+            key: 'Criminoloog',
+            docCount: 1
+          },
+          {
+            key: 'Criticus',
+            docCount: 55
+          },
+          {
+            key: 'Diamanthandelaar',
+            docCount: 1
+          },
+          {
+            key: 'Dichter',
+            docCount: 81
+          },
+          {
+            key: 'Directeur kledingmagazijn',
+            docCount: 1
+          },
+          {
+            key: 'Directielid bank',
+            docCount: 4
+          },
+          {
+            key: 'Directielid beursmakelaardij',
+            docCount: 1
+          },
+          {
+            key: 'Directielid fabriek',
+            docCount: 10
+          },
+          {
+            key: 'Directielid gezondheidsinstelling',
+            docCount: 2
+          },
+          {
+            key: 'Directielid hoger onderwijs',
+            docCount: 6
+          },
+          {
+            key: 'Directielid investeringsmaatschappij',
+            docCount: 3
+          },
+          {
+            key: 'Directielid lager onderwijs',
+            docCount: 7
+          },
+          {
+            key: 'Directielid middelbaar onderwijs',
+            docCount: 6
+          },
+          {
+            key: 'Directielid museum',
+            docCount: 6
+          },
+          {
+            key: 'Directielid ontginningsmaatschappij',
+            docCount: 1
+          },
+          {
+            key: 'Directielid sociale instelling',
+            docCount: 1
+          },
+          {
+            key: 'Directielid universiteitsbibliotheek',
+            docCount: 2
+          },
+          {
+            key: 'Directielid verzekeringsmaatschappij',
+            docCount: 2
+          },
+          {
+            key: 'Dirigent',
+            docCount: 1
+          },
+          {
+            key: 'Docent',
+            docCount: 70
+          },
+          {
+            key: 'Drukker',
+            docCount: 13
+          },
+          {
+            key: 'Editeur',
+            docCount: 30
+          },
+          {
+            key: 'Egyptoloog',
+            docCount: 1
+          },
+          {
+            key: 'Eigenaar handelsbedrijf',
+            docCount: 1
+          },
+          {
+            key: 'Emailleur',
+            docCount: 1
+          },
+          {
+            key: 'Encyclopedist',
+            docCount: 1
+          },
+          {
+            key: 'Etnoloog',
+            docCount: 1
+          },
+          {
+            key: 'Etser',
+            docCount: 44
+          },
+          {
+            key: 'Farmacoloog',
+            docCount: 1
+          },
+          {
+            key: 'Filantroop',
+            docCount: 6
+          },
+          {
+            key: 'Filosoof',
+            docCount: 8
+          },
+          {
+            key: 'Folklorist',
+            docCount: 4
+          },
+          {
+            key: 'Fotograaf',
+            docCount: 4
+          },
+          {
+            key: 'Glazenier',
+            docCount: 4
+          },
+          {
+            key: 'Gouverneur Suriname',
+            docCount: 1
+          },
+          {
+            key: 'Graanhandelaar',
+            docCount: 1
+          },
+          {
+            key: 'Graficus',
+            docCount: 20
+          },
+          {
+            key: 'Graveur',
+            docCount: 4
+          },
+          {
+            key: 'Griffier',
+            docCount: 2
+          },
+          {
+            key: 'Historicus',
+            docCount: 26
+          },
+          {
+            key: 'Hoogleraar',
+            docCount: 34
+          },
+          {
+            key: 'Houthandelaar',
+            docCount: 3
+          },
+          {
+            key: 'Houtsnijwerker',
+            docCount: 4
+          },
+          {
+            key: 'Houtvester',
+            docCount: 1
+          },
+          {
+            key: 'Huisknecht',
+            docCount: 1
+          },
+          {
+            key: 'Ijzerhandelaar',
+            docCount: 1
+          },
+          {
+            key: 'Illustrator',
+            docCount: 12
+          },
+          {
+            key: 'Ingenieur',
+            docCount: 7
+          },
+          {
+            key: 'Jeugdzorg',
+            docCount: 5
+          },
+          {
+            key: 'Journalist',
+            docCount: 33
+          },
+          {
+            key: 'Jurist',
+            docCount: 14
+          },
+          {
+            key: 'Kantoorbediende',
+            docCount: 4
+          },
+          {
+            key: 'Kassier',
+            docCount: 2
+          },
+          {
+            key: 'Katoenhandelaar',
+            docCount: 1
+          },
+          {
+            key: 'Keramist',
+            docCount: 5
+          },
+          {
+            key: 'Kleermaker',
+            docCount: 2
+          },
+          {
+            key: 'Kunsthandelaar',
+            docCount: 9
+          },
+          {
+            key: 'Kunstverzamelaar',
+            docCount: 10
+          },
+          {
+            key: 'Lexicograaf',
+            docCount: 1
+          },
+          {
+            key: 'Lid Raad van State',
+            docCount: 1
+          },
+          {
+            key: 'Lid diplomatieke dienst',
+            docCount: 2
+          },
+          {
+            key: 'Lid volksraad van nederlands-indië',
+            docCount: 1
+          },
+          {
+            key: 'Lithograaf',
+            docCount: 30
+          },
+          {
+            key: 'Machinehandelaar',
+            docCount: 1
+          },
+          {
+            key: 'Makelaar',
+            docCount: 1
+          },
+          {
+            key: 'Mecenas',
+            docCount: 6
+          },
+          {
+            key: 'Medailleur',
+            docCount: 1
+          },
+          {
+            key: 'Medewerker Kamer van Koophandel',
+            docCount: 1
+          },
+          {
+            key: 'Medewerker gezondheidsinstelling',
+            docCount: 1
+          },
+          {
+            key: 'Medewerker uitgeverij',
+            docCount: 1
+          },
+          {
+            key: 'Medewerker verzekeringsmaatschappij',
+            docCount: 2
+          },
+          {
+            key: 'Medicus',
+            docCount: 12
+          },
+          {
+            key: 'Metaalhandelaar',
+            docCount: 1
+          },
+          {
+            key: 'Meubelhandelaar',
+            docCount: 1
+          },
+          {
+            key: 'Meubelmaker',
+            docCount: 1
+          },
+          {
+            key: 'Mezzotint-kunstenaar',
+            docCount: 1
+          },
+          {
+            key: 'Militair',
+            docCount: 12
+          },
+          {
+            key: 'Mozaïeklegger',
+            docCount: 1
+          },
+          {
+            key: 'Musicus',
+            docCount: 3
+          },
+          {
+            key: 'Natuurkundige',
+            docCount: 4
+          },
+          {
+            key: 'Notaris',
+            docCount: 3
+          },
+          {
+            key: 'Officier van gezondheid',
+            docCount: 5
+          },
+          {
+            key: 'Onderwijsassistent',
+            docCount: 2
+          },
+          {
+            key: 'Onderwijsinspecteur',
+            docCount: 4
+          },
+          {
+            key: 'Onderwijzer',
+            docCount: 19
+          },
+          {
+            key: 'Onroerendgoedhandelaar',
+            docCount: 1
+          },
+          {
+            key: 'Ontwerper',
+            docCount: 13
+          },
+          {
+            key: 'Oriëntalist',
+            docCount: 2
+          },
+          {
+            key: 'Pastellist',
+            docCount: 11
+          },
+          {
+            key: 'Pedagoog',
+            docCount: 1
+          },
+          {
+            key: 'Pentekenaar',
+            docCount: 1
+          },
+          {
+            key: 'Plantagehouder',
+            docCount: 1
+          },
+          {
+            key: 'Polemist',
+            docCount: 12
+          },
+          {
+            key: 'Politicoloog',
+            docCount: 2
+          },
+          {
+            key: 'Politicus',
+            docCount: 29
+          },
+          {
+            key: 'Politiek tekenaar',
+            docCount: 1
+          },
+          {
+            key: 'Prentkunstenaar',
+            docCount: 3
+          },
+          {
+            key: 'President-commissaris tabaksmaatschappij',
+            docCount: 1
+          },
+          {
+            key: 'Procuratiehouder',
+            docCount: 3
+          },
+          {
+            key: 'Publicist',
+            docCount: 177
+          },
+          {
+            key: 'Rechter',
+            docCount: 1
+          },
+          {
+            key: 'Rector magnificus',
+            docCount: 4
+          },
+          {
+            key: 'Redacteur',
+            docCount: 100
+          },
+          {
+            key: 'Redenaar',
+            docCount: 3
+          },
+          {
+            key: 'Regisseur',
+            docCount: 3
+          },
+          {
+            key: 'Repetitor',
+            docCount: 1
+          },
+          {
+            key: 'Scheikundige',
+            docCount: 4
+          },
+          {
+            key: 'Schilder',
+            docCount: 62
+          },
+          {
+            key: 'Schoorsteenveger',
+            docCount: 1
+          },
+          {
+            key: 'Schrijver',
+            docCount: 91
+          },
+          {
+            key: 'Socioloog',
+            docCount: 1
+          },
+          {
+            key: 'Taalkundige',
+            docCount: 3
+          },
+          {
+            key: 'Tabakshandelaar',
+            docCount: 1
+          },
+          {
+            key: 'Technoloog',
+            docCount: 1
+          },
+          {
+            key: 'Tekenaar',
+            docCount: 67
+          },
+          {
+            key: 'Telegrafist',
+            docCount: 1
+          },
+          {
+            key: 'Textielhandelaar',
+            docCount: 1
+          },
+          {
+            key: 'Textielkunstenaar',
+            docCount: 4
+          },
+          {
+            key: 'Theoloog',
+            docCount: 1
+          },
+          {
+            key: 'Typograaf',
+            docCount: 1
+          },
+          {
+            key: 'Uitgever',
+            docCount: 31
+          },
+          {
+            key: 'Verpleegkundige',
+            docCount: 4
+          },
+          {
+            key: 'Vertaler',
+            docCount: 53
+          },
+          {
+            key: 'Vertegenwoordiger',
+            docCount: 1
+          },
+          {
+            key: 'Vicepresident Raad van Justitie',
+            docCount: 1
+          },
+          {
+            key: 'Vicepresident arrondissementsrechtbank',
+            docCount: 1
+          },
+          {
+            key: 'Voordrachtskunstenaar',
+            docCount: 2
+          },
+          {
+            key: 'Voorganger',
+            docCount: 10
+          },
+          {
+            key: 'Vrouwenbeweging',
+            docCount: 8
+          },
+          {
+            key: 'Wereldverbeteraar',
+            docCount: 6
+          },
+          {
+            key: 'Wever',
+            docCount: 2
+          },
+          {
+            key: 'Wiskundige',
+            docCount: 4
+          },
+          {
+            key: 'Zanger',
+            docCount: 3
+          }
+        ]
+      },
+      birthDate_i: {
+        buckets: [
+          {
+            key: '1808',
+            docCount: 1
+          },
+          {
+            key: '1811',
+            docCount: 1
+          },
+          {
+            key: '1813',
+            docCount: 1
+          },
+          {
+            key: '1818',
+            docCount: 1
+          },
+          {
+            key: '1819',
+            docCount: 2
+          },
+          {
+            key: '1820',
+            docCount: 2
+          },
+          {
+            key: '1823',
+            docCount: 2
+          },
+          {
+            key: '1824',
+            docCount: 2
+          },
+          {
+            key: '1825',
+            docCount: 1
+          },
+          {
+            key: '1826',
+            docCount: 3
+          },
+          {
+            key: '1827',
+            docCount: 1
+          },
+          {
+            key: '1828',
+            docCount: 1
+          },
+          {
+            key: '1829',
+            docCount: 3
+          },
+          {
+            key: '1830',
+            docCount: 2
+          },
+          {
+            key: '1831',
+            docCount: 5
+          },
+          {
+            key: '1832',
+            docCount: 1
+          },
+          {
+            key: '1833',
+            docCount: 2
+          },
+          {
+            key: '1834',
+            docCount: 1
+          },
+          {
+            key: '1835',
+            docCount: 3
+          },
+          {
+            key: '1836',
+            docCount: 4
+          },
+          {
+            key: '1837',
+            docCount: 3
+          },
+          {
+            key: '1838',
+            docCount: 2
+          },
+          {
+            key: '1839',
+            docCount: 4
+          },
+          {
+            key: '1840',
+            docCount: 4
+          },
+          {
+            key: '1841',
+            docCount: 6
+          },
+          {
+            key: '1842',
+            docCount: 4
+          },
+          {
+            key: '1843',
+            docCount: 3
+          },
+          {
+            key: '1844',
+            docCount: 4
+          },
+          {
+            key: '1845',
+            docCount: 7
+          },
+          {
+            key: '1846',
+            docCount: 2
+          },
+          {
+            key: '1847',
+            docCount: 3
+          },
+          {
+            key: '1848',
+            docCount: 9
+          },
+          {
+            key: '1849',
+            docCount: 4
+          },
+          {
+            key: '1850',
+            docCount: 4
+          },
+          {
+            key: '1851',
+            docCount: 7
+          },
+          {
+            key: '1852',
+            docCount: 4
+          },
+          {
+            key: '1853',
+            docCount: 5
+          },
+          {
+            key: '1854',
+            docCount: 5
+          },
+          {
+            key: '1855',
+            docCount: 7
+          },
+          {
+            key: '1856',
+            docCount: 14
+          },
+          {
+            key: '1857',
+            docCount: 17
+          },
+          {
+            key: '1858',
+            docCount: 11
+          },
+          {
+            key: '1859',
+            docCount: 16
+          },
+          {
+            key: '1860',
+            docCount: 19
+          },
+          {
+            key: '1861',
+            docCount: 14
+          },
+          {
+            key: '1862',
+            docCount: 14
+          },
+          {
+            key: '1863',
+            docCount: 13
+          },
+          {
+            key: '1864',
+            docCount: 23
+          },
+          {
+            key: '1865',
+            docCount: 17
+          },
+          {
+            key: '1866',
+            docCount: 21
+          },
+          {
+            key: '1867',
+            docCount: 11
+          },
+          {
+            key: '1868',
+            docCount: 10
+          },
+          {
+            key: '1869',
+            docCount: 5
+          },
+          {
+            key: '1870',
+            docCount: 6
+          },
+          {
+            key: '1871',
+            docCount: 7
+          },
+          {
+            key: '1872',
+            docCount: 3
+          },
+          {
+            key: '1873',
+            docCount: 3
+          },
+          {
+            key: '1874',
+            docCount: 8
+          },
+          {
+            key: '1875',
+            docCount: 9
+          },
+          {
+            key: '1876',
+            docCount: 4
+          },
+          {
+            key: '1877',
+            docCount: 1
+          },
+          {
+            key: '1878',
+            docCount: 5
+          },
+          {
+            key: '1879',
+            docCount: 3
+          },
+          {
+            key: '1880',
+            docCount: 1
+          },
+          {
+            key: '1881',
+            docCount: 2
+          },
+          {
+            key: '1882',
+            docCount: 1
+          },
+          {
+            key: '1883',
+            docCount: 2
+          },
+          {
+            key: '1884',
+            docCount: 1
+          },
+          {
+            key: '1886',
+            docCount: 1
+          },
+          {
+            key: '1888',
+            docCount: 2
+          },
+          {
+            key: '1889',
+            docCount: 1
+          },
+          {
+            key: '1891',
+            docCount: 1
+          },
+          {
+            key: '1893',
+            docCount: 2
+          },
+          {
+            key: '1894',
+            docCount: 1
+          },
+          {
+            key: '1896',
+            docCount: 1
+          },
+          {
+            key: '1902',
+            docCount: 1
+          }
+        ]
+      },
+      deathDate_i: {
+        buckets: [
+          {
+            key: '1883',
+            docCount: 1
+          },
+          {
+            key: '1885',
+            docCount: 1
+          },
+          {
+            key: '1886',
+            docCount: 1
+          },
+          {
+            key: '1888',
+            docCount: 2
+          },
+          {
+            key: '1889',
+            docCount: 2
+          },
+          {
+            key: '1890',
+            docCount: 1
+          },
+          {
+            key: '1891',
+            docCount: 1
+          },
+          {
+            key: '1892',
+            docCount: 1
+          },
+          {
+            key: '1893',
+            docCount: 3
+          },
+          {
+            key: '1894',
+            docCount: 3
+          },
+          {
+            key: '1895',
+            docCount: 1
+          },
+          {
+            key: '1896',
+            docCount: 7
+          },
+          {
+            key: '1898',
+            docCount: 1
+          },
+          {
+            key: '1899',
+            docCount: 2
+          },
+          {
+            key: '1901',
+            docCount: 5
+          },
+          {
+            key: '1902',
+            docCount: 2
+          },
+          {
+            key: '1903',
+            docCount: 4
+          },
+          {
+            key: '1904',
+            docCount: 4
+          },
+          {
+            key: '1905',
+            docCount: 3
+          },
+          {
+            key: '1906',
+            docCount: 6
+          },
+          {
+            key: '1907',
+            docCount: 5
+          },
+          {
+            key: '1908',
+            docCount: 4
+          },
+          {
+            key: '1909',
+            docCount: 3
+          },
+          {
+            key: '1910',
+            docCount: 3
+          },
+          {
+            key: '1911',
+            docCount: 5
+          },
+          {
+            key: '1912',
+            docCount: 5
+          },
+          {
+            key: '1913',
+            docCount: 4
+          },
+          {
+            key: '1914',
+            docCount: 5
+          },
+          {
+            key: '1915',
+            docCount: 6
+          },
+          {
+            key: '1916',
+            docCount: 5
+          },
+          {
+            key: '1917',
+            docCount: 3
+          },
+          {
+            key: '1918',
+            docCount: 7
+          },
+          {
+            key: '1919',
+            docCount: 4
+          },
+          {
+            key: '1920',
+            docCount: 8
+          },
+          {
+            key: '1921',
+            docCount: 7
+          },
+          {
+            key: '1922',
+            docCount: 8
+          },
+          {
+            key: '1923',
+            docCount: 6
+          },
+          {
+            key: '1924',
+            docCount: 3
+          },
+          {
+            key: '1925',
+            docCount: 14
+          },
+          {
+            key: '1926',
+            docCount: 4
+          },
+          {
+            key: '1927',
+            docCount: 11
+          },
+          {
+            key: '1928',
+            docCount: 7
+          },
+          {
+            key: '1929',
+            docCount: 3
+          },
+          {
+            key: '1930',
+            docCount: 11
+          },
+          {
+            key: '1931',
+            docCount: 12
+          },
+          {
+            key: '1932',
+            docCount: 7
+          },
+          {
+            key: '1933',
+            docCount: 13
+          },
+          {
+            key: '1934',
+            docCount: 5
+          },
+          {
+            key: '1935',
+            docCount: 10
+          },
+          {
+            key: '1936',
+            docCount: 11
+          },
+          {
+            key: '1937',
+            docCount: 7
+          },
+          {
+            key: '1938',
+            docCount: 8
+          },
+          {
+            key: '1939',
+            docCount: 10
+          },
+          {
+            key: '1940',
+            docCount: 3
+          },
+          {
+            key: '1941',
+            docCount: 5
+          },
+          {
+            key: '1942',
+            docCount: 13
+          },
+          {
+            key: '1943',
+            docCount: 9
+          },
+          {
+            key: '1944',
+            docCount: 3
+          },
+          {
+            key: '1945',
+            docCount: 9
+          },
+          {
+            key: '1946',
+            docCount: 7
+          },
+          {
+            key: '1947',
+            docCount: 2
+          },
+          {
+            key: '1948',
+            docCount: 2
+          },
+          {
+            key: '1949',
+            docCount: 2
+          },
+          {
+            key: '1950',
+            docCount: 2
+          },
+          {
+            key: '1951',
+            docCount: 7
+          },
+          {
+            key: '1952',
+            docCount: 5
+          },
+          {
+            key: '1953',
+            docCount: 2
+          },
+          {
+            key: '1954',
+            docCount: 2
+          },
+          {
+            key: '1955',
+            docCount: 4
+          },
+          {
+            key: '1957',
+            docCount: 3
+          },
+          {
+            key: '1960',
+            docCount: 3
+          },
+          {
+            key: '1962',
+            docCount: 1
+          },
+          {
+            key: '1964',
+            docCount: 3
+          },
+          {
+            key: '1965',
+            docCount: 3
+          },
+          {
+            key: '1967',
+            docCount: 1
+          },
+          {
+            key: '1968',
+            docCount: 1
+          },
+          {
+            key: '1969',
+            docCount: 1
+          },
+          {
+            key: '1970',
+            docCount: 1
+          },
+          {
+            key: '1971',
+            docCount: 1
+          },
+          {
+            key: '1972',
+            docCount: 1
+          },
+          {
+            key: '1976',
+            docCount: 1
+          },
+          {
+            key: '1981',
+            docCount: 1
+          },
+          {
+            key: '1982',
+            docCount: 1
+          }
+        ]
+      }
+    },
+    highlighting: []
+  }

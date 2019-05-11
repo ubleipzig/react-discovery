@@ -1,4 +1,4 @@
-import {query, resultsReducer, suggestionsReducer, suggestQueryReducer} from "../state/reducers";
+import {query, suggestionsReducer, suggestQueryReducer} from "../state/reducers";
 // import { submitQuery, fetchCsv } from "./server";
 import server from "./server";
 import {setQueryFields} from '../state/actions'
@@ -111,17 +111,6 @@ export class SolrClient {
     server.submitSuggestQuery(suggestQuery, (action) => {
       this.state.suggestions = suggestionsReducer(this.state.suggestions, action);
       this.state.suggestQuery = suggestQueryReducer(this.state.suggestQuery, action);
-      // this.store.dispatch(setSolrState({state: this.state}));
-    });
-  }
-
-  sendNextCursorQuery() {
-    server.submitQuery(this.state.query, (action) => {
-      this.state.results = resultsReducer(this.state.results, {
-        ...action,
-        type: action.type === "SET_RESULTS" ? "SET_NEXT_RESULTS" : action.type
-      });
-      this.state.query = query(this.state.query, action);
       // this.store.dispatch(setSolrState({state: this.state}));
     });
   }
