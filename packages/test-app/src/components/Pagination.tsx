@@ -3,17 +3,23 @@ import {connect} from 'react-redux'
 import {setStart} from "solr-react-faceted-search"
 import Button from '@material-ui/core/Button'
 
-export const PaginationComponent: React.FC<any> = (props): ReactElement => {
-  const {query, response, setStart} = props;
-  const {start, rows} = query;
+interface IPagination {
+  response: any;
+  setStart: Function;
+  size: number;
+  start: number;
+}
+
+export const PaginationComponent: React.FC<any> = (props: IPagination): ReactElement => {
+  const {start, size, response, setStart} = props;
   const {numFound} = Object.keys(response).length && response.hits !== null && response.hits
 
-  const currentPage = start / rows;
-  const pageAmt = Math.ceil(numFound / rows);
+  const currentPage = start / size;
+  const pageAmt = Math.ceil(numFound / size);
   let rangeStart = currentPage - 2 < 0 ? 0 : currentPage - 2
   let rangeEnd = rangeStart + 5 > pageAmt ? pageAmt : rangeStart + 5
 
-  const buildRangeStart = () => {
+  const buildRangeStart = (): void => {
     if (rangeEnd - rangeStart < 5 && rangeStart > 0) {
       rangeStart = rangeEnd - 5;
       if (rangeStart < 0) {
@@ -22,7 +28,7 @@ export const PaginationComponent: React.FC<any> = (props): ReactElement => {
     }
   }
 
-  const buildPages = (rangeStart, rangeEnd) => {
+  const buildPages = (rangeStart, rangeEnd): number[] => {
     const pages = []
     for (let page = rangeStart; page < rangeEnd; page++) {
       if (pages.indexOf(page) < 0) {
@@ -36,32 +42,44 @@ export const PaginationComponent: React.FC<any> = (props): ReactElement => {
   const pages = buildPages(rangeStart, rangeEnd)
 
 
-  const onPageChange = (page) => {
+  const onPageChange = (page): void => {
     if (page >= pageAmt || page < 0) {
       return;
     }
-    setStart({newStart: page * rows})
+    setStart({newStart: page * size})
   }
+
+  const PageControlButton = (page, label, key) =>
+    <Button
+      variant="outlined"
+      color="primary"
+      key={key}
+      href=''
+      onClick={(): void => onPageChange(page)}
+    >{label}
+    </Button>
 
   const renderPages = (pages) => {
     return pages && pages.map((page, i) =>
-      <Button variant="outlined" color="primary" key={i} href='' onClick={() => onPageChange(page)}>{page + 1}</Button>
-    )}
+      PageControlButton(page, page + 1, i)
+    )
+  }
 
 
   return (
     <>
-      <Button variant="outlined" color="primary" href='' onClick={() => onPageChange( 0 )}>&lt;&lt;</Button>
-      <Button variant="outlined" color="primary" href='' onClick={() => onPageChange(currentPage - 1)}>&lt;</Button>
+      {PageControlButton(0, "<<", "first")}
+      {PageControlButton(currentPage - 1, "<", "previous")}
         {renderPages(pages)}
-      <Button variant="outlined" color="primary" href='' onClick={() => onPageChange(currentPage + 1)}>&gt;</Button>
-      <Button variant="outlined" color="primary" href='' onClick={() => onPageChange(pageAmt - 1)}>&gt;&gt;</Button>
+      {PageControlButton(currentPage + 1, ">", "next")}
+      {PageControlButton(pageAmt - 1, ">>", "last")}
     </>
   );
 }
 
 const mapStateToProps = (state): any => ({
-  query: state.query,
+  size: state.query.size,
+  start: state.query.start,
   response: state.response
 })
 

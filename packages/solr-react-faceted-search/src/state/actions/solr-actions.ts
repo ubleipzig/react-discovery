@@ -8,26 +8,26 @@ const SET_SEARCH_FIELDS = "SET_SEARCH_FIELDS"
 const SET_SORT_FIELDS = "SET_SORT_FIELDS"
 const SET_START = "SET_START"
 const SET_DISMAX = "SET_DISMAX"
-const actionCreator = actionCreatorFactory();
+const actionCreator = actionCreatorFactory()
 
-export const setQueryFields = actionCreator<{searchFields: ISearchField[], sortFields: ISortField[],
-  url: string, start: number, rows: number}>(SET_QUERY_FIELDS)
-export const setStart = actionCreator<{newStart}>(SET_START)
-export const setDisMaxQuery = actionCreator<{typeDef: string, stringInput: string}>(SET_DISMAX)
-export const setSearchFields = actionCreator<{searchFields, start}>(SET_SEARCH_FIELDS)
-export const setSortFields = actionCreator<{sortFields, start}>(SET_SORT_FIELDS)
-interface IFetchSolrResponseParams { requestUrl: string; }
+export const setQueryFields = actionCreator<{searchFields: ISearchField[]; sortFields: ISortField[];
+  url: string; start: number; rows: number;}>(SET_QUERY_FIELDS)
+export const setStart = actionCreator<{newStart: number}>(SET_START)
+export const setDisMaxQuery = actionCreator<{typeDef: string; stringInput: string}>(SET_DISMAX)
+export const setSearchFields = actionCreator<{searchFields; start}>(SET_SEARCH_FIELDS)
+export const setSortFields = actionCreator<{sortFields; start}>(SET_SORT_FIELDS)
+interface IFetchSolrResponseParams { requestUrl: string}
 type Succ = any;
 
-export const fetchSolrResponse: any = actionCreator.async<IFetchSolrResponseParams, Succ>(FETCH_SOLR_RESPONSE);
+export const fetchSolrResponse: any = actionCreator.async<IFetchSolrResponseParams, Succ>(FETCH_SOLR_RESPONSE)
 
 export const fetchSolrResponseWorker = bindThunkAction(fetchSolrResponse,
-  async (params: IFetchSolrResponseParams) => {
-    const res = await fetch(params.requestUrl);
+  async (params: IFetchSolrResponseParams): Promise<string> => {
+    const res = await fetch(params.requestUrl)
     if (!res.ok) {
       throw new Error(
-        `Error ${res.status}: ${res.statusText} ${await res.text()}`);
+        `Error ${res.status}: ${res.statusText} ${await res.text()}`)
     }
     return res.json()
   }
-);
+)

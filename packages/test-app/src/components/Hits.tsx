@@ -6,18 +6,18 @@ import {makeStyles} from "@material-ui/core"
 import {connect} from "react-redux"
 
 export interface IHits {
-  hits: []
-  numFound: number
-  searchFields: ISearchField[]
+  hits: [];
+  numFound: number;
+  searchFields: ISearchField[];
 }
 
 export interface ISearchField {
-  label: string
-  field: string
-  type: string
+  label: string;
+  field: string;
+  type: string;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme): any => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -37,38 +37,38 @@ const useStyles = makeStyles(theme => ({
 
 const HitsComponent: React.FC<any> = (props: IHits): ReactElement => {
   const {hits, searchFields} = props
-  const classes = useStyles()
-  const renderValue = (field, hit) => {
+  const classes: any = useStyles()
+  const renderValue = (field, hit): string => {
     const value = [].concat(hit[field] || null).filter((v) => v !== null);
     return value.join(", ");
   }
 
-    const buildHits = (hits) => hits.hits && hits.hits.map((hit, i) => (
-      <Card key={i}>
-        {searchFields.map((field, i) =>
-          <CardContent
-            className={classes.content}
-            key={i}
-          >
-            <div style={{margin: "0 20px 0 10px", width: 120}}>
-              <Typography
-                component="span"
-              >
-                {field.label || field.field}
-              </Typography>
-            </div>
-            <div style={{flex: 'auto'}}>
-              <Typography
-                color="textSecondary"
-                className={classes.inline}
-                component="span"
-              >
-                {renderValue(field.field, hit)}
-              </Typography>
-            </div>
-          </CardContent>
-        )}
-      </Card>))
+  const buildHits = (hits): ReactElement => hits.hits && hits.hits.map((hit, i): ReactElement => (
+    <Card key={i}>
+      {searchFields.map((field, i): ReactElement =>
+        <CardContent
+          className={classes.content}
+          key={i}
+        >
+          <div style={{margin: "0 20px 0 10px", width: 120}}>
+            <Typography
+              component="span"
+            >
+              {field.label || field.field}
+            </Typography>
+          </div>
+          <div style={{flex: 'auto'}}>
+            <Typography
+              color="textSecondary"
+              className={classes.inline}
+              component="span"
+            >
+              {renderValue(field.field, hit)}
+            </Typography>
+          </div>
+        </CardContent>
+      )}
+    </Card>))
 
   return buildHits(hits)
 }

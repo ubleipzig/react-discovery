@@ -54,7 +54,8 @@
     "import/namespace": 2,
     "import/default": 2,
     "import/export": 2,
-    "@typescript-eslint/interface-name-prefix": [2, "always"]
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/indent": ["error", 2]
   },
   "plugins": [
     "jest",

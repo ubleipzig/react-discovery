@@ -1,21 +1,21 @@
-import {reducerWithInitialState} from 'typescript-fsa-reducers'
+import {reducerWithInitialState, ReducerBuilder} from 'typescript-fsa-reducers'
 import {fetchSolrResponse} from '../actions'
 const uuidv5 = require('uuidv5')
 
 interface IState {
-  aggregations: IAggregations
-  hits: IHits
-  url: string
+  aggregations: IAggregations;
+  hits: IHits;
+  url: string;
 }
 
 export interface IAggregations {
   [field: string]: {
-    buckets: []
-  }
+    buckets: [];
+  };
 }
 export interface IHits {
-  hits: []
-  numFound: number
+  hits: [];
+  numFound: number;
 }
 
 const initialState: IState = {
@@ -24,23 +24,12 @@ const initialState: IState = {
   url: null,
 }
 
-const tryGroupedResultCount = (data) => {
-  if (data.grouped) {
-    for (let key in data.grouped) {
-      if (data.grouped[key].matches) {
-        return data.grouped[key].matches;
-      }
-    }
-  }
-  return 0;
-};
-
 const buildAggregations = (fields): IAggregations => {
-  return Object.entries(fields).reduce((object, [k, v]) => {
+  return Object.entries(fields).reduce((object, [k, v]): any => {
     const buckets = []
-    const keys = (v as []).filter(({}, i) => i % 2 === 0)
-    const values = (v as []).filter(({}, i) => i % 2 === 1)
-    keys.map((k, i) => {
+    const keys = (v as []).filter(({}, i): any => i % 2 === 0)
+    const values = (v as []).filter(({}, i): any => i % 2 === 1)
+    keys.map((k, i): any => {
       buckets.push({key: k, docCount: values[i]})
     })
     return {
@@ -53,16 +42,16 @@ const buildAggregations = (fields): IAggregations => {
 const buildHits = (result): IHits => {
   return {
     hits: result.response ? result.response.docs : [],
-    numFound: result.response ? result.response.numFound : tryGroupedResultCount(result),
+    numFound: result.response ? result.response.numFound : null,
   }
 }
 
 export const response = reducerWithInitialState(initialState)
-  .case(fetchSolrResponse.started, state => ({
+  .case(fetchSolrResponse.started, (state): any => ({
     ...state,
     updating: true
   }))
-  .caseWithAction(fetchSolrResponse.done, (state: IState, action: any) => ({
+  .caseWithAction(fetchSolrResponse.done, (state: IState, action: any): any => ({
     ...state,
     url: action.payload.params.url,
     hits: buildHits(action.payload.result),
@@ -71,7 +60,7 @@ export const response = reducerWithInitialState(initialState)
     highlighting: action.payload.result.highlighting ? action.data.highlighting : [],
     updating: false,
   }))
-  .case(fetchSolrResponse.failed, (state, { error }) => ({
+  .case(fetchSolrResponse.failed, (state, { error }): any => ({
     ...state,
     error,
     updating: false,

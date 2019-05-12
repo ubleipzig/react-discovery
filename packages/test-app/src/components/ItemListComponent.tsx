@@ -1,6 +1,4 @@
-import * as React from "react"
-import {ReactElement} from "react"
-import {CheckboxItem} from './ItemComponent'
+import React, {ReactElement} from "react"
 import {connect} from "react-redux"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel'
@@ -13,39 +11,39 @@ import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import {setDisMaxQuery, setStart} from "solr-react-faceted-search"
 
-export interface ListProps {
-  toggleItem: (key:string)=>void
-  setItems: (keys:Array<string>)=>void
-  aggregation: IAggregation
-  countFormatter?:(count:number)=> string|number,
-  selectedItems: Array<string>
-  docCount?: number // number of documents for this list
-  disabled?: boolean
-  mod?: string
-  className?: string
-  showCount?: boolean
-  translate?: (s: string) => string
-  multiselect?: boolean // if true, uses toggleItem, else uses setItems
+export interface IListProps {
+  toggleItem: (key: string) => void;
+  setItems: (keys: string[]) => void;
+  aggregation: IAggregation;
+  countFormatter?: (count: number) => string|number;
+  selectedItems: string[];
+  docCount?: number;
+  disabled?: boolean;
+  mod?: string;
+  className?: string;
+  showCount?: boolean;
+  translate?: (s: string) => string;
+  multiselect?: boolean; // if true, uses toggleItem, else uses setItems
 }
 
 export interface IAggregation {
-    buckets: IBucket[]
+  buckets: IBucket[];
 }
 
 export interface IBucket extends IAggregation {
-  key: string
-  docCount: number
+  key: string;
+  docCount: number;
 }
 
-export interface ItemListProps extends ListProps {
-  field: string
-  label: string
-  itemComponent?: any
-  setDisMaxQuery: Function
-  setStart: Function
+export interface IItemListProps extends IListProps {
+  field: string;
+  label: string;
+  itemComponent?: any;
+  setDisMaxQuery: Function;
+  setStart: Function;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme): any => ({
   content: {
     flex: '1 0 auto',
     padding: 0,
@@ -65,42 +63,42 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const ItemListComponent: React.FC<any> = (props: ItemListProps): ReactElement => {
+export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactElement => {
   const {aggregation, label, setDisMaxQuery, setStart} = props
-  const classes = useStyles()
+  const classes: any = useStyles()
   const [isExpanded, setExpanded] = React.useState(false)
 
-  const handleExpand = panel => ({}, isExpanded) => {
+  const handleExpand = (panel) => ({}, isExpanded): void => { // eslint-disable-line no-empty-pattern
     setExpanded(isExpanded ? panel : false)
   }
 
-  const handleChange = (key) => {
+  const handleChange = (key): void => {
     setDisMaxQuery({typeDef: "dismax", stringInput: encodeURI(`"${key}"`)})
     setStart({newStart: 0})
   }
 
-  const actions = (aggregation) => {
+  const actions = (aggregation): JSX.Element => {
     return aggregation.buckets.sort((a, b) => (a.docCount < b.docCount) ? 1 : -1)
       .filter((bucket) => bucket.docCount > 0).map((bucket) => {
-      return (
-        <ListItem
-          component={"div"}
-          key={bucket.key}
-          role={undefined}
-          dense
-          button={true}
-          onClick={() => handleChange(bucket.key)}
-        >
-          <ListItemText
-            className={classes.content}
-            primary={
-              <div style={{margin: "0 20px 0 0", width: 120}}>
-                <Typography component="span">
-                  {bucket.key}
-                </Typography>
-              </div>
-            }
-            secondary={
+        return (
+          <ListItem
+            component={"div"}
+            key={bucket.key}
+            role={undefined}
+            dense
+            button={true}
+            onClick={(): void => handleChange(bucket.key)}
+          >
+            <ListItemText
+              className={classes.content}
+              primary={
+                <div style={{margin: "0 20px 0 0", width: 120}}>
+                  <Typography component="span">
+                    {bucket.key}
+                  </Typography>
+                </div>
+              }
+              secondary={
                 <Typography
                   component="span"
                   variant="body2"
@@ -109,16 +107,19 @@ export const ItemListComponent: React.FC<any> = (props: ItemListProps): ReactEle
                 >
                   {bucket.docCount}
                 </Typography>
-          }/>
-        </ListItem>
-      )
-    })
+              }/>
+          </ListItem>
+        )
+      })
   }
 
   const PANEL_ID = 'panel1'
 
   return (
-    <ExpansionPanel expanded={isExpanded} onChange={handleExpand(PANEL_ID)}>
+    <ExpansionPanel
+      expanded={Boolean(isExpanded)}
+      onChange={handleExpand(PANEL_ID)}
+    >
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1bh-content"
@@ -127,9 +128,9 @@ export const ItemListComponent: React.FC<any> = (props: ItemListProps): ReactEle
         <Typography className={classes.heading}>{label}</Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
-      <List component="nav">
-        {aggregation && actions(aggregation)}
-      </List>
+        <List component="nav">
+          {aggregation && actions(aggregation)}
+        </List>
       </ExpansionPanelDetails>
     </ExpansionPanel>
   )
@@ -137,7 +138,6 @@ export const ItemListComponent: React.FC<any> = (props: ItemListProps): ReactEle
 
 ItemListComponent.defaultProps = {
   showCount: true,
-  itemComponent: CheckboxItem,
   multiselect: true,
   selectedItems: [],
 }

@@ -2,7 +2,7 @@ import {useEffect, useRef} from 'react'
 
 export const usePrevious = (value): any => {
   const ref = useRef()
-  useEffect(() => {
+  useEffect((): void => {
     ref.current = value
   })
   return ref.current

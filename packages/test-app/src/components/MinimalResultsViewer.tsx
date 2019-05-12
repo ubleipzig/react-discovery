@@ -6,15 +6,14 @@ import {gettingstarted} from "../config"
 import {ItemList, Hits, Pagination, SearchBox} from '.'
 
 interface IMinimalResultsViewer {
-  hits: IHits
-  size: number
-  start: number
-  stringInput: string
-  typeDef: string
+  hits: IHits;
+  size: number;
+  start: number;
+  stringInput: string;
+  typeDef: string;
 }
 
 const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsViewer): ReactElement => {
-
   const {hits, size, start, stringInput, typeDef} = props
   const {searchFields, sortFields, url} = gettingstarted
   const rows = size
@@ -36,7 +35,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
           style={{padding: 20}}
           item xs={10}
         >
-          {hits ? <Hits/>: "Loading"}
+          {hits ? <Hits/> : "Loading"}
         </Grid>
       </Grid>
     </SolrResponseProvider>

@@ -18,8 +18,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 interface ISearchBox {
-  setDisMaxQuery: typeof setDisMaxQuery
-  setStart: typeof setStart
+  setDisMaxQuery: typeof setDisMaxQuery;
+  setStart: typeof setStart;
 }
 
 const SearchBoxComponent: React.FC<any> = (props: ISearchBox): ReactElement => {
@@ -27,14 +27,14 @@ const SearchBoxComponent: React.FC<any> = (props: ISearchBox): ReactElement => {
   const classes = useStyles()
   const [values, setValues] = React.useState("")
 
-  const handleChange = (e) => {
+  const handleChange = (e): void => {
     const stringInput = e.target.value;
     setDisMaxQuery({typeDef: "dismax", stringInput})
     setStart({newStart: 0})
     setValues(e.target.value)
   }
 
-  const handleSubmit = (e => {
+  const handleSubmit = ((e): void => {
     e.preventDefault()
   })
 

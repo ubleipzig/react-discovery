@@ -5,9 +5,9 @@ import {fetchSolrResponseWorker, setQueryFields} from "../state/actions"
 import {connect} from 'react-redux'
 
 interface ISolrResponseProvider {
-  fetchSolrResponseWorker: any
-  query: IQuery
-  setQueryFields: typeof setQueryFields
+  fetchSolrResponseWorker: any;
+  query: IQuery;
+  setQueryFields: typeof setQueryFields;
 }
 
 const SolrResponseProviderComponent: React.FC<ISolrResponseProvider> = (props): ReactElement => {
@@ -17,14 +17,14 @@ const SolrResponseProviderComponent: React.FC<ISolrResponseProvider> = (props): 
   const prevStringInput = usePrevious(stringInput)
   const [isInitialized, setIsInitialized] = useState(false)
 
-  const fetchResponse = (query) => {
+  const fetchResponse = (query): boolean => {
     const queryString = solrQuery(query)
     const requestUrl = `${query.url}?${queryString}`
     fetchSolrResponseWorker({requestUrl})
     return true
   }
 
-  useEffect(() => {
+  useEffect((): void => {
     const query = {searchFields, sortFields, url, start, rows, typeDef, stringInput}
     if (!isInitialized) {
       setQueryFields({...query})
