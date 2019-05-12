@@ -1,7 +1,9 @@
 import React, {ReactElement} from "react";
 import {connect} from 'react-redux'
 import {setStart} from "solr-react-faceted-search"
-import Button from '@material-ui/core/Button'
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 interface IPagination {
   response: any;
@@ -12,6 +14,7 @@ interface IPagination {
 
 export const PaginationComponent: React.FC<any> = (props: IPagination): ReactElement => {
   const {start, size, response, setStart} = props;
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
   const {numFound} = Object.keys(response).length && response.hits !== null && response.hits
 
   const currentPage = start / size;
@@ -47,33 +50,38 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
       return;
     }
     setStart({newStart: page * size})
+    setSelectedIndex(page);
   }
 
   const PageControlButton = (page, label, key): ReactElement =>
-    <Button
-      variant="outlined"
-      color="primary"
+    <ListItem
+      button
+      component='div'
+      dense
       key={key}
-      href=''
+      selected={selectedIndex === page}
       onClick={(): void => onPageChange(page)}
-    >{label}
-    </Button>
+    >
+      <ListItemText primary={label}/>
+    </ListItem>
 
   const renderPages = (pages): ReactElement => {
-    return pages && pages.map((page, i) =>
+    return pages && pages.map((page, i): ReactElement =>
       PageControlButton(page, page + 1, i)
     )
   }
 
 
   return (
-    <>
-      {PageControlButton(0, "<<", "first")}
-      {PageControlButton(currentPage - 1, "<", "previous")}
+    <div style={{width: '100%', maxWidth: 360}}>
+      <List style={{display: 'flex'}} component="nav">
+        {PageControlButton(0, "<<", "first")}
+        {PageControlButton(currentPage - 1, "<", "previous")}
         {renderPages(pages)}
-      {PageControlButton(currentPage + 1, ">", "next")}
-      {PageControlButton(pageAmt - 1, ">>", "last")}
-    </>
+        {PageControlButton(currentPage + 1, ">", "next")}
+        {PageControlButton(pageAmt - 1, ">>", "last")}
+      </List>
+    </div>
   );
 }
 

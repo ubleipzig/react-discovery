@@ -39,7 +39,7 @@ const HitsComponent: React.FC<any> = (props: IHits): ReactElement => {
   const {hits, searchFields} = props
   const classes: any = useStyles()
   const renderValue = (field, hit): string => {
-    const value = [].concat(hit[field] || null).filter((v) => v !== null);
+    const value = [].concat(hit[field] || null).filter((v): any => v !== null);
     return value.join(", ");
   }
 

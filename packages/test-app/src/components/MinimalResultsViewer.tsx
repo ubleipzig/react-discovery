@@ -21,7 +21,6 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
   return (
     <SolrResponseProvider query={query}>
       <SearchBox/>
-      <Pagination/>
       <Grid container spacing={3}>
         <Grid item xs={2}>
           <ItemList
@@ -30,10 +29,21 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
             itemComponent={ItemList}/>
         </Grid>
         <Grid
-          style={{padding: 20}}
           item xs={10}
         >
-          {hits ? <Hits/> : "Loading"}
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
+            <Pagination/>
+          </Grid>
+          <Grid
+            style={{padding: 20}}
+          >
+            {hits ? <Hits/> : "Loading"}
+          </Grid>
         </Grid>
       </Grid>
     </SolrResponseProvider>

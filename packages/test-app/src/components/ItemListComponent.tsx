@@ -68,7 +68,7 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
   const classes: any = useStyles()
   const [isExpanded, setExpanded] = React.useState(false)
 
-  const handleExpand = (panel) => ({}, isExpanded): void => { // eslint-disable-line no-empty-pattern
+  const handleExpand = (panel): any => ({}, isExpanded): void => { // eslint-disable-line no-empty-pattern
     setExpanded(isExpanded ? panel : false)
   }
 
@@ -79,7 +79,7 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
 
   const actions = (aggregation): JSX.Element => {
     return aggregation.buckets.sort((a, b): any => (a.docCount < b.docCount) ? 1 : -1)
-      .filter((bucket) => bucket.docCount > 0).map((bucket): any => {
+      .filter((bucket): any => bucket.docCount > 0).map((bucket): any => {
         return (
           <ListItem
             component={"div"}
