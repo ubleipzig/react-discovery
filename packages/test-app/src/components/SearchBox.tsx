@@ -4,7 +4,7 @@ import {connect} from "react-redux"
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((): any => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -24,7 +24,7 @@ interface ISearchBox {
 
 const SearchBoxComponent: React.FC<any> = (props: ISearchBox): ReactElement => {
   const {setDisMaxQuery, setStart} = props
-  const classes = useStyles()
+  const classes: any = useStyles()
   const [values, setValues] = React.useState("")
 
   const handleChange = (e): void => {

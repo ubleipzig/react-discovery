@@ -11,19 +11,19 @@ const SET_DISMAX = "SET_DISMAX"
 const actionCreator = actionCreatorFactory()
 
 export const setQueryFields = actionCreator<{searchFields: ISearchField[]; sortFields: ISortField[];
-  url: string; start: number; rows: number;}>(SET_QUERY_FIELDS)
+  url: string; start: number; size: number;}>(SET_QUERY_FIELDS)
 export const setStart = actionCreator<{newStart: number}>(SET_START)
 export const setDisMaxQuery = actionCreator<{typeDef: string; stringInput: string}>(SET_DISMAX)
 export const setSearchFields = actionCreator<{searchFields; start}>(SET_SEARCH_FIELDS)
 export const setSortFields = actionCreator<{sortFields; start}>(SET_SORT_FIELDS)
-interface IFetchSolrResponseParams { requestUrl: string}
+interface IFetchSolrResponseParams { requestURI: string}
 type Succ = any;
 
 export const fetchSolrResponse: any = actionCreator.async<IFetchSolrResponseParams, Succ>(FETCH_SOLR_RESPONSE)
 
 export const fetchSolrResponseWorker = bindThunkAction(fetchSolrResponse,
   async (params: IFetchSolrResponseParams): Promise<string> => {
-    const res = await fetch(params.requestUrl)
+    const res = await fetch(params.requestURI)
     if (!res.ok) {
       throw new Error(
         `Error ${res.status}: ${res.statusText} ${await res.text()}`)

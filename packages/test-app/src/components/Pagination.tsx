@@ -49,7 +49,7 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
     setStart({newStart: page * size})
   }
 
-  const PageControlButton = (page, label, key) =>
+  const PageControlButton = (page, label, key): ReactElement =>
     <Button
       variant="outlined"
       color="primary"
@@ -59,7 +59,7 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
     >{label}
     </Button>
 
-  const renderPages = (pages) => {
+  const renderPages = (pages): ReactElement => {
     return pages && pages.map((page, i) =>
       PageControlButton(page, page + 1, i)
     )

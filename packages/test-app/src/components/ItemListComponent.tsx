@@ -78,8 +78,8 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
   }
 
   const actions = (aggregation): JSX.Element => {
-    return aggregation.buckets.sort((a, b) => (a.docCount < b.docCount) ? 1 : -1)
-      .filter((bucket) => bucket.docCount > 0).map((bucket) => {
+    return aggregation.buckets.sort((a, b): any => (a.docCount < b.docCount) ? 1 : -1)
+      .filter((bucket) => bucket.docCount > 0).map((bucket): any => {
         return (
           <ListItem
             component={"div"}

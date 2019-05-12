@@ -1,6 +1,5 @@
-import {reducerWithInitialState, ReducerBuilder} from 'typescript-fsa-reducers'
+import {reducerWithInitialState} from 'typescript-fsa-reducers'
 import {fetchSolrResponse} from '../actions'
-const uuidv5 = require('uuidv5')
 
 interface IState {
   aggregations: IAggregations;

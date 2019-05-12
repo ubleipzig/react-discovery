@@ -1,5 +1,5 @@
 import React, {ReactElement, useEffect, useState} from "react"
-import {solrQuery, IQuery} from "."
+import {extendedDisMaxQueryBuilder, IQuery} from "."
 import {usePrevious} from "../hooks"
 import {fetchSolrResponseWorker, setQueryFields} from "../state/actions"
 import {connect} from 'react-redux'
@@ -12,32 +12,30 @@ interface ISolrResponseProvider {
 
 const SolrResponseProviderComponent: React.FC<ISolrResponseProvider> = (props): ReactElement => {
   const {fetchSolrResponseWorker, setQueryFields, query} = props
-  const {searchFields, sortFields, url, start, rows, typeDef, stringInput} = query
+  const {start, stringInput} = query
   const prevStart = usePrevious(start)
   const prevStringInput = usePrevious(stringInput)
   const [isInitialized, setIsInitialized] = useState(false)
 
-  const fetchResponse = (query): boolean => {
-    const queryString = solrQuery(query)
-    const requestUrl = `${query.url}?${queryString}`
-    fetchSolrResponseWorker({requestUrl})
+  const fetchResponse = (requestURI): boolean => {
+    fetchSolrResponseWorker({requestURI})
     return true
   }
 
   useEffect((): void => {
-    const query = {searchFields, sortFields, url, start, rows, typeDef, stringInput}
+    const requestURI = extendedDisMaxQueryBuilder({...query})
     if (!isInitialized) {
       setQueryFields({...query})
-      setIsInitialized(fetchResponse(query))
+      setIsInitialized(fetchResponse(requestURI))
     }
     if (isInitialized && prevStart !== start) {
-      fetchResponse(query)
+      fetchResponse(requestURI)
     }
     if (isInitialized && prevStringInput !== stringInput) {
-      fetchResponse(query)
+      fetchResponse(requestURI)
     }
-  }, [fetchResponse, isInitialized, prevStart, prevStringInput, rows, searchFields,
-    setQueryFields, sortFields, start, stringInput, url])
+  }, [fetchResponse, isInitialized, prevStart, prevStringInput,
+    setQueryFields, start, stringInput])
 
   return (
     <>

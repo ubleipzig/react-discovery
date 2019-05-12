@@ -16,9 +16,7 @@ interface IMinimalResultsViewer {
 const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsViewer): ReactElement => {
   const {hits, size, start, stringInput, typeDef} = props
   const {searchFields, sortFields, url} = gettingstarted
-  const rows = size
-  const query = {searchFields, sortFields, url, start, rows, typeDef, stringInput}
-
+  const query = {searchFields, sortFields, url, start, size, typeDef, stringInput}
 
   return (
     <SolrResponseProvider query={query}>

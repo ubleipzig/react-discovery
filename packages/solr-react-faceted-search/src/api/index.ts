@@ -1,5 +1,5 @@
-export * from './solr-query';
 export * from './SolrResponseProvider'
+export * from './extendedDisMaxQueryBuilder'
 
 export interface ISearchField {
   field: string;
@@ -17,7 +17,22 @@ export interface IQuery {
   sortFields: ISortField[];
   url: string;
   start: number;
-  rows: number;
+  size: number;
   stringInput: string;
   typeDef: string;
+}
+
+export interface IEMaxQuery {
+  searchFields: ISearchField[];
+  sortFields: ISortField[];
+  url: string;
+  start: number;
+  size: number;
+  stringInput: string;
+  typeDef: string;
+  facetLimit?: number;
+  facetSort?: string;
+  group?: boolean;
+  groupField?: string;
+  hl?: boolean;
 }
