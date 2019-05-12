@@ -1,3 +1,4 @@
+export * from './GroupSelectedFilters'
 export * from './Hits'
 export * from './ItemListComponent'
 export * from './MinimalResultsViewer'

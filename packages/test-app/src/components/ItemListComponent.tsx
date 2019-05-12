@@ -9,7 +9,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
-import {setDisMaxQuery, setStart} from "solr-react-faceted-search"
+import {setDisMaxQuery, setSelectedFilters, setStart} from "solr-react-faceted-search"
 
 export interface IListProps {
   toggleItem: (key: string) => void;
@@ -37,9 +37,11 @@ export interface IBucket extends IAggregation {
 
 export interface IItemListProps extends IListProps {
   field: string;
+  filters: string[];
   label: string;
   itemComponent?: any;
   setDisMaxQuery: Function;
+  setSelectedFilters: Function;
   setStart: Function;
 }
 
@@ -64,7 +66,7 @@ const useStyles = makeStyles((theme): any => ({
 }))
 
 export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactElement => {
-  const {aggregation, label, setDisMaxQuery, setStart} = props
+  const {aggregation, filters, label, setDisMaxQuery, setSelectedFilters, setStart} = props
   const classes: any = useStyles()
   const [isExpanded, setExpanded] = React.useState(false)
 
@@ -73,7 +75,10 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
   }
 
   const handleChange = (key): void => {
-    setDisMaxQuery({typeDef: "dismax", stringInput: encodeURI(`"${key}"`)})
+    filters && !filters.includes(key) && filters.push(key)
+    setSelectedFilters({filters})
+    const filterString = filters.join("+AND+")
+    setDisMaxQuery({typeDef: "dismax", stringInput: encodeURI(`${filterString}`)})
     setStart({newStart: 0})
   }
 
@@ -137,15 +142,17 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
 }
 
 ItemListComponent.defaultProps = {
+  filters: [],
   showCount: true,
   multiselect: true,
   selectedItems: [],
 }
 
-const mapDispatchToProps = {setDisMaxQuery, setStart}
+const mapDispatchToProps = {setDisMaxQuery, setSelectedFilters, setStart}
 
 const mapStateToProps = (state, {field}): any => ({
-  aggregation: state.response && state.response.aggregations !== null && state.response.aggregations[field]
+  aggregation: state.response && state.response.aggregations !== null && state.response.aggregations[field],
+  filters: state.query && state.query.filters
 })
 
 export const ItemList: any = connect(mapStateToProps, mapDispatchToProps)(ItemListComponent)

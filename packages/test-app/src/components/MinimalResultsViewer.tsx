@@ -3,9 +3,10 @@ import {connect} from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import {fetchSolrResponseWorker, setQueryFields, IHits, SolrResponseProvider} from 'solr-react-faceted-search'
 import {gettingstarted} from "../config"
-import {ItemList, Hits, Pagination, SearchBox} from '.'
+import {GroupSelectedFilters, Hits, ItemList, Pagination, SearchBox} from '.'
 
 interface IMinimalResultsViewer {
+  filters: string[];
   hits: IHits;
   size: number;
   start: number;
@@ -14,9 +15,9 @@ interface IMinimalResultsViewer {
 }
 
 const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsViewer): ReactElement => {
-  const {hits, size, start, stringInput, typeDef} = props
+  const {filters, hits, size, start, stringInput, typeDef} = props
   const {searchFields, sortFields, url} = gettingstarted
-  const query = {searchFields, sortFields, url, start, size, typeDef, stringInput}
+  const query = {filters, searchFields, sortFields, url, start, size, typeDef, stringInput}
 
   return (
     <SolrResponseProvider query={query}>
@@ -40,6 +41,14 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
             <Pagination/>
           </Grid>
           <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
+            <GroupSelectedFilters {...props} />
+          </Grid>
+          <Grid
             style={{padding: 20}}
           >
             {hits ? <Hits/> : "Loading"}
@@ -56,6 +65,7 @@ MinimalResultsViewerComponent.defaultProps = {
 }
 
 const mapStateToProps = (state): any => ({
+  filters: state.query.filters,
   query: state.query,
   size: state.query.size,
   stringInput: state.query.stringInput,

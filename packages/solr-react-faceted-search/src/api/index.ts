@@ -13,6 +13,7 @@ export interface ISortField {
 }
 
 export interface IQuery {
+  filters: string[];
   searchFields: ISearchField[];
   sortFields: ISortField[];
   url: string;
