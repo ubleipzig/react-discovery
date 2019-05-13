@@ -1,21 +1,28 @@
-import React, {ReactElement} from "react";
+import React, {ReactElement, useEffect} from "react";
 import {connect} from 'react-redux'
-import {setStart} from "solr-react-faceted-search"
+import {setSelectedIndex, setStart} from "solr-react-faceted-search"
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
 interface IPagination {
   response: any;
+  selectedIndex: number;
+  setSelectedIndex: Function;
   setStart: Function;
   size: number;
   start: number;
 }
 
 export const PaginationComponent: React.FC<any> = (props: IPagination): ReactElement => {
-  const {start, size, response, setStart} = props;
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const {start, size, response, selectedIndex, setSelectedIndex, setStart} = props;
   const {numFound} = Object.keys(response).length && response.hits !== null && response.hits
+
+  useEffect((): void => {
+    if (start === 0) {
+      setSelectedIndex({selectedIndex: 0})
+    }
+  })
 
   const currentPage = start / size;
   const pageAmt = Math.ceil(numFound / size);
@@ -50,7 +57,7 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
       return;
     }
     setStart({newStart: page * size})
-    setSelectedIndex(page);
+    setSelectedIndex({selectedIndex: page});
   }
 
   const PageControlButton = (page, label, key): ReactElement =>
@@ -86,11 +93,12 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
 }
 
 const mapStateToProps = (state): any => ({
+  selectedIndex: state.config.selectedIndex,
   size: state.query.size,
   start: state.query.start,
   response: state.response
 })
 
-const mapDispatchToProps = {setStart}
+const mapDispatchToProps = {setSelectedIndex, setStart}
 
 export const Pagination = connect(mapStateToProps, mapDispatchToProps)(PaginationComponent)

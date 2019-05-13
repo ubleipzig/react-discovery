@@ -28,6 +28,10 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
             field={"characteristics_ss"}
             label={"Characteristics"}
             itemComponent={ItemList}/>
+          <ItemList
+            field={"domains_ss"}
+            label={"Domains"}
+            itemComponent={ItemList}/>
         </Grid>
         <Grid
           item xs={10}
@@ -46,7 +50,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
             justify="center"
             alignItems="center"
           >
-            <GroupSelectedFilters {...props} />
+            <GroupSelectedFilters/>
           </Grid>
           <Grid
             style={{padding: 20}}

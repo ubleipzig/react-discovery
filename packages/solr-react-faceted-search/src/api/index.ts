@@ -33,6 +33,7 @@ export interface IEMaxQuery {
   typeDef: string;
   facetLimit?: number;
   facetSort?: string;
+  filters: string[];
   group?: boolean;
   groupField?: string;
   hl?: boolean;

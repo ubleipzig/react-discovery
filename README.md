@@ -21,5 +21,5 @@
  ```bash
  $ npm install
  $ lerna bootstrap --hoist
- $ lerna run --scope solr-faceted-search-react build
+ $ lerna run --scope solr-react-faceted-search build
  $ lerna run --scope test-app start

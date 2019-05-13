@@ -3,7 +3,7 @@ import {SolrParameters} from "./SolrParameters"
 
 export const buildDisMaxQuery = (searchFields, stringInput): string => {
   const mainParam = "q"
-  const qfList = searchFields.map((searchField) => {
+  const qfList = searchFields.map((searchField): string => {
     return searchField.field
   }).join(" ")
   if (stringInput) {
@@ -14,24 +14,24 @@ export const buildDisMaxQuery = (searchFields, stringInput): string => {
 }
 
 export const buildFacetFields = (fields): string => fields
-  .filter((field) => field.type === "list-facet" || field.type === "range-facet")
-  .map((field) => `${SolrParameters.FACET_FIELD}=${encodeURIComponent(field.field)}`)
+  .filter((field): any => field.type === "list-facet" || field.type === "range-facet")
+  .map((field): any => `${SolrParameters.FACET_FIELD}=${encodeURIComponent(field.field)}`)
   .concat(
     fields
-      .filter((field) => field.type === "period-range-facet")
-      .map((field) => `${SolrParameters.FACET_FIELD}=${encodeURIComponent(field.lowerBound)}` +
+      .filter((field): any => field.type === "period-range-facet")
+      .map((field): any => `${SolrParameters.FACET_FIELD}=${encodeURIComponent(field.lowerBound)}` +
       `&${SolrParameters.FACET_FIELD}=${encodeURIComponent(field.upperBound)}`)
   )
-  .join("&");
+  .join('&');
 
-export const buildFacetSort = (fields): string => fields
-  .filter((field) => field.facetSort)
-  .map((field) => `f.${encodeURIComponent(field.field)}.${SolrParameters.FACET_SORT}=${field.facetSort}`)
-  .join("&");
+export const buildFilterQuery = (filters): string => Object.entries(filters)
+  .map(([k, values]): any => (values as [])
+    .map((val): any => `${SolrParameters.FILTER_QUERY}=${k}:"${val}"`)
+    .join('&')).join('&')
 
 export const buildSort = (sortFields): string => sortFields
-  .filter((sortField) => sortField.value)
-  .map((sortField) => encodeURIComponent(`${sortField.field} ${sortField.value}`))
+  .filter((sortField): any => sortField.value)
+  .map((sortField): any => encodeURIComponent(`${sortField.field} ${sortField.value}`))
   .join(",");
 
 export const buildHighlight = (highlight): string => {
@@ -55,24 +55,24 @@ export const buildHighlight = (highlight): string => {
 };
 
 export const extendedDisMaxQueryBuilder = (props: IEMaxQuery): string => {
-  const {searchFields, sortFields, stringInput, size, start, facetLimit,
-    facetSort, group, groupField, hl, url} = props
+  const {facetLimit, facetSort, filters, group, groupField, hl,
+    searchFields, sortFields, stringInput, size, start, url} = props
   const mainQuery = buildDisMaxQuery(searchFields, stringInput)
   const facetFieldParam = buildFacetFields(searchFields)
-  const facetSortParams = buildFacetSort(searchFields)
+  const filterQueryParams = buildFilterQuery(filters)
   const facetLimitParam = `${SolrParameters.FACET_LIMIT}=${facetLimit || -1}`
-  const facetSortParam = `${SolrParameters.FACET_SORT}${facetSort || "index"}`
+  const facetSortParam = `${SolrParameters.FACET_SORT}=${facetSort || "index"}`
   const sortParam = buildSort(sortFields)
   const groupParam = groupField ? `${SolrParameters.GROUP}$=${group}&${SolrParameters.GROUP_FIELD}$=${encodeURIComponent(groupField)}` : ""
   const highlightParam = buildHighlight(hl)
   const queryString = mainQuery +
     `${sortParam.length > 0 ? `&${SolrParameters.SORT}=${sortParam}` : ""}` +
     `${facetFieldParam.length > 0 ? `&${facetFieldParam}` : ""}` +
-    `${facetSortParams.length > 0 ? `&${facetSortParams}` : ""}` +
     `${groupParam.length > 0 ? `&${groupParam}` : ""}` +
     `&${SolrParameters.ROWS}=${size}` +
     `&${facetLimitParam}` +
     `&${facetSortParam}` +
+    `&${filterQueryParams}` +
     `&${SolrParameters.START}=${start}` +
     `&${SolrParameters.FACET}=${true}` +
     (highlightParam === "" ? "" : `&${highlightParam}`)

@@ -12,9 +12,10 @@ interface ISolrResponseProvider {
 
 const SolrResponseProviderComponent: React.FC<ISolrResponseProvider> = (props): ReactElement => {
   const {fetchSolrResponseWorker, setQueryFields, query} = props
-  const {start, stringInput} = query
+  const {filters, start, stringInput} = query
   const prevStart = usePrevious(start)
   const prevStringInput = usePrevious(stringInput)
+  const prevFilters = usePrevious(filters)
   const [isInitialized, setIsInitialized] = useState(false)
 
   const fetchResponse = (requestURI): boolean => {
@@ -32,6 +33,9 @@ const SolrResponseProviderComponent: React.FC<ISolrResponseProvider> = (props): 
       fetchResponse(requestURI)
     }
     if (isInitialized && prevStringInput !== stringInput) {
+      fetchResponse(requestURI)
+    }
+    if (isInitialized && prevFilters !== filters) {
       fetchResponse(requestURI)
     }
   }, [fetchResponse, isInitialized, prevStart, prevStringInput,

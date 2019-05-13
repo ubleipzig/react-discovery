@@ -9,13 +9,18 @@ import List from "@material-ui/core/List"
 import { makeStyles } from '@material-ui/core/styles'
 
 interface IGroupSelectedFilters {
-  filters: string[];
+  filters: IFilters;
   setDisMaxQuery: Function;
   setSelectedFilters: Function;
   setStart: Function;
+  stringInput: string;
 }
 
-const useStyles = makeStyles(() => ({
+interface IFilters {
+  [field: string]: string[];
+}
+
+const useStyles = makeStyles((): any => ({
   icon: {
     fontSize: 20,
   },
@@ -23,33 +28,36 @@ const useStyles = makeStyles(() => ({
 
 
 const GroupSelectedFiltersComponent: React.FC<any> = (props: IGroupSelectedFilters): ReactElement => {
-  const {filters, setDisMaxQuery, setSelectedFilters, setStart} = props
+  const {filters, setSelectedFilters, setStart} = props
   const classes: any = useStyles()
 
-  const onClose = (filter) => {
-    const newFilters = filters.filter((f) => f !== filter)
-    setSelectedFilters({filters: newFilters})
-    const filterString = newFilters.join("+AND+")
-    setDisMaxQuery({typeDef: "dismax", stringInput: encodeURI(`${filterString}`)})
+  const onClose = (field: any, filter: any): void => {
+    const newFilters = filters[field].filter((f): any => f !== filter)
+    setSelectedFilters({field, filters: newFilters})
     setStart({newStart: 0})
   }
 
-  const buildFilters = (filters): ReactElement => {
-    return filters && filters.map((filter, key): ReactElement =>
-      <ListItem
-        button
-        component='div'
-        dense key={key}>
-        <ListItemText primary={filter}/>
-        <IconButton
-          key="close"
-          aria-label="Close"
-          color="inherit"
-          onClick={() => onClose(filter)}
-        >
-          <CloseIcon className={classes.icon} />
-        </IconButton>
-      </ListItem>)
+  const buildFilters = (filters): any => {
+    const values = Object.values(filters)
+    return values && values[0] !== undefined && Object.entries(filters).map(([field, values]): any =>
+      (values as []).map((val, key): ReactElement => {
+        return (
+          <ListItem
+            button
+            component='div'
+            dense key={key}>
+            <ListItemText primary={val}/>
+            <IconButton
+              href=''
+              key="close"
+              aria-label="Close"
+              color="inherit"
+              onClick={(): void => onClose(field, val)}
+            >
+              <CloseIcon className={classes.icon} />
+            </IconButton>
+          </ListItem>)
+      }))
   }
 
   return (

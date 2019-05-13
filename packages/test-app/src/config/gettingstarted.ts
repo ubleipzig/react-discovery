@@ -13,6 +13,11 @@ export const gettingstarted: IConfig = {
       type: "list-facet"
     },
     {
+      label: "Domains",
+      field: "domains_ss",
+      type: "list-facet"
+    },
+    {
       label: "Date of birth",
       field: "birthDate_i",
       type: "range-facet"

@@ -24,12 +24,10 @@ export const query = reducerWithInitialState(initialState)
   .caseWithAction(setSearchFields, (state, action: any): ReducerBuilder<any> => ({
     ...state,
     searchFields: action.payload.searchFields,
-    start: state.query.pageStrategy === "paginate" ? 0 : null
   }))
   .caseWithAction(setSortFields, (state, action: any): ReducerBuilder<any> => ({
     ...state,
     sortFields: action.payload.sortFields,
-    start: state.query.pageStrategy === "paginate" ? 0 : null
   }))
   .caseWithAction(setStart, (state, action: any): ReducerBuilder<any> => ({
     ...state,
@@ -37,5 +35,8 @@ export const query = reducerWithInitialState(initialState)
   }))
   .caseWithAction(setSelectedFilters, (state, action: any): ReducerBuilder<any> => ({
     ...state,
-    filters: action.payload.filters
+    filters: {
+      ...state.filters,
+      [action.payload.field]: action.payload.filters
+    }
   }))

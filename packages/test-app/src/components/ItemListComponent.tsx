@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme): any => ({
 }))
 
 export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactElement => {
-  const {aggregation, filters, label, setDisMaxQuery, setSelectedFilters, setStart} = props
+  const {aggregation, field, filters, label, setSelectedFilters, setStart} = props
   const classes: any = useStyles()
   const [isExpanded, setExpanded] = React.useState(false)
 
@@ -75,10 +75,9 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
   }
 
   const handleChange = (key): void => {
-    filters && !filters.includes(key) && filters.push(key)
-    setSelectedFilters({filters})
-    const filterString = filters.join("+AND+")
-    setDisMaxQuery({typeDef: "dismax", stringInput: encodeURI(`${filterString}`)})
+    const newFilters = filters.length ? filters.filter((f): any => f !== key) : []
+    newFilters.push(key)
+    setSelectedFilters({field, filters: newFilters})
     setStart({newStart: 0})
   }
 
@@ -152,7 +151,7 @@ const mapDispatchToProps = {setDisMaxQuery, setSelectedFilters, setStart}
 
 const mapStateToProps = (state, {field}): any => ({
   aggregation: state.response && state.response.aggregations !== null && state.response.aggregations[field],
-  filters: state.query && state.query.filters
+  filters: state.query && state.query.filters[field]
 })
 
 export const ItemList: any = connect(mapStateToProps, mapDispatchToProps)(ItemListComponent)

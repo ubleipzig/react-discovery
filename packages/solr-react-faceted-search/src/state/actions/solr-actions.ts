@@ -17,7 +17,7 @@ export const setStart = actionCreator<{newStart: number}>(SET_START)
 export const setDisMaxQuery = actionCreator<{typeDef: string; stringInput: string}>(SET_DISMAX)
 export const setSearchFields = actionCreator<{searchFields; start}>(SET_SEARCH_FIELDS)
 export const setSortFields = actionCreator<{sortFields; start}>(SET_SORT_FIELDS)
-export const setSelectedFilters = actionCreator<{filters: string[]}>(SET_SELECTED_FILTERS)
+export const setSelectedFilters = actionCreator<{field: string; filters: string[]}>(SET_SELECTED_FILTERS)
 interface IFetchSolrResponseParams { requestURI: string}
 type Succ = any;
 
