@@ -42,5 +42,5 @@ export const gettingstarted: IConfig = {
       field: "deathDate_i"
     }
   ],
-  url: "http://localhost/solr/gettingstarted/query"
+  url: process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION + "/query"
 }

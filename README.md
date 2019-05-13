@@ -3,7 +3,13 @@
 
 ### Quick Start
 
-#### Setup Test Solr Instance
+#### Create Environment
+- configure `search api host` and `collection` in `.env` file in test app root
+```yaml
+REACT_APP_SEARCH_API_HOST=http://localhost/solr/
+REACT_APP_SEARCH_API_COLLECTION=gettingstarted
+```
+##### Setup Test Solr Instance
 - start docker composition 
     ```bash
     $ docker-compose up
@@ -17,7 +23,7 @@
     $ curl -X POST -H"Content-Type: application/json" http://localhost/solr/gettingstarted/update/json?commit=true --data-binary @sample-data.json
     ```
     
-#### Build and Start React App
+### Build and Start React App
  ```bash
  $ npm install
  $ lerna bootstrap --hoist
