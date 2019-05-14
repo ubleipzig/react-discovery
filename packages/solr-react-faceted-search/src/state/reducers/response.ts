@@ -64,7 +64,6 @@ export const response = reducerWithInitialState(initialState)
     hits: buildHits(action.payload.result),
     grouped: action.payload.result.grouped || {},
     aggregations: buildAggregations(action.payload.result.facet_counts.facet_fields),
-    highlighting: action.payload.result.highlighting ? action.payload.result.highlighting : [],
     updating: false,
   }))
   .case(fetchSolrResponse.failed, (state, { error }): any => ({

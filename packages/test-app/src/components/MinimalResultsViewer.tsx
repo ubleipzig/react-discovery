@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import {fetchSolrResponseWorker, setQueryFields, IHits, SolrResponseProvider} from 'solr-react-faceted-search'
 import {localConfig} from "../config"
-import {GroupSelectedFilters, Hits, ItemList, Pagination, SearchBox} from '.'
+import {GroupSelectedFilters, Hits, HitStats, ItemList, Pagination, SearchBox} from '.'
 
 interface IMinimalResultsViewer {
   filters: string[];
@@ -42,10 +42,14 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
           <Grid
             container
             direction="row"
-            justify="center"
-            alignItems="center"
           >
-            <Pagination/>
+            <HitStats/>
+          </Grid>
+          <Grid
+            container
+            direction="row"
+          >
+            <GroupSelectedFilters/>
           </Grid>
           <Grid
             container
@@ -53,7 +57,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
             justify="center"
             alignItems="center"
           >
-            <GroupSelectedFilters/>
+            <Pagination/>
           </Grid>
           <Grid
             style={{padding: 20}}

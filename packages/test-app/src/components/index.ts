@@ -1,5 +1,6 @@
 export * from './GroupSelectedFilters'
 export * from './Hits'
+export * from './HitStats'
 export * from './ItemListComponent'
 export * from './MinimalResultsViewer'
 export * from './Pagination'
