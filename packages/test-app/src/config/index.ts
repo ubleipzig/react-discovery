@@ -1,4 +1,5 @@
-export * from './gettingstarted'
+import deepmerge from 'deepmerge'
+import {collections} from './collections'
 
 export interface ISearchField {
   label: string;
@@ -12,7 +13,19 @@ export interface ISortField {
 }
 
 export interface IConfig {
-  searchFields: ISearchField[];
-  sortFields: ISortField[];
-  url: string;
+  currentCollection?: string;
+  collections: {
+    [collection: string]: {
+      searchFields: ISearchField[];
+      sortFields: ISortField[];
+      url: string;
+    };
+  };
 }
+
+export const rootConfig: IConfig = {
+  currentCollection: process.env.REACT_APP_SEARCH_API_COLLECTION || "gettingstarted",
+  collections: null
+}
+
+export const localConfig: any = deepmerge(rootConfig, collections)

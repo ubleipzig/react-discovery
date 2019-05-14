@@ -2,7 +2,7 @@ import React, {ReactElement} from 'react'
 import {connect} from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import {fetchSolrResponseWorker, setQueryFields, IHits, SolrResponseProvider} from 'solr-react-faceted-search'
-import {gettingstarted} from "../config"
+import {localConfig} from "../config"
 import {GroupSelectedFilters, Hits, ItemList, Pagination, SearchBox} from '.'
 
 interface IMinimalResultsViewer {
@@ -16,7 +16,8 @@ interface IMinimalResultsViewer {
 
 const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsViewer): ReactElement => {
   const {filters, hits, size, start, stringInput, typeDef} = props
-  const {searchFields, sortFields, url} = gettingstarted
+  const {collections, currentCollection} = localConfig
+  const {searchFields, sortFields, url} = collections[currentCollection]
   const query = {filters, searchFields, sortFields, url, start, size, typeDef, stringInput}
 
   return (
@@ -25,12 +26,16 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
       <Grid container spacing={3}>
         <Grid item xs={2}>
           <ItemList
-            field={"characteristics_ss"}
-            label={"Characteristics"}
+            field={"schreibsprachen_0_.name"}
+            label={"Language"}
             itemComponent={ItemList}/>
           <ItemList
-            field={"domains_ss"}
-            label={"Domains"}
+            field={"entstehungsDaten_0_.entstehungsort.name"}
+            label={"Place"}
+            itemComponent={ItemList}/>
+          <ItemList
+            field={"stoffe_0_.name"}
+            label={"Material"}
             itemComponent={ItemList}/>
         </Grid>
         <Grid
