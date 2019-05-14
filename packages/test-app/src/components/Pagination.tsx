@@ -4,6 +4,9 @@ import {setSelectedIndex, setStart} from "solr-react-faceted-search"
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import ChevronLeft from '@material-ui/icons/ChevronLeft'
+import ChevronRight from '@material-ui/icons/ChevronRight'
+import {makeStyles} from "@material-ui/core"
 
 interface IPagination {
   response: any;
@@ -14,9 +17,22 @@ interface IPagination {
   start: number;
 }
 
+const useStyles = makeStyles((theme): any => ({
+  button: {
+    padding: '5px 16px',
+    border: `1px solid ${
+      theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.23)'
+    }`,
+    '&$disabled': {
+      border: `1px solid ${theme.palette.action.disabled}`,
+    },
+  },
+}));
+
 export const PaginationComponent: React.FC<any> = (props: IPagination): ReactElement => {
   const {start, size, response, selectedIndex, setSelectedIndex, setStart} = props;
   const {numFound} = Object.keys(response).length && response.hits !== null && response.hits
+  const classes: any = useStyles()
 
   useEffect((): void => {
     if (start === 0) {
@@ -60,7 +76,20 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
     setSelectedIndex({selectedIndex: page});
   }
 
-  const PageControlButton = (page, label, key): ReactElement =>
+  const buildIcon = (key): ReactElement => {
+    switch (key) {
+      case 'first':
+        return <ChevronLeft/>
+      case 'previous':
+        return <ChevronLeft/>
+      case 'next':
+        return <ChevronRight/>
+      case 'last':
+        return <ChevronRight/>
+    }
+  }
+
+  const PageControlIndexButton = (page, label, key): ReactElement =>
     <ListItem
       button
       component='div'
@@ -68,25 +97,38 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
       key={key}
       selected={selectedIndex === page}
       onClick={(): void => onPageChange(page)}
+      className={classes.button}
     >
       <ListItemText primary={label}/>
     </ListItem>
 
+  const PageControlButton = (page, key): ReactElement =>
+    <ListItem
+      button
+      component='div'
+      dense
+      key={key}
+      selected={selectedIndex === page}
+      onClick={(): void => onPageChange(page)}
+      className={classes.button}
+    >
+      {buildIcon(key)}
+    </ListItem>
+
   const renderPages = (pages): ReactElement => {
     return pages && pages.map((page, i): ReactElement =>
-      PageControlButton(page, page + 1, i)
+      PageControlIndexButton(page, page + 1, i)
     )
   }
-
 
   return (
     <div style={{width: '100%', maxWidth: 360}}>
       <List style={{display: 'flex'}} component="nav">
-        {PageControlButton(0, "<<", "first")}
-        {PageControlButton(currentPage - 1, "<", "previous")}
+        {PageControlButton(0, "first")}
+        {PageControlButton(currentPage - 1, "previous")}
         {renderPages(pages)}
-        {PageControlButton(currentPage + 1, ">", "next")}
-        {PageControlButton(pageAmt - 1, ">>", "last")}
+        {PageControlButton(currentPage + 1, "next")}
+        {PageControlButton(pageAmt - 1, "last")}
       </List>
     </div>
   );
