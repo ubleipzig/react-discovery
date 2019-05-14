@@ -4,12 +4,12 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": {
-    "name": "René van der Ark",
-    "email": "rene.van.der.ark@huygens.knaw.nl"
+    "name": "Christopher Johnson",
+    "email": "chjohnson39@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/HuygensING/solr-faceted-search-react.git"
+    "url": "git@github.com:ubl-chj/solr-react.git"
   },
   "scripts": {
     "build": "tsc",
