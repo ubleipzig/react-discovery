@@ -24,6 +24,7 @@ export interface IQuery {
 }
 
 export interface IEMaxQuery {
+  highlighting?: boolean;
   searchFields: ISearchField[];
   sortFields: ISortField[];
   url: string;

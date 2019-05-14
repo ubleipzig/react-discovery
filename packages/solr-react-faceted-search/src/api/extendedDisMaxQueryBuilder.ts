@@ -34,28 +34,14 @@ export const buildSort = (sortFields): string => sortFields
   .map((sortField): any => encodeURIComponent(`${sortField.field} ${sortField.value}`))
   .join(",");
 
-export const buildHighlight = (highlight): string => {
-  let hlQs = "";
-  // If highlight is set, then populate params from keys/values.
-  if (highlight !== null && typeof highlight === "object") {
-    let hlParams = `${SolrParameters.HL}=${true}`;
-    for (const key of Object.keys(highlight)) {
-      // Support nested objects like hl.simple.tags
-      if (typeof highlight[key] === "object") {
-        for (const nestedKey of Object.keys(highlight[key])) {
-          hlParams += `&${SolrParameters.HL}.${key}.${nestedKey}=${encodeURIComponent(highlight[key][nestedKey])}`;
-        }
-      } else {
-        hlParams += `&${SolrParameters.HL}.${key}=${encodeURIComponent(highlight[key])}`;
-      }
-    }
-    hlQs = hlParams;
+export const buildHighlighting = (highlighting): string => {
+  if (highlighting) {
+    return `${SolrParameters.HL}=${true}&${SolrParameters.HL_FIELDS}=*`;
   }
-  return hlQs;
 };
 
 export const extendedDisMaxQueryBuilder = (props: IEMaxQuery): string => {
-  const {facetLimit, facetSort, filters, group, groupField, hl,
+  const {facetLimit, facetSort, filters, group, groupField, highlighting,
     searchFields, sortFields, stringInput, size, start, url} = props
   const mainQuery = buildDisMaxQuery(searchFields, stringInput)
   const facetFieldParam = buildFacetFields(searchFields)
@@ -64,7 +50,7 @@ export const extendedDisMaxQueryBuilder = (props: IEMaxQuery): string => {
   const facetSortParam = `${SolrParameters.FACET_SORT}=${facetSort || "index"}`
   const sortParam = buildSort(sortFields)
   const groupParam = groupField ? `${SolrParameters.GROUP}$=${group}&${SolrParameters.GROUP_FIELD}$=${encodeURIComponent(groupField)}` : ""
-  const highlightParam = buildHighlight(hl)
+  const highlightParam = buildHighlighting(highlighting)
   const queryString = mainQuery +
     `${sortParam.length > 0 ? `&${SolrParameters.SORT}=${sortParam}` : ""}` +
     `${facetFieldParam.length > 0 ? `&${facetFieldParam}` : ""}` +

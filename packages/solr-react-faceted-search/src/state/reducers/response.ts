@@ -38,9 +38,17 @@ const buildAggregations = (fields): IAggregations => {
   }, {})
 }
 
+const buildDocs = (result) => {
+  return result.response && result.response.docs && result.response.docs.map((doc) => {
+    return {
+      _source: doc,
+      highlighting: result.highlighting && result.highlighting[doc.id]
+    }
+  })
+}
 const buildHits = (result): IHits => {
   return {
-    hits: result.response ? result.response.docs : [],
+    hits: buildDocs(result),
     numFound: result.response ? result.response.numFound : null,
   }
 }
@@ -56,7 +64,7 @@ export const response = reducerWithInitialState(initialState)
     hits: buildHits(action.payload.result),
     grouped: action.payload.result.grouped || {},
     aggregations: buildAggregations(action.payload.result.facet_counts.facet_fields),
-    highlighting: action.payload.result.highlighting ? action.data.highlighting : [],
+    highlighting: action.payload.result.highlighting ? action.payload.result.highlighting : [],
     updating: false,
   }))
   .case(fetchSolrResponse.failed, (state, { error }): any => ({

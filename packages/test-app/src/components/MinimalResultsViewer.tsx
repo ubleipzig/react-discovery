@@ -16,12 +16,12 @@ interface IMinimalResultsViewer {
 
 const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsViewer): ReactElement => {
   const {filters, hits, size, start, stringInput, typeDef} = props
-  const {collections, currentCollection} = localConfig
+  const {collections, currentCollection, highlighting} = localConfig
   const {refinementListFilters, searchFields, sortFields, url} = collections[currentCollection]
-  const query = {filters, searchFields, sortFields, url, start, size, typeDef, stringInput}
+  const query = {filters, highlighting, searchFields, sortFields, url, start, size, typeDef, stringInput}
 
-  const buildRefinementListFilters = () => {
-    return Object.keys(refinementListFilters).map((id: any) => (
+  const buildRefinementListFilters = (): any => {
+    return Object.keys(refinementListFilters).map((id: any): ReactElement => (
       <ItemList
         key={id}
         field={refinementListFilters[id].field}

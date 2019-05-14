@@ -8,6 +8,7 @@ export enum SolrParameters {
   GROUP = "group",
   GROUP_FIELD = "group.field",
   HL = "hl",
+  HL_FIELDS = "hl.fl",
   QF = "qf",
   ROWS = "rows",
   SORT = "sort",

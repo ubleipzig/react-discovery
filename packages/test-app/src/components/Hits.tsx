@@ -33,14 +33,24 @@ const useStyles = makeStyles((theme): any => ({
   inline: {
     display: 'inline',
   },
+  values: {
+    '& em': {
+      background: '#cfe1f3'
+    }
+  }
 }));
 
 const HitsComponent: React.FC<any> = (props: IHits): ReactElement => {
   const {hits, searchFields} = props
   const classes: any = useStyles()
-  const renderValue = (field, hit): string => {
-    const value = [].concat(hit[field] || null).filter((v): any => v !== null);
-    return value.join(", ");
+
+  const renderValue = (field, hit): ReactElement => {
+    const {_source, highlighting} = hit
+    const source = Object.keys(highlighting).length > 0 ? Object.assign({}, _source, highlighting) : _source
+    const value = [].concat(source[field] || null).filter((v): any => v !== null);
+    return (
+      <div className={classes.values} dangerouslySetInnerHTML={{__html: value.join(", ")}}/>
+    )
   }
 
   const buildHits = (hits): ReactElement => hits.hits && hits.hits.map((hit, i): ReactElement => (

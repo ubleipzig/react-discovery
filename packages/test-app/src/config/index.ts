@@ -29,12 +29,14 @@ export interface IConfig {
       url: string;
     };
   };
+  highlighting?: boolean;
 }
 
 const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "gettingstarted"
 export const rootConfig: IConfig = {
   currentCollection,
-  collections: null
+  collections: null,
+  highlighting: true
 }
 
 export const localConfig: any = deepmerge(rootConfig, collections)
