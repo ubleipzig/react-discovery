@@ -43,15 +43,18 @@ export const gettingstarted: IConfig = {
       sortFields: [
         {
           label: "Name",
-          field: "koppelnaam_s"
+          field: "koppelnaam_s",
+          order: "asc"
         },
         {
           label: "Date of birth",
-          field: "birthDate_i"
+          field: "birthDate_i",
+          order: "asc"
         },
         {
           label: "Date of death",
-          field: "deathDate_i"
+          field: "deathDate_i",
+          order: "asc"
         }
       ],
       url: process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION + "/query"

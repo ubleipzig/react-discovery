@@ -1,24 +1,36 @@
 import React, {ReactElement} from 'react'
 import {connect} from 'react-redux'
 import Grid from '@material-ui/core/Grid'
-import {fetchSolrResponseWorker, setQueryFields, IHits, SolrResponseProvider} from 'solr-react-faceted-search'
-import {localConfig} from "../config"
-import {GroupSelectedFilters, Hits, HitStats, ItemList, Pagination, SearchBox} from '.'
+import {fetchSolrResponseWorker, setQueryFields, IHits, SolrResponseProvider, IQuery} from 'solr-react-faceted-search'
+import {ISortField, localConfig} from "../config"
+import {GroupSelectedFilters, Hits, HitStats, ItemList, Pagination, SearchBox, SortingSelector} from '.'
+import {Typography} from "@material-ui/core"
 
 interface IMinimalResultsViewer {
   filters: string[];
   hits: IHits;
   size: number;
+  newSortFields: ISortField[];
   start: number;
   stringInput: string;
   typeDef: string;
 }
 
 const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsViewer): ReactElement => {
-  const {filters, hits, size, start, stringInput, typeDef} = props
+  const {filters, hits, size, newSortFields, start, stringInput, typeDef} = props
   const {collections, currentCollection, highlighting} = localConfig
   const {refinementListFilters, searchFields, sortFields, url} = collections[currentCollection]
-  const query = {filters, highlighting, searchFields, sortFields, url, start, size, typeDef, stringInput}
+
+  const buildInitialQuery = (): IQuery => {
+    let query
+    const selectedSortFields = newSortFields && newSortFields.length && newSortFields.filter((field): boolean => 'isSelected' in field)
+    if (selectedSortFields && selectedSortFields.length) {
+      query = {filters, highlighting, searchFields, sortFields: newSortFields, url, start, size, typeDef, stringInput}
+    } else {
+      query = {filters, highlighting, searchFields, sortFields, url, start, size, typeDef, stringInput}
+    }
+    return query
+  }
 
   const buildRefinementListFilters = (): any => {
     return Object.keys(refinementListFilters).map((id: any): ReactElement => (
@@ -30,7 +42,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
   }
 
   return (
-    <SolrResponseProvider query={query}>
+    <SolrResponseProvider query={buildInitialQuery()}>
       <SearchBox/>
       <Grid container spacing={3}>
         <Grid item xs={2}>
@@ -44,6 +56,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
             direction="row"
           >
             <HitStats/>
+            <SortingSelector/>
           </Grid>
           <Grid
             container
@@ -60,9 +73,9 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
             <Pagination/>
           </Grid>
           <Grid
-            style={{padding: 20}}
+            style={{backgroundColor: 'lightgray', padding: 20}}
           >
-            {hits ? <Hits/> : "Loading"}
+            {hits ? <Hits/> : <Typography>Loading</Typography>}
           </Grid>
         </Grid>
       </Grid>
@@ -79,6 +92,7 @@ const mapStateToProps = (state): any => ({
   filters: state.query.filters,
   query: state.query,
   size: state.query.size,
+  newSortFields: state.query.sortFields,
   stringInput: state.query.stringInput,
   typeDef: state.query.typeDef,
   start: state.query.start,

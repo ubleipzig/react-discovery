@@ -10,6 +10,8 @@ export interface ISearchField {
 export interface ISortField {
   label: string;
   field: string;
+  isSelected?: boolean;
+  order: string;
 }
 
 export interface IRefinementListFilter {

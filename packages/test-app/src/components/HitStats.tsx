@@ -9,7 +9,7 @@ interface IHitStats {
 const HitStatsComponent: React.FC<any> = (props: IHitStats): ReactElement => {
   const {numFound} = props
   return (
-    <Box>
+    <Box style={{flex: 'auto'}}>
       <Typography>
         {numFound} results found
       </Typography>

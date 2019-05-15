@@ -1,6 +1,13 @@
 import { Action } from "typescript-fsa";
 import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
-import {setDisMaxQuery, setQueryFields, setSearchFields, setSelectedFilters, setSortFields, setStart} from "../actions"
+import {
+  setDisMaxQuery,
+  setQueryFields,
+  setSearchFields,
+  setSelectedFilters,
+  setSortFields,
+  setStart
+} from "../actions"
 const initialState: any = {
   filters: []
 };

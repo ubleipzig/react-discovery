@@ -10,6 +10,8 @@ export interface ISearchField {
 export interface ISortField {
   field: string;
   label: string;
+  order: string;
+  isSelected: boolean;
 }
 
 export interface IQuery {

@@ -30,8 +30,8 @@ export const buildFilterQuery = (filters): string => Object.entries(filters)
     .join('&')).join('&')
 
 export const buildSort = (sortFields): string => sortFields
-  .filter((sortField): any => sortField.value)
-  .map((sortField): any => encodeURIComponent(`${sortField.field} ${sortField.value}`))
+  .filter((sortField): any => sortField.isSelected)
+  .map((sortField): any => encodeURIComponent(`${sortField.field} ${sortField.order}`))
   .join(",");
 
 export const buildHighlighting = (highlighting): string => {

@@ -3,7 +3,7 @@ import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
 import {setSelectedIndex} from "../actions"
 
 const initialState: any = {
-  currentPage: 0
+  selectedIndex: 0,
 };
 
 export const config = reducerWithInitialState(initialState)
@@ -11,3 +11,4 @@ export const config = reducerWithInitialState(initialState)
     ...state,
     selectedIndex: action.payload.selectedIndex
   }))
+

@@ -19,10 +19,7 @@ export interface ISearchField {
 
 const useStyles = makeStyles((theme): any => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
+    marginBottom: '5px',
     backgroundColor: theme.palette.background.paper,
   },
   content: {
@@ -54,13 +51,13 @@ const HitsComponent: React.FC<any> = (props: IHits): ReactElement => {
   }
 
   const buildHits = (hits): ReactElement => hits.hits && hits.hits.map((hit, i): ReactElement => (
-    <Card key={i}>
+    <Card className={classes.root} key={i}>
       {searchFields.map((field, i): ReactElement =>
         <CardContent
           className={classes.content}
           key={i}
         >
-          <div style={{margin: "0 20px 0 10px", width: 120}}>
+          <div style={{margin: "0 20px 0 10px", minWidth: 120}}>
             <Typography
               component="span"
             >

@@ -52,7 +52,23 @@ export const hsp: IConfig = {
       sortFields: [
         {
           label: "Holding Place",
-          field: "aufbewarungOrt.name"
+          field: "aufbewarungOrt.name",
+          order: "asc"
+        },
+        {
+          label: "Origin Place",
+          field: "entstehungsDaten_0_.entstehungsort.name",
+          order: "asc"
+        },
+        {
+          label: "Language",
+          field: "schreibsprachen_0_.name",
+          order: "asc"
+        },
+        {
+          label: "Material",
+          field: "stoffe_0_.name",
+          order: "asc"
         },
       ],
       url: process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION + "/query"

@@ -16,7 +16,7 @@ export const rootReducer = (): any => combineReducers({
   config,
   query,
   response,
-});
+})
 
 const store = createStore(
   rootReducer(),
