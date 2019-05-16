@@ -1,6 +1,8 @@
 import React, {ReactElement} from "react"
 import {setDisMaxQuery, setStart} from "solr-react-faceted-search"
 import {connect} from "react-redux"
+import InputAdornment from '@material-ui/core/InputAdornment'
+import Search from '@material-ui/icons/Search'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -48,6 +50,13 @@ const SearchBoxComponent: React.FC<any> = (props: ISearchBox): ReactElement => {
           type="search"
           InputLabelProps={{
             shrink: true,
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Search />
+              </InputAdornment>
+            ),
           }}
           margin="normal"
           onChange={handleChange}
