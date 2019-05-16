@@ -9,6 +9,7 @@ import {
   config, IQuery,
   query,
   response,
+  suggestions
 } from "solr-react-faceted-search"
 import {localConfig} from "./config"
 const thunk: ThunkMiddleware<{}, AnyAction> = thunkMiddleware;
@@ -24,6 +25,8 @@ const initialQueryState: IQuery = {
   start: 0,
   stringInput: null,
   sortFields,
+  suggest: false,
+  suggestDictionary: 'suggester',
   typeDef: null,
   url
 }
@@ -34,6 +37,7 @@ export const rootReducer = (): any => combineReducers({
   config,
   query: queryReducer,
   response,
+  suggestions
 })
 
 const store = createStore(

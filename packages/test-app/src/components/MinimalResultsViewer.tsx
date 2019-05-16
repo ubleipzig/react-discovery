@@ -11,7 +11,7 @@ import {
   SolrResponseProvider
 } from 'solr-react-faceted-search'
 import {localConfig} from "../config"
-import {GroupSelectedFilters, Hits, HitStats, ItemList, Pagination, SearchBox, SortingSelector} from '.'
+import {GroupSelectedFilters, Hits, HitStats, ItemList, Pagination, SearchBox, SortingSelector, Suggester} from '.'
 import {Typography} from "@material-ui/core"
 
 interface IMinimalResultsViewer {
@@ -23,17 +23,19 @@ interface IMinimalResultsViewer {
   sortFields: ISortField[];
   start: number;
   stringInput: string;
+  suggest: boolean;
+  suggestDictionary: string;
   typeDef: string;
   url: string;
 }
 
 const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsViewer): ReactElement => {
-  const {filters, highlighting, hits, searchFields, size, sortFields, start, stringInput, typeDef, url} = props
+  const {filters, highlighting, hits, searchFields, size, sortFields, start, stringInput, suggest, suggestDictionary, typeDef, url} = props
   const {collections, currentCollection} = localConfig
   const {refinementListFilters} = collections[currentCollection]
 
   const buildInitialQuery = (): IQuery => {
-    return {filters, highlighting, searchFields, size, sortFields, start, stringInput, typeDef, url}
+    return {filters, highlighting, searchFields, size, sortFields, start, stringInput, suggest, typeDef, suggestDictionary, url}
   }
 
   const buildRefinementListFilters = (): any => {
@@ -50,6 +52,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
       <SearchBox/>
       <Grid container spacing={3}>
         <Grid item xs={2}>
+          <Suggester/>
           {buildRefinementListFilters()}
         </Grid>
         <Grid
@@ -95,6 +98,8 @@ const mapStateToProps = (state): any => ({
   searchFields: state.query.searchFields,
   sortFields: state.query.sortFields,
   stringInput: state.query.stringInput,
+  suggest: state.query.suggest,
+  suggestDictionary: state.query.suggestDictionary,
   typeDef: state.query.typeDef,
   start: state.query.start,
   hits: state.response.hits,

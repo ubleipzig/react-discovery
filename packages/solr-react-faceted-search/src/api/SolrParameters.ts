@@ -10,9 +10,15 @@ export enum SolrParameters {
   HL = "hl",
   HL_FIELDS = "hl.fl",
   QF = "qf",
+  QUERY_CONTEXT = '/query',
   ROWS = "rows",
   SORT = "sort",
   START = "start",
+  SUGGEST = 'suggest',
+  SUGGEST_QUERY = 'suggest.q',
+  SUGGEST_BUILD = 'suggest.build',
+  SUGGEST_DICTIONARY = 'suggest.dictionary',
+  SUGGEST_CONTEXT = '/suggest',
   TYPE_DEF = "defType",
   WT = "wt"
 }

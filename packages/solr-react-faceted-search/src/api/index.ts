@@ -1,5 +1,6 @@
 export * from './SolrResponseProvider'
 export * from './extendedDisMaxQueryBuilder'
+export * from './suggestQueryBuilder'
 
 export interface ISearchField {
   field: string;
@@ -23,6 +24,8 @@ export interface IQuery {
   start: number;
   size: number;
   stringInput: string;
+  suggest?: boolean;
+  suggestDictionary?: string;
   typeDef: string;
 }
 

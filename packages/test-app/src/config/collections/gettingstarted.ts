@@ -57,7 +57,7 @@ export const gettingstarted: IConfig = {
           order: "asc"
         }
       ],
-      url: process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION + "/query"
+      url: process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION
     }
   }
 }
