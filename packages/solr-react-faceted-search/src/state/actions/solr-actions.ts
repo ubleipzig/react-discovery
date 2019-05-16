@@ -9,6 +9,7 @@ const SET_SEARCH_FIELDS = "SET_SEARCH_FIELDS"
 const SET_SELECTED_FILTERS = "SET_SELECTED_FILTERS"
 const SET_SORT_FIELDS = "SET_SORT_FIELDS"
 const SET_START = "SET_START"
+const SET_SUGGEST = "SET_SUGGEST"
 const SET_DISMAX = "SET_DISMAX"
 const actionCreator = actionCreatorFactory()
 
@@ -19,6 +20,7 @@ export const setDisMaxQuery = actionCreator<{typeDef: string; stringInput: strin
 export const setSearchFields = actionCreator<{searchFields}>(SET_SEARCH_FIELDS)
 export const setSortFields = actionCreator<{sortFields}>(SET_SORT_FIELDS)
 export const setSelectedFilters = actionCreator<{field: string; filters: string[]}>(SET_SELECTED_FILTERS)
+export const setSuggest = actionCreator<{suggest: boolean}>(SET_SUGGEST)
 export const setResponseError = actionCreator<{error: string}>(SET_RESPONSE_ERROR)
 interface IFetchSolrResponseParams { requestURI: string}
 type Succ = any;

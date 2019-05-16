@@ -6,7 +6,8 @@ import {
   setSearchFields,
   setSelectedFilters,
   setSortFields,
-  setStart
+  setStart,
+  setSuggest
 } from "../actions"
 
 export const query = (initialState): any => reducerWithInitialState(initialState)
@@ -18,6 +19,7 @@ export const query = (initialState): any => reducerWithInitialState(initialState
     sortFields: action.payload.sortFields,
     size: action.payload.size,
     start: action.payload.start,
+    suggestDictionary: action.payload.suggestDictionary
   }))
   .caseWithAction(setDisMaxQuery, (state, action: Action<any>): ReducerBuilder<any> => ({
     ...state,
@@ -35,6 +37,10 @@ export const query = (initialState): any => reducerWithInitialState(initialState
   .caseWithAction(setStart, (state, action: any): ReducerBuilder<any> => ({
     ...state,
     start: action.payload.newStart
+  }))
+  .caseWithAction(setSuggest, (state, action: any): ReducerBuilder<any> => ({
+    ...state,
+    suggest: action.payload.suggest
   }))
   .caseWithAction(setSelectedFilters, (state, action: any): ReducerBuilder<any> => ({
     ...state,

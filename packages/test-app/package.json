@@ -17,6 +17,7 @@
     "@material-ui/icons": "^4.0.0-beta.0",
     "@material-ui/styles": "^4.0.0-beta.1",
     "prop-types": "^15.7.2",
+    "react-select": "^2.4.3",
     "solr-react-faceted-search": "file:../solr-react-faceted-search"
   },
   "devDependencies": {

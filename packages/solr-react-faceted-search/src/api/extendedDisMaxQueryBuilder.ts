@@ -62,6 +62,6 @@ export const extendedDisMaxQueryBuilder = (props: IEMaxQuery): string => {
     `&${SolrParameters.START}=${start}` +
     `&${SolrParameters.FACET}=${true}` +
     (highlightParam === "" ? "" : `&${highlightParam}`)
-  return `${url}?${queryString}`
+  return `${url}${SolrParameters.QUERY_CONTEXT}?${queryString}`
 }
 

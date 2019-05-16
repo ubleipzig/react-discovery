@@ -24,6 +24,8 @@ const initialQueryState: IQuery = {
   start: 0,
   stringInput: null,
   sortFields,
+  suggest: false,
+  suggestDictionary: 'suggester',
   typeDef: null,
   url
 }

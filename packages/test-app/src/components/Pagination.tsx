@@ -1,6 +1,6 @@
 import React, {ReactElement, useEffect} from "react";
 import {connect} from 'react-redux'
-import {setSelectedIndex, setStart} from "solr-react-faceted-search"
+import {setSelectedIndex, setStart, setSuggest} from "solr-react-faceted-search"
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -13,6 +13,7 @@ interface IPagination {
   selectedIndex: number;
   setSelectedIndex: Function;
   setStart: Function;
+  setSuggest: Function;
   size: number;
   start: number;
 }
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme): any => ({
 }));
 
 export const PaginationComponent: React.FC<any> = (props: IPagination): ReactElement => {
-  const {start, size, response, selectedIndex, setSelectedIndex, setStart} = props;
+  const {start, size, response, selectedIndex, setSelectedIndex, setStart, setSuggest} = props;
   const {numFound} = Object.keys(response).length && response.hits !== null && response.hits
   const classes: any = useStyles()
 
@@ -73,6 +74,7 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
       return;
     }
     setStart({newStart: page * size})
+    setSuggest({suggest: false})
     setSelectedIndex({selectedIndex: page});
   }
 
@@ -141,6 +143,6 @@ const mapStateToProps = (state): any => ({
   response: state.response
 })
 
-const mapDispatchToProps = {setSelectedIndex, setStart}
+const mapDispatchToProps = {setSelectedIndex, setStart, setSuggest}
 
 export const Pagination = connect(mapStateToProps, mapDispatchToProps)(PaginationComponent)
