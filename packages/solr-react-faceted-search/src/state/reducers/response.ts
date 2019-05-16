@@ -1,10 +1,9 @@
 import {reducerWithInitialState} from 'typescript-fsa-reducers'
 import {fetchSolrResponse} from '../actions'
 
-interface IState {
+interface IResponseState {
   aggregations: IAggregations;
   hits: IHits;
-  url: string;
 }
 
 export interface IAggregations {
@@ -13,14 +12,18 @@ export interface IAggregations {
   };
 }
 export interface IHits {
-  hits: [];
+  hits: IHit[];
   numFound: number;
 }
 
-const initialState: IState = {
+export interface IHit {
+  _source: any;
+  highlighting: any;
+}
+
+const initialState: IResponseState = {
   aggregations: null,
   hits: null,
-  url: null,
 }
 
 const buildAggregations = (fields): IAggregations => {
@@ -38,8 +41,8 @@ const buildAggregations = (fields): IAggregations => {
   }, {})
 }
 
-const buildDocs = (result) => {
-  return result.response && result.response.docs && result.response.docs.map((doc) => {
+const buildDocs = (result): IHit[] => {
+  return result.response && result.response.docs && result.response.docs.map((doc): IHit => {
     return {
       _source: doc,
       highlighting: result.highlighting && result.highlighting[doc.id]
@@ -58,7 +61,7 @@ export const response = reducerWithInitialState(initialState)
     ...state,
     updating: true
   }))
-  .caseWithAction(fetchSolrResponse.done, (state: IState, action: any): any => ({
+  .caseWithAction(fetchSolrResponse.done, (state: IResponseState, action: any): any => ({
     ...state,
     url: action.payload.params.url,
     hits: buildHits(action.payload.result),

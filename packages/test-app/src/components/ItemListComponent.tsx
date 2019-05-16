@@ -75,7 +75,7 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
   }
 
   const handleChange = (key): void => {
-    const newFilters = filters.length ? filters.filter((f): any => f !== key) : []
+    const newFilters = filters && filters.length ? filters.filter((f): any => f !== key) : []
     newFilters.push(key)
     setSelectedFilters({field, filters: newFilters})
     setStart({newStart: 0})
@@ -140,18 +140,11 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
   )
 }
 
-ItemListComponent.defaultProps = {
-  filters: [],
-  showCount: true,
-  multiselect: true,
-  selectedItems: [],
-}
-
 const mapDispatchToProps = {setDisMaxQuery, setSelectedFilters, setStart}
 
 const mapStateToProps = (state, {field}): any => ({
   aggregation: state.response && state.response.aggregations !== null && state.response.aggregations[field],
-  filters: state.query && state.query.filters[field]
+  filters: state.query.filters[field]
 })
 
 export const ItemList: any = connect(mapStateToProps, mapDispatchToProps)(ItemListComponent)

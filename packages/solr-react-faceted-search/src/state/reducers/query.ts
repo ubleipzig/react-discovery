@@ -8,16 +8,12 @@ import {
   setSortFields,
   setStart
 } from "../actions"
-const initialState: any = {
-  filters: []
-};
 
-export const query = reducerWithInitialState(initialState)
+export const query = (initialState): any => reducerWithInitialState(initialState)
   .caseWithAction(setQueryFields, (state, action: any): ReducerBuilder<any> => ({
     ...state,
     group: action.payload.group,
-    hl: action.payload.hl,
-    pageStrategy: action.payload.pageStrategy,
+    highlighting: action.payload.highlighting,
     searchFields: action.payload.searchFields,
     sortFields: action.payload.sortFields,
     size: action.payload.size,

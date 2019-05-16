@@ -1,35 +1,39 @@
 import React, {ReactElement} from 'react'
 import {connect} from 'react-redux'
 import Grid from '@material-ui/core/Grid'
-import {fetchSolrResponseWorker, setQueryFields, IHits, SolrResponseProvider, IQuery} from 'solr-react-faceted-search'
-import {ISortField, localConfig} from "../config"
+import {
+  fetchSolrResponseWorker,
+  IHits,
+  IQuery,
+  ISearchField,
+  ISortField,
+  setQueryFields,
+  SolrResponseProvider
+} from 'solr-react-faceted-search'
+import {localConfig} from "../config"
 import {GroupSelectedFilters, Hits, HitStats, ItemList, Pagination, SearchBox, SortingSelector} from '.'
 import {Typography} from "@material-ui/core"
 
 interface IMinimalResultsViewer {
   filters: string[];
+  highlighting: boolean;
   hits: IHits;
   size: number;
-  newSortFields: ISortField[];
+  searchFields: ISearchField[];
+  sortFields: ISortField[];
   start: number;
   stringInput: string;
   typeDef: string;
+  url: string;
 }
 
 const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsViewer): ReactElement => {
-  const {filters, hits, size, newSortFields, start, stringInput, typeDef} = props
-  const {collections, currentCollection, highlighting} = localConfig
-  const {refinementListFilters, searchFields, sortFields, url} = collections[currentCollection]
+  const {filters, highlighting, hits, searchFields, size, sortFields, start, stringInput, typeDef, url} = props
+  const {collections, currentCollection} = localConfig
+  const {refinementListFilters} = collections[currentCollection]
 
   const buildInitialQuery = (): IQuery => {
-    let query
-    const selectedSortFields = newSortFields && newSortFields.length && newSortFields.filter((field): boolean => 'isSelected' in field)
-    if (selectedSortFields && selectedSortFields.length) {
-      query = {filters, highlighting, searchFields, sortFields: newSortFields, url, start, size, typeDef, stringInput}
-    } else {
-      query = {filters, highlighting, searchFields, sortFields, url, start, size, typeDef, stringInput}
-    }
-    return query
+    return {filters, highlighting, searchFields, size, sortFields, start, stringInput, typeDef, url}
   }
 
   const buildRefinementListFilters = (): any => {
@@ -83,20 +87,18 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
   )
 }
 
-MinimalResultsViewerComponent.defaultProps = {
-  size: 20,
-  start: 0
-}
-
 const mapStateToProps = (state): any => ({
   filters: state.query.filters,
+  highlighting: state.query.highlighting,
   query: state.query,
   size: state.query.size,
-  newSortFields: state.query.sortFields,
+  searchFields: state.query.searchFields,
+  sortFields: state.query.sortFields,
   stringInput: state.query.stringInput,
   typeDef: state.query.typeDef,
   start: state.query.start,
   hits: state.response.hits,
+  url: state.query.url
 })
 const mapDispatchToProps = {fetchSolrResponseWorker, setQueryFields}
 

@@ -3,9 +3,8 @@ import FormControl from '@material-ui/core/FormControl'
 import Input from '@material-ui/core/Input'
 import NativeSelect from '@material-ui/core/NativeSelect'
 import {connect} from "react-redux"
-import {setSortFields} from "solr-react-faceted-search"
+import {setSortFields, ISortField} from "solr-react-faceted-search"
 import { makeStyles } from '@material-ui/core/styles'
-import {ISortField} from "../config"
 
 interface ISortingSelector {
   setSortFields: Function;

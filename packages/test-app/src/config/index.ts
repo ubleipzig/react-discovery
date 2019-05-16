@@ -1,18 +1,9 @@
 import deepmerge from 'deepmerge'
 import {collections} from './collections'
-
-export interface ISearchField {
-  label: string;
-  field: string;
-  type: string;
-}
-
-export interface ISortField {
-  label: string;
-  field: string;
-  isSelected?: boolean;
-  order: string;
-}
+import {
+  ISearchField,
+  ISortField
+} from 'solr-react-faceted-search'
 
 export interface IRefinementListFilter {
   label: string;
@@ -35,10 +26,10 @@ export interface IConfig {
 }
 
 const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "gettingstarted"
+
 export const rootConfig: IConfig = {
   currentCollection,
-  collections: null,
-  highlighting: true
+  collections: null
 }
 
 export const localConfig: any = deepmerge(rootConfig, collections)

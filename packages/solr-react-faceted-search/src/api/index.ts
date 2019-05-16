@@ -11,11 +11,12 @@ export interface ISortField {
   field: string;
   label: string;
   order: string;
-  isSelected: boolean;
+  isSelected?: boolean;
 }
 
 export interface IQuery {
   filters: string[];
+  highlighting: boolean;
   searchFields: ISearchField[];
   sortFields: ISortField[];
   url: string;
@@ -39,5 +40,4 @@ export interface IEMaxQuery {
   filters: string[];
   group?: boolean;
   groupField?: string;
-  hl?: boolean;
 }
