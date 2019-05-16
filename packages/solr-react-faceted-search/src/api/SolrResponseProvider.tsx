@@ -5,7 +5,7 @@ import {fetchSolrResponseWorker, setQueryFields} from "../state/actions"
 import {connect} from 'react-redux'
 
 interface ISolrResponseProvider {
-  fetchSolrResponseWorker: any;
+  fetchSolrResponseWorker: Function;
   query: IQuery;
   setQueryFields: typeof setQueryFields;
 }

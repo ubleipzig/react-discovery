@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme): any => ({
   details: {
     display: 'flex',
     flexDirection: 'column',
+    padding: '20px'
   },
   inline: {
     display: 'inline',
