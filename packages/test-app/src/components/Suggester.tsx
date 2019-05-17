@@ -155,8 +155,7 @@ export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactEleme
       <Downshift
         id="downshift-simple"
         inputValue={inputValue}
-        onChange={onSelect}
-      >
+        onChange={onSelect}>
         {({
           getInputProps,
           getItemProps,
