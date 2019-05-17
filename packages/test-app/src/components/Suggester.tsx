@@ -43,6 +43,8 @@ const useStyles = makeStyles((theme): any => ({
   },
   container: {
     flexGrow: 1,
+    height: '105px',
+    padding: '8px',
     position: 'relative',
   },
   paper: {
@@ -71,7 +73,7 @@ const renderInput = (inputProps): ReactElement => {
   const { InputProps, classes, ref, ...other } = inputProps;
   return (
     <TextField
-      style={{ margin: 8 }}
+      style={{ width: '100%' }}
       variant="outlined"
       InputLabelProps={{
         shrink: true,
@@ -153,7 +155,8 @@ export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactEleme
       <Downshift
         id="downshift-simple"
         inputValue={inputValue}
-        onChange={onSelect}>
+        onChange={onSelect}
+      >
         {({
           getInputProps,
           getItemProps,
