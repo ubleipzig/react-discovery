@@ -9,7 +9,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
-import {setDisMaxQuery, setSelectedFilters, setStart} from "solr-react-faceted-search"
+import {setDisMaxQuery, setSelectedFilters, setStart, setSuggest} from "solr-react-faceted-search"
 
 export interface IListProps {
   toggleItem: (key: string) => void;
@@ -43,6 +43,7 @@ export interface IItemListProps extends IListProps {
   setDisMaxQuery: Function;
   setSelectedFilters: Function;
   setStart: Function;
+  setSuggest: Function;
 }
 
 const useStyles = makeStyles((theme): any => ({
@@ -66,7 +67,7 @@ const useStyles = makeStyles((theme): any => ({
 }))
 
 export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactElement => {
-  const {aggregation, field, filters, label, setSelectedFilters, setStart} = props
+  const {aggregation, field, filters, label, setSelectedFilters, setStart, setSuggest} = props
   const classes: any = useStyles()
   const [isExpanded, setExpanded] = React.useState(false)
 
@@ -77,6 +78,7 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
   const handleChange = (key): void => {
     const newFilters = filters && filters.length ? filters.filter((f): any => f !== key) : []
     newFilters.push(key)
+    setSuggest({suggest: false})
     setSelectedFilters({field, filters: newFilters})
     setStart({newStart: 0})
   }
@@ -140,10 +142,10 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
   )
 }
 
-const mapDispatchToProps = {setDisMaxQuery, setSelectedFilters, setStart}
+const mapDispatchToProps = {setDisMaxQuery, setSelectedFilters, setStart, setSuggest}
 
 const mapStateToProps = (state, {field}): any => ({
-  aggregation: state.response && state.response.aggregations !== null && state.response.aggregations[field],
+  aggregation: state.response && state.response.aggregations && state.response.aggregations !== null && state.response.aggregations[field],
   filters: state.query.filters[field]
 })
 
