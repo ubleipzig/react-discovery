@@ -20,7 +20,7 @@ REACT_APP_SEARCH_API_COLLECTION=gettingstarted
     ```
 - load sample data
     ```bash
-    $ curl -X POST -H"Content-Type: application/json" http://localhost/solr/gettingstarted/update/json?commit=true --data-binary @sample-data.json
+    $ curl -X POST -H"Content-Type: application/json" http://localhost/solr/gettingstarted/update/json?commit=true --data-binary @test-data/sample-data.json
     ```
     
 ### Build and Start React App
