@@ -40,6 +40,7 @@ export const query = (initialState): any => reducerWithInitialState(initialState
   }))
   .caseWithAction(setSuggest, (state, action: any): ReducerBuilder<any> => ({
     ...state,
+    stringInput: action.payload.stringInput,
     suggest: action.payload.suggest
   }))
   .caseWithAction(setSelectedFilters, (state, action: any): ReducerBuilder<any> => ({

@@ -1,96 +1,49 @@
-import React from 'react'
-import clsx from 'clsx'
-import Select from 'react-select'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
-import NoSsr from '@material-ui/core/NoSsr'
-import TextField from '@material-ui/core/TextField'
-import Paper from '@material-ui/core/Paper'
+import React, {ReactElement} from 'react';
+import deburr from 'lodash/deburr';
 import Chip from '@material-ui/core/Chip'
-import MenuItem from '@material-ui/core/MenuItem'
-import CancelIcon from '@material-ui/icons/Cancel'
-import { emphasize } from '@material-ui/core/styles/colorManipulator'
-import PropTypes from 'prop-types'
+import Downshift from 'downshift';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper';
+import MenuItem from '@material-ui/core/MenuItem';
+import {setStart, setSuggest} from "solr-react-faceted-search"
 import {connect} from "react-redux"
-import {setSuggest} from "solr-react-faceted-search"
 
-const suggestions = [
-  { label: 'Afghanistan' },
-  { label: 'Aland Islands' },
-  { label: 'Albania' },
-  { label: 'Algeria' },
-  { label: 'American Samoa' },
-  { label: 'Andorra' },
-  { label: 'Angola' },
-  { label: 'Anguilla' },
-  { label: 'Antarctica' },
-  { label: 'Antigua and Barbuda' },
-  { label: 'Argentina' },
-  { label: 'Armenia' },
-  { label: 'Aruba' },
-  { label: 'Australia' },
-  { label: 'Austria' },
-  { label: 'Azerbaijan' },
-  { label: 'Bahamas' },
-  { label: 'Bahrain' },
-  { label: 'Bangladesh' },
-  { label: 'Barbados' },
-  { label: 'Belarus' },
-  { label: 'Belgium' },
-  { label: 'Belize' },
-  { label: 'Benin' },
-  { label: 'Bermuda' },
-  { label: 'Bhutan' },
-  { label: 'Bolivia, Plurinational State of' },
-  { label: 'Bonaire, Sint Eustatius and Saba' },
-  { label: 'Bosnia and Herzegovina' },
-  { label: 'Botswana' },
-  { label: 'Bouvet Island' },
-  { label: 'Brazil' },
-  { label: 'British Indian Ocean Territory' },
-  { label: 'Brunei Darussalam' },
-].map(suggestion => ({
-  value: suggestion.label,
-  label: suggestion.label,
-}))
+interface ISuggestion {
+  highlightedIndex: number;
+  index: number;
+  itemProps: {};
+  selectedItem: string;
+  suggestion: string;
+}
 
-const useStyles = makeStyles(theme => ({
+const renderSuggestion = (props: ISuggestion): ReactElement => {
+  const { suggestion, index, itemProps, highlightedIndex, selectedItem } = props
+  const isHighlighted = highlightedIndex === index;
+  const isSelected = (selectedItem || '').indexOf(suggestion) > -1;
+
+  return (
+    <MenuItem
+      {...itemProps}
+      key={suggestion}
+      selected={isHighlighted}
+      component="div"
+      style={{
+        fontWeight: isSelected ? 500 : 400,
+      }}
+    >
+      {suggestion}
+    </MenuItem>
+  );
+}
+
+const useStyles = makeStyles((theme): any => ({
   root: {
     flexGrow: 1,
-    height: 250,
   },
-  input: {
-    display: 'flex',
-    padding: 0,
-    height: 'auto',
-  },
-  valueContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    flex: 1,
-    alignItems: 'center',
-    overflow: 'hidden',
-  },
-  chip: {
-    margin: theme.spacing(0.5, 0.25),
-  },
-  chipFocused: {
-    backgroundColor: emphasize(
-      theme.palette.type === 'light' ? theme.palette.grey[300] : theme.palette.grey[700],
-      0.08,
-    ),
-  },
-  noOptionsMessage: {
-    padding: theme.spacing(1, 2),
-  },
-  singleValue: {
-    fontSize: 16,
-  },
-  placeholder: {
-    position: 'absolute',
-    left: 2,
-    bottom: 6,
-    fontSize: 16,
+  container: {
+    flexGrow: 1,
+    position: 'relative',
   },
   paper: {
     position: 'absolute',
@@ -99,216 +52,161 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     right: 0,
   },
+  chip: {
+    margin: theme.spacing(0.5, 0.25),
+  },
+  inputRoot: {
+    flexWrap: 'wrap',
+  },
+  inputInput: {
+    width: 'auto',
+    flexGrow: 1,
+  },
   divider: {
     height: theme.spacing(2),
   },
-}))
+}));
 
-const NoOptionsMessage = (props) => {
-  return (
-    <Typography
-      color="textSecondary"
-      className={props.selectProps.classes.noOptionsMessage}
-      {...props.innerProps}
-    >
-      {props.children}
-    </Typography>
-  )
-}
-
-NoOptionsMessage.propTypes = {
-  children: PropTypes.node,
-  innerProps: PropTypes.object,
-  selectProps: PropTypes.object.isRequired,
-}
-
-const inputComponent = ({ inputRef, ...props }) => {
-  return <div ref={inputRef} {...props} />
-}
-
-inputComponent.propTypes = {
-  inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-}
-
-const Control = (props) => {
+const renderInput = (inputProps): ReactElement => {
+  const { InputProps, classes, ref, ...other } = inputProps;
   return (
     <TextField
-      fullWidth
+      style={{ margin: 8 }}
+      variant="outlined"
+      InputLabelProps={{
+        shrink: true,
+      }}
       InputProps={{
-        inputComponent,
-        inputProps: {
-          className: props.selectProps.classes.input,
-          inputRef: props.innerRef,
-          children: props.children,
-          ...props.innerProps,
+        inputRef: ref,
+        classes: {
+          root: classes.inputRoot,
+          input: classes.inputInput,
         },
+        ...InputProps,
       }}
-      {...props.selectProps.TextFieldProps}
+      {...other}
     />
-  )
+  );
 }
 
-Control.propTypes = {
-  children: PropTypes.node,
-  innerProps: PropTypes.object,
-  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-  selectProps: PropTypes.object.isRequired,
+interface ISuggester {
+  setStart: Function;
+  setSuggest: Function;
+  terms: string[];
 }
 
-const Option = (props) => {
-  return (
-    <MenuItem
-      ref={props.innerRef}
-      selected={props.isFocused}
-      component="div"
-      style={{
-        fontWeight: props.isSelected ? 500 : 400,
-      }}
-      {...props.innerProps}
-    >
-      {props.children}
-    </MenuItem>
-  )
-}
+export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactElement => {
+  const {setStart, setSuggest, terms} = props
+  const classes: any = useStyles();
+  const [selectedItem, setSelectedItem] = React.useState([])
+  const [inputValue, setInputValue] = React.useState('')
 
-Option.propTypes = {
-  children: PropTypes.node,
-  innerProps: PropTypes.object,
-  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-  isFocused: PropTypes.bool,
-  isSelected: PropTypes.bool,
-}
-
-const Placeholder = (props) => {
-  return (
-    <Typography
-      color="textSecondary"
-      className={props.selectProps.classes.placeholder}
-      {...props.innerProps}
-    >
-      {props.children}
-    </Typography>
-  )
-}
-
-Placeholder.propTypes = {
-  children: PropTypes.node,
-  innerProps: PropTypes.object,
-  selectProps: PropTypes.object.isRequired,
-}
-
-const SingleValue = (props) => {
-  return (
-    <Typography className={props.selectProps.classes.singleValue} {...props.innerProps}>
-      {props.children}
-    </Typography>
-  )
-}
-
-SingleValue.propTypes = {
-  children: PropTypes.node,
-  innerProps: PropTypes.object,
-  selectProps: PropTypes.object.isRequired,
-}
-
-const ValueContainer = (props) => {
-  return <div className={props.selectProps.classes.valueContainer}>{props.children}</div>
-}
-
-ValueContainer.propTypes = {
-  children: PropTypes.node,
-  selectProps: PropTypes.object.isRequired,
-}
-
-const MultiValue = (props) => {
-  return (
-    <Chip
-      tabIndex={-1}
-      label={props.children}
-      className={clsx(props.selectProps.classes.chip, {
-        [props.selectProps.classes.chipFocused]: props.isFocused,
-      })}
-      onDelete={props.removeProps.onClick}
-      deleteIcon={<CancelIcon {...props.removeProps} />}
-    />
-  )
-}
-
-MultiValue.propTypes = {
-  children: PropTypes.node,
-  isFocused: PropTypes.bool,
-  removeProps: PropTypes.object.isRequired,
-  selectProps: PropTypes.object.isRequired,
-}
-
-const Menu = (props) => {
-  return (
-    <Paper square className={props.selectProps.classes.paper} {...props.innerProps}>
-      {props.children}
-    </Paper>
-  )
-}
-
-Menu.propTypes = {
-  children: PropTypes.node,
-  innerProps: PropTypes.object,
-  selectProps: PropTypes.object,
-}
-
-const components = {
-  Control,
-  Menu,
-  MultiValue,
-  NoOptionsMessage,
-  Option,
-  Placeholder,
-  SingleValue,
-  ValueContainer,
-}
-
-const SuggesterComponent = (props) => {
-  const classes = useStyles()
-  const {setSuggest, suggestions} = props
-  const theme = useTheme()
-  const [single, setSingle] = React.useState(null)
-
-  const handleChangeSingle = (value) => {
-    setSuggest({suggest: true})
-    setSingle(value)
+  const onInputChange = (e): void => {
+    setInputValue(e.target.value)
+    setSuggest({suggest: true, stringInput: e.target.value})
   }
 
-  const options = suggestions && suggestions.map((sg) => sg.suggestions)
-  const selectStyles = {
-    input: base => ({
-      ...base,
-      color: theme.palette.text.primary,
-      '& input': {
-        font: 'inherit',
-      },
-    }),
+  const onSelect = (item): void => {
+    let newSelectedItem = [...selectedItem];
+    if (newSelectedItem.indexOf(item) === -1) {
+      newSelectedItem = [...newSelectedItem, item];
+    }
+    setInputValue('')
+    setSelectedItem(newSelectedItem);
+    const quotedItem = `"${item}"`
+    setSuggest({suggest: true, stringInput: quotedItem})
+    setStart({newStart: 0})
+  }
+
+  const handleDelete = (item): any => (): void => {
+    const newSelectedItem = [...selectedItem];
+    newSelectedItem.splice(newSelectedItem.indexOf(item), 1);
+    setSelectedItem(newSelectedItem);
+    setSuggest({suggest: true, stringInput: ''})
+    setStart({newStart: 0})
+  }
+
+  const handleKeyDown = (event): void => {
+    if (selectedItem.length && !inputValue.length && event.key === 'Backspace') {
+      setSelectedItem(selectedItem.slice(0, selectedItem.length - 1));
+    }
+  }
+
+  const getSuggestions = (value, { showEmpty = false } = {}): string[] => {
+    const inputValue = deburr(value.trim()).toLowerCase();
+    const inputLength = inputValue.length;
+    let count = 0;
+    const suggestions = terms && terms.filter((t): boolean => {
+      const keep = count < 5 && t.slice(0, inputLength).toLowerCase() === inputValue;
+      if (keep) {
+        count += 1;
+      }
+      return keep;
+    })
+    return inputLength === 0 && !showEmpty
+      ? []
+      : suggestions;
   }
 
   return (
     <div className={classes.root}>
-      <NoSsr>
-        <Select
-          classes={classes}
-          styles={selectStyles}
-          options={options}
-          components={components}
-          value={single}
-          onChange={handleChangeSingle}
-          placeholder="Search a country (start with a)"
-        />
-      </NoSsr>
+      <Downshift
+        id="downshift-simple"
+        inputValue={inputValue}
+        onChange={onSelect}>
+        {({
+          getInputProps,
+          getItemProps,
+          getMenuProps,
+          highlightedIndex,
+          isOpen,
+          inputValue: inputValue2,
+          selectedItem: selectedItem2,
+        }): ReactElement => (
+          <div className={classes.container}>
+            {renderInput({
+              classes,
+              InputProps: getInputProps({
+                startAdornment: selectedItem.map((item): ReactElement => (
+                  <Chip
+                    key={item}
+                    tabIndex={-1}
+                    label={item}
+                    className={classes.chip}
+                    onDelete={handleDelete(item)}
+                  />
+                )),
+                onChange: onInputChange,
+                onKeyDown: handleKeyDown,
+                placeholder: 'Search name'
+              }),
+            })}
+            <div {...getMenuProps()}>
+              {isOpen ? (
+                <Paper className={classes.paper} square>
+                  {terms && getSuggestions(inputValue2).map((suggestion, index): ReactElement =>
+                    renderSuggestion({
+                      suggestion,
+                      index,
+                      itemProps: getItemProps({ item: suggestion }),
+                      highlightedIndex,
+                      selectedItem: selectedItem2,
+                    }),
+                  )}
+                </Paper>
+              ) : null}
+            </div>
+          </div>
+        )}
+      </Downshift>
     </div>
-  )
+  );
 }
 
 const mapStateToProps = (state): any => ({
-  suggestions: state.response.suggestions && Object.values(state.response.suggestions.suggester)
+  terms: state.suggestions && state.suggestions.terms,
 })
 
-const mapDispatchToProps = {setSuggest}
+const mapDispatchToProps = {setStart, setSuggest}
 
-export const Suggester: any = connect(mapStateToProps, mapDispatchToProps)(SuggesterComponent)
+export const Suggester = connect(mapStateToProps, mapDispatchToProps)(SuggesterComponent)

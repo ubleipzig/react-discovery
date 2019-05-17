@@ -8,12 +8,11 @@ interface ISuggestQuery {
 }
 
 const buildQueryString = (stringInput, suggest, suggestDictionary) => {
-  const sq = stringInput ? `${SolrParameters.SUGGEST_QUERY}=${stringInput}` : `${SolrParameters.SUGGEST_QUERY}=A`
-  const queryString = `${sq}
+  const sq = stringInput ? `${SolrParameters.SUGGEST_QUERY}=${encodeURIComponent(stringInput)}` : `${SolrParameters.SUGGEST_QUERY}=''`
+  return `${sq}
   &${SolrParameters.SUGGEST}=${suggest}
   &${SolrParameters.SUGGEST_BUILD}=${true}
   &${SolrParameters.SUGGEST_DICTIONARY}=${suggestDictionary}`
-  return queryString
 }
 export const suggestQueryBuilder = (props: ISuggestQuery): string => {
   const {stringInput, suggest, suggestDictionary, url} = props

@@ -7,7 +7,7 @@ export const buildDisMaxQuery = (searchFields, stringInput): string => {
     return searchField.field
   }).join(" ")
   if (stringInput) {
-    return `${SolrParameters.TYPE_DEF}=edismax&${mainParam}=${stringInput}&${SolrParameters.QF}=${qfList}`
+    return `${SolrParameters.TYPE_DEF}=edismax&${mainParam}=${encodeURIComponent(stringInput)}&${SolrParameters.QF}=${qfList}`
   } else {
     return `${SolrParameters.TYPE_DEF}=edismax&${mainParam}=*&${SolrParameters.QF}=${qfList}`
   }

@@ -50,9 +50,9 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
   return (
     <SolrResponseProvider query={buildInitialQuery()}>
       <SearchBox/>
-      <Suggester/>
       <Grid container spacing={3}>
         <Grid item xs={2}>
+          <Suggester/>
           {buildRefinementListFilters()}
         </Grid>
         <Grid
@@ -84,6 +84,14 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
           >
             {hits ? <Hits/> : <Typography>Loading</Typography>}
           </Grid>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
+            <Pagination/>
+          </Grid>
         </Grid>
       </Grid>
     </SolrResponseProvider>
@@ -108,4 +116,3 @@ const mapStateToProps = (state): any => ({
 const mapDispatchToProps = {fetchSolrResponseWorker, setQueryFields}
 
 export const MinimalResultsViewer = connect(mapStateToProps, mapDispatchToProps)(MinimalResultsViewerComponent)
-
