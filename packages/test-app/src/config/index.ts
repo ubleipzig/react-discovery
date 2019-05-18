@@ -28,8 +28,8 @@ export interface IConfig {
 const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "gettingstarted"
 
 export const rootConfig: IConfig = {
+  collections: null,
   currentCollection,
-  collections: null
 }
 
 export const localConfig: any = deepmerge(rootConfig, collections)

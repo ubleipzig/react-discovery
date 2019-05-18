@@ -14,13 +14,13 @@ interface ISortingSelector {
 }
 
 const useStyles = makeStyles((theme): any => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
+  },
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
   },
   selectEmpty: {
     marginTop: theme.spacing(2),

@@ -35,7 +35,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
   const {refinementListFilters} = collections[currentCollection]
 
   const buildInitialQuery = (): IQuery => {
-    return {filters, highlighting, searchFields, size, sortFields, start, stringInput, suggest, typeDef, suggestDictionary, url}
+    return {filters, highlighting, searchFields, size, sortFields, start, stringInput, suggest, suggestDictionary, typeDef, url}
   }
 
   const buildRefinementListFilters = (): any => {
@@ -53,7 +53,10 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
         <Grid item xs={12}>
           <SearchAppBar/>
         </Grid>
-        <Grid item style={{backgroundColor: 'whitesmoke'}} xs={2}>
+        <Grid
+          item style={{backgroundColor: 'whitesmoke', marginTop: '50px'}}
+          xs={2}
+        >
           <Suggester/>
           {buildRefinementListFilters()}
         </Grid>
@@ -63,6 +66,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
           <Grid
             container
             direction="row"
+            style={{marginTop: '50px'}}
           >
             <HitStats/>
             <SortingSelector/>
@@ -103,16 +107,16 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
 const mapStateToProps = (state): any => ({
   filters: state.query.filters,
   highlighting: state.query.highlighting,
+  hits: state.response.hits,
   query: state.query,
-  size: state.query.size,
   searchFields: state.query.searchFields,
+  size: state.query.size,
   sortFields: state.query.sortFields,
+  start: state.query.start,
   stringInput: state.query.stringInput,
   suggest: state.query.suggest,
   suggestDictionary: state.query.suggestDictionary,
   typeDef: state.query.typeDef,
-  start: state.query.start,
-  hits: state.response.hits,
   url: state.query.url
 })
 const mapDispatchToProps = {fetchSolrResponseWorker, setQueryFields}

@@ -15,45 +15,45 @@ export const test01: IConfig = {
       },
       searchFields: [
         {
-          label: "Name",
           field: "name_t",
+          label: "Name",
           type: "text"
         },
         {
-          label: "Place",
           field: "place_s",
+          label: "Place",
           type: "list-facet"
         },
         {
-          label: "Department",
           field: "department_s",
+          label: "Department",
           type: "list-facet"
         },
         {
-          label: "Tags",
           field: "tags_ss",
+          label: "Tags",
           type: "list-facet"
         },
         {
-          label: "Year",
           field: "year_i",
+          label: "Year",
           type: "list-facet"
         }
       ],
       sortFields: [
         {
-          label: "Place",
           field: "place_s",
+          label: "Place",
           order: "asc"
         },
         {
-          label: "Department",
           field: "department_s",
+          label: "Department",
           order: "asc"
         },
         {
-          label: "Year",
           field: "year_i",
+          label: "Year",
           order: "asc"
         }
       ],

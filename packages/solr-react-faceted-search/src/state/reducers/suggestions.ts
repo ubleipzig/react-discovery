@@ -20,10 +20,10 @@ export const suggestions = reducerWithInitialState(initialState)
   }))
   .caseWithAction(fetchSolrSuggestions.done, (state: ISuggestionsState, action: any): any => ({
     ...state,
-    url: action.payload.params.url,
     suggester: action.payload.result.suggest && action.payload.result.suggest.suggester,
     terms: action.payload.result.suggest && buildTerms(action.payload.result.suggest.suggester),
     updating: false,
+    url: action.payload.params.url,
   }))
   .case(fetchSolrSuggestions.failed, (state, { error }): any => ({
     ...state,

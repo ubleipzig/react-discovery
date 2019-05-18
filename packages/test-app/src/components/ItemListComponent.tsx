@@ -47,21 +47,21 @@ export interface IItemListProps extends IListProps {
 
 const useStyles = makeStyles((theme): any => ({
   content: {
+    display: 'flex',
     flex: '1 0 auto',
     padding: 0,
-    display: 'flex'
   },
   heading: {
-    fontSize: theme.typography.pxToRem(15),
     flexBasis: '33.33%',
     flexShrink: 0,
+    fontSize: theme.typography.pxToRem(15),
   },
   inline: {
     display: 'inline',
   },
   secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
     color: theme.palette.text.secondary,
+    fontSize: theme.typography.pxToRem(15),
   }
 }))
 

@@ -18,11 +18,11 @@ interface IFilters {
 }
 
 const useStyles = makeStyles((theme): any => ({
-  icon: {
-    fontSize: 20,
-  },
   chip: {
     margin: theme.spacing(0.5),
+  },
+  icon: {
+    fontSize: 20,
   },
 }))
 
@@ -44,6 +44,7 @@ const GroupSelectedFiltersComponent: React.FC<any> = (props: IGroupSelectedFilte
         return (
           <Chip
             color="primary"
+            component='div'
             key={key}
             label={val}
             onDelete={(): void => onClose(field, val)}

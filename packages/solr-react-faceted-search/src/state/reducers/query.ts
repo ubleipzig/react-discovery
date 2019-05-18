@@ -16,8 +16,8 @@ export const query = (initialState): any => reducerWithInitialState(initialState
     group: action.payload.group,
     highlighting: action.payload.highlighting,
     searchFields: action.payload.searchFields,
-    sortFields: action.payload.sortFields,
     size: action.payload.size,
+    sortFields: action.payload.sortFields,
     start: action.payload.start,
     suggestDictionary: action.payload.suggestDictionary
   }))

@@ -20,10 +20,10 @@ interface IPagination {
 
 const useStyles = makeStyles((theme): any => ({
   button: {
-    padding: '5px 16px',
     border: `1px solid ${
       theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.23)'
-    }`
+    }`,
+    padding: '5px 16px',
   },
 }));
 
@@ -121,7 +121,7 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
   }
 
   return (
-    <div style={{width: '100%', maxWidth: 360}}>
+    <div style={{maxWidth: 360, width: '100%'}}>
       <List style={{display: 'flex'}} component="nav">
         {PageControlButton(0, "first")}
         {PageControlButton(currentPage - 1, "previous")}
@@ -134,10 +134,10 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
 }
 
 const mapStateToProps = (state): any => ({
+  response: state.response,
   selectedIndex: state.config.selectedIndex,
   size: state.query.size,
   start: state.query.start,
-  response: state.response
 })
 
 const mapDispatchToProps = {setSelectedIndex, setStart, setSuggest}

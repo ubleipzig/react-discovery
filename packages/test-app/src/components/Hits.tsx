@@ -19,15 +19,10 @@ export interface ISearchField {
 }
 
 const useStyles = makeStyles((theme): any => ({
-  root: {
-    display: 'flex',
-    marginBottom: '5px',
-    backgroundColor: theme.palette.background.paper,
-  },
   content: {
+    display: 'flex',
     flex: '1 0 auto',
     padding: 0,
-    display: 'flex'
   },
   cover: {
     padding: 20,
@@ -40,6 +35,11 @@ const useStyles = makeStyles((theme): any => ({
   },
   inline: {
     display: 'inline',
+  },
+  root: {
+    backgroundColor: theme.palette.background.paper,
+    display: 'flex',
+    marginBottom: '5px',
   },
   values: {
     '& em': {
@@ -116,8 +116,8 @@ const HitsComponent: React.FC<any> = (props: IHits): ReactElement => {
 }
 
 const mapStateToProps = (state): any => ({
-  searchFields: state.query && state.query.searchFields,
   hits: state.response.hits,
+  searchFields: state.query && state.query.searchFields,
 })
 
 export const Hits: any = connect(mapStateToProps, null)(HitsComponent)

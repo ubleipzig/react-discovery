@@ -15,45 +15,45 @@ export const gettingstarted: IConfig = {
       },
       searchFields: [
         {
-          label: "Name",
           field: "name_t",
+          label: "Name",
           type: "text"
         },
         {
-          label: "Characteristics",
           field: "characteristics_ss",
+          label: "Characteristics",
           type: "list-facet"
         },
         {
-          label: "Domains",
           field: "domains_ss",
+          label: "Domains",
           type: "list-facet"
         },
         {
-          label: "Date of birth",
           field: "birthDate_i",
+          label: "Date of birth",
           type: "range-facet"
         },
         {
-          label: "Date of death",
           field: "deathDate_i",
+          label: "Date of death",
           type: "range-facet"
         }
       ],
       sortFields: [
         {
-          label: "Name",
           field: "koppelnaam_s",
+          label: "Name",
           order: "asc"
         },
         {
-          label: "Date of birth",
           field: "birthDate_i",
+          label: "Date of birth",
           order: "asc"
         },
         {
-          label: "Date of death",
           field: "deathDate_i",
+          label: "Date of death",
           order: "asc"
         }
       ],

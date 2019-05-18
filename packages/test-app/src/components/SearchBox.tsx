@@ -8,12 +8,12 @@ import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme): any => ({
   container: {
-    position: 'relative',
     display: 'flex',
     flex: '1',
-    marginRight: theme.spacing(2),
     marginLeft: 0,
+    marginRight: theme.spacing(2),
     maxHeight: '48px',
+    position: 'relative',
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
@@ -40,7 +40,7 @@ const SearchBoxComponent: React.FC<any> = (props: ISearchBox): ReactElement => {
 
   const handleChange = (e): void => {
     const stringInput = e.target.value;
-    setDisMaxQuery({typeDef: "dismax", stringInput})
+    setDisMaxQuery({stringInput, typeDef: "dismax"})
     setStart({newStart: 0})
     setValues(e.target.value)
   }
@@ -50,7 +50,12 @@ const SearchBoxComponent: React.FC<any> = (props: ISearchBox): ReactElement => {
   })
 
   return (
-    <form onSubmit={handleSubmit} className={classes.container} noValidate autoComplete="off">
+    <form
+      onSubmit={handleSubmit}
+      className={classes.container}
+      noValidate
+      autoComplete="off"
+    >
       <TextField
         fullWidth
         id="standard-full-width"

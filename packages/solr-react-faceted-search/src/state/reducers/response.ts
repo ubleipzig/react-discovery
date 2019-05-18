@@ -32,7 +32,7 @@ const buildAggregations = (fields): IAggregations => {
     const keys = (v as []).filter(({}, i): any => i % 2 === 0)
     const values = (v as []).filter(({}, i): any => i % 2 === 1)
     keys.map((k, i): any => {
-      buckets.push({key: k, docCount: values[i]})
+      buckets.push({docCount: values[i], key: k})
     })
     return {
       ...object,
@@ -63,11 +63,11 @@ export const response = reducerWithInitialState(initialState)
   }))
   .caseWithAction(fetchSolrResponse.done, (state: IResponseState, action: any): any => ({
     ...state,
-    url: action.payload.params.url,
-    hits: action.payload.result.response ? buildHits(action.payload.result) : state.hits,
-    grouped: action.payload.result.grouped || {},
     aggregations: action.payload.result.facet_counts ? buildAggregations(action.payload.result.facet_counts.facet_fields) : state.aggregations,
+    grouped: action.payload.result.grouped || {},
+    hits: action.payload.result.response ? buildHits(action.payload.result) : state.hits,
     updating: false,
+    url: action.payload.params.url,
   }))
   .case(fetchSolrResponse.failed, (state, { error }): any => ({
     ...state,

@@ -38,8 +38,8 @@ const renderSuggestion = (props: ISuggestion): ReactElement => {
 }
 
 const useStyles = makeStyles((theme): any => ({
-  root: {
-    flexGrow: 1,
+  chip: {
+    margin: theme.spacing(0.5, 0.25),
   },
   container: {
     flexGrow: 1,
@@ -47,25 +47,25 @@ const useStyles = makeStyles((theme): any => ({
     padding: '8px',
     position: 'relative',
   },
-  paper: {
-    position: 'absolute',
-    zIndex: 1,
-    marginTop: theme.spacing(1),
-    left: 0,
-    right: 0,
+  divider: {
+    height: theme.spacing(2),
   },
-  chip: {
-    margin: theme.spacing(0.5, 0.25),
+  inputInput: {
+    flexGrow: 1,
+    width: 'auto',
   },
   inputRoot: {
     flexWrap: 'wrap',
   },
-  inputInput: {
-    width: 'auto',
-    flexGrow: 1,
+  paper: {
+    left: 0,
+    marginTop: theme.spacing(1),
+    position: 'absolute',
+    right: 0,
+    zIndex: 1,
   },
-  divider: {
-    height: theme.spacing(2),
+  root: {
+    flexGrow: 1,
   },
 }));
 
@@ -79,12 +79,12 @@ const renderInput = (inputProps): ReactElement => {
         shrink: true,
       }}
       InputProps={{
-        inputRef: ref,
         classes: {
-          root: classes.inputRoot,
           input: classes.inputInput,
+          root: classes.inputRoot,
         },
         ...InputProps,
+        inputRef: ref,
       }}
       {...other}
     />
@@ -105,7 +105,7 @@ export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactEleme
 
   const onInputChange = (e): void => {
     setInputValue(e.target.value)
-    setSuggest({suggest: true, stringInput: e.target.value})
+    setSuggest({stringInput: e.target.value, suggest: true})
   }
 
   const onSelect = (item): void => {
@@ -116,7 +116,7 @@ export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactEleme
     setInputValue('')
     setSelectedItem(newSelectedItem);
     const quotedItem = `"${item}"`
-    setSuggest({suggest: true, stringInput: quotedItem})
+    setSuggest({stringInput: quotedItem, suggest: true})
     setStart({newStart: 0})
   }
 
@@ -124,7 +124,7 @@ export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactEleme
     const newSelectedItem = [...selectedItem];
     newSelectedItem.splice(newSelectedItem.indexOf(item), 1);
     setSelectedItem(newSelectedItem);
-    setSuggest({suggest: true, stringInput: ''})
+    setSuggest({stringInput: '', suggest: true})
     setStart({newStart: 0})
   }
 
@@ -169,6 +169,9 @@ export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactEleme
             {renderInput({
               classes,
               InputProps: getInputProps({
+                onChange: onInputChange,
+                onKeyDown: handleKeyDown,
+                placeholder: 'Search name',
                 startAdornment: selectedItem.map((item): ReactElement => (
                   <Chip
                     key={item}
@@ -178,21 +181,21 @@ export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactEleme
                     onDelete={handleDelete(item)}
                   />
                 )),
-                onChange: onInputChange,
-                onKeyDown: handleKeyDown,
-                placeholder: 'Search name'
               }),
             })}
             <div {...getMenuProps()}>
               {isOpen ? (
-                <Paper className={classes.paper} square>
+                <Paper
+                  className={classes.paper}
+                  square
+                >
                   {terms && getSuggestions(inputValue2).map((suggestion, index): ReactElement =>
                     renderSuggestion({
-                      suggestion,
+                      highlightedIndex,
                       index,
                       itemProps: getItemProps({ item: suggestion }),
-                      highlightedIndex,
                       selectedItem: selectedItem2,
+                      suggestion,
                     }),
                   )}
                 </Paper>

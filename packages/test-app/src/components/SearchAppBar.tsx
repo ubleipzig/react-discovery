@@ -21,18 +21,9 @@ const useStyles = makeStyles((theme): any => ({
   },
   grow: {
     flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
-  },
-  inputRoot: {
-    color: 'inherit',
+    position: 'fixed',
+    width: '100%',
+    zIndex: '1000'
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 7),
@@ -41,6 +32,12 @@ const useStyles = makeStyles((theme): any => ({
     [theme.breakpoints.up('md')]: {
       width: 200,
     },
+  },
+  inputRoot: {
+    color: 'inherit',
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
   },
   sectionDesktop: {
     display: 'none',
@@ -52,6 +49,12 @@ const useStyles = makeStyles((theme): any => ({
     display: 'flex',
     [theme.breakpoints.up('md')]: {
       display: 'none',
+    },
+  },
+  title: {
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
     },
   },
 }));

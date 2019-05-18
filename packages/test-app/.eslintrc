@@ -44,6 +44,10 @@
     "react/jsx-uses-vars": 2,
     "react/react-in-jsx-scope": 2,
     "semi": 0,
+    "sort-keys": ["error", "asc", {
+      "caseSensitive": false,
+      "natural": false
+    }],
     "space-before-function-paren": "off",
     "standard/no-callback-literal": "off",
     "strict": [
@@ -55,6 +59,7 @@
     "import/default": 2,
     "import/export": 2,
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/indent": ["error", 2]
   },
   "plugins": [
