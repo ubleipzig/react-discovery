@@ -41,10 +41,10 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
   const buildRefinementListFilters = (): any => {
     return Object.keys(refinementListFilters).map((id: any): ReactElement => (
       <ItemList
-        key={id}
         field={refinementListFilters[id].field}
-        label={refinementListFilters[id].label}
-        itemComponent={ItemList}/>))
+        itemComponent={ItemList}
+        key={id}
+        label={refinementListFilters[id].label}/>))
   }
 
   return (
@@ -78,10 +78,10 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
             <GroupSelectedFilters/>
           </Grid>
           <Grid
+            alignItems="center"
             container
             direction="row"
             justify="center"
-            alignItems="center"
           >
             <Pagination/>
           </Grid>
@@ -91,10 +91,10 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
             {hits ? <Hits/> : <Typography>Loading</Typography>}
           </Grid>
           <Grid
+            alignItems="center"
             container
             direction="row"
             justify="center"
-            alignItems="center"
           >
             <Pagination/>
           </Grid>

@@ -87,12 +87,12 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
       .filter((bucket): any => bucket.docCount > 0).map((bucket): any => {
         return (
           <ListItem
-            component={"div"}
-            key={bucket.key}
-            role={undefined}
-            dense
             button={true}
+            component={"div"}
+            dense
+            key={bucket.key}
             onClick={(): void => handleChange(bucket.key)}
+            role={undefined}
           >
             <ListItemText
               className={classes.content}
@@ -105,10 +105,10 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
               }
               secondary={
                 <Typography
-                  component="span"
-                  variant="body2"
                   className={classes.inline}
                   color="textPrimary"
+                  component="span"
+                  variant="body2"
                 >
                   {bucket.docCount}
                 </Typography>
@@ -126,8 +126,8 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
       onChange={handleExpand(PANEL_ID)}
     >
       <ExpansionPanelSummary
-        expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1bh-content"
+        expandIcon={<ExpandMoreIcon />}
         id="panel1bh-header"
       >
         <Typography className={classes.heading}>{label}</Typography>

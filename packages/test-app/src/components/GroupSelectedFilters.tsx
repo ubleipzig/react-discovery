@@ -43,18 +43,18 @@ const GroupSelectedFiltersComponent: React.FC<any> = (props: IGroupSelectedFilte
       (values as []).map((val, key): ReactElement => {
         return (
           <Chip
+            className={classes.chip}
             color="primary"
             component='div'
             key={key}
             label={val}
             onDelete={(): void => onClose(field, val)}
-            className={classes.chip}
           />)
       }))
   }
 
   return (
-    <List style={{display: 'flex'}} component="nav">
+    <List component="nav" style={{display: 'flex'}}>
       {buildFilters(filters)}
     </List>
   )

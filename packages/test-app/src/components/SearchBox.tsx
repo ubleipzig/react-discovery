@@ -51,16 +51,14 @@ const SearchBoxComponent: React.FC<any> = (props: ISearchBox): ReactElement => {
 
   return (
     <form
-      onSubmit={handleSubmit}
+      autoComplete="off"
       className={classes.container}
       noValidate
-      autoComplete="off"
+      onSubmit={handleSubmit}
     >
       <TextField
         fullWidth
         id="standard-full-width"
-        placeholder="Search…"
-        type="search"
         InputLabelProps={{
           shrink: true,
         }}
@@ -73,7 +71,9 @@ const SearchBoxComponent: React.FC<any> = (props: ISearchBox): ReactElement => {
         }}
         margin="normal"
         onChange={handleChange}
+        placeholder="Search…"
         style={{ backgroundColor: 'white', margin: 8 }}
+        type="search"
         value={values}
       />
     </form>

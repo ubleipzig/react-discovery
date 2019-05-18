@@ -61,9 +61,9 @@ const SortingSelectorComponent: React.FC<any> = (props: ISortingSelector): React
   return sortFields ? (
     <FormControl className={classes.formControl}>
       <NativeSelect
-        value={selectorValue}
+        input={<Input id="sort-native-simple" name="sort" />}
         onChange={handleChange}
-        input={<Input name="sort" id="sort-native-simple" />}
+        value={selectorValue}
       >
         {buildOptions()}
       </NativeSelect>

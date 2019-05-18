@@ -78,9 +78,9 @@ const HitsComponent: React.FC<any> = (props: IHits): ReactElement => {
   const buildHits = (hits): ReactElement => hits.hits && hits.hits.map((hit, i): ReactElement => (
     <Card className={classes.root} key={i}>
       <CardMedia
+        alt="Placeholder"
         className={classes.cover}
         component="img"
-        alt="Placeholder"
         height="140"
         image={buildRandomUBLThumbnail()}
         title="Thumbnail"
@@ -100,8 +100,8 @@ const HitsComponent: React.FC<any> = (props: IHits): ReactElement => {
             </div>
             <div style={{flex: 'auto'}}>
               <Typography
-                color="textSecondary"
                 className={classes.inline}
+                color="textSecondary"
                 component="span"
               >
                 {renderValue(field.field, hit)}

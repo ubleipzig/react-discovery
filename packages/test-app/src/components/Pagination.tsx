@@ -91,12 +91,12 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
   const PageControlIndexButton = (page, label, key): ReactElement =>
     <ListItem
       button
+      className={classes.button}
       component='div'
       dense
       key={key}
-      selected={selectedIndex === page}
       onClick={(): void => onPageChange(page)}
-      className={classes.button}
+      selected={selectedIndex === page}
     >
       <ListItemText primary={label}/>
     </ListItem>
@@ -104,12 +104,12 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
   const PageControlButton = (page, key): ReactElement =>
     <ListItem
       button
+      className={classes.button}
       component='div'
       dense
       key={key}
-      selected={selectedIndex === page}
       onClick={(): void => onPageChange(page)}
-      className={classes.button}
+      selected={selectedIndex === page}
     >
       {buildIcon(key)}
     </ListItem>
@@ -122,7 +122,7 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
 
   return (
     <div style={{maxWidth: 360, width: '100%'}}>
-      <List style={{display: 'flex'}} component="nav">
+      <List component="nav" style={{display: 'flex'}}>
         {PageControlButton(0, "first")}
         {PageControlButton(currentPage - 1, "previous")}
         {renderPages(pages)}

@@ -40,6 +40,7 @@
     "operator-linebreak": "off",
     "quotes": "off",
     "react/prop-types": "off",
+    "react/jsx-sort-props": 1,
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
     "react/react-in-jsx-scope": 2,

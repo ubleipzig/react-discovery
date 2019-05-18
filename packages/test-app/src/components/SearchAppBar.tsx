@@ -86,14 +86,14 @@ export const SearchAppBar: React.FC<any> = (): ReactElement => {
 
   const renderMenu: ReactElement = (
     <Menu
+      anchorEl={anchorEl}
       anchorOrigin={{
         horizontal: "center",
         vertical: "bottom",
       }}
-      anchorEl={anchorEl}
       getContentAnchorEl={null}
-      open={isMenuOpen}
       onClose={handleMenuClose}
+      open={isMenuOpen}
       transformOrigin={{
         horizontal: 'center',
         vertical: 'top',
@@ -118,15 +118,15 @@ export const SearchAppBar: React.FC<any> = (): ReactElement => {
   const renderMobileMenu: ReactElement = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
-      open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
+      open={isMobileMenuOpen}
     >
       <MenuItem
         button={true}
         component='div'>
         <IconButton
-          href=''
           color="inherit"
+          href=''
         >
           <Badge
             badgeContent={4}
@@ -142,8 +142,8 @@ export const SearchAppBar: React.FC<any> = (): ReactElement => {
         component='div'
       >
         <IconButton
-          href=''
           color="inherit"
+          href=''
         >
           <Badge
             badgeContent={11}
@@ -160,8 +160,8 @@ export const SearchAppBar: React.FC<any> = (): ReactElement => {
         onClick={handleProfileMenuOpen}
       >
         <IconButton
-          href=''
           color="inherit"
+          href=''
         >
           <AccountCircle />
         </IconButton>
@@ -180,25 +180,25 @@ export const SearchAppBar: React.FC<any> = (): ReactElement => {
           variant="dense"
         >
           <IconButton
-            edge="start"
+            aria-label="Open drawer"
             className={classes.menuButton}
             color="inherit"
+            edge="start"
             href=''
-            aria-label="Open drawer"
           >
             <MenuIcon />
           </IconButton>
           <Typography
             className={classes.title}
-            variant="subtitle2" noWrap
+            noWrap variant="subtitle2"
           >
             Discovery App
           </Typography>
           <SearchBox/>
           <div className={classes.sectionDesktop}>
             <IconButton
-              href=''
               color="inherit"
+              href=''
             >
               <Badge
                 badgeContent={4}
@@ -208,8 +208,8 @@ export const SearchAppBar: React.FC<any> = (): ReactElement => {
               </Badge>
             </IconButton>
             <IconButton
-              href=''
               color="inherit"
+              href=''
             >
               <Badge
                 badgeContent={17}
@@ -219,12 +219,12 @@ export const SearchAppBar: React.FC<any> = (): ReactElement => {
               </Badge>
             </IconButton>
             <IconButton
-              edge="end"
-              aria-owns={isMenuOpen ? 'material-appbar' : undefined}
               aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
+              aria-owns={isMenuOpen ? 'material-appbar' : undefined}
               color="inherit"
+              edge="end"
               href=''
+              onClick={handleProfileMenuOpen}
             >
               <AccountCircle />
             </IconButton>
@@ -232,9 +232,9 @@ export const SearchAppBar: React.FC<any> = (): ReactElement => {
           <div className={classes.sectionMobile}>
             <IconButton
               aria-haspopup="true"
+              color="inherit"
               href=''
-              onClick={handleMobileMenuOpen}
-              color="inherit">
+              onClick={handleMobileMenuOpen}>
               <MoreIcon />
             </IconButton>
           </div>
