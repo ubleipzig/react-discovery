@@ -22,6 +22,10 @@ REACT_APP_SEARCH_API_COLLECTION=test01
     ```bash
     $ curl -X POST -H"Content-Type: application/json" http://localhost/solr/test01/update/json?commit=true --data-binary @test-data/solr-test-data.json
     ```
+- OR execute 
+    ```bash
+    $ ./build.sh
+    ```
     
 ### Build and Start React App
  ```bash

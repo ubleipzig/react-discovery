@@ -850,7 +850,7 @@
       <str name="lookupImpl">FuzzyLookupFactory</str>
       <str name="dictionaryImpl">DocumentDictionaryFactory</str>
       <str name="field">name_t</str>
-      <str name="suggestAnalyzerFieldType">string</str>
+      <str name="suggestAnalyzerFieldType">suggestType</str>
       <str name="buildOnStartup">false</str>
     </lst>
   </searchComponent>
