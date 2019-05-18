@@ -18,7 +18,6 @@ const SolrResponseProviderComponent: React.FC<ISolrResponseProvider> = (props): 
   const prevStringInput = usePrevious(stringInput)
   const prevFilters = usePrevious(filters)
   const prevSortFields = usePrevious(sortFields)
-  const prevSuggest = usePrevious(suggest)
   const [isInitialized, setIsInitialized] = useState(false)
 
   const fetchResponse = (requestURI): boolean => {

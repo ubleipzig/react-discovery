@@ -10,6 +10,7 @@ export enum SolrParameters {
   HL = "hl",
   HL_FIELDS = "hl.fl",
   QF = "qf",
+  QUERY = "q",
   QUERY_CONTEXT = '/query',
   ROWS = "rows",
   SORT = "sort",

@@ -9,7 +9,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
-import {setDisMaxQuery, setSelectedFilters, setStart, setSuggest} from "solr-react-faceted-search"
+import {setSelectedFilters, setStart, setSuggest} from "solr-react-faceted-search"
 
 export interface IListProps {
   toggleItem: (key: string) => void;
@@ -40,7 +40,6 @@ export interface IItemListProps extends IListProps {
   filters: string[];
   label: string;
   itemComponent?: any;
-  setDisMaxQuery: Function;
   setSelectedFilters: Function;
   setStart: Function;
   setSuggest: Function;
@@ -142,10 +141,10 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
   )
 }
 
-const mapDispatchToProps = {setDisMaxQuery, setSelectedFilters, setStart, setSuggest}
+const mapDispatchToProps = {setSelectedFilters, setStart, setSuggest}
 
 const mapStateToProps = (state, {field}): any => ({
-  aggregation: state.response && state.response.aggregations && state.response.aggregations !== null && state.response.aggregations[field],
+  aggregation: state.response && state.response.aggregations && state.response.aggregations[field],
   filters: state.query.filters[field]
 })
 

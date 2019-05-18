@@ -11,7 +11,7 @@ import {
   SolrResponseProvider
 } from 'solr-react-faceted-search'
 import {localConfig} from "../config"
-import {GroupSelectedFilters, Hits, HitStats, ItemList, Pagination, SearchBox, SortingSelector, Suggester} from '.'
+import {GroupSelectedFilters, Hits, HitStats, ItemList, Pagination, SearchAppBar, SortingSelector, Suggester} from '.'
 import {Typography} from "@material-ui/core"
 
 interface IMinimalResultsViewer {
@@ -49,9 +49,11 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
 
   return (
     <SolrResponseProvider query={buildInitialQuery()}>
-      <SearchBox/>
       <Grid container spacing={3}>
-        <Grid item xs={2}>
+        <Grid item xs={12}>
+          <SearchAppBar/>
+        </Grid>
+        <Grid item style={{backgroundColor: 'whitesmoke'}} xs={2}>
           <Suggester/>
           {buildRefinementListFilters()}
         </Grid>

@@ -849,7 +849,7 @@
       <str name="name">suggester</str>
       <str name="lookupImpl">FuzzyLookupFactory</str>
       <str name="dictionaryImpl">DocumentDictionaryFactory</str>
-      <str name="field">name_t</str>
+      <str name="field">${suggester.field}</str>
       <str name="suggestAnalyzerFieldType">suggestType</str>
       <str name="buildOnStartup">false</str>
     </lst>

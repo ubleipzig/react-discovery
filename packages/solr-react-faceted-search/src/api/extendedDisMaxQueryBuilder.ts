@@ -2,14 +2,17 @@ import {IEMaxQuery} from "."
 import {SolrParameters} from "./SolrParameters"
 
 export const buildDisMaxQuery = (searchFields, stringInput): string => {
-  const mainParam = "q"
   const qfList = searchFields.map((searchField): string => {
     return searchField.field
   }).join(" ")
   if (stringInput) {
-    return `${SolrParameters.TYPE_DEF}=edismax&${mainParam}=${encodeURIComponent(stringInput)}&${SolrParameters.QF}=${qfList}`
+    return `${SolrParameters.TYPE_DEF}=edismax`
+    + `&${SolrParameters.QUERY}=${encodeURIComponent(stringInput)}`
+    + `&${SolrParameters.QF}=${qfList}`
   } else {
-    return `${SolrParameters.TYPE_DEF}=edismax&${mainParam}=*&${SolrParameters.QF}=${qfList}`
+    return `${SolrParameters.TYPE_DEF}=edismax`
+    + `&${SolrParameters.QUERY}=*`
+    + `&${SolrParameters.QF}=${qfList}`
   }
 }
 
@@ -49,19 +52,19 @@ export const extendedDisMaxQueryBuilder = (props: IEMaxQuery): string => {
   const facetLimitParam = `${SolrParameters.FACET_LIMIT}=${facetLimit || -1}`
   const facetSortParam = `${SolrParameters.FACET_SORT}=${facetSort || "index"}`
   const sortParam = buildSort(sortFields)
-  const groupParam = groupField ? `${SolrParameters.GROUP}$=${group}&${SolrParameters.GROUP_FIELD}$=${encodeURIComponent(groupField)}` : ""
+  const groupParam = groupField ? `${SolrParameters.GROUP}=${group}`
+  + `&${SolrParameters.GROUP_FIELD}=${encodeURIComponent(groupField)}` : ""
   const highlightParam = buildHighlighting(highlighting)
-  const queryString = mainQuery +
-    `${sortParam.length > 0 ? `&${SolrParameters.SORT}=${sortParam}` : ""}` +
-    `${facetFieldParam.length > 0 ? `&${facetFieldParam}` : ""}` +
-    `${groupParam.length > 0 ? `&${groupParam}` : ""}` +
-    `&${SolrParameters.ROWS}=${size}` +
-    `&${facetLimitParam}` +
-    `&${facetSortParam}` +
-    `&${filterQueryParams}` +
-    `&${SolrParameters.START}=${start}` +
-    `&${SolrParameters.FACET}=${true}` +
-    (highlightParam === "" ? "" : `&${highlightParam}`)
+  const queryString = mainQuery
+    + `${sortParam.length > 0 ? `&${SolrParameters.SORT}=${sortParam}` : ""}`
+    + `${facetFieldParam.length > 0 ? `&${facetFieldParam}` : ""}`
+    + `${groupParam.length > 0 ? `&${groupParam}` : ""}`
+    + `&${SolrParameters.ROWS}=${size}`
+    + `&${facetLimitParam}`
+    + `&${facetSortParam}`
+    + `&${filterQueryParams}`
+    + `&${SolrParameters.START}=${start}`
+    + `&${SolrParameters.FACET}=${true}`
+    + (highlightParam === "" ? "" : `&${highlightParam}`)
   return `${url}${SolrParameters.QUERY_CONTEXT}?${queryString}`
 }
-

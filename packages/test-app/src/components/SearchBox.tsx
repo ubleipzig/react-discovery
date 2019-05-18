@@ -4,12 +4,21 @@ import {connect} from "react-redux"
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Search from '@material-ui/icons/Search'
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 
-const useStyles = makeStyles((): any => ({
+const useStyles = makeStyles((theme): any => ({
   container: {
+    position: 'relative',
     display: 'flex',
-    flexWrap: 'wrap',
+    flex: '1',
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    maxHeight: '48px',
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(3),
+      width: 'auto',
+    },
   },
   dense: {
     marginTop: 19,
@@ -41,31 +50,28 @@ const SearchBoxComponent: React.FC<any> = (props: ISearchBox): ReactElement => {
   })
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} className={classes.container} noValidate autoComplete="off">
-        <TextField
-          fullWidth
-          id="standard-full-width"
-          label="Search field"
-          type="search"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <Search />
-              </InputAdornment>
-            ),
-          }}
-          margin="normal"
-          onChange={handleChange}
-          style={{ margin: 8 }}
-          variant="outlined"
-          value={values}
-        />
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className={classes.container} noValidate autoComplete="off">
+      <TextField
+        fullWidth
+        id="standard-full-width"
+        placeholder="Search…"
+        type="search"
+        InputLabelProps={{
+          shrink: true,
+        }}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <Search />
+            </InputAdornment>
+          ),
+        }}
+        margin="normal"
+        onChange={handleChange}
+        style={{ backgroundColor: 'white', margin: 8 }}
+        value={values}
+      />
+    </form>
   )
 }
 

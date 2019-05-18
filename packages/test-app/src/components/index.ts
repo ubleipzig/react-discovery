@@ -1,3 +1,4 @@
+export * from './AppBar'
 export * from './GroupSelectedFilters'
 export * from './Hits'
 export * from './HitStats'

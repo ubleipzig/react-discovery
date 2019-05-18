@@ -33,7 +33,7 @@ services:
       - zoo3
     volumes:
       - ./deployment/solr/conf:/opt/solr-8.0.0/server/solr/configsets/_default/conf
-
+      - ./deployment/solr/solr.in.sh:/etc/default/solr.in.sh
   solr2:
     image: solr:8
     container_name: solr2
@@ -49,7 +49,7 @@ services:
       - zoo3
     volumes:
       - ./deployment/solr/conf:/opt/solr-8.0.0/server/solr/configsets/_default/conf
-
+      - ./deployment/solr/solr.in.sh:/etc/default/solr.in.sh
   solr3:
     image: solr:8
     container_name: solr3
@@ -65,7 +65,7 @@ services:
       - zoo3
     volumes:
       - ./deployment/solr/conf:/opt/solr-8.0.0/server/solr/configsets/_default/conf
-
+      - ./deployment/solr/solr.in.sh:/etc/default/solr.in.sh
   zoo1:
     image: zookeeper
     container_name: zoo1
