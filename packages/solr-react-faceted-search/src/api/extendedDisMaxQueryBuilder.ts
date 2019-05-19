@@ -33,7 +33,7 @@ export const buildFilterQuery = (filters): string => Object.entries(filters)
     .join('&')).join('&')
 
 export const buildSort = (sortFields): string => sortFields
-  .filter((sortField): boolean => sortField.isSelected)
+  .filter((sortField, i): boolean => sortField.isSelected || i === 0)
   .map((sortField): string => encodeURIComponent(`${sortField.field} ${sortField.order}`))
   .join(",");
 
