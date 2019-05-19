@@ -47,6 +47,11 @@ export const test01: IConfig = {
           order: "asc"
         },
         {
+          field: "name_t",
+          label: "Name",
+          order: "asc"
+        },
+        {
           field: "department_s",
           label: "Department",
           order: "asc"

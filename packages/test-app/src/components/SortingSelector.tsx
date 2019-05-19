@@ -67,7 +67,7 @@ const SortingSelectorComponent: React.FC<any> = (props: ISortingSelector): React
       }
       const currentSortField = sortFields[0]
       const newSortField = {...currentSortField, ...order}
-      const newSortFields = sortFields.map((sf, i) => {
+      const newSortFields = sortFields.map((sf, i): ISortField => {
         if (i === 0) {
           return newSortField
         }

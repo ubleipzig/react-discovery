@@ -16,55 +16,78 @@ export const buildDisMaxQuery = (searchFields, stringInput): string => {
   }
 }
 
-export const buildFacetFields = (fields): string => fields
-  .filter((field): boolean => field.type === "list-facet" || field.type === "range-facet")
-  .map((field): string => `${SolrParameters.FACET_FIELD}=${encodeURIComponent(field.field)}`)
-  .concat(
-    fields
-      .filter((field): boolean => field.type === "period-range-facet")
-      .map((field): string => `${SolrParameters.FACET_FIELD}=${encodeURIComponent(field.lowerBound)}` +
-      `&${SolrParameters.FACET_FIELD}=${encodeURIComponent(field.upperBound)}`)
-  )
-  .join('&');
+export const buildFacetFieldParams = (fields): string => {
+  const ff = fields
+    .filter((field): boolean => field.type === "list-facet" || field.type === "range-facet")
+    .map((field): string => `${SolrParameters.FACET_FIELD}=${encodeURIComponent(field.field)}`)
+    .concat(
+      fields
+        .filter((field): boolean => field.type === "period-range-facet")
+        .map((field): string => `${SolrParameters.FACET_FIELD}=${encodeURIComponent(field.lowerBound)}` +
+          `&${SolrParameters.FACET_FIELD}=${encodeURIComponent(field.upperBound)}`)
+    )
+    .join('&');
+  return ff.length ? `&${ff}` : ""
+}
 
-export const buildFilterQuery = (filters): string => Object.entries(filters)
-  .map(([k, values]): string => (values as [])
-    .map((val): string => `${SolrParameters.FILTER_QUERY}=${k}:"${val}"`)
-    .join('&')).join('&')
+export const buildFilterQueryParams = (filters): string => {
+  const qf = Object.entries(filters)
+    .map(([k, values]): string => (values as [])
+      .map((val): string => `${SolrParameters.FILTER_QUERY}=${k}:"${val}"`)
+      .join('&')).join('&')
+  return qf.length ? `&${qf}` : ""
+}
 
-export const buildSort = (sortFields): string => sortFields
-  .filter((sortField, i): boolean => sortField.isSelected || i === 0)
-  .map((sortField): string => encodeURIComponent(`${sortField.field} ${sortField.order}`))
-  .join(",");
+export const buildFacetSortParams = (facetSort = "index"): string => {
+  return `&${SolrParameters.FACET_SORT}=${facetSort}`
+}
+
+export const buildFacetLimitParams = (facetLimit = -1): string => {
+  return `&${SolrParameters.FACET_LIMIT}=${facetLimit}`
+}
+
+export const buildSortParams = (sortFields): string => {
+  const sf = sortFields
+    .filter((sortField, i): boolean => sortField.isSelected || i === 0)
+    .map((sortField): string => encodeURIComponent(`${sortField.field} ${sortField.order}`))
+    .join(",");
+  return sf.length ? `&${SolrParameters.SORT}=${sf}` : ""
+}
+
+export const buildSize = (size: number): string => {
+  return `&${SolrParameters.ROWS}=${size}`
+}
+
+export const buildGroupFieldParams = (group: boolean, groupField: string): string => {
+  return groupField ? `&${SolrParameters.GROUP}=${group}`
+    + `&${SolrParameters.GROUP_FIELD}=${encodeURIComponent(groupField)}` : ""
+}
 
 export const buildHighlighting = (highlighting): string => {
-  if (highlighting) {
-    return `${SolrParameters.HL}=${true}&${SolrParameters.HL_FIELDS}=*`;
-  }
-};
+  return highlighting ? `&${SolrParameters.HL}=${true}&${SolrParameters.HL_FIELDS}=*` : "";
+}
+
+export const buildStart = (start: number): string => {
+  return `&${SolrParameters.START}=${start}`
+}
+
+export const buildIsFaceted = (facet: boolean = true): string => {
+  return `&${SolrParameters.FACET}=${facet}`
+}
 
 export const extendedDisMaxQueryBuilder = (props: IEMaxQuery): string => {
   const {facetLimit, facetSort, filters, group, groupField, highlighting,
     searchFields, sortFields, stringInput, size, start, url} = props
-  const mainQuery = buildDisMaxQuery(searchFields, stringInput)
-  const facetFieldParam = buildFacetFields(searchFields)
-  const filterQueryParams = buildFilterQuery(filters)
-  const facetLimitParam = `${SolrParameters.FACET_LIMIT}=${facetLimit || -1}`
-  const facetSortParam = `${SolrParameters.FACET_SORT}=${facetSort || "index"}`
-  const sortParam = buildSort(sortFields)
-  const groupParam = groupField ? `${SolrParameters.GROUP}=${group}`
-  + `&${SolrParameters.GROUP_FIELD}=${encodeURIComponent(groupField)}` : ""
-  const highlightParam = buildHighlighting(highlighting)
-  const queryString = mainQuery
-    + `${sortParam.length > 0 ? `&${SolrParameters.SORT}=${sortParam}` : ""}`
-    + `${facetFieldParam.length > 0 ? `&${facetFieldParam}` : ""}`
-    + `${groupParam.length > 0 ? `&${groupParam}` : ""}`
-    + `&${SolrParameters.ROWS}=${size}`
-    + `&${facetLimitParam}`
-    + `&${facetSortParam}`
-    + `&${filterQueryParams}`
-    + `&${SolrParameters.START}=${start}`
-    + `&${SolrParameters.FACET}=${true}`
-    + (highlightParam === "" ? "" : `&${highlightParam}`)
+  const queryString = buildDisMaxQuery(searchFields, stringInput)
+    + buildSortParams(sortFields)
+    + buildFacetFieldParams(searchFields)
+    + buildGroupFieldParams(group, groupField)
+    + buildSize(size)
+    + buildFacetLimitParams(facetLimit)
+    + buildFacetSortParams(facetSort)
+    + buildFilterQueryParams(filters)
+    + buildStart(start)
+    + buildIsFaceted(true)
+    + buildHighlighting(highlighting)
   return `${url}${SolrParameters.QUERY_CONTEXT}?${queryString}`
 }

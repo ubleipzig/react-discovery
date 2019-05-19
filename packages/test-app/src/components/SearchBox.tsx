@@ -57,8 +57,6 @@ const SearchBoxComponent: React.FC<any> = (props: ISearchBox): ReactElement => {
       onSubmit={handleSubmit}
     >
       <TextField
-        fullWidth
-        id="standard-full-width"
         InputLabelProps={{
           shrink: true,
         }}
@@ -69,6 +67,8 @@ const SearchBoxComponent: React.FC<any> = (props: ISearchBox): ReactElement => {
             </InputAdornment>
           ),
         }}
+        fullWidth
+        id="standard-full-width"
         margin="normal"
         onChange={handleChange}
         placeholder="Search…"

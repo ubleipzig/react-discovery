@@ -49,12 +49,12 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
 
   return (
     <SolrResponseProvider query={buildInitialQuery()}>
-      <Grid container spacing={3}>
+      <Grid container>
         <Grid item xs={12}>
           <SearchAppBar/>
         </Grid>
         <Grid
-          item style={{backgroundColor: 'whitesmoke', marginTop: '50px'}}
+          item style={{backgroundColor: 'whitesmoke', marginTop: '50px', padding: '10px'}}
           xs={2}
         >
           <Suggester/>
@@ -66,7 +66,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
           <Grid
             container
             direction="row"
-            style={{marginTop: '50px'}}
+            style={{marginTop: '50px', padding: '10px'}}
           >
             <HitStats/>
             <SortingSelector/>

@@ -25,9 +25,9 @@ const renderSuggestion = (props: ISuggestion): ReactElement => {
   return (
     <MenuItem
       {...itemProps}
+      component="div"
       key={suggestion}
       selected={isHighlighted}
-      component="div"
       style={{
         fontWeight: isSelected ? 500 : 400,
       }}
@@ -73,8 +73,6 @@ const renderInput = (inputProps): ReactElement => {
   const { InputProps, classes, ref, ...other } = inputProps;
   return (
     <TextField
-      style={{ width: '100%' }}
-      variant="outlined"
       InputLabelProps={{
         shrink: true,
       }}
@@ -86,6 +84,8 @@ const renderInput = (inputProps): ReactElement => {
         ...InputProps,
         inputRef: ref,
       }}
+      style={{ width: '100%' }}
+      variant="outlined"
       {...other}
     />
   );
@@ -174,11 +174,11 @@ export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactEleme
                 placeholder: 'Search name',
                 startAdornment: selectedItem.map((item): ReactElement => (
                   <Chip
-                    key={item}
-                    tabIndex={-1}
-                    label={item}
                     className={classes.chip}
+                    key={item}
+                    label={item}
                     onDelete={handleDelete(item)}
+                    tabIndex={-1}
                   />
                 )),
               }),
