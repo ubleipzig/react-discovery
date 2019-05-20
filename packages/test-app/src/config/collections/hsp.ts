@@ -5,57 +5,73 @@ export const hsp: IConfig = {
     hsp: {
       refinementListFilters: {
         1: {
-          label: "Language",
           field: "schreibsprachen_0_.name",
+          label: "Language",
         },
         2: {
-          label: "Place",
           field: "entstehungsDaten_0_.entstehungsort.name",
+          label: "Place",
         },
         3: {
-          label: "Material",
           field: "stoffe_0_.name",
+          label: "Material",
         },
       },
       searchFields: [
         {
-          label: "Title",
           field: "titel",
+          label: "Title",
           type: "text"
         },
         {
-          label: "Holding Place",
           field: "aufbewarungOrt.name",
+          label: "Holding Place",
           type: "list-facet"
         },
         {
-          label: "Material",
           field: "stoffe_0_.name",
+          label: "Material",
           type: "list-facet"
         },
         {
-          label: "Language",
           field: "schreibsprachen_0_.name",
+          label: "Language",
           type: "list-facet"
         },
         {
-          label: "Origin Place",
           field: "entstehungsDaten_0_.entstehungsort.name",
+          label: "Origin Place",
           type: "list-facet"
         },
         {
-          label: "Signatur",
           field: "signatur",
+          label: "Signatur",
           type: "text"
         },
       ],
       sortFields: [
         {
+          field: "aufbewarungOrt.name",
           label: "Holding Place",
-          field: "aufbewarungOrt.name"
+          order: "asc"
+        },
+        {
+          field: "entstehungsDaten_0_.entstehungsort.name",
+          label: "Origin Place",
+          order: "asc"
+        },
+        {
+          field: "schreibsprachen_0_.name",
+          label: "Language",
+          order: "asc"
+        },
+        {
+          field: "stoffe_0_.name",
+          label: "Material",
+          order: "asc"
         },
       ],
-      url: process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION + "/query"
+      url: process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION
     }
   }
 }

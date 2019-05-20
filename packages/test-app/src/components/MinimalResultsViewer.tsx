@@ -1,39 +1,63 @@
 import React, {ReactElement} from 'react'
 import {connect} from 'react-redux'
 import Grid from '@material-ui/core/Grid'
-import {fetchSolrResponseWorker, setQueryFields, IHits, SolrResponseProvider} from 'solr-react-faceted-search'
+import {
+  fetchSolrResponseWorker,
+  IHits,
+  IQuery,
+  ISearchField,
+  ISortField,
+  setQueryFields,
+  SolrResponseProvider
+} from 'solr-react-faceted-search'
 import {localConfig} from "../config"
-import {GroupSelectedFilters, Hits, ItemList, Pagination, SearchBox} from '.'
+import {GroupSelectedFilters, Hits, HitStats, ItemList, Pagination, SearchAppBar, SortingSelector, Suggester} from '.'
+import {Typography} from "@material-ui/core"
 
 interface IMinimalResultsViewer {
   filters: string[];
+  highlighting: boolean;
   hits: IHits;
   size: number;
+  searchFields: ISearchField[];
+  sortFields: ISortField[];
   start: number;
   stringInput: string;
+  suggest: boolean;
+  suggestDictionary: string;
   typeDef: string;
+  url: string;
 }
 
 const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsViewer): ReactElement => {
-  const {filters, hits, size, start, stringInput, typeDef} = props
+  const {filters, highlighting, hits, searchFields, size, sortFields, start, stringInput, suggest, suggestDictionary, typeDef, url} = props
   const {collections, currentCollection} = localConfig
-  const {refinementListFilters, searchFields, sortFields, url} = collections[currentCollection]
-  const query = {filters, searchFields, sortFields, url, start, size, typeDef, stringInput}
+  const {refinementListFilters} = collections[currentCollection]
 
-  const buildRefinementListFilters = () => {
-    return Object.keys(refinementListFilters).map((id: any) => (
+  const buildInitialQuery = (): IQuery => {
+    return {filters, highlighting, searchFields, size, sortFields, start, stringInput, suggest, suggestDictionary, typeDef, url}
+  }
+
+  const buildRefinementListFilters = (): any => {
+    return Object.keys(refinementListFilters).map((id: any): ReactElement => (
       <ItemList
-        key={id}
         field={refinementListFilters[id].field}
-        label={refinementListFilters[id].label}
-        itemComponent={ItemList}/>))
+        itemComponent={ItemList}
+        key={id}
+        label={refinementListFilters[id].label}/>))
   }
 
   return (
-    <SolrResponseProvider query={query}>
-      <SearchBox/>
-      <Grid container spacing={3}>
-        <Grid item xs={2}>
+    <SolrResponseProvider query={buildInitialQuery()}>
+      <Grid container>
+        <Grid item xs={12}>
+          <SearchAppBar/>
+        </Grid>
+        <Grid
+          item style={{backgroundColor: 'whitesmoke', marginTop: '50px', padding: '10px'}}
+          xs={2}
+        >
+          <Suggester/>
           {buildRefinementListFilters()}
         </Grid>
         <Grid
@@ -42,23 +66,37 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
           <Grid
             container
             direction="row"
-            justify="center"
-            alignItems="center"
+            style={{marginTop: '50px', padding: '10px'}}
           >
-            <Pagination/>
+            <HitStats/>
+            <SortingSelector/>
           </Grid>
           <Grid
             container
             direction="row"
-            justify="center"
-            alignItems="center"
           >
             <GroupSelectedFilters/>
           </Grid>
           <Grid
-            style={{padding: 20}}
+            alignItems="center"
+            container
+            direction="row"
+            justify="center"
           >
-            {hits ? <Hits/> : "Loading"}
+            <Pagination/>
+          </Grid>
+          <Grid
+            style={{backgroundColor: 'lightgray', padding: 20}}
+          >
+            {hits ? <Hits/> : <Typography>Loading</Typography>}
+          </Grid>
+          <Grid
+            alignItems="center"
+            container
+            direction="row"
+            justify="center"
+          >
+            <Pagination/>
           </Grid>
         </Grid>
       </Grid>
@@ -66,21 +104,21 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
   )
 }
 
-MinimalResultsViewerComponent.defaultProps = {
-  size: 20,
-  start: 0
-}
-
 const mapStateToProps = (state): any => ({
   filters: state.query.filters,
-  query: state.query,
-  size: state.query.size,
-  stringInput: state.query.stringInput,
-  typeDef: state.query.typeDef,
-  start: state.query.start,
+  highlighting: state.query.highlighting,
   hits: state.response.hits,
+  query: state.query,
+  searchFields: state.query.searchFields,
+  size: state.query.size,
+  sortFields: state.query.sortFields,
+  start: state.query.start,
+  stringInput: state.query.stringInput,
+  suggest: state.query.suggest,
+  suggestDictionary: state.query.suggestDictionary,
+  typeDef: state.query.typeDef,
+  url: state.query.url
 })
 const mapDispatchToProps = {fetchSolrResponseWorker, setQueryFields}
 
 export const MinimalResultsViewer = connect(mapStateToProps, mapDispatchToProps)(MinimalResultsViewerComponent)
-

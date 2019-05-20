@@ -9,7 +9,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
-import {setDisMaxQuery, setSelectedFilters, setStart} from "solr-react-faceted-search"
+import {setSelectedFilters, setStart, setSuggest} from "solr-react-faceted-search"
 
 export interface IListProps {
   toggleItem: (key: string) => void;
@@ -40,33 +40,33 @@ export interface IItemListProps extends IListProps {
   filters: string[];
   label: string;
   itemComponent?: any;
-  setDisMaxQuery: Function;
   setSelectedFilters: Function;
   setStart: Function;
+  setSuggest: Function;
 }
 
 const useStyles = makeStyles((theme): any => ({
   content: {
+    display: 'flex',
     flex: '1 0 auto',
     padding: 0,
-    display: 'flex'
   },
   heading: {
-    fontSize: theme.typography.pxToRem(15),
     flexBasis: '33.33%',
     flexShrink: 0,
+    fontSize: theme.typography.pxToRem(15),
   },
   inline: {
     display: 'inline',
   },
   secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
     color: theme.palette.text.secondary,
+    fontSize: theme.typography.pxToRem(15),
   }
 }))
 
 export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactElement => {
-  const {aggregation, field, filters, label, setSelectedFilters, setStart} = props
+  const {aggregation, field, filters, label, setSelectedFilters, setStart, setSuggest} = props
   const classes: any = useStyles()
   const [isExpanded, setExpanded] = React.useState(false)
 
@@ -75,8 +75,9 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
   }
 
   const handleChange = (key): void => {
-    const newFilters = filters.length ? filters.filter((f): any => f !== key) : []
+    const newFilters = filters && filters.length ? filters.filter((f): any => f !== key) : []
     newFilters.push(key)
+    setSuggest({suggest: false})
     setSelectedFilters({field, filters: newFilters})
     setStart({newStart: 0})
   }
@@ -86,12 +87,12 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
       .filter((bucket): any => bucket.docCount > 0).map((bucket): any => {
         return (
           <ListItem
-            component={"div"}
-            key={bucket.key}
-            role={undefined}
-            dense
             button={true}
+            component={"div"}
+            dense
+            key={bucket.key}
             onClick={(): void => handleChange(bucket.key)}
+            role={undefined}
           >
             <ListItemText
               className={classes.content}
@@ -104,10 +105,10 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
               }
               secondary={
                 <Typography
-                  component="span"
-                  variant="body2"
                   className={classes.inline}
                   color="textPrimary"
+                  component="span"
+                  variant="body2"
                 >
                   {bucket.docCount}
                 </Typography>
@@ -125,8 +126,8 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
       onChange={handleExpand(PANEL_ID)}
     >
       <ExpansionPanelSummary
-        expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1bh-content"
+        expandIcon={<ExpandMoreIcon />}
         id="panel1bh-header"
       >
         <Typography className={classes.heading}>{label}</Typography>
@@ -140,18 +141,11 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
   )
 }
 
-ItemListComponent.defaultProps = {
-  filters: [],
-  showCount: true,
-  multiselect: true,
-  selectedItems: [],
-}
-
-const mapDispatchToProps = {setDisMaxQuery, setSelectedFilters, setStart}
+const mapDispatchToProps = {setSelectedFilters, setStart, setSuggest}
 
 const mapStateToProps = (state, {field}): any => ({
-  aggregation: state.response && state.response.aggregations !== null && state.response.aggregations[field],
-  filters: state.query && state.query.filters[field]
+  aggregation: state.response && state.response.aggregations && state.response.aggregations[field],
+  filters: state.query.filters[field]
 })
 
 export const ItemList: any = connect(mapStateToProps, mapDispatchToProps)(ItemListComponent)

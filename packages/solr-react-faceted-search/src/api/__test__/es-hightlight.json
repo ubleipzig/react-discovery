@@ -1,0 +1,149 @@
+{
+  "took": 98,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 1,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "yba2",
+        "_type": "_doc",
+        "_id": "4f033b3c-cd1c-4734-a825-e86ffe6f984b",
+        "_score": null,
+        "_source": {
+          "Credit line": [
+            "Yale Center for British Art, Paul Mellon Collection"
+          ],
+          "thumbnail": "https://images.britishart.yale.edu/iiif/d4cd8986-fb69-4f82-8170-8738519bad6b",
+          "manifest": "https://manifests.britishart.yale.edu/manifest/42146",
+          "description": "Sheet: 9 1/4 x 13 1/2in. (23.5 x 34.3cm)",
+          "Dimensions": [
+            "Sheet: 9 1/4 x 13 1/2in. (23.5 x 34.3cm)"
+          ],
+          "Institution": [
+            "Yale Center for British Art"
+          ],
+          "title": "\"Yerenrag\" (J. F. Garneray), 1755–1837, Lere vue d'Aigleville, Colonie du Texas ou Champ d'Aslie, c. 1830, Aquatint, hand-colored, Yale Center for British Art, B1978.43.333, Prints and Drawings",
+          "seeAlso": "https://manifests.britishart.yale.edu/lido/42146.xml,http://collection.britishart.yale.edu/id/data/object/42146",
+          "Titles": [
+            "Lere vue d'Aigleville, Colonie du Texas ou Champ d'Aslie"
+          ],
+          "Date": [
+            "c. 1830"
+          ],
+          "Accession number": [
+            "B1978.43.333"
+          ],
+          "Medium": [
+            "Aquatint, hand-colored"
+          ],
+          "attribution": "Yale Center for British Art, Paul Mellon Collection,<br/>Public Domain",
+          "Collection": [
+            "Prints and Drawings"
+          ],
+          "Creator(s)": [
+            "\"Yerenrag\" (J. F. Garneray), 1755–1837"
+          ]
+        },
+        "highlight": {
+          "title": [
+            "Garneray), 1755–1837, <em>Lere</em> vue d'Aigleville, Colonie du Texas ou Champ d'Aslie, c. 1830, Aquatint, hand-colored"
+          ],
+          "Titles": [
+            "<em>Lere</em> vue d'Aigleville, Colonie du Texas ou Champ d'Aslie"
+          ]
+        },
+        "sort": [
+          "\"Yerenrag\" (J. F. Garneray), 1755–1837, Lere vue d'Aigleville, Colonie du Texas ou Champ d'Aslie, c. 1830, Aquatint, hand-colored, Yale Center for British Art, B1978.43.333, Prints and Drawings"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "creators3": {
+      "doc_count": 1,
+      "Creator(s).keyword_count": {
+        "value": 1
+      },
+      "Creator(s).keyword": {
+        "doc_count_error_upper_bound": 0,
+        "sum_other_doc_count": 0,
+        "buckets": [
+          {
+            "key": "\"Yerenrag\" (J. F. Garneray), 1755–1837",
+            "doc_count": 1
+          }
+        ]
+      }
+    },
+    "collection2": {
+      "doc_count": 1,
+      "Collection.keyword_count": {
+        "value": 1
+      },
+      "Collection.keyword": {
+        "doc_count_error_upper_bound": 0,
+        "sum_other_doc_count": 0,
+        "buckets": [
+          {
+            "key": "Prints and Drawings",
+            "doc_count": 1
+          }
+        ]
+      }
+    },
+    "medium4": {
+      "doc_count": 1,
+      "Medium.keyword": {
+        "doc_count_error_upper_bound": 0,
+        "sum_other_doc_count": 0,
+        "buckets": [
+          {
+            "key": "Aquatint, hand-colored",
+            "doc_count": 1
+          }
+        ]
+      },
+      "Medium.keyword_count": {
+        "value": 1
+      }
+    }
+  },
+  "suggest": {
+    "suggestions": [
+      {
+        "text": "Lere",
+        "offset": 0,
+        "length": 4,
+        "options": [
+          {
+            "text": "lear",
+            "score": 0.028453086
+          },
+          {
+            "text": "lake",
+            "score": 0.020280039
+          },
+          {
+            "text": "life",
+            "score": 0.017966509
+          },
+          {
+            "text": "left",
+            "score": 0.015720578
+          },
+          {
+            "text": "lens",
+            "score": 0.015354491
+          }
+        ]
+      }
+    ]
+  }
+}

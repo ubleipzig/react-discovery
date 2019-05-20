@@ -1,10 +1,9 @@
 import {reducerWithInitialState} from 'typescript-fsa-reducers'
 import {fetchSolrResponse} from '../actions'
 
-interface IState {
+interface IResponseState {
   aggregations: IAggregations;
   hits: IHits;
-  url: string;
 }
 
 export interface IAggregations {
@@ -13,14 +12,18 @@ export interface IAggregations {
   };
 }
 export interface IHits {
-  hits: [];
+  hits: IHit[];
   numFound: number;
 }
 
-const initialState: IState = {
+export interface IHit {
+  _source: any;
+  highlighting: any;
+}
+
+const initialState: IResponseState = {
   aggregations: null,
   hits: null,
-  url: null,
 }
 
 const buildAggregations = (fields): IAggregations => {
@@ -29,7 +32,7 @@ const buildAggregations = (fields): IAggregations => {
     const keys = (v as []).filter(({}, i): any => i % 2 === 0)
     const values = (v as []).filter(({}, i): any => i % 2 === 1)
     keys.map((k, i): any => {
-      buckets.push({key: k, docCount: values[i]})
+      buckets.push({docCount: values[i], key: k})
     })
     return {
       ...object,
@@ -38,9 +41,17 @@ const buildAggregations = (fields): IAggregations => {
   }, {})
 }
 
+const buildDocs = (result): IHit[] => {
+  return result.response && result.response.docs && result.response.docs.map((doc): IHit => {
+    return {
+      _source: doc,
+      highlighting: result.highlighting && result.highlighting[doc.id]
+    }
+  })
+}
 const buildHits = (result): IHits => {
   return {
-    hits: result.response ? result.response.docs : [],
+    hits: buildDocs(result),
     numFound: result.response ? result.response.numFound : null,
   }
 }
@@ -50,14 +61,13 @@ export const response = reducerWithInitialState(initialState)
     ...state,
     updating: true
   }))
-  .caseWithAction(fetchSolrResponse.done, (state: IState, action: any): any => ({
+  .caseWithAction(fetchSolrResponse.done, (state: IResponseState, action: any): any => ({
     ...state,
-    url: action.payload.params.url,
-    hits: buildHits(action.payload.result),
+    aggregations: action.payload.result.facet_counts ? buildAggregations(action.payload.result.facet_counts.facet_fields) : state.aggregations,
     grouped: action.payload.result.grouped || {},
-    aggregations: buildAggregations(action.payload.result.facet_counts.facet_fields),
-    highlighting: action.payload.result.highlighting ? action.data.highlighting : [],
+    hits: action.payload.result.response ? buildHits(action.payload.result) : state.hits,
     updating: false,
+    url: action.payload.params.url,
   }))
   .case(fetchSolrResponse.failed, (state, { error }): any => ({
     ...state,

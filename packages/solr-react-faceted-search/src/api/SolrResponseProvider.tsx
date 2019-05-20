@@ -1,21 +1,23 @@
 import React, {ReactElement, useEffect, useState} from "react"
-import {extendedDisMaxQueryBuilder, IQuery} from "."
+import {extendedDisMaxQueryBuilder, IQuery, suggestQueryBuilder} from "."
 import {usePrevious} from "../hooks"
-import {fetchSolrResponseWorker, setQueryFields} from "../state/actions"
+import {fetchSolrResponseWorker, fetchSolrSuggestionsWorker, setQueryFields} from "../state/actions"
 import {connect} from 'react-redux'
 
 interface ISolrResponseProvider {
-  fetchSolrResponseWorker: any;
+  fetchSolrResponseWorker: Function;
+  fetchSolrSuggestionsWorker: Function;
   query: IQuery;
   setQueryFields: typeof setQueryFields;
 }
 
 const SolrResponseProviderComponent: React.FC<ISolrResponseProvider> = (props): ReactElement => {
-  const {fetchSolrResponseWorker, setQueryFields, query} = props
-  const {filters, start, stringInput} = query
+  const {fetchSolrResponseWorker, fetchSolrSuggestionsWorker, setQueryFields, query} = props
+  const {filters, sortFields, start, stringInput, suggest} = query
   const prevStart = usePrevious(start)
   const prevStringInput = usePrevious(stringInput)
   const prevFilters = usePrevious(filters)
+  const prevSortFields = usePrevious(sortFields)
   const [isInitialized, setIsInitialized] = useState(false)
 
   const fetchResponse = (requestURI): boolean => {
@@ -23,20 +25,26 @@ const SolrResponseProviderComponent: React.FC<ISolrResponseProvider> = (props): 
     return true
   }
 
+  const fetchSuggestions = (requestURI): boolean => {
+    fetchSolrSuggestionsWorker({requestURI})
+    return true
+  }
+
   useEffect((): void => {
-    const requestURI = extendedDisMaxQueryBuilder({...query})
+    const responseRequestURI = extendedDisMaxQueryBuilder({...query})
     if (!isInitialized) {
       setQueryFields({...query})
-      setIsInitialized(fetchResponse(requestURI))
+      setIsInitialized(fetchResponse(responseRequestURI))
     }
-    if (isInitialized && prevStart !== start) {
-      fetchResponse(requestURI)
+    if (isInitialized) {
+      if (prevStart !== start || prevStringInput !== stringInput
+        || prevFilters !== filters || prevSortFields !== sortFields) {
+        fetchResponse(responseRequestURI)
+      }
     }
-    if (isInitialized && prevStringInput !== stringInput) {
-      fetchResponse(requestURI)
-    }
-    if (isInitialized && prevFilters !== filters) {
-      fetchResponse(requestURI)
+    if (suggest) {
+      const suggestionsRequestURI = suggestQueryBuilder({...query})
+      fetchSuggestions(suggestionsRequestURI)
     }
   }, [fetchResponse, isInitialized, prevStart, prevStringInput,
     setQueryFields, start, stringInput])
@@ -48,6 +56,6 @@ const SolrResponseProviderComponent: React.FC<ISolrResponseProvider> = (props): 
   )
 }
 
-const mapDispatchToProps = {fetchSolrResponseWorker, setQueryFields}
+const mapDispatchToProps = {fetchSolrResponseWorker, fetchSolrSuggestionsWorker, setQueryFields}
 
 export const SolrResponseProvider = connect(null, mapDispatchToProps)(SolrResponseProviderComponent)

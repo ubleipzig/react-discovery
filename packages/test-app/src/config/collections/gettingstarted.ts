@@ -15,46 +15,49 @@ export const gettingstarted: IConfig = {
       },
       searchFields: [
         {
-          label: "Name",
           field: "name_t",
+          label: "Name",
           type: "text"
         },
         {
-          label: "Characteristics",
           field: "characteristics_ss",
+          label: "Characteristics",
           type: "list-facet"
         },
         {
-          label: "Domains",
           field: "domains_ss",
+          label: "Domains",
           type: "list-facet"
         },
         {
-          label: "Date of birth",
           field: "birthDate_i",
+          label: "Date of birth",
           type: "range-facet"
         },
         {
-          label: "Date of death",
           field: "deathDate_i",
+          label: "Date of death",
           type: "range-facet"
         }
       ],
       sortFields: [
         {
+          field: "koppelnaam_s",
           label: "Name",
-          field: "koppelnaam_s"
+          order: "asc"
         },
         {
+          field: "birthDate_i",
           label: "Date of birth",
-          field: "birthDate_i"
+          order: "asc"
         },
         {
+          field: "deathDate_i",
           label: "Date of death",
-          field: "deathDate_i"
+          order: "asc"
         }
       ],
-      url: process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION + "/query"
+      url: process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION
     }
   }
 }
