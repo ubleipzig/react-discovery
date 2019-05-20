@@ -3,6 +3,20 @@ import {IConfig} from "../index"
 export const hsp: IConfig = {
   collections: {
     hsp: {
+      refinementListFilters: {
+        1: {
+          label: "Language",
+          field: "schreibsprachen_0_.name",
+        },
+        2: {
+          label: "Place",
+          field: "entstehungsDaten_0_.entstehungsort.name",
+        },
+        3: {
+          label: "Material",
+          field: "stoffe_0_.name",
+        },
+      },
       searchFields: [
         {
           label: "Title",

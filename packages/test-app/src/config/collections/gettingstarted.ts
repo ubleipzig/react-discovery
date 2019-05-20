@@ -3,6 +3,16 @@ import {IConfig} from "../index"
 export const gettingstarted: IConfig = {
   collections: {
     gettingstarted: {
+      refinementListFilters: {
+        1: {
+          field: 'characteristics_ss',
+          label: 'Characteristics',
+        },
+        2: {
+          field: 'domains_ss',
+          label: 'Domains',
+        }
+      },
       searchFields: [
         {
           label: "Name",

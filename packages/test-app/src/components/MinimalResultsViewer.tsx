@@ -17,26 +17,24 @@ interface IMinimalResultsViewer {
 const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsViewer): ReactElement => {
   const {filters, hits, size, start, stringInput, typeDef} = props
   const {collections, currentCollection} = localConfig
-  const {searchFields, sortFields, url} = collections[currentCollection]
+  const {refinementListFilters, searchFields, sortFields, url} = collections[currentCollection]
   const query = {filters, searchFields, sortFields, url, start, size, typeDef, stringInput}
+
+  const buildRefinementListFilters = () => {
+    return Object.keys(refinementListFilters).map((id: any) => (
+      <ItemList
+        key={id}
+        field={refinementListFilters[id].field}
+        label={refinementListFilters[id].label}
+        itemComponent={ItemList}/>))
+  }
 
   return (
     <SolrResponseProvider query={query}>
       <SearchBox/>
       <Grid container spacing={3}>
         <Grid item xs={2}>
-          <ItemList
-            field={"schreibsprachen_0_.name"}
-            label={"Language"}
-            itemComponent={ItemList}/>
-          <ItemList
-            field={"entstehungsDaten_0_.entstehungsort.name"}
-            label={"Place"}
-            itemComponent={ItemList}/>
-          <ItemList
-            field={"stoffe_0_.name"}
-            label={"Material"}
-            itemComponent={ItemList}/>
+          {buildRefinementListFilters()}
         </Grid>
         <Grid
           item xs={10}
