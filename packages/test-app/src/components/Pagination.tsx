@@ -4,6 +4,8 @@ import {setSelectedIndex, setStart, setSuggest} from "solr-react-faceted-search"
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import SkipPrevious from '@material-ui/icons/SkipPrevious'
+import SkipNext from '@material-ui/icons/SkipNext'
 import ChevronLeft from '@material-ui/icons/ChevronLeft'
 import ChevronRight from '@material-ui/icons/ChevronRight'
 import {makeStyles} from "@material-ui/core"
@@ -78,13 +80,13 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
   const buildIcon = (key): ReactElement => {
     switch (key) {
       case 'first':
-        return <ChevronLeft/>
+        return <SkipPrevious/>
       case 'previous':
         return <ChevronLeft/>
       case 'next':
         return <ChevronRight/>
       case 'last':
-        return <ChevronRight/>
+        return <SkipNext/>
     }
   }
 
