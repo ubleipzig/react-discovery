@@ -21,13 +21,11 @@
     "react-dom": ">= 16"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "prop-types": "^15.7.2",
+    "query-string": "^6.5.0",
     "typescript-fsa": "^3.0.0-beta-2",
     "typescript-fsa-reducers": "^1.2.0",
     "typescript-fsa-redux-thunk": "^2.0.0-beta.11",
-    "uuidv5": "^1.0.0",
-    "xhr": "^2.5.0"
+    "uuidv5": "^1.0.0"
   },
   "devDependencies": {
     "@types/react": "^16.8.14",
@@ -66,6 +64,9 @@
     "transform": {
       "\\.(ts|tsx)$": "ts-jest"
     },
-    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
+    "testMatch": [
+      "<rootDir>/src/__test__/**/*?(.)(Spec|unit).(tsx|ts)",
+      "<rootDir>/src/api/**/*?(.)(Spec|unit).(tsx|ts)"
+    ]
   }
 }
