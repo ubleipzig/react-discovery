@@ -1,6 +1,6 @@
 import { Action } from "typescript-fsa";
 import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
-import {setIsPersisted, setSelectedIndex} from "../actions"
+import {setIsPersisted, setSelectedIndex, setHitComponent} from "../actions"
 
 const initialState: any = {
   isPersisted: false,
@@ -15,4 +15,8 @@ export const config = reducerWithInitialState(initialState)
   .caseWithAction(setIsPersisted, (state, action: Action<any>): ReducerBuilder<any> => ({
     ...state,
     isPersisted: action.payload.isPersisted
+  }))
+  .caseWithAction(setHitComponent, (state, action: Action<any>): ReducerBuilder<any> => ({
+    ...state,
+    currentHitComponent: action.payload.currentHitComponent
   }))

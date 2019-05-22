@@ -8,6 +8,8 @@ import NativeSelect from '@material-ui/core/NativeSelect'
 import {connect} from "react-redux"
 import {setSortFields, setSuggest, ISortField} from "solr-react-faceted-search"
 import { makeStyles } from '@material-ui/core/styles'
+import FormHelperText from "@material-ui/core/FormHelperText"
+import InputLabel from "@material-ui/core/InputLabel"
 
 interface ISortingSelector {
   setSortFields: Function;
@@ -108,6 +110,7 @@ const SortingSelectorComponent: React.FC<any> = (props: ISortingSelector): React
     <FormControl className={classes.formControl}>
       <div style={{display: 'flex'}}>
         {buildSortOrderButton()}
+        <InputLabel shrink style={{textAlign: 'right', width: '100%'}}>Set Sort Order</InputLabel>
         <NativeSelect
           input={<Input id="sort-native-simple" name="sort" />}
           onChange={handleChange}

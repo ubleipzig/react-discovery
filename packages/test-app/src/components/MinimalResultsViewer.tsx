@@ -11,7 +11,8 @@ import {
   SolrResponseProvider
 } from 'solr-react-faceted-search'
 import {localConfig} from "../config"
-import {GroupSelectedFilters, Hits, HitStats, ItemList, Pagination, SearchAppBar, SortingSelector, Suggester} from '.'
+import {GroupSelectedFilters, HitStats, ItemList, Pagination,
+  SearchAppBar, SortingSelector, Suggester, ViewSwitcher, ViewSwitcherToggle} from '.'
 import {Typography} from "@material-ui/core"
 
 interface IMinimalResultsViewer {
@@ -30,7 +31,8 @@ interface IMinimalResultsViewer {
 }
 
 const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsViewer): ReactElement => {
-  const {filters, highlighting, hits, searchFields, size, sortFields, start, stringInput, suggest, suggestDictionary, typeDef, url} = props
+  const {filters, highlighting, hits, searchFields, size, sortFields, start, stringInput,
+    suggest, suggestDictionary, typeDef, url} = props
   const {collections, currentCollection} = localConfig
   const {refinementListFilters} = collections[currentCollection]
 
@@ -46,6 +48,21 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
         key={id}
         label={refinementListFilters[id].label}/>))
   }
+
+  // TODO set this in state from config
+  const hitComponents = [
+    {
+      defaultOption: true,
+      hitComponent: "DefaultHitComponent",
+      key: "list",
+      title: "Default"
+    },
+    {
+      hitComponent: "ExpandedHitComponent",
+      key: "list",
+      title: "Expanded"
+    }
+  ]
 
   return (
     <SolrResponseProvider query={buildInitialQuery()}>
@@ -69,6 +86,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
             style={{marginTop: '50px', padding: '10px'}}
           >
             <HitStats/>
+            <ViewSwitcherToggle hitComponents={hitComponents}/>
             <SortingSelector/>
           </Grid>
           <Grid
@@ -88,7 +106,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
           <Grid
             style={{backgroundColor: 'lightgray', padding: 20}}
           >
-            {hits ? <Hits/> : <Typography>Loading</Typography>}
+            {hits ? <ViewSwitcher hitComponents={hitComponents}/> : <Typography>Loading</Typography>}
           </Grid>
           <Grid
             alignItems="center"
