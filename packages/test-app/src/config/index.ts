@@ -25,7 +25,7 @@ export interface IConfig {
   highlighting?: boolean;
 }
 
-const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "gettingstarted"
+const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "test01"
 
 export const rootConfig: IConfig = {
   collections: null,

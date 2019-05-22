@@ -10,6 +10,10 @@
     "type": "git",
     "url": "git@github.com:ubl-chj/solr-react.git"
   },
+  "scripts": {
+    "lerna": "lerna",
+    "build": "lerna run build"
+  },
   "dependencies": {
     "@material-ui/core": "^4.0.0-beta.1",
     "@material-ui/icons": "^4.0.0-beta.0",
