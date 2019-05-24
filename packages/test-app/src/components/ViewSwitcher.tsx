@@ -19,7 +19,7 @@ const ViewSwitcherComponent: React.FC<any> = (props: IViewSwitcher): ReactElemen
   const buildHitComponent = () => {
     const defaultHitComponent = hitComponents.filter((hc): boolean => hc.defaultOption === true)
     const hitComponent = hitComponents.filter((hc): boolean => hc.hitComponent === currentHitComponent)
-    return hitComponent.length ? require(`./${hitComponent[0].hitComponent}`) : require(`./${defaultHitComponent[0].hitComponent}`)
+    return hitComponent.length ? require(`./hit-views/${hitComponent[0].hitComponent}`) : require(`./hit-views/${defaultHitComponent[0].hitComponent}`)
   }
 
   const Component = buildHitComponent()

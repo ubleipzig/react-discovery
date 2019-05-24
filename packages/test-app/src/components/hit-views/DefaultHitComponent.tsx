@@ -3,30 +3,50 @@ import Typography from "@material-ui/core/Typography"
 import React, {ReactElement} from "react"
 import Card from "@material-ui/core/Card"
 import CardMedia from "@material-ui/core/CardMedia"
+import {makeStyles} from "@material-ui/core"
+import {buildRandomUBLThumbnail} from "../../utils"
 
-interface IExpandedHitComponent {
+interface IDefaultItemComponent {
   classes: any;
   hit: {};
   i: number;
   searchFields: any;
 }
 
-const ExpandedHitComponent: React.FC<any> = (props: IExpandedHitComponent): ReactElement => {
-  const {classes, hit, i, searchFields} = props
 
-  const getRandomInt = (min, max): string => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    const randomInt = Math.floor(Math.random() * (max - min)) + min;
-    return randomInt.toString()
+const useStyles = makeStyles((theme): any => ({
+  content: {
+    display: 'flex',
+    flex: '1 0 auto',
+    padding: 0,
+  },
+  cover: {
+    padding: 20,
+    width: '8%',
+  },
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '20px'
+  },
+  inline: {
+    display: 'inline',
+  },
+  root: {
+    backgroundColor: theme.palette.background.paper,
+    display: 'flex',
+    marginBottom: '5px',
+  },
+  values: {
+    '& em': {
+      background: '#cfe1f3'
+    }
   }
+}));
 
-  const buildRandomUBLThumbnail = (): string => {
-    const page = getRandomInt(1, 3).padStart(8, "0")
-    const manifestId = getRandomInt(300, 12000).padStart(10, "0")
-    const prefix = manifestId.substring(4, 8)
-    return `https://iiif.ub.uni-leipzig.de/iiif/j2k/0000/${prefix}/${manifestId}/${page}.jpx/full/170,/0/default.jpg`
-  }
+const DefaultHitComponent: React.FC<any> = (props: IDefaultItemComponent): ReactElement => {
+  const classes: any = useStyles()
+  const {hit, i, searchFields} = props
 
   const renderValue = (field, hit): ReactElement => {
     const {_source, highlighting} = hit
@@ -43,7 +63,7 @@ const ExpandedHitComponent: React.FC<any> = (props: IExpandedHitComponent): Reac
         alt="Placeholder"
         className={classes.cover}
         component="img"
-        height="500"
+        height="140"
         image={buildRandomUBLThumbnail()}
         title="Thumbnail"
       />
@@ -75,4 +95,4 @@ const ExpandedHitComponent: React.FC<any> = (props: IExpandedHitComponent): Reac
   )
 }
 
-export default ExpandedHitComponent
+export default DefaultHitComponent

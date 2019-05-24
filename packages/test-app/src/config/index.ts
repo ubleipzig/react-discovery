@@ -1,5 +1,5 @@
 import deepmerge from 'deepmerge'
-import {collections} from './collections'
+import {hsp, nested, test01} from './collections'
 import {
   ISearchField,
   ISortField
@@ -10,10 +10,18 @@ export interface IRefinementListFilter {
   field: string;
 }
 
+export interface IHitComponent {
+  defaultOption?: boolean;
+  hitComponent: string;
+  key: string;
+  title: string;
+}
+
 export interface IConfig {
   currentCollection?: string;
   collections: {
     [collection: string]: {
+      hitComponents: IHitComponent[];
       refinementListFilters: {
         [id: string]: IRefinementListFilter;
       };
@@ -25,6 +33,7 @@ export interface IConfig {
   highlighting?: boolean;
 }
 
+export const collections = deepmerge.all([hsp, nested, test01])
 const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "test01"
 
 export const rootConfig: IConfig = {

@@ -34,7 +34,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
   const {filters, highlighting, hits, searchFields, size, sortFields, start, stringInput,
     suggest, suggestDictionary, typeDef, url} = props
   const {collections, currentCollection} = localConfig
-  const {refinementListFilters} = collections[currentCollection]
+  const {hitComponents, refinementListFilters} = currentCollection && collections[currentCollection]
 
   const buildInitialQuery = (): IQuery => {
     return {filters, highlighting, searchFields, size, sortFields, start, stringInput, suggest, suggestDictionary, typeDef, url}
@@ -48,21 +48,6 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
         key={id}
         label={refinementListFilters[id].label}/>))
   }
-
-  // TODO set this in state from config
-  const hitComponents = [
-    {
-      defaultOption: true,
-      hitComponent: "DefaultHitComponent",
-      key: "list",
-      title: "Default"
-    },
-    {
-      hitComponent: "ExpandedHitComponent",
-      key: "list",
-      title: "Expanded"
-    }
-  ]
 
   return (
     <SolrResponseProvider query={buildInitialQuery()}>

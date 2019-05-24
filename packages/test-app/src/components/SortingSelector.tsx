@@ -8,7 +8,6 @@ import NativeSelect from '@material-ui/core/NativeSelect'
 import {connect} from "react-redux"
 import {setSortFields, setSuggest, ISortField} from "solr-react-faceted-search"
 import { makeStyles } from '@material-ui/core/styles'
-import FormHelperText from "@material-ui/core/FormHelperText"
 import InputLabel from "@material-ui/core/InputLabel"
 
 interface ISortingSelector {

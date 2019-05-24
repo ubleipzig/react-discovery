@@ -1,4 +1,4 @@
-export * from './DefaultHitComponent'
+export * from './hit-views'
 export * from './SearchAppBar'
 export * from './GroupSelectedFilters'
 export * from './Hits'

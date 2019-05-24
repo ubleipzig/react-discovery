@@ -3,6 +3,19 @@ import {IConfig} from "../index"
 export const hsp: IConfig = {
   collections: {
     hsp: {
+      hitComponents: [
+        {
+          defaultOption: true,
+          hitComponent: "DefaultHitComponent",
+          key: "list",
+          title: "Default"
+        },
+        {
+          hitComponent: "ExpandedHitComponent",
+          key: "list",
+          title: "Expanded"
+        }
+      ],
       refinementListFilters: {
         1: {
           field: "schreibsprachen_0_.name",

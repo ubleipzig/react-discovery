@@ -3,6 +3,19 @@ import {IConfig} from "../index"
 export const test01: IConfig = {
   collections: {
     test01: {
+      hitComponents: [
+        {
+          defaultOption: true,
+          hitComponent: "DefaultHitComponent",
+          key: "list",
+          title: "Default"
+        },
+        {
+          hitComponent: "ExpandedHitComponent",
+          key: "list",
+          title: "Expanded"
+        }
+      ],
       refinementListFilters: {
         1: {
           field: 'place_s',
