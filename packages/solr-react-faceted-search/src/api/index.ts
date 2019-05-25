@@ -16,6 +16,7 @@ export interface ISortField {
 }
 
 export interface IQuery {
+  fieldList?: string;
   filters: string[];
   highlighting: boolean;
   searchFields: ISearchField[];
@@ -30,17 +31,18 @@ export interface IQuery {
 }
 
 export interface IEMaxQuery {
-  highlighting?: boolean;
-  searchFields: ISearchField[];
-  sortFields: ISortField[];
-  url: string;
-  start: number;
-  size: number;
-  stringInput: string;
-  typeDef: string;
   facetLimit?: number;
   facetSort?: string;
+  fieldList?: string;
   filters: {};
   group?: boolean;
   groupField?: string;
+  highlighting?: boolean;
+  searchFields: ISearchField[];
+  size: number;
+  sortFields: ISortField[];
+  start: number;
+  stringInput: string;
+  typeDef: string;
+  url: string;
 }

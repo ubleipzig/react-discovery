@@ -4,6 +4,7 @@ export enum SolrParameters {
   FACET_FIELD = "facet.field",
   FACET_LIMIT = "facet.limit",
   FACET_SORT = "facet.sort",
+  FIELD_LIST = "fl",
   FILTER_QUERY = "fq",
   GROUP = "group",
   GROUP_FIELD = "group.field",

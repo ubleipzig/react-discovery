@@ -1,4 +1,4 @@
-import React, {ReactElement} from "react"
+import React, {ReactElement, useEffect} from "react"
 import FormControl from "@material-ui/core/FormControl"
 import InputLabel from '@material-ui/core/InputLabel'
 import NativeSelect from "@material-ui/core/NativeSelect"
@@ -30,6 +30,13 @@ const useStyles = makeStyles((theme): any => ({
 export const ViewSwitcherComponent: React.FC<any> = (props: IViewSwitcher): ReactElement => {
   const classes: any = useStyles();
   const {currentHitComponent, hitComponents, setHitComponent} = props
+  const defaultHitComponent = hitComponents.filter((hc): boolean => hc.defaultOption === true)[0].hitComponent
+
+  useEffect((): void => {
+    if (!currentHitComponent) {
+      setHitComponent({currentHitComponent: defaultHitComponent})
+    }
+  })
 
   const handleChange = (e): void => {
     setHitComponent({currentHitComponent: e.target.value})

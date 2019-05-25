@@ -47,6 +47,10 @@ export const buildFacetLimitParams = (facetLimit = -1): any => {
   return {[SolrParameters.FACET_LIMIT]: facetLimit}
 }
 
+export const buildFieldListParams = (fieldList = "*, [child]"): any => {
+  return {[SolrParameters.FIELD_LIST]: fieldList}
+}
+
 export const buildSortParams = (sortFields): any => {
   const sf = sortFields
     .filter((sortField, i): boolean => sortField.isSelected || i === 0)
@@ -80,7 +84,7 @@ export const buildIsFaceted = (facet: boolean = true): any => {
 }
 
 export const extendedDisMaxQueryBuilder = (props: IEMaxQuery): string => {
-  const {facetLimit, facetSort, filters, group, groupField, highlighting,
+  const {facetLimit, facetSort, fieldList, filters, group, groupField, highlighting,
     searchFields, sortFields, stringInput, size, start, url} = props
   const qs = {
     ...buildDisMaxQuery(searchFields, stringInput),
@@ -93,6 +97,7 @@ export const extendedDisMaxQueryBuilder = (props: IEMaxQuery): string => {
     ...buildFilterQueryParams(filters),
     ...buildStart(start),
     ...buildIsFaceted(true),
-    ...buildHighlighting(highlighting)}
+    ...buildHighlighting(highlighting),
+    ...buildFieldListParams(fieldList)}
   return `${url}${SolrParameters.QUERY_CONTEXT}?${queryString.stringify(qs)}`
 }

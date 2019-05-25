@@ -4,13 +4,15 @@ import Typography from "@material-ui/core/Typography"
 import React, {ReactElement} from "react"
 import Card from "@material-ui/core/Card"
 import CardMedia from "@material-ui/core/CardMedia"
+import Divider from "@material-ui/core/Divider"
 import {makeStyles} from "@material-ui/core"
 import CardActions from "@material-ui/core/CardActions"
-import IconButton from "@material-ui/core/IconButton"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import Collapse from "@material-ui/core/Collapse"
-import clsx from 'clsx'
 import {buildRandomUBLThumbnail} from "../../utils"
+import ExpansionPanel from "@material-ui/core/ExpansionPanel"
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary"
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails"
+import List from "@material-ui/core/List"
 
 
 interface IDefaultItemComponent {
@@ -64,16 +66,17 @@ const useStyles = makeStyles((theme): any => ({
 }));
 
 const HspExpandedHitComponent: React.FC<any> = (props: IDefaultItemComponent): ReactElement => {
-  const [expanded, setExpanded] = React.useState(false);
+  const [isExpanded, setExpanded] = React.useState(false);
   const classes: any = useStyles()
   const {hit, i, searchFields} = props
+  // TODO add this to configuration
   const filteredFields = ['Stoff', 'Format', 'Entstehungsort', 'Entstehungsdatum', 'Formtyp',
     'Status', 'Schrift', 'Schreibsprache', 'Vorbesitzer']
   const subtitel = hit && hit._source['subtitel_t']
   const displayFields = searchFields.filter((sf) => filteredFields.includes(sf.label))
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded)
+  const handleExpandClick = (panel): any => ({}, isExpanded): void => {
+    setExpanded(isExpanded ? panel : false)
   }
 
   const renderValue = (field, hit): ReactElement => {
@@ -82,6 +85,81 @@ const HspExpandedHitComponent: React.FC<any> = (props: IDefaultItemComponent): R
     const value = [].concat(source[field] || null).filter((v): any => v !== null);
     return (
       <div className={classes.values} dangerouslySetInnerHTML={{__html: value.join(", ")}}/>
+    )
+  }
+
+  const buildEntityCountForType = (type): number => {
+    return hit && hit._source.entities && hit._source.entities.filter((entity) => entity.type_s === type).length
+  }
+
+  const buildEntityFields = (entityFields, type): any => {
+    const entities = hit && hit._source.entities && hit._source.entities.filter((entity) => entity.type_s === type)
+    return entities && entities.map((entity, i) => {
+      return (
+        <div key={i}>
+          {entityFields.map((field, i) => {
+            const value = [].concat(entity[field.field] || null).filter((v): any => v !== null);
+            return (
+              <CardContent
+                className={classes.content}
+                key={i}
+              >
+                <div style={{margin: "0 20px 0 10px", minWidth: 180}}>
+                  <Typography
+                    component="span"
+                  >
+                    {field.label || field.field}
+                  </Typography>
+                </div>
+                <div style={{flex: 'auto'}}>
+                  <Typography
+                    className={classes.inline}
+                    color="textSecondary"
+                    component="span"
+                  >
+                    <div className={classes.values} dangerouslySetInnerHTML={{__html: value.join(", ")}} key={i}/>
+                  </Typography>
+                </div>
+              </CardContent>
+            )
+          })}
+          <Divider/>
+        </div>)
+    })
+  }
+
+  // TODO add this to configuration
+  const digitalisatDisplayFields = [
+    {field: 'digitalisatDescription_t', label: 'Description'},
+    {field: 'digitalisatManifestId_s', label: 'Manifest'}
+  ]
+
+  const beschreibungDisplayFields = [
+    {field: 'beschreibungText_t', label: 'Text'},
+  ]
+
+  const buildExpansionPanelForType = (displayFields, type) => {
+    return (
+      <ExpansionPanel
+        expanded={Boolean(isExpanded === type)}
+        onChange={handleExpandClick(type)}
+      >
+        <ExpansionPanelSummary
+          aria-controls="panel1bh-content"
+          expandIcon={<ExpandMoreIcon />}
+          id="panel1bh-header"
+        >
+          <Typography
+            className={classes.heading}>
+            {type} <i>({buildEntityCountForType(type)})</i>
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <List component="nav">
+            {buildEntityFields(displayFields, type)}
+          </List>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
     )
   }
 
@@ -118,7 +196,7 @@ const HspExpandedHitComponent: React.FC<any> = (props: IDefaultItemComponent): R
               className={classes.content}
               key={key}
             >
-              <div style={{margin: "0 20px 0 10px", minWidth: 140}}>
+              <div style={{margin: "0 20px 0 10px", minWidth: 180}}>
                 <Typography
                   component="span"
                 >
@@ -136,23 +214,11 @@ const HspExpandedHitComponent: React.FC<any> = (props: IDefaultItemComponent): R
               </div>
             </CardContent>)}
           <CardActions disableSpacing>
-            <IconButton
-              aria-expanded={expanded}
-              aria-label="Show more"
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: expanded,
-              })}
-              href=''
-              onClick={handleExpandClick}
-            >
-              <ExpandMoreIcon/>
-            </IconButton>
+            {buildExpansionPanelForType(digitalisatDisplayFields, 'Digitalisat')}
           </CardActions>
-          <Collapse in={expanded} timeout="auto" unmountOnExit>
-            <CardContent>
-              <Typography paragraph>Method:</Typography>
-            </CardContent>
-          </Collapse>
+          <CardActions disableSpacing>
+            {buildExpansionPanelForType(beschreibungDisplayFields, 'Beschreibung')}
+          </CardActions>
         </div>
       </div>
     </Card>

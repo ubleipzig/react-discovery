@@ -29,12 +29,21 @@ export const nested: IConfig = {
           field: "schreibsprache_s",
           label: "Schreibsprache",
         },
+        4: {
+          field: "type_s",
+          label: "Type",
+        },
       },
       searchFields: [
         {
           field: "id",
           label: "id",
           type: "text"
+        },
+        {
+          field: "type_s",
+          label: "type",
+          type: "list-facet"
         },
         {
           field: "titel_t",

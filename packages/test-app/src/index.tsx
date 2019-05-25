@@ -18,6 +18,7 @@ const {collections, currentCollection} = localConfig
 const {searchFields, sortFields, url} = collections[currentCollection]
 
 const initialQueryState: IQuery = {
+  fieldList: null,
   filters: [],
   highlighting: true,
   searchFields,
