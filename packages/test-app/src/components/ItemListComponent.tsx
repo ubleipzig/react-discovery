@@ -88,7 +88,7 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
         return (
           <ListItem
             button={true}
-            component={"div"}
+            component='div'
             dense
             key={bucket.key}
             onClick={(): void => handleChange(bucket.key)}

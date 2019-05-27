@@ -13,6 +13,8 @@ interface IFacetViewSwitcher {
     }];
 }
 
+const CUSTOM_COMPONENT_PATH = './hit-views/'
+
 const FacetViewSwitcherComponent: React.FC<any> = (props: IFacetViewSwitcher): ReactElement => {
   const {currentHitComponent, filterType, hitComponents} = props
 
@@ -20,7 +22,8 @@ const FacetViewSwitcherComponent: React.FC<any> = (props: IFacetViewSwitcher): R
     const defaultHitComponent = hitComponents.filter((hc): boolean => hc.defaultOption === true)
     const hitComponent = filterType ? hitComponents.filter((hc): boolean => hc.key === 'facet' && hc.hitComponent === filterType) :
       hitComponents.filter((hc): boolean => hc.hitComponent === currentHitComponent)
-    return hitComponent.length ? require(`./hit-views/${hitComponent[0].hitComponent}`) : require(`./hit-views/${defaultHitComponent[0].hitComponent}`)
+    return hitComponent.length ? require(`${CUSTOM_COMPONENT_PATH}${hitComponent[0].hitComponent}`)
+      : require(`${CUSTOM_COMPONENT_PATH}${defaultHitComponent[0].hitComponent}`)
   }
 
   const Component = buildHitComponent()

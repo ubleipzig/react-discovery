@@ -106,7 +106,10 @@ const SortingSelectorComponent: React.FC<any> = (props: ISortingSelector): React
   }
 
   return sortFields ? (
-    <FormControl className={classes.formControl}>
+    <FormControl
+      className={classes.formControl}
+      component='div'
+    >
       <div style={{display: 'flex'}}>
         {buildSortOrderButton()}
         <InputLabel shrink style={{textAlign: 'right', width: '100%'}}>Set Sort Order</InputLabel>

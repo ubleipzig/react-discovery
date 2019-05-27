@@ -1,11 +1,11 @@
-import React, {ReactElement} from 'react';
-import deburr from 'lodash/deburr';
+import React, {ReactElement} from 'react'
+import deburr from 'lodash/deburr'
 import Chip from '@material-ui/core/Chip'
-import Downshift from 'downshift';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
-import MenuItem from '@material-ui/core/MenuItem';
+import Downshift from 'downshift'
+import { makeStyles } from '@material-ui/core/styles'
+import TextField from '@material-ui/core/TextField'
+import Paper from '@material-ui/core/Paper'
+import MenuItem from '@material-ui/core/MenuItem'
 import {setStart, setSuggest} from "solr-react-faceted-search"
 import {connect} from "react-redux"
 
@@ -19,8 +19,8 @@ interface ISuggestion {
 
 const renderSuggestion = (props: ISuggestion): ReactElement => {
   const { suggestion, index, itemProps, highlightedIndex, selectedItem } = props
-  const isHighlighted = highlightedIndex === index;
-  const isSelected = (selectedItem || '').indexOf(suggestion) > -1;
+  const isHighlighted = highlightedIndex === index
+  const isSelected = (selectedItem || '').indexOf(suggestion) > -1
 
   return (
     <MenuItem
@@ -34,7 +34,7 @@ const renderSuggestion = (props: ISuggestion): ReactElement => {
     >
       {suggestion}
     </MenuItem>
-  );
+  )
 }
 
 const useStyles = makeStyles((theme): any => ({
@@ -67,10 +67,10 @@ const useStyles = makeStyles((theme): any => ({
   root: {
     flexGrow: 1,
   },
-}));
+}))
 
 const renderInput = (inputProps): ReactElement => {
-  const { InputProps, classes, ref, ...other } = inputProps;
+  const { InputProps, classes, ref, ...other } = inputProps
   return (
     <TextField
       InputLabelProps={{
@@ -88,7 +88,7 @@ const renderInput = (inputProps): ReactElement => {
       variant="outlined"
       {...other}
     />
-  );
+  )
 }
 
 interface ISuggester {
@@ -99,7 +99,7 @@ interface ISuggester {
 
 export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactElement => {
   const {setStart, setSuggest, terms} = props
-  const classes: any = useStyles();
+  const classes: any = useStyles()
   const [selectedItem, setSelectedItem] = React.useState([])
   const [inputValue, setInputValue] = React.useState('')
 
@@ -109,45 +109,45 @@ export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactEleme
   }
 
   const onSelect = (item): void => {
-    let newSelectedItem = [...selectedItem];
+    let newSelectedItem = [...selectedItem]
     if (newSelectedItem.indexOf(item) === -1) {
-      newSelectedItem = [...newSelectedItem, item];
+      newSelectedItem = [...newSelectedItem, item]
     }
     setInputValue('')
-    setSelectedItem(newSelectedItem);
+    setSelectedItem(newSelectedItem)
     const quotedItem = `"${item}"`
     setSuggest({stringInput: quotedItem, suggest: true})
     setStart({newStart: 0})
   }
 
   const handleDelete = (item): any => (): void => {
-    const newSelectedItem = [...selectedItem];
-    newSelectedItem.splice(newSelectedItem.indexOf(item), 1);
-    setSelectedItem(newSelectedItem);
+    const newSelectedItem = [...selectedItem]
+    newSelectedItem.splice(newSelectedItem.indexOf(item), 1)
+    setSelectedItem(newSelectedItem)
     setSuggest({stringInput: '', suggest: true})
     setStart({newStart: 0})
   }
 
   const handleKeyDown = (event): void => {
     if (selectedItem.length && !inputValue.length && event.key === 'Backspace') {
-      setSelectedItem(selectedItem.slice(0, selectedItem.length - 1));
+      setSelectedItem(selectedItem.slice(0, selectedItem.length - 1))
     }
   }
 
   const getSuggestions = (value, { showEmpty = false } = {}): string[] => {
-    const inputValue = deburr(value.trim()).toLowerCase();
-    const inputLength = inputValue.length;
-    let count = 0;
+    const inputValue = deburr(value.trim()).toLowerCase()
+    const inputLength = inputValue.length
+    let count = 0
     const suggestions = terms && terms.filter((t): boolean => {
-      const keep = count < 5 && t.slice(0, inputLength).toLowerCase() === inputValue;
+      const keep = count < 5 && t.slice(0, inputLength).toLowerCase() === inputValue
       if (keep) {
-        count += 1;
+        count += 1
       }
-      return keep;
+      return keep
     })
     return inputLength === 0 && !showEmpty
       ? []
-      : suggestions;
+      : suggestions
   }
 
   return (
@@ -175,6 +175,7 @@ export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactEleme
                 startAdornment: selectedItem.map((item): ReactElement => (
                   <Chip
                     className={classes.chip}
+                    component='div'
                     key={item}
                     label={item}
                     onDelete={handleDelete(item)}
@@ -205,7 +206,7 @@ export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactEleme
         )}
       </Downshift>
     </div>
-  );
+  )
 }
 
 const mapStateToProps = (state): any => ({

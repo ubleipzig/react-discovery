@@ -48,7 +48,10 @@ export const ViewSwitcherComponent: React.FC<any> = (props: IViewSwitcher): Reac
   }
 
   return hitComponents ? (
-    <FormControl className={classes.formControl}>
+    <FormControl
+      className={classes.formControl}
+      component='div'
+    >
       <InputLabel>Set View Type</InputLabel>
       <NativeSelect
         input={<Input id="sort-native-simple" name="itemView" />}

@@ -1,4 +1,5 @@
 import {SolrParameters} from "./SolrParameters"
+const queryString = require('query-string')
 
 interface ISuggestQuery {
   stringInput: string;
@@ -7,13 +8,24 @@ interface ISuggestQuery {
   url: string;
 }
 
-const buildQueryString = (stringInput, suggest, suggestDictionary): string => {
-  const sq = stringInput ? `${SolrParameters.SUGGEST_QUERY}=${encodeURIComponent(stringInput)}`
-    : `${SolrParameters.SUGGEST_QUERY}=''`
-  return `${sq}&${SolrParameters.SUGGEST}=${suggest}&${SolrParameters.SUGGEST_BUILD}=${true}&${SolrParameters.SUGGEST_DICTIONARY}=${suggestDictionary}`
+const buildSuggestParams = (suggestDictionary, suggest = true): any => {
+  return {
+    [SolrParameters.SUGGEST_BUILD]: suggest,
+    [SolrParameters.SUGGEST_DICTIONARY]: suggestDictionary
+  }
 }
+
+const buildQueryString = (stringInput): any => {
+  return stringInput ? {
+    [SolrParameters.SUGGEST_QUERY]: stringInput}
+    : {[SolrParameters.SUGGEST_QUERY]: ''}
+}
+
 export const suggestQueryBuilder = (props: ISuggestQuery): string => {
   const {stringInput, suggest, suggestDictionary, url} = props
-  const qs = buildQueryString(stringInput, suggest, suggestDictionary)
-  return `${url}${SolrParameters.SUGGEST_CONTEXT}?${qs}`
+  const qs = {
+    ...buildSuggestParams(suggestDictionary, suggest),
+    ...buildQueryString(stringInput)
+  }
+  return `${url}${SolrParameters.SUGGEST_CONTEXT}?${queryString.stringify(qs)}`
 }

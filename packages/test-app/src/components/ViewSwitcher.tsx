@@ -13,13 +13,16 @@ interface IViewSwitcher {
     }];
 }
 
+const CUSTOM_COMPONENT_PATH = './hit-views/'
+
 const ViewSwitcherComponent: React.FC<any> = (props: IViewSwitcher): ReactElement => {
   const {currentHitComponent, hitComponents} = props
 
   const buildHitComponent = (): any => {
     const defaultHitComponent = hitComponents.filter((hc): boolean => hc.defaultOption === true)
     const hitComponent = hitComponents.filter((hc): boolean => hc.hitComponent === currentHitComponent)
-    return hitComponent.length ? require(`./hit-views/${hitComponent[0].hitComponent}`) : require(`./hit-views/${defaultHitComponent[0].hitComponent}`)
+    return hitComponent.length ? require(`${CUSTOM_COMPONENT_PATH}${hitComponent[0].hitComponent}`)
+      : require(`${CUSTOM_COMPONENT_PATH}${defaultHitComponent[0].hitComponent}`)
   }
 
   const Component = buildHitComponent()
