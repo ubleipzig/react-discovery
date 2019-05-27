@@ -10,6 +10,11 @@ export const nested: IConfig = {
           title: "Compact"
         },
         {
+          hitComponent: "Beschreibung",
+          key: "facet",
+          title: "Beschreibung"
+        },
+        {
           defaultOption: true,
           hitComponent: "HspExpandedHitComponent",
           key: "list",
@@ -43,6 +48,16 @@ export const nested: IConfig = {
         {
           field: "type_s",
           label: "type",
+          type: "list-facet"
+        },
+        {
+          field: "beschreibungText_t",
+          label: "BeschreibungText",
+          type: "list-facet"
+        },
+        {
+          field: "digitalisatDescription_t",
+          label: "DigitalisatDescription",
           type: "list-facet"
         },
         {

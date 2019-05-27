@@ -7,7 +7,7 @@ import CardMedia from "@material-ui/core/CardMedia"
 import {makeStyles} from "@material-ui/core"
 import {buildRandomUBLThumbnail} from "../../utils"
 
-interface IDefaultItemComponent {
+interface IDescriptionHitComponent {
   classes: any;
   hit: {
     _source: any;
@@ -47,10 +47,10 @@ const useStyles = makeStyles((theme): any => ({
   }
 }));
 
-const HspDefaultHitComponent: React.FC<any> = (props: IDefaultItemComponent): ReactElement => {
+const Beschreibung: React.FC<any> = (props: IDescriptionHitComponent): ReactElement => {
   const classes: any = useStyles()
   const {hit, i, searchFields} = props
-  const displayFields = searchFields.filter((sf): boolean => sf.field === 'subtitel_t')
+  const displayFields = searchFields.filter((sf): boolean => sf.field === 'beschreibungText_t')
 
   const renderValue = (field, hit): ReactElement => {
     const {_source, highlighting} = hit
@@ -102,4 +102,4 @@ const HspDefaultHitComponent: React.FC<any> = (props: IDefaultItemComponent): Re
   )
 }
 
-export default HspDefaultHitComponent
+export default Beschreibung

@@ -80,11 +80,6 @@ const SearchBoxComponent: React.FC<any> = (props: ISearchBox): ReactElement => {
   )
 }
 
-const mapStateToProps = (state): any => ({
-  query: state.query,
-  results: state.response
-})
-
 const mapDispatchToProps = {setDisMaxQuery, setStart}
 
-export const SearchBox = connect(mapStateToProps, mapDispatchToProps)(SearchBoxComponent)
+export const SearchBox = connect(null, mapDispatchToProps)(SearchBoxComponent)

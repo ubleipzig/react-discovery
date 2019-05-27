@@ -11,11 +11,15 @@ import {
   response,
   suggestions
 } from "solr-react-faceted-search"
-import {localConfig} from "./config"
-const thunk: ThunkMiddleware<{}, AnyAction> = thunkMiddleware;
+import {IConfig, localConfig} from "./config"
+
+const thunk: ThunkMiddleware<{}, AnyAction> = thunkMiddleware
 
 const {collections, currentCollection} = localConfig
 const {searchFields, sortFields, url} = collections[currentCollection]
+
+const initialConfigState: IConfig = localConfig
+const configReducer = config(initialConfigState)
 
 const initialQueryState: IQuery = {
   fieldList: null,
@@ -31,11 +35,10 @@ const initialQueryState: IQuery = {
   typeDef: null,
   url
 }
-
 const queryReducer = query(initialQueryState)
 
 export const rootReducer = (): any => combineReducers({
-  config,
+  config: configReducer,
   query: queryReducer,
   response,
   suggestions

@@ -10,15 +10,16 @@ import {
   setQueryFields,
   SolrResponseProvider
 } from 'solr-react-faceted-search'
-import {localConfig} from "../config"
 import {GroupSelectedFilters, HitStats, ItemList, Pagination,
-  SearchAppBar, SortingSelector, Suggester, ViewSwitcher, ViewSwitcherToggle} from '.'
+  SearchAppBar, SortingSelector, Suggester, FacetViewSwitcher, ViewSwitcherToggle} from '.'
 import {Typography} from "@material-ui/core"
 
 interface IMinimalResultsViewer {
+  currentCollection: string;
   filters: string[];
   highlighting: boolean;
   hits: IHits;
+  refinementListFilters: any;
   size: number;
   searchFields: ISearchField[];
   sortFields: ISortField[];
@@ -31,10 +32,8 @@ interface IMinimalResultsViewer {
 }
 
 const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsViewer): ReactElement => {
-  const {filters, highlighting, hits, searchFields, size, sortFields, start, stringInput,
+  const {filters, highlighting, hits, refinementListFilters, searchFields, size, sortFields, start, stringInput,
     suggest, suggestDictionary, typeDef, url} = props
-  const {collections, currentCollection} = localConfig
-  const {hitComponents, refinementListFilters} = currentCollection && collections[currentCollection]
 
   const buildInitialQuery = (): IQuery => {
     return {filters, highlighting, searchFields, size, sortFields, start, stringInput, suggest, suggestDictionary, typeDef, url}
@@ -71,7 +70,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
             style={{marginTop: '50px', padding: '10px'}}
           >
             <HitStats/>
-            <ViewSwitcherToggle hitComponents={hitComponents}/>
+            <ViewSwitcherToggle/>
             <SortingSelector/>
           </Grid>
           <Grid
@@ -91,7 +90,7 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
           <Grid
             style={{backgroundColor: 'lightgray', padding: 20}}
           >
-            {hits ? <ViewSwitcher hitComponents={hitComponents}/> : <Typography>Loading</Typography>}
+            {hits ? <FacetViewSwitcher/> : <Typography>Loading</Typography>}
           </Grid>
           <Grid
             alignItems="center"
@@ -108,10 +107,12 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
 }
 
 const mapStateToProps = (state): any => ({
+  currentCollection: state.config.currentCollection,
   filters: state.query.filters,
   highlighting: state.query.highlighting,
   hits: state.response.hits,
   query: state.query,
+  refinementListFilters: state.config.collections[state.config.currentCollection].refinementListFilters,
   searchFields: state.query.searchFields,
   size: state.query.size,
   sortFields: state.query.sortFields,

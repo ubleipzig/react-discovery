@@ -1,4 +1,5 @@
 export * from './hit-views'
+export * from './FacetViewSwitcher'
 export * from './SearchAppBar'
 export * from './GroupSelectedFilters'
 export * from './Hits'

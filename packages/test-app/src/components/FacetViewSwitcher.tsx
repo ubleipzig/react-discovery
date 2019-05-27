@@ -1,10 +1,10 @@
 import React, {ReactElement} from "react"
-import {setDisMaxQuery, setSelectedFilters, setStart} from "solr-react-faceted-search"
 import {connect} from "react-redux"
 import {Hits} from "."
 
-interface IViewSwitcher {
+interface IFacetViewSwitcher {
   currentHitComponent: string;
+  filterType: string;
   hitComponents: [
     {key: string;
       title: string;
@@ -13,12 +13,13 @@ interface IViewSwitcher {
     }];
 }
 
-const ViewSwitcherComponent: React.FC<any> = (props: IViewSwitcher): ReactElement => {
-  const {currentHitComponent, hitComponents} = props
+const FacetViewSwitcherComponent: React.FC<any> = (props: IFacetViewSwitcher): ReactElement => {
+  const {currentHitComponent, filterType, hitComponents} = props
 
   const buildHitComponent = (): any => {
     const defaultHitComponent = hitComponents.filter((hc): boolean => hc.defaultOption === true)
-    const hitComponent = hitComponents.filter((hc): boolean => hc.hitComponent === currentHitComponent)
+    const hitComponent = filterType ? hitComponents.filter((hc): boolean => hc.key === 'facet' && hc.hitComponent === filterType) :
+      hitComponents.filter((hc): boolean => hc.hitComponent === currentHitComponent)
     return hitComponent.length ? require(`./hit-views/${hitComponent[0].hitComponent}`) : require(`./hit-views/${defaultHitComponent[0].hitComponent}`)
   }
 
@@ -33,9 +34,8 @@ const ViewSwitcherComponent: React.FC<any> = (props: IViewSwitcher): ReactElemen
 
 const mapStateToProps = (state): any => ({
   currentHitComponent: state.config.currentHitComponent,
+  filterType: state.query.filters && state.query.filters.type_s && state.query.filters.type_s[0],
   hitComponents: state.config.collections[state.config.currentCollection].hitComponents,
 })
 
-const mapDispatchToProps = {setDisMaxQuery, setSelectedFilters, setStart}
-
-export const ViewSwitcher: any = connect(mapStateToProps, mapDispatchToProps)(ViewSwitcherComponent)
+export const FacetViewSwitcher: any = connect(mapStateToProps, null)(FacetViewSwitcherComponent)

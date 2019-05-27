@@ -73,7 +73,7 @@ const HspExpandedHitComponent: React.FC<any> = (props: IDefaultItemComponent): R
   const filteredFields = ['Stoff', 'Format', 'Entstehungsort', 'Entstehungsdatum', 'Formtyp',
     'Status', 'Schrift', 'Schreibsprache', 'Vorbesitzer']
   const subtitel = hit && hit._source['subtitel_t']
-  const displayFields = searchFields.filter((sf) => filteredFields.includes(sf.label))
+  const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
 
   const handleExpandClick = (panel): any => ({}, isExpanded): void => {
     setExpanded(isExpanded ? panel : false)
@@ -89,15 +89,15 @@ const HspExpandedHitComponent: React.FC<any> = (props: IDefaultItemComponent): R
   }
 
   const buildEntityCountForType = (type): number => {
-    return hit && hit._source.entities && hit._source.entities.filter((entity) => entity.type_s === type).length
+    return hit && hit._source.entities && hit._source.entities.filter((entity): boolean => entity.type_s === type).length
   }
 
   const buildEntityFields = (entityFields, type): any => {
-    const entities = hit && hit._source.entities && hit._source.entities.filter((entity) => entity.type_s === type)
-    return entities && entities.map((entity, i) => {
+    const entities = hit && hit._source.entities && hit._source.entities.filter((entity): boolean => entity.type_s === type)
+    return entities && entities.map((entity, i): ReactElement => {
       return (
         <div key={i}>
-          {entityFields.map((field, i) => {
+          {entityFields.map((field, i): ReactElement => {
             const value = [].concat(entity[field.field] || null).filter((v): any => v !== null);
             return (
               <CardContent
@@ -123,7 +123,7 @@ const HspExpandedHitComponent: React.FC<any> = (props: IDefaultItemComponent): R
               </CardContent>
             )
           })}
-          <Divider/>
+          <Divider component='hr'/>
         </div>)
     })
   }
@@ -138,7 +138,7 @@ const HspExpandedHitComponent: React.FC<any> = (props: IDefaultItemComponent): R
     {field: 'beschreibungText_t', label: 'Text'},
   ]
 
-  const buildExpansionPanelForType = (displayFields, type) => {
+  const buildExpansionPanelForType = (displayFields, type): ReactElement => {
     return (
       <ExpansionPanel
         expanded={Boolean(isExpanded === type)}

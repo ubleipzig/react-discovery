@@ -43,7 +43,8 @@ export const ViewSwitcherComponent: React.FC<any> = (props: IViewSwitcher): Reac
   }
 
   const buildOptions = (): ReactElement[] => {
-    return hitComponents.map((hc, i): ReactElement => <option key={i} value={hc.hitComponent}>{hc.title}</option>)
+    return hitComponents.filter((hc): boolean => hc.key !== 'facet')
+      .map((hc, i): ReactElement => <option key={i} value={hc.hitComponent}>{hc.title}</option>)
   }
 
   return hitComponents ? (
@@ -62,6 +63,7 @@ export const ViewSwitcherComponent: React.FC<any> = (props: IViewSwitcher): Reac
 
 const mapStateToProps = (state): any => ({
   currentHitComponent: state.config.currentHitComponent,
+  hitComponents: state.config.collections[state.config.currentCollection].hitComponents,
 })
 
 const mapDispatchToProps = {setHitComponent}
