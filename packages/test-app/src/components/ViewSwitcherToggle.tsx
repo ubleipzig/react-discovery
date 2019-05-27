@@ -1,20 +1,22 @@
-import React, {ReactElement, useEffect} from "react"
+import React, {ReactElement} from "react"
 import FormControl from "@material-ui/core/FormControl"
-import InputLabel from '@material-ui/core/InputLabel'
-import NativeSelect from "@material-ui/core/NativeSelect"
-import Input from "@material-ui/core/Input"
-import {setHitComponent} from "solr-react-faceted-search"
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Switch from '@material-ui/core/Switch'
+import {setIsViewExpanded} from "solr-react-faceted-search"
 import {connect} from "react-redux"
 import {makeStyles} from "@material-ui/core"
 
 interface IViewSwitcher {
   currentHitComponent: string;
   hitComponents: any;
+  isViewExpanded: boolean;
   setHitComponent: Function;
+  setIsViewExpanded: Function;
 }
 
 const useStyles = makeStyles((theme): any => ({
   formControl: {
+    justifyContent: 'center',
     margin: theme.spacing(1),
     minWidth: 120,
   },
@@ -27,48 +29,38 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-export const ViewSwitcherComponent: React.FC<any> = (props: IViewSwitcher): ReactElement => {
+export const ViewSwitcherToggleComponent: React.FC<any> = (props: IViewSwitcher): ReactElement => {
   const classes: any = useStyles();
-  const {currentHitComponent, hitComponents, setHitComponent} = props
-  const defaultHitComponent = hitComponents.filter((hc): boolean => hc.defaultOption === true)[0].hitComponent
+  const {isViewExpanded, setIsViewExpanded} = props
 
-  useEffect((): void => {
-    if (!currentHitComponent) {
-      setHitComponent({currentHitComponent: defaultHitComponent})
-    }
-  })
-
-  const handleChange = (e): void => {
-    setHitComponent({currentHitComponent: e.target.value})
+  const handleChange = (isViewExpanded): void => {
+    setIsViewExpanded({isViewExpanded})
   }
 
-  const buildOptions = (): ReactElement[] => {
-    return hitComponents.filter((hc): boolean => hc.key !== 'facet')
-      .map((hc, i): ReactElement => <option key={i} value={hc.hitComponent}>{hc.title}</option>)
-  }
-
-  return hitComponents ? (
+  return (
     <FormControl
       className={classes.formControl}
       component='div'
     >
-      <InputLabel>Set View Type</InputLabel>
-      <NativeSelect
-        input={<Input id="sort-native-simple" name="itemView" />}
-        onChange={handleChange}
-        value={currentHitComponent}
-      >
-        {buildOptions()}
-      </NativeSelect>
+      <FormControlLabel
+        control={
+          <Switch
+            checked={isViewExpanded}
+            color="primary"
+            onChange={(): void => handleChange(!isViewExpanded)}
+            value="checkedB"
+          />
+        }
+        label="Expand View"
+      />
     </FormControl>
-  ) : null
+  )
 }
 
 const mapStateToProps = (state): any => ({
-  currentHitComponent: state.config.currentHitComponent,
-  hitComponents: state.config.collections[state.config.currentCollection].hitComponents,
+  isViewExpanded: state.config.isViewExpanded,
 })
 
-const mapDispatchToProps = {setHitComponent}
+const mapDispatchToProps = {setIsViewExpanded}
 
-export const ViewSwitcherToggle: any = connect(mapStateToProps, mapDispatchToProps)(ViewSwitcherComponent)
+export const ViewSwitcherToggle: any = connect(mapStateToProps, mapDispatchToProps)(ViewSwitcherToggleComponent)

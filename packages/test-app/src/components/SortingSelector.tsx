@@ -54,10 +54,11 @@ const SortingSelectorComponent: React.FC<any> = (props: ISortingSelector): React
       return [...acc, val]
     }, [])
     const sorted = newSortFields.sort((a: any, b: any): any => (a.isSelected === b.isSelected) ? 0 : a.isSelected ? -1 : 1)
+    const [currentSortSelection] = sorted
     setSuggest({suggest: false})
     setSortFields({sortFields: sorted})
-    setSelectorValue(sorted[0].field)
-    setSortOrder(sorted[0].order)
+    setSelectorValue(currentSortSelection.field)
+    setSortOrder(currentSortSelection.order)
   }
 
   const handleSortOrder = (value): void => {
@@ -66,7 +67,7 @@ const SortingSelectorComponent: React.FC<any> = (props: ISortingSelector): React
       const order = {
         order: value
       }
-      const currentSortField = sortFields[0]
+      const [currentSortField] = sortFields
       const newSortField = {...currentSortField, ...order}
       const newSortFields = sortFields.map((sf, i): ISortField => {
         if (i === 0) {

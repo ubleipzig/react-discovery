@@ -15,9 +15,13 @@ export interface ISortField {
   isSelected?: boolean;
 }
 
+export interface IFilters {
+  [field: string]: string[];
+}
+
 export interface IQuery {
   fieldList?: string;
-  filters: string[];
+  filters: IFilters;
   highlighting: boolean;
   searchFields: ISearchField[];
   sortFields: ISortField[];

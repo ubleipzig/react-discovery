@@ -11,6 +11,7 @@ export const test01: IConfig = {
           title: "Default"
         },
         {
+          expandedView: true,
           hitComponent: "ExpandedHitComponent",
           key: "list",
           title: "Expanded"

@@ -7,7 +7,7 @@ export type RenderFunction = (props?: any, children?: any) => Element
 export type RenderComponentType<P> = React.ComponentClass<P> | React.ClassicComponentClass<P> | Element | RenderFunction | any
 
 export const renderComponent = (component: RenderComponentType<any>, props, children?: any): ReactElement => {
-  let isReactComponent = (
+  let isReactComponent = component && (
     component["prototype"] instanceof React.Component ||
     (component["prototype"] && component["prototype"].isReactComponent) ||
     typeof component === 'function'

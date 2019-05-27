@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import Grid from '@material-ui/core/Grid'
 import {
   fetchSolrResponseWorker,
+  IFilters,
   IHits,
   IQuery,
   ISearchField,
@@ -11,12 +12,12 @@ import {
   SolrResponseProvider
 } from 'solr-react-faceted-search'
 import {GroupSelectedFilters, HitStats, ItemList, Pagination,
-  SearchAppBar, SortingSelector, Suggester, FacetViewSwitcher, ViewSwitcherToggle} from '.'
+  SearchAppBar, SortingSelector, Suggester, FacetViewSwitcher, TabsAppBar, ViewSwitcherToggle} from '.'
 import {Typography} from "@material-ui/core"
 
 interface IMinimalResultsViewer {
   currentCollection: string;
-  filters: string[];
+  filters: IFilters;
   highlighting: boolean;
   hits: IHits;
   refinementListFilters: any;
@@ -90,7 +91,11 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
           <Grid
             style={{backgroundColor: 'lightgray', padding: 20}}
           >
-            {hits ? <FacetViewSwitcher/> : <Typography>Loading</Typography>}
+            {hits ?
+              <>
+                <TabsAppBar/>
+                <FacetViewSwitcher/>
+              </> : <Typography>Loading</Typography>}
           </Grid>
           <Grid
             alignItems="center"

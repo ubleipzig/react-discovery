@@ -3,8 +3,10 @@ import {IConfig} from "../index"
 export const nested: IConfig = {
   collections: {
     nested: {
+      docTypes: ['KOD', 'Beschreibung', 'Digitalisat'],
       hitComponents: [
         {
+          defaultOption: true,
           hitComponent: "HspDefaultHitComponent",
           key: "list",
           title: "Compact"
@@ -15,7 +17,7 @@ export const nested: IConfig = {
           title: "Beschreibung"
         },
         {
-          defaultOption: true,
+          expandedView: true,
           hitComponent: "HspExpandedHitComponent",
           key: "list",
           title: "Expanded"
@@ -33,11 +35,7 @@ export const nested: IConfig = {
         3: {
           field: "schreibsprache_s",
           label: "Schreibsprache",
-        },
-        4: {
-          field: "type_s",
-          label: "Type",
-        },
+        }
       },
       searchFields: [
         {
