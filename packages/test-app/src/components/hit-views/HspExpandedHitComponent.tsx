@@ -3,17 +3,15 @@ import CardHeader from '@material-ui/core/CardHeader'
 import Typography from "@material-ui/core/Typography"
 import React, {ReactElement} from "react"
 import Card from "@material-ui/core/Card"
-import CardMedia from "@material-ui/core/CardMedia"
 import Divider from "@material-ui/core/Divider"
 import {makeStyles} from "@material-ui/core"
 import CardActions from "@material-ui/core/CardActions"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import {buildRandomUBLThumbnail} from "../../utils"
 import ExpansionPanel from "@material-ui/core/ExpansionPanel"
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary"
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails"
 import List from "@material-ui/core/List"
-
+import {RandomThumbnail} from '.'
 
 interface IDefaultItemComponent {
   classes: any;
@@ -30,10 +28,6 @@ const useStyles = makeStyles((theme): any => ({
     display: 'flex',
     flex: '1 0 auto',
     padding: 0,
-  },
-  cover: {
-    padding: 20,
-    width: '8%',
   },
   details: {
     display: 'flex',
@@ -174,14 +168,7 @@ const HspExpandedHitComponent: React.FC<any> = (props: IDefaultItemComponent): R
           subheader={hit && hit._source.id}/>
       </div>
       <div style={{display: 'flex'}}>
-        <CardMedia
-          alt="Placeholder"
-          className={classes.cover}
-          component="img"
-          height="140"
-          image={buildRandomUBLThumbnail()}
-          title="Thumbnail"
-        />
+        <RandomThumbnail/>
         <div className={classes.details}>
           <div style={{display: 'flex', padding: '10px'}}>
             <Typography

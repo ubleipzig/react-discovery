@@ -4,7 +4,7 @@ import {FacetTypes} from "./FacetTypes"
 const queryString = require('query-string')
 
 const EDISMAX = "edismax"
-export const buildDisMaxQuery = (searchFields, stringInput): {} => {
+export const buildDisMaxQuery = (searchFields, stringInput = '*'): {} => {
   const qfList = searchFields.map((searchField): string => {
     return searchField.field
   }).join(" ")

@@ -2,9 +2,8 @@ import CardContent from "@material-ui/core/CardContent"
 import Typography from "@material-ui/core/Typography"
 import React, {ReactElement} from "react"
 import Card from "@material-ui/core/Card"
-import CardMedia from "@material-ui/core/CardMedia"
 import {makeStyles} from "@material-ui/core"
-import {buildRandomUBLThumbnail} from "../../utils"
+import {RandomThumbnail} from '.'
 
 interface IExpandedHitComponent {
   classes: any;
@@ -18,10 +17,6 @@ const useStyles = makeStyles((theme): any => ({
     display: 'flex',
     flex: '1 0 auto',
     padding: 0,
-  },
-  cover: {
-    padding: 20,
-    width: '8%',
   },
   details: {
     display: 'flex',
@@ -58,14 +53,7 @@ const ExpandedHitComponent: React.FC<any> = (props: IExpandedHitComponent): Reac
 
   return (
     <Card className={classes.root} key={i}>
-      <CardMedia
-        alt="Placeholder"
-        className={classes.cover}
-        component="img"
-        height="500"
-        image={buildRandomUBLThumbnail()}
-        title="Thumbnail"
-      />
+      <RandomThumbnail/>
       <div className={classes.details}>
         {searchFields.map((field, key): ReactElement =>
           <CardContent

@@ -3,9 +3,8 @@ import CardHeader from '@material-ui/core/CardHeader'
 import Typography from "@material-ui/core/Typography"
 import React, {ReactElement} from "react"
 import Card from "@material-ui/core/Card"
-import CardMedia from "@material-ui/core/CardMedia"
 import {makeStyles} from "@material-ui/core"
-import {buildRandomUBLThumbnail} from "../../utils"
+import {RandomThumbnail} from '.'
 
 interface IDefaultItemComponent {
   classes: any;
@@ -22,10 +21,6 @@ const useStyles = makeStyles((theme): any => ({
     display: 'flex',
     flex: '1 0 auto',
     padding: 0,
-  },
-  cover: {
-    padding: 20,
-    width: '8%',
   },
   details: {
     display: 'flex',
@@ -72,14 +67,7 @@ const HspDefaultHitComponent: React.FC<any> = (props: IDefaultItemComponent): Re
           subheader={hit && hit._source.id}/>
       </div>
       <div style={{display: 'flex'}}>
-        <CardMedia
-          alt="Placeholder"
-          className={classes.cover}
-          component="img"
-          height="140"
-          image={buildRandomUBLThumbnail()}
-          title="Thumbnail"
-        />
+        <RandomThumbnail/>
         <div className={classes.details}>
           {displayFields.map((field, key): ReactElement =>
             <CardContent
