@@ -23,6 +23,7 @@ export const nested: IConfig = {
           title: "Expanded"
         }
       ],
+      initialFilter: {'type_s': ['KOD']},
       refinementListFilters: {
         1: {
           field: "entstehungsort_s",
@@ -120,6 +121,11 @@ export const nested: IConfig = {
         },
       ],
       sortFields: [
+        {
+          field: "titel_t",
+          label: "Titel",
+          order: "asc"
+        },
         {
           field: "entstehungsort_s",
           label: "Entstehungsort",

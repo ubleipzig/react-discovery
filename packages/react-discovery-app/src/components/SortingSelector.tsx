@@ -6,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Input from '@material-ui/core/Input'
 import NativeSelect from '@material-ui/core/NativeSelect'
 import {connect} from "react-redux"
-import {setSortFields, setSuggest, ISortField} from "solr-react-faceted-search"
+import {setSortFields, setSuggest, ISortField} from "@react-discovery/solr"
 import { makeStyles } from '@material-ui/core/styles'
 import InputLabel from "@material-ui/core/InputLabel"
 

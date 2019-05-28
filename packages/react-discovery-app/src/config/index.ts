@@ -3,7 +3,7 @@ import {hsp, nested, test01} from './collections'
 import {
   ISearchField,
   ISortField
-} from 'solr-react-faceted-search'
+} from '@react-discovery/solr'
 
 export interface IRefinementListFilter {
   label: string;
@@ -18,12 +18,17 @@ export interface IHitComponent {
   title: string;
 }
 
+export interface IFilter {
+  [field: string]: string[];
+}
+
 export interface IConfig {
   currentCollection?: string;
   collections: {
     [collection: string]: {
       docTypes?: string[];
       hitComponents: IHitComponent[];
+      initialFilter?: IFilter;
       refinementListFilters: {
         [id: string]: IRefinementListFilter;
       };

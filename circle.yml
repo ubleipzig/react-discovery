@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run:
-          working_directory: ~/project/packages/test-app
+          working_directory: ~/project/packages/react-discovery-app
           name: 'build docker image'
           command: docker build .
 workflows:

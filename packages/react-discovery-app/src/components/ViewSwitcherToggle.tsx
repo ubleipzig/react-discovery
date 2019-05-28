@@ -2,7 +2,7 @@ import React, {ReactElement} from "react"
 import FormControl from "@material-ui/core/FormControl"
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Switch from '@material-ui/core/Switch'
-import {setIsViewExpanded} from "solr-react-faceted-search"
+import {setIsViewExpanded} from "@react-discovery/solr"
 import {connect} from "react-redux"
 import {makeStyles} from "@material-ui/core"
 

@@ -1,6 +1,6 @@
 import React, {ReactElement, useEffect} from "react";
 import {connect} from 'react-redux'
-import {setSelectedIndex, setStart, setSuggest} from "solr-react-faceted-search"
+import {setSelectedIndex, setStart, setSuggest} from "@react-discovery/solr"
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';

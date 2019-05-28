@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import {connect} from "react-redux"
-import {setSelectedFilters, setStart, setSuggest} from "solr-react-faceted-search"
+import {setSelectedFilters, setStart, setSuggest} from "@react-discovery/solr"
 
 interface ITabsComponent {
   docTypes: string[];

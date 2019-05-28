@@ -9,7 +9,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
-import {setSelectedFilters, setStart, setSuggest} from "solr-react-faceted-search"
+import {setSelectedFilters, setStart, setSuggest} from "@react-discovery/solr"
 
 export interface IListProps {
   toggleItem: (key: string) => void;

@@ -1,5 +1,5 @@
-## Solr-React
-[![CircleCI](https://circleci.com/gh/ubl-chj/solr-react.svg?style=shield)](https://circleci.com/gh/ubl-chj/solr-react)
+## React Discovery
+[![CircleCI](https://circleci.com/gh/ubl-chj/react-discovery.svg?style=shield)](https://circleci.com/gh/ubl-chj/react-discovery)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c5727bf2-2ed5-42f7-a8c1-274871f0c3ea/deploy-status)](https://app.netlify.com/sites/react-discovery/deploys)
 ### Quick Start
 
@@ -31,8 +31,8 @@ REACT_APP_SEARCH_API_COLLECTION=test01
  ```bash
  $ npm install
  $ lerna bootstrap --hoist
- $ lerna run --scope solr-react-faceted-search build
- $ lerna run --scope test-app start
+ $ lerna run --scope @react-discovery/solr build
+ $ lerna run --scope @react-discovery/app start
 ```
 
 ### Continuous Deployment

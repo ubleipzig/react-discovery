@@ -1,7 +1,7 @@
 FROM node:latest
 
 MAINTAINER Christopher Johnson <chjohnson39@gmail.com>
-LABEL description = "Solr React Test Implementation"
+LABEL description = "React Discovery App"
 
 WORKDIR /srv/solr-react
 RUN git clone https://github.com/ubl-chj/solr-react.git ./

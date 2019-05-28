@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Paper from '@material-ui/core/Paper'
 import MenuItem from '@material-ui/core/MenuItem'
-import {setStart, setSuggest} from "solr-react-faceted-search"
+import {setStart, setSuggest} from "@react-discovery/solr"
 import {connect} from "react-redux"
 
 interface ISuggestion {
@@ -56,6 +56,9 @@ const useStyles = makeStyles((theme): any => ({
   },
   inputRoot: {
     flexWrap: 'wrap',
+  },
+  label: {
+    whiteSpace: 'initial'
   },
   paper: {
     left: 0,
@@ -174,7 +177,10 @@ export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactEleme
                 placeholder: 'Search name',
                 startAdornment: selectedItem.map((item): ReactElement => (
                   <Chip
-                    className={classes.chip}
+                    classes={{
+                      label: classes.label,
+                      root: classes.chip
+                    }}
                     component='div'
                     key={item}
                     label={item}

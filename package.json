@@ -1,5 +1,5 @@
 {
-  "name": "solr-react-test-app",
+  "name": "react-discovery",
   "version": "0.1.0",
   "private": true,
   "author": {
@@ -25,7 +25,7 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "redux-devtools-extension": "^2.13.8",
-    "solr-react-faceted-search": "file:packages/solr-react-faceted-search"
+    "@react-discovery/solr": "file:packages/react-discovery-solr"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",

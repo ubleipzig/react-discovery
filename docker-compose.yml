@@ -1,9 +1,9 @@
 version: '3.7'
 services:
-  solr-react-test-app:
+  react-discovery-app:
     image: solr-react-test-app
-    build: ./packages/test-app
-    container_name: solr-react-test-app
+    build: packages/react-discovery-app
+    container_name: react-discovery-app
     ports:
       - "5000:5000"
   nginx:

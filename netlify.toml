@@ -1,3 +1,3 @@
 [build]
-  command = "lerna bootstrap --hoist && lerna run --scope solr-react-faceted-search build && lerna run --scope test-app build"
+  command = "lerna bootstrap --hoist && lerna run build"
 

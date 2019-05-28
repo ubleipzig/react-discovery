@@ -1,5 +1,5 @@
 {
-  "name": "test-app",
+  "name": "@react-discovery/app",
   "version": "0.1.0",
   "private": true,
   "author": {
@@ -18,7 +18,7 @@
     "@material-ui/icons": "^4.0.0-beta.0",
     "@material-ui/styles": "^4.0.0-beta.1",
     "downshift": "^3.2.10",
-    "solr-react-faceted-search": "file:../solr-react-faceted-search"
+    "@react-discovery/solr": "file:../react-discovery-solr"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.3.4",

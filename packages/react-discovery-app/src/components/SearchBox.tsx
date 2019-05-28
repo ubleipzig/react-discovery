@@ -1,5 +1,5 @@
 import React, {ReactElement} from "react"
-import {setDisMaxQuery, setStart} from "solr-react-faceted-search"
+import {setDisMaxQuery, setStart} from "@react-discovery/solr"
 import {connect} from "react-redux"
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Search from '@material-ui/icons/Search'

@@ -2,7 +2,7 @@ import React, {ReactElement} from "react"
 import IconButton from "@material-ui/core/IconButton"
 import Badge from "@material-ui/core/Badge"
 import Save from '@material-ui/icons/Save'
-import {setIsPersisted} from "solr-react-faceted-search"
+import {setIsPersisted} from "@react-discovery/solr"
 import {connect} from "react-redux"
 
 interface IPersistControl {

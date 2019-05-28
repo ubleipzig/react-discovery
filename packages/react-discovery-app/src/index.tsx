@@ -10,20 +10,20 @@ import {
   query,
   response,
   suggestions
-} from "solr-react-faceted-search"
+} from "@react-discovery/solr"
 import {IConfig, localConfig} from "./config"
 
 const thunk: ThunkMiddleware<{}, AnyAction> = thunkMiddleware
 
 const {collections, currentCollection} = localConfig
-const {searchFields, sortFields, url} = collections[currentCollection]
+const {initialFilter, searchFields, sortFields, url} = collections[currentCollection]
 
 const initialConfigState: IConfig = localConfig
 const configReducer = config(initialConfigState)
 
 const initialQueryState: IQuery = {
   fieldList: null,
-  filters: {},
+  filters: initialFilter || {},
   highlighting: true,
   searchFields,
   size: 20,

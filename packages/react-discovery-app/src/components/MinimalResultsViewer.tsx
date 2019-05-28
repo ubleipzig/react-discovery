@@ -10,7 +10,7 @@ import {
   ISortField,
   setQueryFields,
   SolrResponseProvider
-} from 'solr-react-faceted-search'
+} from '@react-discovery/solr'
 import {GroupSelectedFilters, HitStats, ItemList, Pagination,
   SearchAppBar, SortingSelector, Suggester, FacetViewSwitcher, TabsAppBar, ViewSwitcherToggle} from '.'
 import {Typography} from "@material-ui/core"
