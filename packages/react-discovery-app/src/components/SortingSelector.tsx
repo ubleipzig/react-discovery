@@ -1,5 +1,6 @@
 import {ISortField, setSortFields, setSuggest} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
+import {useDispatch, useSelector} from "react-redux"
 import ArrowDownward from '@material-ui/icons/ArrowDownward'
 import ArrowUpward from '@material-ui/icons/ArrowUpward'
 import FormControl from '@material-ui/core/FormControl'
@@ -7,15 +8,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Input from '@material-ui/core/Input'
 import InputLabel from "@material-ui/core/InputLabel"
 import NativeSelect from '@material-ui/core/NativeSelect'
-import {connect} from "react-redux"
 import { makeStyles } from '@material-ui/core/styles'
-
-interface ISortingSelector {
-  setSortFields: Function;
-  setSuggest: Function;
-  sortFields: ISortField[];
-  selectedSortField: ISortField;
-}
 
 const useStyles = makeStyles((theme): any => ({
   formControl: {
@@ -31,11 +24,13 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-const SortingSelectorComponent: React.FC<any> = (props: ISortingSelector): ReactElement => {
-  const classes: any = useStyles();
+export const SortingSelector: React.FC<any> = (): ReactElement => {
+  const classes: any = useStyles()
+  const dispatch = useDispatch()
+  const sortFields = useSelector((state: any): ISortField[] => state.query.sortFields)
+  const stringInput = useSelector((state: any): string => state.query.stringInput)
   const [selectorValue, setSelectorValue] = React.useState('')
   const [sortOrder, setSortOrder] = React.useState('asc')
-  const {sortFields, setSortFields, setSuggest} = props
 
   const handleChange = (e): void => {
     const newSortFields = sortFields.reduce((acc, currVal): any => {
@@ -55,8 +50,8 @@ const SortingSelectorComponent: React.FC<any> = (props: ISortingSelector): React
     }, [])
     const sorted = newSortFields.sort((a: any, b: any): any => (a.isSelected === b.isSelected) ? 0 : a.isSelected ? -1 : 1)
     const [currentSortSelection] = sorted
-    setSuggest({suggest: false})
-    setSortFields({sortFields: sorted})
+    dispatch(setSuggest({stringInput, suggest: false}))
+    dispatch(setSortFields({sortFields: sorted}))
     setSelectorValue(currentSortSelection.field)
     setSortOrder(currentSortSelection.order)
   }
@@ -75,7 +70,7 @@ const SortingSelectorComponent: React.FC<any> = (props: ISortingSelector): React
         }
         return sf
       })
-      setSortFields({sortFields: newSortFields})
+      dispatch(setSortFields({sortFields: newSortFields}))
     }
   }
 
@@ -125,11 +120,3 @@ const SortingSelectorComponent: React.FC<any> = (props: ISortingSelector): React
     </FormControl>
   ) : null
 }
-
-const mapStateToProps = (state): any => ({
-  sortFields: state.query.sortFields,
-})
-
-const mapDispatchToProps = {setSortFields, setSuggest}
-
-export const SortingSelector = connect(mapStateToProps, mapDispatchToProps)(SortingSelectorComponent)

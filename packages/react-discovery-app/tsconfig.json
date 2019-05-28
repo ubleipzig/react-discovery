@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "paths": { "*": ["types/*"] },
+    "paths": { "*": ["@types/*"] },
     "declaration": true,
     "module": "commonjs",
     "target": "ES5",
@@ -19,6 +19,13 @@
     "jsx": "react",
     "lib":[
       "es5", "es2015", "es2017", "dom"
+    ],
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "node_modules/@types",
+      "./src/@types"
     ]
   },
 

@@ -1,19 +1,16 @@
 import React, {ReactElement} from "react"
+import {useDispatch, useSelector} from "react-redux"
 import Badge from "@material-ui/core/Badge"
 import IconButton from "@material-ui/core/IconButton"
 import Save from '@material-ui/icons/Save'
-import {connect} from "react-redux"
 import {setIsPersisted} from "@react-discovery/solr"
 
-interface IPersistControl {
-  isPersisted: boolean;
-  setIsPersisted: Function;
-}
-export const PersistControlComponent: React.FC<any> = (props: IPersistControl): ReactElement => {
-  const {isPersisted, setIsPersisted} = props
+export const PersistControl: React.FC<any> = (): ReactElement => {
+  const dispatch = useDispatch()
+  const isPersisted = useSelector((state: any): boolean => state.config.isPersisted)
 
   const handlePersist = (): void => {
-    setIsPersisted({isPersisted: !isPersisted})
+    dispatch(setIsPersisted({isPersisted: !isPersisted}))
   }
 
   const buildPersistIcon = (): ReactElement => {
@@ -43,11 +40,3 @@ export const PersistControlComponent: React.FC<any> = (props: IPersistControl): 
     buildPersistIcon()
   )
 }
-
-const mapStateToProps = (state): any => ({
-  isPersisted: state.config.isPersisted
-})
-
-const mapDispatchToProps = {setIsPersisted}
-
-export const PersistControl = connect(mapStateToProps, mapDispatchToProps)(PersistControlComponent)

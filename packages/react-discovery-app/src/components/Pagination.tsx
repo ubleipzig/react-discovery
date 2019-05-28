@@ -1,5 +1,6 @@
 import React, {ReactElement, useEffect} from "react";
 import {setSelectedIndex, setStart, setSuggest} from "@react-discovery/solr"
+import {useDispatch, useSelector} from 'react-redux'
 import ChevronLeft from '@material-ui/icons/ChevronLeft'
 import ChevronRight from '@material-ui/icons/ChevronRight'
 import List from '@material-ui/core/List';
@@ -7,18 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import SkipNext from '@material-ui/icons/SkipNext'
 import SkipPrevious from '@material-ui/icons/SkipPrevious'
-import {connect} from 'react-redux'
 import {makeStyles} from "@material-ui/core"
-
-interface IPagination {
-  response: any;
-  selectedIndex: number;
-  setSelectedIndex: Function;
-  setStart: Function;
-  setSuggest: Function;
-  size: number;
-  start: number;
-}
 
 const useStyles = makeStyles((theme): any => ({
   button: {
@@ -29,14 +19,19 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-export const PaginationComponent: React.FC<any> = (props: IPagination): ReactElement => {
-  const {start, size, response, selectedIndex, setSelectedIndex, setStart, setSuggest} = props;
-  const {numFound} = Object.keys(response).length && response.hits !== null && response.hits
+export const Pagination: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles()
+  const dispatch = useDispatch()
+  const start = useSelector((state: any): number => state.query.start)
+  const size = useSelector((state: any): number => state.query.size)
+  const response = useSelector((state: any): any => state.response)
+  const selectedIndex = useSelector((state: any): number => state.config.selectedIndex)
+  const stringInput = useSelector((state: any): string => state.query.stringInput)
+  const {numFound} = Object.keys(response).length && response.hits !== null && response.hits
 
   useEffect((): void => {
     if (start === 0) {
-      setSelectedIndex({selectedIndex: 0})
+      dispatch(setSelectedIndex({selectedIndex: 0}))
     }
   })
 
@@ -72,9 +67,9 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
     if (page >= pageAmt || page < 0) {
       return;
     }
-    setStart({newStart: page * size})
-    setSuggest({suggest: false})
-    setSelectedIndex({selectedIndex: page});
+    dispatch(setStart({newStart: page * size}))
+    dispatch(setSuggest({stringInput, suggest: false}))
+    dispatch(setSelectedIndex({selectedIndex: page}))
   }
 
   const buildIcon = (key): ReactElement => {
@@ -132,16 +127,5 @@ export const PaginationComponent: React.FC<any> = (props: IPagination): ReactEle
         {PageControlButton(pageAmt - 1, "last")}
       </List>
     </div>
-  );
+  )
 }
-
-const mapStateToProps = (state): any => ({
-  response: state.response,
-  selectedIndex: state.config.selectedIndex,
-  size: state.query.size,
-  start: state.query.start,
-})
-
-const mapDispatchToProps = {setSelectedIndex, setStart, setSuggest}
-
-export const Pagination = connect(mapStateToProps, mapDispatchToProps)(PaginationComponent)

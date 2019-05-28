@@ -3,8 +3,8 @@ import {setDisMaxQuery, setStart} from "@react-discovery/solr"
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Search from '@material-ui/icons/Search'
 import TextField from '@material-ui/core/TextField';
-import {connect} from "react-redux"
 import {makeStyles} from '@material-ui/core/styles';
+import {useDispatch} from "react-redux"
 
 const useStyles = makeStyles((theme): any => ({
   container: {
@@ -28,20 +28,15 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-interface ISearchBox {
-  setDisMaxQuery: typeof setDisMaxQuery;
-  setStart: typeof setStart;
-}
-
-const SearchBoxComponent: React.FC<any> = (props: ISearchBox): ReactElement => {
-  const {setDisMaxQuery, setStart} = props
+export const SearchBox: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles()
+  const dispatch = useDispatch()
   const [values, setValues] = React.useState("")
 
   const handleChange = (e): void => {
     const stringInput = e.target.value;
-    setDisMaxQuery({stringInput, typeDef: "dismax"})
-    setStart({newStart: 0})
+    dispatch(setDisMaxQuery({stringInput, typeDef: "dismax"}))
+    dispatch(setStart({newStart: 0}))
     setValues(e.target.value)
   }
 
@@ -79,7 +74,3 @@ const SearchBoxComponent: React.FC<any> = (props: ISearchBox): ReactElement => {
     </form>
   )
 }
-
-const mapDispatchToProps = {setDisMaxQuery, setStart}
-
-export const SearchBox = connect(null, mapDispatchToProps)(SearchBoxComponent)

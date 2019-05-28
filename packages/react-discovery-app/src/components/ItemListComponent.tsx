@@ -1,5 +1,6 @@
 import React, {ReactElement} from "react"
 import {setSelectedFilters, setStart, setSuggest} from "@react-discovery/solr"
+import {useDispatch, useSelector} from "react-redux"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
@@ -8,7 +9,6 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
-import {connect} from "react-redux"
 import {makeStyles} from '@material-ui/core/styles'
 
 export interface IListProps {
@@ -37,12 +37,7 @@ export interface IBucket extends IAggregation {
 
 export interface IItemListProps extends IListProps {
   field: string;
-  filters: string[];
   label: string;
-  itemComponent?: any;
-  setSelectedFilters: Function;
-  setStart: Function;
-  setSuggest: Function;
 }
 
 const useStyles = makeStyles((theme): any => ({
@@ -65,9 +60,13 @@ const useStyles = makeStyles((theme): any => ({
   }
 }))
 
-export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactElement => {
-  const {aggregation, field, filters, label, setSelectedFilters, setStart, setSuggest} = props
+export const ItemList: React.FC<any> = (props: IItemListProps): ReactElement => {
   const classes: any = useStyles()
+  const dispatch = useDispatch()
+  const {field, label} = props
+  const aggregation = useSelector((state: any): IAggregation =>
+    state.response && state.response.aggregations && state.response.aggregations[field])
+  const filters = useSelector((state: any): string[] => state.query.filters[field])
   const [isExpanded, setExpanded] = React.useState(false)
 
   const handleExpand = (panel): any => ({}, isExpanded): void => { // eslint-disable-line no-empty-pattern
@@ -77,9 +76,9 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
   const handleChange = (key): void => {
     const newFilters = filters && filters.length ? filters.filter((f): any => f !== key) : []
     newFilters.push(key)
-    setSuggest({suggest: false})
-    setSelectedFilters({field, filters: newFilters})
-    setStart({newStart: 0})
+    dispatch(setSuggest({suggest: false}))
+    dispatch(setSelectedFilters({field, filters: newFilters}))
+    dispatch(setStart({newStart: 0}))
   }
 
   const actions = (aggregation): JSX.Element => {
@@ -140,12 +139,3 @@ export const ItemListComponent: React.FC<any> = (props: IItemListProps): ReactEl
     </ExpansionPanel>
   )
 }
-
-const mapDispatchToProps = {setSelectedFilters, setStart, setSuggest}
-
-const mapStateToProps = (state, {field}): any => ({
-  aggregation: state.response && state.response.aggregations && state.response.aggregations[field],
-  filters: state.query.filters[field]
-})
-
-export const ItemList: any = connect(mapStateToProps, mapDispatchToProps)(ItemListComponent)

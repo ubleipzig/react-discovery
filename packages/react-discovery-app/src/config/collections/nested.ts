@@ -3,7 +3,7 @@ import {IConfig} from "../index"
 export const nested: IConfig = {
   collections: {
     nested: {
-      docTypes: ['KOD', 'Beschreibung', 'Digitalisat'],
+      docTypes: ['KOD', 'Beschreibung', 'Digitalisat', 'Person', 'Werke'],
       hitComponents: [
         {
           defaultOption: true,
@@ -15,6 +15,11 @@ export const nested: IConfig = {
           hitComponent: "Beschreibung",
           key: "facet",
           title: "Beschreibung"
+        },
+        {
+          hitComponent: "Digitalisat",
+          key: "facet",
+          title: "Digitalisat"
         },
         {
           expandedView: true,
@@ -57,6 +62,11 @@ export const nested: IConfig = {
         {
           field: "digitalisatDescription_t",
           label: "DigitalisatDescription",
+          type: "list-facet"
+        },
+        {
+          field: "digitalisatManifestId_s",
+          label: "Manifest",
           type: "list-facet"
         },
         {
@@ -122,13 +132,13 @@ export const nested: IConfig = {
       ],
       sortFields: [
         {
-          field: "titel_t",
-          label: "Titel",
+          field: "entstehungsort_s",
+          label: "Entstehungsort",
           order: "asc"
         },
         {
-          field: "entstehungsort_s",
-          label: "Entstehungsort",
+          field: "titel_t",
+          label: "Titel",
           order: "asc"
         },
       ],

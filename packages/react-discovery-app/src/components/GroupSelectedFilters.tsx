@@ -1,17 +1,9 @@
 import React, {ReactElement} from "react"
-import {setDisMaxQuery, setSelectedFilters, setStart} from "@react-discovery/solr"
+import {setSelectedFilters, setStart} from "@react-discovery/solr"
+import {useDispatch, useSelector} from "react-redux"
 import Chip from '@material-ui/core/Chip'
 import List from "@material-ui/core/List"
-import {connect} from "react-redux"
 import { makeStyles } from '@material-ui/core/styles'
-
-interface IGroupSelectedFilters {
-  filters: IFilters;
-  setDisMaxQuery: Function;
-  setSelectedFilters: Function;
-  setStart: Function;
-  stringInput: string;
-}
 
 interface IFilters {
   [field: string]: string[];
@@ -26,15 +18,15 @@ const useStyles = makeStyles((theme): any => ({
   },
 }))
 
-
-const GroupSelectedFiltersComponent: React.FC<any> = (props: IGroupSelectedFilters): ReactElement => {
-  const {filters, setSelectedFilters, setStart} = props
+export const GroupSelectedFilters: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles()
+  const dispatch = useDispatch()
+  const filters = useSelector((state: any): IFilters => state.query.filters)
 
   const onClose = (field: any, filter: any): void => {
     const newFilters = filters[field].filter((f): any => f !== filter)
-    setSelectedFilters({field, filters: newFilters})
-    setStart({newStart: 0})
+    dispatch(setSelectedFilters({field, filters: newFilters}))
+    dispatch(setStart({newStart: 0}))
   }
 
   const buildFilters = (filters): any => {
@@ -60,10 +52,3 @@ const GroupSelectedFiltersComponent: React.FC<any> = (props: IGroupSelectedFilte
   )
 }
 
-const mapStateToProps = (state): any => ({
-  filters: state.query.filters
-})
-
-const mapDispatchToProps = {setDisMaxQuery, setSelectedFilters, setStart}
-
-export const GroupSelectedFilters = connect(mapStateToProps, mapDispatchToProps)(GroupSelectedFiltersComponent)

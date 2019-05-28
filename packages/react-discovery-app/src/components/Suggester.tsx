@@ -1,11 +1,11 @@
 import React, {ReactElement} from 'react'
 import {setStart, setSuggest} from "@react-discovery/solr"
+import {useDispatch, useSelector} from "react-redux"
 import Chip from '@material-ui/core/Chip'
 import Downshift from 'downshift'
 import MenuItem from '@material-ui/core/MenuItem'
 import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
-import {connect} from "react-redux"
 import deburr from 'lodash/deburr'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -94,21 +94,17 @@ const renderInput = (inputProps): ReactElement => {
   )
 }
 
-interface ISuggester {
-  setStart: Function;
-  setSuggest: Function;
-  terms: string[];
-}
-
-export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactElement => {
-  const {setStart, setSuggest, terms} = props
+export const Suggester: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles()
+  const dispatch = useDispatch()
+  const terms = useSelector((state: any): string[] =>
+    state.suggestions && state.suggestions.terms)
   const [selectedItem, setSelectedItem] = React.useState([])
   const [inputValue, setInputValue] = React.useState('')
 
   const onInputChange = (e): void => {
     setInputValue(e.target.value)
-    setSuggest({stringInput: e.target.value, suggest: true})
+    dispatch(setSuggest({stringInput: e.target.value, suggest: true}))
   }
 
   const onSelect = (item): void => {
@@ -119,16 +115,16 @@ export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactEleme
     setInputValue('')
     setSelectedItem(newSelectedItem)
     const quotedItem = `"${item}"`
-    setSuggest({stringInput: quotedItem, suggest: true})
-    setStart({newStart: 0})
+    dispatch(setSuggest({stringInput: quotedItem, suggest: true}))
+    dispatch(setStart({newStart: 0}))
   }
 
   const handleDelete = (item): any => (): void => {
     const newSelectedItem = [...selectedItem]
     newSelectedItem.splice(newSelectedItem.indexOf(item), 1)
     setSelectedItem(newSelectedItem)
-    setSuggest({stringInput: '', suggest: true})
-    setStart({newStart: 0})
+    dispatch(setSuggest({stringInput: '', suggest: true}))
+    dispatch(setStart({newStart: 0}))
   }
 
   const handleKeyDown = (event): void => {
@@ -215,10 +211,3 @@ export const SuggesterComponent: React.FC<any> = (props: ISuggester): ReactEleme
   )
 }
 
-const mapStateToProps = (state): any => ({
-  terms: state.suggestions && state.suggestions.terms,
-})
-
-const mapDispatchToProps = {setStart, setSuggest}
-
-export const Suggester = connect(mapStateToProps, mapDispatchToProps)(SuggesterComponent)

@@ -39,6 +39,7 @@ export interface IConfig {
   };
   highlighting?: boolean;
   isViewExpanded?: boolean;
+  selectedIndex?: number;
 }
 
 export const collections = deepmerge.all([hsp, nested, test01])
@@ -47,7 +48,8 @@ const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "test01
 export const rootConfig: IConfig = {
   collections: null,
   currentCollection,
-  isViewExpanded: false
+  isViewExpanded: false,
+  selectedIndex: 0
 }
 
 export const localConfig: any = deepmerge(rootConfig, collections)

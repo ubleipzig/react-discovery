@@ -1,18 +1,10 @@
 import React, {ReactElement} from "react"
+import {useDispatch, useSelector} from "react-redux"
 import FormControl from "@material-ui/core/FormControl"
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Switch from '@material-ui/core/Switch'
-import {connect} from "react-redux"
 import {makeStyles} from "@material-ui/core"
 import {setIsViewExpanded} from "@react-discovery/solr"
-
-interface IViewSwitcher {
-  currentHitComponent: string;
-  hitComponents: any;
-  isViewExpanded: boolean;
-  setHitComponent: Function;
-  setIsViewExpanded: Function;
-}
 
 const useStyles = makeStyles((theme): any => ({
   formControl: {
@@ -29,12 +21,13 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-export const ViewSwitcherToggleComponent: React.FC<any> = (props: IViewSwitcher): ReactElement => {
+export const ViewSwitcherToggle: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles();
-  const {isViewExpanded, setIsViewExpanded} = props
+  const dispatch = useDispatch()
+  const isViewExpanded = useSelector((state: any): boolean => state.config.isViewExpanded)
 
   const handleChange = (isViewExpanded): void => {
-    setIsViewExpanded({isViewExpanded})
+    dispatch(setIsViewExpanded({isViewExpanded}))
   }
 
   return (
@@ -57,10 +50,3 @@ export const ViewSwitcherToggleComponent: React.FC<any> = (props: IViewSwitcher)
   )
 }
 
-const mapStateToProps = (state): any => ({
-  isViewExpanded: state.config.isViewExpanded,
-})
-
-const mapDispatchToProps = {setIsViewExpanded}
-
-export const ViewSwitcherToggle: any = connect(mapStateToProps, mapDispatchToProps)(ViewSwitcherToggleComponent)

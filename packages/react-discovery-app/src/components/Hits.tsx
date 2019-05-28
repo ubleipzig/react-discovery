@@ -1,12 +1,9 @@
 import React, {ReactElement} from "react"
-import {connect} from "react-redux"
 import {renderComponent} from '../react'
+import {useSelector} from "react-redux"
 
 export interface IHits {
-  hits: [];
   hitComponent: React.Component;
-  numFound: number;
-  searchFields: ISearchField[];
 }
 
 export interface ISearchField {
@@ -15,20 +12,15 @@ export interface ISearchField {
   type: string;
 }
 
-const HitsComponent: React.FC<any> = (props: IHits): ReactElement => {
-  const {hits, hitComponent, searchFields} = props
-
+export const Hits: React.FC<any> = (props: IHits): ReactElement => {
+  const hits = useSelector((state: any): [] => state.response.hits)
+  const searchFields = useSelector((state: any): ISearchField[] =>
+    state.query && state.query.searchFields)
+  const {hitComponent} = props
 
   const buildHits = (hits): ReactElement => hits.hits && hits.hits.map((hit, i): ReactElement => (
     renderComponent(hitComponent, {hit, key: i, searchFields})
   ))
-
   return buildHits(hits)
 }
 
-const mapStateToProps = (state): any => ({
-  hits: state.response.hits,
-  searchFields: state.query && state.query.searchFields,
-})
-
-export const Hits: any = connect(mapStateToProps, null)(HitsComponent)

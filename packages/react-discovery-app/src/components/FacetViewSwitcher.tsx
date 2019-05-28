@@ -1,24 +1,30 @@
 import React, {ReactElement} from "react"
 import {Hits} from "."
-import {connect} from "react-redux"
+import {useSelector} from "react-redux"
+
+interface IHitComponent {
+  key: string;
+  title: string;
+  hitComponent: string;
+  defaultOption?: boolean;
+  expandedView?: boolean;
+}
 
 interface IFacetViewSwitcher {
   currentHitComponent: string;
   filterType: string;
-  hitComponents: [
-    {key: string;
-      title: string;
-      hitComponent: string;
-      defaultOption?: boolean;
-      expandedView?: boolean;
-    }];
+  hitComponents: IHitComponent[];
   isViewExpanded: boolean;
 }
 
 const CUSTOM_COMPONENT_PATH = './hit-views/'
 
-const FacetViewSwitcherComponent: React.FC<any> = (props: IFacetViewSwitcher): ReactElement => {
-  const {filterType, hitComponents, isViewExpanded} = props
+export const FacetViewSwitcher: React.FC<any> = (props: IFacetViewSwitcher): ReactElement => {
+  const filterType = useSelector((state: any): string =>
+    state.query.filters && state.query.filters.type_s && state.query.filters.type_s[0])
+  const hitComponents = useSelector((state: any): IHitComponent[] =>
+    state.config.collections[state.config.currentCollection].hitComponents)
+  const isViewExpanded = useSelector((state: any): boolean => state.config.isViewExpanded)
 
   const buildHitComponent = (): any => {
     const [defaultHitComponent] = hitComponents.filter((hc): boolean => hc.defaultOption === true)
@@ -37,12 +43,3 @@ const FacetViewSwitcherComponent: React.FC<any> = (props: IFacetViewSwitcher): R
 
   return (<Hits {...options}/>)
 }
-
-const mapStateToProps = (state): any => ({
-  currentHitComponent: state.config.currentHitComponent,
-  filterType: state.query.filters && state.query.filters.type_s && state.query.filters.type_s[0],
-  hitComponents: state.config.collections[state.config.currentCollection].hitComponents,
-  isViewExpanded: state.config.isViewExpanded
-})
-
-export const FacetViewSwitcher: any = connect(mapStateToProps, null)(FacetViewSwitcherComponent)

@@ -7,34 +7,27 @@ import {
   ISearchField,
   ISortField,
   SolrResponseProvider,
-  fetchSolrResponseWorker,
-  setQueryFields,
 } from '@react-discovery/solr'
 import React, {ReactElement} from 'react'
 import Grid from '@material-ui/core/Grid'
 import {Typography} from "@material-ui/core"
-import {connect} from 'react-redux'
+import {useSelector} from 'react-redux'
 
-interface IMinimalResultsViewer {
-  currentCollection: string;
-  filters: IFilters;
-  highlighting: boolean;
-  hits: IHits;
-  refinementListFilters: any;
-  size: number;
-  searchFields: ISearchField[];
-  sortFields: ISortField[];
-  start: number;
-  stringInput: string;
-  suggest: boolean;
-  suggestDictionary: string;
-  typeDef: string;
-  url: string;
-}
-
-const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsViewer): ReactElement => {
-  const {filters, highlighting, hits, refinementListFilters, searchFields, size, sortFields, start, stringInput,
-    suggest, suggestDictionary, typeDef, url} = props
+export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
+  const filters = useSelector((state: any): IFilters => state.query.filters)
+  const highlighting = useSelector((state: any): boolean => state.query.highlighting)
+  const hits = useSelector((state: any): IHits => state.response.hits)
+  const refinementListFilters = useSelector((state: any): any =>
+    state.config.collections[state.config.currentCollection].refinementListFilters)
+  const searchFields = useSelector((state: any): ISearchField[] => state.query.searchFields)
+  const size = useSelector((state: any): number => state.query.size)
+  const sortFields = useSelector((state: any): ISortField[] => state.query.sortFields)
+  const start = useSelector((state: any): number => state.query.start)
+  const stringInput = useSelector((state: any): string => state.query.stringInput)
+  const suggest = useSelector((state: any): boolean => state.query.suggest)
+  const suggestDictionary = useSelector((state: any): string => state.query.suggestDictionary)
+  const typeDef = useSelector((state: any): string => state.query.typeDef)
+  const url = useSelector((state: any): string => state.query.url)
 
   const buildInitialQuery = (): IQuery => {
     return {filters, highlighting, searchFields, size, sortFields, start, stringInput, suggest, suggestDictionary, typeDef, url}
@@ -110,24 +103,3 @@ const MinimalResultsViewerComponent: React.FC<any> = (props: IMinimalResultsView
     </SolrResponseProvider>
   )
 }
-
-const mapStateToProps = (state): any => ({
-  currentCollection: state.config.currentCollection,
-  filters: state.query.filters,
-  highlighting: state.query.highlighting,
-  hits: state.response.hits,
-  query: state.query,
-  refinementListFilters: state.config.collections[state.config.currentCollection].refinementListFilters,
-  searchFields: state.query.searchFields,
-  size: state.query.size,
-  sortFields: state.query.sortFields,
-  start: state.query.start,
-  stringInput: state.query.stringInput,
-  suggest: state.query.suggest,
-  suggestDictionary: state.query.suggestDictionary,
-  typeDef: state.query.typeDef,
-  url: state.query.url
-})
-const mapDispatchToProps = {fetchSolrResponseWorker, setQueryFields}
-
-export const MinimalResultsViewer = connect(mapStateToProps, mapDispatchToProps)(MinimalResultsViewerComponent)
