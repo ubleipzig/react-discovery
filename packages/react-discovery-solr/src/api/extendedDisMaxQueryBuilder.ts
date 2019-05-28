@@ -1,6 +1,6 @@
+import {FacetTypes} from "./FacetTypes"
 import {IEMaxQuery} from "."
 import {SolrParameters} from "./SolrParameters"
-import {FacetTypes} from "./FacetTypes"
 const queryString = require('query-string')
 
 const EDISMAX = "edismax"

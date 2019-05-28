@@ -1,8 +1,8 @@
 import React, {ReactElement} from "react"
-import {connect} from "react-redux"
 import {setDisMaxQuery, setSelectedFilters, setStart} from "@react-discovery/solr"
 import Chip from '@material-ui/core/Chip'
 import List from "@material-ui/core/List"
+import {connect} from "react-redux"
 import { makeStyles } from '@material-ui/core/styles'
 
 interface IGroupSelectedFilters {

@@ -1,6 +1,6 @@
 import React, {ReactElement} from "react"
-import {connect} from "react-redux"
 import {Hits} from "."
+import {connect} from "react-redux"
 
 interface IFacetViewSwitcher {
   currentHitComponent: string;

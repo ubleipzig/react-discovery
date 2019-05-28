@@ -1,8 +1,8 @@
+import {IQuery, extendedDisMaxQueryBuilder, suggestQueryBuilder} from "."
 import React, {ReactElement, useEffect, useState} from "react"
-import {extendedDisMaxQueryBuilder, IQuery, suggestQueryBuilder} from "."
-import {usePrevious} from "../hooks"
 import {fetchSolrResponseWorker, fetchSolrSuggestionsWorker, setQueryFields} from "../state/actions"
 import {connect} from 'react-redux'
+import {usePrevious} from "../hooks"
 
 interface ISolrResponseProvider {
   fetchSolrResponseWorker: Function;

@@ -1,9 +1,9 @@
 import React, {ReactElement} from "react"
-import IconButton from "@material-ui/core/IconButton"
 import Badge from "@material-ui/core/Badge"
+import IconButton from "@material-ui/core/IconButton"
 import Save from '@material-ui/icons/Save'
-import {setIsPersisted} from "@react-discovery/solr"
 import {connect} from "react-redux"
+import {setIsPersisted} from "@react-discovery/solr"
 
 interface IPersistControl {
   isPersisted: boolean;

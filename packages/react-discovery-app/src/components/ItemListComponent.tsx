@@ -1,5 +1,5 @@
 import React, {ReactElement} from "react"
-import {connect} from "react-redux"
+import {setSelectedFilters, setStart, setSuggest} from "@react-discovery/solr"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
@@ -8,8 +8,8 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles'
-import {setSelectedFilters, setStart, setSuggest} from "@react-discovery/solr"
+import {connect} from "react-redux"
+import {makeStyles} from '@material-ui/core/styles'
 
 export interface IListProps {
   toggleItem: (key: string) => void;

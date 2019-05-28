@@ -1,6 +1,6 @@
+import {ISearchField, ISortField} from '../../api'
 import actionCreatorFactory from 'typescript-fsa';
 import {bindThunkAction} from 'typescript-fsa-redux-thunk';
-import {ISortField, ISearchField} from '../../api'
 
 const FETCH_SOLR_RESPONSE = 'FETCH_SOLR_RESPONSE'
 const FETCH_SOLR_SUGGESTIONS = 'FETCH_SOLR_SUGGESTIONS'

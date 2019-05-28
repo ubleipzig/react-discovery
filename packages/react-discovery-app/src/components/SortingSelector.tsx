@@ -1,14 +1,14 @@
+import {ISortField, setSortFields, setSuggest} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
-import ArrowUpward from '@material-ui/icons/ArrowUpward'
 import ArrowDownward from '@material-ui/icons/ArrowDownward'
+import ArrowUpward from '@material-ui/icons/ArrowUpward'
 import FormControl from '@material-ui/core/FormControl'
 import IconButton from '@material-ui/core/IconButton'
 import Input from '@material-ui/core/Input'
+import InputLabel from "@material-ui/core/InputLabel"
 import NativeSelect from '@material-ui/core/NativeSelect'
 import {connect} from "react-redux"
-import {setSortFields, setSuggest, ISortField} from "@react-discovery/solr"
 import { makeStyles } from '@material-ui/core/styles'
-import InputLabel from "@material-ui/core/InputLabel"
 
 interface ISortingSelector {
   setSortFields: Function;

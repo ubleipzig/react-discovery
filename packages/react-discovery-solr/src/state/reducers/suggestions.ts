@@ -1,5 +1,5 @@
-import {reducerWithInitialState} from 'typescript-fsa-reducers'
 import {fetchSolrSuggestions} from '../actions'
+import {reducerWithInitialState} from 'typescript-fsa-reducers'
 
 interface ISuggestionsState {
   suggester: {};

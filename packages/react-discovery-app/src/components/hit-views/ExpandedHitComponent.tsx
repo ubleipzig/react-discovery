@@ -1,9 +1,9 @@
-import CardContent from "@material-ui/core/CardContent"
-import Typography from "@material-ui/core/Typography"
 import React, {ReactElement} from "react"
 import Card from "@material-ui/core/Card"
-import {makeStyles} from "@material-ui/core"
+import CardContent from "@material-ui/core/CardContent"
 import {RandomThumbnail} from '.'
+import Typography from "@material-ui/core/Typography"
+import {makeStyles} from "@material-ui/core"
 
 interface IExpandedHitComponent {
   classes: any;

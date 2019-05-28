@@ -1,4 +1,3 @@
-import { Action } from "typescript-fsa";
 import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
 import {
   setDisMaxQuery,
@@ -9,6 +8,7 @@ import {
   setStart,
   setSuggest
 } from "../actions"
+import { Action } from "typescript-fsa";
 
 export const query = (initialState): any => reducerWithInitialState(initialState)
   .caseWithAction(setQueryFields, (state, action: any): ReducerBuilder<any> => ({

@@ -1,17 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import {Provider} from 'react-redux'
-import thunkMiddleware, { ThunkMiddleware } from 'redux-thunk'
+import '@react-discovery/i18n'
 import {AnyAction, applyMiddleware, combineReducers, createStore} from "redux"
-import { composeWithDevTools } from 'redux-devtools-extension'
-import {MinimalResultsViewer} from './components'
+import {IConfig, localConfig} from "./config"
 import {
-  config, IQuery,
+  IQuery,
+  config,
   query,
   response,
   suggestions
 } from "@react-discovery/solr"
-import {IConfig, localConfig} from "./config"
+import thunkMiddleware, { ThunkMiddleware } from 'redux-thunk'
+import {MinimalResultsViewer} from './components'
+import {Provider} from 'react-redux'
+import React from "react"
+import ReactDOM from "react-dom"
+import {composeWithDevTools} from 'redux-devtools-extension'
 
 const thunk: ThunkMiddleware<{}, AnyAction> = thunkMiddleware
 

@@ -1,9 +1,9 @@
 import React, {ReactElement} from "react"
 import {setDisMaxQuery, setStart} from "@react-discovery/solr"
-import {connect} from "react-redux"
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Search from '@material-ui/icons/Search'
 import TextField from '@material-ui/core/TextField';
+import {connect} from "react-redux"
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme): any => ({

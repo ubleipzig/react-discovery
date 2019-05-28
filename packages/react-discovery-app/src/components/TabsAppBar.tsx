@@ -1,10 +1,10 @@
 import React, {ReactElement} from 'react'
-import {makeStyles, Theme} from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
-import {connect} from "react-redux"
+import {Theme, makeStyles, } from '@material-ui/core/styles'
 import {setSelectedFilters, setStart, setSuggest} from "@react-discovery/solr"
+import AppBar from '@material-ui/core/AppBar'
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
+import {connect} from "react-redux"
 
 interface ITabsComponent {
   docTypes: string[];

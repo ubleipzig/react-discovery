@@ -1,5 +1,5 @@
-import {reducerWithInitialState} from 'typescript-fsa-reducers'
 import {fetchSolrResponse} from '../actions'
+import {reducerWithInitialState} from 'typescript-fsa-reducers'
 
 interface IResponseState {
   aggregations: IAggregations;

@@ -1,13 +1,13 @@
 import React, {ReactElement, useEffect} from "react";
-import {connect} from 'react-redux'
 import {setSelectedIndex, setStart, setSuggest} from "@react-discovery/solr"
+import ChevronLeft from '@material-ui/icons/ChevronLeft'
+import ChevronRight from '@material-ui/icons/ChevronRight'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import SkipPrevious from '@material-ui/icons/SkipPrevious'
 import SkipNext from '@material-ui/icons/SkipNext'
-import ChevronLeft from '@material-ui/icons/ChevronLeft'
-import ChevronRight from '@material-ui/icons/ChevronRight'
+import SkipPrevious from '@material-ui/icons/SkipPrevious'
+import {connect} from 'react-redux'
 import {makeStyles} from "@material-ui/core"
 
 interface IPagination {

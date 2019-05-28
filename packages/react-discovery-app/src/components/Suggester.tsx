@@ -1,13 +1,13 @@
 import React, {ReactElement} from 'react'
-import deburr from 'lodash/deburr'
+import {setStart, setSuggest} from "@react-discovery/solr"
 import Chip from '@material-ui/core/Chip'
 import Downshift from 'downshift'
-import { makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
-import Paper from '@material-ui/core/Paper'
 import MenuItem from '@material-ui/core/MenuItem'
-import {setStart, setSuggest} from "@react-discovery/solr"
+import Paper from '@material-ui/core/Paper'
+import TextField from '@material-ui/core/TextField'
 import {connect} from "react-redux"
+import deburr from 'lodash/deburr'
+import { makeStyles } from '@material-ui/core/styles'
 
 interface ISuggestion {
   highlightedIndex: number;

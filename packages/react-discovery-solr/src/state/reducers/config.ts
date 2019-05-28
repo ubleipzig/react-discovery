@@ -1,6 +1,6 @@
-import { Action } from "typescript-fsa";
 import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
-import {setIsPersisted, setSelectedIndex, setHitComponent, setIsViewExpanded} from "../actions"
+import {setHitComponent, setIsPersisted, setIsViewExpanded, setSelectedIndex} from "../actions"
+import { Action } from "typescript-fsa";
 
 export const config = (initialState): any => reducerWithInitialState(initialState)
   .caseWithAction(setSelectedIndex, (state, action: Action<any>): ReducerBuilder<any> => ({

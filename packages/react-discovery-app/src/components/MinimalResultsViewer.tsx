@@ -1,19 +1,19 @@
-import React, {ReactElement} from 'react'
-import {connect} from 'react-redux'
-import Grid from '@material-ui/core/Grid'
+import {FacetViewSwitcher, GroupSelectedFilters, HitStats, ItemList, Pagination,
+  SearchAppBar, SortingSelector, Suggester, TabsAppBar, ViewSwitcherToggle} from '.'
 import {
-  fetchSolrResponseWorker,
   IFilters,
   IHits,
   IQuery,
   ISearchField,
   ISortField,
+  SolrResponseProvider,
+  fetchSolrResponseWorker,
   setQueryFields,
-  SolrResponseProvider
 } from '@react-discovery/solr'
-import {GroupSelectedFilters, HitStats, ItemList, Pagination,
-  SearchAppBar, SortingSelector, Suggester, FacetViewSwitcher, TabsAppBar, ViewSwitcherToggle} from '.'
+import React, {ReactElement} from 'react'
+import Grid from '@material-ui/core/Grid'
 import {Typography} from "@material-ui/core"
+import {connect} from 'react-redux'
 
 interface IMinimalResultsViewer {
   currentCollection: string;

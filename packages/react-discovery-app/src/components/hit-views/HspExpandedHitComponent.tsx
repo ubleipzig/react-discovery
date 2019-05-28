@@ -1,17 +1,17 @@
-import CardContent from "@material-ui/core/CardContent"
-import CardHeader from '@material-ui/core/CardHeader'
-import Typography from "@material-ui/core/Typography"
 import React, {ReactElement} from "react"
 import Card from "@material-ui/core/Card"
-import Divider from "@material-ui/core/Divider"
-import {makeStyles} from "@material-ui/core"
 import CardActions from "@material-ui/core/CardActions"
+import CardContent from "@material-ui/core/CardContent"
+import CardHeader from '@material-ui/core/CardHeader'
+import Divider from "@material-ui/core/Divider"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpansionPanel from "@material-ui/core/ExpansionPanel"
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary"
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails"
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary"
 import List from "@material-ui/core/List"
 import {RandomThumbnail} from '.'
+import Typography from "@material-ui/core/Typography"
+import {makeStyles} from "@material-ui/core"
 
 interface IDefaultItemComponent {
   classes: any;
