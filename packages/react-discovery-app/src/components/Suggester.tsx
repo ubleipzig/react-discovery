@@ -8,6 +8,7 @@ import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
 import deburr from 'lodash/deburr'
 import { makeStyles } from '@material-ui/core/styles'
+import {useTranslation} from "react-i18next"
 
 interface ISuggestion {
   highlightedIndex: number;
@@ -95,6 +96,7 @@ const renderInput = (inputProps): ReactElement => {
 }
 
 export const Suggester: React.FC<any> = (): ReactElement => {
+  const {t} = useTranslation()
   const classes: any = useStyles()
   const dispatch = useDispatch()
   const terms = useSelector((state: any): string[] =>
@@ -170,7 +172,7 @@ export const Suggester: React.FC<any> = (): ReactElement => {
               InputProps: getInputProps({
                 onChange: onInputChange,
                 onKeyDown: handleKeyDown,
-                placeholder: 'Search name',
+                placeholder: t('suggest'),
                 startAdornment: selectedItem.map((item): ReactElement => (
                   <Chip
                     classes={{

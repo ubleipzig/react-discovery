@@ -6,9 +6,9 @@ import ArrowUpward from '@material-ui/icons/ArrowUpward'
 import FormControl from '@material-ui/core/FormControl'
 import IconButton from '@material-ui/core/IconButton'
 import Input from '@material-ui/core/Input'
-import InputLabel from "@material-ui/core/InputLabel"
 import NativeSelect from '@material-ui/core/NativeSelect'
 import { makeStyles } from '@material-ui/core/styles'
+import {useTranslation} from "react-i18next"
 
 const useStyles = makeStyles((theme): any => ({
   formControl: {
@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme): any => ({
 }));
 
 export const SortingSelector: React.FC<any> = (): ReactElement => {
+  const {t} = useTranslation()
   const classes: any = useStyles()
   const dispatch = useDispatch()
   const sortFields = useSelector((state: any): ISortField[] => state.query.sortFields)
@@ -75,7 +76,7 @@ export const SortingSelector: React.FC<any> = (): ReactElement => {
   }
 
   const buildOptions = (): ReactElement[] => {
-    return sortFields.map((sf, i): ReactElement => <option key={i} value={sf.field}>{sf.label}</option>)
+    return sortFields.map((sf, i): ReactElement => <option key={i} value={sf.field}>{t(sf.label)}</option>)
   }
 
   const buildSortOrderButton = (): ReactElement => {
@@ -108,7 +109,6 @@ export const SortingSelector: React.FC<any> = (): ReactElement => {
     >
       <div style={{display: 'flex'}}>
         {buildSortOrderButton()}
-        <InputLabel shrink style={{textAlign: 'right', width: '100%'}}>Set Sort Order</InputLabel>
         <NativeSelect
           input={<Input id="sort-native-simple" name="sort" />}
           onChange={handleChange}

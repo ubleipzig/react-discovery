@@ -5,6 +5,7 @@ import Search from '@material-ui/icons/Search'
 import TextField from '@material-ui/core/TextField';
 import {makeStyles} from '@material-ui/core/styles';
 import {useDispatch} from "react-redux"
+import {useTranslation} from "react-i18next"
 
 const useStyles = makeStyles((theme): any => ({
   container: {
@@ -29,6 +30,7 @@ const useStyles = makeStyles((theme): any => ({
 }));
 
 export const SearchBox: React.FC<any> = (): ReactElement => {
+  const {t} = useTranslation()
   const classes: any = useStyles()
   const dispatch = useDispatch()
   const [values, setValues] = React.useState("")
@@ -66,7 +68,7 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
         id="standard-full-width"
         margin="normal"
         onChange={handleChange}
-        placeholder="Search…"
+        placeholder={t('search')}
         style={{ backgroundColor: 'white', margin: 8 }}
         type="search"
         value={values}

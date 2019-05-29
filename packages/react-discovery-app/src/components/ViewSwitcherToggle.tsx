@@ -5,6 +5,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Switch from '@material-ui/core/Switch'
 import {makeStyles} from "@material-ui/core"
 import {setIsViewExpanded} from "@react-discovery/solr"
+import {useTranslation} from "react-i18next"
 
 const useStyles = makeStyles((theme): any => ({
   formControl: {
@@ -22,6 +23,7 @@ const useStyles = makeStyles((theme): any => ({
 }));
 
 export const ViewSwitcherToggle: React.FC<any> = (): ReactElement => {
+  const {t} = useTranslation()
   const classes: any = useStyles();
   const dispatch = useDispatch()
   const isViewExpanded = useSelector((state: any): boolean => state.config.isViewExpanded)
@@ -44,7 +46,7 @@ export const ViewSwitcherToggle: React.FC<any> = (): ReactElement => {
             value="checkedB"
           />
         }
-        label="Expand View"
+        label={t('expandView')}
       />
     </FormControl>
   )

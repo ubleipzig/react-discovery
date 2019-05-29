@@ -1,5 +1,14 @@
 {
   "translation": {
-    "resultsFound": "results found"
+    "account": "My Account",
+    "expandView": "Expand View",
+    "language": "Language",
+    "originPlace": "Origin",
+    "profile": "Profile",
+    "resultsFound": "results found",
+    "search": "Search...",
+    "suggest": "Suggest...",
+    "title": "Title",
+    "sortOrder": "Sort Order"
   }
 }

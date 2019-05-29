@@ -7,13 +7,25 @@ import {
   ISearchField,
   ISortField,
   SolrResponseProvider,
+  usePrevious,
 } from '@react-discovery/solr'
-import React, {ReactElement} from 'react'
+import React, {ReactElement, useEffect} from 'react'
 import Grid from '@material-ui/core/Grid'
 import {Typography} from "@material-ui/core"
 import {useSelector} from 'react-redux'
+import {useTranslation} from "react-i18next"
 
 export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
+  const {t, i18n} = useTranslation()
+  const currentLanguage = useSelector((state: any): string => state.config.currentLanguage)
+  const previousLanguage = usePrevious(currentLanguage)
+
+  useEffect((): void => {
+    if (previousLanguage !== currentLanguage) {
+      i18n.changeLanguage(currentLanguage)
+    }
+  }, [currentLanguage, i18n, previousLanguage])
+
   const filters = useSelector((state: any): IFilters => state.query.filters)
   const highlighting = useSelector((state: any): boolean => state.query.highlighting)
   const hits = useSelector((state: any): IHits => state.response.hits)
@@ -39,7 +51,7 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
         field={refinementListFilters[id].field}
         itemComponent={ItemList}
         key={id}
-        label={refinementListFilters[id].label}/>))
+        label={t(refinementListFilters[id].label)}/>))
   }
 
   return (
@@ -61,7 +73,7 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
           <Grid
             container
             direction="row"
-            style={{marginTop: '50px', padding: '10px'}}
+            style={{alignItems: 'center', marginTop: '50px', padding: '10px'}}
           >
             <HitStats/>
             <ViewSwitcherToggle/>

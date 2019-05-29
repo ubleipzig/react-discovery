@@ -1,14 +1,10 @@
+import {LanguageSelectionMenu, ProfileMenu, SearchBox} from '.'
 import React, {ReactElement} from 'react'
-import AccountCircle from '@material-ui/icons/AccountCircle'
 import AppBar from '@material-ui/core/AppBar'
 import Badge from '@material-ui/core/Badge'
+import Bookmark from '@material-ui/icons/Bookmark'
 import IconButton from '@material-ui/core/IconButton'
-import MailIcon from '@material-ui/icons/Mail'
-import Menu from '@material-ui/core/Menu'
 import MenuIcon from '@material-ui/icons/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
-import NotificationsIcon from '@material-ui/icons/Notifications'
-import {SearchBox} from '.'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
@@ -60,48 +56,6 @@ const useStyles = makeStyles((theme): any => ({
 
 export const SearchAppBar: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles()
-  const [anchorEl, setAnchorEl] = React.useState(null)
-
-  const isMenuOpen = Boolean(anchorEl)
-
-  const handleProfileMenuOpen = (event): void => {
-    setAnchorEl(event.currentTarget)
-  }
-
-  const handleMenuClose = (): void => {
-    setAnchorEl(null)
-  }
-
-  const renderMenu: ReactElement = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        horizontal: "right",
-        vertical: "bottom",
-      }}
-      getContentAnchorEl={null}
-      onClose={handleMenuClose}
-      open={isMenuOpen}
-      transformOrigin={{
-        horizontal: 'right',
-        vertical: 'top',
-      }}
-    >
-      <MenuItem
-        button={true}
-        component='div'
-        onClick={handleMenuClose}
-      >Profile
-      </MenuItem>
-      <MenuItem
-        button={true}
-        component='div'
-        onClick={handleMenuClose}
-      >
-        My account
-      </MenuItem>
-    </Menu>
-  )
 
   return (
     <div className={classes.grow}>
@@ -129,7 +83,9 @@ export const SearchAppBar: React.FC<any> = (): ReactElement => {
           </Typography>
           <SearchBox/>
           <div className={classes.sectionDesktop}>
+            <LanguageSelectionMenu/>
             <IconButton
+              className={classes.menuButton}
               color="inherit"
               href=''
             >
@@ -137,34 +93,13 @@ export const SearchAppBar: React.FC<any> = (): ReactElement => {
                 badgeContent={4}
                 color="secondary"
               >
-                <MailIcon />
+                <Bookmark/>
               </Badge>
             </IconButton>
-            <IconButton
-              color="inherit"
-              href=''
-            >
-              <Badge
-                badgeContent={17}
-                color="secondary"
-              >
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              aria-haspopup="true"
-              aria-owns={isMenuOpen ? 'material-appbar' : undefined}
-              color="inherit"
-              edge="end"
-              href=''
-              onClick={handleProfileMenuOpen}
-            >
-              <AccountCircle />
-            </IconButton>
+            <ProfileMenu/>
           </div>
         </Toolbar>
       </AppBar>
-      {renderMenu}
     </div>
   )
 }

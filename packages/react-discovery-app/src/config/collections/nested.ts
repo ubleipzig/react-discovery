@@ -32,7 +32,7 @@ export const nested: IConfig = {
       refinementListFilters: {
         1: {
           field: "entstehungsort_s",
-          label: "Origin Place",
+          label: "originPlace",
         },
         2: {
           field: "format_ss",
@@ -40,7 +40,7 @@ export const nested: IConfig = {
         },
         3: {
           field: "schreibsprache_s",
-          label: "Schreibsprache",
+          label: "language",
         }
       },
       searchFields: [
@@ -133,12 +133,12 @@ export const nested: IConfig = {
       sortFields: [
         {
           field: "entstehungsort_s",
-          label: "Entstehungsort",
+          label: "originPlace",
           order: "asc"
         },
         {
           field: "titel_t",
-          label: "Titel",
+          label: "title",
           order: "asc"
         },
       ],

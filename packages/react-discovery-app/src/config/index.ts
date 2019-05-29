@@ -22,8 +22,14 @@ export interface IFilter {
   [field: string]: string[];
 }
 
+export interface ILanguage {
+  label: string;
+  locale: string;
+}
+
 export interface IConfig {
   currentCollection?: string;
+  currentLanguage?: string;
   collections: {
     [collection: string]: {
       docTypes?: string[];
@@ -38,6 +44,7 @@ export interface IConfig {
     };
   };
   highlighting?: boolean;
+  languages?: ILanguage[];
   isViewExpanded?: boolean;
   selectedIndex?: number;
 }
@@ -48,7 +55,17 @@ const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "test01
 export const rootConfig: IConfig = {
   collections: null,
   currentCollection,
+  currentLanguage: 'de',
   isViewExpanded: false,
+  languages: [
+    {
+      label: 'Deutsch',
+      locale: 'de',
+    },
+    {
+      label: 'English',
+      locale: 'en',
+    }],
   selectedIndex: 0
 }
 
