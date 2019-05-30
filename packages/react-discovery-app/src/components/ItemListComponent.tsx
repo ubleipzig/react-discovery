@@ -1,6 +1,5 @@
+import {IAggregation, getAggregation, getFiltersForField, setSelectedFilters, setStart, setSuggest} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
-import {setSelectedFilters, setStart, setSuggest} from "@react-discovery/solr"
-import {useDispatch, useSelector} from "react-redux"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
@@ -10,6 +9,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
 import {makeStyles} from '@material-ui/core/styles'
+import {useDispatch} from "react-redux"
 
 export interface IListProps {
   toggleItem: (key: string) => void;
@@ -24,15 +24,6 @@ export interface IListProps {
   showCount?: boolean;
   translate?: (s: string) => string;
   multiselect?: boolean; // if true, uses toggleItem, else uses setItems
-}
-
-export interface IAggregation {
-  buckets: IBucket[];
-}
-
-export interface IBucket extends IAggregation {
-  key: string;
-  docCount: number;
 }
 
 export interface IItemListProps extends IListProps {
@@ -61,12 +52,11 @@ const useStyles = makeStyles((theme): any => ({
 }))
 
 export const ItemList: React.FC<any> = (props: IItemListProps): ReactElement => {
-  const classes: any = useStyles()
+  const classes: any = useStyles({})
   const dispatch = useDispatch()
   const {field, label} = props
-  const aggregation = useSelector((state: any): IAggregation =>
-    state.response && state.response.aggregations && state.response.aggregations[field])
-  const filters = useSelector((state: any): string[] => state.query.filters[field])
+  const aggregation = getAggregation(field)
+  const filters = getFiltersForField(field)
   const [isExpanded, setExpanded] = React.useState(false)
 
   const handleExpand = (panel): any => ({}, isExpanded): void => { // eslint-disable-line no-empty-pattern
@@ -81,7 +71,7 @@ export const ItemList: React.FC<any> = (props: IItemListProps): ReactElement => 
     dispatch(setStart({newStart: 0}))
   }
 
-  const actions = (aggregation): JSX.Element => {
+  const actions = (aggregation): ReactElement => {
     return aggregation.buckets.sort((a, b): any => (a.docCount < b.docCount) ? 1 : -1)
       .filter((bucket): any => bucket.docCount > 0).map((bucket): any => {
         return (

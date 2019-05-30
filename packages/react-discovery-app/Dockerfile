@@ -2,12 +2,14 @@ FROM node:latest
 
 MAINTAINER Christopher Johnson <chjohnson39@gmail.com>
 LABEL description = "React Discovery App"
-
-WORKDIR /srv/solr-react
+ARG CIRCLE_BRANCH
+ENV CIRCLE_BRANCH=${CIRCLE_BRANCH}
+RUN printenv
+WORKDIR /srv/react-discovery
 RUN git clone https://github.com/ubl-chj/solr-react.git ./
+RUN git checkout ${CIRCLE_BRANCH}
 RUN npm i npm@latest -g
 RUN npm install --global lerna
-WORKDIR /srv/solr-react
 RUN lerna bootstrap --hoist
 RUN lerna run build
 RUN yarn global add serve

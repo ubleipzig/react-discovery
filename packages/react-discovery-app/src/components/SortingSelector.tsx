@@ -1,6 +1,5 @@
-import {ISortField, setSortFields, setSuggest} from "@react-discovery/solr"
+import {ISortField, getSortFields, getStringInput, setSortFields, setSuggest} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
-import {useDispatch, useSelector} from "react-redux"
 import ArrowDownward from '@material-ui/icons/ArrowDownward'
 import ArrowUpward from '@material-ui/icons/ArrowUpward'
 import FormControl from '@material-ui/core/FormControl'
@@ -8,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Input from '@material-ui/core/Input'
 import NativeSelect from '@material-ui/core/NativeSelect'
 import { makeStyles } from '@material-ui/core/styles'
+import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 
 const useStyles = makeStyles((theme): any => ({
@@ -26,10 +26,10 @@ const useStyles = makeStyles((theme): any => ({
 
 export const SortingSelector: React.FC<any> = (): ReactElement => {
   const {t} = useTranslation()
-  const classes: any = useStyles()
+  const classes: any = useStyles({})
   const dispatch = useDispatch()
-  const sortFields = useSelector((state: any): ISortField[] => state.query.sortFields)
-  const stringInput = useSelector((state: any): string => state.query.stringInput)
+  const sortFields = getSortFields()
+  const stringInput = getStringInput()
   const [selectorValue, setSelectorValue] = React.useState('')
   const [sortOrder, setSortOrder] = React.useState('asc')
 

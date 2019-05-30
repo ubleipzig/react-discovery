@@ -2,6 +2,28 @@ export * from './SolrResponseProvider'
 export * from './extendedDisMaxQueryBuilder'
 export * from './suggestQueryBuilder'
 
+export interface IAggregation {
+  buckets: IBucket[];
+}
+
+export interface IBucket extends IAggregation {
+  key: string;
+  docCount: number;
+}
+
+export interface IHitComponent {
+  key: string;
+  title: string;
+  hitComponent: string;
+  defaultOption?: boolean;
+  expandedView?: boolean;
+}
+
+export interface ILanguage {
+  label: string;
+  locale: string;
+}
+
 export interface ISearchField {
   field: string;
   label: string;

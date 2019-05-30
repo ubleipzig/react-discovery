@@ -1,10 +1,10 @@
 import React, {ReactElement} from "react"
-import {useDispatch, useSelector} from "react-redux"
+import {getIsViewExpanded, setIsViewExpanded} from "@react-discovery/solr"
 import FormControl from "@material-ui/core/FormControl"
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Switch from '@material-ui/core/Switch'
 import {makeStyles} from "@material-ui/core"
-import {setIsViewExpanded} from "@react-discovery/solr"
+import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 
 const useStyles = makeStyles((theme): any => ({
@@ -24,9 +24,9 @@ const useStyles = makeStyles((theme): any => ({
 
 export const ViewSwitcherToggle: React.FC<any> = (): ReactElement => {
   const {t} = useTranslation()
-  const classes: any = useStyles();
+  const classes: any = useStyles({});
   const dispatch = useDispatch()
-  const isViewExpanded = useSelector((state: any): boolean => state.config.isViewExpanded)
+  const isViewExpanded = getIsViewExpanded()
 
   const handleChange = (isViewExpanded): void => {
     dispatch(setIsViewExpanded({isViewExpanded}))

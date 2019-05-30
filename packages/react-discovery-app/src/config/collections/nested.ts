@@ -137,8 +137,8 @@ export const nested: IConfig = {
           order: "asc"
         },
         {
-          field: "titel_t",
-          label: "title",
+          field: "status_s",
+          label: "status",
           order: "asc"
         },
       ],

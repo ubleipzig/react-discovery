@@ -1,7 +1,7 @@
+import {RandomThumbnail, ValueDisplay} from '.'
 import React, {ReactElement} from "react"
 import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
-import {RandomThumbnail} from '.'
 import Typography from "@material-ui/core/Typography"
 import {makeStyles} from "@material-ui/core"
 
@@ -32,25 +32,11 @@ const useStyles = makeStyles((theme): any => ({
     display: 'flex',
     marginBottom: '5px',
   },
-  values: {
-    '& em': {
-      background: '#cfe1f3'
-    }
-  }
 }));
 
 const DefaultHitComponent: React.FC<any> = (props: IDefaultItemComponent): ReactElement => {
-  const classes: any = useStyles()
+  const classes: any = useStyles({})
   const {hit, i, searchFields} = props
-
-  const renderValue = (field, hit): ReactElement => {
-    const {_source, highlighting} = hit
-    const source = Object.keys(highlighting).length > 0 ? Object.assign({}, _source, highlighting) : _source
-    const value = [].concat(source[field] || null).filter((v): any => v !== null);
-    return (
-      <div className={classes.values} dangerouslySetInnerHTML={{__html: value.join(", ")}}/>
-    )
-  }
 
   return (
     <Card className={classes.root} key={i}>
@@ -74,7 +60,7 @@ const DefaultHitComponent: React.FC<any> = (props: IDefaultItemComponent): React
                 color="textSecondary"
                 component="span"
               >
-                {renderValue(field.field, hit)}
+                <ValueDisplay field={field.field} hit={hit}/>
               </Typography>
             </div>
           </CardContent>)}

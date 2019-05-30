@@ -1,23 +1,22 @@
 import {FacetViewSwitcher, GroupSelectedFilters, HitStats, ItemList, Pagination,
   SearchAppBar, SortingSelector, Suggester, TabsAppBar, ViewSwitcherToggle} from '.'
 import {
-  IFilters,
-  IHits,
   IQuery,
-  ISearchField,
-  ISortField,
   SolrResponseProvider,
+  getCurrentLanguage,
+  getHits,
+  getInitialQuery,
+  getRefinementListFilters,
   usePrevious,
 } from '@react-discovery/solr'
 import React, {ReactElement, useEffect} from 'react'
 import Grid from '@material-ui/core/Grid'
 import {Typography} from "@material-ui/core"
-import {useSelector} from 'react-redux'
 import {useTranslation} from "react-i18next"
 
 export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
   const {t, i18n} = useTranslation()
-  const currentLanguage = useSelector((state: any): string => state.config.currentLanguage)
+  const currentLanguage = getCurrentLanguage()
   const previousLanguage = usePrevious(currentLanguage)
 
   useEffect((): void => {
@@ -26,26 +25,12 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
     }
   }, [currentLanguage, i18n, previousLanguage])
 
-  const filters = useSelector((state: any): IFilters => state.query.filters)
-  const highlighting = useSelector((state: any): boolean => state.query.highlighting)
-  const hits = useSelector((state: any): IHits => state.response.hits)
-  const refinementListFilters = useSelector((state: any): any =>
-    state.config.collections[state.config.currentCollection].refinementListFilters)
-  const searchFields = useSelector((state: any): ISearchField[] => state.query.searchFields)
-  const size = useSelector((state: any): number => state.query.size)
-  const sortFields = useSelector((state: any): ISortField[] => state.query.sortFields)
-  const start = useSelector((state: any): number => state.query.start)
-  const stringInput = useSelector((state: any): string => state.query.stringInput)
-  const suggest = useSelector((state: any): boolean => state.query.suggest)
-  const suggestDictionary = useSelector((state: any): string => state.query.suggestDictionary)
-  const typeDef = useSelector((state: any): string => state.query.typeDef)
-  const url = useSelector((state: any): string => state.query.url)
+  const hits = getHits()
+  const refinementListFilters = getRefinementListFilters()
 
-  const buildInitialQuery = (): IQuery => {
-    return {filters, highlighting, searchFields, size, sortFields, start, stringInput, suggest, suggestDictionary, typeDef, url}
-  }
+  const initialQuery: IQuery = getInitialQuery()
 
-  const buildRefinementListFilters = (): any => {
+  const buildRefinementListFilters = (): ReactElement[] => {
     return Object.keys(refinementListFilters).map((id: any): ReactElement => (
       <ItemList
         field={refinementListFilters[id].field}
@@ -55,7 +40,7 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
   }
 
   return (
-    <SolrResponseProvider query={buildInitialQuery()}>
+    <SolrResponseProvider query={initialQuery}>
       <Grid container>
         <Grid item xs={12}>
           <SearchAppBar/>

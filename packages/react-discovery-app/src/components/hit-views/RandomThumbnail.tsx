@@ -11,7 +11,7 @@ const useStyles = makeStyles((): any => ({
 }))
 
 export const RandomThumbnail: React.FC<any> = (): ReactElement => {
-  const classes: any = useStyles()
+  const classes: any = useStyles({})
   return (
     <CardMedia
       alt="Placeholder"

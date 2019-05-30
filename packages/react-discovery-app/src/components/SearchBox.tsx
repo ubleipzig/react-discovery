@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme): any => ({
 
 export const SearchBox: React.FC<any> = (): ReactElement => {
   const {t} = useTranslation()
-  const classes: any = useStyles()
+  const classes: any = useStyles({})
   const dispatch = useDispatch()
   const [values, setValues] = React.useState("")
 

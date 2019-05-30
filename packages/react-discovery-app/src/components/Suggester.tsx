@@ -1,6 +1,5 @@
 import React, {ReactElement} from 'react'
-import {setStart, setSuggest} from "@react-discovery/solr"
-import {useDispatch, useSelector} from "react-redux"
+import {getTerms, setStart, setSuggest} from "@react-discovery/solr"
 import Chip from '@material-ui/core/Chip'
 import Downshift from 'downshift'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -8,6 +7,7 @@ import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
 import deburr from 'lodash/deburr'
 import { makeStyles } from '@material-ui/core/styles'
+import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 
 interface ISuggestion {
@@ -97,10 +97,9 @@ const renderInput = (inputProps): ReactElement => {
 
 export const Suggester: React.FC<any> = (): ReactElement => {
   const {t} = useTranslation()
-  const classes: any = useStyles()
+  const classes: any = useStyles({})
   const dispatch = useDispatch()
-  const terms = useSelector((state: any): string[] =>
-    state.suggestions && state.suggestions.terms)
+  const terms = getTerms()
   const [selectedItem, setSelectedItem] = React.useState([])
   const [inputValue, setInputValue] = React.useState('')
 

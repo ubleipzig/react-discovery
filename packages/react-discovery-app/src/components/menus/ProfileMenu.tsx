@@ -5,7 +5,6 @@ import Menu from "@material-ui/core/Menu"
 import MenuItem from "@material-ui/core/MenuItem"
 import {useTranslation} from "react-i18next"
 
-
 export const ProfileMenu: React.FC<any> = (): ReactElement => {
   const {t} = useTranslation()
   const [anchorEl, setAnchorEl] = React.useState(null)

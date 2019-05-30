@@ -1,13 +1,13 @@
 import React, {ReactElement} from "react"
-import {useDispatch, useSelector} from "react-redux"
+import {getIsPersisted, setIsPersisted} from "@react-discovery/solr"
 import Badge from "@material-ui/core/Badge"
 import IconButton from "@material-ui/core/IconButton"
 import Save from '@material-ui/icons/Save'
-import {setIsPersisted} from "@react-discovery/solr"
+import {useDispatch} from "react-redux"
 
 export const PersistControl: React.FC<any> = (): ReactElement => {
   const dispatch = useDispatch()
-  const isPersisted = useSelector((state: any): boolean => state.config.isPersisted)
+  const isPersisted = getIsPersisted()
 
   const handlePersist = (): void => {
     dispatch(setIsPersisted({isPersisted: !isPersisted}))

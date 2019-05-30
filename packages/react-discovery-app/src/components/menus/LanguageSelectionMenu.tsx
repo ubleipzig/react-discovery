@@ -1,12 +1,11 @@
 import React, {ReactElement} from "react"
-import {useDispatch, useSelector} from "react-redux"
-import {ILanguage} from "../../config"
+import {getLanguages, setCurrentLanguage} from "@react-discovery/solr"
 import IconButton from "@material-ui/core/IconButton"
 import Language from "@material-ui/icons/Language"
 import Menu from "@material-ui/core/Menu"
 import MenuItem from "@material-ui/core/MenuItem"
 import {makeStyles} from "@material-ui/core"
-import {setCurrentLanguage} from "@react-discovery/solr"
+import {useDispatch} from "react-redux"
 
 const useStyles = makeStyles((theme): any => ({
   menuButton: {
@@ -15,10 +14,9 @@ const useStyles = makeStyles((theme): any => ({
 }))
 
 export const LanguageSelectionMenu: React.FC<any> = (): ReactElement => {
-  const classes: any = useStyles()
+  const classes: any = useStyles({})
   const dispatch = useDispatch()
-  const languages = useSelector((state: any): ILanguage[] =>
-    state.config.languages)
+  const languages = getLanguages()
   const [anchorEl, setAnchorEl] = React.useState(null)
 
   const isMenuOpen = Boolean(anchorEl)

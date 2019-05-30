@@ -1,14 +1,6 @@
+import {IHitComponent, getFilterType, getHitComponents, getIsViewExpanded} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
 import {Hits} from "."
-import {useSelector} from "react-redux"
-
-interface IHitComponent {
-  key: string;
-  title: string;
-  hitComponent: string;
-  defaultOption?: boolean;
-  expandedView?: boolean;
-}
 
 interface IFacetViewSwitcher {
   currentHitComponent: string;
@@ -20,11 +12,9 @@ interface IFacetViewSwitcher {
 const CUSTOM_COMPONENT_PATH = './hit-views/'
 
 export const FacetViewSwitcher: React.FC<any> = (props: IFacetViewSwitcher): ReactElement => {
-  const filterType = useSelector((state: any): string =>
-    state.query.filters && state.query.filters.type_s && state.query.filters.type_s[0])
-  const hitComponents = useSelector((state: any): IHitComponent[] =>
-    state.config.collections[state.config.currentCollection].hitComponents)
-  const isViewExpanded = useSelector((state: any): boolean => state.config.isViewExpanded)
+  const filterType = getFilterType()
+  const hitComponents = getHitComponents()
+  const isViewExpanded = getIsViewExpanded()
 
   const buildHitComponent = (): any => {
     const [defaultHitComponent] = hitComponents.filter((hc): boolean => hc.defaultOption === true)

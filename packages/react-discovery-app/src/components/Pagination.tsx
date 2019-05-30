@@ -1,6 +1,6 @@
 import React, {ReactElement, useEffect} from "react";
-import {setSelectedIndex, setStart, setSuggest} from "@react-discovery/solr"
-import {useDispatch, useSelector} from 'react-redux'
+import {getNumFound, getSelectedIndex, getSize, getStart, getStringInput,
+  setSelectedIndex, setStart, setSuggest} from "@react-discovery/solr"
 import ChevronLeft from '@material-ui/icons/ChevronLeft'
 import ChevronRight from '@material-ui/icons/ChevronRight'
 import List from '@material-ui/core/List';
@@ -9,6 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import SkipNext from '@material-ui/icons/SkipNext'
 import SkipPrevious from '@material-ui/icons/SkipPrevious'
 import {makeStyles} from "@material-ui/core"
+import {useDispatch} from 'react-redux'
 
 const useStyles = makeStyles((theme): any => ({
   button: {
@@ -20,14 +21,13 @@ const useStyles = makeStyles((theme): any => ({
 }));
 
 export const Pagination: React.FC<any> = (): ReactElement => {
-  const classes: any = useStyles()
+  const classes: any = useStyles({})
   const dispatch = useDispatch()
-  const start = useSelector((state: any): number => state.query.start)
-  const size = useSelector((state: any): number => state.query.size)
-  const response = useSelector((state: any): any => state.response)
-  const selectedIndex = useSelector((state: any): number => state.config.selectedIndex)
-  const stringInput = useSelector((state: any): string => state.query.stringInput)
-  const {numFound} = Object.keys(response).length && response.hits !== null && response.hits
+  const start = getStart()
+  const size = getSize()
+  const selectedIndex = getSelectedIndex()
+  const stringInput = getStringInput()
+  const numFound = getNumFound()
 
   useEffect((): void => {
     if (start === 0) {

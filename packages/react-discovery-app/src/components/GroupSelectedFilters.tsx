@@ -1,13 +1,9 @@
 import React, {ReactElement} from "react"
-import {setSelectedFilters, setStart} from "@react-discovery/solr"
-import {useDispatch, useSelector} from "react-redux"
+import {getFilters, setSelectedFilters, setStart} from "@react-discovery/solr"
 import Chip from '@material-ui/core/Chip'
 import List from "@material-ui/core/List"
 import { makeStyles } from '@material-ui/core/styles'
-
-interface IFilters {
-  [field: string]: string[];
-}
+import {useDispatch} from "react-redux"
 
 const useStyles = makeStyles((theme): any => ({
   chip: {
@@ -19,17 +15,17 @@ const useStyles = makeStyles((theme): any => ({
 }))
 
 export const GroupSelectedFilters: React.FC<any> = (): ReactElement => {
-  const classes: any = useStyles()
+  const classes: any = useStyles({})
   const dispatch = useDispatch()
-  const filters = useSelector((state: any): IFilters => state.query.filters)
+  const filters = getFilters()
 
-  const onClose = (field: any, filter: any): void => {
-    const newFilters = filters[field].filter((f): any => f !== filter)
+  const onClose = (field: string, filter: any): void => {
+    const newFilters = filters[field].filter((f): boolean => f !== filter)
     dispatch(setSelectedFilters({field, filters: newFilters}))
     dispatch(setStart({newStart: 0}))
   }
 
-  const buildFilters = (filters): any => {
+  const buildFilters = (filters): ReactElement[] => {
     const values = Object.values(filters)
     return values && values[0] !== undefined && Object.entries(filters).map(([field, values]): any =>
       (values as []).map((val, key): ReactElement => {

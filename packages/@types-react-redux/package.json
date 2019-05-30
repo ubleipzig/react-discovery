@@ -1,0 +1,17 @@
+{
+  "name": "@types/react-redux",
+  "version": "7.1.0",
+  "description": "redux types",
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/hoist-non-react-statics": "^3.3.0",
+    "hoist-non-react-statics": "^3.3.0",
+    "redux": "^4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ubl-chj/react-discovery"
+  },
+  "author": "Christopher Johnson",
+  "license": "Apache-2.0"
+}

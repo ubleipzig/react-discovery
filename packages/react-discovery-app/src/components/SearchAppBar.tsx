@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme): any => ({
 }))
 
 export const SearchAppBar: React.FC<any> = (): ReactElement => {
-  const classes: any = useStyles()
+  const classes: any = useStyles({})
 
   return (
     <div className={classes.grow}>
