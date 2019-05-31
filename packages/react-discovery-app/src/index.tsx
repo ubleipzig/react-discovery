@@ -34,7 +34,7 @@ const initialQueryState: IQuery = {
   stringInput: null,
   suggest: false,
   suggestDictionary: 'suggester',
-  typeDef: null,
+  typeDef: 'edismax',
   url
 }
 const queryReducer = query(initialQueryState)

@@ -1,5 +1,6 @@
-import {LanguageSelectionMenu, ProfileMenu, SearchBox} from '.'
+import {ExpertSearchBox, LanguageSelectionMenu, ProfileMenu, SearchBox, SearchSettingsMenu} from '.'
 import React, {ReactElement} from 'react'
+import {SolrParameters, getTypeDef} from "@react-discovery/solr"
 import AppBar from '@material-ui/core/AppBar'
 import Badge from '@material-ui/core/Badge'
 import Bookmark from '@material-ui/icons/Bookmark'
@@ -56,6 +57,7 @@ const useStyles = makeStyles((theme): any => ({
 
 export const SearchAppBar: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles({})
+  const typeDef = getTypeDef()
 
   return (
     <div className={classes.grow}>
@@ -81,8 +83,9 @@ export const SearchAppBar: React.FC<any> = (): ReactElement => {
           >
             Discovery App
           </Typography>
-          <SearchBox/>
+          {typeDef === SolrParameters.EDISMAX ? <SearchBox/> : <ExpertSearchBox/>}
           <div className={classes.sectionDesktop}>
+            <SearchSettingsMenu/>
             <LanguageSelectionMenu/>
             <IconButton
               className={classes.menuButton}

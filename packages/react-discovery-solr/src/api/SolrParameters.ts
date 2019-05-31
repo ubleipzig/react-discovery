@@ -1,5 +1,6 @@
 export enum SolrParameters {
   CURSOR_MARK = "cursorMark",
+  EDISMAX = "edismax",
   FACET = "facet",
   FACET_FIELD = "facet.field",
   FACET_LIMIT = "facet.limit",
@@ -10,6 +11,7 @@ export enum SolrParameters {
   GROUP_FIELD = "group.field",
   HL = "hl",
   HL_FIELDS = "hl.fl",
+  LUCENE = "lucene",
   QF = "qf",
   QUERY = "q",
   QUERY_CONTEXT = '/query',

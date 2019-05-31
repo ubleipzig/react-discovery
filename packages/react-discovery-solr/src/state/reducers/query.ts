@@ -1,12 +1,13 @@
 import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
 import {
-  setDisMaxQuery,
   setQueryFields,
+  setQueryInput,
   setSearchFields,
   setSelectedFilters,
   setSortFields,
   setStart,
-  setSuggest
+  setSuggest,
+  setTypeDef
 } from "../actions"
 import { Action } from "typescript-fsa";
 
@@ -21,9 +22,12 @@ export const query = (initialState): any => reducerWithInitialState(initialState
     start: action.payload.start,
     suggestDictionary: action.payload.suggestDictionary
   }))
-  .caseWithAction(setDisMaxQuery, (state, action: Action<any>): ReducerBuilder<any> => ({
+  .caseWithAction(setQueryInput, (state, action: Action<any>): ReducerBuilder<any> => ({
     ...state,
     stringInput: action.payload.stringInput,
+  }))
+  .caseWithAction(setTypeDef, (state, action: Action<any>): ReducerBuilder<any> => ({
+    ...state,
     typeDef: action.payload.typeDef,
   }))
   .caseWithAction(setSearchFields, (state, action: any): ReducerBuilder<any> => ({

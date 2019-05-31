@@ -3,22 +3,29 @@ import {IEMaxQuery} from "."
 import {SolrParameters} from "./SolrParameters"
 const queryString = require('query-string')
 
-const EDISMAX = "edismax"
-export const buildDisMaxQuery = (searchFields, stringInput = '*'): {} => {
-  const qfList = searchFields.map((searchField): string => {
-    return searchField.field
-  }).join(" ")
-  if (stringInput) {
+export const buildQueryFieldParams = (typeDef: string, searchFields): any => {
+  if (typeDef === SolrParameters.EDISMAX) {
+    const qfList = searchFields.map((searchField): string => {
+      return searchField.field
+    }).join(" ")
+    return {[SolrParameters.QF]: qfList}
+  } else {
+    return ""
+  }
+}
+
+export const buildStringInputParams = (typeDef: string, stringInput): {} => {
+  if (!stringInput && typeDef === SolrParameters.EDISMAX) {
     return {
-      [SolrParameters.TYPE_DEF]: EDISMAX,
-      [SolrParameters.QUERY]: stringInput,
-      [SolrParameters.QF]: qfList
+      [SolrParameters.QUERY]: '*',
+    }
+  } else if (!stringInput && typeDef === SolrParameters.LUCENE) {
+    return {
+      [SolrParameters.QUERY]: '*:*',
     }
   } else {
     return {
-      [SolrParameters.TYPE_DEF]: EDISMAX,
-      [SolrParameters.QUERY]: '*',
-      [SolrParameters.QF]: qfList
+      [SolrParameters.QUERY]: stringInput,
     }
   }
 }
@@ -79,15 +86,23 @@ export const buildStart = (start: number): any => {
   return {[SolrParameters.START]: start}
 }
 
+export const buildTypeDefParams = (typeDef: string): any => {
+  return {
+    [SolrParameters.TYPE_DEF]: typeDef
+  }
+}
+
 export const buildIsFaceted = (facet: boolean = true): any => {
   return {[SolrParameters.FACET]: facet}
 }
 
-export const extendedDisMaxQueryBuilder = (props: IEMaxQuery): string => {
+export const queryBuilder = (props: IEMaxQuery): string => {
   const {facetLimit, facetSort, fieldList, filters, group, groupField, highlighting,
-    searchFields, sortFields, stringInput, size, start, url} = props
+    searchFields, sortFields, stringInput, size, start, typeDef, url} = props
   const qs = {
-    ...buildDisMaxQuery(searchFields, stringInput),
+    ...buildQueryFieldParams(typeDef, searchFields),
+    ...buildStringInputParams(typeDef, stringInput),
+    ...buildTypeDefParams(typeDef),
     ...buildSortParams(sortFields),
     ...buildFacetFieldParams(searchFields),
     ...buildGroupFieldParams(group, groupField),

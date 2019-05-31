@@ -1,5 +1,6 @@
 export * from './hit-views'
 export * from './menus'
+export * from './ExpertSearchBox'
 export * from './FacetViewSwitcher'
 export * from './SearchAppBar'
 export * from './GroupSelectedFilters'

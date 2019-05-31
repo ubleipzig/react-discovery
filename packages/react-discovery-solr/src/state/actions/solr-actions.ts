@@ -11,13 +11,15 @@ const SET_SELECTED_FILTERS = "SET_SELECTED_FILTERS"
 const SET_SORT_FIELDS = "SET_SORT_FIELDS"
 const SET_START = "SET_START"
 const SET_SUGGEST = "SET_SUGGEST"
-const SET_DISMAX = "SET_DISMAX"
+const SET_QUERY_INPUT = "SET_QUERY_INPUT"
+const SET_TYPE_DEF = "SET_TYPE_DEF"
 const actionCreator = actionCreatorFactory()
 
 export const setQueryFields = actionCreator<{searchFields: ISearchField[]; sortFields: ISortField[];
   url: string; start: number; size: number;}>(SET_QUERY_FIELDS)
 export const setStart = actionCreator<{newStart: number}>(SET_START)
-export const setDisMaxQuery = actionCreator<{typeDef: string; stringInput: string}>(SET_DISMAX)
+export const setQueryInput = actionCreator<{stringInput: string}>(SET_QUERY_INPUT)
+export const setTypeDef = actionCreator<{typeDef: string}>(SET_TYPE_DEF)
 export const setSearchFields = actionCreator<{searchFields}>(SET_SEARCH_FIELDS)
 export const setSortFields = actionCreator<{sortFields}>(SET_SORT_FIELDS)
 export const setSelectedFilters = actionCreator<{field: string; filters: string[]}>(SET_SELECTED_FILTERS)

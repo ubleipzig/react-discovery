@@ -1,5 +1,6 @@
 export * from './SolrResponseProvider'
-export * from './extendedDisMaxQueryBuilder'
+export * from './queryBuilder'
+export * from './SolrParameters'
 export * from './suggestQueryBuilder'
 
 export interface IAggregation {

@@ -1,18 +1,16 @@
-import {IQuery, extendedDisMaxQueryBuilder, suggestQueryBuilder} from "."
+import {IQuery, queryBuilder, suggestQueryBuilder} from "."
 import React, {ReactElement, useEffect, useState} from "react"
 import {fetchSolrResponseWorker, fetchSolrSuggestionsWorker, setQueryFields} from "../state/actions"
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {usePrevious} from "../hooks"
 
 interface ISolrResponseProvider {
-  fetchSolrResponseWorker: Function;
-  fetchSolrSuggestionsWorker: Function;
   query: IQuery;
-  setQueryFields: typeof setQueryFields;
 }
 
-const SolrResponseProviderComponent: React.FC<ISolrResponseProvider> = (props): ReactElement => {
-  const {fetchSolrResponseWorker, fetchSolrSuggestionsWorker, setQueryFields, query} = props
+export const SolrResponseProvider: React.FC<ISolrResponseProvider> = (props): ReactElement => {
+  const {query} = props
+  const dispatch = useDispatch()
   const {filters, sortFields, start, stringInput, suggest} = query
   const prevStart = usePrevious(start)
   const prevStringInput = usePrevious(stringInput)
@@ -21,19 +19,19 @@ const SolrResponseProviderComponent: React.FC<ISolrResponseProvider> = (props): 
   const [isInitialized, setIsInitialized] = useState(false)
 
   const fetchResponse = (requestURI): boolean => {
-    fetchSolrResponseWorker({requestURI})
+    dispatch(fetchSolrResponseWorker({requestURI}))
     return true
   }
 
   const fetchSuggestions = (requestURI): boolean => {
-    fetchSolrSuggestionsWorker({requestURI})
+    dispatch(fetchSolrSuggestionsWorker({requestURI}))
     return true
   }
 
   useEffect((): void => {
-    const responseRequestURI = extendedDisMaxQueryBuilder({...query})
+    const responseRequestURI = queryBuilder({...query})
     if (!isInitialized) {
-      setQueryFields({...query})
+      dispatch(setQueryFields({...query}))
       setIsInitialized(fetchResponse(responseRequestURI))
     }
     if (isInitialized) {
@@ -56,6 +54,3 @@ const SolrResponseProviderComponent: React.FC<ISolrResponseProvider> = (props): 
   )
 }
 
-const mapDispatchToProps = {fetchSolrResponseWorker, fetchSolrSuggestionsWorker, setQueryFields}
-
-export const SolrResponseProvider = connect(null, mapDispatchToProps)(SolrResponseProviderComponent)

@@ -29,21 +29,20 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-export const SearchBox: React.FC<any> = (): ReactElement => {
+export const ExpertSearchBox: React.FC<any> = (): ReactElement => {
   const {t} = useTranslation()
   const classes: any = useStyles({})
   const dispatch = useDispatch()
   const [values, setValues] = React.useState("")
 
   const handleChange = (e): void => {
-    const stringInput = e.target.value;
-    dispatch(setQueryInput({stringInput}))
-    dispatch(setStart({newStart: 0}))
     setValues(e.target.value)
   }
 
   const handleSubmit = ((e): void => {
     e.preventDefault()
+    dispatch(setQueryInput({stringInput: values}))
+    dispatch(setStart({newStart: 0}))
   })
 
   return (
@@ -68,7 +67,7 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
         id="standard-full-width"
         margin="normal"
         onChange={handleChange}
-        placeholder={t('search')}
+        placeholder={t('expertSearch')}
         style={{ backgroundColor: 'white', margin: 8 }}
         type="search"
         value={values}
