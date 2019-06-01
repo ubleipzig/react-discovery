@@ -10,12 +10,23 @@ import {
   usePrevious,
 } from '@react-discovery/solr'
 import React, {ReactElement, useEffect} from 'react'
+import {Theme, createStyles, makeStyles} from "@material-ui/core"
+import CircularProgress from '@material-ui/core/CircularProgress'
 import Grid from '@material-ui/core/Grid'
-import {Typography} from "@material-ui/core"
+
 import {useTranslation} from "react-i18next"
+
+const useStyles = makeStyles((theme: Theme): any =>
+  createStyles({
+    progress: {
+      margin: theme.spacing(2),
+    },
+  }),
+)
 
 export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
   const {t, i18n} = useTranslation(['common', 'vocab'])
+  const classes: any = useStyles({})
   const currentLanguage = getCurrentLanguage()
   const previousLanguage = usePrevious(currentLanguage)
 
@@ -84,7 +95,7 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
               <>
                 <TabsAppBar/>
                 <FacetViewSwitcher/>
-              </> : <Typography>Loading</Typography>}
+              </> : <CircularProgress className={classes.progress}/>}
           </Grid>
           <Grid
             alignItems="center"

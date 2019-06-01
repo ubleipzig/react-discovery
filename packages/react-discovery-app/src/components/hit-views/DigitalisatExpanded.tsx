@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
+const DigitalisatExpanded: React.FC<IDigitalisat> = (props): ReactElement => {
   const classes: any = useStyles({})
   const {hit, i, searchFields} = props
   const filteredFields = ['DigitalisatDescription', 'Manifest']
@@ -41,7 +41,7 @@ const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
     <Card className={classes.root} key={i}>
       <TitleIdHeader
         id={hit._source.id}
-        title={hit._source.titel_t}
+        title='Expanded Images View'
       />
       <div style={{display: 'flex'}}>
         <RandomThumbnail/>
@@ -63,4 +63,4 @@ const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
   ) : null
 }
 
-export default Digitalisat
+export default DigitalisatExpanded

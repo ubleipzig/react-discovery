@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-const HspDefaultHitComponent: React.FC<IDefaultItemComponent> = (props): ReactElement => {
+const KOD: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useStyles({})
   const {hit, i} = props
   const title = buildHighlightedValueForHit('titel_t', hit)
@@ -61,4 +61,4 @@ const HspDefaultHitComponent: React.FC<IDefaultItemComponent> = (props): ReactEl
   ) : null
 }
 
-export default HspDefaultHitComponent
+export default KOD

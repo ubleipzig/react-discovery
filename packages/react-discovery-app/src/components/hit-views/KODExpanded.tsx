@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-const HspExpandedHitComponent: React.FC<IDefaultItemComponent> = (props): ReactElement => {
+const KODExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const [isExpanded, setExpanded] = React.useState(false);
   const classes: any = useStyles({})
   const {hit, i, searchFields} = props
@@ -172,4 +172,4 @@ const HspExpandedHitComponent: React.FC<IDefaultItemComponent> = (props): ReactE
   ) : null
 }
 
-export default HspExpandedHitComponent
+export default KODExpanded

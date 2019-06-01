@@ -4,6 +4,7 @@ import {buildRandomUBLThumbnail} from "../../utils"
 
 const useStyles = makeStyles((): any => ({
   cover: {
+    flexShrink: 0,
     padding: 20,
     width: '8%',
   },
@@ -12,13 +13,13 @@ const useStyles = makeStyles((): any => ({
 export const RandomThumbnail: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles({})
   return (
-    <CardMedia
-      alt="Placeholder"
-      className={classes.cover}
-      component="img"
-      height="140"
-      image={buildRandomUBLThumbnail()}
-      title="Thumbnail"
-    />
+    <div className={classes.cover}>
+      <CardMedia
+        alt="Placeholder"
+        component="img"
+        image={buildRandomUBLThumbnail()}
+        title="Thumbnail"
+      />
+    </div>
   )
 }

@@ -7,25 +7,34 @@ export const nested: IConfig = {
       hitComponents: [
         {
           defaultOption: true,
-          hitComponent: "HspDefaultHitComponent",
-          key: "list",
-          title: "Compact"
+          expandedView: false,
+          hitComponent: "KOD",
+          key: "facet",
+          title: "KOD"
         },
         {
+          expandedView: false,
           hitComponent: "Beschreibung",
           key: "facet",
           title: "Beschreibung"
         },
         {
+          expandedView: false,
           hitComponent: "Digitalisat",
           key: "facet",
           title: "Digitalisat"
         },
         {
           expandedView: true,
-          hitComponent: "HspExpandedHitComponent",
-          key: "list",
-          title: "Expanded"
+          hitComponent: "DigitalisatExpanded",
+          key: "facet",
+          title: "Digitalisat"
+        },
+        {
+          expandedView: true,
+          hitComponent: "KODExpanded",
+          key: "facet",
+          title: "KOD"
         }
       ],
       initialFilter: {'type_s': ['KOD']},

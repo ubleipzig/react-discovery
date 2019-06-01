@@ -8,6 +8,7 @@ export type RenderComponentType<P> = React.ComponentClass<P> | React.ClassicComp
 
 export const renderComponent = (component: RenderComponentType<any>, props, children?: any): ReactElement => {
   let isReactComponent = component && (
+    typeof component === 'object' ||
     component["prototype"] instanceof React.Component ||
     (component["prototype"] && component["prototype"].isReactComponent) ||
     typeof component === 'function'
