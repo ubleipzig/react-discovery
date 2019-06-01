@@ -1,13 +1,12 @@
-import {Card, CardContent, CardHeader, Typography, makeStyles} from "@material-ui/core"
-import {RandomThumbnail, ValueDisplay} from '.'
+import {Card, CardContent, makeStyles} from "@material-ui/core"
+import {RandomThumbnail, TitleIdHeader, ValueDisplay} from '.'
 import React, {ReactElement} from "react"
+import {IHit} from "@react-discovery/solr"
+import {buildHighlightedValueForHit} from "../../utils"
 
 interface IDefaultItemComponent {
   classes: any;
-  hit: {
-    _source: any;
-    highlighting: any;
-  };
+  hit: IHit;
   i: number;
   searchFields: any;
 }
@@ -33,43 +32,33 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-const HspDefaultHitComponent: React.FC<any> = (props: IDefaultItemComponent): ReactElement => {
+const HspDefaultHitComponent: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useStyles({})
-  const {hit, i, searchFields} = props
-  const displayFields = searchFields.filter((sf): boolean => sf.field === 'subtitel_t')
-
-  return (
+  const {hit, i} = props
+  const title = buildHighlightedValueForHit('titel_t', hit)
+  return hit ? (
     <Card className={classes.root} key={i}>
-      <div style={{display: 'flex'}}>
-        <CardHeader
-          style={{width: '100%'}}
-          title={<ValueDisplay field='titel_t' hit={hit}/>}/>
-        <CardHeader
-          style={{textAlign: 'right', width: '30%'}}
-          subheader={hit && hit._source.id}/>
-      </div>
+      <TitleIdHeader
+        id={hit._source.id}
+        title={title}
+      />
       <div style={{display: 'flex'}}>
         <RandomThumbnail/>
         <div className={classes.details}>
-          {displayFields.map((field, key): ReactElement =>
-            <CardContent
-              className={classes.content}
-              key={key}
-            >
-              <div style={{flex: 'auto'}}>
-                <Typography
-                  className={classes.inline}
-                  color="textSecondary"
-                  component="span"
-                >
-                  <ValueDisplay field={field.field} hit={hit}/>
-                </Typography>
-              </div>
-            </CardContent>)}
+          <CardContent
+            className={classes.content}
+          >
+            <ValueDisplay
+              field={'subtitel_t'}
+              hit={hit}
+              style={{flex: 'auto'}}
+              variant='subtitle1'
+            />
+          </CardContent>
         </div>
       </div>
     </Card>
-  )
+  ) : null
 }
 
 export default HspDefaultHitComponent

@@ -1,13 +1,20 @@
 import React, {ReactElement} from "react"
+import {Typography, makeStyles} from "@material-ui/core"
 import {IHit} from "@react-discovery/solr"
-import {makeStyles} from "@material-ui/core"
+import {InnerHtmlValue} from '.'
+import {buildHighlightedValueForHit} from '../../utils'
 
 interface IValueDisplay {
   field: string;
   hit: IHit;
+  style: any;
+  variant?: any | 'inherit';
 }
 
 const useStyles = makeStyles((): any => ({
+  inline: {
+    display: 'inline',
+  },
   values: {
     '& em': {
       background: '#cfe1f3'
@@ -15,13 +22,20 @@ const useStyles = makeStyles((): any => ({
   }
 }))
 
-export const ValueDisplay: React.FC<any> = (props: IValueDisplay): ReactElement => {
+export const ValueDisplay: React.FC<IValueDisplay> = (props): ReactElement => {
   const classes: any = useStyles({})
-  const {field, hit} = props
-  const {_source, highlighting} = hit
-  const source = Object.keys(highlighting).length > 0 ? Object.assign({}, _source, highlighting) : _source
-  const value = [].concat(source[field] || null).filter((v): any => v !== null);
+  const {field, hit, style, variant} = props
+  const value = buildHighlightedValueForHit(field, hit)
   return (
-    <div className={classes.values} dangerouslySetInnerHTML={{__html: value.join(", ")}}/>
+    <div style={style}>
+      <Typography
+        className={classes.inline}
+        color="textSecondary"
+        component="span"
+        variant={variant}
+      >
+        <InnerHtmlValue value={value}/>
+      </Typography>
+    </div>
   )
 }

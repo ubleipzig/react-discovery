@@ -1,17 +1,10 @@
-import {IHitComponent, getFilterType, getHitComponents, getIsViewExpanded} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
+import {getFilterType, getHitComponents, getIsViewExpanded} from "@react-discovery/solr"
 import {Hits} from "."
-
-interface IFacetViewSwitcher {
-  currentHitComponent: string;
-  filterType: string;
-  hitComponents: IHitComponent[];
-  isViewExpanded: boolean;
-}
 
 const CUSTOM_COMPONENT_PATH = './hit-views/'
 
-export const FacetViewSwitcher: React.FC<any> = (props: IFacetViewSwitcher): ReactElement => {
+export const FacetViewSwitcher: React.FC<any> = (props): ReactElement => {
   const filterType = getFilterType()
   const hitComponents = getHitComponents()
   const isViewExpanded = getIsViewExpanded()

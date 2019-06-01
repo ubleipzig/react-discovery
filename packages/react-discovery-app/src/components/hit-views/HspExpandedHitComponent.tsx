@@ -2,7 +2,6 @@ import {
   Card,
   CardActions,
   CardContent,
-  CardHeader,
   Divider,
   ExpansionPanel,
   ExpansionPanelDetails,
@@ -11,16 +10,15 @@ import {
   Typography,
   makeStyles
 } from "@material-ui/core"
-import {RandomThumbnail, ValueDisplay} from '.'
+import {FieldLabel, RandomThumbnail, TitleIdHeader, ValueDisplay} from '.'
 import React, {ReactElement} from "react"
 import {ExpandMore} from '@material-ui/icons'
+import {IHit} from "@react-discovery/solr"
+import {buildHighlightedValueForHit} from "../../utils"
 
 interface IDefaultItemComponent {
   classes: any;
-  hit: {
-    _source: any;
-    highlighting: any;
-  };
+  hit: IHit;
   i: number;
   searchFields: any;
 }
@@ -56,15 +54,15 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-const HspExpandedHitComponent: React.FC<any> = (props: IDefaultItemComponent): ReactElement => {
+const HspExpandedHitComponent: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const [isExpanded, setExpanded] = React.useState(false);
   const classes: any = useStyles({})
   const {hit, i, searchFields} = props
   // TODO add this to configuration
-  const filteredFields = ['Stoff', 'Format', 'Entstehungsort', 'Entstehungsdatum', 'Formtyp',
-    'Status', 'Schrift', 'Schreibsprache', 'Vorbesitzer']
-  const subtitel = hit && hit._source['subtitel_t']
+  const filteredFields = ['material', 'format', 'originPlace', 'originDate', 'formType',
+    'status', 'writingStyle', 'language', 'previousOwner']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
+  const title = buildHighlightedValueForHit('titel_t', hit)
 
   const handleExpandClick = (panel): any => ({}, isExpanded): void => {
     setExpanded(isExpanded ? panel : false)
@@ -80,26 +78,20 @@ const HspExpandedHitComponent: React.FC<any> = (props: IDefaultItemComponent): R
       return (
         <div key={i}>
           {entityFields.map((field, i): ReactElement => {
-            const value = [].concat(entity[field.field] || null).filter((v): any => v !== null);
+            const value = [].concat(entity[field.field] || null).filter((v): any => v !== null).join(", ")
             return (
               <CardContent
                 className={classes.content}
                 key={i}
               >
-                <div style={{margin: "0 20px 0 10px", minWidth: 180}}>
-                  <Typography
-                    component="span"
-                  >
-                    {field.label || field.field}
-                  </Typography>
-                </div>
+                <FieldLabel label={field.label}/>
                 <div style={{flex: 'auto'}}>
                   <Typography
                     className={classes.inline}
                     color="textSecondary"
                     component="span"
                   >
-                    <div className={classes.values} dangerouslySetInnerHTML={{__html: value.join(", ")}} key={i}/>
+                    <div className={classes.values} dangerouslySetInnerHTML={{__html: value}} key={i}/>
                   </Typography>
                 </div>
               </CardContent>
@@ -145,48 +137,28 @@ const HspExpandedHitComponent: React.FC<any> = (props: IDefaultItemComponent): R
     )
   }
 
-  return (
+  return hit ? (
     <Card className={classes.root} key={i}>
-      <div style={{display: 'flex'}}>
-        <CardHeader
-          style={{width: '100%'}}
-          title={<ValueDisplay field='titel_t' hit={hit}/>}/>
-        <CardHeader
-          style={{textAlign: 'right', width: '30%'}}
-          subheader={hit && hit._source.id}/>
-      </div>
+      <TitleIdHeader
+        id={hit._source.id}
+        title={title}
+      />
       <div style={{display: 'flex'}}>
         <RandomThumbnail/>
         <div className={classes.details}>
-          <div style={{display: 'flex', padding: '10px'}}>
-            <Typography
-              component="span"
-              variant='subtitle2'
-            >
-              {subtitel}
-            </Typography>
-          </div>
+          <ValueDisplay
+            field={'subtitel_t'}
+            hit={hit}
+            style={{display: 'flex', padding: '10px'}}
+            variant='subtitle1'
+          />
           {displayFields.map((field, key): ReactElement =>
             <CardContent
               className={classes.content}
               key={key}
             >
-              <div style={{margin: "0 20px 0 10px", minWidth: 180}}>
-                <Typography
-                  component="span"
-                >
-                  {field.label || field.field}
-                </Typography>
-              </div>
-              <div style={{flex: 'auto'}}>
-                <Typography
-                  className={classes.inline}
-                  color="textSecondary"
-                  component="span"
-                >
-                  <ValueDisplay field={field.field} hit={hit}/>
-                </Typography>
-              </div>
+              <FieldLabel label={field.label}/>
+              <ValueDisplay field={field.field} hit={hit} style={{flex: 'auto'}}/>
             </CardContent>)}
           <CardActions disableSpacing>
             {buildExpansionPanelForType(digitalisatDisplayFields, 'Digitalisat')}
@@ -197,7 +169,7 @@ const HspExpandedHitComponent: React.FC<any> = (props: IDefaultItemComponent): R
         </div>
       </div>
     </Card>
-  )
+  ) : null
 }
 
 export default HspExpandedHitComponent

@@ -81,52 +81,52 @@ export const nested: IConfig = {
         },
         {
           field: "stoff_ss",
-          label: "Stoff",
+          label: "material",
           type: "list-facet"
         },
         {
           field: "blattzahl_i",
-          label: "Blattzahl",
+          label: "pageCount",
           type: "list-facet"
         },
         {
           field: "format_ss",
-          label: "Format",
+          label: "format",
           type: "list-facet"
         },
         {
           field: "entstehungsort_s",
-          label: "Entstehungsort",
+          label: "originPlace",
           type: "list-facet"
         },
         {
           field: "entstehungdatum_s",
-          label: "Entstehungsdatum",
+          label: "originDate",
           type: "text"
         },
         {
           field: "formtyp_s",
-          label: "FormTyp",
+          label: "formType",
           type: "text"
         },
         {
           field: "status_s",
-          label: "Status",
+          label: "status",
           type: "list-facet"
         },
         {
           field: "schrift_s",
-          label: "Schrift",
+          label: "writingStyle",
           type: "list-facet"
         },
         {
           field: "schreibsprache_s",
-          label: "Schreibsprache",
+          label: "language",
           type: "list-facet"
         },
         {
           field: "vorbesitzer_s",
-          label: "Vorbesitzer",
+          label: "previousOwner",
           type: "list-facet"
         },
       ],

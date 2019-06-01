@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme): any => ({
 }));
 
 export const SortingSelector: React.FC<any> = (): ReactElement => {
-  const {t} = useTranslation()
+  const {t} = useTranslation('vocab')
   const classes: any = useStyles({})
   const dispatch = useDispatch()
   const sortFields = getSortFields()

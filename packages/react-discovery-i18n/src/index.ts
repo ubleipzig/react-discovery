@@ -11,6 +11,7 @@ i18n
       escapeValue: false,
     },
     lng: 'en',
+    ns: ['common', 'vocab'],
     react: {
       bindI18n: 'languageChanged',
       transEmptyNodeValue: '',

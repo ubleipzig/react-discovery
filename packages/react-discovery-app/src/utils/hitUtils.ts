@@ -12,3 +12,8 @@ export const buildRandomUBLThumbnail = (): string => {
   return `https://iiif.ub.uni-leipzig.de/iiif/j2k/0000/${prefix}/${manifestId}/${page}.jpx/full/170,/0/default.jpg`
 }
 
+export const buildHighlightedValueForHit = (field, hit): string => {
+  const {_source, highlighting} = hit
+  const source = Object.keys(highlighting).length > 0 ? Object.assign({}, _source, highlighting) : _source
+  return [].concat(source[field] || null).filter((v): any => v !== null).join(", ");
+}

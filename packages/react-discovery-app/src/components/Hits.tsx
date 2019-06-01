@@ -6,7 +6,7 @@ export interface IHits {
   hitComponent: React.Component;
 }
 
-export const Hits: React.FC<any> = (props: IHits): ReactElement => {
+export const Hits: React.FC<IHits> = (props): ReactElement => {
   const hits = getHits()
   const searchFields = getSearchFields()
   const {hitComponent} = props

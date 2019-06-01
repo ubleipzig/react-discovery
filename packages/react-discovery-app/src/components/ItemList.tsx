@@ -8,35 +8,20 @@ import {
   Typography,
   makeStyles
 } from '@material-ui/core'
+import React, {ReactElement} from "react"
 import {
-  IAggregation,
   getAggregation,
   getFiltersForField,
   setSelectedFilters,
   setStart,
   setSuggest
 } from "@react-discovery/solr"
-import React, {ReactElement} from "react"
 import {ExpandMore} from '@material-ui/icons'
 import {useDispatch} from "react-redux"
 
-export interface IListProps {
-  toggleItem: (key: string) => void;
-  setItems: (keys: string[]) => void;
-  aggregation: IAggregation;
-  countFormatter?: (count: number) => string|number;
-  selectedItems: string[];
-  docCount?: number;
-  disabled?: boolean;
-  mod?: string;
-  className?: string;
-  showCount?: boolean;
-  translate?: (s: string) => string;
-  multiselect?: boolean; // if true, uses toggleItem, else uses setItems
-}
-
-export interface IItemListProps extends IListProps {
+export interface IItemListProps {
   field: string;
+  key: number;
   label: string;
 }
 
@@ -60,7 +45,7 @@ const useStyles = makeStyles((theme): any => ({
   }
 }))
 
-export const ItemList: React.FC<any> = (props: IItemListProps): ReactElement => {
+export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
   const classes: any = useStyles({})
   const dispatch = useDispatch()
   const {field, label} = props

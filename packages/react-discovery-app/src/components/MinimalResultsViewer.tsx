@@ -15,7 +15,7 @@ import {Typography} from "@material-ui/core"
 import {useTranslation} from "react-i18next"
 
 export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
-  const {t, i18n} = useTranslation()
+  const {t, i18n} = useTranslation(['common', 'vocab'])
   const currentLanguage = getCurrentLanguage()
   const previousLanguage = usePrevious(currentLanguage)
 
@@ -34,9 +34,8 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
     return Object.keys(refinementListFilters).map((id: any): ReactElement => (
       <ItemList
         field={refinementListFilters[id].field}
-        itemComponent={ItemList}
         key={id}
-        label={t(refinementListFilters[id].label)}/>))
+        label={t(`vocab:${refinementListFilters[id].label}`)}/>))
   }
 
   return (

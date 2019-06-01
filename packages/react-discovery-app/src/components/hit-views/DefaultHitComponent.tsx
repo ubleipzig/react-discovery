@@ -1,14 +1,14 @@
-import {Card, CardContent, Typography, makeStyles} from "@material-ui/core"
-import {RandomThumbnail, ValueDisplay} from '.'
+import {Card, CardContent, makeStyles} from "@material-ui/core"
+import {FieldLabel, RandomThumbnail, ValueDisplay} from '.'
 import React, {ReactElement} from "react"
+import {IHit} from "@react-discovery/solr"
 
 interface IDefaultItemComponent {
   classes: any;
-  hit: {};
+  hit: IHit;
   i: number;
   searchFields: any;
 }
-
 
 const useStyles = makeStyles((theme): any => ({
   content: {
@@ -21,9 +21,6 @@ const useStyles = makeStyles((theme): any => ({
     flexDirection: 'column',
     padding: '20px'
   },
-  inline: {
-    display: 'inline',
-  },
   root: {
     backgroundColor: theme.palette.background.paper,
     display: 'flex',
@@ -31,7 +28,7 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-const DefaultHitComponent: React.FC<any> = (props: IDefaultItemComponent): ReactElement => {
+const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultItemComponent): ReactElement => {
   const classes: any = useStyles({})
   const {hit, i, searchFields} = props
 
@@ -44,22 +41,8 @@ const DefaultHitComponent: React.FC<any> = (props: IDefaultItemComponent): React
             className={classes.content}
             key={key}
           >
-            <div style={{margin: "0 20px 0 10px", minWidth: 120}}>
-              <Typography
-                component="span"
-              >
-                {field.label || field.field}
-              </Typography>
-            </div>
-            <div style={{flex: 'auto'}}>
-              <Typography
-                className={classes.inline}
-                color="textSecondary"
-                component="span"
-              >
-                <ValueDisplay field={field.field} hit={hit}/>
-              </Typography>
-            </div>
+            <FieldLabel label={field.label}/>
+            <ValueDisplay field={field.field} hit={hit} style={{flex: 'auto'}}/>
           </CardContent>)}
       </div>
     </Card>

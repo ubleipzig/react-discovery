@@ -1,5 +1,5 @@
-import {Card, CardContent, CardHeader, Typography, makeStyles} from "@material-ui/core"
-import {RandomThumbnail, ValueDisplay} from '.'
+import {Card, CardContent, makeStyles} from "@material-ui/core"
+import {RandomThumbnail, TitleIdHeader, ValueDisplay} from '.'
 import React, {ReactElement} from "react"
 
 interface IDigitalisat {
@@ -33,22 +33,18 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-const Digitalisat: React.FC<any> = (props: IDigitalisat): ReactElement => {
+const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
   const classes: any = useStyles({})
   const {hit, i, searchFields} = props
   const filteredFields = ['DigitalisatDescription', 'Manifest']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
 
-  return (
+  return hit ? (
     <Card className={classes.root} key={i}>
-      <div style={{display: 'flex'}}>
-        <CardHeader
-          style={{width: '100%'}}
-          title={hit && hit._source.titel_t}/>
-        <CardHeader
-          style={{textAlign: 'right', width: '30%'}}
-          subheader={hit && hit._source.id}/>
-      </div>
+      <TitleIdHeader
+        id={hit._source.id}
+        title={hit._source.titel_t}
+      />
       <div style={{display: 'flex'}}>
         <RandomThumbnail/>
         <div className={classes.details}>
@@ -57,20 +53,16 @@ const Digitalisat: React.FC<any> = (props: IDigitalisat): ReactElement => {
               className={classes.content}
               key={key}
             >
-              <div style={{flex: 'auto'}}>
-                <Typography
-                  className={classes.inline}
-                  color="textSecondary"
-                  component="span"
-                >
-                  <ValueDisplay field={field.field} hit={hit}/>
-                </Typography>
-              </div>
+              <ValueDisplay
+                field={field.field}
+                hit={hit}
+                style={{flex: 'auto'}}
+              />
             </CardContent>)}
         </div>
       </div>
     </Card>
-  )
+  ) : null
 }
 
 export default Digitalisat
