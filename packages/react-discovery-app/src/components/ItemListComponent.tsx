@@ -1,14 +1,23 @@
-import {IAggregation, getAggregation, getFiltersForField, setSelectedFilters, setStart, setSuggest} from "@react-discovery/solr"
+import {
+  ExpansionPanel,
+  ExpansionPanelDetails,
+  ExpansionPanelSummary,
+  List,
+  ListItem,
+  ListItemText,
+  Typography,
+  makeStyles
+} from '@material-ui/core'
+import {
+  IAggregation,
+  getAggregation,
+  getFiltersForField,
+  setSelectedFilters,
+  setStart,
+  setSuggest
+} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import ExpansionPanel from '@material-ui/core/ExpansionPanel'
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import Typography from '@material-ui/core/Typography'
-import {makeStyles} from '@material-ui/core/styles'
+import {ExpandMore} from '@material-ui/icons'
 import {useDispatch} from "react-redux"
 
 export interface IListProps {
@@ -116,7 +125,7 @@ export const ItemList: React.FC<any> = (props: IItemListProps): ReactElement => 
     >
       <ExpansionPanelSummary
         aria-controls="panel1bh-content"
-        expandIcon={<ExpandMoreIcon />}
+        expandIcon={<ExpandMore />}
         id="panel1bh-header"
       >
         <Typography className={classes.heading}>{label}</Typography>

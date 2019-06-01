@@ -1,12 +1,7 @@
+import {ArrowDownward, ArrowUpward} from '@material-ui/icons'
+import {FormControl, IconButton, Input, NativeSelect, makeStyles} from '@material-ui/core'
 import {ISortField, getSortFields, getStringInput, setSortFields, setSuggest} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
-import ArrowDownward from '@material-ui/icons/ArrowDownward'
-import ArrowUpward from '@material-ui/icons/ArrowUpward'
-import FormControl from '@material-ui/core/FormControl'
-import IconButton from '@material-ui/core/IconButton'
-import Input from '@material-ui/core/Input'
-import NativeSelect from '@material-ui/core/NativeSelect'
-import { makeStyles } from '@material-ui/core/styles'
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 

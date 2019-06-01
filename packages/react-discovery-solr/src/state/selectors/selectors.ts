@@ -1,4 +1,13 @@
-import {IAggregation, IFilters, IHitComponent, ILanguage, IQuery, ISearchField, ISortField} from "../../api"
+import {
+  IAggregation,
+  IFilters,
+  IHitComponent,
+  ILanguage,
+  IQuery,
+  IRefinementListFilter,
+  ISearchField,
+  ISortField
+} from "../../api"
 import {useSelector} from "react-redux"
 
 export const getAggregation = (field): IAggregation => {
@@ -30,11 +39,11 @@ export const getHighlighting = (): boolean => {
   return useSelector((state: any): boolean => state.query.highlighting)
 }
 
-export const getHitComponents = (): any => {
+export const getHitComponents = (): IHitComponent[] => {
   return useSelector((state: any): IHitComponent[] => state.config.collections[state.config.currentCollection].hitComponents)
 }
 
-export const getHits = (): any => {
+export const getHits = (): [] => {
   return useSelector((state: any): [] => state.response.hits)
 }
 
@@ -54,7 +63,7 @@ export const getNumFound = (): number => {
   return useSelector((state: any): number => state.response.hits && state.response.hits.numFound)
 }
 
-export const getRefinementListFilters = (): any => {
+export const getRefinementListFilters = (): IRefinementListFilter[] => {
   return useSelector((state: any): any =>
     state.config.collections[state.config.currentCollection].refinementListFilters)
 }

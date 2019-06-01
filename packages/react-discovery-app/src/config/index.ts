@@ -1,14 +1,10 @@
 import {
+  IRefinementListFilter,
   ISearchField,
   ISortField
 } from '@react-discovery/solr'
 import {hsp, nested, test01} from './collections'
 import deepmerge from 'deepmerge'
-
-export interface IRefinementListFilter {
-  label: string;
-  field: string;
-}
 
 export interface IHitComponent {
   defaultOption?: boolean;

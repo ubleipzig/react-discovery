@@ -1,14 +1,8 @@
-import React, {ReactElement, useEffect} from "react";
+import {ChevronLeft, ChevronRight, SkipNext, SkipPrevious} from '@material-ui/icons'
+import {List, ListItem, ListItemText, makeStyles} from '@material-ui/core'
+import React, {ReactElement, useEffect} from "react"
 import {getNumFound, getSelectedIndex, getSize, getStart, getStringInput,
   setSelectedIndex, setStart, setSuggest} from "@react-discovery/solr"
-import ChevronLeft from '@material-ui/icons/ChevronLeft'
-import ChevronRight from '@material-ui/icons/ChevronRight'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import SkipNext from '@material-ui/icons/SkipNext'
-import SkipPrevious from '@material-ui/icons/SkipPrevious'
-import {makeStyles} from "@material-ui/core"
 import {useDispatch} from 'react-redux'
 
 const useStyles = makeStyles((theme): any => ({

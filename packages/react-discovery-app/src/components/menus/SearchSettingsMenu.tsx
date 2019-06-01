@@ -1,10 +1,7 @@
+import {IconButton, Menu, MenuItem, makeStyles} from "@material-ui/core"
 import React, {ReactElement} from "react"
 import {getTypeDef, setTypeDef} from "@react-discovery/solr"
-import IconButton from "@material-ui/core/IconButton"
-import Menu from "@material-ui/core/Menu"
-import MenuItem from "@material-ui/core/MenuItem"
 import Settings from "@material-ui/icons/Settings"
-import {makeStyles} from "@material-ui/core"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 

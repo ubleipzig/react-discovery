@@ -1,10 +1,6 @@
+import {Card, CardContent, CardHeader, Typography, makeStyles} from "@material-ui/core"
 import {RandomThumbnail, ValueDisplay} from '.'
 import React, {ReactElement} from "react"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import CardHeader from '@material-ui/core/CardHeader'
-import Typography from "@material-ui/core/Typography"
-import {makeStyles} from "@material-ui/core"
 
 interface IDescriptionHitComponent {
   classes: any;

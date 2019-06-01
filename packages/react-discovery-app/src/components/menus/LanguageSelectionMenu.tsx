@@ -1,10 +1,7 @@
+import {IconButton, Menu, MenuItem, makeStyles} from "@material-ui/core"
 import React, {ReactElement} from "react"
 import {getCurrentLanguage, getLanguages, setCurrentLanguage} from "@react-discovery/solr"
-import IconButton from "@material-ui/core/IconButton"
 import Language from "@material-ui/icons/Language"
-import Menu from "@material-ui/core/Menu"
-import MenuItem from "@material-ui/core/MenuItem"
-import {makeStyles} from "@material-ui/core"
 import {useDispatch} from "react-redux"
 
 const useStyles = makeStyles((theme): any => ({

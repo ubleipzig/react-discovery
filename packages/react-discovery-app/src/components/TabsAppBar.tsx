@@ -1,9 +1,13 @@
+import {AppBar, Tab, Tabs, Theme, makeStyles, } from '@material-ui/core'
 import React, {ReactElement} from 'react'
-import {Theme, makeStyles, } from '@material-ui/core/styles'
-import {getDocTypes, getStringInput, setSelectedFilters, setStart, setSuggest} from "@react-discovery/solr"
-import AppBar from '@material-ui/core/AppBar'
-import Tab from '@material-ui/core/Tab'
-import Tabs from '@material-ui/core/Tabs'
+import {
+  getDocTypes,
+  getStringInput,
+  setIsViewExpanded,
+  setSelectedFilters,
+  setStart,
+  setSuggest
+} from "@react-discovery/solr"
 import {useDispatch} from "react-redux"
 
 const useStyles = makeStyles((theme: Theme): any => ({
@@ -24,10 +28,10 @@ export const TabsAppBar: React.FC<any> = (): ReactElement => {
 
   const handleChange = ({}: React.ChangeEvent<{}>, newValue: number): void => {
     const typeString = docTypes[newValue]
-    const newFilters = []
-    newFilters.push(typeString)
+    const newFilters = Array.of(typeString)
     dispatch(setSuggest({stringInput, suggest: false}))
     dispatch(setSelectedFilters({field: TYPE_FIELD, filters: newFilters}))
+    dispatch(setIsViewExpanded({isViewExpanded: false}))
     dispatch(setStart({newStart: 0}))
     setValue(newValue)
   }

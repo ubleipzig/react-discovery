@@ -1,14 +1,8 @@
+import {AppBar, Badge, IconButton, Toolbar, Typography, makeStyles} from '@material-ui/core'
+import {Bookmark, Menu} from '@material-ui/icons'
 import {ExpertSearchBox, LanguageSelectionMenu, ProfileMenu, SearchBox, SearchSettingsMenu} from '.'
 import React, {ReactElement} from 'react'
 import {SolrParameters, getTypeDef} from "@react-discovery/solr"
-import AppBar from '@material-ui/core/AppBar'
-import Badge from '@material-ui/core/Badge'
-import Bookmark from '@material-ui/icons/Bookmark'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme): any => ({
   colorPrimary: {
@@ -75,7 +69,7 @@ export const SearchAppBar: React.FC<any> = (): ReactElement => {
             edge="start"
             href=''
           >
-            <MenuIcon />
+            <Menu />
           </IconButton>
           <Typography
             className={classes.title}

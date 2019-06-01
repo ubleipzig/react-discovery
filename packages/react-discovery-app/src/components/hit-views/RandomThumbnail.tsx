@@ -1,7 +1,6 @@
+import {CardMedia, makeStyles} from "@material-ui/core"
 import React, {ReactElement} from "react"
-import CardMedia from "@material-ui/core/CardMedia"
 import {buildRandomUBLThumbnail} from "../../utils"
-import {makeStyles} from "@material-ui/core"
 
 const useStyles = makeStyles((): any => ({
   cover: {

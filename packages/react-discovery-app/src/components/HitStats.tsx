@@ -1,6 +1,5 @@
+import {Box, Typography} from '@material-ui/core'
 import React, {ReactElement} from "react"
-import Box from '@material-ui/core/Box'
-import Typography from '@material-ui/core/Typography'
 import {getNumFound} from "@react-discovery/solr"
 import {useTranslation} from 'react-i18next'
 

@@ -1,8 +1,7 @@
+import {InputAdornment, TextField} from '@material-ui/core'
 import React, {ReactElement} from "react"
 import {setQueryInput, setStart} from "@react-discovery/solr"
-import InputAdornment from '@material-ui/core/InputAdornment'
 import Search from '@material-ui/icons/Search'
-import TextField from '@material-ui/core/TextField';
 import {makeStyles} from '@material-ui/core/styles';
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"

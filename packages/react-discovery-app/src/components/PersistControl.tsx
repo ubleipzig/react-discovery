@@ -1,7 +1,6 @@
+import {Badge, IconButton} from "@material-ui/core"
 import React, {ReactElement} from "react"
 import {getIsPersisted, setIsPersisted} from "@react-discovery/solr"
-import Badge from "@material-ui/core/Badge"
-import IconButton from "@material-ui/core/IconButton"
 import Save from '@material-ui/icons/Save'
 import {useDispatch} from "react-redux"
 

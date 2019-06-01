@@ -31,8 +31,8 @@ REACT_APP_SEARCH_API_COLLECTION=test01
  ```bash
  $ npm install
  $ lerna bootstrap --hoist
- $ lerna run --scope @react-discovery/solr build
- $ lerna run --scope @react-discovery/app start
+ $ lerna run build
+ $ lerna run start
 ```
 
 ### Continuous Deployment

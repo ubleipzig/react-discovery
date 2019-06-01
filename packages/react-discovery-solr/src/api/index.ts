@@ -42,6 +42,11 @@ export interface IFilters {
   [field: string]: string[];
 }
 
+export interface IRefinementListFilter {
+  label: string;
+  field: string;
+}
+
 export interface IQuery {
   fieldList?: string;
   filters: IFilters;

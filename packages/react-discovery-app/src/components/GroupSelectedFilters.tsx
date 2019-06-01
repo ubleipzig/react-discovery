@@ -1,8 +1,6 @@
+import {Chip, List, makeStyles} from '@material-ui/core'
 import React, {ReactElement} from "react"
 import {getFilters, setSelectedFilters, setStart} from "@react-discovery/solr"
-import Chip from '@material-ui/core/Chip'
-import List from "@material-ui/core/List"
-import { makeStyles } from '@material-ui/core/styles'
 import {useDispatch} from "react-redux"
 
 const useStyles = makeStyles((theme): any => ({

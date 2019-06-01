@@ -1,8 +1,6 @@
+import {IconButton, Menu, MenuItem} from "@material-ui/core"
 import React, {ReactElement} from "react"
-import AccountCircle from "@material-ui/icons/AccountCircle"
-import IconButton from "@material-ui/core/IconButton"
-import Menu from "@material-ui/core/Menu"
-import MenuItem from "@material-ui/core/MenuItem"
+import {AccountCircle} from "@material-ui/icons"
 import {useTranslation} from "react-i18next"
 
 export const ProfileMenu: React.FC<any> = (): ReactElement => {

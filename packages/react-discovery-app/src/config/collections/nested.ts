@@ -35,8 +35,8 @@ export const nested: IConfig = {
           label: "originPlace",
         },
         2: {
-          field: "format_ss",
-          label: "Format",
+          field: "status_s",
+          label: "status",
         },
         3: {
           field: "schreibsprache_s",
@@ -57,17 +57,17 @@ export const nested: IConfig = {
         {
           field: "beschreibungText_t",
           label: "BeschreibungText",
-          type: "list-facet"
+          type: "text"
         },
         {
           field: "digitalisatDescription_t",
           label: "DigitalisatDescription",
-          type: "list-facet"
+          type: "text"
         },
         {
           field: "digitalisatManifestId_s",
           label: "Manifest",
-          type: "list-facet"
+          type: "text"
         },
         {
           field: "titel_t",

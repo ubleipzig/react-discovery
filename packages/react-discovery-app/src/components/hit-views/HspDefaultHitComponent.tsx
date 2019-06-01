@@ -1,10 +1,6 @@
+import {Card, CardContent, CardHeader, Typography, makeStyles} from "@material-ui/core"
 import {RandomThumbnail, ValueDisplay} from '.'
 import React, {ReactElement} from "react"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import CardHeader from '@material-ui/core/CardHeader'
-import Typography from "@material-ui/core/Typography"
-import {makeStyles} from "@material-ui/core"
 
 interface IDefaultItemComponent {
   classes: any;
@@ -47,7 +43,7 @@ const HspDefaultHitComponent: React.FC<any> = (props: IDefaultItemComponent): Re
       <div style={{display: 'flex'}}>
         <CardHeader
           style={{width: '100%'}}
-          title={hit && hit._source.titel_t}/>
+          title={<ValueDisplay field='titel_t' hit={hit}/>}/>
         <CardHeader
           style={{textAlign: 'right', width: '30%'}}
           subheader={hit && hit._source.id}/>
