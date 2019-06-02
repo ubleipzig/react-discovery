@@ -8,14 +8,14 @@ interface ISuggestQuery {
   url: string;
 }
 
-const buildSuggestParams = (suggestDictionary, suggest = true): any => {
+const buildSuggestParams = (suggestDictionary, suggest = true): {} => {
   return {
     [SolrParameters.SUGGEST_BUILD]: suggest,
     [SolrParameters.SUGGEST_DICTIONARY]: suggestDictionary
   }
 }
 
-const buildQueryString = (stringInput): any => {
+const buildQueryString = (stringInput): {} => {
   return stringInput ? {
     [SolrParameters.SUGGEST_QUERY]: stringInput}
     : {[SolrParameters.SUGGEST_QUERY]: ''}

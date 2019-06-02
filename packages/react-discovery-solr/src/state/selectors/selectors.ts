@@ -2,9 +2,11 @@ import {
   IAggregation,
   IFilters,
   IHitComponent,
+  IHits,
   ILanguage,
   IQuery,
   IRefinementListFilter,
+  IResponse,
   ISearchField,
   ISortField
 } from "../../api"
@@ -43,8 +45,8 @@ export const getHitComponents = (): IHitComponent[] => {
   return useSelector((state: any): IHitComponent[] => state.config.collections[state.config.currentCollection].hitComponents)
 }
 
-export const getHits = (): [] => {
-  return useSelector((state: any): [] => state.response.hits)
+export const getHits = (): IHits => {
+  return useSelector((state: any): IHits => state.response.hits)
 }
 
 export const getIsPersisted = (): boolean => {
@@ -68,7 +70,7 @@ export const getRefinementListFilters = (): IRefinementListFilter[] => {
     state.config.collections[state.config.currentCollection].refinementListFilters)
 }
 
-export const getResponse = (): any => {
+export const getResponse = (): IResponse => {
   return useSelector((state: any): any => state.response)
 }
 

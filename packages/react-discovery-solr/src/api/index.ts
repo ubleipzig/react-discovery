@@ -7,9 +7,23 @@ export interface IAggregation {
   buckets: IBucket[];
 }
 
+export interface IAggregations {
+  [field: string]: IAggregation;
+}
+
 export interface IBucket extends IAggregation {
   key: string;
   docCount: number;
+}
+
+export interface IHits {
+  hits: IHit[];
+  numFound: number;
+}
+
+export interface IHit {
+  _source: any;
+  highlighting: any;
 }
 
 export interface IHitComponent {
@@ -23,6 +37,11 @@ export interface IHitComponent {
 export interface ILanguage {
   label: string;
   locale: string;
+}
+
+export interface IResponse {
+  aggregations: IAggregations;
+  hits: IHits;
 }
 
 export interface ISearchField {

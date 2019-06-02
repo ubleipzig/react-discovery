@@ -1,8 +1,10 @@
 import {ChevronLeft, ChevronRight, SkipNext, SkipPrevious} from '@material-ui/icons'
 import {List, ListItem, ListItemText, makeStyles} from '@material-ui/core'
 import React, {ReactElement, useEffect} from "react"
-import {getNumFound, getSelectedIndex, getSize, getStart, getStringInput,
-  setSelectedIndex, setStart, setSuggest} from "@react-discovery/solr"
+import {
+  getNumFound, getSelectedIndex, getSize, getStart, getStringInput,
+  setSelectedIndex, setStart, setSuggest, usePrevious
+} from "@react-discovery/solr"
 import {useDispatch} from 'react-redux'
 
 const useStyles = makeStyles((theme): any => ({
@@ -18,44 +20,38 @@ export const Pagination: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles({})
   const dispatch = useDispatch()
   const start = getStart()
+  const prevStart = usePrevious(start)
   const size = getSize()
   const selectedIndex = getSelectedIndex()
   const stringInput = getStringInput()
   const numFound = getNumFound()
+  const currentPage = start / size;
+  const pageAmt = Math.ceil(numFound / size)
 
   useEffect((): void => {
-    if (start === 0) {
+    if (start === 0 && prevStart !== start) {
       dispatch(setSelectedIndex({selectedIndex: 0}))
     }
   })
 
-  const currentPage = start / size;
-  const pageAmt = Math.ceil(numFound / size);
-  let rangeStart = currentPage - 2 < 0 ? 0 : currentPage - 2
-  let rangeEnd = rangeStart + 5 > pageAmt ? pageAmt : rangeStart + 5
+  let rangeStart = Math.max(0, currentPage - 2)
+  const rangeEnd = rangeStart + 5 > pageAmt ? pageAmt : rangeStart + 5
 
   const buildRangeStart = (): void => {
     if (rangeEnd - rangeStart < 5 && rangeStart > 0) {
       rangeStart = rangeEnd - 5;
-      if (rangeStart < 0) {
-        rangeStart = 0;
-      }
     }
   }
 
+  const range = (start, stop, step): number[] =>
+    Array.from({length: (stop - start) / step + 1}, (_, i): number => start + (i * step))
+
   const buildPages = (rangeStart, rangeEnd): number[] => {
-    const pages = []
-    for (let page = rangeStart; page < rangeEnd; page++) {
-      if (pages.indexOf(page) < 0) {
-        pages.push(page);
-      }
-    }
-    return pages
+    return range(rangeStart, rangeEnd, 1)
   }
 
   buildRangeStart()
-  const pages = buildPages(rangeStart, rangeEnd)
-
+  const pages = buildPages(rangeStart, rangeEnd - 1)
 
   const onPageChange = (page): void => {
     if (page >= pageAmt || page < 0) {

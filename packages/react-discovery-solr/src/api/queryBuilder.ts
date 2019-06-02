@@ -1,9 +1,9 @@
+import {IEMaxQuery, IFilters, ISearchField, ISortField} from "."
 import {FacetTypes} from "./FacetTypes"
-import {IEMaxQuery} from "."
 import {SolrParameters} from "./SolrParameters"
 const queryString = require('query-string')
 
-export const buildQueryFieldParams = (typeDef: string, searchFields): any => {
+export const buildQueryFieldParams = (typeDef: string, searchFields: ISearchField[]): {} => {
   if (typeDef === SolrParameters.EDISMAX) {
     const qfList = searchFields.map((searchField): string => {
       return searchField.field
@@ -14,7 +14,7 @@ export const buildQueryFieldParams = (typeDef: string, searchFields): any => {
   }
 }
 
-export const buildStringInputParams = (typeDef: string, stringInput): {} => {
+export const buildStringInputParams = (typeDef: string, stringInput: string): {} => {
   if (!stringInput && typeDef === SolrParameters.EDISMAX) {
     return {
       [SolrParameters.QUERY]: '*',
@@ -30,35 +30,35 @@ export const buildStringInputParams = (typeDef: string, stringInput): {} => {
   }
 }
 
-export const buildFacetFieldParams = (fields): any => {
+export const buildFacetFieldParams = (fields: ISearchField[]): {} => {
   const ff = fields
     .filter((field): boolean => field.type === FacetTypes.LIST_FACET || field.type === FacetTypes.RANGE_FACET)
-    .map((field): any => field.field)
+    .map((field): string => field.field)
   return fields.length ? {[SolrParameters.FACET_FIELD]: ff} : ""
 }
 
-export const buildFilterQueryParams = (filters): any => {
+export const buildFilterQueryParams = (filters: IFilters): {} => {
   const qf = Object.entries(filters)
-    .filter(([ {}, values]: any): boolean => values.length > 0)
-    .map(([k, values]): any => (values as [])
+    .filter(([{}, values]: [string, string[]]): boolean => values.length > 0)
+    .map(([k, values]): string[] => (values)
       .map((val): string => `${k}:"${val}"`))
   const flattened = [].concat(...qf)
   return flattened.length ? {[SolrParameters.FILTER_QUERY]: flattened} : ""
 }
 
-export const buildFacetSortParams = (facetSort = "index"): any => {
+export const buildFacetSortParams = (facetSort = "index"): {} => {
   return {[SolrParameters.FACET_SORT]: facetSort}
 }
 
-export const buildFacetLimitParams = (facetLimit = -1): any => {
+export const buildFacetLimitParams = (facetLimit = -1): {} => {
   return {[SolrParameters.FACET_LIMIT]: facetLimit}
 }
 
-export const buildFieldListParams = (fieldList = "*, [child]"): any => {
+export const buildFieldListParams = (fieldList = "*, [child]"): {} => {
   return {[SolrParameters.FIELD_LIST]: fieldList}
 }
 
-export const buildSortParams = (sortFields): any => {
+export const buildSortParams = (sortFields: ISortField[]): {} => {
   const sf = sortFields
     .filter((sortField, i): boolean => sortField.isSelected || i === 0)
     .map((sortField): string => `${sortField.field} ${sortField.order}`)
@@ -66,33 +66,31 @@ export const buildSortParams = (sortFields): any => {
   return sf.length ? {[SolrParameters.SORT]: sf} : ""
 }
 
-export const buildSize = (size: number): any => {
+export const buildSize = (size: number): {} => {
   return {[SolrParameters.ROWS]: size}
 }
 
-export const buildGroupFieldParams = (group: boolean, groupField: string): any => {
+export const buildGroupFieldParams = (group: boolean, groupField: string): {} => {
   return groupField ? {
     [SolrParameters.GROUP]: group,
     [SolrParameters.GROUP_FIELD]: groupField} : ""
 }
 
-export const buildHighlighting = (highlighting): any => {
+export const buildHighlighting = (highlighting: boolean): {} => {
   return highlighting ? {
     [SolrParameters.HL]: true,
     [SolrParameters.HL_FIELDS]: '*'} : "";
 }
 
-export const buildStart = (start: number): any => {
+export const buildStart = (start: number): {} => {
   return {[SolrParameters.START]: start}
 }
 
-export const buildTypeDefParams = (typeDef: string): any => {
-  return {
-    [SolrParameters.TYPE_DEF]: typeDef
-  }
+export const buildTypeDefParams = (typeDef: string): {} => {
+  return {[SolrParameters.TYPE_DEF]: typeDef}
 }
 
-export const buildIsFaceted = (facet: boolean = true): any => {
+export const buildIsFaceted = (facet: boolean = true): {} => {
   return {[SolrParameters.FACET]: facet}
 }
 

@@ -1,4 +1,4 @@
-import {FacetViewSwitcher, GroupSelectedFilters, HitStats, ItemList, Pagination,
+import {FacetViewSwitcher, GroupSelectedFilters, HitStats, Pagination, RefinementListFilters,
   SearchAppBar, SortingSelector, Suggester, TabsAppBar, ViewSwitcherToggle} from '.'
 import {
   IQuery,
@@ -6,7 +6,6 @@ import {
   getCurrentLanguage,
   getHits,
   getInitialQuery,
-  getRefinementListFilters,
   usePrevious,
 } from '@react-discovery/solr'
 import React, {ReactElement, useEffect} from 'react'
@@ -25,7 +24,7 @@ const useStyles = makeStyles((theme: Theme): any =>
 )
 
 export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
-  const {t, i18n} = useTranslation(['common', 'vocab'])
+  const {i18n} = useTranslation(['common', 'vocab'])
   const classes: any = useStyles({})
   const currentLanguage = getCurrentLanguage()
   const previousLanguage = usePrevious(currentLanguage)
@@ -37,17 +36,7 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
   }, [currentLanguage, i18n, previousLanguage])
 
   const hits = getHits()
-  const refinementListFilters = getRefinementListFilters()
-
   const initialQuery: IQuery = getInitialQuery()
-
-  const buildRefinementListFilters = (): ReactElement[] => {
-    return Object.keys(refinementListFilters).map((id: any): ReactElement => (
-      <ItemList
-        field={refinementListFilters[id].field}
-        key={id}
-        label={t(`vocab:${refinementListFilters[id].label}`)}/>))
-  }
 
   return (
     <SolrResponseProvider query={initialQuery}>
@@ -56,11 +45,12 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
           <SearchAppBar/>
         </Grid>
         <Grid
-          item style={{backgroundColor: 'whitesmoke', marginTop: '50px', padding: '10px'}}
+          item
+          style={{backgroundColor: 'whitesmoke', marginTop: '50px', padding: '10px'}}
           xs={2}
         >
           <Suggester/>
-          {buildRefinementListFilters()}
+          <RefinementListFilters/>
         </Grid>
         <Grid
           item xs={10}
