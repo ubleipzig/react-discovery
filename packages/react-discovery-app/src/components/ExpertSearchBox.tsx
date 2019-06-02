@@ -1,7 +1,7 @@
-import {InputAdornment, TextField} from '@material-ui/core'
+import {EndAdornment, StartAdornment} from "./SearchBoxInputAdornments"
 import React, {ReactElement} from "react"
 import {setQueryInput, setStart} from "@react-discovery/solr"
-import Search from '@material-ui/icons/Search'
+import {TextField} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles';
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
@@ -34,6 +34,11 @@ export const ExpertSearchBox: React.FC<any> = (): ReactElement => {
   const dispatch = useDispatch()
   const [values, setValues] = React.useState("")
 
+  const handleClear = (): void => {
+    setValues('')
+    dispatch(setQueryInput({stringInput: null}))
+  }
+
   const handleChange = (e): void => {
     setValues(e.target.value)
   }
@@ -55,13 +60,15 @@ export const ExpertSearchBox: React.FC<any> = (): ReactElement => {
         InputLabelProps={{
           shrink: true,
         }}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <Search />
-            </InputAdornment>
-          ),
-        }}
+        InputProps={
+          values ? {
+            endAdornment: <EndAdornment onClick={handleClear}/>,
+            startAdornment: <StartAdornment/>,
+          } : {
+            startAdornment: <StartAdornment/>,
+          }
+        }
+        className={classes.input}
         fullWidth
         id="standard-full-width"
         margin="normal"
