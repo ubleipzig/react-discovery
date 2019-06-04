@@ -37,7 +37,7 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
   const handleChange = (e): void => {
     const stringInput = e.target.value;
     dispatch(setQueryInput({stringInput}))
-    dispatch(setStart({newStart: 0}))
+    dispatch(setStart({start: 0}))
     setValues(e.target.value)
   }
 

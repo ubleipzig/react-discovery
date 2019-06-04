@@ -62,7 +62,7 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
     newFilters.push(key)
     dispatch(setSuggest({suggest: false}))
     dispatch(setSelectedFilters({field, filters: newFilters}))
-    dispatch(setStart({newStart: 0}))
+    dispatch(setStart({start: 0}))
   }
 
   const actions = (aggregation): ReactElement => {

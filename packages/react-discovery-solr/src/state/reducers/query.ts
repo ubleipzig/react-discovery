@@ -9,48 +9,45 @@ import {
   setSuggest,
   setTypeDef
 } from "../actions"
-import { Action } from "typescript-fsa";
+import {IQuery} from "../.."
 
 export const query = (initialState): any => reducerWithInitialState(initialState)
-  .caseWithAction(setQueryFields, (state, action: any): ReducerBuilder<any> => ({
+  .case(setQueryFields, (state, {searchFields, size, sortFields, start}): ReducerBuilder<IQuery> => ({
     ...state,
-    group: action.payload.group,
-    highlighting: action.payload.highlighting,
-    searchFields: action.payload.searchFields,
-    size: action.payload.size,
-    sortFields: action.payload.sortFields,
-    start: action.payload.start,
-    suggestDictionary: action.payload.suggestDictionary
+    searchFields,
+    size,
+    sortFields,
+    start,
   }))
-  .caseWithAction(setQueryInput, (state, action: Action<any>): ReducerBuilder<any> => ({
+  .case(setQueryInput, (state, {stringInput}): ReducerBuilder<any> => ({
     ...state,
-    stringInput: action.payload.stringInput,
+    stringInput,
   }))
-  .caseWithAction(setTypeDef, (state, action: Action<any>): ReducerBuilder<any> => ({
+  .case(setTypeDef, (state, {typeDef}): ReducerBuilder<any> => ({
     ...state,
-    typeDef: action.payload.typeDef,
+    typeDef,
   }))
-  .caseWithAction(setSearchFields, (state, action: any): ReducerBuilder<any> => ({
+  .case(setSearchFields, (state, {searchFields}): ReducerBuilder<any> => ({
     ...state,
-    searchFields: action.payload.searchFields,
+    searchFields,
   }))
-  .caseWithAction(setSortFields, (state, action: any): ReducerBuilder<any> => ({
+  .case(setSortFields, (state, {sortFields}): ReducerBuilder<any> => ({
     ...state,
-    sortFields: action.payload.sortFields,
+    sortFields,
   }))
-  .caseWithAction(setStart, (state, action: any): ReducerBuilder<any> => ({
+  .case(setStart, (state, {start}): ReducerBuilder<any> => ({
     ...state,
-    start: action.payload.newStart
+    start
   }))
-  .caseWithAction(setSuggest, (state, action: any): ReducerBuilder<any> => ({
+  .case(setSuggest, (state, {stringInput, suggest}): ReducerBuilder<any> => ({
     ...state,
-    stringInput: action.payload.stringInput,
-    suggest: action.payload.suggest
+    stringInput,
+    suggest
   }))
-  .caseWithAction(setSelectedFilters, (state, action: any): ReducerBuilder<any> => ({
+  .case(setSelectedFilters, (state, {field, filters}): ReducerBuilder<any> => ({
     ...state,
     filters: {
       ...state.filters,
-      [action.payload.field]: action.payload.filters
+      [field]: filters
     }
   }))

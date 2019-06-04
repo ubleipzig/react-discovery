@@ -14,7 +14,7 @@ export const de = {
   vocab: {
     format: "Format",
     formType: "FormTyp",
-    language: "Schreibsprache",
+    language: "Sprache",
     material: 'Stoff',
     originDate: "Entstehungsdatum",
     originPlace: "Entstehungsort",

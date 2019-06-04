@@ -1,6 +1,7 @@
-import {IQuery, queryBuilder, suggestQueryBuilder} from "."
 import React, {ReactElement, useEffect, useState} from "react"
-import {fetchSolrResponseWorker, fetchSolrSuggestionsWorker, setQueryFields} from "../state/actions"
+import {fetchSolrResponseWorker, fetchSolrSuggestionsWorker, setQueryFields} from "../state"
+import {queryBuilder, suggestQueryBuilder} from "../query-builders"
+import {IQuery} from ".."
 import {useDispatch} from 'react-redux'
 import {usePrevious} from "../hooks"
 
@@ -13,6 +14,7 @@ export const SolrResponseProvider: React.FC<ISolrResponseProvider> = (props): Re
   const dispatch = useDispatch()
   const {filters, sortFields, start, stringInput, suggest} = query
   const prevStart = usePrevious(start)
+  const prevSuggest = usePrevious(suggest)
   const prevStringInput = usePrevious(stringInput)
   const prevFilters = usePrevious(filters)
   const prevSortFields = usePrevious(sortFields)
@@ -40,11 +42,11 @@ export const SolrResponseProvider: React.FC<ISolrResponseProvider> = (props): Re
         fetchResponse(responseRequestURI)
       }
     }
-    if (suggest) {
+    if (suggest && prevSuggest !== suggest) {
       const suggestionsRequestURI = suggestQueryBuilder({...query})
       fetchSuggestions(suggestionsRequestURI)
     }
-  }, [fetchResponse, isInitialized, prevStart, prevStringInput,
+  }, [fetchResponse, fetchSuggestions, isInitialized, prevStart, prevStringInput,
     setQueryFields, start, stringInput])
 
   return (

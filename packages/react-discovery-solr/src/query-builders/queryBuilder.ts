@@ -1,4 +1,4 @@
-import {IEMaxQuery, IFilters, ISearchField, ISortField} from "."
+import {IFilters, IQuery, ISearchField, ISortField} from ".."
 import {FacetTypes} from "./FacetTypes"
 import {SolrParameters} from "./SolrParameters"
 const queryString = require('query-string')
@@ -14,7 +14,7 @@ export const buildQueryFieldParams = (typeDef: string, searchFields: ISearchFiel
   }
 }
 
-export const buildStringInputParams = (typeDef: string, stringInput: string): {} => {
+export const buildStringInputParams = (typeDef: string, stringInput: string, searchFields: ISearchField[]): {} => {
   if (!stringInput && typeDef === SolrParameters.EDISMAX) {
     return {
       [SolrParameters.QUERY]: '*',
@@ -22,6 +22,27 @@ export const buildStringInputParams = (typeDef: string, stringInput: string): {}
   } else if (!stringInput && typeDef === SolrParameters.LUCENE) {
     return {
       [SolrParameters.QUERY]: '*:*',
+    }
+  } else if (stringInput && typeDef === SolrParameters.LUCENE) {
+    const replaced = stringInput.replace(/\s/g, "+")
+    const parentQfList = searchFields
+      .filter((field: any): boolean => !("isChild" in field)
+        && (field.field.includes('_s')
+      || field.field.includes('_ss') || field.field.includes('_t')))
+      .map((searchField): string => {
+        return searchField.field
+      })
+      .join(`:${replaced} || `)
+    const childQfList = `{!parent which='-_nest_path_:* *:*'}${searchFields
+      .filter((field: any): boolean =>
+        field.isChild === true && (field.field.includes('_s')
+      || field.field.includes('_ss')
+      || field.field.includes('_t')))
+      .map((searchField): string => { return searchField.field })
+      .join(`:${replaced} || {!parent which='-_nest_path_:* *:*'}`)}`
+    const q = `${parentQfList}:${replaced} || ${childQfList}:${replaced}`
+    return {
+      [SolrParameters.QUERY]: q,
     }
   } else {
     return {
@@ -94,12 +115,12 @@ export const buildIsFaceted = (facet: boolean = true): {} => {
   return {[SolrParameters.FACET]: facet}
 }
 
-export const queryBuilder = (props: IEMaxQuery): string => {
+export const queryBuilder = (props: IQuery): string => {
   const {facetLimit, facetSort, fieldList, filters, group, groupField, highlighting,
     searchFields, sortFields, stringInput, size, start, typeDef, url} = props
   const qs = {
     ...buildQueryFieldParams(typeDef, searchFields),
-    ...buildStringInputParams(typeDef, stringInput),
+    ...buildStringInputParams(typeDef, stringInput, searchFields),
     ...buildTypeDefParams(typeDef),
     ...buildSortParams(sortFields),
     ...buildFacetFieldParams(searchFields),

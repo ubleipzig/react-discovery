@@ -48,11 +48,12 @@ export const rootReducer = (): any => combineReducers({
 
 const store = createStore(
   rootReducer(),
+  ((window as any).Cypress && (window as any).initialState),
   composeWithDevTools(
     applyMiddleware(
       thunk
     )
-  )
+  ),
 )
 
 ReactDOM.render(
@@ -61,3 +62,7 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("app")
 )
+
+if ((window as any).Cypress) {
+  (window as any).store = store
+}

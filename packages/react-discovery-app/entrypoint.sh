@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /srv/solr-react/packages/react-discovery-app
+cd /srv/react-discovery/packages/react-discovery-app
 exec serve "$@"

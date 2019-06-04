@@ -20,7 +20,7 @@ export const GroupSelectedFilters: React.FC<any> = (): ReactElement => {
   const onClose = (field: string, filter: any): void => {
     const newFilters = filters[field].filter((f): boolean => f !== filter)
     dispatch(setSelectedFilters({field, filters: newFilters}))
-    dispatch(setStart({newStart: 0}))
+    dispatch(setStart({start: 0}))
   }
 
   const buildFilters = (filters): ReactElement[] => {

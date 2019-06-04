@@ -55,13 +55,13 @@ describe("queryBuilder", () => {
       expect(buildQueryFieldParams("edismax", searchFields)).toEqual({"qf": "field_01 field_02"});
     });
     it("should return string input", () => {
-      expect(buildStringInputParams("edismax", "12345")).toEqual({"q": "12345"});
+      expect(buildStringInputParams("edismax", "12345", null)).toEqual({"q": "12345"});
     });
     it("should return wildcard if no string input and edismax", () => {
-      expect(buildStringInputParams("edismax", "")).toEqual({"q": "*"});
+      expect(buildStringInputParams("edismax", "", null)).toEqual({"q": "*"});
     });
     it("should return wildcards if no string input and lucene", () => {
-      expect(buildStringInputParams("lucene", "")).toEqual({"q": "*:*"});
+      expect(buildStringInputParams("lucene", "", null)).toEqual({"q": "*:*"});
     });
     it("should return facet fields", () => {
       expect(buildFacetFieldParams([{

@@ -46,7 +46,7 @@ export const ExpertSearchBox: React.FC<any> = (): ReactElement => {
   const handleSubmit = ((e): void => {
     e.preventDefault()
     dispatch(setQueryInput({stringInput: values}))
-    dispatch(setStart({newStart: 0}))
+    dispatch(setStart({start: 0}))
   })
 
   return (

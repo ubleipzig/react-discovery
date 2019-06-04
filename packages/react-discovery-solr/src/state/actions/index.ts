@@ -1,2 +1,4 @@
 export * from './config-actions'
-export * from './solr-actions'
+export * from './query-actions'
+export * from './response-actions'
+export * from './suggest-actions'

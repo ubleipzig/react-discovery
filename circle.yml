@@ -5,12 +5,8 @@ jobs:
       docker_layer_caching: false
     steps:
       - checkout
-      - run:
-          working_directory: ~/project/packages/react-discovery-app
-          name: 'build docker image'
-          command: |
-            echo ${CIRCLE_BRANCH}
-            docker build --build-arg CIRCLE_BRANCH=$CIRCLE_BRANCH .
+      - run: docker-compose -f ci-tests.yml build
+      - run: docker-compose -f ci-tests.yml up --abort-on-container-exit --exit-code-from e2e
 
 workflows:
   build:

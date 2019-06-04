@@ -1,25 +1,24 @@
 import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
 import {setCurrentLanguage, setHitComponent, setIsPersisted, setIsViewExpanded, setSelectedIndex} from "../actions"
-import { Action } from "typescript-fsa";
 
 export const config = (initialState): any => reducerWithInitialState(initialState)
-  .caseWithAction(setSelectedIndex, (state, action: Action<any>): ReducerBuilder<any> => ({
+  .case(setSelectedIndex, (state, {selectedIndex}): ReducerBuilder<any> => ({
     ...state,
-    selectedIndex: action.payload.selectedIndex
+    selectedIndex
   }))
-  .caseWithAction(setIsPersisted, (state, action: Action<any>): ReducerBuilder<any> => ({
+  .case(setIsPersisted, (state, {isPersisted}): ReducerBuilder<any> => ({
     ...state,
-    isPersisted: action.payload.isPersisted
+    isPersisted
   }))
-  .caseWithAction(setHitComponent, (state, action: Action<any>): ReducerBuilder<any> => ({
+  .case(setHitComponent, (state, {currentHitComponent}): ReducerBuilder<any> => ({
     ...state,
-    currentHitComponent: action.payload.currentHitComponent
+    currentHitComponent
   }))
-  .caseWithAction(setIsViewExpanded, (state, action: Action<any>): ReducerBuilder<any> => ({
+  .case(setIsViewExpanded, (state, {isViewExpanded}): ReducerBuilder<any> => ({
     ...state,
-    isViewExpanded: action.payload.isViewExpanded
+    isViewExpanded
   }))
-  .caseWithAction(setCurrentLanguage, (state, action: Action<any>): ReducerBuilder<any> => ({
+  .case(setCurrentLanguage, (state, {currentLanguage}): ReducerBuilder<any> => ({
     ...state,
-    currentLanguage: action.payload.currentLanguage
+    currentLanguage
   }))

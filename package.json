@@ -28,6 +28,7 @@
     "redux-devtools-extension": "^2.13.8",
     "@react-discovery/i18n": "file:packages/react-discovery-i18n",
     "@react-discovery/solr": "file:packages/react-discovery-solr",
+    "@react-discovery/tests": "file:packages/react-discovery-tests",
     "@types/react-redux": "file:packages/@types-react-redux"
   },
   "devDependencies": {

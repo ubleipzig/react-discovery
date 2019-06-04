@@ -65,16 +65,19 @@ export const nested: IConfig = {
         },
         {
           field: "beschreibungText_t",
+          isChild: true,
           label: "BeschreibungText",
           type: "text"
         },
         {
           field: "digitalisatDescription_t",
+          isChild: true,
           label: "DigitalisatDescription",
           type: "text"
         },
         {
           field: "digitalisatManifestId_s",
+          isChild: true,
           label: "Manifest",
           type: "text"
         },

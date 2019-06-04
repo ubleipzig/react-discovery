@@ -113,7 +113,7 @@ export const Suggester: React.FC<any> = (): ReactElement => {
     setSelectedItem(newSelectedItem)
     const quotedItem = `"${item}"`
     dispatch(setSuggest({stringInput: quotedItem, suggest: true}))
-    dispatch(setStart({newStart: 0}))
+    dispatch(setStart({start: 0}))
   }
 
   const handleDelete = (item): any => (): void => {
@@ -121,7 +121,7 @@ export const Suggester: React.FC<any> = (): ReactElement => {
     newSelectedItem.splice(newSelectedItem.indexOf(item), 1)
     setSelectedItem(newSelectedItem)
     dispatch(setSuggest({stringInput: '', suggest: true}))
-    dispatch(setStart({newStart: 0}))
+    dispatch(setStart({start: 0}))
   }
 
   const handleKeyDown = (event): void => {

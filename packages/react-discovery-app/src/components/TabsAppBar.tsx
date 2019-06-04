@@ -32,7 +32,7 @@ export const TabsAppBar: React.FC<any> = (): ReactElement => {
     dispatch(setSuggest({stringInput, suggest: false}))
     dispatch(setSelectedFilters({field: TYPE_FIELD, filters: newFilters}))
     dispatch(setIsViewExpanded({isViewExpanded: false}))
-    dispatch(setStart({newStart: 0}))
+    dispatch(setStart({start: 0}))
     setValue(newValue)
   }
   const buildTabs = (): ReactElement[] => {

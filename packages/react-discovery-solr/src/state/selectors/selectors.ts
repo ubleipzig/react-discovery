@@ -9,7 +9,7 @@ import {
   IResponse,
   ISearchField,
   ISortField
-} from "../../api"
+} from "../.."
 import {useSelector} from "react-redux"
 
 export const getAggregation = (field): IAggregation => {
@@ -66,12 +66,12 @@ export const getNumFound = (): number => {
 }
 
 export const getRefinementListFilters = (): IRefinementListFilter[] => {
-  return useSelector((state: any): any =>
+  return useSelector((state: any): IRefinementListFilter[] =>
     state.config.collections[state.config.currentCollection].refinementListFilters)
 }
 
 export const getResponse = (): IResponse => {
-  return useSelector((state: any): any => state.response)
+  return useSelector((state: any): IResponse => state.response)
 }
 
 export const getSearchFields = (): ISearchField[] => {

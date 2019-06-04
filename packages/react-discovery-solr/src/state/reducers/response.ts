@@ -1,4 +1,4 @@
-import {IAggregations, IHit, IHits, IResponse} from "../../api"
+import {IAggregations, IHit, IHits, IResponse} from "../.."
 import {fetchSolrResponse} from '../actions'
 import {reducerWithInitialState} from 'typescript-fsa-reducers'
 
@@ -42,13 +42,13 @@ export const response = reducerWithInitialState(initialState)
     ...state,
     updating: true
   }))
-  .caseWithAction(fetchSolrResponse.done, (state: IResponse, action: any): any => ({
+  .case(fetchSolrResponse.done, (state: IResponse, {params, result}): any => ({
     ...state,
-    aggregations: action.payload.result.facet_counts ? buildAggregations(action.payload.result.facet_counts.facet_fields) : state.aggregations,
-    grouped: action.payload.result.grouped || {},
-    hits: action.payload.result.response ? buildHits(action.payload.result) : state.hits,
+    aggregations: result.facet_counts ? buildAggregations(result.facet_counts.facet_fields) : state.aggregations,
+    grouped: result.grouped || {},
+    hits: result.response ? buildHits(result) : state.hits,
     updating: false,
-    url: action.payload.params.url,
+    url: params.url,
   }))
   .case(fetchSolrResponse.failed, (state, { error }): any => ({
     ...state,

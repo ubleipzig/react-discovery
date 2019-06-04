@@ -57,7 +57,7 @@ export const Pagination: React.FC<any> = (): ReactElement => {
     if (page >= pageAmt || page < 0) {
       return;
     }
-    dispatch(setStart({newStart: page * size}))
+    dispatch(setStart({start: page * size}))
     dispatch(setSuggest({stringInput, suggest: false}))
     dispatch(setSelectedIndex({selectedIndex: page}))
   }
