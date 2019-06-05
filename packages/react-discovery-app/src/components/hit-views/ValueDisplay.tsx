@@ -1,8 +1,8 @@
 import React, {ReactElement} from "react"
 import {Typography, makeStyles} from "@material-ui/core"
+import {buildDateFormat, buildHighlightedValueForHit} from '../../utils'
 import {IHit} from "@react-discovery/solr"
 import {InnerHtmlValue} from '.'
-import {buildDateFormat, buildHighlightedValueForHit} from '../../utils'
 
 interface IValueDisplay {
   field: string;

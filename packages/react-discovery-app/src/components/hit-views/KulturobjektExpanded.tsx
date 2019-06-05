@@ -146,7 +146,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
             field={'subtitel_t'}
             hit={hit}
             style={{display: 'flex', padding: '10px'}}
-            variant='subtitle1'
+            variant='h6'
           />
           {displayFields.map((field, key): ReactElement =>
             <CardContent
