@@ -9,7 +9,7 @@
 - configure `search api host` and `collection` in `.env` file in test app root
 ```yaml
 REACT_APP_SEARCH_API_HOST=http://localhost/solr/
-REACT_APP_SEARCH_API_COLLECTION=test01
+REACT_APP_SEARCH_API_COLLECTION=test02
 ```
 ##### Setup Test Solr Instance
 - start docker composition 
@@ -18,11 +18,11 @@ REACT_APP_SEARCH_API_COLLECTION=test01
     ```
 - create core in docker:
     ```
-    $ docker exec solr1 /opt/solr/bin/solr create_collection -c test01
+    $ docker exec solr1 /opt/solr/bin/solr create_collection -c test02
     ```
 - load sample data
     ```bash
-    $ curl -X POST -H"Content-Type: application/json" http://localhost/solr/test01/update/json?commit=true --data-binary @test-data/solr-test-data.json
+    $ curl -X POST -H"Content-Type: application/json" http://localhost/solr/test02/update/json?commit=true --data-binary @test-data/test-data-02.json
     ```
 - OR execute 
     ```bash
