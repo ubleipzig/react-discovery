@@ -2,7 +2,7 @@ import React, {ReactElement} from "react"
 import {Typography, makeStyles} from "@material-ui/core"
 import {IHit} from "@react-discovery/solr"
 import {InnerHtmlValue} from '.'
-import {buildHighlightedValueForHit} from '../../utils'
+import {buildDateFormat, buildHighlightedValueForHit} from '../../utils'
 
 interface IValueDisplay {
   field: string;
@@ -25,7 +25,8 @@ const useStyles = makeStyles((): any => ({
 export const ValueDisplay: React.FC<IValueDisplay> = (props): ReactElement => {
   const classes: any = useStyles({})
   const {field, hit, style, variant} = props
-  const value = buildHighlightedValueForHit(field, hit)
+  const isDate = field.includes('_dt')
+  const value = isDate ? buildDateFormat(field, hit) : buildHighlightedValueForHit(field, hit)
   return (
     <div style={style}>
       <Typography

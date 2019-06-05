@@ -1,37 +1,14 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": { "*": ["types/*"] },
-    "declaration": true,
-    "module": "commonjs",
-    "target": "ES5",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "outDir": "lib",
-    "sourceMap": true,
-    "moduleResolution": "node",
-    "noEmitOnError": false,
-    "noUnusedParameters":true,
-    "noImplicitUseStrict":true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports":true,
-    "resolveJsonModule": true,
-    "jsx": "react",
-    "lib":[
-      "es5", "es2015", "es2017", "dom"
-    ]
+    "outDir": "./lib",
+    "resolveJsonModule": true
   },
-  "include":[
-    "./src/**/*.ts",
-    "./src/**/*.tsx"
+  "include": [
+    "./src"
   ],
-  "exclude": [
-    "node_modules"
-  ],
-  "atom": {
-    "rewriteTsconfig": false
-  },
-  "types": [
-    "node", "jest", "jest-fetch-mock"
-  ]
+  "typedocOptions": {
+    "mode": "modules",
+    "out": "docs"
+  }
 }

@@ -1,5 +1,5 @@
 import '@react-discovery/i18n'
-import {AnyAction, applyMiddleware, combineReducers, createStore} from "redux"
+import {AnyAction, Reducer, Store, applyMiddleware, combineReducers, createStore} from "redux"
 import {IConfig, localConfig} from "./config"
 import {
   IQuery,
@@ -21,7 +21,7 @@ const {collections, currentCollection} = localConfig
 const {initialFilter, searchFields, sortFields, url} = collections[currentCollection]
 
 const initialConfigState: IConfig = localConfig
-const configReducer = config(initialConfigState)
+const configReducer: Reducer = config(initialConfigState)
 
 const initialQueryState: IQuery = {
   fieldList: null,
@@ -37,16 +37,16 @@ const initialQueryState: IQuery = {
   typeDef: 'edismax',
   url
 }
-const queryReducer = query(initialQueryState)
+const queryReducer: Reducer = query(initialQueryState)
 
-export const rootReducer = (): any => combineReducers({
+export const rootReducer = (): Reducer => combineReducers({
   config: configReducer,
   query: queryReducer,
   response,
   suggestions
 })
 
-const store = createStore(
+const store: Store = createStore(
   rootReducer(),
   ((window as any).Cypress && (window as any).initialState),
   composeWithDevTools(

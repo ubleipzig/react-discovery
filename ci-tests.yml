@@ -12,12 +12,15 @@ services:
 
   e2e:
     image: cypress
-    build: ./packages/react-discovery-tests
+    build:
+      args:
+        CIRCLE_BRANCH: $CIRCLE_BRANCH
+      context: .
+      dockerfile: Dockerfile-cypress
     container_name: cypress
     depends_on:
       - react-discovery
     environment:
       - CYPRESS_baseUrl=http://react-discovery:5000
-    volumes:
-      - ./packages/react-discovery-tests/cypress:/app/cypress
-    command: npx cypress run --browser chrome
+      - CODECOV_TOKEN=$CODECOV_TOKEN
+    command: bash -c "npx cypress run --browser chrome && npm run report"

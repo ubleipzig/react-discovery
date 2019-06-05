@@ -1,8 +1,8 @@
-describe('Redux Store', () => {
+describe('react-discovery redux state management', () => {
   it('has expected state on load', () => {
     cy.fixture('defaultTestState').as('testState').then((json) => {
       cy.visit('/', {
-        onBeforeLoad: win => {
+        onBeforeLoad: (win) => {
           win.initialState = json
         }
       })
@@ -40,6 +40,22 @@ describe('Redux Store', () => {
       cy.window().its('store').invoke('getState')
         .its('suggestions')
         .should('deep.equal', json.suggestions)
+    })
+  })
+  it('sets expected currentLanguage in configuration ', () => {
+    cy.fixture('defaultTestState').as('testState').then(() => {
+      cy.window().its('store')
+        .invoke('dispatch', {payload: {currentLanguage: 'Balinese'}, type: 'SET_CURRENT_LANGUAGE'})
+      cy.window().its('store')
+        .invoke('getState').its('config').its('currentLanguage')
+        .should('equal', 'Balinese')
+    })
+  })
+  it('returns undefined when property is not available in action creator', () => {
+    cy.fixture('defaultTestState').as('testState').then(() => {
+      cy.window().its('store')
+        .invoke('dispatch', {payload: {currentLanguag: 'Balinese'}, type: 'SET_CURRENT_LANGUAGE'})
+      cy.wrap({ payload: undefined }).its('currentLanguag').should('be.undefined')
     })
   })
 })

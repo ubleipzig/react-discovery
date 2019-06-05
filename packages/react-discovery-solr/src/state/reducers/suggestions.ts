@@ -10,7 +10,7 @@ const initialState: ISuggestionsState = {
 }
 
 const buildTerms = (suggester): string[] => {
-  const suggestions: any = Object.values(suggester)[0]
+  const [ suggestions]: any = Object.values(suggester)
   return suggestions.suggestions.map((s): string => s.term)
 }
 

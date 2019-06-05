@@ -3,7 +3,7 @@ import {
   ISearchField,
   ISortField
 } from '@react-discovery/solr'
-import {hsp, nested, test01} from './collections'
+import {hsp, nested, test01, test02} from './collections'
 import deepmerge from 'deepmerge'
 
 export interface IHitComponent {
@@ -45,8 +45,8 @@ export interface IConfig {
   selectedIndex?: number;
 }
 
-export const collections = deepmerge.all([hsp, nested, test01])
-const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "test01"
+export const collections = deepmerge.all([hsp, nested, test01, test02])
+const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "test02"
 
 export const rootConfig: IConfig = {
   collections: null,

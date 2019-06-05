@@ -1,8 +1,8 @@
-import {Card, CardContent, makeStyles} from "@material-ui/core"
+import {Card, CardContent, ExpansionPanelSummary, makeStyles, Typography} from "@material-ui/core"
 import {RandomThumbnail, TitleIdHeader, ValueDisplay} from '.'
 import React, {ReactElement} from "react"
 import {IHit} from "@react-discovery/solr"
-import {buildHighlightedValueForHit} from "../../utils"
+import {buildEntityCountForType, buildHighlightedValueForHit} from "../../utils"
 
 interface IDefaultItemComponent {
   classes: any;
@@ -32,7 +32,10 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-const KOD: React.FC<IDefaultItemComponent> = (props): ReactElement => {
+const DIGITALISAT = 'Digitalisat'
+const BESCHREIBUNG = 'Beschreibung'
+
+const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useStyles({})
   const {hit, i} = props
   const title = buildHighlightedValueForHit('titel_t', hit)
@@ -54,6 +57,14 @@ const KOD: React.FC<IDefaultItemComponent> = (props): ReactElement => {
               style={{flex: 'auto'}}
               variant='subtitle1'
             />
+            <Typography
+              className={classes.heading}>
+              {DIGITALISAT} <i>({buildEntityCountForType(hit, DIGITALISAT)})</i>
+            </Typography>
+            <Typography
+              className={classes.heading}>
+              {BESCHREIBUNG} <i>({buildEntityCountForType(hit, BESCHREIBUNG)})</i>
+            </Typography>
           </CardContent>
         </div>
       </div>
@@ -61,4 +72,4 @@ const KOD: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   ) : null
 }
 
-export default KOD
+export default Kulturobjekt

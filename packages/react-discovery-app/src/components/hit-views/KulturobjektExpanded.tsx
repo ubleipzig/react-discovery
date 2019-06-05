@@ -12,9 +12,9 @@ import {
 } from "@material-ui/core"
 import {FieldLabel, RandomThumbnail, TitleIdHeader, ValueDisplay} from '.'
 import React, {ReactElement} from "react"
+import {buildEntityCountForType, buildHighlightedValueForHit} from "../../utils"
 import {ExpandMore} from '@material-ui/icons'
 import {IHit} from "@react-discovery/solr"
-import {buildHighlightedValueForHit} from "../../utils"
 
 interface IDefaultItemComponent {
   classes: any;
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme): any => ({
   },
 }));
 
-const KODExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {
+const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const [isExpanded, setExpanded] = React.useState(false);
   const classes: any = useStyles({})
   const {hit, i, searchFields} = props
@@ -66,10 +66,6 @@ const KODExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {
 
   const handleExpandClick = (panel): any => ({}, isExpanded): void => {
     setExpanded(isExpanded ? panel : false)
-  }
-
-  const buildEntityCountForType = (type): number => {
-    return hit && hit._source.entities && hit._source.entities.filter((entity): boolean => entity.type_s === type).length
   }
 
   const buildEntityFields = (entityFields, type): ReactElement[] => {
@@ -125,7 +121,7 @@ const KODExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {
         >
           <Typography
             className={classes.heading}>
-            {type} <i>({buildEntityCountForType(type)})</i>
+            {type} <i>({buildEntityCountForType(hit, type)})</i>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
@@ -172,4 +168,4 @@ const KODExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   ) : null
 }
 
-export default KODExpanded
+export default KulturobjektExpanded
