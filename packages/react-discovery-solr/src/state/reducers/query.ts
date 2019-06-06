@@ -11,7 +11,7 @@ import {
 } from "../actions"
 import {IQuery} from "../.."
 
-export const query = (initialState): any => reducerWithInitialState(initialState)
+export const query = (initialState): ReducerBuilder<IQuery> => reducerWithInitialState(initialState)
   .case(setQueryFields, (state, {searchFields, size, sortFields, start, url}): ReducerBuilder<IQuery> => ({
     ...state,
     searchFields,

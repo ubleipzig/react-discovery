@@ -8,7 +8,7 @@ const actionCreator = actionCreatorFactory()
 
 export const setResponseError = actionCreator<{error: string}>(SET_RESPONSE_ERROR)
 
-export const fetchSolrResponse: any = actionCreator.async<IFetchSolrResponseParams, Succ>(FETCH_SOLR_RESPONSE)
+export const fetchSolrResponse = actionCreator.async<IFetchSolrResponseParams, Succ>(FETCH_SOLR_RESPONSE)
 
 export const fetchSolrResponseWorker = bindThunkAction(fetchSolrResponse,
   async (params: IFetchSolrResponseParams): Promise<string> => {

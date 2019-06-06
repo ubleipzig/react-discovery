@@ -5,122 +5,123 @@ import {
   IHits,
   ILanguage,
   IQuery,
-  IRefinementListFilter,
+  IRefinementListFilters,
   IResponse,
   ISearchField,
-  ISortField
+  ISortField,
+  IState
 } from "../.."
 import {useSelector} from "react-redux"
 
 export const getAggregation = (field): IAggregation => {
-  return useSelector((state: any): IAggregation =>
+  return useSelector((state: IState): IAggregation =>
     state.response && state.response.aggregations && state.response.aggregations[field])
 }
 
 export const getCurrentLanguage = (): string => {
-  return useSelector((state: any): string => state.config.currentLanguage)
+  return useSelector((state: IState): string => state.config.currentLanguage)
 }
 
 export const getDocTypes = (): string[] => {
-  return useSelector((state: any): string[] => state.config.collections[state.config.currentCollection].docTypes)
+  return useSelector((state: IState): string[] => state.config.collections[state.config.currentCollection].docTypes)
 }
 
 export const getFilters = (): IFilters => {
-  return useSelector((state: any): IFilters => state.query.filters)
+  return useSelector((state: IState): IFilters => state.query.filters)
 }
 
 export const getFiltersForField = (field): string[] => {
-  return useSelector((state: any): string[] => state.query.filters[field])
+  return useSelector((state: IState): string[] => state.query.filters[field])
 }
 
 export const getFilterType = (): string => {
-  return useSelector((state: any): string => state.query.filters && state.query.filters.type_s && state.query.filters.type_s[0])
+  return useSelector((state: IState): string => state.query.filters && state.query.filters.type_s && state.query.filters.type_s[0])
 }
 
-export const getHighlighting = (): boolean => {
-  return useSelector((state: any): boolean => state.query.highlighting)
+export const getIsHighlighted = (): boolean => {
+  return useSelector((state: IState): boolean => state.query.isHighlighted)
 }
 
 export const getHitComponents = (): IHitComponent[] => {
-  return useSelector((state: any): IHitComponent[] => state.config.collections[state.config.currentCollection].hitComponents)
+  return useSelector((state: IState): IHitComponent[] => state.config.collections[state.config.currentCollection].hitComponents)
 }
 
 export const getHits = (): IHits => {
-  return useSelector((state: any): IHits => state.response.hits)
+  return useSelector((state: IState): IHits => state.response.hits)
 }
 
 export const getIsPersisted = (): boolean => {
-  return useSelector((state: any): boolean => state.config.isPersisted)
+  return useSelector((state: IState): boolean => state.config.isPersisted)
 }
 
 export const getIsViewExpanded = (): boolean => {
-  return useSelector((state: any): boolean => state.config.isViewExpanded)
+  return useSelector((state: IState): boolean => state.config.isViewExpanded)
 }
 
 export const getLanguages = (): ILanguage[] => {
-  return useSelector((state: any): ILanguage[] => state.config.languages)
+  return useSelector((state: IState): ILanguage[] => state.config.languages)
 }
 
 export const getNumFound = (): number => {
-  return useSelector((state: any): number => state.response.hits && state.response.hits.numFound)
+  return useSelector((state: IState): number => state.response.hits && state.response.hits.numFound)
 }
 
-export const getRefinementListFilters = (): IRefinementListFilter[] => {
-  return useSelector((state: any): IRefinementListFilter[] =>
+export const getRefinementListFilters = (): IRefinementListFilters => {
+  return useSelector((state: IState): IRefinementListFilters =>
     state.config.collections[state.config.currentCollection].refinementListFilters)
 }
 
 export const getResponse = (): IResponse => {
-  return useSelector((state: any): IResponse => state.response)
+  return useSelector((state: IState): IResponse => state.response)
 }
 
 export const getSearchFields = (): ISearchField[] => {
-  return useSelector((state: any): ISearchField[] => state.query && state.query.searchFields)
+  return useSelector((state: IState): ISearchField[] => state.query && state.query.searchFields)
 }
 
 export const getSelectedIndex = (): number => {
-  return useSelector((state: any): number => state.config.selectedIndex)
+  return useSelector((state: IState): number => state.config.selectedIndex)
 }
 
 export const getSize = (): number => {
-  return useSelector((state: any): number => state.query.size)
+  return useSelector((state: IState): number => state.query.size)
 }
 
 export const getSortFields = (): ISortField[] => {
-  return useSelector((state: any): ISortField[] => state.query.sortFields)
+  return useSelector((state: IState): ISortField[] => state.query.sortFields)
 }
 
 export const getStart = (): number => {
-  return useSelector((state: any): number => state.query.start)
+  return useSelector((state: IState): number => state.query.start)
 }
 
 export const getStringInput = (): string => {
-  return useSelector((state: any): string => state.query.stringInput)
+  return useSelector((state: IState): string => state.query.stringInput)
 }
 
 export const getSuggest = (): boolean => {
-  return useSelector((state: any): boolean => state.query.suggest)
+  return useSelector((state: IState): boolean => state.query.suggest)
 }
 
 export const getSuggestDictionary = (): string => {
-  return useSelector((state: any): string => state.query.suggestDictionary)
+  return useSelector((state: IState): string => state.query.suggestDictionary)
 }
 
 export const getTerms = (): string[] => {
-  return useSelector((state: any): string[] => state.suggestions && state.suggestions.terms)
+  return useSelector((state: IState): string[] => state.suggestions && state.suggestions.terms)
 }
 
 export const getTypeDef = (): string => {
-  return useSelector((state: any): string => state.query.typeDef)
+  return useSelector((state: IState): string => state.query.typeDef)
 }
 
 export const getUrl = (): string => {
-  return useSelector((state: any): string => state.query.url)
+  return useSelector((state: IState): string => state.query.url)
 }
 
 export const getInitialQuery = (): IQuery => {
   const filters = getFilters()
-  const highlighting = getHighlighting()
+  const isHighlighted = getIsHighlighted()
   const searchFields = getSearchFields()
   const size = getSize()
   const sortFields = getSortFields()
@@ -130,5 +131,5 @@ export const getInitialQuery = (): IQuery => {
   const suggestDictionary = getSuggestDictionary()
   const typeDef = getTypeDef()
   const url = getUrl()
-  return {filters, highlighting, searchFields, size, sortFields, start, stringInput, suggest, suggestDictionary, typeDef, url}
+  return {filters, isHighlighted, searchFields, size, sortFields, start, stringInput, suggest, suggestDictionary, typeDef, url}
 }

@@ -5,6 +5,7 @@ import {reducerWithInitialState} from 'typescript-fsa-reducers'
 const initialState: IResponse = {
   aggregations: null,
   hits: null,
+  url: null,
 }
 
 const buildAggregations = (fields): IAggregations => {
@@ -38,11 +39,11 @@ const buildHits = (result): IHits => {
 }
 
 export const response = reducerWithInitialState(initialState)
-  .case(fetchSolrResponse.started, (state): any => ({
+  .case(fetchSolrResponse.started, (state): IResponse => ({
     ...state,
     updating: true
   }))
-  .case(fetchSolrResponse.done, (state: IResponse, {params, result}): any => ({
+  .case(fetchSolrResponse.done, (state: IResponse, {params, result}): IResponse => ({
     ...state,
     aggregations: result.facet_counts ? buildAggregations(result.facet_counts.facet_fields) : state.aggregations,
     grouped: result.grouped || {},
@@ -50,7 +51,7 @@ export const response = reducerWithInitialState(initialState)
     updating: false,
     url: params.url,
   }))
-  .case(fetchSolrResponse.failed, (state, { error }): any => ({
+  .case(fetchSolrResponse.failed, (state, { error }): IResponse => ({
     ...state,
     error,
     updating: false,

@@ -1,7 +1,8 @@
 import '@react-discovery/i18n'
 import {AnyAction, Reducer, Store, applyMiddleware, combineReducers, createStore} from "redux"
-import {IConfig, localConfig} from "./config"
+import {localConfig} from "./config"
 import {
+  IConfig,
   IQuery,
   config,
   query,
@@ -26,7 +27,7 @@ const configReducer: Reducer = config(initialConfigState)
 const initialQueryState: IQuery = {
   fieldList: null,
   filters: initialFilter || {},
-  highlighting: true,
+  isHighlighted: true,
   searchFields,
   size: 20,
   sortFields,

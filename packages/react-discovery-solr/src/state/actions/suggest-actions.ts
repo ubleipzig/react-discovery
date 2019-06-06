@@ -5,7 +5,7 @@ import {setResponseError} from "./response-actions"
 
 const FETCH_SOLR_SUGGESTIONS = 'FETCH_SOLR_SUGGESTIONS'
 const actionCreator = actionCreatorFactory()
-export const fetchSolrSuggestions: any = actionCreator.async<IFetchSolrResponseParams, Succ>(FETCH_SOLR_SUGGESTIONS)
+export const fetchSolrSuggestions = actionCreator.async<IFetchSolrResponseParams, Succ>(FETCH_SOLR_SUGGESTIONS)
 
 export const fetchSolrSuggestionsWorker = bindThunkAction(fetchSolrSuggestions,
   async (params: IFetchSolrResponseParams): Promise<string> => {

@@ -1,32 +1,42 @@
+import {ISuggestions} from "../.."
 import {fetchSolrSuggestions} from '../actions'
 import {reducerWithInitialState} from 'typescript-fsa-reducers'
 
-interface ISuggestionsState {
-  suggester: {};
+const initialState: ISuggestions = {
+  suggester: {},
+  terms: [],
+  url: null
 }
 
-const initialState: ISuggestionsState = {
-  suggester: {},
+interface ISuggestion {
+  numFound: number;
+  suggestions: ITerm[];
+}
+
+interface ITerm {
+  payload: string;
+  term: string;
+  weight: number;
 }
 
 const buildTerms = (suggester): string[] => {
-  const [ suggestions]: any = Object.values(suggester)
+  const [suggestions]: ISuggestion[] = Object.values(suggester)
   return suggestions.suggestions.map((s): string => s.term)
 }
 
 export const suggestions = reducerWithInitialState(initialState)
-  .case(fetchSolrSuggestions.started, (state): any => ({
+  .case(fetchSolrSuggestions.started, (state): ISuggestions => ({
     ...state,
     updating: true
   }))
-  .case(fetchSolrSuggestions.done, (state: ISuggestionsState, {params, result}): any => ({
+  .case(fetchSolrSuggestions.done, (state: ISuggestions, {params, result}): ISuggestions => ({
     ...state,
     suggester: result.suggest && result.suggest.suggester,
     terms: result.suggest && buildTerms(result.suggest.suggester),
     updating: false,
     url: params.url,
   }))
-  .case(fetchSolrSuggestions.failed, (state, { error }): any => ({
+  .case(fetchSolrSuggestions.failed, (state, { error }): ISuggestions => ({
     ...state,
     error,
     updating: false,

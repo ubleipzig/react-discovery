@@ -14,39 +14,46 @@ export const buildQueryFieldParams = (typeDef: string, searchFields: ISearchFiel
   }
 }
 
+const buildIsTextOrStringField = (field): ISearchField => {
+  return field.field.includes('_s') || field.field.includes('_ss') || field.field.includes('_t')
+}
+
 export const buildStringInputParams = (typeDef: string, stringInput: string, searchFields: ISearchField[]): {} => {
-  if (!stringInput && typeDef === SolrParameters.EDISMAX) {
-    return {
-      [SolrParameters.QUERY]: '*',
-    }
-  } else if (!stringInput && typeDef === SolrParameters.LUCENE) {
-    return {
-      [SolrParameters.QUERY]: '*:*',
-    }
-  } else if (stringInput && typeDef === SolrParameters.LUCENE) {
-    const replaced = stringInput.replace(/\s/g, "+")
-    const parentQfList = searchFields
-      .filter((field: any): boolean => !("isChild" in field)
-        && (field.field.includes('_s')
-      || field.field.includes('_ss') || field.field.includes('_t')))
-      .map((searchField): string => {
-        return searchField.field
-      })
-      .join(`:${replaced} || `)
-    const childQfList = `{!parent which='-_nest_path_:* *:*'}${searchFields
-      .filter((field: any): boolean =>
-        field.isChild === true && (field.field.includes('_s')
-      || field.field.includes('_ss')
-      || field.field.includes('_t')))
-      .map((searchField): string => { return searchField.field })
-      .join(`:${replaced} || {!parent which='-_nest_path_:* *:*'}`)}`
-    const q = `${parentQfList}:${replaced} || ${childQfList}:${replaced}`
-    return {
-      [SolrParameters.QUERY]: q,
+  if (!stringInput) {
+    if (typeDef === SolrParameters.EDISMAX) {
+      return {
+        [SolrParameters.QUERY]: '*',
+      }
+    } else if (typeDef === SolrParameters.LUCENE) {
+      return {
+        [SolrParameters.QUERY]: '*:*',
+      }
     }
   } else {
-    return {
-      [SolrParameters.QUERY]: stringInput,
+    if (typeDef === SolrParameters.LUCENE) {
+      const replaced = stringInput.replace(/\s/g, "+")
+      const parentQfList = searchFields
+        .filter((field: any): boolean => !("isChild" in field))
+        .filter(buildIsTextOrStringField)
+        .map((searchField): string => {
+          return searchField.field
+        })
+        .join(`:${replaced} || `)
+      const childQfList = `${SolrParameters.BLOCK_JOIN_PARENT_PATH}${searchFields
+        .filter((field: any): boolean => field.isChild === true)
+        .filter(buildIsTextOrStringField)
+        .map((searchField): string => {
+          return searchField.field
+        })
+        .join(`:${replaced} || ${SolrParameters.BLOCK_JOIN_PARENT_PATH}`)}`
+      const q = `${parentQfList}:${replaced} || ${childQfList}:${replaced}`
+      return {
+        [SolrParameters.QUERY]: q,
+      }
+    } else {
+      return {
+        [SolrParameters.QUERY]: stringInput,
+      }
     }
   }
 }
@@ -58,6 +65,28 @@ export const buildFacetFieldParams = (fields: ISearchField[]): {} => {
   return fields.length ? {[SolrParameters.FACET_FIELD]: ff} : ""
 }
 
+export const buildFacetSortParams = (facetSort = "index"): {} => {
+  return {[SolrParameters.FACET_SORT]: facetSort}
+}
+
+export const buildFacetLimitParams = (facetLimit = -1): {} => {
+  return {[SolrParameters.FACET_LIMIT]: facetLimit}
+}
+
+export const buildFacetMinCount = (facetMinCount: number = 1): {} => {
+  return {[SolrParameters.FACET_MINCOUNT]: facetMinCount}
+}
+
+export const buildFieldListParams = (fieldList = "*, [child]"): {} => {
+  return {[SolrParameters.FIELD_LIST]: fieldList}
+}
+
+export const buildGroupFieldParams = (group: boolean, groupField: string): {} => {
+  return groupField ? {
+    [SolrParameters.GROUP]: group,
+    [SolrParameters.GROUP_FIELD]: groupField} : ""
+}
+
 export const buildFilterQueryParams = (filters: IFilters): {} => {
   const qf = Object.entries(filters)
     .filter(([{}, values]: [string, string[]]): boolean => values.length > 0)
@@ -67,16 +96,18 @@ export const buildFilterQueryParams = (filters: IFilters): {} => {
   return flattened.length ? {[SolrParameters.FILTER_QUERY]: flattened} : ""
 }
 
-export const buildFacetSortParams = (facetSort = "index"): {} => {
-  return {[SolrParameters.FACET_SORT]: facetSort}
+export const buildIsFaceted = (facet: boolean = true): {} => {
+  return {[SolrParameters.FACET]: facet}
 }
 
-export const buildFacetLimitParams = (facetLimit = -1): {} => {
-  return {[SolrParameters.FACET_LIMIT]: facetLimit}
+export const buildIsHighlighted = (isHighlighted: boolean = true): {} => {
+  return isHighlighted ? {
+    [SolrParameters.HL]: isHighlighted,
+    [SolrParameters.HL_FIELDS]: '*'} : "";
 }
 
-export const buildFieldListParams = (fieldList = "*, [child]"): {} => {
-  return {[SolrParameters.FIELD_LIST]: fieldList}
+export const buildSize = (size: number): {} => {
+  return {[SolrParameters.ROWS]: size}
 }
 
 export const buildSortParams = (sortFields: ISortField[]): {} => {
@@ -87,22 +118,6 @@ export const buildSortParams = (sortFields: ISortField[]): {} => {
   return sf.length ? {[SolrParameters.SORT]: sf} : ""
 }
 
-export const buildSize = (size: number): {} => {
-  return {[SolrParameters.ROWS]: size}
-}
-
-export const buildGroupFieldParams = (group: boolean, groupField: string): {} => {
-  return groupField ? {
-    [SolrParameters.GROUP]: group,
-    [SolrParameters.GROUP_FIELD]: groupField} : ""
-}
-
-export const buildHighlighting = (highlighting: boolean): {} => {
-  return highlighting ? {
-    [SolrParameters.HL]: true,
-    [SolrParameters.HL_FIELDS]: '*'} : "";
-}
-
 export const buildStart = (start: number): {} => {
   return {[SolrParameters.START]: start}
 }
@@ -111,27 +126,24 @@ export const buildTypeDefParams = (typeDef: string): {} => {
   return {[SolrParameters.TYPE_DEF]: typeDef}
 }
 
-export const buildIsFaceted = (facet: boolean = true): {} => {
-  return {[SolrParameters.FACET]: facet}
-}
-
 export const queryBuilder = (props: IQuery): string => {
-  const {facetLimit, facetSort, fieldList, filters, group, groupField, highlighting,
+  const {facetLimit, facetSort, fieldList, filters, group, groupField, isHighlighted,
     searchFields, sortFields, stringInput, size, start, typeDef, url} = props
   const qs = {
-    ...buildQueryFieldParams(typeDef, searchFields),
-    ...buildStringInputParams(typeDef, stringInput, searchFields),
-    ...buildTypeDefParams(typeDef),
-    ...buildSortParams(sortFields),
     ...buildFacetFieldParams(searchFields),
-    ...buildGroupFieldParams(group, groupField),
-    ...buildSize(size),
     ...buildFacetLimitParams(facetLimit),
+    ...buildFacetMinCount(1),
     ...buildFacetSortParams(facetSort),
+    ...buildFieldListParams(fieldList),
     ...buildFilterQueryParams(filters),
-    ...buildStart(start),
+    ...buildGroupFieldParams(group, groupField),
     ...buildIsFaceted(true),
-    ...buildHighlighting(highlighting),
-    ...buildFieldListParams(fieldList)}
+    ...buildIsHighlighted(isHighlighted),
+    ...buildQueryFieldParams(typeDef, searchFields),
+    ...buildSortParams(sortFields),
+    ...buildSize(size),
+    ...buildStart(start),
+    ...buildStringInputParams(typeDef, stringInput, searchFields),
+    ...buildTypeDefParams(typeDef)}
   return `${url}${SolrParameters.QUERY_CONTEXT}?${queryString.stringify(qs)}`
 }

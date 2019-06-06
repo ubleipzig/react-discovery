@@ -1,5 +1,5 @@
 import {Card, CardContent, makeStyles} from "@material-ui/core"
-import {RandomThumbnail, TitleIdHeader, ValueDisplay} from '.'
+import {RandomThumbnail, TitleIdHeader, useHitViewStyles, ValueDisplay} from '.'
 import React, {ReactElement} from "react"
 
 interface IDescriptionHitComponent {
@@ -12,29 +12,8 @@ interface IDescriptionHitComponent {
   searchFields: any;
 }
 
-const useStyles = makeStyles((theme): any => ({
-  content: {
-    display: 'flex',
-    flex: '1 0 auto',
-    padding: 0,
-  },
-  details: {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '20px'
-  },
-  inline: {
-    display: 'inline',
-  },
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    display: 'flex-root',
-    marginBottom: '5px',
-  },
-}));
-
 const Beschreibung: React.FC<IDescriptionHitComponent> = (props): ReactElement => {
-  const classes: any = useStyles({})
+  const classes: any = useHitViewStyles({})
   const {hit, i, searchFields} = props
   const displayFields = searchFields.filter((sf): boolean => sf.field === 'beschreibungText_t')
 

@@ -1,4 +1,4 @@
-import {IConfig} from "../index"
+import {IConfig} from "@react-discovery/solr"
 
 export const test02: IConfig = {
   collections: {
@@ -204,7 +204,7 @@ export const test02: IConfig = {
       ],
       sortFields: [
         {
-          field: "entstehungsort_t",
+          field: "entstehungsort_s",
           label: "originPlace",
           order: "asc"
         },

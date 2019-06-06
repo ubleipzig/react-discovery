@@ -1,5 +1,5 @@
-import {Card, CardContent, makeStyles} from "@material-ui/core"
-import {FieldLabel, RandomThumbnail, ValueDisplay} from '.'
+import {Card, CardContent} from "@material-ui/core"
+import {FieldLabel, RandomThumbnail, ValueDisplay, useHitViewStyles} from '.'
 import React, {ReactElement} from "react"
 import {IHit} from "@react-discovery/solr"
 
@@ -10,29 +10,8 @@ interface IExpandedHitComponent {
   searchFields: any;
 }
 
-const useStyles = makeStyles((theme): any => ({
-  content: {
-    display: 'flex',
-    flex: '1 0 auto',
-    padding: 0,
-  },
-  details: {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '20px'
-  },
-  inline: {
-    display: 'inline',
-  },
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    display: 'flex-root',
-    marginBottom: '5px',
-  },
-}));
-
-const ExpandedHitComponent: React.FC<IExpandedHitComponent> = (props): ReactElement => {
-  const classes: any = useStyles({})
+const HitComponentExpanded: React.FC<IExpandedHitComponent> = (props): ReactElement => {
+  const classes: any = useHitViewStyles({})
   const {hit, i, searchFields} = props
 
   return (
@@ -52,4 +31,4 @@ const ExpandedHitComponent: React.FC<IExpandedHitComponent> = (props): ReactElem
   )
 }
 
-export default ExpandedHitComponent
+export default HitComponentExpanded

@@ -1,50 +1,40 @@
 import {Book, Image} from '@material-ui/icons'
-import {Card, CardActions, CardContent, Typography, makeStyles} from "@material-ui/core"
-import {RandomThumbnail, TitleIdHeader, ValueDisplay} from '.'
-import React, {ReactElement} from "react"
+import {Card, CardActions, CardContent, Typography} from "@material-ui/core"
+import {IHit, ISearchField, getFilterType} from "@react-discovery/solr"
+import {RandomThumbnail, TitleIdHeader, ValueDisplay, useHitViewStyles} from '.'
+import React, {Fragment, ReactElement} from "react"
 import {buildEntityCountForType, buildHighlightedValueForHit} from "../../utils"
-import {IHit} from "@react-discovery/solr"
-
 
 interface IDefaultItemComponent {
   classes: any;
   hit: IHit;
   i: number;
-  searchFields: any;
+  searchFields: ISearchField[];
 }
-
-const useStyles = makeStyles((theme): any => ({
-  content: {
-    display: 'flex',
-    flex: '1 0 auto',
-    padding: 0,
-  },
-  details: {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '20px'
-  },
-  inline: {
-    display: 'inline',
-  },
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    display: 'flex-root',
-    marginBottom: '5px',
-  },
-}));
 
 const DIGITALISAT = 'Digitalisat'
 const BESCHREIBUNG = 'Beschreibung'
 
 const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
-  const classes: any = useStyles({})
+  const classes: any = useHitViewStyles({})
   const {hit, i, searchFields} = props
   const title = buildHighlightedValueForHit('titel_t', hit)
-  const filteredFields = ['material', 'format', 'originPlace', 'originDate', 'formType',
-    'status', 'writingStyle', 'language', 'previousOwner']
+  const filteredFields = ['material', 'format', 'originPlace', 'originDate']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
-  return hit ? (
+  const filterType = getFilterType()
+
+  const buildFieldSeparator = (): string => {
+    return '\u00A0\u2223\u00A0'
+  }
+
+  const buildValueDisplay = (field: string, hit: IHit, key: number): ReactElement => {
+    return (<Fragment key={key}>
+      <ValueDisplay field={field} hit={hit} style={{flex: 'auto'}} variant='body2'/>
+      {buildFieldSeparator()}
+    </Fragment>)
+  }
+
+  return hit && filterType === 'Kulturobjekt' ? (
     <Card className={classes.root} key={i}>
       <TitleIdHeader
         id={hit._source.id}
@@ -65,10 +55,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
           </CardContent>
           <CardContent className={classes.content}>
             {displayFields.map((field, key): ReactElement =>
-              <>
-              <ValueDisplay field={field.field} hit={hit} key={key} style={{flex: 'auto'}} variant='body2'/>
-                {'\u00A0\u2223\u00A0'}
-              </>)}
+              buildValueDisplay(field.field, hit, key))}
           </CardContent>
           <CardActions disableSpacing>
             <Image fontSize='small' htmlColor='#86173e' style={{padding: '5px'}}/>

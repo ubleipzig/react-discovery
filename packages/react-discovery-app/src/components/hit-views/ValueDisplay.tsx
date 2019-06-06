@@ -27,7 +27,7 @@ export const ValueDisplay: React.FC<IValueDisplay> = (props): ReactElement => {
   const {field, hit, style, variant} = props
   const isDate = field.includes('_dt')
   const value = isDate ? buildDateFormat(field, hit) : buildHighlightedValueForHit(field, hit)
-  return (
+  return value ? (
     <div style={style}>
       <Typography
         className={classes.inline}
@@ -38,5 +38,5 @@ export const ValueDisplay: React.FC<IValueDisplay> = (props): ReactElement => {
         <InnerHtmlValue value={value}/>
       </Typography>
     </div>
-  )
+  ) : null
 }

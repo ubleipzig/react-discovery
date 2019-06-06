@@ -16,8 +16,31 @@ export interface IBucket extends IAggregation {
   docCount: number;
 }
 
+export interface IConfig {
+  currentCollection?: string;
+  currentLanguage?: string;
+  collections: {
+    [collection: string]: {
+      docTypes?: string[];
+      hitComponents: IHitComponent[];
+      initialFilter?: IFilters;
+      refinementListFilters: IRefinementListFilters;
+      searchFields: ISearchField[];
+      sortFields: ISortField[];
+      url: string;
+    };
+  };
+  isHighlighted?: boolean;
+  isPersisted?: boolean;
+  languages?: ILanguage[];
+  isViewExpanded?: boolean;
+  selectedIndex?: number;
+}
+
 export interface IFetchSolrResponseParams {
-  requestURI: string;}
+  requestURI: string;
+  url?: string;
+}
 
 export interface IFilters {
   [field: string]: string[];
@@ -53,7 +76,7 @@ export interface IQuery {
   filters: IFilters;
   group?: boolean;
   groupField?: string;
-  highlighting: boolean;
+  isHighlighted: boolean;
   searchFields: ISearchField[];
   sortFields: ISortField[];
   start: number;
@@ -70,9 +93,17 @@ export interface IRefinementListFilter {
   field: string;
 }
 
+export interface IRefinementListFilters {
+  [id: string]: IRefinementListFilter;
+}
+
 export interface IResponse {
   aggregations: IAggregations;
+  error?: {};
+  grouped?: any;
   hits: IHits;
+  updating?: boolean;
+  url: string;
 }
 
 export interface ISearchField {
@@ -89,7 +120,21 @@ export interface ISortField {
   isSelected?: boolean;
 }
 
+export interface IState {
+  config: IConfig;
+  query: IQuery;
+  response: IResponse;
+  suggestions: ISuggestions;
+}
+
 export type Succ = any;
 
+export interface ISuggestions {
+  error?: any;
+  suggester: any;
+  terms?: string[];
+  updating?: boolean;
+  url: string;
+}
 
 

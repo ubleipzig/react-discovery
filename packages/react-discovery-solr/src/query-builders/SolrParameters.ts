@@ -1,9 +1,11 @@
 export enum SolrParameters {
+  BLOCK_JOIN_PARENT_PATH = "{!parent which='-_nest_path_:* *:*'}",
   CURSOR_MARK = "cursorMark",
   EDISMAX = "edismax",
   FACET = "facet",
   FACET_FIELD = "facet.field",
   FACET_LIMIT = "facet.limit",
+  FACET_MINCOUNT = "facet.mincount",
   FACET_SORT = "facet.sort",
   FIELD_LIST = "fl",
   FILTER_QUERY = "fq",
