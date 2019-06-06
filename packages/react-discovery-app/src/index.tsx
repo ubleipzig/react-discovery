@@ -1,51 +1,14 @@
 import '@react-discovery/i18n'
-import {AnyAction, Reducer, Store, applyMiddleware, combineReducers, createStore} from "redux"
-import {localConfig} from "./config"
-import {
-  IConfig,
-  IQuery,
-  config,
-  query,
-  response,
-  suggestions
-} from "@react-discovery/solr"
+import {AnyAction, Store, applyMiddleware, createStore} from "redux"
 import thunkMiddleware, { ThunkMiddleware } from 'redux-thunk'
 import {MinimalResultsViewer} from './components'
 import {Provider} from 'react-redux'
 import React from "react"
 import ReactDOM from "react-dom"
 import {composeWithDevTools} from 'redux-devtools-extension'
+import {rootReducer} from "./state"
 
 const thunk: ThunkMiddleware<{}, AnyAction> = thunkMiddleware
-
-const {collections, currentCollection} = localConfig
-const {initialFilter, searchFields, sortFields, url} = collections[currentCollection]
-
-const initialConfigState: IConfig = localConfig
-const configReducer: Reducer = config(initialConfigState)
-
-const initialQueryState: IQuery = {
-  fieldList: null,
-  filters: initialFilter || {},
-  isHighlighted: true,
-  searchFields,
-  size: 20,
-  sortFields,
-  start: 0,
-  stringInput: null,
-  suggest: false,
-  suggestDictionary: 'suggester',
-  typeDef: 'edismax',
-  url
-}
-const queryReducer: Reducer = query(initialQueryState)
-
-export const rootReducer = (): Reducer => combineReducers({
-  config: configReducer,
-  query: queryReducer,
-  response,
-  suggestions
-})
 
 const store: Store = createStore(
   rootReducer(),

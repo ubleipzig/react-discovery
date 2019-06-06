@@ -9,6 +9,7 @@
     "experimentalDecorators": true,
     "outDir": "lib",
     "sourceMap": true,
+    "skipLibCheck": true,
     "moduleResolution": "node",
     "noEmitOnError": false,
     "noUnusedParameters":true,
@@ -21,6 +22,7 @@
       "es5", "es2015", "es2017", "dom"
     ],
     "types": [
+      "cypress",
       "node"
     ],
     "typeRoots": [
