@@ -1,5 +1,5 @@
-import {Card, CardContent, makeStyles} from "@material-ui/core"
-import {RandomThumbnail, TitleIdHeader, ValueDisplay} from '.'
+import {Card, CardContent} from "@material-ui/core"
+import {RandomThumbnail, TitleIdHeader, ValueDisplay, useHitViewStyles, } from '.'
 import React, {ReactElement} from "react"
 
 interface IDigitalisat {
@@ -12,27 +12,8 @@ interface IDigitalisat {
   searchFields: any;
 }
 
-const useStyles = makeStyles((theme): any => ({
-  content: {
-    padding: 10,
-  },
-  details: {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '20px'
-  },
-  inline: {
-    display: 'inline',
-  },
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    display: 'flex-root',
-    marginBottom: '5px',
-  },
-}));
-
 const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
-  const classes: any = useStyles({})
+  const classes: any = useHitViewStyles({})
   const {hit, i, searchFields} = props
   const filteredFields = ['DigitalisatDescription', 'Manifest']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
@@ -48,7 +29,7 @@ const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
         <div className={classes.details}>
           {displayFields.map((field, key): ReactElement =>
             <CardContent
-              className={classes.content}
+              className={classes.contentNoFlex}
               key={key}
             >
               <ValueDisplay

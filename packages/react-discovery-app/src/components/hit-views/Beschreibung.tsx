@@ -1,5 +1,5 @@
-import {Card, CardContent, makeStyles} from "@material-ui/core"
-import {RandomThumbnail, TitleIdHeader, useHitViewStyles, ValueDisplay} from '.'
+import {Card, CardContent} from "@material-ui/core"
+import {RandomThumbnail, TitleIdHeader, ValueDisplay, useHitViewStyles, } from '.'
 import React, {ReactElement} from "react"
 
 interface IDescriptionHitComponent {
@@ -31,7 +31,11 @@ const Beschreibung: React.FC<IDescriptionHitComponent> = (props): ReactElement =
               className={classes.content}
               key={key}
             >
-              <ValueDisplay field={field.field} hit={hit} style={{flex: 'auto'}}/>
+              <ValueDisplay
+                field={field.field}
+                hit={hit}
+                style={{flex: 'auto'}}
+              />
             </CardContent>)}
         </div>
       </div>

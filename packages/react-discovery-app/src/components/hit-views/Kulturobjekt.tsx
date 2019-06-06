@@ -2,7 +2,7 @@ import {Book, Image} from '@material-ui/icons'
 import {Card, CardActions, CardContent, Typography} from "@material-ui/core"
 import {IHit, ISearchField, getFilterType} from "@react-discovery/solr"
 import {RandomThumbnail, TitleIdHeader, ValueDisplay, useHitViewStyles} from '.'
-import React, {Fragment, ReactElement} from "react"
+import React, {ReactElement} from "react"
 import {buildEntityCountForType, buildHighlightedValueForHit} from "../../utils"
 
 interface IDefaultItemComponent {
@@ -23,15 +23,17 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const filterType = getFilterType()
 
-  const buildFieldSeparator = (): string => {
-    return '\u00A0\u2223\u00A0'
-  }
-
   const buildValueDisplay = (field: string, hit: IHit, key: number): ReactElement => {
-    return (<Fragment key={key}>
-      <ValueDisplay field={field} hit={hit} style={{flex: 'auto'}} variant='body2'/>
-      {buildFieldSeparator()}
-    </Fragment>)
+    return (
+      <ValueDisplay
+        field={field}
+        hit={hit}
+        key={key}
+        separator={true}
+        style={{flex: 'auto'}}
+        variant='body2'
+      />
+    )
   }
 
   return hit && filterType === 'Kulturobjekt' ? (

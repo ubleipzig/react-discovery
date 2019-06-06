@@ -1,5 +1,5 @@
-import {Card, CardContent, makeStyles} from "@material-ui/core"
-import {FieldLabel, RandomThumbnail, TitleIdHeader, useHitViewStyles, ValueDisplay} from '.'
+import {Card, CardContent} from "@material-ui/core"
+import {FieldLabel, RandomThumbnail, TitleIdHeader, ValueDisplay, useHitViewStyles, } from '.'
 import React, {ReactElement} from "react"
 import {buildHighlightedValueForHit} from "../../utils"
 

@@ -6,10 +6,23 @@ export const useHitViewStyles = makeStyles((theme): any => ({
     flex: '1 0 auto',
     padding: 0,
   },
+  contentNoFlex: {
+    padding: 10,
+  },
   details: {
     display: 'flex',
     flexDirection: 'column',
     padding: '20px'
+  },
+  expand: {
+    marginLeft: 'auto',
+    transform: 'rotate(0deg)',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
   },
   inline: {
     display: 'inline',

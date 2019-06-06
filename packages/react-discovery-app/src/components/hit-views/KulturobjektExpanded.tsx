@@ -8,9 +8,8 @@ import {
   ExpansionPanelSummary,
   List,
   Typography,
-  makeStyles
 } from "@material-ui/core"
-import {FieldLabel, RandomThumbnail, TitleIdHeader, ValueDisplay} from '.'
+import {FieldLabel, RandomThumbnail, TitleIdHeader, ValueDisplay, useHitViewStyles, } from '.'
 import React, {ReactElement} from "react"
 import {buildEntityCountForType, buildHighlightedValueForHit} from "../../utils"
 import {ExpandMore} from '@material-ui/icons'
@@ -23,40 +22,9 @@ interface IDefaultItemComponent {
   searchFields: any;
 }
 
-const useStyles = makeStyles((theme): any => ({
-  content: {
-    display: 'flex',
-    flex: '1 0 auto',
-    padding: 0,
-  },
-  details: {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '20px'
-  },
-  expand: {
-    marginLeft: 'auto',
-    transform: 'rotate(0deg)',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  inline: {
-    display: 'inline',
-  },
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    display: 'flex-root',
-    marginBottom: '5px',
-  },
-}));
-
 const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const [isExpanded, setExpanded] = React.useState(false);
-  const classes: any = useStyles({})
+  const classes: any = useHitViewStyles({})
   const {hit, i, searchFields} = props
   // TODO add this to configuration
   const filteredFields = ['material', 'format', 'originPlace', 'originDate', 'formType',
