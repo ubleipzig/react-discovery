@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react'
+import {fireEvent, render} from '@testing-library/react'
 import {Provider} from 'react-redux'
 import React from 'react'
 import {TabsAppBar} from '../../../src/components'
@@ -12,8 +12,9 @@ const renderWithRedux = (ui, {store = createStore(rootReducer())} = {}): any => 
   }
 }
 
-it('clicks person tab and is selected', (): void => {
+it('clicks person tab and changes state', (): void => {
   const {getByText, store} = renderWithRedux(<TabsAppBar />)
   fireEvent.click(getByText('Person'))
   expect(store.getState().query.filters.type_s[0]).to.equal('Person')
 })
+

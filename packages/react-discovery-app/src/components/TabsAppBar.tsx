@@ -36,7 +36,7 @@ export const TabsAppBar: React.FC<any> = (): ReactElement => {
     setValue(newValue)
   }
   const buildTabs = (): ReactElement[] => {
-    return docTypes.map((ft, i): ReactElement => <Tab href='' key={i} label={ft} />)
+    return docTypes.map((ft, i): ReactElement => <Tab data-cy={`tab-${i}`} href='' key={i} label={ft} />)
   }
 
   return docTypes ? (

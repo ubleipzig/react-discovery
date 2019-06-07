@@ -80,6 +80,7 @@ export const Pagination: React.FC<any> = (): ReactElement => {
       button
       className={classes.button}
       component='div'
+      data-cy={`page-index-${key}`}
       dense
       key={key}
       onClick={(): void => onPageChange(page)}
@@ -93,6 +94,7 @@ export const Pagination: React.FC<any> = (): ReactElement => {
       button
       className={classes.button}
       component='div'
+      data-cy={`page-control-${key}`}
       dense
       key={key}
       onClick={(): void => onPageChange(page)}
