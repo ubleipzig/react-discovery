@@ -53,6 +53,7 @@ export const ExpertSearchBox: React.FC<any> = (): ReactElement => {
     <form
       autoComplete="off"
       className={classes.container}
+      data-cy='expert-searchform'
       noValidate
       onSubmit={handleSubmit}
     >
@@ -70,7 +71,7 @@ export const ExpertSearchBox: React.FC<any> = (): ReactElement => {
         }
         className={classes.input}
         fullWidth
-        id="standard-full-width"
+        id="expert-full-width"
         margin="normal"
         onChange={handleChange}
         placeholder={t('expertSearch')}

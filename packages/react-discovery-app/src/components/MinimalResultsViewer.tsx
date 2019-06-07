@@ -17,6 +17,20 @@ import {useTranslation} from "react-i18next"
 
 const useStyles = makeStyles((theme: Theme): any =>
   createStyles({
+    gridActions: {
+      alignItems: 'center',
+      marginTop: '50px',
+      padding: '10px'
+    },
+    gridContent: {
+      backgroundColor: 'lightgray',
+      padding: 20
+    },
+    gridLeft: {
+      backgroundColor: 'whitesmoke',
+      marginTop: '50px',
+      padding: '10px'
+    },
     progress: {
       margin: theme.spacing(2),
     },
@@ -45,8 +59,8 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
           <SearchAppBar/>
         </Grid>
         <Grid
+          className={classes.gridLeft}
           item
-          style={{backgroundColor: 'whitesmoke', marginTop: '50px', padding: '10px'}}
           xs={2}
         >
           <Suggester/>
@@ -56,9 +70,9 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
           item xs={10}
         >
           <Grid
+            className={classes.gridActions}
             container
             direction="row"
-            style={{alignItems: 'center', marginTop: '50px', padding: '10px'}}
           >
             <HitStats/>
             <ViewSwitcherToggle/>
@@ -79,7 +93,7 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
             <Pagination/>
           </Grid>
           <Grid
-            style={{backgroundColor: 'lightgray', padding: 20}}
+            className={classes.gridContent}
           >
             {hits ?
               <>

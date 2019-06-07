@@ -54,6 +54,7 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
     <form
       autoComplete="off"
       className={classes.container}
+      data-cy='standard-searchform'
       noValidate
       onSubmit={handleSubmit}
     >

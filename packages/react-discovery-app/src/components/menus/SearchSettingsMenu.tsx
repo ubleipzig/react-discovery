@@ -48,6 +48,7 @@ export const SearchSettingsMenu: React.FC<any> = (): ReactElement => {
       <MenuItem
         button={true}
         component='div'
+        data-cy={`search-settings-menu-item-${i}`}
         divider
         key={i}
         onClick={(): void => handleMenuAction(parser.key)}
@@ -82,6 +83,7 @@ export const SearchSettingsMenu: React.FC<any> = (): ReactElement => {
         aria-owns={isMenuOpen ? 'material-appbar' : undefined}
         className={classes.menuButton}
         color="inherit"
+        data-cy='search-settings-menu'
         edge="end"
         href=''
         onClick={handleMenuOpen}
