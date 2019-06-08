@@ -1,6 +1,8 @@
 import {Card, CardContent} from "@material-ui/core"
-import {RandomThumbnail, TitleIdHeader, ValueDisplay, useHitViewStyles, } from '.'
 import React, {ReactElement} from "react"
+import {Thumbnail, TitleIdHeader, ValueDisplay} from '..'
+import {buildRandomUBLThumbnail} from "../../utils"
+import {useHitViewStyles, } from '.'
 
 interface IDigitalisat {
   classes: any;
@@ -25,7 +27,7 @@ const DigitalisatExpanded: React.FC<IDigitalisat> = (props): ReactElement => {
         title='Expanded Images View'
       />
       <div style={{display: 'flex'}}>
-        <RandomThumbnail/>
+        <Thumbnail image={buildRandomUBLThumbnail()}/>
         <div className={classes.details}>
           {displayFields.map((field, key): ReactElement =>
             <CardContent

@@ -1,6 +1,9 @@
 import {CardMedia, makeStyles} from "@material-ui/core"
 import React, {ReactElement} from "react"
-import {buildRandomUBLThumbnail} from "../../utils"
+
+interface IThumbnail {
+  image: string;
+}
 
 const useStyles = makeStyles((): any => ({
   cover: {
@@ -10,14 +13,15 @@ const useStyles = makeStyles((): any => ({
   },
 }))
 
-export const RandomThumbnail: React.FC<any> = (): ReactElement => {
+export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
   const classes: any = useStyles({})
+  const {image} = props
   return (
     <div className={classes.cover}>
       <CardMedia
         alt="Placeholder"
         component="img"
-        image={buildRandomUBLThumbnail()}
+        image={image}
         title="Thumbnail"
       />
     </div>

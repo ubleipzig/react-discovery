@@ -1,6 +1,8 @@
 import {Card, CardContent} from "@material-ui/core"
-import {RandomThumbnail, TitleIdHeader, ValueDisplay, useHitViewStyles, } from '.'
 import React, {ReactElement} from "react"
+import {RelatedItems, Thumbnail, TitleIdHeader, ValueDisplay} from '..'
+import {buildRandomUBLThumbnail} from "../../utils"
+import {useHitViewStyles, } from '.'
 
 interface IDigitalisat {
   classes: any;
@@ -25,7 +27,7 @@ const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
         title={hit._source.titel_t}
       />
       <div style={{display: 'flex'}}>
-        <RandomThumbnail/>
+        <Thumbnail image={buildRandomUBLThumbnail()}/>
         <div className={classes.details}>
           {displayFields.map((field, key): ReactElement =>
             <CardContent
@@ -40,6 +42,10 @@ const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
             </CardContent>)}
         </div>
       </div>
+      <RelatedItems
+        id={hit._source._root_}
+        primaryDocFilter='Kulturobjekt'
+      />
     </Card>
   ) : null
 }

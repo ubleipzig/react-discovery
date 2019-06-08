@@ -1,6 +1,6 @@
 import {AppBar, Badge, IconButton, Toolbar, Typography, makeStyles} from '@material-ui/core'
 import {Bookmark, Menu} from '@material-ui/icons'
-import {ExpertSearchBox, LanguageSelectionMenu, ProfileMenu, SearchBox, SearchSettingsMenu} from '.'
+import {ExpertSearchBox, LanguageSelectionMenu, ProfileMenu, ResetButton, SearchBox, SearchSettingsMenu} from '.'
 import React, {ReactElement} from 'react'
 import {SolrParameters, getTypeDef} from "@react-discovery/solr"
 
@@ -79,6 +79,7 @@ export const SearchAppBar: React.FC<any> = (): ReactElement => {
           </Typography>
           {typeDef === SolrParameters.EDISMAX ? <SearchBox/> : <ExpertSearchBox/>}
           <div className={classes.sectionDesktop}>
+            <ResetButton/>
             <SearchSettingsMenu/>
             <LanguageSelectionMenu/>
             <IconButton

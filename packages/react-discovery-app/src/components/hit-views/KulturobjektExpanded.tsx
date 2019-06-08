@@ -9,11 +9,13 @@ import {
   List,
   Typography,
 } from "@material-ui/core"
-import {FieldLabel, RandomThumbnail, TitleIdHeader, ValueDisplay, useHitViewStyles, } from '.'
+import {FieldLabel, InnerHtmlValue, Thumbnail, TitleIdHeader, ValueDisplay, ViewSwitcherToggle} from '..'
 import React, {ReactElement} from "react"
-import {buildEntityCountForType, buildHighlightedValueForHit} from "../../utils"
+import {buildEntityCountForType, buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
 import {ExpandMore} from '@material-ui/icons'
 import {IHit} from "@react-discovery/solr"
+import {useHitViewStyles} from '.'
+import {useTranslation} from "react-i18next"
 
 interface IDefaultItemComponent {
   classes: any;
@@ -23,7 +25,7 @@ interface IDefaultItemComponent {
 }
 
 const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {
-  const [isExpanded, setExpanded] = React.useState(false);
+  const [isExpanded, setExpanded] = React.useState(true);
   const classes: any = useHitViewStyles({})
   const {hit, i, searchFields} = props
   // TODO add this to configuration
@@ -31,8 +33,9 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
     'status', 'writingStyle', 'language', 'previousOwner']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('titel_t', hit)
+  const {t} = useTranslation('vocab')
 
-  const handleExpandClick = (panel): any => ({}, isExpanded): void => {
+  const handleExpandClick = (panel): any => ({}: any, isExpanded: any): void => {
     setExpanded(isExpanded ? panel : false)
   }
 
@@ -41,6 +44,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
     return entities && entities.map((entity, i): ReactElement => {
       return (
         <div key={i}>
+          <Divider component='hr'/>
           {entityFields.map((field, i): ReactElement => {
             const value = [].concat(entity[field.field] || null).filter((v): any => v !== null).join(", ")
             return (
@@ -55,7 +59,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
                     color="textSecondary"
                     component="span"
                   >
-                    <div className={classes.values} dangerouslySetInnerHTML={{__html: value}} key={i}/>
+                    <InnerHtmlValue value={value}/>
                   </Typography>
                 </div>
               </CardContent>
@@ -76,6 +80,45 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
     {field: 'beschreibungText_t', label: 'Text'},
   ]
 
+  const personDisplayFields = [
+    {
+      field: "personFullname_t",
+      label: "personFullName",
+    },
+    {
+      field: "personBirthDate_dt",
+      label: "personBirthDate",
+    },
+    {
+      field: "personDeathDate_dt",
+      label: "personDeathDate",
+    },
+    {
+      field: "personBirthPlace_t",
+      label: "personBirthPlace",
+    },
+    {
+      field: "personDeathPlace_t",
+      label: "personDeathPlace",
+    },
+    {
+      field: "personWorkingPlace_t",
+      label: "personWorkingPlace",
+    },
+    {
+      field: "personOccupation_t",
+      label: "personOccupation",
+    },
+    {
+      field: "personGender_s",
+      label: "personGender",
+    },
+    {
+      field: "personAlternateNames_ss",
+      label: "personAlternateNames",
+    },
+  ]
+
   const buildExpansionPanelForType = (displayFields, type): ReactElement => {
     return (
       <ExpansionPanel
@@ -89,7 +132,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
         >
           <Typography
             className={classes.heading}>
-            {type} <i>({buildEntityCountForType(hit, type)})</i>
+            {t(type)} <i>({buildEntityCountForType(hit, type)})</i>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
@@ -103,12 +146,13 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
 
   return hit ? (
     <Card className={classes.root} key={i}>
+      <ViewSwitcherToggle/>
       <TitleIdHeader
         id={hit._source.id}
         title={title}
       />
       <div style={{display: 'flex'}}>
-        <RandomThumbnail/>
+        <Thumbnail image={buildRandomUBLThumbnail()}/>
         <div className={classes.details}>
           <ValueDisplay
             field={'subtitel_t'}
@@ -129,6 +173,9 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
           </CardActions>
           <CardActions disableSpacing>
             {buildExpansionPanelForType(beschreibungDisplayFields, 'Beschreibung')}
+          </CardActions>
+          <CardActions disableSpacing>
+            {buildExpansionPanelForType(personDisplayFields, 'Person')}
           </CardActions>
         </div>
       </div>

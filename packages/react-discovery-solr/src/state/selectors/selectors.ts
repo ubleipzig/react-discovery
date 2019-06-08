@@ -1,5 +1,5 @@
 import {
-  IAggregation,
+  IAggregation, IDocType,
   IFilters,
   IHitComponent,
   IHits,
@@ -22,8 +22,8 @@ export const getCurrentLanguage = (): string => {
   return useSelector((state: IState): string => state.config.currentLanguage)
 }
 
-export const getDocTypes = (): string[] => {
-  return useSelector((state: IState): string[] => state.config.collections[state.config.currentCollection].docTypes)
+export const getDocTypes = (): IDocType[] => {
+  return useSelector((state: IState): IDocType[] => state.config.collections[state.config.currentCollection].docTypes)
 }
 
 export const getFilters = (): IFilters => {

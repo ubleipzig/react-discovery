@@ -7,7 +7,9 @@ export const HitStats: React.FC<any> = (): ReactElement => {
   const numFound = getNumFound()
   const {t} = useTranslation()
   return (
-    <Box style={{flex: 'auto'}}>
+    <Box
+      data-testid='hit-stats'
+      style={{flex: 'auto'}}>
       <Typography>
         {numFound} {t('resultsFound')}
       </Typography>

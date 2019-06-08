@@ -3,10 +3,41 @@ import {IConfig} from "@react-discovery/solr"
 export const test02: IConfig = {
   collections: {
     test02: {
-      docTypes: ['Kulturobjekt', 'Beschreibung', 'Digitalisat', 'Person', 'Werke'],
+      docTypes: [
+        {
+          key: '',
+          label: 'all'
+        },
+        {
+          key: 'Kulturobjekt',
+          label: 'culturalObjects'
+        },
+        {
+          key: 'Beschreibung',
+          label: 'descriptions'
+        },
+        {
+          key: 'Digitalisat',
+          label: 'digitalisations'
+        },
+        {
+          key: 'Person',
+          label: 'persons'
+        },
+        {
+          key: 'Werk',
+          label: 'works'
+        }
+      ],
       hitComponents: [
         {
           defaultOption: true,
+          expandedView: false,
+          hitComponent: "DefaultHitComponent",
+          key: "default",
+          title: "Default"
+        },
+        {
           expandedView: false,
           hitComponent: "Kulturobjekt",
           key: "facet",
@@ -43,7 +74,7 @@ export const test02: IConfig = {
           title: "Person"
         },
       ],
-      initialFilter: {'type_s': ['Kulturobjekt']},
+      initialFilter: {'type_s': []},
       refinementListFilters: {
         1: {
           field: "entstehungsort_s",
@@ -72,7 +103,7 @@ export const test02: IConfig = {
         {
           field: "beschreibungText_t",
           isChild: true,
-          label: "BeschreibungText",
+          label: "descriptionText",
           type: "text"
         },
         {
@@ -200,6 +231,11 @@ export const test02: IConfig = {
           isChild: true,
           label: "personAlternateNames",
           type: "list-facet"
+        },
+        {
+          field: "_root_",
+          label: "root",
+          type: "text"
         },
       ],
       sortFields: [

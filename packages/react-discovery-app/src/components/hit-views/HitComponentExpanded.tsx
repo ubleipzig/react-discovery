@@ -1,7 +1,9 @@
 import {Card, CardContent} from "@material-ui/core"
-import {FieldLabel, RandomThumbnail, ValueDisplay, useHitViewStyles} from '.'
+import {FieldLabel, Thumbnail, ValueDisplay} from '..'
 import React, {ReactElement} from "react"
 import {IHit} from "@react-discovery/solr"
+import {buildRandomUBLThumbnail} from "../../utils"
+import {useHitViewStyles} from '.'
 
 interface IExpandedHitComponent {
   classes: any;
@@ -16,7 +18,7 @@ const HitComponentExpanded: React.FC<IExpandedHitComponent> = (props): ReactElem
 
   return (
     <Card className={classes.root} key={i}>
-      <RandomThumbnail/>
+      <Thumbnail image={buildRandomUBLThumbnail()}/>
       <div className={classes.details}>
         {searchFields.map((field, key): ReactElement =>
           <CardContent

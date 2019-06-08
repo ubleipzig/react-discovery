@@ -1,7 +1,9 @@
 import {Card, CardContent} from "@material-ui/core"
-import {FieldLabel, RandomThumbnail, ValueDisplay, useHitViewStyles, } from '.'
+import {FieldLabel, Thumbnail, TitleIdHeader, ValueDisplay} from '..'
 import React, {ReactElement} from "react"
+import {buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
 import {IHit} from "@react-discovery/solr"
+import {useHitViewStyles} from '.'
 
 interface IDefaultItemComponent {
   classes: any;
@@ -13,19 +15,33 @@ interface IDefaultItemComponent {
 const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultItemComponent): ReactElement => {
   const classes: any = useHitViewStyles({})
   const {hit, i, searchFields} = props
+  const title = buildHighlightedValueForHit('titel_t', hit)
+
+  const buildFieldValueDisplay = (field): ReactElement => {
+    return (
+      <>
+        <FieldLabel label={field.label}/>
+        <ValueDisplay field={field.field} hit={hit} style={{flex: 'auto'}}/>
+      </>)
+  }
 
   return (
     <Card className={classes.root} key={i}>
-      <RandomThumbnail/>
-      <div className={classes.details}>
-        {searchFields.map((field, key): ReactElement =>
-          <CardContent
-            className={classes.content}
-            key={key}
-          >
-            <FieldLabel label={field.label}/>
-            <ValueDisplay field={field.field} hit={hit} style={{flex: 'auto'}}/>
-          </CardContent>)}
+      <TitleIdHeader
+        id={null}
+        title={title}
+      />
+      <div style={{display: 'flex'}}>
+        <Thumbnail image={buildRandomUBLThumbnail()}/>
+        <div className={classes.details}>
+          {searchFields.map((field, key): ReactElement =>
+            <CardContent
+              className={classes.content}
+              key={key}
+            >{hit._source && hit._source[field.field] ?
+                buildFieldValueDisplay(field) : null}
+            </CardContent>)}
+        </div>
       </div>
     </Card>
   )

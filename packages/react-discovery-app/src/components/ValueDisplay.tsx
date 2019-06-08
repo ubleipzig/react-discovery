@@ -1,8 +1,8 @@
-import {InnerHtmlValue, useHitViewStyles} from '.'
 import React, {ReactElement} from "react"
-import {buildDateFormat, buildHighlightedValueForHit} from '../../utils'
+import {Typography, makeStyles} from "@material-ui/core"
+import {buildDateFormat, buildHighlightedValueForHit} from '../utils'
 import {IHit} from "@react-discovery/solr"
-import {Typography} from "@material-ui/core"
+import {InnerHtmlValue} from '.'
 
 interface IValueDisplay {
   field: string;
@@ -12,10 +12,16 @@ interface IValueDisplay {
   variant?: any | 'inherit';
 }
 
+export const useStyles = makeStyles((): any => ({
+  inline: {
+    display: 'inline',
+  },
+}))
+
 const FieldSeparator = (): ReactElement => <>{'\u00A0\u2223\u00A0'}</>
 
 export const ValueDisplay: React.FC<IValueDisplay> = (props): ReactElement => {
-  const classes: any = useHitViewStyles({})
+  const classes: any = useStyles({})
   const {field, hit, separator, style, variant} = props
   const isDate = field.includes('_dt')
   const value = isDate ? buildDateFormat(field, hit) : buildHighlightedValueForHit(field, hit)

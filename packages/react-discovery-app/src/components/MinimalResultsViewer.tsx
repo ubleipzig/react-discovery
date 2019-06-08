@@ -75,7 +75,6 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
             direction="row"
           >
             <HitStats/>
-            <ViewSwitcherToggle/>
             <SortingSelector/>
           </Grid>
           <Grid

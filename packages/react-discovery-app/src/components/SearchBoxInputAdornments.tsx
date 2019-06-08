@@ -14,7 +14,7 @@ export const EndAdornment = (props): ReactElement => {
   return (
     <InputAdornment position="end">
       <IconButton
-        data-cy='clear-searchbox'
+        data-testid='clear-searchbox'
         href=''
         onClick={props.onClick}
       >

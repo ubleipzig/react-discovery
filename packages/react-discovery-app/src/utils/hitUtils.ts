@@ -21,8 +21,8 @@ export const buildHighlightedValueForHit = (field, hit): string => {
 export const buildDateFormat = (field, hit): string => {
   const {_source, highlighting} = hit
   const source = Object.keys(highlighting).length > 0 ? Object.assign({}, _source, highlighting) : _source
-  const date = new Date(source[field])
-  return `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}`
+  const date = source[field] && new Date(source[field])
+  return date ? `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}` : null
 }
 
 export const buildEntityCountForType = (hit, type): number => {

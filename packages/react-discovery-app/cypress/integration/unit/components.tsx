@@ -13,8 +13,8 @@ const renderWithRedux = (ui, {store = createStore(rootReducer())} = {}): any => 
 }
 
 it('clicks person tab and changes state', (): void => {
-  const {getByText, store} = renderWithRedux(<TabsAppBar />)
-  fireEvent.click(getByText('Person'))
+  const {getByTestId, store} = renderWithRedux(<TabsAppBar />)
+  fireEvent.click(getByTestId('tab-4'))
   expect(store.getState().query.filters.type_s[0]).to.equal('Person')
 })
 

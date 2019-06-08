@@ -21,7 +21,7 @@ export interface IConfig {
   currentLanguage?: string;
   collections: {
     [collection: string]: {
-      docTypes?: string[];
+      docTypes?: IDocType[];
       hitComponents: IHitComponent[];
       initialFilter?: IFilters;
       refinementListFilters: IRefinementListFilters;
@@ -37,6 +37,10 @@ export interface IConfig {
   selectedIndex?: number;
 }
 
+export interface IDocType {
+  key: string;
+  label: string;
+}
 export interface IFetchSolrResponseParams {
   requestURI: string;
   url?: string;

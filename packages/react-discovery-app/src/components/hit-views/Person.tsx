@@ -1,7 +1,8 @@
 import {Card, CardContent} from "@material-ui/core"
-import {FieldLabel, RandomThumbnail, TitleIdHeader, ValueDisplay, useHitViewStyles, } from '.'
+import {FieldLabel, RelatedItems, Thumbnail, TitleIdHeader, ValueDisplay} from '..'
 import React, {ReactElement} from "react"
-import {buildHighlightedValueForHit} from "../../utils"
+import {buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
+import {useHitViewStyles} from '.'
 
 interface IPerson {
   classes: any;
@@ -28,7 +29,7 @@ const Person: React.FC<IPerson> = (props): ReactElement => {
         title={title}
       />
       <div style={{display: 'flex'}}>
-        <RandomThumbnail/>
+        <Thumbnail image={buildRandomUBLThumbnail()}/>
         <div className={classes.details}>
           {displayFields.map((field, key): ReactElement =>
             <CardContent
@@ -44,6 +45,10 @@ const Person: React.FC<IPerson> = (props): ReactElement => {
             </CardContent>)}
         </div>
       </div>
+      <RelatedItems
+        id={hit._source._root_}
+        primaryDocFilter='Kulturobjekt'
+      />
     </Card>
   ) : null
 }

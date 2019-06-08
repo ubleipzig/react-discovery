@@ -53,7 +53,7 @@ export const ExpertSearchBox: React.FC<any> = (): ReactElement => {
     <form
       autoComplete="off"
       className={classes.container}
-      data-cy='expert-searchform'
+      data-testid='expert-searchform'
       noValidate
       onSubmit={handleSubmit}
     >

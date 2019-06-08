@@ -1,9 +1,12 @@
 import {Book, Image} from '@material-ui/icons'
 import {Card, CardActions, CardContent, Typography} from "@material-ui/core"
 import {IHit, ISearchField, getFilterType} from "@react-discovery/solr"
-import {RandomThumbnail, TitleIdHeader, ValueDisplay, useHitViewStyles} from '.'
 import React, {ReactElement} from "react"
-import {buildEntityCountForType, buildHighlightedValueForHit} from "../../utils"
+import {Thumbnail, TitleIdHeader, ValueDisplay} from '..'
+import {buildEntityCountForType, buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
+import {ViewSwitcherToggle} from "../ViewSwitcherToggle"
+import {useHitViewStyles} from '.'
+import {useTranslation} from "react-i18next"
 
 interface IDefaultItemComponent {
   classes: any;
@@ -22,6 +25,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const filteredFields = ['material', 'format', 'originPlace', 'originDate']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const filterType = getFilterType()
+  const {t} = useTranslation('vocab')
 
   const buildValueDisplay = (field: string, hit: IHit, key: number): ReactElement => {
     return (
@@ -38,12 +42,13 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
 
   return hit && filterType === 'Kulturobjekt' ? (
     <Card className={classes.root} key={i}>
+      <ViewSwitcherToggle/>
       <TitleIdHeader
         id={hit._source.id}
         title={title}
       />
       <div style={{display: 'flex'}}>
-        <RandomThumbnail/>
+        <Thumbnail image={buildRandomUBLThumbnail()}/>
         <div className={classes.details}>
           <CardContent
             className={classes.content}
@@ -65,7 +70,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
               className={classes.heading}
               variant='body2'
             >
-              {DIGITALISAT} <i>({buildEntityCountForType(hit, DIGITALISAT)})</i>
+              {t(DIGITALISAT)} <i>({buildEntityCountForType(hit, DIGITALISAT)})</i>
             </Typography>
           </CardActions>
           <CardActions disableSpacing>
@@ -74,7 +79,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
               className={classes.heading}
               variant='body2'
             >
-              {BESCHREIBUNG} <i>({buildEntityCountForType(hit, BESCHREIBUNG)})</i>
+              {t(BESCHREIBUNG)} <i>({buildEntityCountForType(hit, BESCHREIBUNG)})</i>
             </Typography>
           </CardActions>
         </div>

@@ -42,5 +42,5 @@ https://react-discovery.netlify.com/
 
 ### Testing
 ```bash
- $ lerna run test
+ $ lerna run test --stream
 ```
