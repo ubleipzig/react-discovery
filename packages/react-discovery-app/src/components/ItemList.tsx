@@ -70,11 +70,12 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
   }
 
   const actions = (aggregation): ReactElement => {
-    return aggregation.buckets.map((bucket): any => {
+    return aggregation.buckets.map((bucket, i): any => {
       return (
         <ListItem
           button={true}
           component='div'
+          data-testid={`item-${i}`}
           dense
           key={bucket.key}
           onClick={(): void => handleChange(bucket.key)}
@@ -113,6 +114,7 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
     >
       <ExpansionPanelSummary
         aria-controls="panel1bh-content"
+        data-testid={`item-list-expansion-panel`}
         expandIcon={<ExpandMore />}
         id="panel1bh-header"
       >

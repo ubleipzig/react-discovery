@@ -175,6 +175,7 @@ export const Suggester: React.FC<any> = (): ReactElement => {
                       root: classes.chip
                     }}
                     component='div'
+                    data-testid='suggestion'
                     key={item}
                     label={item}
                     onDelete={handleDelete(item)}

@@ -1,17 +1,15 @@
 import {Card, CardContent} from "@material-ui/core"
 import {FieldLabel, RelatedItems, Thumbnail, TitleIdHeader, ValueDisplay} from '..'
+import {IHit, ISearchField} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
 import {buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
 import {useHitViewStyles} from '.'
 
 interface IPerson {
   classes: any;
-  hit: {
-    _source: any;
-    highlighting: any;
-  };
+  hit: IHit;
   i: number;
-  searchFields: any;
+  searchFields: ISearchField[];
 }
 
 const Person: React.FC<IPerson> = (props): ReactElement => {

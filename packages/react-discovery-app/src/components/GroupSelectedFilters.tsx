@@ -32,6 +32,7 @@ export const GroupSelectedFilters: React.FC<any> = (): ReactElement => {
             className={classes.chip}
             color="primary"
             component='div'
+            data-testid='selected-filter'
             key={key}
             label={val}
             onDelete={(): void => onClose(field, val)}

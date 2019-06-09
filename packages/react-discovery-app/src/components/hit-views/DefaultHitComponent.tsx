@@ -1,15 +1,15 @@
 import {Card, CardContent} from "@material-ui/core"
 import {FieldLabel, Thumbnail, TitleIdHeader, ValueDisplay} from '..'
+import {IHit, ISearchField} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
 import {buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
-import {IHit} from "@react-discovery/solr"
 import {useHitViewStyles} from '.'
 
 interface IDefaultItemComponent {
   classes: any;
   hit: IHit;
   i: number;
-  searchFields: any;
+  searchFields: ISearchField[];
 }
 
 const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultItemComponent): ReactElement => {

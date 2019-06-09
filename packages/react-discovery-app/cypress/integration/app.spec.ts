@@ -65,4 +65,41 @@ describe('React Discovery Base', (): void => {
       cy.get('input').should('have.attr', 'checked')
     })
   })
+  it('clears selected filter', (): void => {
+    cy.get('[data-testid=selected-filter]').within((): void => {
+      cy.get('svg').click()
+    })
+    cy.get('[data-testid=selected-filter]').should('not.exist')
+  })
+  it('expands item list and selects item filter', (): void => {
+    cy.get('[data-testid=item-list-expansion-panel]').first().within((): void => {
+      cy.get('[role="button"]').click()
+    })
+    cy.get('[data-testid=item-list-expansion-panel]').first().should(($div): void => {
+      expect($div).to.have.length(1)
+      const className = $div[0].className
+      expect(className).to.match(/Mui-expanded/)
+    })
+    cy.get('[data-testid=item-0]').first().click()
+    cy.get('[data-testid=selected-filter]').should(($div): void => {
+      expect($div).to.have.length(2)
+    })
+    cy.get('[data-testid=item-1]').first().click({ force: true })
+    cy.get('[data-testid=selected-filter]').should(($div): void => {
+      expect($div).to.have.length(3)
+    })
+  })
+  it('enters text in suggester, selects suggestion and clears it', (): void => {
+    cy.get('input#downshift-simple-input').type('Erat')
+    cy.get('input#downshift-simple-input').should('have.value', 'Erat')
+    cy.get('div#downshift-simple-item-0').click()
+    cy.get('[data-testid=suggestion]').should('exist')
+    cy.get('[data-testid=suggestion]').within((): void => {
+      cy.get('svg').click()
+    })
+    cy.get('[data-testid=suggestion]').should('not.exist')
+  })
+  it('resets query state', (): void => {
+    cy.get('[data-testid=reset]').click()
+  })
 })

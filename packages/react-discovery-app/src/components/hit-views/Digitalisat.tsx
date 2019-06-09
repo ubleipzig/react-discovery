@@ -1,4 +1,5 @@
 import {Card, CardContent} from "@material-ui/core"
+import {IHit, ISearchField} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
 import {RelatedItems, Thumbnail, TitleIdHeader, ValueDisplay} from '..'
 import {buildRandomUBLThumbnail} from "../../utils"
@@ -6,12 +7,9 @@ import {useHitViewStyles, } from '.'
 
 interface IDigitalisat {
   classes: any;
-  hit: {
-    _source: any;
-    highlighting: any;
-  };
+  hit: IHit;
   i: number;
-  searchFields: any;
+  searchFields: ISearchField[];
 }
 
 const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {

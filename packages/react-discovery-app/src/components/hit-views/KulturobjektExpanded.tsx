@@ -10,10 +10,10 @@ import {
   Typography,
 } from "@material-ui/core"
 import {FieldLabel, InnerHtmlValue, Thumbnail, TitleIdHeader, ValueDisplay, ViewSwitcherToggle} from '..'
+import {IHit, ISearchField} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
 import {buildEntityCountForType, buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
 import {ExpandMore} from '@material-ui/icons'
-import {IHit} from "@react-discovery/solr"
 import {useHitViewStyles} from '.'
 import {useTranslation} from "react-i18next"
 
@@ -21,7 +21,7 @@ interface IDefaultItemComponent {
   classes: any;
   hit: IHit;
   i: number;
-  searchFields: any;
+  searchFields: ISearchField[];
 }
 
 const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {

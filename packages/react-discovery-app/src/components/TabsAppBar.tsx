@@ -44,7 +44,7 @@ export const TabsAppBar: React.FC<any> = (): ReactElement => {
       const index = typeFilter ? docTypesKeys.indexOf(typeFilter) : 0
       setValue(index)
     }
-  }, [docTypesKeys, filters, setValue, value])
+  }, [docTypesKeys, filters, prevFilters, setValue, value])
 
   const handleChange = ({}: React.ChangeEvent<{}>, newValue: number): void => {
     const typeObject = docTypes[newValue]

@@ -1,7 +1,7 @@
 import {Card, CardContent} from "@material-ui/core"
 import {FieldLabel, Thumbnail, ValueDisplay} from '..'
+import {IHit, ISearchField} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
-import {IHit} from "@react-discovery/solr"
 import {buildRandomUBLThumbnail} from "../../utils"
 import {useHitViewStyles} from '.'
 
@@ -9,7 +9,7 @@ interface IExpandedHitComponent {
   classes: any;
   hit: IHit;
   i: number;
-  searchFields: any;
+  searchFields: ISearchField[];
 }
 
 const HitComponentExpanded: React.FC<IExpandedHitComponent> = (props): ReactElement => {

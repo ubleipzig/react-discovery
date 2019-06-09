@@ -24,6 +24,7 @@ export const ResetButton: React.FC<any> = (): ReactElement => {
     <IconButton
       className={classes.menuButton}
       color="inherit"
+      data-testid='reset'
       href=''
       onClick={handleChange}
     >

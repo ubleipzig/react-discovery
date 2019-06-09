@@ -14,7 +14,6 @@ export const SolrResponseProvider: React.FC<ISolrResponseProvider> = (props): Re
   const dispatch = useDispatch()
   const {filters, sortFields, start, stringInput, suggest} = query
   const prevStart = usePrevious(start)
-  const prevSuggest = usePrevious(suggest)
   const prevStringInput = usePrevious(stringInput)
   const prevFilters = usePrevious(filters)
   const prevSortFields = usePrevious(sortFields)
@@ -42,7 +41,7 @@ export const SolrResponseProvider: React.FC<ISolrResponseProvider> = (props): Re
         fetchResponse(responseRequestURI)
       }
     }
-    if (suggest && prevSuggest !== suggest) {
+    if (suggest && prevStringInput !== stringInput) {
       const suggestionsRequestURI = suggestQueryBuilder({...query})
       fetchSuggestions(suggestionsRequestURI)
     }
