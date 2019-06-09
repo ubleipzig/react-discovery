@@ -1,4 +1,4 @@
-import {IAggregations, IHit, IHits, IResponse} from "../.."
+import {IAggregations, IGrouped, IHit, IHits, IResponse} from "../.."
 import {fetchSolrResponse} from '../actions'
 import {reducerWithInitialState} from 'typescript-fsa-reducers'
 
@@ -24,17 +24,35 @@ const buildAggregations = (fields): IAggregations => {
 }
 
 const buildDocs = (result): IHit[] => {
-  return result.response && result.response.docs && result.response.docs.map((doc): IHit => {
+  return result.response.docs.map((doc): IHit => {
     return {
       _source: doc,
       highlighting: result.highlighting && result.highlighting[doc.id]
     }
   })
 }
+
+const buildGroups = (grouped: IGrouped): IHit[] => {
+  const [groups] = Object.values(grouped)
+  const docs = groups.groups.map((dl): any => dl.doclist.docs)
+  return docs && docs.map((doc): any => {
+    const [_source] = doc
+    return {
+      _source,
+      highlighting: {}
+    }
+  })
+}
+
+const buildGroupedMatches = (grouped: IGrouped): number => {
+  const [groups] = Object.values(grouped)
+  return groups.matches
+}
+
 const buildHits = (result): IHits => {
   return {
-    hits: buildDocs(result),
-    numFound: result.response ? result.response.numFound : null,
+    hits: result.grouped ? buildGroups(result.grouped) : result.response && result.response.docs ? buildDocs(result) : [],
+    numFound: result.grouped ? buildGroupedMatches(result.grouped) : result.response ? result.response.numFound : null,
   }
 }
 
@@ -46,8 +64,7 @@ export const response = reducerWithInitialState(initialState)
   .case(fetchSolrResponse.done, (state: IResponse, {params, result}): IResponse => ({
     ...state,
     aggregations: result.facet_counts ? buildAggregations(result.facet_counts.facet_fields) : state.aggregations,
-    grouped: result.grouped || {},
-    hits: result.response ? buildHits(result) : state.hits,
+    hits: buildHits(result),
     updating: false,
     url: params.url,
   }))

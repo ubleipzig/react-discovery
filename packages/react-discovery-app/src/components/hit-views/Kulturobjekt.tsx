@@ -22,7 +22,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
   const {hit, i, searchFields} = props
   const title = buildHighlightedValueForHit('titel_t', hit)
-  const filteredFields = ['material', 'format', 'originPlace', 'originDate']
+  const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const filterType = getFilterType()
   const {t} = useTranslation('vocab')

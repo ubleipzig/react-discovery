@@ -8,7 +8,7 @@ const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "test02
 export const rootConfig: IConfig = {
   collections: null,
   currentCollection,
-  currentLanguage: 'de',
+  currentLanguage: 'en',
   isViewExpanded: false,
   languages: [
     {

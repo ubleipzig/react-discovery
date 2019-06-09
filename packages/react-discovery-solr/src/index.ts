@@ -38,9 +38,17 @@ export interface IConfig {
 }
 
 export interface IDocType {
+  groupField?: string;
   key: string;
   label: string;
 }
+
+export interface IDocList {
+  numFound: number;
+  start: number;
+  docs: any[];
+}
+
 export interface IFetchSolrResponseParams {
   requestURI: string;
   url?: string;
@@ -49,6 +57,18 @@ export interface IFetchSolrResponseParams {
 export interface IFilters {
   [field: string]: string[];
 }
+
+export interface IGroup {
+  doclist: IDocList;
+  groupValue: string;
+}
+
+export interface IGroups {
+  matches: number;
+  groups: IGroup[];
+}
+
+export type IGrouped = Record<string, IGroups>
 
 export interface IHits {
   hits: IHit[];
@@ -104,7 +124,6 @@ export interface IRefinementListFilters {
 export interface IResponse {
   aggregations: IAggregations;
   error?: {};
-  grouped?: any;
   hits: IHits;
   updating?: boolean;
   url: string;

@@ -39,6 +39,7 @@ export const ViewSwitcherToggle: React.FC<any> = (): ReactElement => {
           <Switch
             checked={isViewExpanded}
             color="primary"
+            data-testid='view-switcher-toggle'
             onChange={(): void => handleChange(!isViewExpanded)}
             value="checkedB"
           />

@@ -21,6 +21,7 @@ export const test02: IConfig = {
           label: 'digitalisations'
         },
         {
+          groupField: 'personFullname_t',
           key: 'Person',
           label: 'persons'
         },
@@ -74,7 +75,7 @@ export const test02: IConfig = {
           title: "Person"
         },
       ],
-      initialFilter: {'type_s': []},
+      initialFilter: {'type_s': ['Kulturobjekt']},
       refinementListFilters: {
         1: {
           field: "entstehungsort_s",
@@ -87,7 +88,11 @@ export const test02: IConfig = {
         3: {
           field: "schreibsprache_t",
           label: "language",
-        }
+        },
+        4: {
+          field: "vorbesitzer_s",
+          label: "previousOwner",
+        },
       },
       searchFields: [
         {
@@ -126,6 +131,11 @@ export const test02: IConfig = {
         {
           field: "subtitel_t",
           label: "Subtitel",
+          type: "text"
+        },
+        {
+          field: "autor_t",
+          label: "author",
           type: "text"
         },
         {
@@ -174,7 +184,7 @@ export const test02: IConfig = {
           type: "list-facet"
         },
         {
-          field: "vorbesitzer_t",
+          field: "vorbesitzer_s",
           label: "previousOwner",
           type: "list-facet"
         },

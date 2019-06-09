@@ -46,8 +46,8 @@ const Person: React.FC<IPerson> = (props): ReactElement => {
         </div>
       </div>
       <RelatedItems
-        id={hit._source._root_}
-        primaryDocFilter='Kulturobjekt'
+        id={hit._source.personFullname_t}
+        primaryDocFilter={'Kulturobjekt'}
       />
     </Card>
   ) : null

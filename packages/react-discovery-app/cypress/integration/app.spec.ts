@@ -6,6 +6,8 @@ describe('React Discovery Base', (): void => {
   it('clicks tabs', (): void => {
     cy.get('[data-testid=tab-1]').click()
     cy.get('[data-testid=tab-0]').should('have.attr', 'aria-selected', 'false')
+    cy.get('[data-testid=tab-0]').click({ force: true })
+    cy.get('[data-testid=tab-1]').should('have.attr', 'aria-selected', 'false')
   })
   it('changes page index', (): void => {
     cy.get('[data-testid=page-index-3]').click({ multiple: true })
@@ -44,6 +46,23 @@ describe('React Discovery Base', (): void => {
   it('gets relations', (): void => {
     cy.get('[data-testid=tab-3]').click()
     cy.get('[data-testid=relations]').first().click({ force: true })
-    cy.get('[data-testid=hit-stats]').should('contain', "1 treffer gefunden")
+    cy.get('[data-testid=tab-1]').should('have.attr', 'aria-selected', 'true')
+  })
+  it('orders items', (): void => {
+    cy.get('[data-testid=sorting-order-desc]').click()
+    cy.get('[data-testid=sorting-order-asc]').should('exist')
+    cy.get('[data-testid=sorting-order-asc]').click()
+    cy.get('[data-testid=sorting-order-desc]').should('exist')
+  })
+  it('sorts items', (): void => {
+    cy.get('select#sort-native-simple')
+      .select('Status').should('have.value', 'status_t')
+  })
+  it('expands view', (): void => {
+    cy.get('[data-testid=tab-1]').click()
+    cy.get('[data-testid=view-switcher-toggle]').first().click()
+    cy.get('[data-testid=view-switcher-toggle]').first().within((): void => {
+      cy.get('input').should('have.attr', 'checked')
+    })
   })
 })

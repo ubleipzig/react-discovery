@@ -1,6 +1,6 @@
 import {
   IAggregation, IDocType,
-  IFilters,
+  IFilters, IHit,
   IHitComponent,
   IHits,
   ILanguage,
@@ -36,6 +36,10 @@ export const getFiltersForField = (field): string[] => {
 
 export const getFilterType = (): string => {
   return useSelector((state: IState): string => state.query.filters && state.query.filters.type_s && state.query.filters.type_s[0])
+}
+
+export const getGroupField = (): string => {
+  return useSelector((state: IState): string => state.query.groupField)
 }
 
 export const getIsHighlighted = (): boolean => {
@@ -121,6 +125,7 @@ export const getUrl = (): string => {
 
 export const getInitialQuery = (): IQuery => {
   const filters = getFilters()
+  const groupField = getGroupField()
   const isHighlighted = getIsHighlighted()
   const searchFields = getSearchFields()
   const size = getSize()
@@ -131,5 +136,5 @@ export const getInitialQuery = (): IQuery => {
   const suggestDictionary = getSuggestDictionary()
   const typeDef = getTypeDef()
   const url = getUrl()
-  return {filters, isHighlighted, searchFields, size, sortFields, start, stringInput, suggest, suggestDictionary, typeDef, url}
+  return {filters, groupField, isHighlighted, searchFields, size, sortFields, start, stringInput, suggest, suggestDictionary, typeDef, url}
 }

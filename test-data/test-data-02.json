@@ -4,6 +4,7 @@
     "id" : "4cf16091-9d73-4b29-af11-44520d64323b",
     "titel_t" : "Lorem. Fusce ut pellentesque nunc.",
     "subtitel_t" : "Dictum justo. Cras commodo velit sagittis.",
+    "autor_t": "Dibiase, Antonia",
     "stoff_t" : "abbreviate",
     "blattzahl_i" : 35,
     "format_t" : "LIeD8nbYJre5sPw",
@@ -13,7 +14,7 @@
     "status_t" : "orthocentres",
     "schrift_t" : "spectrometer",
     "schreibsprache_t" : "exoderm",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "88ffc0d3-4b38-46b5-a2d7-28887b8ad3df",
@@ -48,6 +49,7 @@
     "id" : "3717420e-4bfc-434c-87a4-2e3a3c43a4e0",
     "titel_t" : "Venenatis metus nec, hendrerit vestibulum.",
     "subtitel_t" : "Lacinia odio fringilla eu. Vivamus.",
+    "autor_t": "Dibiase, Antonia",
     "stoff_t" : "divorced",
     "blattzahl_i" : 61,
     "format_t" : "qD72dyi9xB2ApmF",
@@ -57,7 +59,7 @@
     "status_t" : "taunts",
     "schrift_t" : "ballplayers",
     "schreibsprache_t" : "holohedrism",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "9ac400b6-5668-4da0-b4ee-20f5c1377be8",
@@ -91,6 +93,21 @@
         "id" : "32e3c03a-a2e2-44a5-9a57-f6a6a193a4b9",
         "type_s" : "Beschreibung",
         "beschreibungText_t" : "To move at all remained from his father, just to move forward a little."
+      },
+      {
+        "id" : "82271fca-c784-41a8-a257-ca50cc5461ae",
+        "type_s" : "Person",
+        "personFullname_t" : "Dibiase, Antonia",
+        "personBirthDate_dt" : "0568-06-15T00:07:33Z",
+        "personDeathDate_dt" : "0584-11-23T00:07:33Z",
+        "personBirthPlace_t" : "Zagreb",
+        "personDeathPlace_t" : "Bratislava",
+        "personWorkingPlace_t" : "Madrid",
+        "personOccupation_t" : "proprietress",
+        "personGender_s" : "Female",
+        "personAlternateNames_ss" : [
+          "Bleimehl, Matt"
+        ]
       },
       {
         "id" : "d89c126c-8ef1-4713-ba1f-7de9f6715085",
@@ -150,6 +167,7 @@
     "id" : "0c19ceaf-c884-4581-b4e2-668cfab8e88f",
     "titel_t" : "Ultricies nunc. Sed lectus sapien.",
     "subtitel_t" : "Eu luctus nisl. Etiam odio felis,.",
+    "autor_t": "Marcom, Porter",
     "stoff_t" : "structured",
     "blattzahl_i" : 1,
     "format_t" : "kF0jCC0GtReTxdm",
@@ -159,7 +177,7 @@
     "status_t" : "ommatophore",
     "schrift_t" : "honkers",
     "schreibsprache_t" : "geotropism",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "abb87d0c-9a61-4865-97df-6e13b9995ea3",
@@ -261,7 +279,7 @@
     "status_t" : "hairgrip",
     "schrift_t" : "pipeworts",
     "schreibsprache_t" : "dulocracies",
-    "vorbesitzer_t" : "Kloster Customers",
+    "vorbesitzer_s" : "Kloster Customers",
     "entities" : [
       {
         "id" : "dda541e0-1df4-4c8a-9aee-c082c46628f3",
@@ -305,7 +323,7 @@
     "status_t" : "mince",
     "schrift_t" : "palatals",
     "schreibsprache_t" : "rosaries",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "e68d1e76-7d7f-41d0-92a7-463215e956c5",
@@ -332,6 +350,21 @@
         "personAlternateNames_ss" : [
           "Kiko, Kendall"
         ]
+      },
+      {
+        "id" : "180c5ad0-a79e-40c9-a0a2-fd86e12b078f",
+        "type_s" : "Person",
+        "personFullname_t" : "Ty, Merrill",
+        "personBirthDate_dt" : "0894-04-11T00:07:33Z",
+        "personDeathDate_dt" : "0959-10-13T00:07:33Z",
+        "personBirthPlace_t" : "Athens",
+        "personDeathPlace_t" : "Andorra la Vella",
+        "personWorkingPlace_t" : "Bern",
+        "personOccupation_t" : "doper",
+        "personGender_s" : "Female",
+        "personAlternateNames_ss" : [
+          "Basch, Chung"
+        ]
       }
     ]
   },
@@ -349,7 +382,7 @@
     "status_t" : "fortepianos",
     "schrift_t" : "glazing",
     "schreibsprache_t" : "vexation",
-    "vorbesitzer_t" : "Kloster Operational",
+    "vorbesitzer_s" : "Kloster Operational",
     "entities" : [
       {
         "id" : "69c534fe-ba3d-4b1e-9b80-6825a6d10b04",
@@ -393,7 +426,7 @@
     "status_t" : "quintuplicate",
     "schrift_t" : "calculators",
     "schreibsprache_t" : "sniveller",
-    "vorbesitzer_t" : "Kloster Staffing",
+    "vorbesitzer_s" : "Kloster Staffing",
     "entities" : [
       {
         "id" : "c601c354-f2f7-4ce0-90b8-f86e2fac0fbd",
@@ -495,7 +528,7 @@
     "status_t" : "conventicles",
     "schrift_t" : "quester",
     "schreibsprache_t" : "droves",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "f57c8ae2-94dd-44df-acb6-d41b74f1cc51",
@@ -567,7 +600,7 @@
     "status_t" : "foils",
     "schrift_t" : "knaves",
     "schreibsprache_t" : "swound",
-    "vorbesitzer_t" : "Kloster Marketing",
+    "vorbesitzer_s" : "Kloster Marketing",
     "entities" : [
       {
         "id" : "bd5d6269-a317-45e1-a2d5-61d30f73f943",
@@ -669,7 +702,7 @@
     "status_t" : "ploughboys",
     "schrift_t" : "scrawl",
     "schreibsprache_t" : "pomologists",
-    "vorbesitzer_t" : "Kloster Insurance",
+    "vorbesitzer_s" : "Kloster Insurance",
     "entities" : [
       {
         "id" : "8e68c37b-8356-4c86-adc8-3a0eeef3baeb",
@@ -713,7 +746,7 @@
     "status_t" : "hildings",
     "schrift_t" : "bombardment",
     "schreibsprache_t" : "zax",
-    "vorbesitzer_t" : "Kloster Customer Service",
+    "vorbesitzer_s" : "Kloster Customer Service",
     "entities" : [
       {
         "id" : "5414c9f6-4b96-4550-9627-38084bf54f7b",
@@ -757,7 +790,7 @@
     "status_t" : "flophouses",
     "schrift_t" : "curassow",
     "schreibsprache_t" : "roams",
-    "vorbesitzer_t" : "Kloster Insurance",
+    "vorbesitzer_s" : "Kloster Insurance",
     "entities" : [
       {
         "id" : "e94f7965-3cc1-4eb1-bcfe-8aaf53efef91",
@@ -801,7 +834,7 @@
     "status_t" : "disarrays",
     "schrift_t" : "repugnances",
     "schreibsprache_t" : "odes",
-    "vorbesitzer_t" : "Kloster Inventory",
+    "vorbesitzer_s" : "Kloster Inventory",
     "entities" : [
       {
         "id" : "6936b86f-3bb2-4b55-8d72-2c9578991c75",
@@ -845,7 +878,7 @@
     "status_t" : "morula",
     "schrift_t" : "cartelist",
     "schreibsprache_t" : "strunts",
-    "vorbesitzer_t" : "Kloster Marketing",
+    "vorbesitzer_s" : "Kloster Marketing",
     "entities" : [
       {
         "id" : "e551cfc3-5dd4-4957-a0f2-0e44809f963d",
@@ -947,7 +980,7 @@
     "status_t" : "suppertimes",
     "schrift_t" : "mink",
     "schreibsprache_t" : "galloper",
-    "vorbesitzer_t" : "Kloster Organizational",
+    "vorbesitzer_s" : "Kloster Organizational",
     "entities" : [
       {
         "id" : "217b66c9-1a77-43f1-b04c-67917bb05791",
@@ -991,7 +1024,7 @@
     "status_t" : "bulkheads",
     "schrift_t" : "mongrelism",
     "schreibsprache_t" : "varecs",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "e004136c-d5cd-4959-8804-caa213220a8c",
@@ -1063,7 +1096,7 @@
     "status_t" : "raptor",
     "schrift_t" : "tarantella",
     "schreibsprache_t" : "slink",
-    "vorbesitzer_t" : "Kloster Staffing",
+    "vorbesitzer_s" : "Kloster Staffing",
     "entities" : [
       {
         "id" : "c457bc47-4c53-480a-8529-08d8a352e9d4",
@@ -1165,7 +1198,7 @@
     "status_t" : "directorships",
     "schrift_t" : "oblivion",
     "schreibsprache_t" : "adnoun",
-    "vorbesitzer_t" : "Kloster Human Resources",
+    "vorbesitzer_s" : "Kloster Human Resources",
     "entities" : [
       {
         "id" : "672af292-4c4d-4486-89a2-e1f619bfae6a",
@@ -1267,7 +1300,7 @@
     "status_t" : "presidium",
     "schrift_t" : "watercresses",
     "schreibsprache_t" : "merk",
-    "vorbesitzer_t" : "Kloster Purchasing",
+    "vorbesitzer_s" : "Kloster Purchasing",
     "entities" : [
       {
         "id" : "657aeaa7-f0dd-429d-a905-c02fa916cbbd",
@@ -1311,7 +1344,7 @@
     "status_t" : "bumf",
     "schrift_t" : "seismoscope",
     "schreibsprache_t" : "puce",
-    "vorbesitzer_t" : "Kloster IT",
+    "vorbesitzer_s" : "Kloster IT",
     "entities" : [
       {
         "id" : "e1bff1d9-aa7d-42a4-b5fb-f38b20c4b51f",
@@ -1383,7 +1416,7 @@
     "status_t" : "trochleas",
     "schrift_t" : "hemstitcher",
     "schreibsprache_t" : "evildoers",
-    "vorbesitzer_t" : "Kloster IT",
+    "vorbesitzer_s" : "Kloster IT",
     "entities" : [
       {
         "id" : "0618f963-76de-450a-9140-ad5980b5b54e",
@@ -1427,7 +1460,7 @@
     "status_t" : "spinnery",
     "schrift_t" : "informer",
     "schreibsprache_t" : "banderoles",
-    "vorbesitzer_t" : "Kloster Staffing",
+    "vorbesitzer_s" : "Kloster Staffing",
     "entities" : [
       {
         "id" : "b68326ce-1315-43f4-954b-d03c913fd14a",
@@ -1529,7 +1562,7 @@
     "status_t" : "adjournment",
     "schrift_t" : "leek",
     "schreibsprache_t" : "bouffant",
-    "vorbesitzer_t" : "Kloster Licenses",
+    "vorbesitzer_s" : "Kloster Licenses",
     "entities" : [
       {
         "id" : "c97d1758-0353-4467-83ef-f769f318e4c0",
@@ -1601,7 +1634,7 @@
     "status_t" : "xenolith",
     "schrift_t" : "gatherer",
     "schreibsprache_t" : "flowages",
-    "vorbesitzer_t" : "Kloster Operational",
+    "vorbesitzer_s" : "Kloster Operational",
     "entities" : [
       {
         "id" : "efc23d81-fb55-4e21-8613-1004d8d3f1df",
@@ -1673,7 +1706,7 @@
     "status_t" : "swoops",
     "schrift_t" : "splutterers",
     "schreibsprache_t" : "mils",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "0102b6b9-e60c-4ab8-bc14-ab3228ec952b",
@@ -1717,7 +1750,7 @@
     "status_t" : "chalkboards",
     "schrift_t" : "precentors",
     "schreibsprache_t" : "skeins",
-    "vorbesitzer_t" : "Kloster Human Resources",
+    "vorbesitzer_s" : "Kloster Human Resources",
     "entities" : [
       {
         "id" : "2bc6d24e-3659-4a26-8d12-bc5d0a0a30f6",
@@ -1789,7 +1822,7 @@
     "status_t" : "knapweeds",
     "schrift_t" : "avalanches",
     "schreibsprache_t" : "firstlings",
-    "vorbesitzer_t" : "Kloster Purchasing",
+    "vorbesitzer_s" : "Kloster Purchasing",
     "entities" : [
       {
         "id" : "1b043b8b-de5e-4dd3-bb9c-960db76d5e2e",
@@ -1861,7 +1894,7 @@
     "status_t" : "draws",
     "schrift_t" : "binocles",
     "schreibsprache_t" : "zarfs",
-    "vorbesitzer_t" : "Kloster Operational",
+    "vorbesitzer_s" : "Kloster Operational",
     "entities" : [
       {
         "id" : "27f1acea-91c7-4417-bfc4-24ead3686c5e",
@@ -1905,7 +1938,7 @@
     "status_t" : "condonations",
     "schrift_t" : "bonspiel",
     "schreibsprache_t" : "contrabassoon",
-    "vorbesitzer_t" : "Kloster Organizational",
+    "vorbesitzer_s" : "Kloster Organizational",
     "entities" : [
       {
         "id" : "9151b941-4872-4154-8023-db7f1fd91c4a",
@@ -2007,7 +2040,7 @@
     "status_t" : "verglas",
     "schrift_t" : "peapods",
     "schreibsprache_t" : "rodomontade",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "354bfec8-a2f0-4c01-a773-76b55854e07a",
@@ -2051,7 +2084,7 @@
     "status_t" : "charks",
     "schrift_t" : "judicature",
     "schreibsprache_t" : "mulcts",
-    "vorbesitzer_t" : "Kloster Organizational",
+    "vorbesitzer_s" : "Kloster Organizational",
     "entities" : [
       {
         "id" : "c5fcbfbb-5f88-42df-83cf-193d571c1908",
@@ -2123,7 +2156,7 @@
     "status_t" : "trisyllable",
     "schrift_t" : "apparitor",
     "schreibsprache_t" : "incipit",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "9dbaa730-86fa-4521-bf6e-449dbc97fb0e",
@@ -2195,7 +2228,7 @@
     "status_t" : "allotropism",
     "schrift_t" : "sprattles",
     "schreibsprache_t" : "simp",
-    "vorbesitzer_t" : "Kloster Customer Service",
+    "vorbesitzer_s" : "Kloster Customer Service",
     "entities" : [
       {
         "id" : "bdd86b98-4164-4e69-bfd5-ba0bfd7685b6",
@@ -2267,7 +2300,7 @@
     "status_t" : "mortifier",
     "schrift_t" : "alexia",
     "schreibsprache_t" : "waw",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "c8b18aed-0934-4538-8e0c-d449cf7ab095",
@@ -2339,7 +2372,7 @@
     "status_t" : "sunbathing",
     "schrift_t" : "zoometry",
     "schreibsprache_t" : "defrayers",
-    "vorbesitzer_t" : "Kloster Inventory",
+    "vorbesitzer_s" : "Kloster Inventory",
     "entities" : [
       {
         "id" : "f3ae0110-48b9-4328-b0af-fe6a02188da3",
@@ -2411,7 +2444,7 @@
     "status_t" : "phraseograms",
     "schrift_t" : "imbrication",
     "schreibsprache_t" : "judders",
-    "vorbesitzer_t" : "Kloster Marketing",
+    "vorbesitzer_s" : "Kloster Marketing",
     "entities" : [
       {
         "id" : "50c1d3ec-59ca-42a3-956c-f894194de25b",
@@ -2455,7 +2488,7 @@
     "status_t" : "mastectomies",
     "schrift_t" : "coolth",
     "schreibsprache_t" : "mamzer",
-    "vorbesitzer_t" : "Kloster Purchasing",
+    "vorbesitzer_s" : "Kloster Purchasing",
     "entities" : [
       {
         "id" : "3b78b4dc-5b16-4f7c-9970-d44391696edf",
@@ -2527,7 +2560,7 @@
     "status_t" : "infiltrators",
     "schrift_t" : "poesies",
     "schreibsprache_t" : "reinsertions",
-    "vorbesitzer_t" : "Kloster IT",
+    "vorbesitzer_s" : "Kloster IT",
     "entities" : [
       {
         "id" : "2eedacd1-22fb-4a01-8c89-71900a8e042c",
@@ -2571,7 +2604,7 @@
     "status_t" : "precentors",
     "schrift_t" : "banneret",
     "schreibsprache_t" : "weir",
-    "vorbesitzer_t" : "Kloster Marketing",
+    "vorbesitzer_s" : "Kloster Marketing",
     "entities" : [
       {
         "id" : "fa29d8d2-a911-47b8-a166-9263001f50bf",
@@ -2643,7 +2676,7 @@
     "status_t" : "clog",
     "schrift_t" : "guiles",
     "schreibsprache_t" : "tachymeters",
-    "vorbesitzer_t" : "Kloster IT",
+    "vorbesitzer_s" : "Kloster IT",
     "entities" : [
       {
         "id" : "ada8157f-25f3-44e8-b62d-51aebc34cb81",
@@ -2715,7 +2748,7 @@
     "status_t" : "schul",
     "schrift_t" : "pixes",
     "schreibsprache_t" : "embezzler",
-    "vorbesitzer_t" : "Kloster Operational",
+    "vorbesitzer_s" : "Kloster Operational",
     "entities" : [
       {
         "id" : "7b81b1a4-b2b3-4a05-9613-54b6c009ce56",
@@ -2759,7 +2792,7 @@
     "status_t" : "pack",
     "schrift_t" : "baste",
     "schreibsprache_t" : "continuos",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "f2ffd9de-7faa-4dd8-8655-45ace04a5515",
@@ -2803,7 +2836,7 @@
     "status_t" : "tress",
     "schrift_t" : "indults",
     "schreibsprache_t" : "constructionists",
-    "vorbesitzer_t" : "Kloster Customers",
+    "vorbesitzer_s" : "Kloster Customers",
     "entities" : [
       {
         "id" : "fd419fef-530e-4702-97f6-ce59e894ed9b",
@@ -2875,7 +2908,7 @@
     "status_t" : "expediters",
     "schrift_t" : "sines",
     "schreibsprache_t" : "neuroblasts",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "5de4f7bf-052f-462e-84a2-cf5066431b62",
@@ -2919,7 +2952,7 @@
     "status_t" : "angary",
     "schrift_t" : "sandarac",
     "schreibsprache_t" : "expellers",
-    "vorbesitzer_t" : "Kloster Human Resources",
+    "vorbesitzer_s" : "Kloster Human Resources",
     "entities" : [
       {
         "id" : "f147aaf5-9ec0-4df6-a9ce-cdc9a5acc8d8",
@@ -2991,7 +3024,7 @@
     "status_t" : "defalcations",
     "schrift_t" : "submariners",
     "schreibsprache_t" : "multiparas",
-    "vorbesitzer_t" : "Kloster Services",
+    "vorbesitzer_s" : "Kloster Services",
     "entities" : [
       {
         "id" : "287e5952-adca-4f39-95f4-4be7968e1b2f",
@@ -3063,7 +3096,7 @@
     "status_t" : "amulets",
     "schrift_t" : "glints",
     "schreibsprache_t" : "cottontails",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "ed592503-4296-4ee6-bb65-f90163a45a38",
@@ -3165,7 +3198,7 @@
     "status_t" : "guanine",
     "schrift_t" : "huffs",
     "schreibsprache_t" : "ragweed",
-    "vorbesitzer_t" : "Kloster Insurance",
+    "vorbesitzer_s" : "Kloster Insurance",
     "entities" : [
       {
         "id" : "2cc3f396-6210-41e5-9351-c46ea4f6e1d7",
@@ -3209,7 +3242,7 @@
     "status_t" : "sustainer",
     "schrift_t" : "titbit",
     "schreibsprache_t" : "horsemints",
-    "vorbesitzer_t" : "Kloster IT",
+    "vorbesitzer_s" : "Kloster IT",
     "entities" : [
       {
         "id" : "285af62a-175e-4d53-9c27-2292743c1163",
@@ -3311,7 +3344,7 @@
     "status_t" : "tunnies",
     "schrift_t" : "obligingness",
     "schreibsprache_t" : "nimbostratus",
-    "vorbesitzer_t" : "Kloster IT",
+    "vorbesitzer_s" : "Kloster IT",
     "entities" : [
       {
         "id" : "187f59f4-7f07-43ff-a970-2ba20a02d39b",
@@ -3383,7 +3416,7 @@
     "status_t" : "baronet",
     "schrift_t" : "beekeeping",
     "schreibsprache_t" : "sustainment",
-    "vorbesitzer_t" : "Kloster Organizational",
+    "vorbesitzer_s" : "Kloster Organizational",
     "entities" : [
       {
         "id" : "b1814d0c-c784-4ccd-a0ef-ef1a84410c20",
@@ -3427,7 +3460,7 @@
     "status_t" : "wonderland",
     "schrift_t" : "dispraise",
     "schreibsprache_t" : "savate",
-    "vorbesitzer_t" : "Kloster Insurance",
+    "vorbesitzer_s" : "Kloster Insurance",
     "entities" : [
       {
         "id" : "96e5f04b-a41d-476b-b3c7-9f9de348338b",
@@ -3499,7 +3532,7 @@
     "status_t" : "directrix",
     "schrift_t" : "restart",
     "schreibsprache_t" : "stump",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "8910335a-cfa4-4764-a56b-431a7c0e8403",
@@ -3543,7 +3576,7 @@
     "status_t" : "reflectiveness",
     "schrift_t" : "boon",
     "schreibsprache_t" : "elk",
-    "vorbesitzer_t" : "Kloster Services",
+    "vorbesitzer_s" : "Kloster Services",
     "entities" : [
       {
         "id" : "a5bb4064-f85e-4717-8a84-2daf30ff488b",
@@ -3587,7 +3620,7 @@
     "status_t" : "yips",
     "schrift_t" : "minim",
     "schreibsprache_t" : "howf",
-    "vorbesitzer_t" : "Kloster Staffing",
+    "vorbesitzer_s" : "Kloster Staffing",
     "entities" : [
       {
         "id" : "a5c869ec-8517-45a5-887e-06e083a8a993",
@@ -3659,7 +3692,7 @@
     "status_t" : "modistes",
     "schrift_t" : "chirres",
     "schreibsprache_t" : "longitudes",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "5d6e3914-eafa-46fb-8222-985b4c53a526",
@@ -3731,7 +3764,7 @@
     "status_t" : "ops",
     "schrift_t" : "naiveties",
     "schreibsprache_t" : "nympholepts",
-    "vorbesitzer_t" : "Kloster Purchasing",
+    "vorbesitzer_s" : "Kloster Purchasing",
     "entities" : [
       {
         "id" : "3c6bb45f-6b41-482d-9812-7ace39eb6ee7",
@@ -3775,7 +3808,7 @@
     "status_t" : "turds",
     "schrift_t" : "theorbo",
     "schreibsprache_t" : "isotopies",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "a75a739b-403e-4b20-8fa9-5fdc9981685a",
@@ -3847,7 +3880,7 @@
     "status_t" : "autonomies",
     "schrift_t" : "bullwhip",
     "schreibsprache_t" : "drink",
-    "vorbesitzer_t" : "Kloster Purchasing",
+    "vorbesitzer_s" : "Kloster Purchasing",
     "entities" : [
       {
         "id" : "bad0c268-77d5-4053-92f8-332a89780244",
@@ -3919,7 +3952,7 @@
     "status_t" : "euchre",
     "schrift_t" : "hawks",
     "schreibsprache_t" : "stoopes",
-    "vorbesitzer_t" : "Kloster Customer Service",
+    "vorbesitzer_s" : "Kloster Customer Service",
     "entities" : [
       {
         "id" : "b2768ce4-e1fd-4c5f-a8d0-7ca0ce64e6de",
@@ -3963,7 +3996,7 @@
     "status_t" : "teinds",
     "schrift_t" : "sopors",
     "schreibsprache_t" : "genitalia",
-    "vorbesitzer_t" : "Kloster Licenses",
+    "vorbesitzer_s" : "Kloster Licenses",
     "entities" : [
       {
         "id" : "f5ffd90c-9460-44db-9e0a-3c17d46a2559",
@@ -4035,7 +4068,7 @@
     "status_t" : "blackamoors",
     "schrift_t" : "tablet",
     "schreibsprache_t" : "petards",
-    "vorbesitzer_t" : "Kloster Staffing",
+    "vorbesitzer_s" : "Kloster Staffing",
     "entities" : [
       {
         "id" : "a5abac73-87ba-4c1f-b8eb-ba67d09d86f6",
@@ -4079,7 +4112,7 @@
     "status_t" : "gusher",
     "schrift_t" : "eremites",
     "schreibsprache_t" : "pun",
-    "vorbesitzer_t" : "Kloster Inventory",
+    "vorbesitzer_s" : "Kloster Inventory",
     "entities" : [
       {
         "id" : "954b1c9c-f75d-4003-99c3-dcc243b34bfa",
@@ -4123,7 +4156,7 @@
     "status_t" : "slacker",
     "schrift_t" : "haplessness",
     "schreibsprache_t" : "acidosis",
-    "vorbesitzer_t" : "Kloster Marketing",
+    "vorbesitzer_s" : "Kloster Marketing",
     "entities" : [
       {
         "id" : "cdf10a7d-8240-410d-9421-75720f6d5525",
@@ -4195,7 +4228,7 @@
     "status_t" : "ostiary",
     "schrift_t" : "larker",
     "schreibsprache_t" : "gargle",
-    "vorbesitzer_t" : "Kloster Customers",
+    "vorbesitzer_s" : "Kloster Customers",
     "entities" : [
       {
         "id" : "574f569c-c540-4cd1-ae9b-0686d4fbb1b2",
@@ -4267,7 +4300,7 @@
     "status_t" : "fettle",
     "schrift_t" : "crossway",
     "schreibsprache_t" : "bhang",
-    "vorbesitzer_t" : "Kloster Purchasing",
+    "vorbesitzer_s" : "Kloster Purchasing",
     "entities" : [
       {
         "id" : "de2c8939-5d23-41e7-b117-d7d6f85965aa",
@@ -4339,7 +4372,7 @@
     "status_t" : "labels",
     "schrift_t" : "willing",
     "schreibsprache_t" : "bedsocks",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "35da3d8b-e6b7-41aa-9462-05b3e791195a",
@@ -4383,7 +4416,7 @@
     "status_t" : "outbreak",
     "schrift_t" : "caulds",
     "schreibsprache_t" : "hoatzin",
-    "vorbesitzer_t" : "Kloster Organizational",
+    "vorbesitzer_s" : "Kloster Organizational",
     "entities" : [
       {
         "id" : "8cd12166-ceca-4075-bc4e-c3ab9cd2013d",
@@ -4427,7 +4460,7 @@
     "status_t" : "sleuth",
     "schrift_t" : "isotrons",
     "schreibsprache_t" : "thresh",
-    "vorbesitzer_t" : "Kloster Organizational",
+    "vorbesitzer_s" : "Kloster Organizational",
     "entities" : [
       {
         "id" : "f1c2c8f6-1251-4f65-8ff9-79016c31d651",
@@ -4471,7 +4504,7 @@
     "status_t" : "palmitates",
     "schrift_t" : "squawk",
     "schreibsprache_t" : "pash",
-    "vorbesitzer_t" : "Kloster Licenses",
+    "vorbesitzer_s" : "Kloster Licenses",
     "entities" : [
       {
         "id" : "eff86d29-007f-4b22-b774-310b76343754",
@@ -4515,7 +4548,7 @@
     "status_t" : "larrikinism",
     "schrift_t" : "ectoplasms",
     "schreibsprache_t" : "butchers",
-    "vorbesitzer_t" : "Kloster Licenses",
+    "vorbesitzer_s" : "Kloster Licenses",
     "entities" : [
       {
         "id" : "da0e6dbf-8378-4801-bde4-fea33acca631",
@@ -4587,7 +4620,7 @@
     "status_t" : "narghiles",
     "schrift_t" : "pelts",
     "schreibsprache_t" : "baas",
-    "vorbesitzer_t" : "Kloster Insurance",
+    "vorbesitzer_s" : "Kloster Insurance",
     "entities" : [
       {
         "id" : "c6fdcb79-8662-4024-810a-a4f4b166ea48",
@@ -4631,7 +4664,7 @@
     "status_t" : "crinites",
     "schrift_t" : "troke",
     "schreibsprache_t" : "jab",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "4eb80d82-c353-4524-8b5b-5da33757beef",
@@ -4703,7 +4736,7 @@
     "status_t" : "kier",
     "schrift_t" : "snipers",
     "schreibsprache_t" : "stethoscopists",
-    "vorbesitzer_t" : "Kloster IT",
+    "vorbesitzer_s" : "Kloster IT",
     "entities" : [
       {
         "id" : "5a58f8a1-33a2-4d5d-bf12-0f7b12b19877",
@@ -4805,7 +4838,7 @@
     "status_t" : "modistes",
     "schrift_t" : "splays",
     "schreibsprache_t" : "introit",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "148fb3f0-cd57-4d7c-a16e-2e24abd09c62",
@@ -4849,7 +4882,7 @@
     "status_t" : "asceticism",
     "schrift_t" : "gadgeteers",
     "schreibsprache_t" : "casuists",
-    "vorbesitzer_t" : "Kloster Customer Service",
+    "vorbesitzer_s" : "Kloster Customer Service",
     "entities" : [
       {
         "id" : "9903c09f-6248-4284-97d4-6641453e15ce",
@@ -4951,7 +4984,7 @@
     "status_t" : "apteryx",
     "schrift_t" : "troke",
     "schreibsprache_t" : "loughs",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "90b43089-0a2d-4251-80bd-6d9202c86ebf",
@@ -5053,7 +5086,7 @@
     "status_t" : "plumb",
     "schrift_t" : "besieger",
     "schreibsprache_t" : "quoit",
-    "vorbesitzer_t" : "Kloster Staffing",
+    "vorbesitzer_s" : "Kloster Staffing",
     "entities" : [
       {
         "id" : "c54d5f4b-7a2c-46e3-9489-bc47c552de51",
@@ -5097,7 +5130,7 @@
     "status_t" : "autogiros",
     "schrift_t" : "emersion",
     "schreibsprache_t" : "decorator",
-    "vorbesitzer_t" : "Kloster Customer Service",
+    "vorbesitzer_s" : "Kloster Customer Service",
     "entities" : [
       {
         "id" : "4b83bea6-cc45-4cde-8926-5d585d9a3c2d",
@@ -5169,7 +5202,7 @@
     "status_t" : "seecatch",
     "schrift_t" : "meatus",
     "schreibsprache_t" : "steerer",
-    "vorbesitzer_t" : "Kloster Staffing",
+    "vorbesitzer_s" : "Kloster Staffing",
     "entities" : [
       {
         "id" : "39ea89ff-4107-4127-879f-c21bdb9e7bd0",
@@ -5213,7 +5246,7 @@
     "status_t" : "guzzler",
     "schrift_t" : "buskers",
     "schreibsprache_t" : "referendum",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "a33c8da9-7861-47e4-9177-916462d12bd7",
@@ -5315,7 +5348,7 @@
     "status_t" : "schizomycete",
     "schrift_t" : "tines",
     "schreibsprache_t" : "fatalism",
-    "vorbesitzer_t" : "Kloster Organizational",
+    "vorbesitzer_s" : "Kloster Organizational",
     "entities" : [
       {
         "id" : "dfa91f3d-0d15-41e1-ac1b-e447bed32d5a",
@@ -5359,7 +5392,7 @@
     "status_t" : "limnology",
     "schrift_t" : "reprises",
     "schreibsprache_t" : "orologists",
-    "vorbesitzer_t" : "Kloster Marketing",
+    "vorbesitzer_s" : "Kloster Marketing",
     "entities" : [
       {
         "id" : "332b5a28-5796-4ddd-88d9-630403a75d44",
@@ -5403,7 +5436,7 @@
     "status_t" : "dictator",
     "schrift_t" : "infirmary",
     "schreibsprache_t" : "caulds",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "3cbb4623-86c2-4335-a24c-8d92c5a329fe",
@@ -5475,7 +5508,7 @@
     "status_t" : "reappointment",
     "schrift_t" : "jouks",
     "schreibsprache_t" : "nosebags",
-    "vorbesitzer_t" : "Kloster Staffing",
+    "vorbesitzer_s" : "Kloster Staffing",
     "entities" : [
       {
         "id" : "244f9693-19e9-427e-92cc-3cf4cbfa58cb",
@@ -5547,7 +5580,7 @@
     "status_t" : "cardamon",
     "schrift_t" : "cornel",
     "schreibsprache_t" : "purrs",
-    "vorbesitzer_t" : "Kloster Organizational",
+    "vorbesitzer_s" : "Kloster Organizational",
     "entities" : [
       {
         "id" : "f998ec42-c2b0-4485-a833-0406ef129d37",
@@ -5619,7 +5652,7 @@
     "status_t" : "osteophyte",
     "schrift_t" : "baba",
     "schreibsprache_t" : "seigniorage",
-    "vorbesitzer_t" : "Kloster Organizational",
+    "vorbesitzer_s" : "Kloster Organizational",
     "entities" : [
       {
         "id" : "19e43e96-2832-4bdf-a21c-2882259aa9b1",
@@ -5663,7 +5696,7 @@
     "status_t" : "schuss",
     "schrift_t" : "trampoliners",
     "schreibsprache_t" : "prangs",
-    "vorbesitzer_t" : "Kloster Human Resources",
+    "vorbesitzer_s" : "Kloster Human Resources",
     "entities" : [
       {
         "id" : "0af072ce-ad3d-4f8c-83ee-cad89d46864a",
@@ -5765,7 +5798,7 @@
     "status_t" : "sauna",
     "schrift_t" : "quists",
     "schreibsprache_t" : "sweepers",
-    "vorbesitzer_t" : "Kloster Operational",
+    "vorbesitzer_s" : "Kloster Operational",
     "entities" : [
       {
         "id" : "c58cfdd5-d0c5-4e5a-b0eb-3ee37c3c9540",
@@ -5809,7 +5842,7 @@
     "status_t" : "determinant",
     "schrift_t" : "condisciple",
     "schreibsprache_t" : "mortmains",
-    "vorbesitzer_t" : "Kloster Human Resources",
+    "vorbesitzer_s" : "Kloster Human Resources",
     "entities" : [
       {
         "id" : "1051e9e5-2be5-4d6d-aed6-6e47fc046194",
@@ -5853,7 +5886,7 @@
     "status_t" : "checkers",
     "schrift_t" : "flagstone",
     "schreibsprache_t" : "deathliness",
-    "vorbesitzer_t" : "Kloster Marketing",
+    "vorbesitzer_s" : "Kloster Marketing",
     "entities" : [
       {
         "id" : "58cb389b-b842-409d-981f-0a3d8ea32f67",
@@ -5897,7 +5930,7 @@
     "status_t" : "lulls",
     "schrift_t" : "spite",
     "schreibsprache_t" : "neurotrophy",
-    "vorbesitzer_t" : "Kloster Human Resources",
+    "vorbesitzer_s" : "Kloster Human Resources",
     "entities" : [
       {
         "id" : "a1f5d3f7-b553-435e-be91-84c85717d0d7",
@@ -5941,7 +5974,7 @@
     "status_t" : "deference",
     "schrift_t" : "contemplations",
     "schreibsprache_t" : "appellation",
-    "vorbesitzer_t" : "Kloster IT",
+    "vorbesitzer_s" : "Kloster IT",
     "entities" : [
       {
         "id" : "2b7823ba-0b5f-4d37-b436-5f4fa6fa0858",
@@ -5985,7 +6018,7 @@
     "status_t" : "hayrick",
     "schrift_t" : "mush",
     "schreibsprache_t" : "dissuasions",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "0ad13ccd-d85c-4f99-b997-f4222f527187",
@@ -6057,7 +6090,7 @@
     "status_t" : "condition",
     "schrift_t" : "grith",
     "schreibsprache_t" : "calices",
-    "vorbesitzer_t" : "Kloster Services",
+    "vorbesitzer_s" : "Kloster Services",
     "entities" : [
       {
         "id" : "8e1d822e-42cc-4d0b-b811-4479a3f18c18",
@@ -6101,7 +6134,7 @@
     "status_t" : "messmates",
     "schrift_t" : "voyageurs",
     "schreibsprache_t" : "marauding",
-    "vorbesitzer_t" : "Kloster Licenses",
+    "vorbesitzer_s" : "Kloster Licenses",
     "entities" : [
       {
         "id" : "3a878e7e-ee62-4bc9-88e8-b22d6d710d5a",
@@ -6145,7 +6178,7 @@
     "status_t" : "invigorant",
     "schrift_t" : "benzaldehyde",
     "schreibsprache_t" : "waif",
-    "vorbesitzer_t" : "Kloster Organizational",
+    "vorbesitzer_s" : "Kloster Organizational",
     "entities" : [
       {
         "id" : "1a67774d-2830-4d71-843c-c1227c33bb42",
@@ -6247,7 +6280,7 @@
     "status_t" : "chickadee",
     "schrift_t" : "frowstiness",
     "schreibsprache_t" : "reloads",
-    "vorbesitzer_t" : "Kloster Customers",
+    "vorbesitzer_s" : "Kloster Customers",
     "entities" : [
       {
         "id" : "d1265e52-2f4f-4391-a193-6bf6ae6d6955",
@@ -6319,7 +6352,7 @@
     "status_t" : "drudgery",
     "schrift_t" : "philhellene",
     "schreibsprache_t" : "helotries",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "2d33d7dc-aa78-4101-a02e-105e5e600bf6",
@@ -6363,7 +6396,7 @@
     "status_t" : "lorgnettes",
     "schrift_t" : "disputations",
     "schreibsprache_t" : "gloxinia",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "65a18b5e-4474-4267-87b5-89fcfae8d49f",
@@ -6435,7 +6468,7 @@
     "status_t" : "northings",
     "schrift_t" : "nibbles",
     "schreibsprache_t" : "dumdums",
-    "vorbesitzer_t" : "Kloster Insurance",
+    "vorbesitzer_s" : "Kloster Insurance",
     "entities" : [
       {
         "id" : "91aeefff-1a85-4541-8274-6af42b86979a",
@@ -6537,7 +6570,7 @@
     "status_t" : "achene",
     "schrift_t" : "multimeters",
     "schreibsprache_t" : "escolar",
-    "vorbesitzer_t" : "Kloster Organizational",
+    "vorbesitzer_s" : "Kloster Organizational",
     "entities" : [
       {
         "id" : "7f76244d-6d92-4039-9fe1-93bbb0f11020",
@@ -6639,7 +6672,7 @@
     "status_t" : "pillowcases",
     "schrift_t" : "bazaar",
     "schreibsprache_t" : "doxographers",
-    "vorbesitzer_t" : "Kloster Organizational",
+    "vorbesitzer_s" : "Kloster Organizational",
     "entities" : [
       {
         "id" : "4c3a8725-a0e8-4863-9919-8d3a2aae70c6",
@@ -6683,7 +6716,7 @@
     "status_t" : "militarism",
     "schrift_t" : "ratel",
     "schreibsprache_t" : "salesgirl",
-    "vorbesitzer_t" : "Kloster Customer Service",
+    "vorbesitzer_s" : "Kloster Customer Service",
     "entities" : [
       {
         "id" : "a009aaf4-ab03-4816-a7cd-131f53374b39",
@@ -6727,7 +6760,7 @@
     "status_t" : "linctus",
     "schrift_t" : "lobs",
     "schreibsprache_t" : "gimps",
-    "vorbesitzer_t" : "Kloster Inventory",
+    "vorbesitzer_s" : "Kloster Inventory",
     "entities" : [
       {
         "id" : "6415bd7e-2c77-4488-b534-543d7004f5dd",
@@ -6829,7 +6862,7 @@
     "status_t" : "stuns",
     "schrift_t" : "helps",
     "schreibsprache_t" : "groin",
-    "vorbesitzer_t" : "Kloster Operational",
+    "vorbesitzer_s" : "Kloster Operational",
     "entities" : [
       {
         "id" : "6dca39c8-32a5-4fe8-a2e6-57641c0cea5a",
@@ -6901,7 +6934,7 @@
     "status_t" : "revivalist",
     "schrift_t" : "frau",
     "schreibsprache_t" : "lintels",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "7bbc98b7-b1c1-4218-b115-b8f703d6181c",
@@ -6945,7 +6978,7 @@
     "status_t" : "provolones",
     "schrift_t" : "cutlines",
     "schreibsprache_t" : "wellness",
-    "vorbesitzer_t" : "Kloster Services",
+    "vorbesitzer_s" : "Kloster Services",
     "entities" : [
       {
         "id" : "98b622c8-c131-4360-b0d5-5b09a0315931",
@@ -6989,7 +7022,7 @@
     "status_t" : "drawl",
     "schrift_t" : "hylotheism",
     "schreibsprache_t" : "sinuousness",
-    "vorbesitzer_t" : "Kloster Insurance",
+    "vorbesitzer_s" : "Kloster Insurance",
     "entities" : [
       {
         "id" : "ccea2791-613c-460b-bad2-f91a921fac07",
@@ -7061,7 +7094,7 @@
     "status_t" : "botel",
     "schrift_t" : "quadrant",
     "schreibsprache_t" : "there",
-    "vorbesitzer_t" : "Kloster Services",
+    "vorbesitzer_s" : "Kloster Services",
     "entities" : [
       {
         "id" : "bc4e60c0-2082-4730-9645-df413f94db5f",
@@ -7105,7 +7138,7 @@
     "status_t" : "tuchun",
     "schrift_t" : "boffs",
     "schreibsprache_t" : "kloofs",
-    "vorbesitzer_t" : "Kloster Human Resources",
+    "vorbesitzer_s" : "Kloster Human Resources",
     "entities" : [
       {
         "id" : "b9c12906-7e94-4bf1-8f31-b301e7908b80",
@@ -7177,7 +7210,7 @@
     "status_t" : "speakership",
     "schrift_t" : "garganeys",
     "schreibsprache_t" : "pistachio",
-    "vorbesitzer_t" : "Kloster Inventory",
+    "vorbesitzer_s" : "Kloster Inventory",
     "entities" : [
       {
         "id" : "c437b3dd-03ec-476f-8833-71f74d09e2a3",
@@ -7249,7 +7282,7 @@
     "status_t" : "yawls",
     "schrift_t" : "bourn",
     "schreibsprache_t" : "systole",
-    "vorbesitzer_t" : "Kloster Human Resources",
+    "vorbesitzer_s" : "Kloster Human Resources",
     "entities" : [
       {
         "id" : "4d66c0c5-33b3-4242-9547-f458ed96da0e",
@@ -7351,7 +7384,7 @@
     "status_t" : "officiants",
     "schrift_t" : "arsines",
     "schreibsprache_t" : "burg",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "32475b74-e6cd-4680-b4fe-138d39fe82f7",
@@ -7423,7 +7456,7 @@
     "status_t" : "molybdenum",
     "schrift_t" : "trepidations",
     "schreibsprache_t" : "polytheism",
-    "vorbesitzer_t" : "Kloster Inventory",
+    "vorbesitzer_s" : "Kloster Inventory",
     "entities" : [
       {
         "id" : "de219696-6007-4591-a679-aa5a480f2ed8",
@@ -7495,7 +7528,7 @@
     "status_t" : "shoring",
     "schrift_t" : "pock",
     "schreibsprache_t" : "nereides",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "d7d0eb47-5231-4b79-be35-e29a8443fe93",
@@ -7597,7 +7630,7 @@
     "status_t" : "stigma",
     "schrift_t" : "hajj",
     "schreibsprache_t" : "gambol",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "31b2b864-40c5-4389-bacd-c61b850753cc",
@@ -7699,7 +7732,7 @@
     "status_t" : "plunks",
     "schrift_t" : "allophones",
     "schreibsprache_t" : "omelette",
-    "vorbesitzer_t" : "Kloster Staffing",
+    "vorbesitzer_s" : "Kloster Staffing",
     "entities" : [
       {
         "id" : "b0778f1f-6a5f-423b-ac01-873dcf48c4e0",
@@ -7771,7 +7804,7 @@
     "status_t" : "thurifer",
     "schrift_t" : "barbarian",
     "schreibsprache_t" : "perquisites",
-    "vorbesitzer_t" : "Kloster Human Resources",
+    "vorbesitzer_s" : "Kloster Human Resources",
     "entities" : [
       {
         "id" : "b64ea32f-24f8-4db3-a7fe-b93440044679",
@@ -7843,7 +7876,7 @@
     "status_t" : "unacceptance",
     "schrift_t" : "spear",
     "schreibsprache_t" : "indabas",
-    "vorbesitzer_t" : "Kloster IT",
+    "vorbesitzer_s" : "Kloster IT",
     "entities" : [
       {
         "id" : "989da657-6783-40f1-8c72-11baa701e6d3",
@@ -7887,7 +7920,7 @@
     "status_t" : "bequests",
     "schrift_t" : "tramlines",
     "schreibsprache_t" : "bowdlerism",
-    "vorbesitzer_t" : "Kloster Marketing",
+    "vorbesitzer_s" : "Kloster Marketing",
     "entities" : [
       {
         "id" : "c5a2f0b3-088d-4a27-8e28-8ef943825fe6",
@@ -7989,7 +8022,7 @@
     "status_t" : "desk",
     "schrift_t" : "epinasty",
     "schreibsprache_t" : "drosophilas",
-    "vorbesitzer_t" : "Kloster Insurance",
+    "vorbesitzer_s" : "Kloster Insurance",
     "entities" : [
       {
         "id" : "7b8bd325-f10d-47c1-a394-e7f406da06f9",
@@ -8061,7 +8094,7 @@
     "status_t" : "recommissions",
     "schrift_t" : "paraphrasts",
     "schreibsprache_t" : "guars",
-    "vorbesitzer_t" : "Kloster IT",
+    "vorbesitzer_s" : "Kloster IT",
     "entities" : [
       {
         "id" : "8eb76812-adbf-4439-93ee-443e45f05c8a",
@@ -8105,7 +8138,7 @@
     "status_t" : "snookers",
     "schrift_t" : "bags",
     "schreibsprache_t" : "yelper",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "75efbb26-f57e-41d0-973f-e0ccae6e8fdf",
@@ -8149,7 +8182,7 @@
     "status_t" : "quests",
     "schrift_t" : "foresheets",
     "schreibsprache_t" : "enmities",
-    "vorbesitzer_t" : "Kloster Customer Service",
+    "vorbesitzer_s" : "Kloster Customer Service",
     "entities" : [
       {
         "id" : "786e1a0f-b3be-4034-83e3-0b8de56a086d",
@@ -8221,7 +8254,7 @@
     "status_t" : "flattie",
     "schrift_t" : "tadpole",
     "schreibsprache_t" : "megaloblasts",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "59511c40-a4f4-4993-b95a-d43806944dee",
@@ -8323,7 +8356,7 @@
     "status_t" : "masking",
     "schrift_t" : "lattens",
     "schreibsprache_t" : "currentness",
-    "vorbesitzer_t" : "Kloster Inventory",
+    "vorbesitzer_s" : "Kloster Inventory",
     "entities" : [
       {
         "id" : "efcbe35c-f9a4-4d56-99f8-d48b3b2c1e80",
@@ -8395,7 +8428,7 @@
     "status_t" : "hap",
     "schrift_t" : "heralds",
     "schreibsprache_t" : "centralists",
-    "vorbesitzer_t" : "Kloster Customers",
+    "vorbesitzer_s" : "Kloster Customers",
     "entities" : [
       {
         "id" : "babbe870-41db-469d-b5a4-b31e14218d0b",
@@ -8497,7 +8530,7 @@
     "status_t" : "esquires",
     "schrift_t" : "hobos",
     "schreibsprache_t" : "ugliness",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "c372b5a0-5a52-4aa4-9d9d-5740dc84712d",
@@ -8541,7 +8574,7 @@
     "status_t" : "tempura",
     "schrift_t" : "profferers",
     "schreibsprache_t" : "loch",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "8c10853f-71e1-43e6-b85f-52f3fbf65579",
@@ -8585,7 +8618,7 @@
     "status_t" : "mountaineering",
     "schrift_t" : "swear",
     "schreibsprache_t" : "disherison",
-    "vorbesitzer_t" : "Kloster Services",
+    "vorbesitzer_s" : "Kloster Services",
     "entities" : [
       {
         "id" : "515f125c-79bd-430d-8643-8ddaf952816a",
@@ -8687,7 +8720,7 @@
     "status_t" : "comicalness",
     "schrift_t" : "installation",
     "schreibsprache_t" : "aim",
-    "vorbesitzer_t" : "Kloster Inventory",
+    "vorbesitzer_s" : "Kloster Inventory",
     "entities" : [
       {
         "id" : "b7aa63da-ca16-4a7d-b70f-5a9a5741ed3b",
@@ -8759,7 +8792,7 @@
     "status_t" : "coacervate",
     "schrift_t" : "semination",
     "schreibsprache_t" : "hagglers",
-    "vorbesitzer_t" : "Kloster Human Resources",
+    "vorbesitzer_s" : "Kloster Human Resources",
     "entities" : [
       {
         "id" : "447567a0-74bb-47f3-863d-df1af8495c96",
@@ -8803,7 +8836,7 @@
     "status_t" : "kohl",
     "schrift_t" : "chyle",
     "schreibsprache_t" : "treenails",
-    "vorbesitzer_t" : "Kloster Customer Service",
+    "vorbesitzer_s" : "Kloster Customer Service",
     "entities" : [
       {
         "id" : "4b84bd46-ef7f-415b-9af6-6a87bbe24179",
@@ -8905,7 +8938,7 @@
     "status_t" : "cracks",
     "schrift_t" : "waif",
     "schreibsprache_t" : "hadrosaurs",
-    "vorbesitzer_t" : "Kloster Customer Service",
+    "vorbesitzer_s" : "Kloster Customer Service",
     "entities" : [
       {
         "id" : "691783e4-db6f-4566-a0aa-880f576ff287",
@@ -8977,7 +9010,7 @@
     "status_t" : "condensery",
     "schrift_t" : "geomancers",
     "schreibsprache_t" : "milds",
-    "vorbesitzer_t" : "Kloster Purchasing",
+    "vorbesitzer_s" : "Kloster Purchasing",
     "entities" : [
       {
         "id" : "b1eddc83-73db-4aaf-995d-02d5d85075dd",
@@ -9021,7 +9054,7 @@
     "status_t" : "bimetallism",
     "schrift_t" : "acting",
     "schreibsprache_t" : "columnists",
-    "vorbesitzer_t" : "Kloster Licenses",
+    "vorbesitzer_s" : "Kloster Licenses",
     "entities" : [
       {
         "id" : "1442bd0c-5442-4dc7-aa14-5785e4a8954d",
@@ -9065,7 +9098,7 @@
     "status_t" : "cognates",
     "schrift_t" : "mange",
     "schreibsprache_t" : "thrust",
-    "vorbesitzer_t" : "Kloster Customer Service",
+    "vorbesitzer_s" : "Kloster Customer Service",
     "entities" : [
       {
         "id" : "bc204b6b-ecac-43f1-bf8b-259d684993c9",
@@ -9167,7 +9200,7 @@
     "status_t" : "humorousness",
     "schrift_t" : "disunities",
     "schreibsprache_t" : "cerographists",
-    "vorbesitzer_t" : "Kloster Marketing",
+    "vorbesitzer_s" : "Kloster Marketing",
     "entities" : [
       {
         "id" : "e2383e68-9a1f-4e4f-9693-b8b8f34fffc2",
@@ -9211,7 +9244,7 @@
     "status_t" : "barred",
     "schrift_t" : "flinchers",
     "schreibsprache_t" : "cornicles",
-    "vorbesitzer_t" : "Kloster Licenses",
+    "vorbesitzer_s" : "Kloster Licenses",
     "entities" : [
       {
         "id" : "ed3240cd-9c3c-49d2-af12-daa41207f96a",
@@ -9255,7 +9288,7 @@
     "status_t" : "birthmark",
     "schrift_t" : "clench",
     "schreibsprache_t" : "slants",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "b4612b45-0444-41fc-ba79-fec3394d2ed3",
@@ -9357,7 +9390,7 @@
     "status_t" : "patriarchate",
     "schrift_t" : "defamation",
     "schreibsprache_t" : "aquatics",
-    "vorbesitzer_t" : "Kloster Customer Service",
+    "vorbesitzer_s" : "Kloster Customer Service",
     "entities" : [
       {
         "id" : "6b3b1493-374c-48a4-8bae-d786199de0e3",
@@ -9401,7 +9434,7 @@
     "status_t" : "homeyness",
     "schrift_t" : "rondo",
     "schreibsprache_t" : "swatch",
-    "vorbesitzer_t" : "Kloster Operational",
+    "vorbesitzer_s" : "Kloster Operational",
     "entities" : [
       {
         "id" : "9c8a109b-63e5-4136-ace9-c4df62ba1955",
@@ -9473,7 +9506,7 @@
     "status_t" : "figurines",
     "schrift_t" : "minks",
     "schreibsprache_t" : "impressions",
-    "vorbesitzer_t" : "Kloster Operational",
+    "vorbesitzer_s" : "Kloster Operational",
     "entities" : [
       {
         "id" : "e203cb13-da7e-432d-848e-61b131f32d6a",
@@ -9575,7 +9608,7 @@
     "status_t" : "chauffeurs",
     "schrift_t" : "dioxan",
     "schreibsprache_t" : "ustulation",
-    "vorbesitzer_t" : "Kloster Insurance",
+    "vorbesitzer_s" : "Kloster Insurance",
     "entities" : [
       {
         "id" : "67375215-3f7d-48c0-937a-3f6639fcdf2d",
@@ -9647,7 +9680,7 @@
     "status_t" : "find",
     "schrift_t" : "coths",
     "schreibsprache_t" : "pisciculture",
-    "vorbesitzer_t" : "Kloster Inventory",
+    "vorbesitzer_s" : "Kloster Inventory",
     "entities" : [
       {
         "id" : "d4cdb8f9-eaa6-4277-8e26-3bdc5d97dcc3",
@@ -9749,7 +9782,7 @@
     "status_t" : "possessiveness",
     "schrift_t" : "cicisbeo",
     "schreibsprache_t" : "snip",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "c94588d4-5809-4fe1-be57-ebf1450d4ae9",
@@ -9851,7 +9884,7 @@
     "status_t" : "hogget",
     "schrift_t" : "flexure",
     "schreibsprache_t" : "chaplainships",
-    "vorbesitzer_t" : "Kloster Marketing",
+    "vorbesitzer_s" : "Kloster Marketing",
     "entities" : [
       {
         "id" : "3256c77f-4285-4e8d-853a-1f7c86776d47",
@@ -9923,7 +9956,7 @@
     "status_t" : "desquamation",
     "schrift_t" : "connecting",
     "schreibsprache_t" : "lovelies",
-    "vorbesitzer_t" : "Kloster Marketing",
+    "vorbesitzer_s" : "Kloster Marketing",
     "entities" : [
       {
         "id" : "a1a65fc7-e9bb-4fb4-a3b3-7bfc712c983b",
@@ -9995,7 +10028,7 @@
     "status_t" : "evocations",
     "schrift_t" : "monstrosities",
     "schreibsprache_t" : "confirmors",
-    "vorbesitzer_t" : "Kloster Operational",
+    "vorbesitzer_s" : "Kloster Operational",
     "entities" : [
       {
         "id" : "5807305b-ad59-442b-a532-9ab8cc12a342",
@@ -10039,7 +10072,7 @@
     "status_t" : "camouflage",
     "schrift_t" : "ailurophile",
     "schreibsprache_t" : "uprooters",
-    "vorbesitzer_t" : "Kloster IT",
+    "vorbesitzer_s" : "Kloster IT",
     "entities" : [
       {
         "id" : "98a232da-77bc-4aae-a4f4-95e03c12210b",
@@ -10141,7 +10174,7 @@
     "status_t" : "hyperboles",
     "schrift_t" : "insipience",
     "schreibsprache_t" : "limp",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "d39414b5-c7b8-4785-9cf7-81bf75b0de1c",
@@ -10243,7 +10276,7 @@
     "status_t" : "mink",
     "schrift_t" : "fibula",
     "schreibsprache_t" : "phage",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "68f49c4a-ece7-46d3-94e1-f6cf0bcd89ca",
@@ -10315,7 +10348,7 @@
     "status_t" : "blots",
     "schrift_t" : "orographic",
     "schreibsprache_t" : "dirhams",
-    "vorbesitzer_t" : "Kloster Staffing",
+    "vorbesitzer_s" : "Kloster Staffing",
     "entities" : [
       {
         "id" : "26c1c8e0-44a4-472f-9b37-7e51c745d210",
@@ -10417,7 +10450,7 @@
     "status_t" : "dowse",
     "schrift_t" : "scholastics",
     "schreibsprache_t" : "witlings",
-    "vorbesitzer_t" : "Kloster Customers",
+    "vorbesitzer_s" : "Kloster Customers",
     "entities" : [
       {
         "id" : "3b8ceafb-83a1-4c31-b023-a4e437df4257",
@@ -10489,7 +10522,7 @@
     "status_t" : "skills",
     "schrift_t" : "taches",
     "schreibsprache_t" : "corniche",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "b6dc2fb0-3d62-4dc2-b73d-59e957585b82",
@@ -10591,7 +10624,7 @@
     "status_t" : "fascination",
     "schrift_t" : "limmers",
     "schreibsprache_t" : "suppositions",
-    "vorbesitzer_t" : "Kloster Insurance",
+    "vorbesitzer_s" : "Kloster Insurance",
     "entities" : [
       {
         "id" : "0099f094-aa93-4358-a864-efa174386cee",
@@ -10635,7 +10668,7 @@
     "status_t" : "gastrostomies",
     "schrift_t" : "hydrargyrum",
     "schreibsprache_t" : "kvasses",
-    "vorbesitzer_t" : "Kloster Insurance",
+    "vorbesitzer_s" : "Kloster Insurance",
     "entities" : [
       {
         "id" : "2cd8fc11-3d8f-4408-b35f-93e3d409d434",
@@ -10707,7 +10740,7 @@
     "status_t" : "stroma",
     "schrift_t" : "subjections",
     "schreibsprache_t" : "margs",
-    "vorbesitzer_t" : "Kloster Operational",
+    "vorbesitzer_s" : "Kloster Operational",
     "entities" : [
       {
         "id" : "043f3db5-9abf-4a2f-8a11-8ed910218654",
@@ -10809,7 +10842,7 @@
     "status_t" : "conation",
     "schrift_t" : "torcs",
     "schreibsprache_t" : "doughnuts",
-    "vorbesitzer_t" : "Kloster Marketing",
+    "vorbesitzer_s" : "Kloster Marketing",
     "entities" : [
       {
         "id" : "0c5b602f-993c-465f-9d63-20f56d6fe6c7",
@@ -10881,7 +10914,7 @@
     "status_t" : "autopista",
     "schrift_t" : "caroller",
     "schreibsprache_t" : "bevatrons",
-    "vorbesitzer_t" : "Kloster Insurance",
+    "vorbesitzer_s" : "Kloster Insurance",
     "entities" : [
       {
         "id" : "c68734a2-2175-476a-abf1-6591870fe8f6",
@@ -10983,7 +11016,7 @@
     "status_t" : "heptarchy",
     "schrift_t" : "cud",
     "schreibsprache_t" : "compacts",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "038b5842-52cb-4d6d-bb02-d13b31f6be7b",
@@ -11085,7 +11118,7 @@
     "status_t" : "rimes",
     "schrift_t" : "weatherings",
     "schreibsprache_t" : "historicisms",
-    "vorbesitzer_t" : "Kloster Purchasing",
+    "vorbesitzer_s" : "Kloster Purchasing",
     "entities" : [
       {
         "id" : "b4d447d3-3285-4f4e-9549-cdfb5e98b560",
@@ -11187,7 +11220,7 @@
     "status_t" : "headword",
     "schrift_t" : "busks",
     "schreibsprache_t" : "whopper",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "fa96ff74-6885-4e41-9d29-acc5d20234bd",
@@ -11289,7 +11322,7 @@
     "status_t" : "saccharase",
     "schrift_t" : "lye",
     "schreibsprache_t" : "bigamist",
-    "vorbesitzer_t" : "Kloster Customer Service",
+    "vorbesitzer_s" : "Kloster Customer Service",
     "entities" : [
       {
         "id" : "1108ff64-9524-4804-bd22-7097e4307b36",
@@ -11361,7 +11394,7 @@
     "status_t" : "noils",
     "schrift_t" : "pastorales",
     "schreibsprache_t" : "amphioxus",
-    "vorbesitzer_t" : "Kloster Customers",
+    "vorbesitzer_s" : "Kloster Customers",
     "entities" : [
       {
         "id" : "b604102a-8e35-49de-88f0-8589eac8fa89",
@@ -11405,7 +11438,7 @@
     "status_t" : "bellyaches",
     "schrift_t" : "whitethroats",
     "schreibsprache_t" : "fichu",
-    "vorbesitzer_t" : "Kloster Services",
+    "vorbesitzer_s" : "Kloster Services",
     "entities" : [
       {
         "id" : "9097bf57-7d48-4f4e-862a-56cae0259ea1",
@@ -11507,7 +11540,7 @@
     "status_t" : "yoga",
     "schrift_t" : "metal",
     "schreibsprache_t" : "thugs",
-    "vorbesitzer_t" : "Kloster Customer Service",
+    "vorbesitzer_s" : "Kloster Customer Service",
     "entities" : [
       {
         "id" : "1f6e76ea-8772-4066-8ec6-d0a0869b19ce",
@@ -11579,7 +11612,7 @@
     "status_t" : "curtesy",
     "schrift_t" : "frogbit",
     "schreibsprache_t" : "skirl",
-    "vorbesitzer_t" : "Kloster Operational",
+    "vorbesitzer_s" : "Kloster Operational",
     "entities" : [
       {
         "id" : "fad1371c-a895-4b48-b9e9-5b9817823bad",
@@ -11623,7 +11656,7 @@
     "status_t" : "loader",
     "schrift_t" : "pruriency",
     "schreibsprache_t" : "polygenists",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "4f18037a-3306-4af9-9f38-f7b001d03761",
@@ -11695,7 +11728,7 @@
     "status_t" : "blinker",
     "schrift_t" : "mansard",
     "schreibsprache_t" : "hances",
-    "vorbesitzer_t" : "Kloster Purchasing",
+    "vorbesitzer_s" : "Kloster Purchasing",
     "entities" : [
       {
         "id" : "8580a81f-601c-42e8-b29e-9f16db8a0c16",
@@ -11739,7 +11772,7 @@
     "status_t" : "crochet",
     "schrift_t" : "dread",
     "schreibsprache_t" : "few",
-    "vorbesitzer_t" : "Kloster Inventory",
+    "vorbesitzer_s" : "Kloster Inventory",
     "entities" : [
       {
         "id" : "9e0429ec-af7e-434a-a80b-ade3761be642",
@@ -11811,7 +11844,7 @@
     "status_t" : "trussings",
     "schrift_t" : "postman",
     "schreibsprache_t" : "verdigris",
-    "vorbesitzer_t" : "Kloster Inventory",
+    "vorbesitzer_s" : "Kloster Inventory",
     "entities" : [
       {
         "id" : "11a88e02-c9f7-4d93-a4ad-2095f60cf1db",
@@ -11913,7 +11946,7 @@
     "status_t" : "sagittaries",
     "schrift_t" : "tmesis",
     "schreibsprache_t" : "tales",
-    "vorbesitzer_t" : "Kloster Purchasing",
+    "vorbesitzer_s" : "Kloster Purchasing",
     "entities" : [
       {
         "id" : "0627e03f-09c0-456c-8267-9b1eb74d11b4",
@@ -11957,7 +11990,7 @@
     "status_t" : "surrogates",
     "schrift_t" : "spaciousness",
     "schreibsprache_t" : "scaremongering",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "6518b3e5-6390-40cb-b2dd-10e398fb2aa3",
@@ -12059,7 +12092,7 @@
     "status_t" : "describer",
     "schrift_t" : "heterosis",
     "schreibsprache_t" : "lobectomies",
-    "vorbesitzer_t" : "Kloster Human Resources",
+    "vorbesitzer_s" : "Kloster Human Resources",
     "entities" : [
       {
         "id" : "77a07db1-d6aa-4ddf-8fd8-52d3c1092769",
@@ -12103,7 +12136,7 @@
     "status_t" : "clostridia",
     "schrift_t" : "rationalism",
     "schreibsprache_t" : "hatred",
-    "vorbesitzer_t" : "Kloster Staffing",
+    "vorbesitzer_s" : "Kloster Staffing",
     "entities" : [
       {
         "id" : "90fdb9d2-e00b-4a82-ab36-0b3d57912e34",
@@ -12205,7 +12238,7 @@
     "status_t" : "tranquility",
     "schrift_t" : "oleographs",
     "schreibsprache_t" : "panatellas",
-    "vorbesitzer_t" : "Kloster Purchasing",
+    "vorbesitzer_s" : "Kloster Purchasing",
     "entities" : [
       {
         "id" : "9d19c158-b0d4-429d-a7c0-9350058dfc28",
@@ -12277,7 +12310,7 @@
     "status_t" : "scouth",
     "schrift_t" : "reminiscence",
     "schreibsprache_t" : "ambuscado",
-    "vorbesitzer_t" : "Kloster Marketing",
+    "vorbesitzer_s" : "Kloster Marketing",
     "entities" : [
       {
         "id" : "d21ec9bd-e497-4fe4-8ccf-0471a15de9a0",
@@ -12321,7 +12354,7 @@
     "status_t" : "tokenism",
     "schrift_t" : "tonga",
     "schreibsprache_t" : "reek",
-    "vorbesitzer_t" : "Kloster Inventory",
+    "vorbesitzer_s" : "Kloster Inventory",
     "entities" : [
       {
         "id" : "9a03a9e7-2c1b-4b71-9adf-be65b6b2406a",
@@ -12365,7 +12398,7 @@
     "status_t" : "deaconships",
     "schrift_t" : "demonstrative",
     "schreibsprache_t" : "tome",
-    "vorbesitzer_t" : "Kloster Inventory",
+    "vorbesitzer_s" : "Kloster Inventory",
     "entities" : [
       {
         "id" : "08e8a0d7-c792-4b08-8315-d650c96551a8",
@@ -12409,7 +12442,7 @@
     "status_t" : "grift",
     "schrift_t" : "dolefulness",
     "schreibsprache_t" : "fortuitists",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "5707260c-3264-435a-8c3c-35fdb03d6d06",
@@ -12453,7 +12486,7 @@
     "status_t" : "monolater",
     "schrift_t" : "chook",
     "schreibsprache_t" : "mithridates",
-    "vorbesitzer_t" : "Kloster IT",
+    "vorbesitzer_s" : "Kloster IT",
     "entities" : [
       {
         "id" : "1983213e-50fb-4569-8b92-5dd068f0d7b8",
@@ -12555,7 +12588,7 @@
     "status_t" : "genuses",
     "schrift_t" : "araks",
     "schreibsprache_t" : "relegating",
-    "vorbesitzer_t" : "Kloster Inventory",
+    "vorbesitzer_s" : "Kloster Inventory",
     "entities" : [
       {
         "id" : "39f58bbd-42ee-4b9c-99ca-38d777b2dbdb",
@@ -12599,7 +12632,7 @@
     "status_t" : "goon",
     "schrift_t" : "constancy",
     "schreibsprache_t" : "stellarator",
-    "vorbesitzer_t" : "Kloster Licenses",
+    "vorbesitzer_s" : "Kloster Licenses",
     "entities" : [
       {
         "id" : "4c38876e-23e5-46b4-9bfc-dac4abb81f0d",
@@ -12701,7 +12734,7 @@
     "status_t" : "stole",
     "schrift_t" : "chromomere",
     "schreibsprache_t" : "widgeons",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "9df997d5-76c4-439b-bd5e-b81803c5f07e",
@@ -12773,7 +12806,7 @@
     "status_t" : "plasterboard",
     "schrift_t" : "backscatters",
     "schreibsprache_t" : "dispensators",
-    "vorbesitzer_t" : "Kloster Insurance",
+    "vorbesitzer_s" : "Kloster Insurance",
     "entities" : [
       {
         "id" : "c8cca7b8-d647-48ec-bff4-2021bc1ef0ac",
@@ -12817,7 +12850,7 @@
     "status_t" : "harmlessness",
     "schrift_t" : "lad",
     "schreibsprache_t" : "tessitura",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "1003a415-5ac6-4a86-82c1-bf31f972b363",
@@ -12919,7 +12952,7 @@
     "status_t" : "swales",
     "schrift_t" : "campesinos",
     "schreibsprache_t" : "breechings",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "7d24f3b9-3968-40f0-952e-3dd40eef8ee2",
@@ -12963,7 +12996,7 @@
     "status_t" : "kwela",
     "schrift_t" : "soldiery",
     "schreibsprache_t" : "swingometer",
-    "vorbesitzer_t" : "Kloster Customer Service",
+    "vorbesitzer_s" : "Kloster Customer Service",
     "entities" : [
       {
         "id" : "8eff683c-2a7a-4b5f-9560-0e1a08b08856",
@@ -13065,7 +13098,7 @@
     "status_t" : "trekker",
     "schrift_t" : "drams",
     "schreibsprache_t" : "zarfs",
-    "vorbesitzer_t" : "Kloster Human Resources",
+    "vorbesitzer_s" : "Kloster Human Resources",
     "entities" : [
       {
         "id" : "e19ce6a3-b4ba-4e7f-91b8-e7f5642e77ff",
@@ -13137,7 +13170,7 @@
     "status_t" : "silt",
     "schrift_t" : "decadent",
     "schreibsprache_t" : "oogamy",
-    "vorbesitzer_t" : "Kloster Organizational",
+    "vorbesitzer_s" : "Kloster Organizational",
     "entities" : [
       {
         "id" : "e87d8412-72fd-45c4-8bca-65b5c2db3679",
@@ -13209,7 +13242,7 @@
     "status_t" : "dorps",
     "schrift_t" : "barefacedness",
     "schreibsprache_t" : "argentum",
-    "vorbesitzer_t" : "Kloster Sales",
+    "vorbesitzer_s" : "Kloster Sales",
     "entities" : [
       {
         "id" : "29541341-b0aa-4972-9474-7ac9d403c6ff",
@@ -13281,7 +13314,7 @@
     "status_t" : "ecclesiarch",
     "schrift_t" : "sarcasms",
     "schreibsprache_t" : "aggradations",
-    "vorbesitzer_t" : "Kloster Operational",
+    "vorbesitzer_s" : "Kloster Operational",
     "entities" : [
       {
         "id" : "aa456e09-1330-408d-a8b1-1a9fa7bf056b",
@@ -13383,7 +13416,7 @@
     "status_t" : "taeniacides",
     "schrift_t" : "smack",
     "schreibsprache_t" : "fiber",
-    "vorbesitzer_t" : "Kloster Financial",
+    "vorbesitzer_s" : "Kloster Financial",
     "entities" : [
       {
         "id" : "e8ee1723-6f29-474b-94dd-0fe383223970",
@@ -13485,7 +13518,7 @@
     "status_t" : "floppy",
     "schrift_t" : "vet",
     "schreibsprache_t" : "gen",
-    "vorbesitzer_t" : "Kloster Organizational",
+    "vorbesitzer_s" : "Kloster Organizational",
     "entities" : [
       {
         "id" : "06131cae-6fb3-4860-802a-e27e4af337dc",
@@ -13587,7 +13620,7 @@
     "status_t" : "picrotoxin",
     "schrift_t" : "gloze",
     "schreibsprache_t" : "copiousness",
-    "vorbesitzer_t" : "Kloster Quality Assurance",
+    "vorbesitzer_s" : "Kloster Quality Assurance",
     "entities" : [
       {
         "id" : "0a77cd16-4cd8-4664-9ca4-98c1b034eb1d",
@@ -13659,7 +13692,7 @@
     "status_t" : "footrest",
     "schrift_t" : "fistulas",
     "schreibsprache_t" : "conger",
-    "vorbesitzer_t" : "Kloster Purchasing",
+    "vorbesitzer_s" : "Kloster Purchasing",
     "entities" : [
       {
         "id" : "d64147d3-ebb7-47a1-8aff-5a71912e9cb3",
@@ -13703,7 +13736,7 @@
     "status_t" : "tazza",
     "schrift_t" : "elopers",
     "schreibsprache_t" : "raids",
-    "vorbesitzer_t" : "Kloster Insurance",
+    "vorbesitzer_s" : "Kloster Insurance",
     "entities" : [
       {
         "id" : "865623cb-b88f-4c26-9ebb-04759f149966",
@@ -13805,7 +13838,7 @@
     "status_t" : "appliances",
     "schrift_t" : "twelvemonths",
     "schreibsprache_t" : "confessional",
-    "vorbesitzer_t" : "Kloster Operational",
+    "vorbesitzer_s" : "Kloster Operational",
     "entities" : [
       {
         "id" : "d90a9c16-ad58-4c60-b1dc-6e719ed18d9c",

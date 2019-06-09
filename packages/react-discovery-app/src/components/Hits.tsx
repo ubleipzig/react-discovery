@@ -11,9 +11,10 @@ export const Hits: React.FC<IHits> = (props): ReactElement => {
   const searchFields = getSearchFields()
   const {hitComponent} = props
 
-  const buildHits = (hits): ReactElement => hits.hits && hits.hits.map((hit, i): ReactElement => (
+  const buildHits = (hits): ReactElement => hits.map((hit, i): ReactElement => (
     renderComponent(hitComponent, {hit, key: i, searchFields})
   ))
-  return buildHits(hits)
+
+  return hits && buildHits(hits.hits)
 }
 

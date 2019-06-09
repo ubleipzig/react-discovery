@@ -80,6 +80,7 @@ export const SortingSelector: React.FC<any> = (): ReactElement => {
         <IconButton
           aria-label="Sort Descending"
           className={classes.button}
+          data-testid='sorting-order-desc'
           href=''
           onClick={(): void => handleSortOrder('desc')}>
           <ArrowUpward/>
@@ -89,6 +90,7 @@ export const SortingSelector: React.FC<any> = (): ReactElement => {
         <IconButton
           aria-label="Sort Ascending"
           className={classes.button}
+          data-testid='sorting-order-asc'
           href=''
           onClick={(): void => handleSortOrder('asc')}
         >

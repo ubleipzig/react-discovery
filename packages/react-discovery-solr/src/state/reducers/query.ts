@@ -1,5 +1,6 @@
 import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
 import {
+  setGroupField,
   setQueryFields,
   setQueryInput,
   setSearchFields,
@@ -12,6 +13,10 @@ import {
 import {IQuery} from "../.."
 
 export const query = (initialState): ReducerBuilder<IQuery> => reducerWithInitialState(initialState)
+  .case(setGroupField, (state, {groupField}): ReducerBuilder<IQuery> => ({
+    ...state,
+    groupField,
+  }))
   .case(setQueryFields, (state, {searchFields, size, sortFields, start, url}): ReducerBuilder<IQuery> => ({
     ...state,
     searchFields,

@@ -1,6 +1,13 @@
 import {Button, Theme, createStyles, makeStyles} from "@material-ui/core"
 import React, {ReactElement} from "react"
-import {setQueryInput, setSelectedFilters, setStart, setTypeDef} from "@react-discovery/solr"
+import {
+  SolrParameters,
+  setGroupField,
+  setQueryInput,
+  setSelectedFilters,
+  setStart,
+  setTypeDef
+} from "@react-discovery/solr"
 import Link from '@material-ui/icons/Link';
 import clsx from 'clsx';
 import {useDispatch} from "react-redux"
@@ -29,13 +36,15 @@ export const RelatedItems: React.FC<IRelatedItems> = (props): ReactElement => {
   const dispatch = useDispatch()
   const classes: any = useStyles({});
   const {id, primaryDocFilter} = props
+  const filters = primaryDocFilter ? [primaryDocFilter] : []
   const {t} = useTranslation('vocab')
 
   const handleChange = (): void => {
     dispatch(setQueryInput({stringInput: id}))
-    dispatch(setSelectedFilters({field: 'type_s', filters: [primaryDocFilter]}))
+    dispatch(setSelectedFilters({field: 'type_s', filters}))
     dispatch(setStart({start: 0}))
-    dispatch(setTypeDef({typeDef: 'edismax'}))
+    dispatch(setGroupField({groupField: ''}))
+    dispatch(setTypeDef({typeDef: SolrParameters.LUCENE}))
   }
 
   return (

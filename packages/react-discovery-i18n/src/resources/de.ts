@@ -13,6 +13,7 @@ export const de = {
   },
   vocab: {
     all: 'Alles',
+    author: 'Autor',
     Beschreibung: 'Beschreibungen',
     culturalObjects: 'Kulturobjekte',
     descriptions: 'Beschreibungen',

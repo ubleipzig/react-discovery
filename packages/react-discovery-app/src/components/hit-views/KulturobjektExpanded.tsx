@@ -29,14 +29,14 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const classes: any = useHitViewStyles({})
   const {hit, i, searchFields} = props
   // TODO add this to configuration
-  const filteredFields = ['material', 'format', 'originPlace', 'originDate', 'formType',
+  const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate', 'formType',
     'status', 'writingStyle', 'language', 'previousOwner']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('titel_t', hit)
   const {t} = useTranslation('vocab')
 
-  const handleExpandClick = (panel): any => ({}: any, isExpanded: any): void => {
-    setExpanded(isExpanded ? panel : false)
+  const handleExpandClick = (): void => {
+    setExpanded(!isExpanded)
   }
 
   const buildEntityFields = (entityFields, type): ReactElement[] => {
@@ -122,8 +122,9 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const buildExpansionPanelForType = (displayFields, type): ReactElement => {
     return (
       <ExpansionPanel
-        expanded={Boolean(isExpanded === type)}
-        onChange={handleExpandClick(type)}
+        defaultExpanded={Boolean(true)}
+        expanded={Boolean(isExpanded)}
+        onChange={handleExpandClick}
       >
         <ExpansionPanelSummary
           aria-controls="panel1bh-content"

@@ -12,6 +12,8 @@ import React, {ReactElement} from "react"
 import {
   getAggregation,
   getFiltersForField,
+  getStringInput,
+  setQueryInput,
   setSelectedFilters,
   setStart,
   setSuggest
@@ -51,6 +53,7 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
   const {field, label} = props
   const aggregation = getAggregation(field)
   const filters = getFiltersForField(field)
+  const stringInput = getStringInput()
   const [isExpanded, setExpanded] = React.useState(false)
 
   const handleExpand = (panel): any => ({}, isExpanded): void => { // eslint-disable-line no-empty-pattern
@@ -62,43 +65,43 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
     newFilters.push(key)
     dispatch(setSuggest({suggest: false}))
     dispatch(setSelectedFilters({field, filters: newFilters}))
+    dispatch(setQueryInput({stringInput}))
     dispatch(setStart({start: 0}))
   }
 
   const actions = (aggregation): ReactElement => {
-    return aggregation.buckets.sort((a, b): any => (a.docCount < b.docCount) ? 1 : -1)
-      .filter((bucket): any => bucket.docCount > 0).map((bucket): any => {
-        return (
-          <ListItem
-            button={true}
-            component='div'
-            dense
-            key={bucket.key}
-            onClick={(): void => handleChange(bucket.key)}
-            role={undefined}
-          >
-            <ListItemText
-              className={classes.content}
-              primary={
-                <div style={{margin: "0 20px 0 0", width: 120}}>
-                  <Typography component="span">
-                    {bucket.key}
-                  </Typography>
-                </div>
-              }
-              secondary={
-                <Typography
-                  className={classes.inline}
-                  color="textPrimary"
-                  component="span"
-                  variant="body2"
-                >
-                  {bucket.docCount}
+    return aggregation.buckets.map((bucket): any => {
+      return (
+        <ListItem
+          button={true}
+          component='div'
+          dense
+          key={bucket.key}
+          onClick={(): void => handleChange(bucket.key)}
+          role={undefined}
+        >
+          <ListItemText
+            className={classes.content}
+            primary={
+              <div style={{margin: "0 20px 0 0", width: 120}}>
+                <Typography component="span">
+                  {bucket.key}
                 </Typography>
-              }/>
-          </ListItem>
-        )
-      })
+              </div>
+            }
+            secondary={
+              <Typography
+                className={classes.inline}
+                color="textPrimary"
+                component="span"
+                variant="body2"
+              >
+                {bucket.docCount}
+              </Typography>
+            }/>
+        </ListItem>
+      )
+    })
   }
 
   const PANEL_ID = 'panel1'

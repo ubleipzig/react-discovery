@@ -14,8 +14,8 @@ export const buildQueryFieldParams = (typeDef: string, searchFields: ISearchFiel
   }
 }
 
-const buildIsTextOrStringField = (field): ISearchField => {
-  return field.field.includes('_s') || field.field.includes('_ss') || field.field.includes('_t')
+const buildIsTextOrStringField = (field): boolean => {
+  return !(field.field.includes('_dt') || field.field.includes('_i'))
 }
 
 export const buildStringInputParams = (typeDef: string, stringInput: string, searchFields: ISearchField[]): {} => {
@@ -65,7 +65,7 @@ export const buildFacetFieldParams = (fields: ISearchField[]): {} => {
   return fields.length ? {[SolrParameters.FACET_FIELD]: ff} : ""
 }
 
-export const buildFacetSortParams = (facetSort = "index"): {} => {
+export const buildFacetSortParams = (facetSort = "count"): {} => {
   return {[SolrParameters.FACET_SORT]: facetSort}
 }
 
@@ -81,7 +81,7 @@ export const buildFieldListParams = (fieldList = "*, [child]"): {} => {
   return {[SolrParameters.FIELD_LIST]: fieldList}
 }
 
-export const buildGroupFieldParams = (group: boolean, groupField: string): {} => {
+export const buildGroupFieldParams = (group: boolean = true, groupField: string): {} => {
   return groupField ? {
     [SolrParameters.GROUP]: group,
     [SolrParameters.GROUP_FIELD]: groupField} : ""

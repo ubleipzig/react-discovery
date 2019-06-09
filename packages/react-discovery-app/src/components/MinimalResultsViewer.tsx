@@ -1,5 +1,5 @@
 import {FacetViewSwitcher, GroupSelectedFilters, HitStats, Pagination, RefinementListFilters,
-  SearchAppBar, SortingSelector, Suggester, TabsAppBar, ViewSwitcherToggle} from '.'
+  SearchAppBar, SortingSelector, Suggester, TabsAppBar} from '.'
 import {
   IQuery,
   SolrResponseProvider,

@@ -15,7 +15,7 @@ interface ISuggestion {
 }
 
 const renderSuggestion = (props: ISuggestion): ReactElement => {
-  const { suggestion, index, itemProps, highlightedIndex, selectedItem } = props
+  const {suggestion, index, itemProps, highlightedIndex, selectedItem} = props
   const isHighlighted = highlightedIndex === index
   const isSelected = (selectedItem || '').indexOf(suggestion) > -1
 
@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme): any => ({
 }))
 
 const renderInput = (inputProps): ReactElement => {
-  const { InputProps, classes, ref, ...other } = inputProps
+  const {InputProps, classes, ref, ...other} = inputProps
   return (
     <TextField
       InputLabelProps={{
