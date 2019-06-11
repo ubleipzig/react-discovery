@@ -20,6 +20,7 @@
             "label": "digitalisations"
           },
           {
+            "groupField": "personFullname_t",
             "key": "Person",
             "label": "persons"
           },
@@ -74,7 +75,9 @@
           }
         ],
         "initialFilter": {
-          "type_s": []
+          "type_s": [
+            "Kulturobjekt"
+          ]
         },
         "refinementListFilters": {
           "1": {
@@ -88,6 +91,10 @@
           "3": {
             "field": "schreibsprache_t",
             "label": "language"
+          },
+          "4": {
+            "field": "vorbesitzer_s",
+            "label": "previousOwner"
           }
         },
         "searchFields": [
@@ -127,6 +134,11 @@
           {
             "field": "subtitel_t",
             "label": "Subtitel",
+            "type": "text"
+          },
+          {
+            "field": "autor_t",
+            "label": "author",
             "type": "text"
           },
           {
@@ -175,7 +187,7 @@
             "type": "list-facet"
           },
           {
-            "field": "vorbesitzer_t",
+            "field": "vorbesitzer_s",
             "label": "previousOwner",
             "type": "list-facet"
           },
@@ -232,6 +244,11 @@
             "isChild": true,
             "label": "personAlternateNames",
             "type": "list-facet"
+          },
+          {
+            "field": "_root_",
+            "label": "root",
+            "type": "text"
           }
         ],
         "sortFields": [
@@ -250,7 +267,7 @@
       }
     },
     "currentCollection": "test02",
-    "currentLanguage": "de",
+    "currentLanguage": "en",
     "isViewExpanded": false,
     "languages": [
       {
@@ -262,6 +279,7 @@
         "locale": "en"
       }
     ],
+    "rootContext": "/",
     "selectedIndex": 0
   },
   "query": {
@@ -269,8 +287,7 @@
     "filters": {
       "type_s": [
         "Kulturobjekt"
-      ],
-      "status_t": []
+      ]
     },
     "isHighlighted": true,
     "searchFields": [
@@ -310,6 +327,11 @@
       {
         "field": "subtitel_t",
         "label": "Subtitel",
+        "type": "text"
+      },
+      {
+        "field": "autor_t",
+        "label": "author",
         "type": "text"
       },
       {
@@ -358,7 +380,7 @@
         "type": "list-facet"
       },
       {
-        "field": "vorbesitzer_t",
+        "field": "vorbesitzer_s",
         "label": "previousOwner",
         "type": "list-facet"
       },
@@ -415,6 +437,11 @@
         "isChild": true,
         "label": "personAlternateNames",
         "type": "list-facet"
+      },
+      {
+        "field": "_root_",
+        "label": "root",
+        "type": "text"
       }
     ],
     "size": 20,
@@ -431,7 +458,7 @@
       }
     ],
     "start": 0,
-    "stringInput": "",
+    "stringInput": null,
     "suggest": false,
     "suggestDictionary": "suggester",
     "typeDef": "edismax",
@@ -449,6 +476,14 @@
       },
       "stoff_t": {
         "buckets": [
+          {
+            "docCount": 2,
+            "key": "fore"
+          },
+          {
+            "docCount": 2,
+            "key": "lowse"
+          },
           {
             "docCount": 1,
             "key": "abbreviate"
@@ -754,10 +789,6 @@
             "key": "fadings"
           },
           {
-            "docCount": 2,
-            "key": "fore"
-          },
-          {
             "docCount": 1,
             "key": "forjudging"
           },
@@ -864,10 +895,6 @@
           {
             "docCount": 1,
             "key": "litigiously"
-          },
-          {
-            "docCount": 2,
-            "key": "lowse"
           },
           {
             "docCount": 1,
@@ -2055,15 +2082,39 @@
           },
           {
             "docCount": 3,
+            "key": "Asuncion"
+          },
+          {
+            "docCount": 3,
+            "key": "Brussels"
+          },
+          {
+            "docCount": 3,
+            "key": "Bujumbura"
+          },
+          {
+            "docCount": 3,
             "key": "Cockburn Town"
           },
           {
             "docCount": 3,
-            "key": "Mexico City"
+            "key": "Jerusalem"
           },
           {
             "docCount": 3,
-            "key": "Asuncion"
+            "key": "Manila"
+          },
+          {
+            "docCount": 3,
+            "key": "Maseru"
+          },
+          {
+            "docCount": 3,
+            "key": "Mbabane"
+          },
+          {
+            "docCount": 3,
+            "key": "Mexico City"
           },
           {
             "docCount": 3,
@@ -2075,11 +2126,7 @@
           },
           {
             "docCount": 3,
-            "key": "Mbabane"
-          },
-          {
-            "docCount": 3,
-            "key": "Jerusalem"
+            "key": "Oslo"
           },
           {
             "docCount": 3,
@@ -2087,179 +2134,11 @@
           },
           {
             "docCount": 3,
-            "key": "Bujumbura"
-          },
-          {
-            "docCount": 3,
             "key": "Taipei"
           },
           {
-            "docCount": 3,
-            "key": "Maseru"
-          },
-          {
-            "docCount": 3,
-            "key": "Brussels"
-          },
-          {
-            "docCount": 3,
-            "key": "Oslo"
-          },
-          {
-            "docCount": 3,
-            "key": "Manila"
-          },
-          {
             "docCount": 2,
-            "key": "Tehran"
-          },
-          {
-            "docCount": 2,
-            "key": "Doha"
-          },
-          {
-            "docCount": 2,
-            "key": "Port of Spain"
-          },
-          {
-            "docCount": 2,
-            "key": "Freetown"
-          },
-          {
-            "docCount": 2,
-            "key": "Port-au-Prince"
-          },
-          {
-            "docCount": 2,
-            "key": "Port Moresby"
-          },
-          {
-            "docCount": 2,
-            "key": "Harare"
-          },
-          {
-            "docCount": 2,
-            "key": "Ouagadougou"
-          },
-          {
-            "docCount": 2,
-            "key": "Jakarta"
-          },
-          {
-            "docCount": 2,
-            "key": "Bangkok"
-          },
-          {
-            "docCount": 2,
-            "key": "Pyongyang"
-          },
-          {
-            "docCount": 2,
-            "key": "Juba"
-          },
-          {
-            "docCount": 2,
-            "key": "Rabat"
-          },
-          {
-            "docCount": 2,
-            "key": "Bandar Seri Begawan"
-          },
-          {
-            "docCount": 2,
-            "key": "Apia"
-          },
-          {
-            "docCount": 2,
-            "key": "Nouakchott"
-          },
-          {
-            "docCount": 2,
-            "key": "Reykjavik"
-          },
-          {
-            "docCount": 2,
-            "key": "Niamey"
-          },
-          {
-            "docCount": 2,
-            "key": "Tokyo"
-          },
-          {
-            "docCount": 2,
-            "key": "Bamako"
-          },
-          {
-            "docCount": 2,
-            "key": "Santiago"
-          },
-          {
-            "docCount": 2,
-            "key": "Kuwait"
-          },
-          {
-            "docCount": 2,
-            "key": "Beijing"
-          },
-          {
-            "docCount": 2,
-            "key": "Monaco"
-          },
-          {
-            "docCount": 2,
-            "key": "Singapore"
-          },
-          {
-            "docCount": 2,
-            "key": "La’youn"
-          },
-          {
-            "docCount": 2,
-            "key": "Tirana"
-          },
-          {
-            "docCount": 2,
-            "key": "Tripoli"
-          },
-          {
-            "docCount": 2,
-            "key": "Belgrade"
-          },
-          {
-            "docCount": 2,
-            "key": "Astana"
-          },
-          {
-            "docCount": 2,
-            "key": "Brazzaville"
-          },
-          {
-            "docCount": 2,
-            "key": "Victoria"
-          },
-          {
-            "docCount": 2,
-            "key": "Tbilisi"
-          },
-          {
-            "docCount": 2,
-            "key": "Asgabat"
-          },
-          {
-            "docCount": 2,
-            "key": "Brasília"
-          },
-          {
-            "docCount": 2,
-            "key": "Warsaw"
-          },
-          {
-            "docCount": 2,
-            "key": "Gaborone"
-          },
-          {
-            "docCount": 2,
-            "key": "Manama"
+            "key": "Addis Ababa"
           },
           {
             "docCount": 2,
@@ -2267,11 +2146,355 @@
           },
           {
             "docCount": 2,
-            "key": "Addis Ababa"
+            "key": "Apia"
+          },
+          {
+            "docCount": 2,
+            "key": "Asgabat"
+          },
+          {
+            "docCount": 2,
+            "key": "Astana"
+          },
+          {
+            "docCount": 2,
+            "key": "Bamako"
+          },
+          {
+            "docCount": 2,
+            "key": "Bandar Seri Begawan"
+          },
+          {
+            "docCount": 2,
+            "key": "Bangkok"
+          },
+          {
+            "docCount": 2,
+            "key": "Beijing"
+          },
+          {
+            "docCount": 2,
+            "key": "Belgrade"
+          },
+          {
+            "docCount": 2,
+            "key": "Brasília"
+          },
+          {
+            "docCount": 2,
+            "key": "Brazzaville"
+          },
+          {
+            "docCount": 2,
+            "key": "Doha"
+          },
+          {
+            "docCount": 2,
+            "key": "Freetown"
+          },
+          {
+            "docCount": 2,
+            "key": "Gaborone"
+          },
+          {
+            "docCount": 2,
+            "key": "Harare"
+          },
+          {
+            "docCount": 2,
+            "key": "Jakarta"
+          },
+          {
+            "docCount": 2,
+            "key": "Juba"
+          },
+          {
+            "docCount": 2,
+            "key": "Kuwait"
+          },
+          {
+            "docCount": 2,
+            "key": "La’youn"
+          },
+          {
+            "docCount": 2,
+            "key": "Manama"
+          },
+          {
+            "docCount": 2,
+            "key": "Monaco"
+          },
+          {
+            "docCount": 2,
+            "key": "Niamey"
+          },
+          {
+            "docCount": 2,
+            "key": "Nouakchott"
+          },
+          {
+            "docCount": 2,
+            "key": "Ouagadougou"
+          },
+          {
+            "docCount": 2,
+            "key": "Port Moresby"
+          },
+          {
+            "docCount": 2,
+            "key": "Port of Spain"
+          },
+          {
+            "docCount": 2,
+            "key": "Port-au-Prince"
+          },
+          {
+            "docCount": 2,
+            "key": "Pyongyang"
+          },
+          {
+            "docCount": 2,
+            "key": "Rabat"
+          },
+          {
+            "docCount": 2,
+            "key": "Reykjavik"
+          },
+          {
+            "docCount": 2,
+            "key": "Santiago"
+          },
+          {
+            "docCount": 2,
+            "key": "Singapore"
+          },
+          {
+            "docCount": 2,
+            "key": "Tbilisi"
+          },
+          {
+            "docCount": 2,
+            "key": "Tehran"
+          },
+          {
+            "docCount": 2,
+            "key": "Tirana"
+          },
+          {
+            "docCount": 2,
+            "key": "Tokyo"
+          },
+          {
+            "docCount": 2,
+            "key": "Tripoli"
+          },
+          {
+            "docCount": 2,
+            "key": "Victoria"
+          },
+          {
+            "docCount": 2,
+            "key": "Warsaw"
+          },
+          {
+            "docCount": 1,
+            "key": "Abu Dhabi"
+          },
+          {
+            "docCount": 1,
+            "key": "Abuja"
+          },
+          {
+            "docCount": 1,
+            "key": "Accra"
+          },
+          {
+            "docCount": 1,
+            "key": "Antananarivo"
+          },
+          {
+            "docCount": 1,
+            "key": "Asmara"
+          },
+          {
+            "docCount": 1,
+            "key": "Baku"
+          },
+          {
+            "docCount": 1,
+            "key": "Basseterre"
+          },
+          {
+            "docCount": 1,
+            "key": "Beirut"
+          },
+          {
+            "docCount": 1,
+            "key": "Belmopan"
+          },
+          {
+            "docCount": 1,
+            "key": "Bratislava"
+          },
+          {
+            "docCount": 1,
+            "key": "Bucharest"
+          },
+          {
+            "docCount": 1,
+            "key": "Budapest"
+          },
+          {
+            "docCount": 1,
+            "key": "Caracas"
+          },
+          {
+            "docCount": 1,
+            "key": "Castries"
+          },
+          {
+            "docCount": 1,
+            "key": "Chisinau"
+          },
+          {
+            "docCount": 1,
+            "key": "Copenhagen"
+          },
+          {
+            "docCount": 1,
+            "key": "Dakar"
+          },
+          {
+            "docCount": 1,
+            "key": "Dhaka"
+          },
+          {
+            "docCount": 1,
+            "key": "Dublin"
+          },
+          {
+            "docCount": 1,
+            "key": "George Town"
+          },
+          {
+            "docCount": 1,
+            "key": "Honiara"
+          },
+          {
+            "docCount": 1,
+            "key": "Kabul"
+          },
+          {
+            "docCount": 1,
+            "key": "Kampala"
+          },
+          {
+            "docCount": 1,
+            "key": "Kingstown"
+          },
+          {
+            "docCount": 1,
+            "key": "Kuala Lumpur"
+          },
+          {
+            "docCount": 1,
+            "key": "Kyiv or Kiev"
+          },
+          {
+            "docCount": 1,
+            "key": "Libreville"
+          },
+          {
+            "docCount": 1,
+            "key": "Lima"
+          },
+          {
+            "docCount": 1,
+            "key": "Lisbon"
+          },
+          {
+            "docCount": 1,
+            "key": "Ljubljana"
+          },
+          {
+            "docCount": 1,
+            "key": "Lome"
+          },
+          {
+            "docCount": 1,
+            "key": "London"
           },
           {
             "docCount": 1,
             "key": "Luanda"
+          },
+          {
+            "docCount": 1,
+            "key": "Lusaka"
+          },
+          {
+            "docCount": 1,
+            "key": "Luxembourg City"
+          },
+          {
+            "docCount": 1,
+            "key": "Majuro"
+          },
+          {
+            "docCount": 1,
+            "key": "Malabo"
+          },
+          {
+            "docCount": 1,
+            "key": "Managua"
+          },
+          {
+            "docCount": 1,
+            "key": "Maputo"
+          },
+          {
+            "docCount": 1,
+            "key": "Monrovia"
+          },
+          {
+            "docCount": 1,
+            "key": "Montevideo"
+          },
+          {
+            "docCount": 1,
+            "key": "Moroni"
+          },
+          {
+            "docCount": 1,
+            "key": "Moscow"
+          },
+          {
+            "docCount": 1,
+            "key": "Muscat"
+          },
+          {
+            "docCount": 1,
+            "key": "Nairobi"
+          },
+          {
+            "docCount": 1,
+            "key": "New Delhi"
+          },
+          {
+            "docCount": 1,
+            "key": "Nicosia"
+          },
+          {
+            "docCount": 1,
+            "key": "Ottawa"
+          },
+          {
+            "docCount": 1,
+            "key": "Panama City"
+          },
+          {
+            "docCount": 1,
+            "key": "Paris"
           },
           {
             "docCount": 1,
@@ -2280,18 +2503,6 @@
           {
             "docCount": 1,
             "key": "Podgorica"
-          },
-          {
-            "docCount": 1,
-            "key": "George Town"
-          },
-          {
-            "docCount": 1,
-            "key": "Dublin"
-          },
-          {
-            "docCount": 1,
-            "key": "Paris"
           },
           {
             "docCount": 1,
@@ -2307,31 +2518,7 @@
           },
           {
             "docCount": 1,
-            "key": "Dakar"
-          },
-          {
-            "docCount": 1,
             "key": "Quito"
-          },
-          {
-            "docCount": 1,
-            "key": "Panama City"
-          },
-          {
-            "docCount": 1,
-            "key": "Copenhagen"
-          },
-          {
-            "docCount": 1,
-            "key": "Honiara"
-          },
-          {
-            "docCount": 1,
-            "key": "Chisinau"
-          },
-          {
-            "docCount": 1,
-            "key": "Ottawa"
           },
           {
             "docCount": 1,
@@ -2339,15 +2526,7 @@
           },
           {
             "docCount": 1,
-            "key": "Kabul"
-          },
-          {
-            "docCount": 1,
             "key": "Roseau"
-          },
-          {
-            "docCount": 1,
-            "key": "Kampala"
           },
           {
             "docCount": 1,
@@ -2355,31 +2534,7 @@
           },
           {
             "docCount": 1,
-            "key": "Nicosia"
-          },
-          {
-            "docCount": 1,
             "key": "San Salvador"
-          },
-          {
-            "docCount": 1,
-            "key": "Kingstown"
-          },
-          {
-            "docCount": 1,
-            "key": "Castries"
-          },
-          {
-            "docCount": 1,
-            "key": "New Delhi"
-          },
-          {
-            "docCount": 1,
-            "key": "Caracas"
-          },
-          {
-            "docCount": 1,
-            "key": "Kuala Lumpur"
           },
           {
             "docCount": 1,
@@ -2387,23 +2542,7 @@
           },
           {
             "docCount": 1,
-            "key": "Nairobi"
-          },
-          {
-            "docCount": 1,
-            "key": "Budapest"
-          },
-          {
-            "docCount": 1,
-            "key": "Muscat"
-          },
-          {
-            "docCount": 1,
             "key": "Sofia"
-          },
-          {
-            "docCount": 1,
-            "key": "Moscow"
           },
           {
             "docCount": 1,
@@ -2411,15 +2550,7 @@
           },
           {
             "docCount": 1,
-            "key": "Moroni"
-          },
-          {
-            "docCount": 1,
             "key": "St. John’s"
-          },
-          {
-            "docCount": 1,
-            "key": "Montevideo"
           },
           {
             "docCount": 1,
@@ -2427,23 +2558,7 @@
           },
           {
             "docCount": 1,
-            "key": "Monrovia"
-          },
-          {
-            "docCount": 1,
-            "key": "Bucharest"
-          },
-          {
-            "docCount": 1,
-            "key": "Kyiv or Kiev"
-          },
-          {
-            "docCount": 1,
             "key": "Tallinn"
-          },
-          {
-            "docCount": 1,
-            "key": "Libreville"
           },
           {
             "docCount": 1,
@@ -2451,63 +2566,7 @@
           },
           {
             "docCount": 1,
-            "key": "Lima"
-          },
-          {
-            "docCount": 1,
-            "key": "Bratislava"
-          },
-          {
-            "docCount": 1,
-            "key": "Lisbon"
-          },
-          {
-            "docCount": 1,
-            "key": "Belmopan"
-          },
-          {
-            "docCount": 1,
-            "key": "Ljubljana"
-          },
-          {
-            "docCount": 1,
-            "key": "Beirut"
-          },
-          {
-            "docCount": 1,
-            "key": "Maputo"
-          },
-          {
-            "docCount": 1,
-            "key": "Basseterre"
-          },
-          {
-            "docCount": 1,
-            "key": "Lome"
-          },
-          {
-            "docCount": 1,
-            "key": "Baku"
-          },
-          {
-            "docCount": 1,
-            "key": "London"
-          },
-          {
-            "docCount": 1,
             "key": "Vaduz"
-          },
-          {
-            "docCount": 1,
-            "key": "Managua"
-          },
-          {
-            "docCount": 1,
-            "key": "Asmara"
-          },
-          {
-            "docCount": 1,
-            "key": "Malabo"
           },
           {
             "docCount": 1,
@@ -2515,23 +2574,7 @@
           },
           {
             "docCount": 1,
-            "key": "Majuro"
-          },
-          {
-            "docCount": 1,
-            "key": "Antananarivo"
-          },
-          {
-            "docCount": 1,
-            "key": "Luxembourg City"
-          },
-          {
-            "docCount": 1,
             "key": "Washington DC"
-          },
-          {
-            "docCount": 1,
-            "key": "Lusaka"
           },
           {
             "docCount": 1,
@@ -2539,27 +2582,11 @@
           },
           {
             "docCount": 1,
-            "key": "Dhaka"
-          },
-          {
-            "docCount": 1,
             "key": "Windhoek"
           },
           {
             "docCount": 1,
-            "key": "Accra"
-          },
-          {
-            "docCount": 1,
             "key": "Yaoundé"
-          },
-          {
-            "docCount": 1,
-            "key": "Abuja"
-          },
-          {
-            "docCount": 1,
-            "key": "Abu Dhabi"
           },
           {
             "docCount": 1,
@@ -2575,6 +2602,390 @@
           },
           {
             "docCount": 1,
+            "key": "achene"
+          },
+          {
+            "docCount": 1,
+            "key": "adjournment"
+          },
+          {
+            "docCount": 1,
+            "key": "allotropism"
+          },
+          {
+            "docCount": 1,
+            "key": "amulets"
+          },
+          {
+            "docCount": 1,
+            "key": "angary"
+          },
+          {
+            "docCount": 1,
+            "key": "appliances"
+          },
+          {
+            "docCount": 1,
+            "key": "apteryx"
+          },
+          {
+            "docCount": 1,
+            "key": "asceticism"
+          },
+          {
+            "docCount": 1,
+            "key": "autogiros"
+          },
+          {
+            "docCount": 1,
+            "key": "autonomies"
+          },
+          {
+            "docCount": 1,
+            "key": "autopista"
+          },
+          {
+            "docCount": 1,
+            "key": "baronet"
+          },
+          {
+            "docCount": 1,
+            "key": "barred"
+          },
+          {
+            "docCount": 1,
+            "key": "bellyaches"
+          },
+          {
+            "docCount": 1,
+            "key": "bequests"
+          },
+          {
+            "docCount": 1,
+            "key": "bimetallism"
+          },
+          {
+            "docCount": 1,
+            "key": "birthmark"
+          },
+          {
+            "docCount": 1,
+            "key": "blackamoors"
+          },
+          {
+            "docCount": 1,
+            "key": "blinker"
+          },
+          {
+            "docCount": 1,
+            "key": "blots"
+          },
+          {
+            "docCount": 1,
+            "key": "botel"
+          },
+          {
+            "docCount": 1,
+            "key": "bulkheads"
+          },
+          {
+            "docCount": 1,
+            "key": "bumf"
+          },
+          {
+            "docCount": 1,
+            "key": "camouflage"
+          },
+          {
+            "docCount": 1,
+            "key": "cardamon"
+          },
+          {
+            "docCount": 1,
+            "key": "chalkboards"
+          },
+          {
+            "docCount": 1,
+            "key": "charks"
+          },
+          {
+            "docCount": 1,
+            "key": "chauffeurs"
+          },
+          {
+            "docCount": 1,
+            "key": "checkers"
+          },
+          {
+            "docCount": 1,
+            "key": "chickadee"
+          },
+          {
+            "docCount": 1,
+            "key": "clog"
+          },
+          {
+            "docCount": 1,
+            "key": "clostridia"
+          },
+          {
+            "docCount": 1,
+            "key": "coacervate"
+          },
+          {
+            "docCount": 1,
+            "key": "cognates"
+          },
+          {
+            "docCount": 1,
+            "key": "comicalness"
+          },
+          {
+            "docCount": 1,
+            "key": "conation"
+          },
+          {
+            "docCount": 1,
+            "key": "condensery"
+          },
+          {
+            "docCount": 1,
+            "key": "condition"
+          },
+          {
+            "docCount": 1,
+            "key": "condonations"
+          },
+          {
+            "docCount": 1,
+            "key": "conventicles"
+          },
+          {
+            "docCount": 1,
+            "key": "cracks"
+          },
+          {
+            "docCount": 1,
+            "key": "crinites"
+          },
+          {
+            "docCount": 1,
+            "key": "crochet"
+          },
+          {
+            "docCount": 1,
+            "key": "curtesy"
+          },
+          {
+            "docCount": 1,
+            "key": "deaconships"
+          },
+          {
+            "docCount": 1,
+            "key": "defalcations"
+          },
+          {
+            "docCount": 1,
+            "key": "deference"
+          },
+          {
+            "docCount": 1,
+            "key": "describer"
+          },
+          {
+            "docCount": 1,
+            "key": "desk"
+          },
+          {
+            "docCount": 1,
+            "key": "desquamation"
+          },
+          {
+            "docCount": 1,
+            "key": "determinant"
+          },
+          {
+            "docCount": 1,
+            "key": "dictator"
+          },
+          {
+            "docCount": 1,
+            "key": "directorships"
+          },
+          {
+            "docCount": 1,
+            "key": "directrix"
+          },
+          {
+            "docCount": 1,
+            "key": "disarrays"
+          },
+          {
+            "docCount": 1,
+            "key": "dorps"
+          },
+          {
+            "docCount": 1,
+            "key": "dowse"
+          },
+          {
+            "docCount": 1,
+            "key": "drawl"
+          },
+          {
+            "docCount": 1,
+            "key": "draws"
+          },
+          {
+            "docCount": 1,
+            "key": "drudgery"
+          },
+          {
+            "docCount": 1,
+            "key": "ecclesiarch"
+          },
+          {
+            "docCount": 1,
+            "key": "esquires"
+          },
+          {
+            "docCount": 1,
+            "key": "euchre"
+          },
+          {
+            "docCount": 1,
+            "key": "evocations"
+          },
+          {
+            "docCount": 1,
+            "key": "expediters"
+          },
+          {
+            "docCount": 1,
+            "key": "fascination"
+          },
+          {
+            "docCount": 1,
+            "key": "fettle"
+          },
+          {
+            "docCount": 1,
+            "key": "figurines"
+          },
+          {
+            "docCount": 1,
+            "key": "find"
+          },
+          {
+            "docCount": 1,
+            "key": "flattie"
+          },
+          {
+            "docCount": 1,
+            "key": "flophouses"
+          },
+          {
+            "docCount": 1,
+            "key": "floppy"
+          },
+          {
+            "docCount": 1,
+            "key": "foils"
+          },
+          {
+            "docCount": 1,
+            "key": "footrest"
+          },
+          {
+            "docCount": 1,
+            "key": "fortepianos"
+          },
+          {
+            "docCount": 1,
+            "key": "gastrostomies"
+          },
+          {
+            "docCount": 1,
+            "key": "genuses"
+          },
+          {
+            "docCount": 1,
+            "key": "goon"
+          },
+          {
+            "docCount": 1,
+            "key": "grift"
+          },
+          {
+            "docCount": 1,
+            "key": "guanine"
+          },
+          {
+            "docCount": 1,
+            "key": "gusher"
+          },
+          {
+            "docCount": 1,
+            "key": "guzzler"
+          },
+          {
+            "docCount": 1,
+            "key": "hairgrip"
+          },
+          {
+            "docCount": 1,
+            "key": "hap"
+          },
+          {
+            "docCount": 1,
+            "key": "harmlessness"
+          },
+          {
+            "docCount": 1,
+            "key": "hayrick"
+          },
+          {
+            "docCount": 1,
+            "key": "headword"
+          },
+          {
+            "docCount": 1,
+            "key": "heptarchy"
+          },
+          {
+            "docCount": 1,
+            "key": "hildings"
+          },
+          {
+            "docCount": 1,
+            "key": "hogget"
+          },
+          {
+            "docCount": 1,
+            "key": "homeyness"
+          },
+          {
+            "docCount": 1,
+            "key": "humorousness"
+          },
+          {
+            "docCount": 1,
+            "key": "hyperboles"
+          },
+          {
+            "docCount": 1,
+            "key": "infiltrators"
+          },
+          {
+            "docCount": 1,
+            "key": "invigorant"
+          },
+          {
+            "docCount": 1,
+            "key": "kier"
+          },
+          {
+            "docCount": 1,
             "key": "knapweeds"
           },
           {
@@ -2587,7 +2998,7 @@
           },
           {
             "docCount": 1,
-            "key": "kier"
+            "key": "labels"
           },
           {
             "docCount": 1,
@@ -2611,15 +3022,7 @@
           },
           {
             "docCount": 1,
-            "key": "invigorant"
-          },
-          {
-            "docCount": 1,
             "key": "lulls"
-          },
-          {
-            "docCount": 1,
-            "key": "infiltrators"
           },
           {
             "docCount": 1,
@@ -2627,15 +3030,7 @@
           },
           {
             "docCount": 1,
-            "key": "hyperboles"
-          },
-          {
-            "docCount": 1,
             "key": "mastectomies"
-          },
-          {
-            "docCount": 1,
-            "key": "humorousness"
           },
           {
             "docCount": 1,
@@ -2643,15 +3038,7 @@
           },
           {
             "docCount": 1,
-            "key": "homeyness"
-          },
-          {
-            "docCount": 1,
             "key": "militarism"
-          },
-          {
-            "docCount": 1,
-            "key": "hogget"
           },
           {
             "docCount": 1,
@@ -2659,23 +3046,7 @@
           },
           {
             "docCount": 1,
-            "key": "hildings"
-          },
-          {
-            "docCount": 1,
             "key": "mink"
-          },
-          {
-            "docCount": 1,
-            "key": "heptarchy"
-          },
-          {
-            "docCount": 1,
-            "key": "achene"
-          },
-          {
-            "docCount": 1,
-            "key": "headword"
           },
           {
             "docCount": 1,
@@ -2683,15 +3054,7 @@
           },
           {
             "docCount": 1,
-            "key": "hayrick"
-          },
-          {
-            "docCount": 1,
             "key": "monolater"
-          },
-          {
-            "docCount": 1,
-            "key": "harmlessness"
           },
           {
             "docCount": 1,
@@ -2699,15 +3062,7 @@
           },
           {
             "docCount": 1,
-            "key": "hap"
-          },
-          {
-            "docCount": 1,
             "key": "morula"
-          },
-          {
-            "docCount": 1,
-            "key": "hairgrip"
           },
           {
             "docCount": 1,
@@ -2715,15 +3070,7 @@
           },
           {
             "docCount": 1,
-            "key": "guzzler"
-          },
-          {
-            "docCount": 1,
             "key": "narghiles"
-          },
-          {
-            "docCount": 1,
-            "key": "gusher"
           },
           {
             "docCount": 1,
@@ -2731,15 +3078,7 @@
           },
           {
             "docCount": 1,
-            "key": "guanine"
-          },
-          {
-            "docCount": 1,
             "key": "northings"
-          },
-          {
-            "docCount": 1,
-            "key": "grift"
           },
           {
             "docCount": 1,
@@ -2747,15 +3086,7 @@
           },
           {
             "docCount": 1,
-            "key": "goon"
-          },
-          {
-            "docCount": 1,
             "key": "ommatophore"
-          },
-          {
-            "docCount": 1,
-            "key": "genuses"
           },
           {
             "docCount": 1,
@@ -2763,15 +3094,7 @@
           },
           {
             "docCount": 1,
-            "key": "gastrostomies"
-          },
-          {
-            "docCount": 1,
             "key": "orthocentres"
-          },
-          {
-            "docCount": 1,
-            "key": "fortepianos"
           },
           {
             "docCount": 1,
@@ -2779,15 +3102,7 @@
           },
           {
             "docCount": 1,
-            "key": "footrest"
-          },
-          {
-            "docCount": 1,
             "key": "ostiary"
-          },
-          {
-            "docCount": 1,
-            "key": "foils"
           },
           {
             "docCount": 1,
@@ -2795,15 +3110,7 @@
           },
           {
             "docCount": 1,
-            "key": "floppy"
-          },
-          {
-            "docCount": 1,
             "key": "pack"
-          },
-          {
-            "docCount": 1,
-            "key": "flophouses"
           },
           {
             "docCount": 1,
@@ -2811,15 +3118,7 @@
           },
           {
             "docCount": 1,
-            "key": "flattie"
-          },
-          {
-            "docCount": 1,
             "key": "patriarchate"
-          },
-          {
-            "docCount": 1,
-            "key": "find"
           },
           {
             "docCount": 1,
@@ -2827,15 +3126,7 @@
           },
           {
             "docCount": 1,
-            "key": "figurines"
-          },
-          {
-            "docCount": 1,
             "key": "picrotoxin"
-          },
-          {
-            "docCount": 1,
-            "key": "fettle"
           },
           {
             "docCount": 1,
@@ -2843,15 +3134,7 @@
           },
           {
             "docCount": 1,
-            "key": "fascination"
-          },
-          {
-            "docCount": 1,
             "key": "plasterboard"
-          },
-          {
-            "docCount": 1,
-            "key": "expediters"
           },
           {
             "docCount": 1,
@@ -2859,15 +3142,7 @@
           },
           {
             "docCount": 1,
-            "key": "evocations"
-          },
-          {
-            "docCount": 1,
             "key": "plumb"
-          },
-          {
-            "docCount": 1,
-            "key": "euchre"
           },
           {
             "docCount": 1,
@@ -2875,15 +3150,7 @@
           },
           {
             "docCount": 1,
-            "key": "esquires"
-          },
-          {
-            "docCount": 1,
             "key": "possessiveness"
-          },
-          {
-            "docCount": 1,
-            "key": "ecclesiarch"
           },
           {
             "docCount": 1,
@@ -2891,15 +3158,7 @@
           },
           {
             "docCount": 1,
-            "key": "drudgery"
-          },
-          {
-            "docCount": 1,
             "key": "presidium"
-          },
-          {
-            "docCount": 1,
-            "key": "draws"
           },
           {
             "docCount": 1,
@@ -2907,15 +3166,7 @@
           },
           {
             "docCount": 1,
-            "key": "drawl"
-          },
-          {
-            "docCount": 1,
             "key": "quests"
-          },
-          {
-            "docCount": 1,
-            "key": "dowse"
           },
           {
             "docCount": 1,
@@ -2923,15 +3174,7 @@
           },
           {
             "docCount": 1,
-            "key": "dorps"
-          },
-          {
-            "docCount": 1,
             "key": "raptor"
-          },
-          {
-            "docCount": 1,
-            "key": "disarrays"
           },
           {
             "docCount": 1,
@@ -2939,15 +3182,7 @@
           },
           {
             "docCount": 1,
-            "key": "directrix"
-          },
-          {
-            "docCount": 1,
             "key": "recommissions"
-          },
-          {
-            "docCount": 1,
-            "key": "directorships"
           },
           {
             "docCount": 1,
@@ -2955,15 +3190,7 @@
           },
           {
             "docCount": 1,
-            "key": "dictator"
-          },
-          {
-            "docCount": 1,
             "key": "revivalist"
-          },
-          {
-            "docCount": 1,
-            "key": "determinant"
           },
           {
             "docCount": 1,
@@ -2971,15 +3198,7 @@
           },
           {
             "docCount": 1,
-            "key": "desquamation"
-          },
-          {
-            "docCount": 1,
             "key": "saccharase"
-          },
-          {
-            "docCount": 1,
-            "key": "desk"
           },
           {
             "docCount": 1,
@@ -2987,15 +3206,7 @@
           },
           {
             "docCount": 1,
-            "key": "describer"
-          },
-          {
-            "docCount": 1,
             "key": "sauna"
-          },
-          {
-            "docCount": 1,
-            "key": "deference"
           },
           {
             "docCount": 1,
@@ -3003,15 +3214,7 @@
           },
           {
             "docCount": 1,
-            "key": "defalcations"
-          },
-          {
-            "docCount": 1,
             "key": "schul"
-          },
-          {
-            "docCount": 1,
-            "key": "deaconships"
           },
           {
             "docCount": 1,
@@ -3019,15 +3222,7 @@
           },
           {
             "docCount": 1,
-            "key": "curtesy"
-          },
-          {
-            "docCount": 1,
             "key": "scouth"
-          },
-          {
-            "docCount": 1,
-            "key": "crochet"
           },
           {
             "docCount": 1,
@@ -3035,15 +3230,7 @@
           },
           {
             "docCount": 1,
-            "key": "crinites"
-          },
-          {
-            "docCount": 1,
             "key": "shoring"
-          },
-          {
-            "docCount": 1,
-            "key": "cracks"
           },
           {
             "docCount": 1,
@@ -3051,15 +3238,7 @@
           },
           {
             "docCount": 1,
-            "key": "conventicles"
-          },
-          {
-            "docCount": 1,
             "key": "skills"
-          },
-          {
-            "docCount": 1,
-            "key": "condonations"
           },
           {
             "docCount": 1,
@@ -3067,15 +3246,7 @@
           },
           {
             "docCount": 1,
-            "key": "condition"
-          },
-          {
-            "docCount": 1,
             "key": "sleuth"
-          },
-          {
-            "docCount": 1,
-            "key": "condensery"
           },
           {
             "docCount": 1,
@@ -3083,15 +3254,7 @@
           },
           {
             "docCount": 1,
-            "key": "conation"
-          },
-          {
-            "docCount": 1,
             "key": "speakership"
-          },
-          {
-            "docCount": 1,
-            "key": "comicalness"
           },
           {
             "docCount": 1,
@@ -3099,15 +3262,7 @@
           },
           {
             "docCount": 1,
-            "key": "cognates"
-          },
-          {
-            "docCount": 1,
             "key": "stigma"
-          },
-          {
-            "docCount": 1,
-            "key": "coacervate"
           },
           {
             "docCount": 1,
@@ -3115,15 +3270,7 @@
           },
           {
             "docCount": 1,
-            "key": "clostridia"
-          },
-          {
-            "docCount": 1,
             "key": "stroma"
-          },
-          {
-            "docCount": 1,
-            "key": "clog"
           },
           {
             "docCount": 1,
@@ -3131,15 +3278,7 @@
           },
           {
             "docCount": 1,
-            "key": "chickadee"
-          },
-          {
-            "docCount": 1,
             "key": "sunbathing"
-          },
-          {
-            "docCount": 1,
-            "key": "checkers"
           },
           {
             "docCount": 1,
@@ -3147,15 +3286,7 @@
           },
           {
             "docCount": 1,
-            "key": "chauffeurs"
-          },
-          {
-            "docCount": 1,
             "key": "surrogates"
-          },
-          {
-            "docCount": 1,
-            "key": "charks"
           },
           {
             "docCount": 1,
@@ -3163,15 +3294,7 @@
           },
           {
             "docCount": 1,
-            "key": "chalkboards"
-          },
-          {
-            "docCount": 1,
             "key": "swales"
-          },
-          {
-            "docCount": 1,
-            "key": "cardamon"
           },
           {
             "docCount": 1,
@@ -3179,15 +3302,7 @@
           },
           {
             "docCount": 1,
-            "key": "camouflage"
-          },
-          {
-            "docCount": 1,
             "key": "taeniacides"
-          },
-          {
-            "docCount": 1,
-            "key": "bumf"
           },
           {
             "docCount": 1,
@@ -3195,15 +3310,7 @@
           },
           {
             "docCount": 1,
-            "key": "bulkheads"
-          },
-          {
-            "docCount": 1,
             "key": "tazza"
-          },
-          {
-            "docCount": 1,
-            "key": "botel"
           },
           {
             "docCount": 1,
@@ -3211,15 +3318,7 @@
           },
           {
             "docCount": 1,
-            "key": "blots"
-          },
-          {
-            "docCount": 1,
             "key": "tempura"
-          },
-          {
-            "docCount": 1,
-            "key": "blinker"
           },
           {
             "docCount": 1,
@@ -3227,15 +3326,7 @@
           },
           {
             "docCount": 1,
-            "key": "blackamoors"
-          },
-          {
-            "docCount": 1,
             "key": "tokenism"
-          },
-          {
-            "docCount": 1,
-            "key": "birthmark"
           },
           {
             "docCount": 1,
@@ -3243,15 +3334,7 @@
           },
           {
             "docCount": 1,
-            "key": "bimetallism"
-          },
-          {
-            "docCount": 1,
             "key": "trekker"
-          },
-          {
-            "docCount": 1,
-            "key": "bequests"
           },
           {
             "docCount": 1,
@@ -3259,15 +3342,7 @@
           },
           {
             "docCount": 1,
-            "key": "bellyaches"
-          },
-          {
-            "docCount": 1,
             "key": "trisyllable"
-          },
-          {
-            "docCount": 1,
-            "key": "barred"
           },
           {
             "docCount": 1,
@@ -3275,15 +3350,7 @@
           },
           {
             "docCount": 1,
-            "key": "baronet"
-          },
-          {
-            "docCount": 1,
             "key": "trussings"
-          },
-          {
-            "docCount": 1,
-            "key": "autopista"
           },
           {
             "docCount": 1,
@@ -3291,15 +3358,7 @@
           },
           {
             "docCount": 1,
-            "key": "autonomies"
-          },
-          {
-            "docCount": 1,
             "key": "tunnies"
-          },
-          {
-            "docCount": 1,
-            "key": "autogiros"
           },
           {
             "docCount": 1,
@@ -3307,15 +3366,7 @@
           },
           {
             "docCount": 1,
-            "key": "asceticism"
-          },
-          {
-            "docCount": 1,
             "key": "unacceptance"
-          },
-          {
-            "docCount": 1,
-            "key": "apteryx"
           },
           {
             "docCount": 1,
@@ -3323,15 +3374,7 @@
           },
           {
             "docCount": 1,
-            "key": "appliances"
-          },
-          {
-            "docCount": 1,
             "key": "wonderland"
-          },
-          {
-            "docCount": 1,
-            "key": "angary"
           },
           {
             "docCount": 1,
@@ -3339,15 +3382,7 @@
           },
           {
             "docCount": 1,
-            "key": "amulets"
-          },
-          {
-            "docCount": 1,
             "key": "yawls"
-          },
-          {
-            "docCount": 1,
-            "key": "allotropism"
           },
           {
             "docCount": 1,
@@ -3355,20 +3390,16 @@
           },
           {
             "docCount": 1,
-            "key": "adjournment"
-          },
-          {
-            "docCount": 1,
             "key": "yoga"
-          },
-          {
-            "docCount": 1,
-            "key": "labels"
           }
         ]
       },
       "schrift_t": {
         "buckets": [
+          {
+            "docCount": 2,
+            "key": "troke"
+          },
           {
             "docCount": 1,
             "key": "acting"
@@ -4126,10 +4157,6 @@
             "key": "trepidations"
           },
           {
-            "docCount": 2,
-            "key": "troke"
-          },
-          {
             "docCount": 1,
             "key": "twelvemonths"
           },
@@ -4175,6 +4202,390 @@
           },
           {
             "docCount": 1,
+            "key": "acidosis"
+          },
+          {
+            "docCount": 1,
+            "key": "adnoun"
+          },
+          {
+            "docCount": 1,
+            "key": "aggradations"
+          },
+          {
+            "docCount": 1,
+            "key": "aim"
+          },
+          {
+            "docCount": 1,
+            "key": "ambuscado"
+          },
+          {
+            "docCount": 1,
+            "key": "amphioxus"
+          },
+          {
+            "docCount": 1,
+            "key": "appellation"
+          },
+          {
+            "docCount": 1,
+            "key": "aquatics"
+          },
+          {
+            "docCount": 1,
+            "key": "argentum"
+          },
+          {
+            "docCount": 1,
+            "key": "baas"
+          },
+          {
+            "docCount": 1,
+            "key": "banderoles"
+          },
+          {
+            "docCount": 1,
+            "key": "bedsocks"
+          },
+          {
+            "docCount": 1,
+            "key": "bevatrons"
+          },
+          {
+            "docCount": 1,
+            "key": "bhang"
+          },
+          {
+            "docCount": 1,
+            "key": "bigamist"
+          },
+          {
+            "docCount": 1,
+            "key": "bouffant"
+          },
+          {
+            "docCount": 1,
+            "key": "bowdlerism"
+          },
+          {
+            "docCount": 1,
+            "key": "breechings"
+          },
+          {
+            "docCount": 1,
+            "key": "burg"
+          },
+          {
+            "docCount": 1,
+            "key": "butchers"
+          },
+          {
+            "docCount": 1,
+            "key": "calices"
+          },
+          {
+            "docCount": 1,
+            "key": "casuists"
+          },
+          {
+            "docCount": 1,
+            "key": "caulds"
+          },
+          {
+            "docCount": 1,
+            "key": "centralists"
+          },
+          {
+            "docCount": 1,
+            "key": "cerographists"
+          },
+          {
+            "docCount": 1,
+            "key": "chaplainships"
+          },
+          {
+            "docCount": 1,
+            "key": "columnists"
+          },
+          {
+            "docCount": 1,
+            "key": "compacts"
+          },
+          {
+            "docCount": 1,
+            "key": "confessional"
+          },
+          {
+            "docCount": 1,
+            "key": "confirmors"
+          },
+          {
+            "docCount": 1,
+            "key": "conger"
+          },
+          {
+            "docCount": 1,
+            "key": "constructionists"
+          },
+          {
+            "docCount": 1,
+            "key": "continuos"
+          },
+          {
+            "docCount": 1,
+            "key": "contrabassoon"
+          },
+          {
+            "docCount": 1,
+            "key": "copiousness"
+          },
+          {
+            "docCount": 1,
+            "key": "corniche"
+          },
+          {
+            "docCount": 1,
+            "key": "cornicles"
+          },
+          {
+            "docCount": 1,
+            "key": "cottontails"
+          },
+          {
+            "docCount": 1,
+            "key": "currentness"
+          },
+          {
+            "docCount": 1,
+            "key": "deathliness"
+          },
+          {
+            "docCount": 1,
+            "key": "decorator"
+          },
+          {
+            "docCount": 1,
+            "key": "defrayers"
+          },
+          {
+            "docCount": 1,
+            "key": "dirhams"
+          },
+          {
+            "docCount": 1,
+            "key": "disherison"
+          },
+          {
+            "docCount": 1,
+            "key": "dispensators"
+          },
+          {
+            "docCount": 1,
+            "key": "dissuasions"
+          },
+          {
+            "docCount": 1,
+            "key": "doughnuts"
+          },
+          {
+            "docCount": 1,
+            "key": "doxographers"
+          },
+          {
+            "docCount": 1,
+            "key": "drink"
+          },
+          {
+            "docCount": 1,
+            "key": "drosophilas"
+          },
+          {
+            "docCount": 1,
+            "key": "droves"
+          },
+          {
+            "docCount": 1,
+            "key": "dulocracies"
+          },
+          {
+            "docCount": 1,
+            "key": "dumdums"
+          },
+          {
+            "docCount": 1,
+            "key": "elk"
+          },
+          {
+            "docCount": 1,
+            "key": "embezzler"
+          },
+          {
+            "docCount": 1,
+            "key": "enmities"
+          },
+          {
+            "docCount": 1,
+            "key": "escolar"
+          },
+          {
+            "docCount": 1,
+            "key": "evildoers"
+          },
+          {
+            "docCount": 1,
+            "key": "exoderm"
+          },
+          {
+            "docCount": 1,
+            "key": "expellers"
+          },
+          {
+            "docCount": 1,
+            "key": "fatalism"
+          },
+          {
+            "docCount": 1,
+            "key": "few"
+          },
+          {
+            "docCount": 1,
+            "key": "fiber"
+          },
+          {
+            "docCount": 1,
+            "key": "fichu"
+          },
+          {
+            "docCount": 1,
+            "key": "firstlings"
+          },
+          {
+            "docCount": 1,
+            "key": "flowages"
+          },
+          {
+            "docCount": 1,
+            "key": "fortuitists"
+          },
+          {
+            "docCount": 1,
+            "key": "galloper"
+          },
+          {
+            "docCount": 1,
+            "key": "gambol"
+          },
+          {
+            "docCount": 1,
+            "key": "gargle"
+          },
+          {
+            "docCount": 1,
+            "key": "gen"
+          },
+          {
+            "docCount": 1,
+            "key": "genitalia"
+          },
+          {
+            "docCount": 1,
+            "key": "geotropism"
+          },
+          {
+            "docCount": 1,
+            "key": "gimps"
+          },
+          {
+            "docCount": 1,
+            "key": "gloxinia"
+          },
+          {
+            "docCount": 1,
+            "key": "groin"
+          },
+          {
+            "docCount": 1,
+            "key": "guars"
+          },
+          {
+            "docCount": 1,
+            "key": "hadrosaurs"
+          },
+          {
+            "docCount": 1,
+            "key": "hagglers"
+          },
+          {
+            "docCount": 1,
+            "key": "hances"
+          },
+          {
+            "docCount": 1,
+            "key": "hatred"
+          },
+          {
+            "docCount": 1,
+            "key": "helotries"
+          },
+          {
+            "docCount": 1,
+            "key": "historicisms"
+          },
+          {
+            "docCount": 1,
+            "key": "hoatzin"
+          },
+          {
+            "docCount": 1,
+            "key": "holohedrism"
+          },
+          {
+            "docCount": 1,
+            "key": "horsemints"
+          },
+          {
+            "docCount": 1,
+            "key": "howf"
+          },
+          {
+            "docCount": 1,
+            "key": "impressions"
+          },
+          {
+            "docCount": 1,
+            "key": "incipit"
+          },
+          {
+            "docCount": 1,
+            "key": "indabas"
+          },
+          {
+            "docCount": 1,
+            "key": "introit"
+          },
+          {
+            "docCount": 1,
+            "key": "isotopies"
+          },
+          {
+            "docCount": 1,
+            "key": "jab"
+          },
+          {
+            "docCount": 1,
+            "key": "judders"
+          },
+          {
+            "docCount": 1,
+            "key": "kloofs"
+          },
+          {
+            "docCount": 1,
+            "key": "kvasses"
+          },
+          {
+            "docCount": 1,
             "key": "limp"
           },
           {
@@ -4187,7 +4598,7 @@
           },
           {
             "docCount": 1,
-            "key": "kvasses"
+            "key": "loch"
           },
           {
             "docCount": 1,
@@ -4211,15 +4622,7 @@
           },
           {
             "docCount": 1,
-            "key": "kloofs"
-          },
-          {
-            "docCount": 1,
             "key": "margs"
-          },
-          {
-            "docCount": 1,
-            "key": "judders"
           },
           {
             "docCount": 1,
@@ -4227,15 +4630,7 @@
           },
           {
             "docCount": 1,
-            "key": "jab"
-          },
-          {
-            "docCount": 1,
             "key": "merk"
-          },
-          {
-            "docCount": 1,
-            "key": "isotopies"
           },
           {
             "docCount": 1,
@@ -4243,15 +4638,7 @@
           },
           {
             "docCount": 1,
-            "key": "introit"
-          },
-          {
-            "docCount": 1,
             "key": "mils"
-          },
-          {
-            "docCount": 1,
-            "key": "indabas"
           },
           {
             "docCount": 1,
@@ -4259,15 +4646,7 @@
           },
           {
             "docCount": 1,
-            "key": "incipit"
-          },
-          {
-            "docCount": 1,
             "key": "mortmains"
-          },
-          {
-            "docCount": 1,
-            "key": "impressions"
           },
           {
             "docCount": 1,
@@ -4275,15 +4654,7 @@
           },
           {
             "docCount": 1,
-            "key": "howf"
-          },
-          {
-            "docCount": 1,
             "key": "multiparas"
-          },
-          {
-            "docCount": 1,
-            "key": "horsemints"
           },
           {
             "docCount": 1,
@@ -4291,15 +4662,7 @@
           },
           {
             "docCount": 1,
-            "key": "holohedrism"
-          },
-          {
-            "docCount": 1,
             "key": "neuroblasts"
-          },
-          {
-            "docCount": 1,
-            "key": "hoatzin"
           },
           {
             "docCount": 1,
@@ -4307,15 +4670,7 @@
           },
           {
             "docCount": 1,
-            "key": "historicisms"
-          },
-          {
-            "docCount": 1,
             "key": "nimbostratus"
-          },
-          {
-            "docCount": 1,
-            "key": "helotries"
           },
           {
             "docCount": 1,
@@ -4323,15 +4678,7 @@
           },
           {
             "docCount": 1,
-            "key": "hatred"
-          },
-          {
-            "docCount": 1,
             "key": "nympholepts"
-          },
-          {
-            "docCount": 1,
-            "key": "hances"
           },
           {
             "docCount": 1,
@@ -4339,15 +4686,7 @@
           },
           {
             "docCount": 1,
-            "key": "hagglers"
-          },
-          {
-            "docCount": 1,
             "key": "omelette"
-          },
-          {
-            "docCount": 1,
-            "key": "hadrosaurs"
           },
           {
             "docCount": 1,
@@ -4355,15 +4694,7 @@
           },
           {
             "docCount": 1,
-            "key": "guars"
-          },
-          {
-            "docCount": 1,
             "key": "orologists"
-          },
-          {
-            "docCount": 1,
-            "key": "groin"
           },
           {
             "docCount": 1,
@@ -4371,15 +4702,7 @@
           },
           {
             "docCount": 1,
-            "key": "gloxinia"
-          },
-          {
-            "docCount": 1,
             "key": "pash"
-          },
-          {
-            "docCount": 1,
-            "key": "gimps"
           },
           {
             "docCount": 1,
@@ -4387,15 +4710,7 @@
           },
           {
             "docCount": 1,
-            "key": "geotropism"
-          },
-          {
-            "docCount": 1,
             "key": "petards"
-          },
-          {
-            "docCount": 1,
-            "key": "genitalia"
           },
           {
             "docCount": 1,
@@ -4403,15 +4718,7 @@
           },
           {
             "docCount": 1,
-            "key": "gen"
-          },
-          {
-            "docCount": 1,
             "key": "pisciculture"
-          },
-          {
-            "docCount": 1,
-            "key": "gargle"
           },
           {
             "docCount": 1,
@@ -4419,15 +4726,7 @@
           },
           {
             "docCount": 1,
-            "key": "gambol"
-          },
-          {
-            "docCount": 1,
             "key": "polygenists"
-          },
-          {
-            "docCount": 1,
-            "key": "galloper"
           },
           {
             "docCount": 1,
@@ -4435,15 +4734,7 @@
           },
           {
             "docCount": 1,
-            "key": "fortuitists"
-          },
-          {
-            "docCount": 1,
             "key": "pomologists"
-          },
-          {
-            "docCount": 1,
-            "key": "flowages"
           },
           {
             "docCount": 1,
@@ -4451,15 +4742,7 @@
           },
           {
             "docCount": 1,
-            "key": "firstlings"
-          },
-          {
-            "docCount": 1,
             "key": "puce"
-          },
-          {
-            "docCount": 1,
-            "key": "fichu"
           },
           {
             "docCount": 1,
@@ -4467,15 +4750,7 @@
           },
           {
             "docCount": 1,
-            "key": "fiber"
-          },
-          {
-            "docCount": 1,
             "key": "purrs"
-          },
-          {
-            "docCount": 1,
-            "key": "few"
           },
           {
             "docCount": 1,
@@ -4483,15 +4758,7 @@
           },
           {
             "docCount": 1,
-            "key": "fatalism"
-          },
-          {
-            "docCount": 1,
             "key": "ragweed"
-          },
-          {
-            "docCount": 1,
-            "key": "expellers"
           },
           {
             "docCount": 1,
@@ -4499,15 +4766,7 @@
           },
           {
             "docCount": 1,
-            "key": "exoderm"
-          },
-          {
-            "docCount": 1,
             "key": "reek"
-          },
-          {
-            "docCount": 1,
-            "key": "evildoers"
           },
           {
             "docCount": 1,
@@ -4515,15 +4774,7 @@
           },
           {
             "docCount": 1,
-            "key": "escolar"
-          },
-          {
-            "docCount": 1,
             "key": "reinsertions"
-          },
-          {
-            "docCount": 1,
-            "key": "enmities"
           },
           {
             "docCount": 1,
@@ -4531,15 +4782,7 @@
           },
           {
             "docCount": 1,
-            "key": "embezzler"
-          },
-          {
-            "docCount": 1,
             "key": "reloads"
-          },
-          {
-            "docCount": 1,
-            "key": "elk"
           },
           {
             "docCount": 1,
@@ -4547,15 +4790,7 @@
           },
           {
             "docCount": 1,
-            "key": "dumdums"
-          },
-          {
-            "docCount": 1,
             "key": "rodomontade"
-          },
-          {
-            "docCount": 1,
-            "key": "dulocracies"
           },
           {
             "docCount": 1,
@@ -4563,15 +4798,7 @@
           },
           {
             "docCount": 1,
-            "key": "droves"
-          },
-          {
-            "docCount": 1,
             "key": "salesgirl"
-          },
-          {
-            "docCount": 1,
-            "key": "drosophilas"
           },
           {
             "docCount": 1,
@@ -4579,15 +4806,7 @@
           },
           {
             "docCount": 1,
-            "key": "drink"
-          },
-          {
-            "docCount": 1,
             "key": "scaremongering"
-          },
-          {
-            "docCount": 1,
-            "key": "doxographers"
           },
           {
             "docCount": 1,
@@ -4595,15 +4814,7 @@
           },
           {
             "docCount": 1,
-            "key": "doughnuts"
-          },
-          {
-            "docCount": 1,
             "key": "simp"
-          },
-          {
-            "docCount": 1,
-            "key": "dissuasions"
           },
           {
             "docCount": 1,
@@ -4611,15 +4822,7 @@
           },
           {
             "docCount": 1,
-            "key": "dispensators"
-          },
-          {
-            "docCount": 1,
             "key": "skeins"
-          },
-          {
-            "docCount": 1,
-            "key": "disherison"
           },
           {
             "docCount": 1,
@@ -4627,15 +4830,7 @@
           },
           {
             "docCount": 1,
-            "key": "dirhams"
-          },
-          {
-            "docCount": 1,
             "key": "slants"
-          },
-          {
-            "docCount": 1,
-            "key": "defrayers"
           },
           {
             "docCount": 1,
@@ -4643,15 +4838,7 @@
           },
           {
             "docCount": 1,
-            "key": "decorator"
-          },
-          {
-            "docCount": 1,
             "key": "snip"
-          },
-          {
-            "docCount": 1,
-            "key": "deathliness"
           },
           {
             "docCount": 1,
@@ -4659,15 +4846,7 @@
           },
           {
             "docCount": 1,
-            "key": "currentness"
-          },
-          {
-            "docCount": 1,
             "key": "steerer"
-          },
-          {
-            "docCount": 1,
-            "key": "cottontails"
           },
           {
             "docCount": 1,
@@ -4675,15 +4854,7 @@
           },
           {
             "docCount": 1,
-            "key": "cornicles"
-          },
-          {
-            "docCount": 1,
             "key": "stethoscopists"
-          },
-          {
-            "docCount": 1,
-            "key": "corniche"
           },
           {
             "docCount": 1,
@@ -4691,15 +4862,7 @@
           },
           {
             "docCount": 1,
-            "key": "copiousness"
-          },
-          {
-            "docCount": 1,
             "key": "strunts"
-          },
-          {
-            "docCount": 1,
-            "key": "contrabassoon"
           },
           {
             "docCount": 1,
@@ -4707,15 +4870,7 @@
           },
           {
             "docCount": 1,
-            "key": "continuos"
-          },
-          {
-            "docCount": 1,
             "key": "suppositions"
-          },
-          {
-            "docCount": 1,
-            "key": "constructionists"
           },
           {
             "docCount": 1,
@@ -4723,15 +4878,7 @@
           },
           {
             "docCount": 1,
-            "key": "conger"
-          },
-          {
-            "docCount": 1,
             "key": "swatch"
-          },
-          {
-            "docCount": 1,
-            "key": "confirmors"
           },
           {
             "docCount": 1,
@@ -4739,15 +4886,7 @@
           },
           {
             "docCount": 1,
-            "key": "confessional"
-          },
-          {
-            "docCount": 1,
             "key": "swingometer"
-          },
-          {
-            "docCount": 1,
-            "key": "compacts"
           },
           {
             "docCount": 1,
@@ -4755,15 +4894,7 @@
           },
           {
             "docCount": 1,
-            "key": "columnists"
-          },
-          {
-            "docCount": 1,
             "key": "systole"
-          },
-          {
-            "docCount": 1,
-            "key": "chaplainships"
           },
           {
             "docCount": 1,
@@ -4771,15 +4902,7 @@
           },
           {
             "docCount": 1,
-            "key": "cerographists"
-          },
-          {
-            "docCount": 1,
             "key": "tales"
-          },
-          {
-            "docCount": 1,
-            "key": "centralists"
           },
           {
             "docCount": 1,
@@ -4787,15 +4910,7 @@
           },
           {
             "docCount": 1,
-            "key": "caulds"
-          },
-          {
-            "docCount": 1,
             "key": "there"
-          },
-          {
-            "docCount": 1,
-            "key": "casuists"
           },
           {
             "docCount": 1,
@@ -4803,15 +4918,7 @@
           },
           {
             "docCount": 1,
-            "key": "calices"
-          },
-          {
-            "docCount": 1,
             "key": "thrust"
-          },
-          {
-            "docCount": 1,
-            "key": "butchers"
           },
           {
             "docCount": 1,
@@ -4819,15 +4926,7 @@
           },
           {
             "docCount": 1,
-            "key": "burg"
-          },
-          {
-            "docCount": 1,
             "key": "tome"
-          },
-          {
-            "docCount": 1,
-            "key": "breechings"
           },
           {
             "docCount": 1,
@@ -4835,15 +4934,7 @@
           },
           {
             "docCount": 1,
-            "key": "bowdlerism"
-          },
-          {
-            "docCount": 1,
             "key": "ugliness"
-          },
-          {
-            "docCount": 1,
-            "key": "bouffant"
           },
           {
             "docCount": 1,
@@ -4851,15 +4942,7 @@
           },
           {
             "docCount": 1,
-            "key": "bigamist"
-          },
-          {
-            "docCount": 1,
             "key": "ustulation"
-          },
-          {
-            "docCount": 1,
-            "key": "bhang"
           },
           {
             "docCount": 1,
@@ -4867,15 +4950,7 @@
           },
           {
             "docCount": 1,
-            "key": "bevatrons"
-          },
-          {
-            "docCount": 1,
             "key": "verdigris"
-          },
-          {
-            "docCount": 1,
-            "key": "bedsocks"
           },
           {
             "docCount": 1,
@@ -4883,15 +4958,7 @@
           },
           {
             "docCount": 1,
-            "key": "banderoles"
-          },
-          {
-            "docCount": 1,
             "key": "waif"
-          },
-          {
-            "docCount": 1,
-            "key": "baas"
           },
           {
             "docCount": 1,
@@ -4899,15 +4966,7 @@
           },
           {
             "docCount": 1,
-            "key": "argentum"
-          },
-          {
-            "docCount": 1,
             "key": "weir"
-          },
-          {
-            "docCount": 1,
-            "key": "aquatics"
           },
           {
             "docCount": 1,
@@ -4915,15 +4974,7 @@
           },
           {
             "docCount": 1,
-            "key": "appellation"
-          },
-          {
-            "docCount": 1,
             "key": "whopper"
-          },
-          {
-            "docCount": 1,
-            "key": "amphioxus"
           },
           {
             "docCount": 1,
@@ -4931,15 +4982,7 @@
           },
           {
             "docCount": 1,
-            "key": "ambuscado"
-          },
-          {
-            "docCount": 1,
             "key": "witlings"
-          },
-          {
-            "docCount": 1,
-            "key": "aim"
           },
           {
             "docCount": 1,
@@ -4947,107 +4990,75 @@
           },
           {
             "docCount": 1,
-            "key": "aggradations"
-          },
-          {
-            "docCount": 1,
-            "key": "acidosis"
-          },
-          {
-            "docCount": 1,
-            "key": "adnoun"
-          },
-          {
-            "docCount": 1,
             "key": "zax"
-          },
-          {
-            "docCount": 1,
-            "key": "loch"
           }
         ]
       },
-      "vorbesitzer_t": {
+      "vorbesitzer_s": {
         "buckets": [
           {
-            "docCount": 15,
-            "key": "assurance"
-          },
-          {
-            "docCount": 14,
-            "key": "customer"
-          },
-          {
-            "docCount": 7,
-            "key": "customers"
-          },
-          {
             "docCount": 19,
-            "key": "financial"
-          },
-          {
-            "docCount": 12,
-            "key": "human"
-          },
-          {
-            "docCount": 14,
-            "key": "insurance"
-          },
-          {
-            "docCount": 14,
-            "key": "inventory"
-          },
-          {
-            "docCount": 12,
-            "key": "it"
-          },
-          {
-            "docCount": 200,
-            "key": "kloster"
-          },
-          {
-            "docCount": 8,
-            "key": "licenses"
-          },
-          {
-            "docCount": 13,
-            "key": "marketing"
-          },
-          {
-            "docCount": 13,
-            "key": "operational"
-          },
-          {
-            "docCount": 14,
-            "key": "organizational"
-          },
-          {
-            "docCount": 12,
-            "key": "purchasing"
+            "key": "Kloster Financial"
           },
           {
             "docCount": 15,
-            "key": "quality"
-          },
-          {
-            "docCount": 12,
-            "key": "resources"
+            "key": "Kloster Quality Assurance"
           },
           {
             "docCount": 15,
-            "key": "sales"
+            "key": "Kloster Sales"
           },
           {
             "docCount": 14,
-            "key": "service"
+            "key": "Kloster Customer Service"
           },
           {
-            "docCount": 7,
-            "key": "services"
+            "docCount": 14,
+            "key": "Kloster Insurance"
+          },
+          {
+            "docCount": 14,
+            "key": "Kloster Inventory"
+          },
+          {
+            "docCount": 14,
+            "key": "Kloster Organizational"
+          },
+          {
+            "docCount": 13,
+            "key": "Kloster Marketing"
+          },
+          {
+            "docCount": 13,
+            "key": "Kloster Operational"
+          },
+          {
+            "docCount": 12,
+            "key": "Kloster Human Resources"
+          },
+          {
+            "docCount": 12,
+            "key": "Kloster IT"
+          },
+          {
+            "docCount": 12,
+            "key": "Kloster Purchasing"
           },
           {
             "docCount": 11,
-            "key": "staffing"
+            "key": "Kloster Staffing"
+          },
+          {
+            "docCount": 8,
+            "key": "Kloster Licenses"
+          },
+          {
+            "docCount": 7,
+            "key": "Kloster Customers"
+          },
+          {
+            "docCount": 7,
+            "key": "Kloster Services"
           }
         ]
       },
@@ -5090,9 +5101,9 @@
             "status_t": "humorousness",
             "schrift_t": "disunities",
             "schreibsprache_t": "cerographists",
-            "vorbesitzer_t": "Kloster Marketing",
+            "vorbesitzer_s": "Kloster Marketing",
             "_root_": "f1bcba68-1c88-41ef-9f70-81d7aba8b83e",
-            "_version_": 1635522859605426200,
+            "_version_": 1635840248961302500,
             "entities": [
               {
                 "id": "e2383e68-9a1f-4e4f-9693-b8b8f34fffc2",
@@ -5100,14 +5111,14 @@
                 "digitalisatDescription_t": "The air with his mouth, flowed over the years, no more that the women.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000004886/manifest.json",
                 "_root_": "f1bcba68-1c88-41ef-9f70-81d7aba8b83e",
-                "_version_": 1635522859605426200
+                "_version_": 1635840248961302500
               },
               {
                 "id": "9735f6e5-ce6e-4143-8ed1-74b883bb9683",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Scraping of the bed, when his sister, that made her call out: is the.",
                 "_root_": "f1bcba68-1c88-41ef-9f70-81d7aba8b83e",
-                "_version_": 1635522859605426200
+                "_version_": 1635840248961302500
               },
               {
                 "id": "b0c53604-a81c-4abf-8d7c-45e59e5429c7",
@@ -5124,7 +5135,7 @@
                   "Warfield, Bianca"
                 ],
                 "_root_": "f1bcba68-1c88-41ef-9f70-81d7aba8b83e",
-                "_version_": 1635522859605426200
+                "_version_": 1635840248961302500
               }
             ]
           },
@@ -5145,9 +5156,9 @@
             "status_t": "outbreak",
             "schrift_t": "caulds",
             "schreibsprache_t": "hoatzin",
-            "vorbesitzer_t": "Kloster Organizational",
+            "vorbesitzer_s": "Kloster Organizational",
             "_root_": "20e89703-ffa3-4417-be10-7f414bd65204",
-            "_version_": 1635522859320213500,
+            "_version_": 1635840248771510300,
             "entities": [
               {
                 "id": "8cd12166-ceca-4075-bc4e-c3ab9cd2013d",
@@ -5155,14 +5166,14 @@
                 "digitalisatDescription_t": "Hidden as he had finished eating and lay lethargic in the door open.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008200/manifest.json",
                 "_root_": "20e89703-ffa3-4417-be10-7f414bd65204",
-                "_version_": 1635522859320213500
+                "_version_": 1635840248771510300
               },
               {
                 "id": "5884ff90-c39e-4e0f-977e-d515d9a88ac0",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Out there, she had to be held back by force, which made her unable.",
                 "_root_": "20e89703-ffa3-4417-be10-7f414bd65204",
-                "_version_": 1635522859320213500
+                "_version_": 1635840248771510300
               },
               {
                 "id": "937f4d4e-a39b-4be2-a189-3872efd0726d",
@@ -5179,7 +5190,7 @@
                   "Dunkel, Kelle"
                 ],
                 "_root_": "20e89703-ffa3-4417-be10-7f414bd65204",
-                "_version_": 1635522859320213500
+                "_version_": 1635840248771510300
               }
             ]
           },
@@ -5200,9 +5211,9 @@
             "status_t": "larrikinism",
             "schrift_t": "ectoplasms",
             "schreibsprache_t": "butchers",
-            "vorbesitzer_t": "Kloster Licenses",
+            "vorbesitzer_s": "Kloster Licenses",
             "_root_": "0e6a9978-846f-4182-8ef2-424cf1b71231",
-            "_version_": 1635522859326505000,
+            "_version_": 1635840248777801700,
             "entities": [
               {
                 "id": "da0e6dbf-8378-4801-bde4-fea33acca631",
@@ -5210,7 +5221,7 @@
                 "digitalisatDescription_t": "Over his trembling shoulders as he peered out at first but then he.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006293/manifest.json",
                 "_root_": "0e6a9978-846f-4182-8ef2-424cf1b71231",
-                "_version_": 1635522859326505000
+                "_version_": 1635840248777801700
               },
               {
                 "id": "79bfbcfb-3a45-4a75-9f41-631fc0c4c57d",
@@ -5218,21 +5229,21 @@
                 "digitalisatDescription_t": "If somebody came to enjoy it although moving about in his present.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002585/manifest.json",
                 "_root_": "0e6a9978-846f-4182-8ef2-424cf1b71231",
-                "_version_": 1635522859326505000
+                "_version_": 1635840248777801700
               },
               {
                 "id": "f9c239e0-9c19-48ed-8547-3e7bb9251b88",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "At every door of the bed and into the room. No- one was making him.",
                 "_root_": "0e6a9978-846f-4182-8ef2-424cf1b71231",
-                "_version_": 1635522859326505000
+                "_version_": 1635840248777801700
               },
               {
                 "id": "13ccc71d-40db-4bbd-beaf-a2a142296356",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "The city, he crawled about- and i mention this just by the hand that.",
                 "_root_": "0e6a9978-846f-4182-8ef2-424cf1b71231",
-                "_version_": 1635522859326505000
+                "_version_": 1635840248777801700
               },
               {
                 "id": "6126f249-df8e-4b7b-9ec3-8d3e5fc6c594",
@@ -5250,7 +5261,7 @@
                   "Lajoye, Claudine"
                 ],
                 "_root_": "0e6a9978-846f-4182-8ef2-424cf1b71231",
-                "_version_": 1635522859326505000
+                "_version_": 1635840248777801700
               },
               {
                 "id": "45d877d7-9322-4f3a-bae0-679e7a30d259",
@@ -5268,7 +5279,7 @@
                   "Lacorte, Carl"
                 ],
                 "_root_": "0e6a9978-846f-4182-8ef2-424cf1b71231",
-                "_version_": 1635522859326505000
+                "_version_": 1635840248777801700
               }
             ]
           },
@@ -5289,9 +5300,9 @@
             "status_t": "swoops",
             "schrift_t": "splutterers",
             "schreibsprache_t": "mils",
-            "vorbesitzer_t": "Kloster Financial",
+            "vorbesitzer_s": "Kloster Financial",
             "_root_": "26004b84-e198-43ff-9dc5-1f73f70acf4d",
-            "_version_": 1635522859116789800,
+            "_version_": 1635840248549212200,
             "entities": [
               {
                 "id": "0102b6b9-e60c-4ab8-bc14-ab3228ec952b",
@@ -5299,14 +5310,14 @@
                 "digitalisatDescription_t": "Himself for his sister always taking on the other side did the same.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008014/manifest.json",
                 "_root_": "26004b84-e198-43ff-9dc5-1f73f70acf4d",
-                "_version_": 1635522859116789800
+                "_version_": 1635840248549212200
               },
               {
                 "id": "eac68c46-a4b9-4eeb-a994-fc72a06d7768",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "I beg of you, sir, called out: come and give me a bit of him, nobody.",
                 "_root_": "26004b84-e198-43ff-9dc5-1f73f70acf4d",
-                "_version_": 1635522859116789800
+                "_version_": 1635840248549212200
               },
               {
                 "id": "94c143a1-b4bc-4980-a5d2-429c05c4e8ab",
@@ -5323,7 +5334,7 @@
                   "Bjornson, Olin"
                 ],
                 "_root_": "26004b84-e198-43ff-9dc5-1f73f70acf4d",
-                "_version_": 1635522859116789800
+                "_version_": 1635840248549212200
               }
             ]
           },
@@ -5344,9 +5355,9 @@
             "status_t": "modistes",
             "schrift_t": "chirres",
             "schreibsprache_t": "longitudes",
-            "vorbesitzer_t": "Kloster Sales",
+            "vorbesitzer_s": "Kloster Sales",
             "_root_": "5e82a4e4-6f83-45dd-b0ec-b190c14672f1",
-            "_version_": 1635522859271979000,
+            "_version_": 1635840248732713000,
             "entities": [
               {
                 "id": "5d6e3914-eafa-46fb-8222-985b4c53a526",
@@ -5354,7 +5365,7 @@
                 "digitalisatDescription_t": "Office assistant was the sort that had shaken him out of it. The first.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002716/manifest.json",
                 "_root_": "5e82a4e4-6f83-45dd-b0ec-b190c14672f1",
-                "_version_": 1635522859271979000
+                "_version_": 1635840248732713000
               },
               {
                 "id": "5235805a-9a85-4df7-aa5f-fec914063a5d",
@@ -5362,21 +5373,21 @@
                 "digitalisatDescription_t": "Force he could think of any other way of explaining it, his sister.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000009203/manifest.json",
                 "_root_": "5e82a4e4-6f83-45dd-b0ec-b190c14672f1",
-                "_version_": 1635522859271979000
+                "_version_": 1635840248732713000
               },
               {
                 "id": "b5aa5b16-624b-4a76-ba7e-d0d1000bf649",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Would throw down her needle and his sister came in, sounding as if.",
                 "_root_": "5e82a4e4-6f83-45dd-b0ec-b190c14672f1",
-                "_version_": 1635522859271979000
+                "_version_": 1635840248732713000
               },
               {
                 "id": "d565c48f-6fff-4315-9c67-a00c26a4d00f",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Begun to get up and say to him as she had poured some water into the.",
                 "_root_": "5e82a4e4-6f83-45dd-b0ec-b190c14672f1",
-                "_version_": 1635522859271979000
+                "_version_": 1635840248732713000
               },
               {
                 "id": "ce917d4c-db21-4c94-a200-c1e65721f15e",
@@ -5394,7 +5405,7 @@
                   "Firlit, Sari"
                 ],
                 "_root_": "5e82a4e4-6f83-45dd-b0ec-b190c14672f1",
-                "_version_": 1635522859271979000
+                "_version_": 1635840248732713000
               },
               {
                 "id": "c5ca2ba8-8392-489c-a1e5-7b10fa59ad24",
@@ -5412,7 +5423,7 @@
                   "Kljucaric, Mark"
                 ],
                 "_root_": "5e82a4e4-6f83-45dd-b0ec-b190c14672f1",
-                "_version_": 1635522859271979000
+                "_version_": 1635840248732713000
               }
             ]
           },
@@ -5433,9 +5444,9 @@
             "status_t": "hildings",
             "schrift_t": "bombardment",
             "schreibsprache_t": "zax",
-            "vorbesitzer_t": "Kloster Customer Service",
+            "vorbesitzer_s": "Kloster Customer Service",
             "_root_": "cfca64dd-b1ce-4db6-92e2-86148cae257d",
-            "_version_": 1635522859001446400,
+            "_version_": 1635840248390877200,
             "entities": [
               {
                 "id": "5414c9f6-4b96-4550-9627-38084bf54f7b",
@@ -5443,14 +5454,14 @@
                 "digitalisatDescription_t": "Kitchen locked at all as if taken with a kind of action for damages.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002944/manifest.json",
                 "_root_": "cfca64dd-b1ce-4db6-92e2-86148cae257d",
-                "_version_": 1635522859001446400
+                "_version_": 1635840248390877200
               },
               {
                 "id": "98a75a54-e55b-4ba0-abf8-673b0a2de2e6",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Pulled herself together, lay the instrument on her mother' s appeals.",
                 "_root_": "cfca64dd-b1ce-4db6-92e2-86148cae257d",
-                "_version_": 1635522859001446400
+                "_version_": 1635840248390877200
               },
               {
                 "id": "df192368-e28e-41ac-bb0d-52398169b788",
@@ -5467,7 +5478,7 @@
                   "Parkes, Royal"
                 ],
                 "_root_": "cfca64dd-b1ce-4db6-92e2-86148cae257d",
-                "_version_": 1635522859001446400
+                "_version_": 1635840248390877200
               }
             ]
           },
@@ -5488,9 +5499,9 @@
             "status_t": "mink",
             "schrift_t": "fibula",
             "schreibsprache_t": "phage",
-            "vorbesitzer_t": "Kloster Sales",
+            "vorbesitzer_s": "Kloster Sales",
             "_root_": "ee39c437-6cc0-464e-98c8-63a07ce6d5e5",
-            "_version_": 1635522859647369200,
+            "_version_": 1635840248990662700,
             "entities": [
               {
                 "id": "68f49c4a-ece7-46d3-94e1-f6cf0bcd89ca",
@@ -5498,7 +5509,7 @@
                 "digitalisatDescription_t": "Hurriedly shut, bolted and locked. The first time. Gregor tried to.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000009965/manifest.json",
                 "_root_": "ee39c437-6cc0-464e-98c8-63a07ce6d5e5",
-                "_version_": 1635522859647369200
+                "_version_": 1635840248990662700
               },
               {
                 "id": "5cf0f9e6-da37-4173-8562-1f8ba9e3c360",
@@ -5506,21 +5517,21 @@
                 "digitalisatDescription_t": "Make him feel abandoned to be risked. When explaining things, his.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006226/manifest.json",
                 "_root_": "ee39c437-6cc0-464e-98c8-63a07ce6d5e5",
-                "_version_": 1635522859647369200
+                "_version_": 1635840248990662700
               },
               {
                 "id": "7db55976-c049-45db-96db-52d98f1f8228",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Perhaps they were not at all did she not come in and play for us here.",
                 "_root_": "ee39c437-6cc0-464e-98c8-63a07ce6d5e5",
-                "_version_": 1635522859647369200
+                "_version_": 1635840248990662700
               },
               {
                 "id": "668afd59-efd6-4467-9ee8-0cad99e95b20",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Violinist, it was only ever thinks about the others seemed to gregor.",
                 "_root_": "ee39c437-6cc0-464e-98c8-63a07ce6d5e5",
-                "_version_": 1635522859647369200
+                "_version_": 1635840248990662700
               },
               {
                 "id": "74c5dd22-de66-4cfe-8e18-63d585e335e7",
@@ -5538,7 +5549,7 @@
                   "Timpe, Mel"
                 ],
                 "_root_": "ee39c437-6cc0-464e-98c8-63a07ce6d5e5",
-                "_version_": 1635522859647369200
+                "_version_": 1635840248990662700
               },
               {
                 "id": "a53ed15b-48e7-4277-aaa8-a0446ffd020d",
@@ -5556,7 +5567,7 @@
                   "Deshotel, Mable"
                 ],
                 "_root_": "ee39c437-6cc0-464e-98c8-63a07ce6d5e5",
-                "_version_": 1635522859647369200
+                "_version_": 1635840248990662700
               }
             ]
           },
@@ -5577,9 +5588,9 @@
             "status_t": "teinds",
             "schrift_t": "sopors",
             "schreibsprache_t": "genitalia",
-            "vorbesitzer_t": "Kloster Licenses",
+            "vorbesitzer_s": "Kloster Licenses",
             "_root_": "b93b72ab-addb-45c7-bb44-afcf8635da4c",
-            "_version_": 1635522859288756200,
+            "_version_": 1635840248746344400,
             "entities": [
               {
                 "id": "f5ffd90c-9460-44db-9e0a-3c17d46a2559",
@@ -5587,7 +5598,7 @@
                 "digitalisatDescription_t": "Lay there on the floor. His mother with the effort of pushing a chair.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000000447/manifest.json",
                 "_root_": "b93b72ab-addb-45c7-bb44-afcf8635da4c",
-                "_version_": 1635522859288756200
+                "_version_": 1635840248746344400
               },
               {
                 "id": "16d0778a-23a0-43c7-b518-c2d2b41c76a5",
@@ -5595,21 +5606,21 @@
                 "digitalisatDescription_t": "Case? gregor answered to both sides: i' ll be someone from work, but.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002860/manifest.json",
                 "_root_": "b93b72ab-addb-45c7-bb44-afcf8635da4c",
-                "_version_": 1635522859288756200
+                "_version_": 1635840248746344400
               },
               {
                 "id": "4cb462c8-40ef-4a26-80c7-93c2cc81caa6",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Still not packed, and remains of food about on the very first day.",
                 "_root_": "b93b72ab-addb-45c7-bb44-afcf8635da4c",
-                "_version_": 1635522859288756200
+                "_version_": 1635840248746344400
               },
               {
                 "id": "eb80be22-babd-498d-b1ed-8f2c80930224",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "S sake, he looked briefly but decisively at the sight of the window.",
                 "_root_": "b93b72ab-addb-45c7-bb44-afcf8635da4c",
-                "_version_": 1635522859288756200
+                "_version_": 1635840248746344400
               },
               {
                 "id": "b71f53a6-e05b-481b-a651-764a3436db51",
@@ -5627,7 +5638,7 @@
                   "Ridgell, Lewis"
                 ],
                 "_root_": "b93b72ab-addb-45c7-bb44-afcf8635da4c",
-                "_version_": 1635522859288756200
+                "_version_": 1635840248746344400
               },
               {
                 "id": "659ea558-e2bf-4779-87f6-bef661e2b1c0",
@@ -5645,7 +5656,7 @@
                   "Knoff, Karina"
                 ],
                 "_root_": "b93b72ab-addb-45c7-bb44-afcf8635da4c",
-                "_version_": 1635522859288756200
+                "_version_": 1635840248746344400
               }
             ]
           },
@@ -5666,9 +5677,9 @@
             "status_t": "blots",
             "schrift_t": "orographic",
             "schreibsprache_t": "dirhams",
-            "vorbesitzer_t": "Kloster Staffing",
+            "vorbesitzer_s": "Kloster Staffing",
             "_root_": "c2194d61-6745-45ff-82b7-e614d10c3c75",
-            "_version_": 1635522859650515000,
+            "_version_": 1635840248992759800,
             "entities": [
               {
                 "id": "26c1c8e0-44a4-472f-9b37-7e51c745d210",
@@ -5676,7 +5687,7 @@
                 "digitalisatDescription_t": "And take a rest. No- one who knew the condition he was in danger of.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000003246/manifest.json",
                 "_root_": "c2194d61-6745-45ff-82b7-e614d10c3c75",
-                "_version_": 1635522859650515000
+                "_version_": 1635840248992759800
               },
               {
                 "id": "326c2a59-3b12-47ae-acf7-8429f344f026",
@@ -5684,7 +5695,7 @@
                 "digitalisatDescription_t": "Mood, it makes you stupid. You can come in and day out. She had been.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005877/manifest.json",
                 "_root_": "c2194d61-6745-45ff-82b7-e614d10c3c75",
-                "_version_": 1635522859650515000
+                "_version_": 1635840248992759800
               },
               {
                 "id": "a6bd5afc-708e-45bc-b455-afc8847d47fd",
@@ -5692,28 +5703,28 @@
                 "digitalisatDescription_t": "Voice answering, it could not understand her words seemed to confirm.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000003755/manifest.json",
                 "_root_": "c2194d61-6745-45ff-82b7-e614d10c3c75",
-                "_version_": 1635522859650515000
+                "_version_": 1635840248992759800
               },
               {
                 "id": "e6dff623-c8f4-4304-9948-172a150747f1",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Clear whether it was a painful silence; in the door- his hand pressed.",
                 "_root_": "c2194d61-6745-45ff-82b7-e614d10c3c75",
-                "_version_": 1635522859650515000
+                "_version_": 1635840248992759800
               },
               {
                 "id": "f61d36ab-960f-4b29-b6a3-238c8100c5e9",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Quite clearly with the doctor and the women were leant against the.",
                 "_root_": "c2194d61-6745-45ff-82b7-e614d10c3c75",
-                "_version_": 1635522859650515000
+                "_version_": 1635840248992759800
               },
               {
                 "id": "c0715586-5d32-4bd2-a6f4-6b6f2ae64320",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Know, said his father to bed gregor' s not quite as easy as possible.",
                 "_root_": "c2194d61-6745-45ff-82b7-e614d10c3c75",
-                "_version_": 1635522859650515000
+                "_version_": 1635840248992759800
               },
               {
                 "id": "06c98e45-e152-457e-96e4-3ac65de472ac",
@@ -5732,7 +5743,7 @@
                   "Debari, Becki"
                 ],
                 "_root_": "c2194d61-6745-45ff-82b7-e614d10c3c75",
-                "_version_": 1635522859650515000
+                "_version_": 1635840248992759800
               },
               {
                 "id": "256b6f47-c84b-4e72-b4c9-f244960b4dab",
@@ -5751,7 +5762,7 @@
                   "Sevick, Tammara"
                 ],
                 "_root_": "c2194d61-6745-45ff-82b7-e614d10c3c75",
-                "_version_": 1635522859650515000
+                "_version_": 1635840248992759800
               },
               {
                 "id": "d0ad8a62-ee66-46c5-8bac-b7ce44fd2d06",
@@ -5770,7 +5781,7 @@
                   "Bucknell, Marty"
                 ],
                 "_root_": "c2194d61-6745-45ff-82b7-e614d10c3c75",
-                "_version_": 1635522859650515000
+                "_version_": 1635840248992759800
               }
             ]
           },
@@ -5791,9 +5802,9 @@
             "status_t": "yoga",
             "schrift_t": "metal",
             "schreibsprache_t": "thugs",
-            "vorbesitzer_t": "Kloster Customer Service",
+            "vorbesitzer_s": "Kloster Customer Service",
             "_root_": "2f8e367a-4b01-4aa6-8aac-43dae78b92c5",
-            "_version_": 1635522859727061000,
+            "_version_": 1635840249024217000,
             "entities": [
               {
                 "id": "1f6e76ea-8772-4066-8ec6-d0a0869b19ce",
@@ -5801,7 +5812,7 @@
                 "digitalisatDescription_t": "More strongly than his sister arrived home in the doorway. When he.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000004861/manifest.json",
                 "_root_": "2f8e367a-4b01-4aa6-8aac-43dae78b92c5",
-                "_version_": 1635522859727061000
+                "_version_": 1635840249024217000
               },
               {
                 "id": "346da640-ba34-4c43-9e1f-ebf197e876d2",
@@ -5809,21 +5820,21 @@
                 "digitalisatDescription_t": "Household budget became even smaller; so now the two women followed.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008231/manifest.json",
                 "_root_": "2f8e367a-4b01-4aa6-8aac-43dae78b92c5",
-                "_version_": 1635522859727061000
+                "_version_": 1635840249024217000
               },
               {
                 "id": "5abaf648-6aa3-4afa-aa59-b6ee1ae54a5f",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Comfortable. It was possible. So, but down below. Now, whenever she.",
                 "_root_": "2f8e367a-4b01-4aa6-8aac-43dae78b92c5",
-                "_version_": 1635522859727061000
+                "_version_": 1635840249024217000
               },
               {
                 "id": "d152b335-f96a-4f57-b72d-2e61f9ad3984",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Symptom of it, which was still occupied with coughing to listen, it.",
                 "_root_": "2f8e367a-4b01-4aa6-8aac-43dae78b92c5",
-                "_version_": 1635522859727061000
+                "_version_": 1635840249024217000
               },
               {
                 "id": "cf641555-ba04-4f68-9f0c-02a9151bb8a0",
@@ -5841,7 +5852,7 @@
                   "Phomphithak, Hector"
                 ],
                 "_root_": "2f8e367a-4b01-4aa6-8aac-43dae78b92c5",
-                "_version_": 1635522859727061000
+                "_version_": 1635840249024217000
               },
               {
                 "id": "71830800-22a5-4aac-8632-6cec20b60c2e",
@@ -5859,7 +5870,7 @@
                   "Engerman, Rene"
                 ],
                 "_root_": "2f8e367a-4b01-4aa6-8aac-43dae78b92c5",
-                "_version_": 1635522859727061000
+                "_version_": 1635840249024217000
               }
             ]
           },
@@ -5880,9 +5891,9 @@
             "status_t": "skills",
             "schrift_t": "taches",
             "schreibsprache_t": "corniche",
-            "vorbesitzer_t": "Kloster Quality Assurance",
+            "vorbesitzer_s": "Kloster Quality Assurance",
             "_root_": "8b9270a4-c2f1-40a9-9f8c-815c28c224c2",
-            "_version_": 1635522859664146400,
+            "_version_": 1635840248998002700,
             "entities": [
               {
                 "id": "b6dc2fb0-3d62-4dc2-b73d-59e957585b82",
@@ -5890,7 +5901,7 @@
                 "digitalisatDescription_t": "Running; he only had they earned a break from work to help his mother.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000004411/manifest.json",
                 "_root_": "8b9270a4-c2f1-40a9-9f8c-815c28c224c2",
-                "_version_": 1635522859664146400
+                "_version_": 1635840248998002700
               },
               {
                 "id": "96a20ca2-0652-4a24-ae02-a88a444202b3",
@@ -5898,7 +5909,7 @@
                 "digitalisatDescription_t": "Get a locksmith here, now! and it was- the first fourteen days, all.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006611/manifest.json",
                 "_root_": "8b9270a4-c2f1-40a9-9f8c-815c28c224c2",
-                "_version_": 1635522859664146400
+                "_version_": 1635840248998002700
               },
               {
                 "id": "45f29223-5f17-44df-a372-d5802c5e71f0",
@@ -5906,28 +5917,28 @@
                 "digitalisatDescription_t": "A hospital- could be made out at the leather for hours afterwards.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000000364/manifest.json",
                 "_root_": "8b9270a4-c2f1-40a9-9f8c-815c28c224c2",
-                "_version_": 1635522859664146400
+                "_version_": 1635840248998002700
               },
               {
                 "id": "79279bc3-e127-417f-942a-4f3565ed1379",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Crossed himself, so he started to move. He seemed, unfortunately,.",
                 "_root_": "8b9270a4-c2f1-40a9-9f8c-815c28c224c2",
-                "_version_": 1635522859664146400
+                "_version_": 1635840248998002700
               },
               {
                 "id": "fea01b93-9d66-452e-ab71-a64e22c4f3a1",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Being seen at the leather for hours afterwards. The greatest load.",
                 "_root_": "8b9270a4-c2f1-40a9-9f8c-815c28c224c2",
-                "_version_": 1635522859664146400
+                "_version_": 1635840248998002700
               },
               {
                 "id": "77b7902b-79fa-452d-a107-2ac8b9a2f345",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "As a reproach to her knees and begged gregor' s experienced hand,.",
                 "_root_": "8b9270a4-c2f1-40a9-9f8c-815c28c224c2",
-                "_version_": 1635522859664146400
+                "_version_": 1635840248998002700
               },
               {
                 "id": "81e2a444-ca99-470a-9768-608cbde6c8b0",
@@ -5946,7 +5957,7 @@
                   "Carow, Kia"
                 ],
                 "_root_": "8b9270a4-c2f1-40a9-9f8c-815c28c224c2",
-                "_version_": 1635522859664146400
+                "_version_": 1635840248998002700
               },
               {
                 "id": "d813424a-9a6c-40e8-b0ca-9b0d5a370c55",
@@ -5965,7 +5976,7 @@
                   "Gearheart, Ivan"
                 ],
                 "_root_": "8b9270a4-c2f1-40a9-9f8c-815c28c224c2",
-                "_version_": 1635522859664146400
+                "_version_": 1635840248998002700
               },
               {
                 "id": "874b8168-9909-474c-a661-5f10fe65d130",
@@ -5984,7 +5995,7 @@
                   "Gartenhaus, Gustavo"
                 ],
                 "_root_": "8b9270a4-c2f1-40a9-9f8c-815c28c224c2",
-                "_version_": 1635522859664146400
+                "_version_": 1635840248998002700
               }
             ]
           },
@@ -6005,9 +6016,9 @@
             "status_t": "swales",
             "schrift_t": "campesinos",
             "schreibsprache_t": "breechings",
-            "vorbesitzer_t": "Kloster Sales",
+            "vorbesitzer_s": "Kloster Sales",
             "_root_": "5db654ab-0175-452c-91ac-41ad59fb0eb5",
-            "_version_": 1635522859795218400,
+            "_version_": 1635840249060917200,
             "entities": [
               {
                 "id": "7d24f3b9-3968-40f0-952e-3dd40eef8ee2",
@@ -6015,14 +6026,14 @@
                 "digitalisatDescription_t": "Worries and vague hopes which, under pressure from her father' s father.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000001725/manifest.json",
                 "_root_": "5db654ab-0175-452c-91ac-41ad59fb0eb5",
-                "_version_": 1635522859795218400
+                "_version_": 1635840249060917200
               },
               {
                 "id": "bb88029f-4659-454c-8f49-6476f56e0db4",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "All doors at night that the walls and ceiling. Whatever was said in.",
                 "_root_": "5db654ab-0175-452c-91ac-41ad59fb0eb5",
-                "_version_": 1635522859795218400
+                "_version_": 1635840249060917200
               },
               {
                 "id": "e79ff668-eb4a-46c7-bd95-c471352f1faf",
@@ -6039,7 +6050,7 @@
                   "Sarensen, Noemi"
                 ],
                 "_root_": "5db654ab-0175-452c-91ac-41ad59fb0eb5",
-                "_version_": 1635522859795218400
+                "_version_": 1635840249060917200
               }
             ]
           },
@@ -6060,9 +6071,9 @@
             "status_t": "condensery",
             "schrift_t": "geomancers",
             "schreibsprache_t": "milds",
-            "vorbesitzer_t": "Kloster Purchasing",
+            "vorbesitzer_s": "Kloster Purchasing",
             "_root_": "22b7ffb4-f1b8-40f0-bf3d-8130d0bd969e",
-            "_version_": 1635522859597037600,
+            "_version_": 1635840248955011000,
             "entities": [
               {
                 "id": "b1eddc83-73db-4aaf-995d-02d5d85075dd",
@@ -6070,14 +6081,14 @@
                 "digitalisatDescription_t": "Make the big change. First of all the more lively as they open up.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006848/manifest.json",
                 "_root_": "22b7ffb4-f1b8-40f0-bf3d-8130d0bd969e",
-                "_version_": 1635522859597037600
+                "_version_": 1635840248955011000
               },
               {
                 "id": "cd37df2a-7713-4c66-b07f-c674ba3326c4",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Question to let her go without delay. It was quiet. They had moreover.",
                 "_root_": "22b7ffb4-f1b8-40f0-bf3d-8130d0bd969e",
-                "_version_": 1635522859597037600
+                "_version_": 1635840248955011000
               },
               {
                 "id": "ee332cbe-ddac-47d3-ab86-eee91a6bb47b",
@@ -6094,7 +6105,7 @@
                   "Veksler, Kari"
                 ],
                 "_root_": "22b7ffb4-f1b8-40f0-bf3d-8130d0bd969e",
-                "_version_": 1635522859597037600
+                "_version_": 1635840248955011000
               }
             ]
           },
@@ -6106,6 +6117,7 @@
             "id": "4cf16091-9d73-4b29-af11-44520d64323b",
             "titel_t": "Lorem. Fusce ut pellentesque nunc.",
             "subtitel_t": "Dictum justo. Cras commodo velit sagittis.",
+            "autor_t": "Dibiase, Antonia",
             "stoff_t": "abbreviate",
             "blattzahl_i": 35,
             "format_t": "LIeD8nbYJre5sPw",
@@ -6115,9 +6127,9 @@
             "status_t": "orthocentres",
             "schrift_t": "spectrometer",
             "schreibsprache_t": "exoderm",
-            "vorbesitzer_t": "Kloster Financial",
+            "vorbesitzer_s": "Kloster Financial",
             "_root_": "4cf16091-9d73-4b29-af11-44520d64323b",
-            "_version_": 1635522858657513500,
+            "_version_": 1635840247966204000,
             "entities": [
               {
                 "id": "88ffc0d3-4b38-46b5-a2d7-28887b8ad3df",
@@ -6125,14 +6137,14 @@
                 "digitalisatDescription_t": "Longing when he had also calmed down, convinced and finally in his.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000003643/manifest.json",
                 "_root_": "4cf16091-9d73-4b29-af11-44520d64323b",
-                "_version_": 1635522858657513500
+                "_version_": 1635840247966204000
               },
               {
                 "id": "c2a26605-856b-4107-a98f-ccc8b38e0d9e",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "The smell of something to eat a little and they fell off by force.",
                 "_root_": "4cf16091-9d73-4b29-af11-44520d64323b",
-                "_version_": 1635522858657513500
+                "_version_": 1635840247966204000
               },
               {
                 "id": "82271fca-c784-41a8-a257-ca50cc5461ad",
@@ -6149,7 +6161,7 @@
                   "Bleimehl, Matt"
                 ],
                 "_root_": "4cf16091-9d73-4b29-af11-44520d64323b",
-                "_version_": 1635522858657513500
+                "_version_": 1635840247966204000
               }
             ]
           },
@@ -6170,9 +6182,9 @@
             "status_t": "flophouses",
             "schrift_t": "curassow",
             "schreibsprache_t": "roams",
-            "vorbesitzer_t": "Kloster Insurance",
+            "vorbesitzer_s": "Kloster Insurance",
             "_root_": "8eba2b2d-614e-4fb0-9b82-05913259c69c",
-            "_version_": 1635522859006689300,
+            "_version_": 1635840248395071500,
             "entities": [
               {
                 "id": "e94f7965-3cc1-4eb1-bcfe-8aaf53efef91",
@@ -6180,14 +6192,14 @@
                 "digitalisatDescription_t": "She fled from the wall or ceiling. He could and ran with them. They.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005678/manifest.json",
                 "_root_": "8eba2b2d-614e-4fb0-9b82-05913259c69c",
-                "_version_": 1635522859006689300
+                "_version_": 1635840248395071500
               },
               {
                 "id": "516e44fc-f1b4-49a1-94f0-4bdad4b89cdd",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "His tray on his head for a while, numb and immobile, all spread out.",
                 "_root_": "8eba2b2d-614e-4fb0-9b82-05913259c69c",
-                "_version_": 1635522859006689300
+                "_version_": 1635840248395071500
               },
               {
                 "id": "77257237-a793-4881-81ff-e327b080ec4f",
@@ -6204,7 +6216,7 @@
                   "Bazile, Diane"
                 ],
                 "_root_": "8eba2b2d-614e-4fb0-9b82-05913259c69c",
-                "_version_": 1635522859006689300
+                "_version_": 1635840248395071500
               }
             ]
           },
@@ -6225,9 +6237,9 @@
             "status_t": "ploughboys",
             "schrift_t": "scrawl",
             "schreibsprache_t": "pomologists",
-            "vorbesitzer_t": "Kloster Insurance",
+            "vorbesitzer_s": "Kloster Insurance",
             "_root_": "590f3054-8f7c-4c7a-bed7-f27a570ae1f8",
-            "_version_": 1635522858996203500,
+            "_version_": 1635840248383537200,
             "entities": [
               {
                 "id": "8e68c37b-8356-4c86-adc8-3a0eeef3baeb",
@@ -6235,14 +6247,14 @@
                 "digitalisatDescription_t": "Closed it with its gold buttons, the one in the light was put on..",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000004289/manifest.json",
                 "_root_": "590f3054-8f7c-4c7a-bed7-f27a570ae1f8",
-                "_version_": 1635522858996203500
+                "_version_": 1635840248383537200
               },
               {
                 "id": "cc5c69e3-e627-44fd-92eb-061cfb49d216",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "He realised what it looked as if he did not understand very well;.",
                 "_root_": "590f3054-8f7c-4c7a-bed7-f27a570ae1f8",
-                "_version_": 1635522858996203500
+                "_version_": 1635840248383537200
               },
               {
                 "id": "7bb45dd4-26b8-4bf0-84f8-b9fb17619fcc",
@@ -6259,7 +6271,7 @@
                   "Kufalk, Lera"
                 ],
                 "_root_": "590f3054-8f7c-4c7a-bed7-f27a570ae1f8",
-                "_version_": 1635522858996203500
+                "_version_": 1635840248383537200
               }
             ]
           },
@@ -6280,9 +6292,9 @@
             "status_t": "mortifier",
             "schrift_t": "alexia",
             "schreibsprache_t": "waw",
-            "vorbesitzer_t": "Kloster Financial",
+            "vorbesitzer_s": "Kloster Financial",
             "_root_": "29a345a3-281b-48d0-9128-ed5d2e552f03",
-            "_version_": 1635522859159781400,
+            "_version_": 1635840248622612500,
             "entities": [
               {
                 "id": "c8b18aed-0934-4538-8e0c-d449cf7ab095",
@@ -6290,7 +6302,7 @@
                 "digitalisatDescription_t": "Communication, along with the broom, sending it sideways across the.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005220/manifest.json",
                 "_root_": "29a345a3-281b-48d0-9128-ed5d2e552f03",
-                "_version_": 1635522859159781400
+                "_version_": 1635840248622612500
               },
               {
                 "id": "5f818efc-76e1-4f4a-8b11-02d454f4cddb",
@@ -6298,21 +6310,21 @@
                 "digitalisatDescription_t": "Indeed completely dried up and down the room. No sooner had she come.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000007693/manifest.json",
                 "_root_": "29a345a3-281b-48d0-9128-ed5d2e552f03",
-                "_version_": 1635522859159781400
+                "_version_": 1635840248622612500
               },
               {
                 "id": "09fe2861-2788-4d53-ad01-87bfe3c474ea",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Word. His mother until later and was painfully injured, so that he.",
                 "_root_": "29a345a3-281b-48d0-9128-ed5d2e552f03",
-                "_version_": 1635522859159781400
+                "_version_": 1635840248622612500
               },
               {
                 "id": "62d9dcc8-3bd7-413c-b3a9-5b3d713b6865",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Already hardly feel the decayed apple in his chair to the window while.",
                 "_root_": "29a345a3-281b-48d0-9128-ed5d2e552f03",
-                "_version_": 1635522859159781400
+                "_version_": 1635840248622612500
               },
               {
                 "id": "2d6186fd-a976-444b-a301-5c393bd65f0f",
@@ -6330,7 +6342,7 @@
                   "Dominque, Kenneth"
                 ],
                 "_root_": "29a345a3-281b-48d0-9128-ed5d2e552f03",
-                "_version_": 1635522859159781400
+                "_version_": 1635840248622612500
               },
               {
                 "id": "0c151fac-fc26-425c-b092-879d769b1954",
@@ -6348,7 +6360,7 @@
                   "Ketterer, Laura"
                 ],
                 "_root_": "29a345a3-281b-48d0-9128-ed5d2e552f03",
-                "_version_": 1635522859159781400
+                "_version_": 1635840248622612500
               }
             ]
           },
@@ -6369,9 +6381,9 @@
             "status_t": "modistes",
             "schrift_t": "splays",
             "schreibsprache_t": "introit",
-            "vorbesitzer_t": "Kloster Quality Assurance",
+            "vorbesitzer_s": "Kloster Quality Assurance",
             "_root_": "40770a35-8f80-477f-939d-949129830565",
-            "_version_": 1635522859339088000,
+            "_version_": 1635840248791433200,
             "entities": [
               {
                 "id": "148fb3f0-cd57-4d7c-a16e-2e24abd09c62",
@@ -6379,14 +6391,14 @@
                 "digitalisatDescription_t": "Not help panting loudly with the eight o' clock, already, and it seemed.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000003211/manifest.json",
                 "_root_": "40770a35-8f80-477f-939d-949129830565",
-                "_version_": 1635522859339088000
+                "_version_": 1635840248791433200
               },
               {
                 "id": "774a7bd9-3e3e-4e8f-b21f-57a89c233b9c",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Hand pushed in between all the difficulty he was no longer able to.",
                 "_root_": "40770a35-8f80-477f-939d-949129830565",
-                "_version_": 1635522859339088000
+                "_version_": 1635840248791433200
               },
               {
                 "id": "f330c4b4-ab2c-47ce-9dff-560cb21ba149",
@@ -6403,7 +6415,7 @@
                   "Havis, Nathanial"
                 ],
                 "_root_": "40770a35-8f80-477f-939d-949129830565",
-                "_version_": 1635522859339088000
+                "_version_": 1635840248791433200
               }
             ]
           },
@@ -6424,9 +6436,9 @@
             "status_t": "sustainer",
             "schrift_t": "titbit",
             "schreibsprache_t": "horsemints",
-            "vorbesitzer_t": "Kloster IT",
+            "vorbesitzer_s": "Kloster IT",
             "_root_": "50fa217d-9b32-405b-85c9-f38a124b2527",
-            "_version_": 1635522859241570300,
+            "_version_": 1635840248704401400,
             "entities": [
               {
                 "id": "285af62a-175e-4d53-9c27-2292743c1163",
@@ -6434,7 +6446,7 @@
                 "digitalisatDescription_t": "Worries and vague hopes which, however, they could not see it coming.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008594/manifest.json",
                 "_root_": "50fa217d-9b32-405b-85c9-f38a124b2527",
-                "_version_": 1635522859241570300
+                "_version_": 1635840248704401400
               },
               {
                 "id": "e1af275d-3a5b-47aa-8051-51b4b10ac628",
@@ -6442,7 +6454,7 @@
                 "digitalisatDescription_t": "Instance, whenever i go back to their real and natural state. But.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005007/manifest.json",
                 "_root_": "50fa217d-9b32-405b-85c9-f38a124b2527",
-                "_version_": 1635522859241570300
+                "_version_": 1635840248704401400
               },
               {
                 "id": "4609407f-5278-4713-acf8-2de7a662ab03",
@@ -6450,28 +6462,28 @@
                 "digitalisatDescription_t": "Onto his right there followed a painful and uncontrollable squeaking.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000004383/manifest.json",
                 "_root_": "50fa217d-9b32-405b-85c9-f38a124b2527",
-                "_version_": 1635522859241570300
+                "_version_": 1635840248704401400
               },
               {
                 "id": "4e101fcc-117d-4e55-8083-4bb1fa29e0f7",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "All these things. Maybe you can never get to know anyone or become.",
                 "_root_": "50fa217d-9b32-405b-85c9-f38a124b2527",
-                "_version_": 1635522859241570300
+                "_version_": 1635840248704401400
               },
               {
                 "id": "aa74ff54-2609-4b4b-ae94-c2e5ff40942d",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Once to hiss and spit at the same time she had poured some water into.",
                 "_root_": "50fa217d-9b32-405b-85c9-f38a124b2527",
-                "_version_": 1635522859241570300
+                "_version_": 1635840248704401400
               },
               {
                 "id": "6a58bbe5-45b4-4be4-9e34-3acad7eb4d41",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Threatened to remove the apple lodged in gregor' s sister would leave.",
                 "_root_": "50fa217d-9b32-405b-85c9-f38a124b2527",
-                "_version_": 1635522859241570300
+                "_version_": 1635840248704401400
               },
               {
                 "id": "340e455a-4dcf-4580-a20b-f417c91a0aaa",
@@ -6490,7 +6502,7 @@
                   "Payant, Adelle"
                 ],
                 "_root_": "50fa217d-9b32-405b-85c9-f38a124b2527",
-                "_version_": 1635522859241570300
+                "_version_": 1635840248704401400
               },
               {
                 "id": "aeebfc22-4442-4ee1-8b6b-629d51acc134",
@@ -6509,7 +6521,7 @@
                   "Szalankiewicz, Burt"
                 ],
                 "_root_": "50fa217d-9b32-405b-85c9-f38a124b2527",
-                "_version_": 1635522859241570300
+                "_version_": 1635840248704401400
               },
               {
                 "id": "5a7a86b2-0f6a-4bac-998b-99876a1aff25",
@@ -6528,7 +6540,7 @@
                   "Smalarz, Jordon"
                 ],
                 "_root_": "50fa217d-9b32-405b-85c9-f38a124b2527",
-                "_version_": 1635522859241570300
+                "_version_": 1635840248704401400
               }
             ]
           },
@@ -6549,9 +6561,9 @@
             "status_t": "drudgery",
             "schrift_t": "philhellene",
             "schreibsprache_t": "helotries",
-            "vorbesitzer_t": "Kloster Sales",
+            "vorbesitzer_s": "Kloster Sales",
             "_root_": "8b184a7f-a3c7-478a-83b9-3c9d634f9205",
-            "_version_": 1635522859413536800,
+            "_version_": 1635840248852250600,
             "entities": [
               {
                 "id": "2d33d7dc-aa78-4101-a02e-105e5e600bf6",
@@ -6559,14 +6571,14 @@
                 "digitalisatDescription_t": "Sleep through that furniture- rattling noise? true, he' s room and.",
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000007854/manifest.json",
                 "_root_": "8b184a7f-a3c7-478a-83b9-3c9d634f9205",
-                "_version_": 1635522859413536800
+                "_version_": 1635840248852250600
               },
               {
                 "id": "5e23b4b8-a2fc-446b-9629-36ef49efabd4",
                 "type_s": "Beschreibung",
                 "beschreibungText_t": "Coughed a little and they must have been causing some kind of smelling.",
                 "_root_": "8b184a7f-a3c7-478a-83b9-3c9d634f9205",
-                "_version_": 1635522859413536800
+                "_version_": 1635840248852250600
               },
               {
                 "id": "27d16c1c-a285-4444-b177-c790c69ce767",
@@ -6583,7 +6595,7 @@
                   "Villata, Marcelo"
                 ],
                 "_root_": "8b184a7f-a3c7-478a-83b9-3c9d634f9205",
-                "_version_": 1635522859413536800
+                "_version_": 1635840248852250600
               }
             ]
           },
@@ -6592,17 +6604,11 @@
       ],
       "numFound": 200
     },
-    "updating": false,
-    "grouped": {}
+    "updating": false
   },
   "suggestions": {
-    "suggester": {
-      "": {
-        "numFound": 0,
-        "suggestions": []
-      }
-    },
+    "suggester": {},
     "terms": [],
-    "updating": false
+    "url": null
   }
 }

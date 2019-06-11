@@ -50,10 +50,9 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
   }, [currentLanguage, i18n, previousLanguage])
 
   const hits = getHits()
-  const initialQuery: IQuery = getInitialQuery()
 
   return (
-    <SolrResponseProvider query={initialQuery}>
+    <SolrResponseProvider>
       <Grid container>
         <Grid item xs={12}>
           <SearchAppBar/>

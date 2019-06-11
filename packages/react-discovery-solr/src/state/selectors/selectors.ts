@@ -79,6 +79,10 @@ export const getResponse = (): IResponse => {
   return useSelector((state: IState): IResponse => state.response)
 }
 
+export const getRootContext = (): string => {
+  return useSelector((state: IState): string => state.config.rootContext)
+}
+
 export const getSearchFields = (): ISearchField[] => {
   return useSelector((state: IState): ISearchField[] => state.query && state.query.searchFields)
 }

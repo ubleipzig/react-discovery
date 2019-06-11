@@ -15,7 +15,7 @@ export const initialQueryState: IQuery = {
   searchFields,
   size: 20,
   sortFields,
-  start: 0,
+  start: null,
   stringInput: null,
   suggest: false,
   suggestDictionary: 'suggester',

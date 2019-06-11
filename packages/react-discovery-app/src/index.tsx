@@ -1,5 +1,7 @@
 import '@react-discovery/i18n'
 import {AnyAction, Store, applyMiddleware, createStore} from "redux"
+import { Router, View } from 'react-navi'
+import { mount, route } from 'navi'
 import thunkMiddleware, { ThunkMiddleware } from 'redux-thunk'
 import {MinimalResultsViewer} from './components'
 import {Provider} from 'react-redux'
@@ -9,6 +11,14 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import {rootReducer} from "./state"
 
 const thunk: ThunkMiddleware<{}, AnyAction> = thunkMiddleware
+
+const routes =
+  mount({
+    '/': route({
+      title: "React Discovery",
+      view: <MinimalResultsViewer />,
+    }),
+  })
 
 const store: Store = createStore(
   rootReducer(),
@@ -21,9 +31,11 @@ const store: Store = createStore(
 )
 
 ReactDOM.render(
-  <Provider store={store}>
-    <MinimalResultsViewer/>
-  </Provider>,
+  <Router routes={routes}>
+    <Provider store={store}>
+      <View/>
+    </Provider>
+  </Router>,
   document.getElementById("app")
 )
 

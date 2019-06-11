@@ -1,6 +1,6 @@
 import {EndAdornment, StartAdornment} from "./SearchBoxInputAdornments"
 import React, {ReactElement} from "react"
-import {setQueryInput, setStart, setSuggest} from "@react-discovery/solr"
+import {setQueryInput, setSelectedIndex, setStart, setSuggest} from "@react-discovery/solr"
 import {TextField} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles';
 import {useDispatch} from "react-redux"
@@ -35,10 +35,6 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
   const [values, setValues] = React.useState("")
 
   const handleChange = (e): void => {
-    const stringInput = e.target.value;
-    dispatch(setQueryInput({stringInput}))
-    dispatch(setStart({start: 0}))
-    dispatch(setSuggest({stringInput, suggest: false}))
     setValues(e.target.value)
   }
 
@@ -49,6 +45,10 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
 
   const handleSubmit = ((e): void => {
     e.preventDefault()
+    dispatch(setQueryInput({stringInput: values}))
+    dispatch(setSelectedIndex({selectedIndex: 0}))
+    dispatch(setStart({start: 0}))
+    dispatch(setSuggest({stringInput: values, suggest: false}))
   })
 
   return (

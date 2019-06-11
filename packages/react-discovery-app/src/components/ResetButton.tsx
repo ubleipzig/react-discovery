@@ -1,8 +1,9 @@
 import {IconButton, makeStyles} from "@material-ui/core"
 import React, {ReactElement} from "react"
-import {setQueryInput, setStart, setTypeDef} from "@react-discovery/solr"
+import {SolrParameters, getRootContext, setQueryInput, setStart, setTypeDef} from "@react-discovery/solr"
 import {Redo} from "@material-ui/icons"
 import {useDispatch} from "react-redux"
+import {useNavigation} from 'react-navi'
 
 const useStyles = makeStyles((theme): any => ({
   menuButton: {
@@ -13,11 +14,13 @@ const useStyles = makeStyles((theme): any => ({
 export const ResetButton: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles({})
   const dispatch = useDispatch()
-
+  const navigation = useNavigation()
+  const rootContext = getRootContext()
   const handleChange = (): void => {
     dispatch(setQueryInput({stringInput: ''}))
     dispatch(setStart({start: 0}))
-    dispatch(setTypeDef({typeDef: 'edismax'}))
+    dispatch(setTypeDef({typeDef: SolrParameters.EDISMAX}))
+    navigation.navigate(rootContext)
   }
 
   return (

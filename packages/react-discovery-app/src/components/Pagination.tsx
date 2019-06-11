@@ -20,17 +20,19 @@ export const Pagination: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles({})
   const dispatch = useDispatch()
   const start = getStart()
-  const prevStart = usePrevious(start)
   const size = getSize()
   const selectedIndex = getSelectedIndex()
+  const prevSelectedIndex = usePrevious(selectedIndex)
   const stringInput = getStringInput()
   const numFound = getNumFound()
   const currentPage = start / size;
   const pageAmt = Math.ceil(numFound / size)
 
   useEffect((): void => {
-    if (start === 0 && prevStart !== start) {
-      dispatch(setSelectedIndex({selectedIndex: 0}))
+    if (start === null && prevSelectedIndex === undefined) {
+      if (selectedIndex !== 0) {
+        dispatch(setSelectedIndex({selectedIndex: 0}))
+      }
     }
   })
 

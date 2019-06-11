@@ -19,6 +19,7 @@ export const rootConfig: IConfig = {
       label: 'English',
       locale: 'en',
     }],
+  rootContext: '/',
   selectedIndex: 0
 }
 

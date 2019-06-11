@@ -1,7 +1,7 @@
 import {IFilters, IQuery, ISearchField, ISortField} from ".."
 import {FacetTypes} from "./FacetTypes"
 import {SolrParameters} from "./SolrParameters"
-const queryString = require('query-string')
+import {stringify} from 'query-string'
 
 export const buildQueryFieldParams = (typeDef: string, searchFields: ISearchField[]): {} => {
   if (typeDef === SolrParameters.EDISMAX) {
@@ -145,5 +145,5 @@ export const queryBuilder = (props: IQuery): string => {
     ...buildStart(start),
     ...buildStringInputParams(typeDef, stringInput, searchFields),
     ...buildTypeDefParams(typeDef)}
-  return `${url}${SolrParameters.QUERY_CONTEXT}?${queryString.stringify(qs)}`
+  return `${url}${SolrParameters.QUERY_CONTEXT}?${stringify(qs)}`
 }

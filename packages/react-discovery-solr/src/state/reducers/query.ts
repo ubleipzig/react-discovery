@@ -17,12 +17,14 @@ export const query = (initialState): ReducerBuilder<IQuery> => reducerWithInitia
     ...state,
     groupField,
   }))
-  .case(setQueryFields, (state, {searchFields, size, sortFields, start, url}): ReducerBuilder<IQuery> => ({
+  .case(setQueryFields, (state, {filters, searchFields, size, sortFields, start, stringInput, url}): ReducerBuilder<IQuery> => ({
     ...state,
+    filters,
     searchFields,
     size,
     sortFields,
     start,
+    stringInput,
     url
   }))
   .case(setQueryInput, (state, {stringInput}): ReducerBuilder<IQuery> => ({

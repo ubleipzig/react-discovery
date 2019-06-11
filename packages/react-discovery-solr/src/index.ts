@@ -34,6 +34,7 @@ export interface IConfig {
   isPersisted?: boolean;
   languages?: ILanguage[];
   isViewExpanded?: boolean;
+  rootContext?: string;
   selectedIndex?: number;
 }
 
