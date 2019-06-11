@@ -13,6 +13,7 @@ export const en = {
   },
   vocab: {
     all: 'All',
+    annotations: 'Annotations',
     author: 'Author',
     Beschreibung: 'Descriptions',
     culturalObjects: 'Cultural Objects',

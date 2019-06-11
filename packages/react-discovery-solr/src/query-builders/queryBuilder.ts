@@ -77,7 +77,7 @@ export const buildFacetMinCount = (facetMinCount: number = 1): {} => {
   return {[SolrParameters.FACET_MINCOUNT]: facetMinCount}
 }
 
-export const buildFieldListParams = (fieldList = "*, [child]"): {} => {
+export const buildFieldListParams = (fieldList = "*, [child limit=100]"): {} => {
   return {[SolrParameters.FIELD_LIST]: fieldList}
 }
 

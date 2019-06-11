@@ -60,7 +60,7 @@ describe('React Discovery Base', (): void => {
   })
   it('expands view', (): void => {
     cy.get('[data-testid=tab-1]').click()
-    cy.get('[data-testid=view-switcher-toggle]').first().click()
+    cy.get('[data-testid=view-switcher-toggle]').first().click({ force: true })
     cy.get('[data-testid=view-switcher-toggle]').first().within((): void => {
       cy.get('input').should('have.attr', 'checked')
     })

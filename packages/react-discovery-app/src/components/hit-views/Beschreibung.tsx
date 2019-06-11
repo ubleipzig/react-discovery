@@ -1,7 +1,18 @@
-import {Card, CardContent} from "@material-ui/core"
+import {
+  Card, CardActions,
+  CardContent,
+} from "@material-ui/core"
+import {
+  FieldLabel,
+  RelatedItems,
+  Thumbnail,
+  TitleIdHeader,
+  ValueDisplay,
+  facetDisplayFields
+} from '..'
 import {IHit, ISearchField} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
-import {RelatedItems, Thumbnail, TitleIdHeader, ValueDisplay} from '..'
+import {EntityDisplay} from "./EntityDisplay"
 import {buildRandomUBLThumbnail} from "../../utils"
 import {useHitViewStyles, } from '.'
 
@@ -15,13 +26,21 @@ interface IDescriptionHitComponent {
 const Beschreibung: React.FC<IDescriptionHitComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
   const {hit, i, searchFields} = props
-  const displayFields = searchFields.filter((sf): boolean => sf.field === 'beschreibungText_t')
+  const displayFields = searchFields.filter((sf): boolean => sf.field === 'beschreibungTitle_t')
+
+  const buildFieldValueDisplay = (field): ReactElement => {
+    return (
+      <>
+        <FieldLabel label={field.label}/>
+        <ValueDisplay field={field.field} hit={hit} style={{flex: 'auto'}}/>
+      </>)
+  }
 
   return hit ? (
     <Card className={classes.root} key={i}>
       <TitleIdHeader
         id={hit._source.id}
-        title={hit._source.titel_t}
+        title={hit._source.beschreibungTitle_t}
       />
       <div style={{display: 'flex'}}>
         <Thumbnail image={buildRandomUBLThumbnail()}/>
@@ -30,13 +49,12 @@ const Beschreibung: React.FC<IDescriptionHitComponent> = (props): ReactElement =
             <CardContent
               className={classes.content}
               key={key}
-            >
-              <ValueDisplay
-                field={field.field}
-                hit={hit}
-                style={{flex: 'auto'}}
-              />
+            >{hit._source && hit._source[field.field] ?
+                buildFieldValueDisplay(field) : null}
             </CardContent>)}
+          <CardActions disableSpacing>
+            <EntityDisplay displayFields={facetDisplayFields} hit={hit} type='Fazikel'/>
+          </CardActions>
         </div>
       </div>
       <RelatedItems

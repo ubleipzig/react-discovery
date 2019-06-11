@@ -24,6 +24,9 @@ export const useHitViewStyles = makeStyles((theme): any => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
+  expansionPanelRoot: {
+    backgroundColor: '#eae7e7',
+  },
   inline: {
     display: 'inline',
   },

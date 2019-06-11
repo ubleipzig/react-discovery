@@ -1,9 +1,9 @@
 import {IConfig} from "@react-discovery/solr"
 import deepmerge from 'deepmerge'
-import {test02} from './collections'
+import {test04} from './collections'
 
-export const collections = deepmerge.all([test02])
-const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "test02"
+export const collections = deepmerge.all([test04])
+const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "test04"
 
 export const rootConfig: IConfig = {
   collections: null,

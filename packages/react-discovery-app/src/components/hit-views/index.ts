@@ -1,4 +1,7 @@
+export * from './displayFields'
 export * from './DefaultHitComponent'
+export * from './EntityDisplay'
+export * from './NestedEntityDisplay'
 export * from './HitComponentExpanded'
 export * from './Kulturobjekt'
 export * from './useHitViewStyles'

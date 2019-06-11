@@ -1,7 +1,7 @@
 import {Card, CardContent} from "@material-ui/core"
 import {IHit, ISearchField} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
-import {RelatedItems, Thumbnail, TitleIdHeader, ValueDisplay} from '..'
+import {FieldLabel, RelatedItems, Thumbnail, TitleIdHeader, ValueDisplay} from '..'
 import {buildRandomUBLThumbnail} from "../../utils"
 import {useHitViewStyles, } from '.'
 
@@ -15,14 +15,22 @@ interface IDigitalisat {
 const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
   const {hit, i, searchFields} = props
-  const filteredFields = ['DigitalisatDescription', 'Manifest']
+  const filteredFields = ['digitalisatDescription', 'manifest']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
+
+  const buildFieldValueDisplay = (field): ReactElement => {
+    return (
+      <>
+        <FieldLabel label={field.label}/>
+        <ValueDisplay field={field.field} hit={hit} style={{flex: 'auto'}}/>
+      </>)
+  }
 
   return hit ? (
     <Card className={classes.root} key={i}>
       <TitleIdHeader
         id={hit._source.id}
-        title={hit._source.titel_t}
+        title={hit._source.digitalisatTitel_t}
       />
       <div style={{display: 'flex'}}>
         <Thumbnail image={buildRandomUBLThumbnail()}/>
@@ -31,12 +39,8 @@ const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
             <CardContent
               className={classes.contentNoFlex}
               key={key}
-            >
-              <ValueDisplay
-                field={field.field}
-                hit={hit}
-                style={{flex: '1 0'}}
-              />
+            >{hit._source && hit._source[field.field] ?
+                buildFieldValueDisplay(field) : null}
             </CardContent>)}
         </div>
       </div>

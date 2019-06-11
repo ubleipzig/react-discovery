@@ -1,4 +1,4 @@
-import {Book, Image} from '@material-ui/icons'
+import {Book, ChatBubble, Image, Person} from '@material-ui/icons'
 import {Card, CardActions, CardContent, Typography} from "@material-ui/core"
 import {IHit, ISearchField, getFilterType} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
@@ -17,6 +17,8 @@ interface IDefaultItemComponent {
 
 const DIGITALISAT = 'Digitalisat'
 const BESCHREIBUNG = 'Beschreibung'
+const PERSON = 'Person'
+const ANNOTATION = 'Annotation'
 
 const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
@@ -80,6 +82,24 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
               variant='body2'
             >
               {t(BESCHREIBUNG)} <i>({buildEntityCountForType(hit, BESCHREIBUNG)})</i>
+            </Typography>
+          </CardActions>
+          <CardActions disableSpacing>
+            <Person fontSize='small' htmlColor='#86173e' style={{padding: '5px'}}/>
+            <Typography
+              className={classes.heading}
+              variant='body2'
+            >
+              {t(PERSON)} <i>({buildEntityCountForType(hit, PERSON)})</i>
+            </Typography>
+          </CardActions>
+          <CardActions disableSpacing>
+            <ChatBubble fontSize='small' htmlColor='#86173e' style={{padding: '5px'}}/>
+            <Typography
+              className={classes.heading}
+              variant='body2'
+            >
+              {t(ANNOTATION)} <i>({buildEntityCountForType(hit, ANNOTATION)})</i>
             </Typography>
           </CardActions>
         </div>

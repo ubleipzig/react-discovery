@@ -12,11 +12,12 @@ interface IPerson {
   searchFields: ISearchField[];
 }
 
+const filteredFields = ['personBirthDate', 'personDeathDate', 'personBirthPlace',
+  'personDeathPlace', 'personWorkingPlace', 'personOccupation', 'personRole', 'personGender', 'personAlternateNames']
+
 const Person: React.FC<IPerson> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
   const {hit, i, searchFields} = props
-  const filteredFields = ['personBirthDate', 'personDeathDate', 'personBirthPlace',
-    'personDeathPlace', 'personWorkingPlace', 'personOccupation']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('personFullname_t', hit)
 
