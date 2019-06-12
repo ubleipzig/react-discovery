@@ -21,11 +21,21 @@ export const useHitViewStyles = makeStyles((theme): any => ({
       duration: theme.transitions.duration.shortest,
     }),
   },
+  expanded: {
+    maxHeight: 32,
+    minHeight: 0
+  },
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  expansionPanelRoot: {
+  expansionSummaryRoot: {
+    '&$expanded': {
+      maxHeight: 32,
+      minHeight: 0
+    },
     backgroundColor: '#eae7e7',
+    maxHeight: 32,
+    minHeight: 0,
   },
   inline: {
     display: 'inline',

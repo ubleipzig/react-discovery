@@ -1,6 +1,6 @@
 import {
   IAggregation, IDocType,
-  IFilters, IHit,
+  IFilters,
   IHitComponent,
   IHits,
   ILanguage,

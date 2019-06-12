@@ -53,7 +53,7 @@ const Beschreibung: React.FC<IDescriptionHitComponent> = (props): ReactElement =
                 buildFieldValueDisplay(field) : null}
             </CardContent>)}
           <CardActions disableSpacing>
-            <EntityDisplay displayFields={facetDisplayFields} hit={hit} type='Fazikel'/>
+            <EntityDisplay displayFields={facetDisplayFields} hit={hit} type='Faszikel'/>
           </CardActions>
         </div>
       </div>

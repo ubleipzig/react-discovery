@@ -25,10 +25,6 @@ export const buildDateFormat = (field, hit): string => {
   return date ? `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}` : null
 }
 
-export const buildEntityCountForType = (hit, type): number => {
-  return hit && hit._source.entities && hit._source.entities.filter((entity): boolean => entity.type_s === type).length
-}
-
-export const buildNestedEntityCountForType = (entity, type): number => {
-  return entity && entity.entities.filter((entity): boolean => entity.type_s === type).length
+export const buildEntityCountForType = (entities, type): number => {
+  return entities && entities.filter((entity): boolean => entity.type_s === type).length
 }

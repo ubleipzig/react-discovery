@@ -68,11 +68,12 @@ export const TabsAppBar: React.FC<any> = (): ReactElement => {
     <div className={classes.root}>
       <AppBar color="default" position="static">
         <Tabs
-          centered
           indicatorColor="primary"
           onChange={handleChange}
+          scrollButtons="auto"
           textColor="primary"
           value={value}
+          variant="scrollable"
         >
           {buildTabs()}
         </Tabs>

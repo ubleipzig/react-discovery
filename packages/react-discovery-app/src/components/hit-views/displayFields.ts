@@ -9,8 +9,8 @@ export const beschreibungDisplayFields = [
 ]
 
 export const facetDisplayFields = [
-  {field: 'beschreibungFazikelLabel_t', label: 'facetLabel'},
-  {field: 'beschreibungFazikelText_t', label: 'facetText'},
+  {field: 'beschreibungFaszikelLabel_t', label: 'facetLabel'},
+  {field: 'beschreibungFaszikelText_t', label: 'facetText'},
 ]
 
 export const annotationDisplayFields = [

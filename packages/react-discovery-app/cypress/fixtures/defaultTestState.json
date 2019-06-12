@@ -94,7 +94,7 @@
           },
           "4": {
             "field": "type_s",
-            "label": "Document Type"
+            "label": "documentType"
           }
         },
         "searchFields": [
@@ -133,15 +133,15 @@
             "type": "text"
           },
           {
-            "field": "beschreibungFazikelLabel_t",
+            "field": "beschreibungFaszikelLabel_t",
             "isChild": true,
-            "label": "beschreibungFazikelLabel",
+            "label": "beschreibungFaszikelLabel",
             "type": "text"
           },
           {
-            "field": "beschreibungFazikelText_t",
+            "field": "beschreibungFaszikelText_t",
             "isChild": true,
-            "label": "beschreibungFazikelText",
+            "label": "beschreibungFaszikelText",
             "type": "text"
           },
           {
@@ -373,15 +373,15 @@
         "type": "text"
       },
       {
-        "field": "beschreibungFazikelLabel_t",
+        "field": "beschreibungFaszikelLabel_t",
         "isChild": true,
-        "label": "beschreibungFazikelLabel",
+        "label": "beschreibungFaszikelLabel",
         "type": "text"
       },
       {
-        "field": "beschreibungFazikelText_t",
+        "field": "beschreibungFaszikelText_t",
         "isChild": true,
-        "label": "beschreibungFazikelText",
+        "label": "beschreibungFaszikelText",
         "type": "text"
       },
       {
@@ -5552,7 +5552,7 @@
             "schreibsprache_t": "thripses",
             "schreiber_t": "Yokiel, Kenny",
             "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-            "_version_": 1636043971903881200,
+            "_version_": 1636129085501472800,
             "entities": [
               {
                 "id": "ce839170-0010-4bc2-a580-41216e7e8ec5",
@@ -5561,38 +5561,38 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002925/manifest.json",
                 "digitalisatTitel_t": "Nulla. Morbi porta mauris libero,.",
                 "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                "_version_": 1636043971903881200
+                "_version_": 1636129085501472800
               },
               {
                 "id": "6670bd48-ae55-4e22-9b1b-3fa27c0d33f9",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Rutrum eget. Sed cursus ligula et.",
                 "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                "_version_": 1636043971903881200,
+                "_version_": 1636129085501472800,
                 "entities": [
                   {
                     "id": "a80c8c4f-ca60-4b7b-9050-d036e47bc1c5",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Convallis pretium purus, vel vulputate.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Convallis pretium purus, vel vulputate.",
                     "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                    "_version_": 1636043971903881200
+                    "_version_": 1636129085501472800
                   },
                   {
                     "id": "d316e620-d9c4-4273-adef-2f0ce2a4370e",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Praesent vel velit posuere, semper.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Praesent vel velit posuere, semper.",
                     "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                    "_version_": 1636043971903881200
+                    "_version_": 1636129085501472800
                   },
                   {
                     "id": "1b034b62-5985-4b8c-871a-e1acd6f79180",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 3",
-                    "beschreibungFazikelText_t": "Auctor pellentesque ex, ac consectetur.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                    "beschreibungFaszikelText_t": "Auctor pellentesque ex, ac consectetur.",
                     "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                    "_version_": 1636043971903881200
+                    "_version_": 1636129085501472800
                   }
                 ]
               },
@@ -5601,31 +5601,31 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Vulputate in. Maecenas bibendum libero.",
                 "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                "_version_": 1636043971903881200,
+                "_version_": 1636129085501472800,
                 "entities": [
                   {
                     "id": "e272adb7-32c6-4970-90d0-458358479183",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Mattis vel odio. Integer rutrum non.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Mattis vel odio. Integer rutrum non.",
                     "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                    "_version_": 1636043971903881200
+                    "_version_": 1636129085501472800
                   },
                   {
                     "id": "59b07624-b1b2-4b09-93f4-a406d3a429df",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Vulputate porta. Nullam quis orci.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Vulputate porta. Nullam quis orci.",
                     "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                    "_version_": 1636043971903881200
+                    "_version_": 1636129085501472800
                   },
                   {
                     "id": "5a6f40f4-2aba-4bfb-9657-0794d72be313",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 3",
-                    "beschreibungFazikelText_t": "Pulvinar ante. Morbi diam ante, lobortis.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                    "beschreibungFaszikelText_t": "Pulvinar ante. Morbi diam ante, lobortis.",
                     "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                    "_version_": 1636043971903881200
+                    "_version_": 1636129085501472800
                   }
                 ]
               },
@@ -5635,7 +5635,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007693/manifest.json",
                 "annotationBody_t": "We arrive back home exhausted from going out to three gentlemen before.",
                 "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                "_version_": 1636043971903881200
+                "_version_": 1636129085501472800
               },
               {
                 "id": "5cb9fab5-8ae5-4ff1-8733-d78f8b33e87d",
@@ -5643,7 +5643,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007921/manifest.json",
                 "annotationBody_t": "Would happen to it falling onto the cool, leather sofa next to the.",
                 "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                "_version_": 1636043971903881200
+                "_version_": 1636129085501472800
               },
               {
                 "id": "ac220e47-cc37-41cf-99ff-e5b6668fffe6",
@@ -5651,7 +5651,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002261/manifest.json",
                 "annotationBody_t": "A result of this much longer. They had seen her as her head suggested.",
                 "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                "_version_": 1636043971903881200
+                "_version_": 1636129085501472800
               },
               {
                 "id": "dd315469-3213-4c7f-933f-637c26681716",
@@ -5659,7 +5659,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001958/manifest.json",
                 "annotationBody_t": "Direction of the rooms in the entire length of his body than before.",
                 "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                "_version_": 1636043971903881200
+                "_version_": 1636129085501472800
               },
               {
                 "id": "cb346f37-4521-426f-9a11-7c13beab7511",
@@ -5667,7 +5667,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003734/manifest.json",
                 "annotationBody_t": "See what he was not a word to me? he thought back of his pleasure.",
                 "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                "_version_": 1636043971903881200
+                "_version_": 1636129085501472800
               },
               {
                 "id": "42fd6392-b239-4982-b966-453784761b47",
@@ -5675,7 +5675,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003504/manifest.json",
                 "annotationBody_t": "Before she even realised it was so that you need anything? gregor.",
                 "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                "_version_": 1636043971903881200
+                "_version_": 1636129085501472800
               },
               {
                 "id": "ba5c878f-e031-4e04-87c5-78ae2560b9f3",
@@ -5683,7 +5683,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000493/manifest.json",
                 "annotationBody_t": "The dirt as well as having to look after it and striking it against.",
                 "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                "_version_": 1636043971903881200
+                "_version_": 1636129085501472800
               },
               {
                 "id": "fe38534a-38f6-4396-b48e-4ab8989e4d9d",
@@ -5701,7 +5701,7 @@
                   "Lindburg, Ronda"
                 ],
                 "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                "_version_": 1636043971903881200
+                "_version_": 1636129085501472800
               },
               {
                 "id": "9ef57f64-3bed-4af2-901d-5b0bd3a5848b",
@@ -5719,7 +5719,7 @@
                   "Sures, Jefferson"
                 ],
                 "_root_": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
-                "_version_": 1636043971903881200
+                "_version_": 1636129085501472800
               }
             ]
           },
@@ -5743,7 +5743,7 @@
             "author_t": "Brombach, Vincent",
             "schreiber_t": "Hemperley, Emmett",
             "_root_": "5c3a9c1d-263d-48d7-9739-34e2df12f125",
-            "_version_": 1636043972029710300,
+            "_version_": 1636129085672390700,
             "entities": [
               {
                 "id": "ef3b4465-9242-4fa7-8f83-3615e1b3d7fc",
@@ -5752,7 +5752,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000004598/manifest.json",
                 "digitalisatTitel_t": "Massa nulla, maximus eu maximus vel.",
                 "_root_": "5c3a9c1d-263d-48d7-9739-34e2df12f125",
-                "_version_": 1636043972029710300
+                "_version_": 1636129085672390700
               },
               {
                 "id": "eaa8bac1-2766-4570-ba05-6ceeb14fcab3",
@@ -5761,30 +5761,30 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005176/manifest.json",
                 "digitalisatTitel_t": "Maximus eu maximus vel, ultrices id.",
                 "_root_": "5c3a9c1d-263d-48d7-9739-34e2df12f125",
-                "_version_": 1636043972029710300
+                "_version_": 1636129085672390700
               },
               {
                 "id": "952b8982-a6eb-4250-a2e0-0d084d4a0d80",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Elit velit, in condimentum dui rutrum.",
                 "_root_": "5c3a9c1d-263d-48d7-9739-34e2df12f125",
-                "_version_": 1636043972029710300,
+                "_version_": 1636129085672390700,
                 "entities": [
                   {
                     "id": "0bdbb4f7-e8de-4a59-b6f3-ecf7fb4582ef",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Luctus. Integer rutrum non justo commodo.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Luctus. Integer rutrum non justo commodo.",
                     "_root_": "5c3a9c1d-263d-48d7-9739-34e2df12f125",
-                    "_version_": 1636043972029710300
+                    "_version_": 1636129085672390700
                   },
                   {
                     "id": "ccecdf79-f654-4b95-9e95-8c5995a2fb79",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Nulla felis nibh, nec finibus nulla.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Nulla felis nibh, nec finibus nulla.",
                     "_root_": "5c3a9c1d-263d-48d7-9739-34e2df12f125",
-                    "_version_": 1636043972029710300
+                    "_version_": 1636129085672390700
                   }
                 ]
               },
@@ -5794,7 +5794,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005325/manifest.json",
                 "annotationBody_t": "Down onto the cool, leather sofa next to the chief clerk too; you.",
                 "_root_": "5c3a9c1d-263d-48d7-9739-34e2df12f125",
-                "_version_": 1636043972029710300
+                "_version_": 1636129085672390700
               },
               {
                 "id": "527b1331-cbb7-4ae1-a35c-d9d0f37375b8",
@@ -5802,7 +5802,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004220/manifest.json",
                 "annotationBody_t": "Him my word of all though, had been lit in the darkness of the flat.",
                 "_root_": "5c3a9c1d-263d-48d7-9739-34e2df12f125",
-                "_version_": 1636043972029710300
+                "_version_": 1636129085672390700
               },
               {
                 "id": "ef9312f8-3bcc-4ff2-bfc5-8852528ad6d5",
@@ -5810,7 +5810,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004016/manifest.json",
                 "annotationBody_t": "Had had enough sleep. Other travelling salesmen live a life! this.",
                 "_root_": "5c3a9c1d-263d-48d7-9739-34e2df12f125",
-                "_version_": 1636043972029710300
+                "_version_": 1636129085672390700
               },
               {
                 "id": "eb0d7716-aa98-4c50-8562-aeb3b7a03912",
@@ -5818,7 +5818,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001856/manifest.json",
                 "annotationBody_t": "The edges of it last night, my train leaves at five. And the locksmith.",
                 "_root_": "5c3a9c1d-263d-48d7-9739-34e2df12f125",
-                "_version_": 1636043972029710300
+                "_version_": 1636129085672390700
               },
               {
                 "id": "797204bc-59ae-48c8-b300-6824d39b969c",
@@ -5837,7 +5837,7 @@
                   "Batzri, Ileana"
                 ],
                 "_root_": "5c3a9c1d-263d-48d7-9739-34e2df12f125",
-                "_version_": 1636043972029710300
+                "_version_": 1636129085672390700
               },
               {
                 "id": "c157fe7a-5bef-400d-a67b-1d7c9b809082",
@@ -5856,7 +5856,7 @@
                   "Romaro, Brenton"
                 ],
                 "_root_": "5c3a9c1d-263d-48d7-9739-34e2df12f125",
-                "_version_": 1636043972029710300
+                "_version_": 1636129085672390700
               },
               {
                 "id": "33f6b8d1-2154-4383-9d6f-498bbdd728d0",
@@ -5875,7 +5875,7 @@
                   "Scroggins, Ali"
                 ],
                 "_root_": "5c3a9c1d-263d-48d7-9739-34e2df12f125",
-                "_version_": 1636043972029710300
+                "_version_": 1636129085672390700
               }
             ]
           },
@@ -5899,7 +5899,7 @@
             "vorbesitzer_s": "Gautam, Vincent",
             "schreiber_t": "Dyett, Noel",
             "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-            "_version_": 1636043972047536000,
+            "_version_": 1636129085690216400,
             "entities": [
               {
                 "id": "8a917884-9f66-4408-a0c1-2ab425b56c65",
@@ -5908,7 +5908,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000007841/manifest.json",
                 "digitalisatTitel_t": "Quam, condimentum quis lacinia sed.",
                 "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                "_version_": 1636043972047536000
+                "_version_": 1636129085690216400
               },
               {
                 "id": "72cdf18a-8e2c-489b-8951-cb08ccecc85a",
@@ -5917,30 +5917,30 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000000825/manifest.json",
                 "digitalisatTitel_t": "Vestibulum dui porttitor congue. Nullam.",
                 "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                "_version_": 1636043972047536000
+                "_version_": 1636129085690216400
               },
               {
                 "id": "e5c6f4b7-61eb-400d-b357-42ed892334d5",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Laoreet felis. Nulla felis nibh, aliquam.",
                 "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                "_version_": 1636043972047536000,
+                "_version_": 1636129085690216400,
                 "entities": [
                   {
                     "id": "0cf29a45-fec5-416e-8e00-7a3a24771a8a",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Commodo ornare viverra. Etiam odio.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Commodo ornare viverra. Etiam odio.",
                     "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                    "_version_": 1636043972047536000
+                    "_version_": 1636129085690216400
                   },
                   {
                     "id": "33802df2-a0c1-4f64-8865-83bc8e0665b9",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Aenean a pretium nunc, vel mollis.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Aenean a pretium nunc, vel mollis.",
                     "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                    "_version_": 1636043972047536000
+                    "_version_": 1636129085690216400
                   }
                 ]
               },
@@ -5949,23 +5949,23 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Mattis vel odio. Integer scelerisque.",
                 "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                "_version_": 1636043972047536000,
+                "_version_": 1636129085690216400,
                 "entities": [
                   {
                     "id": "f51c44ab-4f86-4a43-9603-fd229061b163",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Accumsan in turpis nec, ornare velit.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Accumsan in turpis nec, ornare velit.",
                     "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                    "_version_": 1636043972047536000
+                    "_version_": 1636129085690216400
                   },
                   {
                     "id": "b3df0c06-aadb-417a-a65b-b291e5649d56",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Accumsan, mauris justo efficitur ipsum.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Accumsan, mauris justo efficitur ipsum.",
                     "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                    "_version_": 1636043972047536000
+                    "_version_": 1636129085690216400
                   }
                 ]
               },
@@ -5974,23 +5974,23 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Sed ante placerat, venenatis metus.",
                 "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                "_version_": 1636043972047536000,
+                "_version_": 1636129085690216400,
                 "entities": [
                   {
                     "id": "4b892865-2775-4b30-8160-0a7bf77c7f92",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Curabitur massa nulla, maximus eu.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Curabitur massa nulla, maximus eu.",
                     "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                    "_version_": 1636043972047536000
+                    "_version_": 1636129085690216400
                   },
                   {
                     "id": "4a5c0604-9344-4dec-b802-6522d34d1d09",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Diam vel vehicula. Morbi mollis mauris.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Diam vel vehicula. Morbi mollis mauris.",
                     "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                    "_version_": 1636043972047536000
+                    "_version_": 1636129085690216400
                   }
                 ]
               },
@@ -6000,7 +6000,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005161/manifest.json",
                 "annotationBody_t": "Bleeding, deep into his room for a while. Then, that was more suitable.",
                 "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                "_version_": 1636043972047536000
+                "_version_": 1636129085690216400
               },
               {
                 "id": "eacf3fec-afad-44b5-97e5-594a49490b09",
@@ -6008,7 +6008,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005531/manifest.json",
                 "annotationBody_t": "It herself he would rather jump at grete' s little legs only became.",
                 "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                "_version_": 1636043972047536000
+                "_version_": 1636129085690216400
               },
               {
                 "id": "63a01ea0-be14-4925-9fab-29e5550a2df4",
@@ -6016,7 +6016,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001217/manifest.json",
                 "annotationBody_t": "Last he could listen to what was said next would be a miracle if his.",
                 "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                "_version_": 1636043972047536000
+                "_version_": 1636129085690216400
               },
               {
                 "id": "f77e1d17-ea11-485a-beec-17f22a239427",
@@ -6024,7 +6024,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001457/manifest.json",
                 "annotationBody_t": "Had already finished making the beds flew up and were put into extreme.",
                 "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                "_version_": 1636043972047536000
+                "_version_": 1636129085690216400
               },
               {
                 "id": "ec07db18-ebcb-404f-8b7e-7ccd22404a64",
@@ -6032,7 +6032,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004450/manifest.json",
                 "annotationBody_t": "Push their arms under the couch. But sir, called gregor, he hurried.",
                 "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                "_version_": 1636043972047536000
+                "_version_": 1636129085690216400
               },
               {
                 "id": "43de4344-e1f5-4896-b8a6-0b1bb4ebae4a",
@@ -6051,7 +6051,7 @@
                   "Vore, Adolph"
                 ],
                 "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                "_version_": 1636043972047536000
+                "_version_": 1636129085690216400
               },
               {
                 "id": "02ca5c36-0320-4b23-88fa-50db68673f8a",
@@ -6070,7 +6070,7 @@
                   "Alred, Jayme"
                 ],
                 "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                "_version_": 1636043972047536000
+                "_version_": 1636129085690216400
               },
               {
                 "id": "2802f07b-2018-47c4-85fb-df9266ca4024",
@@ -6089,7 +6089,7 @@
                   "Cagliostro, Mabel"
                 ],
                 "_root_": "92c598f4-a22c-439c-b4eb-baceb8749baf",
-                "_version_": 1636043972047536000
+                "_version_": 1636129085690216400
               }
             ]
           },
@@ -6112,7 +6112,7 @@
             "schreibsprache_t": "poss",
             "vorbesitzer_s": "Yoshioka, Bud",
             "_root_": "2d286ccf-73a5-4845-885d-cfb62cb68ed8",
-            "_version_": 1636043972069556200,
+            "_version_": 1636129085710139400,
             "entities": [
               {
                 "id": "9dcb1880-cea6-44ab-8c19-66ecd692b4ec",
@@ -6121,22 +6121,22 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005672/manifest.json",
                 "digitalisatTitel_t": "Magna aliquam, accumsan in turpis.",
                 "_root_": "2d286ccf-73a5-4845-885d-cfb62cb68ed8",
-                "_version_": 1636043972069556200
+                "_version_": 1636129085710139400
               },
               {
                 "id": "19b739c8-1583-4b39-8197-bff4eca5be09",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Luctus. Integer scelerisque at nisi.",
                 "_root_": "2d286ccf-73a5-4845-885d-cfb62cb68ed8",
-                "_version_": 1636043972069556200,
+                "_version_": 1636129085710139400,
                 "entities": [
                   {
                     "id": "bdeafa40-13a1-41c1-945e-ad6de816ac80",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Tempus quis diam vel vehicula. Fusce.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Tempus quis diam vel vehicula. Fusce.",
                     "_root_": "2d286ccf-73a5-4845-885d-cfb62cb68ed8",
-                    "_version_": 1636043972069556200
+                    "_version_": 1636129085710139400
                   }
                 ]
               },
@@ -6145,15 +6145,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Odio. Integer scelerisque at nisi.",
                 "_root_": "2d286ccf-73a5-4845-885d-cfb62cb68ed8",
-                "_version_": 1636043972069556200,
+                "_version_": 1636129085710139400,
                 "entities": [
                   {
                     "id": "09be2b76-142e-47f1-b027-862681cd9b03",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Diam ante, lobortis vitae tempor ac.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Diam ante, lobortis vitae tempor ac.",
                     "_root_": "2d286ccf-73a5-4845-885d-cfb62cb68ed8",
-                    "_version_": 1636043972069556200
+                    "_version_": 1636129085710139400
                   }
                 ]
               },
@@ -6162,15 +6162,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Ultricies nunc. Sed lectus sapien.",
                 "_root_": "2d286ccf-73a5-4845-885d-cfb62cb68ed8",
-                "_version_": 1636043972069556200,
+                "_version_": 1636129085710139400,
                 "entities": [
                   {
                     "id": "cfc4380b-d0d2-4646-9570-ba2f6d889c5c",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Scelerisque justo velit, sed eleifend.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Scelerisque justo velit, sed eleifend.",
                     "_root_": "2d286ccf-73a5-4845-885d-cfb62cb68ed8",
-                    "_version_": 1636043972069556200
+                    "_version_": 1636129085710139400
                   }
                 ]
               },
@@ -6180,7 +6180,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008423/manifest.json",
                 "annotationBody_t": "Voice to gregor' s sister was not sleeping at all, often failed to.",
                 "_root_": "2d286ccf-73a5-4845-885d-cfb62cb68ed8",
-                "_version_": 1636043972069556200
+                "_version_": 1636129085710139400
               },
               {
                 "id": "ac3ca00a-34b9-420d-b4e6-74529b228ea7",
@@ -6198,7 +6198,7 @@
                   "Paz, Chantell"
                 ],
                 "_root_": "2d286ccf-73a5-4845-885d-cfb62cb68ed8",
-                "_version_": 1636043972069556200
+                "_version_": 1636129085710139400
               },
               {
                 "id": "adbaa952-5281-4070-82e5-b4edf268dbc5",
@@ -6216,7 +6216,7 @@
                   "Leuck, Rayford"
                 ],
                 "_root_": "2d286ccf-73a5-4845-885d-cfb62cb68ed8",
-                "_version_": 1636043972069556200
+                "_version_": 1636129085710139400
               },
               {
                 "id": "d00ab957-3c63-4b4d-8c61-ad88ec8a290d",
@@ -6234,7 +6234,7 @@
                   "Gielow, Etta"
                 ],
                 "_root_": "2d286ccf-73a5-4845-885d-cfb62cb68ed8",
-                "_version_": 1636043972069556200
+                "_version_": 1636129085710139400
               }
             ]
           },
@@ -6257,7 +6257,7 @@
             "schreibsprache_t": "diachylon",
             "author_t": "Meua, Jeanne",
             "_root_": "74ebe0ff-0b83-40f6-87f8-7ec0cd35055d",
-            "_version_": 1636043972078993400,
+            "_version_": 1636129085723771000,
             "entities": [
               {
                 "id": "55a47315-3178-48c0-ab86-12f820457e7d",
@@ -6266,7 +6266,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002537/manifest.json",
                 "digitalisatTitel_t": "Sed massa nec, ornare velit. Morbi.",
                 "_root_": "74ebe0ff-0b83-40f6-87f8-7ec0cd35055d",
-                "_version_": 1636043972078993400
+                "_version_": 1636129085723771000
               },
               {
                 "id": "6237a0ba-8333-48c6-ad14-4ddd72f831d1",
@@ -6275,7 +6275,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005380/manifest.json",
                 "digitalisatTitel_t": "Erat massa, sed mattis metus rhoncus.",
                 "_root_": "74ebe0ff-0b83-40f6-87f8-7ec0cd35055d",
-                "_version_": 1636043972078993400
+                "_version_": 1636129085723771000
               },
               {
                 "id": "28e1a058-1b7d-4758-a6fb-a5fc81ab5fa5",
@@ -6284,22 +6284,22 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006430/manifest.json",
                 "digitalisatTitel_t": "Venenatis, nunc est placerat purus.",
                 "_root_": "74ebe0ff-0b83-40f6-87f8-7ec0cd35055d",
-                "_version_": 1636043972078993400
+                "_version_": 1636129085723771000
               },
               {
                 "id": "bf4cfcac-ab60-46e9-8eaf-4cd7f520d10c",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Mauris. Fusce dignissim lacus sit.",
                 "_root_": "74ebe0ff-0b83-40f6-87f8-7ec0cd35055d",
-                "_version_": 1636043972078993400,
+                "_version_": 1636129085723771000,
                 "entities": [
                   {
                     "id": "5d8138f3-9c9c-4410-ae27-a600d0ca4847",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Ornare laoreet elit. Aliquam pharetra.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Ornare laoreet elit. Aliquam pharetra.",
                     "_root_": "74ebe0ff-0b83-40f6-87f8-7ec0cd35055d",
-                    "_version_": 1636043972078993400
+                    "_version_": 1636129085723771000
                   }
                 ]
               },
@@ -6308,15 +6308,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Lorem ac porttitor sagittis. Fusce.",
                 "_root_": "74ebe0ff-0b83-40f6-87f8-7ec0cd35055d",
-                "_version_": 1636043972078993400,
+                "_version_": 1636129085723771000,
                 "entities": [
                   {
                     "id": "4a9d0317-612b-4dc1-9980-c5b4546a8421",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Ante ipsum primis in faucibus. Cras.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Ante ipsum primis in faucibus. Cras.",
                     "_root_": "74ebe0ff-0b83-40f6-87f8-7ec0cd35055d",
-                    "_version_": 1636043972078993400
+                    "_version_": 1636129085723771000
                   }
                 ]
               },
@@ -6325,15 +6325,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Dictum, efficitur mi ac, mattis vel.",
                 "_root_": "74ebe0ff-0b83-40f6-87f8-7ec0cd35055d",
-                "_version_": 1636043972078993400,
+                "_version_": 1636129085723771000,
                 "entities": [
                   {
                     "id": "edb2fb24-727b-4728-9811-4a9ee831d808",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Duis condimentum ornare nulla nec.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Duis condimentum ornare nulla nec.",
                     "_root_": "74ebe0ff-0b83-40f6-87f8-7ec0cd35055d",
-                    "_version_": 1636043972078993400
+                    "_version_": 1636129085723771000
                   }
                 ]
               },
@@ -6343,7 +6343,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000667/manifest.json",
                 "annotationBody_t": "Grand announcement of it when it went on, it' s sign that he lived.",
                 "_root_": "74ebe0ff-0b83-40f6-87f8-7ec0cd35055d",
-                "_version_": 1636043972078993400
+                "_version_": 1636129085723771000
               },
               {
                 "id": "d047f234-5179-463f-a747-26cce6914cf2",
@@ -6351,7 +6351,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003252/manifest.json",
                 "annotationBody_t": "For running he could go back into their room and found that on closer.",
                 "_root_": "74ebe0ff-0b83-40f6-87f8-7ec0cd35055d",
-                "_version_": 1636043972078993400
+                "_version_": 1636129085723771000
               },
               {
                 "id": "2962dfd0-e899-4797-8760-53c3a08c0595",
@@ -6371,7 +6371,7 @@
                   "Zaniboni, Cleveland"
                 ],
                 "_root_": "74ebe0ff-0b83-40f6-87f8-7ec0cd35055d",
-                "_version_": 1636043972078993400
+                "_version_": 1636129085723771000
               }
             ]
           },
@@ -6394,7 +6394,7 @@
             "schreibsprache_t": "froes",
             "author_t": "Alessi, Clyde",
             "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-            "_version_": 1636043972089479200,
+            "_version_": 1636129085736353800,
             "entities": [
               {
                 "id": "7c910633-ba6d-4498-8170-a07feb7971ec",
@@ -6403,30 +6403,30 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008122/manifest.json",
                 "digitalisatTitel_t": "Interdum risus ullamcorper quis. Mauris.",
                 "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                "_version_": 1636043972089479200
+                "_version_": 1636129085736353800
               },
               {
                 "id": "b96473e5-f1fa-45a1-8207-7dabaef24afc",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Condimentum ornare nulla nec pellentesque.",
                 "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                "_version_": 1636043972089479200,
+                "_version_": 1636129085736353800,
                 "entities": [
                   {
                     "id": "5a952ad3-5f81-469e-b000-8b9eeaeb735d",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Luctus accumsan, mauris justo efficitur.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Luctus accumsan, mauris justo efficitur.",
                     "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                    "_version_": 1636043972089479200
+                    "_version_": 1636129085736353800
                   },
                   {
                     "id": "cdafc38c-1c83-4ea6-8f56-020bd38a4f1d",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Quis nibh lorem. In malesuada tincidunt.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Quis nibh lorem. In malesuada tincidunt.",
                     "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                    "_version_": 1636043972089479200
+                    "_version_": 1636129085736353800
                   }
                 ]
               },
@@ -6435,23 +6435,23 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Sed massa nec, hendrerit vestibulum.",
                 "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                "_version_": 1636043972089479200,
+                "_version_": 1636129085736353800,
                 "entities": [
                   {
                     "id": "6df17b2a-b20c-4588-b950-8fb4bc5d59d6",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Ligula et odio ultricies, at vehicula.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Ligula et odio ultricies, at vehicula.",
                     "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                    "_version_": 1636043972089479200
+                    "_version_": 1636129085736353800
                   },
                   {
                     "id": "073dbb98-12bc-48a8-b7ae-a0c259767979",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Porta sed magna at hendrerit. Donec.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Porta sed magna at hendrerit. Donec.",
                     "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                    "_version_": 1636043972089479200
+                    "_version_": 1636129085736353800
                   }
                 ]
               },
@@ -6460,23 +6460,23 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Massa, sed lacinia odio fringilla.",
                 "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                "_version_": 1636043972089479200,
+                "_version_": 1636129085736353800,
                 "entities": [
                   {
                     "id": "6c3181ed-f58b-406f-bccb-b9d274e3da05",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Varius magna. Duis semper lorem ac.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Varius magna. Duis semper lorem ac.",
                     "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                    "_version_": 1636043972089479200
+                    "_version_": 1636129085736353800
                   },
                   {
                     "id": "34d854f7-ec83-42e3-9516-7565b0995bcb",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Nulla felis nibh, aliquam ut ipsum.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Nulla felis nibh, aliquam ut ipsum.",
                     "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                    "_version_": 1636043972089479200
+                    "_version_": 1636129085736353800
                   }
                 ]
               },
@@ -6486,7 +6486,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004669/manifest.json",
                 "annotationBody_t": "Its exact position by the family having noticed it, but as time went.",
                 "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                "_version_": 1636043972089479200
+                "_version_": 1636129085736353800
               },
               {
                 "id": "d44ba718-e727-49a4-a6d5-19849dd5d6a6",
@@ -6494,7 +6494,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007216/manifest.json",
                 "annotationBody_t": "Played with his head back again in his room at once to hiss and spit.",
                 "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                "_version_": 1636043972089479200
+                "_version_": 1636129085736353800
               },
               {
                 "id": "ec95ad57-6f3f-4f09-ba62-91d7698b1d90",
@@ -6502,7 +6502,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001914/manifest.json",
                 "annotationBody_t": "Startling as his father gave him plenty of time to yank open the door.",
                 "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                "_version_": 1636043972089479200
+                "_version_": 1636129085736353800
               },
               {
                 "id": "bf8f3ad4-e4f3-408f-a773-c9696a3badda",
@@ -6510,7 +6510,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003340/manifest.json",
                 "annotationBody_t": "Pale, but that they had already taken out the chest of drawers, groaning.",
                 "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                "_version_": 1636043972089479200
+                "_version_": 1636129085736353800
               },
               {
                 "id": "858e73ae-4d43-4fde-9bf4-cd9c1959eda1",
@@ -6518,7 +6518,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002793/manifest.json",
                 "annotationBody_t": "The household budget became even smaller; so now gregor was extremely.",
                 "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                "_version_": 1636043972089479200
+                "_version_": 1636129085736353800
               },
               {
                 "id": "c78b655f-e538-4a34-924f-a226f01f62c0",
@@ -6526,7 +6526,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009342/manifest.json",
                 "annotationBody_t": "It open; people often do in homes where something awful has happened.",
                 "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                "_version_": 1636043972089479200
+                "_version_": 1636129085736353800
               },
               {
                 "id": "0e3ac721-85d4-4e2b-a845-46121d9f460a",
@@ -6534,7 +6534,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007641/manifest.json",
                 "annotationBody_t": "If only his father had arrived home. Please, don' t. I' m slightly.",
                 "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                "_version_": 1636043972089479200
+                "_version_": 1636129085736353800
               },
               {
                 "id": "25763f8e-f94e-4d24-a489-893307bd0177",
@@ -6542,7 +6542,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005514/manifest.json",
                 "annotationBody_t": "Hear them say how they went into one of the bed first, gregor' s transformation.",
                 "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                "_version_": 1636043972089479200
+                "_version_": 1636129085736353800
               },
               {
                 "id": "85957733-b05a-4d1e-a742-cd01b44b2ff2",
@@ -6560,7 +6560,7 @@
                   "Thanos, Mose"
                 ],
                 "_root_": "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-                "_version_": 1636043972089479200
+                "_version_": 1636129085736353800
               }
             ]
           },
@@ -6583,7 +6583,7 @@
             "schreibsprache_t": "plunk",
             "schreiber_t": "Coil, Bradley",
             "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-            "_version_": 1636043972110450700,
+            "_version_": 1636129085761519600,
             "entities": [
               {
                 "id": "15af4230-b1ef-49e8-a96c-4511308d5ada",
@@ -6592,7 +6592,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006778/manifest.json",
                 "digitalisatTitel_t": "Erat a sagittis. Fusce a varius magna.",
                 "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                "_version_": 1636043972110450700
+                "_version_": 1636129085761519600
               },
               {
                 "id": "57386805-313c-4bb4-adf9-c8706b4f74f9",
@@ -6601,38 +6601,38 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000001925/manifest.json",
                 "digitalisatTitel_t": "Pretium augue eget mollis auctor..",
                 "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                "_version_": 1636043972110450700
+                "_version_": 1636129085761519600
               },
               {
                 "id": "72f661e7-511c-4932-973e-2fcd7db76b0a",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Purus. Suspendisse velit enim, aliquet.",
                 "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                "_version_": 1636043972110450700,
+                "_version_": 1636129085761519600,
                 "entities": [
                   {
                     "id": "747ac484-be3c-4831-a0bb-87391b790efd",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Turpis nec, hendrerit vestibulum velit.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Turpis nec, hendrerit vestibulum velit.",
                     "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                    "_version_": 1636043972110450700
+                    "_version_": 1636129085761519600
                   },
                   {
                     "id": "e64a2bec-ad1b-4f19-b2f7-1f8c7272db40",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Sed ex justo, feugiat ac aliquet eu.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Sed ex justo, feugiat ac aliquet eu.",
                     "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                    "_version_": 1636043972110450700
+                    "_version_": 1636129085761519600
                   },
                   {
                     "id": "5039cc9b-4699-442c-8e11-d633cfbdfdfd",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 3",
-                    "beschreibungFazikelText_t": "Morbi diam ante, lobortis vitae tempor.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                    "beschreibungFaszikelText_t": "Morbi diam ante, lobortis vitae tempor.",
                     "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                    "_version_": 1636043972110450700
+                    "_version_": 1636129085761519600
                   }
                 ]
               },
@@ -6641,31 +6641,31 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Malesuada tincidunt ante in blandit.",
                 "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                "_version_": 1636043972110450700,
+                "_version_": 1636129085761519600,
                 "entities": [
                   {
                     "id": "f4ab90c8-7d4c-4f7d-adf0-6948e5ced849",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Vivamus id ultricies. Nam quis nibh.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Vivamus id ultricies. Nam quis nibh.",
                     "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                    "_version_": 1636043972110450700
+                    "_version_": 1636129085761519600
                   },
                   {
                     "id": "55446088-a215-43e2-bcbb-c5fb9b9cdfab",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Sed vehicula. Sed mollis, enim et.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Sed vehicula. Sed mollis, enim et.",
                     "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                    "_version_": 1636043972110450700
+                    "_version_": 1636129085761519600
                   },
                   {
                     "id": "b200055f-4774-44b2-a57e-a464c2f65440",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 3",
-                    "beschreibungFazikelText_t": "Aenean a pretium nunc, eu luctus nisl.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                    "beschreibungFaszikelText_t": "Aenean a pretium nunc, eu luctus nisl.",
                     "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                    "_version_": 1636043972110450700
+                    "_version_": 1636129085761519600
                   }
                 ]
               },
@@ -6674,31 +6674,31 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Pharetra erat a sagittis. Curabitur.",
                 "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                "_version_": 1636043972110450700,
+                "_version_": 1636129085761519600,
                 "entities": [
                   {
                     "id": "098fd11b-0fb5-4f85-bc79-2933fc719fc7",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Nunc. Sed mollis elit velit, sed interdum.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Nunc. Sed mollis elit velit, sed interdum.",
                     "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                    "_version_": 1636043972110450700
+                    "_version_": 1636129085761519600
                   },
                   {
                     "id": "7bffb225-45df-4522-87f2-b817bca5de79",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Metus rhoncus varius. Aenean pretium.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Metus rhoncus varius. Aenean pretium.",
                     "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                    "_version_": 1636043972110450700
+                    "_version_": 1636129085761519600
                   },
                   {
                     "id": "0a680e8f-76d4-4d74-aa36-b7eacc0ed9dc",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 3",
-                    "beschreibungFazikelText_t": "Vestibulum dui porttitor congue. Nunc.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                    "beschreibungFaszikelText_t": "Vestibulum dui porttitor congue. Nunc.",
                     "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                    "_version_": 1636043972110450700
+                    "_version_": 1636129085761519600
                   }
                 ]
               },
@@ -6708,7 +6708,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007520/manifest.json",
                 "annotationBody_t": "Playing, but perhaps it would be able to forget the time in between.",
                 "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                "_version_": 1636043972110450700
+                "_version_": 1636129085761519600
               },
               {
                 "id": "2978801f-56ed-47b3-b582-c67e1b8dc886",
@@ -6716,7 +6716,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004206/manifest.json",
                 "annotationBody_t": "Of coffee. That set his mother, yes, but nothing would have enough.",
                 "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                "_version_": 1636043972110450700
+                "_version_": 1636129085761519600
               },
               {
                 "id": "bc523ec1-1c36-4303-b47e-060cc039d622",
@@ -6724,7 +6724,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009790/manifest.json",
                 "annotationBody_t": "Will consider whether to proceed with some kind of caustic medicine.",
                 "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                "_version_": 1636043972110450700
+                "_version_": 1636129085761519600
               },
               {
                 "id": "16303f5e-f634-43d1-8642-af0a2f8242e3",
@@ -6732,7 +6732,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002202/manifest.json",
                 "annotationBody_t": "As introduction, we don' t make my parents' debt to his sister with.",
                 "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                "_version_": 1636043972110450700
+                "_version_": 1636129085761519600
               },
               {
                 "id": "af741b7c-287a-49f3-9a1b-7fde0ec26840",
@@ -6740,7 +6740,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000883/manifest.json",
                 "annotationBody_t": "Lock with it. Now, though, gregor had only just gained. They had expected.",
                 "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                "_version_": 1636043972110450700
+                "_version_": 1636129085761519600
               },
               {
                 "id": "52f3b187-672a-40c9-9a71-80591993a533",
@@ -6748,7 +6748,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000006277/manifest.json",
                 "annotationBody_t": "Took him under the arms he would. He probably did not see it as he.",
                 "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                "_version_": 1636043972110450700
+                "_version_": 1636129085761519600
               },
               {
                 "id": "010ab65a-aa84-4733-bf62-e19b38b44448",
@@ -6756,7 +6756,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009710/manifest.json",
                 "annotationBody_t": "On my room. The washing up from breakfast lay on his back and closed.",
                 "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                "_version_": 1636043972110450700
+                "_version_": 1636129085761519600
               },
               {
                 "id": "028ac1fa-941e-4fee-aaa2-c9c04bea1b4c",
@@ -6775,7 +6775,7 @@
                   "Spinka, Quincy"
                 ],
                 "_root_": "306710ce-4f81-406d-942f-341fe154fdb3",
-                "_version_": 1636043972110450700
+                "_version_": 1636129085761519600
               }
             ]
           },
@@ -6800,7 +6800,7 @@
             "author_t": "Albu, Arthur",
             "schreiber_t": "Berardinelli, Mckenzie",
             "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-            "_version_": 1636043972121985000,
+            "_version_": 1636129085780394000,
             "entities": [
               {
                 "id": "f3e5f28a-5d69-4dfa-be47-531c0c5b0433",
@@ -6809,7 +6809,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005509/manifest.json",
                 "digitalisatTitel_t": "Accumsan, mauris justo efficitur ipsum.",
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000
+                "_version_": 1636129085780394000
               },
               {
                 "id": "fae9dc2e-289b-437c-bc0e-1e6d2d8a23d0",
@@ -6818,7 +6818,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006555/manifest.json",
                 "digitalisatTitel_t": "Sagittis semper eros metus laoreet.",
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000
+                "_version_": 1636129085780394000
               },
               {
                 "id": "d6753e45-63d6-43f0-bc68-39dc5bf300f3",
@@ -6827,38 +6827,38 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008023/manifest.json",
                 "digitalisatTitel_t": "Pharetra. Phasellus commodo ornare.",
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000
+                "_version_": 1636129085780394000
               },
               {
                 "id": "e3c92ca1-ff59-4823-b4ac-0ec8e821c422",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Ipsum dolor sit amet purus cursus.",
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000,
+                "_version_": 1636129085780394000,
                 "entities": [
                   {
                     "id": "3801f3a7-f3e5-4141-b92e-8012fbf4654c",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Aliquam, accumsan tempor lacus luctus.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Aliquam, accumsan tempor lacus luctus.",
                     "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                    "_version_": 1636043972121985000
+                    "_version_": 1636129085780394000
                   },
                   {
                     "id": "ca9b6148-9008-4908-919f-546fd80ac680",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Tortor nec, feugiat pulvinar ante.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Tortor nec, feugiat pulvinar ante.",
                     "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                    "_version_": 1636043972121985000
+                    "_version_": 1636129085780394000
                   },
                   {
                     "id": "b0b44e44-ed17-4be5-b0b7-553aa27f43b2",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 3",
-                    "beschreibungFazikelText_t": "Suspendisse dapibus porta lectus non.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                    "beschreibungFaszikelText_t": "Suspendisse dapibus porta lectus non.",
                     "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                    "_version_": 1636043972121985000
+                    "_version_": 1636129085780394000
                   }
                 ]
               },
@@ -6867,31 +6867,31 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Vel purus sed vehicula. Morbi diam.",
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000,
+                "_version_": 1636129085780394000,
                 "entities": [
                   {
                     "id": "c922c5d2-79fb-49f3-ad1a-91fe5ae152ff",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Vel mollis enim ante ac purus. Suspendisse.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Vel mollis enim ante ac purus. Suspendisse.",
                     "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                    "_version_": 1636043972121985000
+                    "_version_": 1636129085780394000
                   },
                   {
                     "id": "92778686-79c8-440c-ad1f-d9d6e990bea8",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Pharetra a ex nec congue. Nullam quis.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Pharetra a ex nec congue. Nullam quis.",
                     "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                    "_version_": 1636043972121985000
+                    "_version_": 1636129085780394000
                   },
                   {
                     "id": "1698cc7e-2dae-403d-b8f1-ae0d9b2ed7b1",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 3",
-                    "beschreibungFazikelText_t": "Magna at hendrerit. Nulla eget neque.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                    "beschreibungFaszikelText_t": "Magna at hendrerit. Nulla eget neque.",
                     "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                    "_version_": 1636043972121985000
+                    "_version_": 1636129085780394000
                   }
                 ]
               },
@@ -6900,31 +6900,31 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Non posuere. Maecenas et mi vel lorem.",
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000,
+                "_version_": 1636129085780394000,
                 "entities": [
                   {
                     "id": "23f2b5e5-719e-4be1-ac6d-b87a311365e2",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Ex, ac consectetur lorem. In sodales.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Ex, ac consectetur lorem. In sodales.",
                     "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                    "_version_": 1636043972121985000
+                    "_version_": 1636129085780394000
                   },
                   {
                     "id": "a3ea4b03-713b-4e32-8d4f-38ebf8b2ccf7",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Scelerisque condimentum libero. Praesent.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Scelerisque condimentum libero. Praesent.",
                     "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                    "_version_": 1636043972121985000
+                    "_version_": 1636129085780394000
                   },
                   {
                     "id": "209c18e1-85fe-4ebd-86f8-e4679780bf3a",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 3",
-                    "beschreibungFazikelText_t": "Aliquam ut ipsum non, venenatis dictum.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                    "beschreibungFaszikelText_t": "Aliquam ut ipsum non, venenatis dictum.",
                     "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                    "_version_": 1636043972121985000
+                    "_version_": 1636129085780394000
                   }
                 ]
               },
@@ -6934,7 +6934,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003187/manifest.json",
                 "annotationBody_t": "Come again, they discussed their prospects and found herself face.",
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000
+                "_version_": 1636129085780394000
               },
               {
                 "id": "a477a925-5976-49ae-937a-b417cc2bafde",
@@ -6942,7 +6942,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005520/manifest.json",
                 "annotationBody_t": "When i' ll get dressed so quickly? there was a loud quarrel which.",
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000
+                "_version_": 1636129085780394000
               },
               {
                 "id": "4d60cca3-d042-4489-aa3b-2dec0896a33f",
@@ -6950,7 +6950,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002523/manifest.json",
                 "annotationBody_t": "Was blossoming into a panic as well. Until then they quickly finished.",
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000
+                "_version_": 1636129085780394000
               },
               {
                 "id": "55276a0a-9a0f-4b22-a50d-835856cd68a1",
@@ -6958,7 +6958,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002183/manifest.json",
                 "annotationBody_t": "Could bear the unpleasantness that he must have rung. Yes, mother.",
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000
+                "_version_": 1636129085780394000
               },
               {
                 "id": "4b8126f4-c498-431b-9e7b-f1c96b782131",
@@ -6966,7 +6966,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000006774/manifest.json",
                 "annotationBody_t": "Housed in a light swing to it, said gregor. In this way was becoming.",
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000
+                "_version_": 1636129085780394000
               },
               {
                 "id": "bd1debc4-0f5b-4182-a934-96f0e5a0400b",
@@ -6974,7 +6974,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000651/manifest.json",
                 "annotationBody_t": "The strangeness from his father, pointing, without wasting any more.",
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000
+                "_version_": 1636129085780394000
               },
               {
                 "id": "e088c519-4303-49ba-a5ed-9d1c280a21dd",
@@ -6982,7 +6982,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005613/manifest.json",
                 "annotationBody_t": "Have come round from work, he said, hurrying over to one side, saw.",
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000
+                "_version_": 1636129085780394000
               },
               {
                 "id": "0e94199e-26cf-43c0-af31-668def94543c",
@@ -6990,7 +6990,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004588/manifest.json",
                 "annotationBody_t": "S words had made him confused- he had left the door, i' ll make the.",
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000
+                "_version_": 1636129085780394000
               },
               {
                 "id": "5dacd8e0-c026-47c4-8236-ec58642911dd",
@@ -7010,7 +7010,7 @@
                   "Koelle, Neva"
                 ],
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000
+                "_version_": 1636129085780394000
               },
               {
                 "id": "d3b1b21f-2d5c-4a00-95a6-75ea1ca89a5e",
@@ -7030,7 +7030,7 @@
                   "Moosa, Jeramy"
                 ],
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000
+                "_version_": 1636129085780394000
               },
               {
                 "id": "c7d484cc-1a67-4497-993b-ee49e8145c4f",
@@ -7050,7 +7050,7 @@
                   "Lamphier, Edward"
                 ],
                 "_root_": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
-                "_version_": 1636043972121985000
+                "_version_": 1636129085780394000
               }
             ]
           },
@@ -7075,7 +7075,7 @@
             "author_t": "Donndelinger, Rosendo",
             "schreiber_t": "Mcgavock, Sang",
             "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-            "_version_": 1636043972135616500,
+            "_version_": 1636129085805559800,
             "entities": [
               {
                 "id": "d8e3b73f-6a08-4dc0-b1b7-b92c1b2ba8a1",
@@ -7084,7 +7084,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000000537/manifest.json",
                 "digitalisatTitel_t": "Nulla quis facilisis eros, id ultrices.",
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500
+                "_version_": 1636129085805559800
               },
               {
                 "id": "6c21400a-1c26-4b8b-b36e-440ed2614402",
@@ -7093,7 +7093,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000001890/manifest.json",
                 "digitalisatTitel_t": "Mauris egestas vulputate porta. Nullam.",
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500
+                "_version_": 1636129085805559800
               },
               {
                 "id": "a8caff88-c36d-47e6-a202-8de77d22ad87",
@@ -7102,22 +7102,22 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000000988/manifest.json",
                 "digitalisatTitel_t": "Ac justo. Praesent vel velit posuere.",
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500
+                "_version_": 1636129085805559800
               },
               {
                 "id": "3295592d-0ee2-4d59-bba5-d4e550c55bb7",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Luctus purus euismod condimentum..",
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500,
+                "_version_": 1636129085805559800,
                 "entities": [
                   {
                     "id": "8131e47b-9eac-4394-923c-7c56b2835a3f",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Vel vulputate mauris. Fusce dignissim.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Vel vulputate mauris. Fusce dignissim.",
                     "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                    "_version_": 1636043972135616500
+                    "_version_": 1636129085805559800
                   }
                 ]
               },
@@ -7126,15 +7126,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Pretium augue eget mollis auctor..",
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500,
+                "_version_": 1636129085805559800,
                 "entities": [
                   {
                     "id": "fead6c7c-1095-4ef3-8922-900168601387",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Venenatis, nunc est placerat purus.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Venenatis, nunc est placerat purus.",
                     "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                    "_version_": 1636043972135616500
+                    "_version_": 1636129085805559800
                   }
                 ]
               },
@@ -7143,15 +7143,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Morbi mollis mauris vitae magna aliquam.",
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500,
+                "_version_": 1636129085805559800,
                 "entities": [
                   {
                     "id": "3d772641-beb1-45c9-924c-2b62d2aa10fc",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Eget sem id ultricies nunc. Sed cursus.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Eget sem id ultricies nunc. Sed cursus.",
                     "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                    "_version_": 1636043972135616500
+                    "_version_": 1636129085805559800
                   }
                 ]
               },
@@ -7161,7 +7161,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001835/manifest.json",
                 "annotationBody_t": "From each other to be disturbed. It pressed down on it was distress.",
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500
+                "_version_": 1636129085805559800
               },
               {
                 "id": "f7521850-433b-40aa-8460-bc894fa6b553",
@@ -7169,7 +7169,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008109/manifest.json",
                 "annotationBody_t": "Mistrust the men' s father refused to let him crawl around unimpeded.",
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500
+                "_version_": 1636129085805559800
               },
               {
                 "id": "2c227552-ffcf-4916-9026-06f877c87c68",
@@ -7177,7 +7177,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000006515/manifest.json",
                 "annotationBody_t": "Now quite light in the air while those on the very first day the maid.",
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500
+                "_version_": 1636129085805559800
               },
               {
                 "id": "c2e05cdd-7d9e-4332-a048-d4feb2816ad2",
@@ -7185,7 +7185,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003919/manifest.json",
                 "annotationBody_t": "Particularly good promise for the last thing he wanted with that-.",
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500
+                "_version_": 1636129085805559800
               },
               {
                 "id": "4ae3d019-6272-42af-bb98-dfa70e94bde6",
@@ -7193,7 +7193,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008474/manifest.json",
                 "annotationBody_t": "Their parents did not really distinguish one from the bed- the new.",
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500
+                "_version_": 1636129085805559800
               },
               {
                 "id": "da7aa0dd-aaa0-4387-9cce-ef3eb5425217",
@@ -7201,7 +7201,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000394/manifest.json",
                 "annotationBody_t": "Behind gregor so startled him that he is my unfortunate son! can'.",
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500
+                "_version_": 1636129085805559800
               },
               {
                 "id": "2ed18a8d-490b-4474-8193-30bc2433d75e",
@@ -7209,7 +7209,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001622/manifest.json",
                 "annotationBody_t": "His round of the living room where he was held and sent him flying.",
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500
+                "_version_": 1636129085805559800
               },
               {
                 "id": "ef13ac5a-9637-47b5-bb26-30f7f8c12c33",
@@ -7217,7 +7217,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007881/manifest.json",
                 "annotationBody_t": "Cheerio then, finally, all around the staircase. The uniform had not.",
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500
+                "_version_": 1636129085805559800
               },
               {
                 "id": "899ebb1e-b8d5-40d6-b93d-b04fb7108d33",
@@ -7237,7 +7237,7 @@
                   "Magin, Yetta"
                 ],
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500
+                "_version_": 1636129085805559800
               },
               {
                 "id": "0f72f0f6-d48c-4d41-98eb-f611442776ac",
@@ -7257,7 +7257,7 @@
                   "Schenz, Dorie"
                 ],
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500
+                "_version_": 1636129085805559800
               },
               {
                 "id": "53b7597d-d8ed-49ea-8cac-c05f7effa4de",
@@ -7277,7 +7277,7 @@
                   "Lazzell, Bruce"
                 ],
                 "_root_": "a8d69a9d-e2ce-4b3e-9212-555b7fdc4fc3",
-                "_version_": 1636043972135616500
+                "_version_": 1636129085805559800
               }
             ]
           },
@@ -7300,7 +7300,7 @@
             "schreibsprache_t": "dish",
             "schreiber_t": "Abrial, Maria",
             "_root_": "76b4cacd-0344-49ea-ad73-5d10fe295c25",
-            "_version_": 1636043972146102300,
+            "_version_": 1636129085814997000,
             "entities": [
               {
                 "id": "533599f5-f4be-4ce4-a855-e651826e08ed",
@@ -7309,38 +7309,38 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005807/manifest.json",
                 "digitalisatTitel_t": "Maximus vel, ultrices eget metus..",
                 "_root_": "76b4cacd-0344-49ea-ad73-5d10fe295c25",
-                "_version_": 1636043972146102300
+                "_version_": 1636129085814997000
               },
               {
                 "id": "e3945207-6753-47c8-991f-712b0cf09d54",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Eget mollis auctor. Aenean scelerisque.",
                 "_root_": "76b4cacd-0344-49ea-ad73-5d10fe295c25",
-                "_version_": 1636043972146102300,
+                "_version_": 1636129085814997000,
                 "entities": [
                   {
                     "id": "9e57d58b-f66e-416f-b268-bd4292f16652",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Non ornare id, elementum eros. Sed.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Non ornare id, elementum eros. Sed.",
                     "_root_": "76b4cacd-0344-49ea-ad73-5d10fe295c25",
-                    "_version_": 1636043972146102300
+                    "_version_": 1636129085814997000
                   },
                   {
                     "id": "98eba7a2-f3f6-41d0-a406-e9e8bf0034c2",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Quis nibh lorem. In quam quam, condimentum.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Quis nibh lorem. In quam quam, condimentum.",
                     "_root_": "76b4cacd-0344-49ea-ad73-5d10fe295c25",
-                    "_version_": 1636043972146102300
+                    "_version_": 1636129085814997000
                   },
                   {
                     "id": "2092f94f-ca93-4c8c-9cbb-42507c38d466",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 3",
-                    "beschreibungFazikelText_t": "Elementum eros. Sed tincidunt erat.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                    "beschreibungFaszikelText_t": "Elementum eros. Sed tincidunt erat.",
                     "_root_": "76b4cacd-0344-49ea-ad73-5d10fe295c25",
-                    "_version_": 1636043972146102300
+                    "_version_": 1636129085814997000
                   }
                 ]
               },
@@ -7350,7 +7350,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005868/manifest.json",
                 "annotationBody_t": "So he ran after him, mixed together with strangers and others he had.",
                 "_root_": "76b4cacd-0344-49ea-ad73-5d10fe295c25",
-                "_version_": 1636043972146102300
+                "_version_": 1636129085814997000
               },
               {
                 "id": "5ac68798-1ab5-49e5-902f-2238630841e9",
@@ -7358,7 +7358,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000312/manifest.json",
                 "annotationBody_t": "To appear, it held him firmly and felt good on his picture. He would.",
                 "_root_": "76b4cacd-0344-49ea-ad73-5d10fe295c25",
-                "_version_": 1636043972146102300
+                "_version_": 1636129085814997000
               },
               {
                 "id": "2d7e8b84-34d5-4f10-9cac-726a1408f88a",
@@ -7366,7 +7366,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002663/manifest.json",
                 "annotationBody_t": "Had she come in, because of that, caused himself no damage. Very soon.",
                 "_root_": "76b4cacd-0344-49ea-ad73-5d10fe295c25",
-                "_version_": 1636043972146102300
+                "_version_": 1636129085814997000
               },
               {
                 "id": "56791380-5a90-4b9e-92eb-541afc2c3347",
@@ -7384,7 +7384,7 @@
                   "Veltz, Manual"
                 ],
                 "_root_": "76b4cacd-0344-49ea-ad73-5d10fe295c25",
-                "_version_": 1636043972146102300
+                "_version_": 1636129085814997000
               },
               {
                 "id": "b9441eac-c533-43a4-843d-2ff5db5cbb67",
@@ -7402,7 +7402,7 @@
                   "Gilreath, Odell"
                 ],
                 "_root_": "76b4cacd-0344-49ea-ad73-5d10fe295c25",
-                "_version_": 1636043972146102300
+                "_version_": 1636129085814997000
               },
               {
                 "id": "13603194-9f7d-4a7c-b7b0-cd315b3d76ae",
@@ -7420,7 +7420,7 @@
                   "Loss, Sammie"
                 ],
                 "_root_": "76b4cacd-0344-49ea-ad73-5d10fe295c25",
-                "_version_": 1636043972146102300
+                "_version_": 1636129085814997000
               }
             ]
           },
@@ -7444,7 +7444,7 @@
             "vorbesitzer_s": "Bove, Moshe",
             "schreiber_t": "Campana, Cleta",
             "_root_": "38c89b5b-a935-4f58-923a-9b0a17152c9d",
-            "_version_": 1636043972157636600,
+            "_version_": 1636129085826531300,
             "entities": [
               {
                 "id": "30324d2c-c215-4d88-b389-f085a1896c3f",
@@ -7453,7 +7453,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005867/manifest.json",
                 "digitalisatTitel_t": "Mi vel lorem malesuada hendrerit..",
                 "_root_": "38c89b5b-a935-4f58-923a-9b0a17152c9d",
-                "_version_": 1636043972157636600
+                "_version_": 1636129085826531300
               },
               {
                 "id": "80b83302-7f32-458d-879a-cb6eee7f8dfa",
@@ -7462,30 +7462,30 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005306/manifest.json",
                 "digitalisatTitel_t": "Malesuada fames ac ante ipsum primis.",
                 "_root_": "38c89b5b-a935-4f58-923a-9b0a17152c9d",
-                "_version_": 1636043972157636600
+                "_version_": 1636129085826531300
               },
               {
                 "id": "51ab65ed-00fe-49c9-b5e7-008a8f3fa94b",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Ornare id, rutrum ac justo. Cras maximus.",
                 "_root_": "38c89b5b-a935-4f58-923a-9b0a17152c9d",
-                "_version_": 1636043972157636600,
+                "_version_": 1636129085826531300,
                 "entities": [
                   {
                     "id": "e095c211-5ab6-4196-a56c-7e8ff58705dc",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Duis condimentum ornare nulla nec.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Duis condimentum ornare nulla nec.",
                     "_root_": "38c89b5b-a935-4f58-923a-9b0a17152c9d",
-                    "_version_": 1636043972157636600
+                    "_version_": 1636129085826531300
                   },
                   {
                     "id": "eb424c92-3a9b-4ec9-b0f5-f34afa6937b1",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Ultrices velit. In malesuada tincidunt.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Ultrices velit. In malesuada tincidunt.",
                     "_root_": "38c89b5b-a935-4f58-923a-9b0a17152c9d",
-                    "_version_": 1636043972157636600
+                    "_version_": 1636129085826531300
                   }
                 ]
               },
@@ -7495,7 +7495,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000522/manifest.json",
                 "annotationBody_t": "Assuming enquiries were even necessary- did the pain he felt a slight.",
                 "_root_": "38c89b5b-a935-4f58-923a-9b0a17152c9d",
-                "_version_": 1636043972157636600
+                "_version_": 1636129085826531300
               },
               {
                 "id": "2627ec90-c799-4384-a20a-374a519db32f",
@@ -7503,7 +7503,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003982/manifest.json",
                 "annotationBody_t": "Help too- he had still been human. He isn' t think anyone could accuse.",
                 "_root_": "38c89b5b-a935-4f58-923a-9b0a17152c9d",
-                "_version_": 1636043972157636600
+                "_version_": 1636129085826531300
               },
               {
                 "id": "9cd726e9-9217-49d9-bf8e-f502cfa23092",
@@ -7511,7 +7511,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000006451/manifest.json",
                 "annotationBody_t": "Transport him in some small hotel room. Then the door and he looked.",
                 "_root_": "38c89b5b-a935-4f58-923a-9b0a17152c9d",
-                "_version_": 1636043972157636600
+                "_version_": 1636129085826531300
               },
               {
                 "id": "595cbf1c-1403-4289-91c5-59e627fc7a23",
@@ -7530,7 +7530,7 @@
                   "Roman, Rosemary"
                 ],
                 "_root_": "38c89b5b-a935-4f58-923a-9b0a17152c9d",
-                "_version_": 1636043972157636600
+                "_version_": 1636129085826531300
               },
               {
                 "id": "6475ebea-abdf-431d-8314-436434b58f95",
@@ -7549,7 +7549,7 @@
                   "Budniewski, Kristie"
                 ],
                 "_root_": "38c89b5b-a935-4f58-923a-9b0a17152c9d",
-                "_version_": 1636043972157636600
+                "_version_": 1636129085826531300
               },
               {
                 "id": "1bd640c8-80b5-4cae-86a5-cc4ef0f360cc",
@@ -7568,7 +7568,7 @@
                   "Steggeman, Man"
                 ],
                 "_root_": "38c89b5b-a935-4f58-923a-9b0a17152c9d",
-                "_version_": 1636043972157636600
+                "_version_": 1636129085826531300
               }
             ]
           },
@@ -7592,7 +7592,7 @@
             "vorbesitzer_s": "Shaulis, Ashley",
             "author_t": "Helgeson, Bo",
             "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-            "_version_": 1636043972162879500,
+            "_version_": 1636129085831774200,
             "entities": [
               {
                 "id": "a24d921e-6983-43e6-b2bb-a7017d62e08e",
@@ -7601,7 +7601,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000007893/manifest.json",
                 "digitalisatTitel_t": "Lectus non egestas. Sed cursus ligula.",
                 "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                "_version_": 1636043972162879500
+                "_version_": 1636129085831774200
               },
               {
                 "id": "925a6f78-28da-4a7a-b7c3-1e7b537d4fc7",
@@ -7610,7 +7610,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006649/manifest.json",
                 "digitalisatTitel_t": "Consectetur lorem. Fusce tempus quis.",
                 "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                "_version_": 1636043972162879500
+                "_version_": 1636129085831774200
               },
               {
                 "id": "2ed38800-2263-4420-a32a-7a483b60a3d9",
@@ -7619,22 +7619,22 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005210/manifest.json",
                 "digitalisatTitel_t": "Cursus iaculis. Nam quis nibh lorem.",
                 "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                "_version_": 1636043972162879500
+                "_version_": 1636129085831774200
               },
               {
                 "id": "02ea92a4-87d6-44f4-ab06-993d01579174",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Neque dictum, efficitur mi ac, mattis.",
                 "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                "_version_": 1636043972162879500,
+                "_version_": 1636129085831774200,
                 "entities": [
                   {
                     "id": "a16ef527-7c4c-43e5-bbe8-ebd84f43e0f3",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Lacinia odio fringilla eu. Vivamus.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Lacinia odio fringilla eu. Vivamus.",
                     "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                    "_version_": 1636043972162879500
+                    "_version_": 1636129085831774200
                   }
                 ]
               },
@@ -7643,15 +7643,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Velit lobortis, ut interdum libero.",
                 "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                "_version_": 1636043972162879500,
+                "_version_": 1636129085831774200,
                 "entities": [
                   {
                     "id": "862c56c3-8041-459d-9f1f-cc0a56c1b82b",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Non justo commodo vehicula. Fusce.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Non justo commodo vehicula. Fusce.",
                     "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                    "_version_": 1636043972162879500
+                    "_version_": 1636129085831774200
                   }
                 ]
               },
@@ -7661,7 +7661,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008332/manifest.json",
                 "annotationBody_t": "Close together, cheek to cheek; his body eventually followed slowly.",
                 "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                "_version_": 1636043972162879500
+                "_version_": 1636129085831774200
               },
               {
                 "id": "e43d01c9-7ded-4e77-a058-65c8fdf00716",
@@ -7669,7 +7669,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004667/manifest.json",
                 "annotationBody_t": "Backwards showed that she did notice him under the couch. It was;.",
                 "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                "_version_": 1636043972162879500
+                "_version_": 1636129085831774200
               },
               {
                 "id": "9166dbdc-984d-464e-be64-57e6d2403bcd",
@@ -7677,7 +7677,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001466/manifest.json",
                 "annotationBody_t": "Later, when he tried to draw his father would say when he had to overcome.",
                 "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                "_version_": 1636043972162879500
+                "_version_": 1636129085831774200
               },
               {
                 "id": "224b6907-c5cb-44f0-a81c-90d4d3553a2b",
@@ -7685,7 +7685,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000006092/manifest.json",
                 "annotationBody_t": "Some supernatural force waiting to save him. The charwoman left the.",
                 "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                "_version_": 1636043972162879500
+                "_version_": 1636129085831774200
               },
               {
                 "id": "9ce35c87-feda-4e88-997e-427775a1456c",
@@ -7693,7 +7693,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004723/manifest.json",
                 "annotationBody_t": "Some beautiful or entertaining violin playing had been having of late.",
                 "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                "_version_": 1636043972162879500
+                "_version_": 1636129085831774200
               },
               {
                 "id": "acc7f433-cc36-4c8f-b2bf-3c61aad76f39",
@@ -7701,7 +7701,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004861/manifest.json",
                 "annotationBody_t": "Things and feel they must get their way into gregor' s father to a.",
                 "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                "_version_": 1636043972162879500
+                "_version_": 1636129085831774200
               },
               {
                 "id": "a8419a4f-8a84-4edf-a628-438b20cef2df",
@@ -7721,7 +7721,7 @@
                   "Cousino, Raven"
                 ],
                 "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                "_version_": 1636043972162879500
+                "_version_": 1636129085831774200
               },
               {
                 "id": "7acbde4c-c9f5-4fd0-bae0-bc9a053622fe",
@@ -7741,7 +7741,7 @@
                   "Dambach, Kandi"
                 ],
                 "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                "_version_": 1636043972162879500
+                "_version_": 1636129085831774200
               },
               {
                 "id": "9dc16006-f0ea-4c8c-8330-f465ec8fd6e0",
@@ -7761,7 +7761,7 @@
                   "Schuette, Dominic"
                 ],
                 "_root_": "95c65ab1-6ea7-4a9e-8422-830525a35d3e",
-                "_version_": 1636043972162879500
+                "_version_": 1636129085831774200
               }
             ]
           },
@@ -7784,7 +7784,7 @@
             "schreibsprache_t": "virginity",
             "schreiber_t": "Brosi, Dorothea",
             "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-            "_version_": 1636043972170219500,
+            "_version_": 1636129085839114200,
             "entities": [
               {
                 "id": "5cf5889b-0635-4552-90c9-0d001f4e207a",
@@ -7793,7 +7793,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005267/manifest.json",
                 "digitalisatTitel_t": "Eros pharetra, pharetra urna sit amet.",
                 "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                "_version_": 1636043972170219500
+                "_version_": 1636129085839114200
               },
               {
                 "id": "f3fe8db1-dd4d-4c16-b53b-c9090ebabe84",
@@ -7802,38 +7802,38 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000004733/manifest.json",
                 "digitalisatTitel_t": "Ac porttitor sagittis. Curabitur massa.",
                 "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                "_version_": 1636043972170219500
+                "_version_": 1636129085839114200
               },
               {
                 "id": "e3220973-0f16-4eef-b253-fe8ecbf9154e",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Placerat purus, vel mollis enim ante.",
                 "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                "_version_": 1636043972170219500,
+                "_version_": 1636129085839114200,
                 "entities": [
                   {
                     "id": "5ec20c4b-9b80-4bba-9523-61b163bda7ef",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Ornare nulla nec pellentesque. Etiam.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Ornare nulla nec pellentesque. Etiam.",
                     "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                    "_version_": 1636043972170219500
+                    "_version_": 1636129085839114200
                   },
                   {
                     "id": "bade819c-1b4f-4105-8617-1dd8e06b049c",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Finibus nulla vulputate in. Maecenas.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Finibus nulla vulputate in. Maecenas.",
                     "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                    "_version_": 1636043972170219500
+                    "_version_": 1636129085839114200
                   },
                   {
                     "id": "17cbc98b-b14f-4022-989d-bf31164dbbdd",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 3",
-                    "beschreibungFazikelText_t": "Consequat dolor, sed mattis metus.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                    "beschreibungFaszikelText_t": "Consequat dolor, sed mattis metus.",
                     "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                    "_version_": 1636043972170219500
+                    "_version_": 1636129085839114200
                   }
                 ]
               },
@@ -7842,31 +7842,31 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Justo velit, in condimentum dui rutrum.",
                 "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                "_version_": 1636043972170219500,
+                "_version_": 1636129085839114200,
                 "entities": [
                   {
                     "id": "9bfa8c54-f422-4741-adf5-efa02c6fde96",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "A euismod. Donec sed libero finibus.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "A euismod. Donec sed libero finibus.",
                     "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                    "_version_": 1636043972170219500
+                    "_version_": 1636129085839114200
                   },
                   {
                     "id": "7f63a369-d3c6-4e91-a687-b51e06f04803",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Ut pellentesque nunc, vel vulputate.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Ut pellentesque nunc, vel vulputate.",
                     "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                    "_version_": 1636043972170219500
+                    "_version_": 1636129085839114200
                   },
                   {
                     "id": "e025f379-a432-4c35-9fe1-6d6abf7ec463",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 3",
-                    "beschreibungFazikelText_t": "Sed, ultrices id lacus. Praesent dolor.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                    "beschreibungFaszikelText_t": "Sed, ultrices id lacus. Praesent dolor.",
                     "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                    "_version_": 1636043972170219500
+                    "_version_": 1636129085839114200
                   }
                 ]
               },
@@ -7876,7 +7876,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001470/manifest.json",
                 "annotationBody_t": "Of it on christmas day. Sometimes he would have to re- arrange his.",
                 "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                "_version_": 1636043972170219500
+                "_version_": 1636129085839114200
               },
               {
                 "id": "ae6533a5-5f75-4bf5-95db-66fb4a411de8",
@@ -7884,7 +7884,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000006752/manifest.json",
                 "annotationBody_t": "Just let me turn round, thought that he had to be put into extreme.",
                 "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                "_version_": 1636043972170219500
+                "_version_": 1636129085839114200
               },
               {
                 "id": "cd751cc3-a44c-4d8f-9c99-6febdbc6883a",
@@ -7892,7 +7892,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004440/manifest.json",
                 "annotationBody_t": "Times, shut his eyes open; people often do in homes where something.",
                 "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                "_version_": 1636043972170219500
+                "_version_": 1636129085839114200
               },
               {
                 "id": "d918f8fd-bb70-461c-9d4e-887899000204",
@@ -7900,7 +7900,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007839/manifest.json",
                 "annotationBody_t": "Are we to do with their leader. Once there, said his sister liked.",
                 "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                "_version_": 1636043972170219500
+                "_version_": 1636129085839114200
               },
               {
                 "id": "0a0dfd57-6bba-41e5-93cb-638cdb3d33c3",
@@ -7908,7 +7908,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000436/manifest.json",
                 "annotationBody_t": "Task of turning the key or pushed it from its place, imagining the.",
                 "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                "_version_": 1636043972170219500
+                "_version_": 1636129085839114200
               },
               {
                 "id": "c9bc9049-a970-4d71-8b10-af07b25921bd",
@@ -7927,7 +7927,7 @@
                   "Holtzclaw, Rosario"
                 ],
                 "_root_": "41fe7ac8-c4a3-4b9b-bd77-284afc0d3c34",
-                "_version_": 1636043972170219500
+                "_version_": 1636129085839114200
               }
             ]
           },
@@ -7952,7 +7952,7 @@
             "author_t": "Kalan, Elena",
             "schreiber_t": "Ends, Phylicia",
             "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-            "_version_": 1636043972175462400,
+            "_version_": 1636129085845405700,
             "entities": [
               {
                 "id": "d8e0739b-5527-424b-8a4e-0d2958d252c0",
@@ -7961,7 +7961,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000009817/manifest.json",
                 "digitalisatTitel_t": "Non eros pharetra, pharetra urna sit.",
                 "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                "_version_": 1636043972175462400
+                "_version_": 1636129085845405700
               },
               {
                 "id": "54be4d62-09fd-4adf-a039-276b836c60cc",
@@ -7970,30 +7970,30 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000007344/manifest.json",
                 "digitalisatTitel_t": "Vivamus id ultricies. Nam vel consequat.",
                 "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                "_version_": 1636043972175462400
+                "_version_": 1636129085845405700
               },
               {
                 "id": "1c2ba254-ddda-4c2d-a192-416939564a54",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Iaculis. Nam vel consequat dolor,.",
                 "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                "_version_": 1636043972175462400,
+                "_version_": 1636129085845405700,
                 "entities": [
                   {
                     "id": "be1d3dcc-5a9e-43b2-965a-98f38ec7e9e3",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Ante in blandit. Sed tincidunt nec.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Ante in blandit. Sed tincidunt nec.",
                     "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                    "_version_": 1636043972175462400
+                    "_version_": 1636129085845405700
                   },
                   {
                     "id": "54b7dcc6-cd0a-41a5-a06d-fd5277eb9259",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Phasellus quis euismod eros, a elementum.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Phasellus quis euismod eros, a elementum.",
                     "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                    "_version_": 1636043972175462400
+                    "_version_": 1636129085845405700
                   }
                 ]
               },
@@ -8002,23 +8002,23 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Facilisis eros, a elementum enim..",
                 "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                "_version_": 1636043972175462400,
+                "_version_": 1636129085845405700,
                 "entities": [
                   {
                     "id": "7c16cb90-ab62-42ab-b85e-1dc1f55d1deb",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Ornare nulla nec pellentesque. Etiam.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Ornare nulla nec pellentesque. Etiam.",
                     "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                    "_version_": 1636043972175462400
+                    "_version_": 1636129085845405700
                   },
                   {
                     "id": "178fe6ac-a1cb-447b-bd9e-80de6fd064be",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Lacus. Praesent vel velit posuere.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Lacus. Praesent vel velit posuere.",
                     "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                    "_version_": 1636043972175462400
+                    "_version_": 1636129085845405700
                   }
                 ]
               },
@@ -8027,23 +8027,23 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Id ultrices velit. Ut scelerisque.",
                 "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                "_version_": 1636043972175462400,
+                "_version_": 1636129085845405700,
                 "entities": [
                   {
                     "id": "6ffa151f-9248-4f35-bfa6-0ed392d02b96",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Integer rutrum non justo commodo vehicula.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Integer rutrum non justo commodo vehicula.",
                     "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                    "_version_": 1636043972175462400
+                    "_version_": 1636129085845405700
                   },
                   {
                     "id": "eb02c0c2-ef45-4403-a276-6af7d292cf1b",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Velit sagittis euismod ultricies..",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Velit sagittis euismod ultricies..",
                     "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                    "_version_": 1636043972175462400
+                    "_version_": 1636129085845405700
                   }
                 ]
               },
@@ -8053,7 +8053,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008570/manifest.json",
                 "annotationBody_t": "I came near to giving him any pleasure at all by himself while gregor.",
                 "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                "_version_": 1636043972175462400
+                "_version_": 1636129085845405700
               },
               {
                 "id": "31b409f4-f131-4cc2-a70d-546e477b9568",
@@ -8061,7 +8061,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009439/manifest.json",
                 "annotationBody_t": "In disappointment; not only did the pain in bed than lose consciousness.",
                 "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                "_version_": 1636043972175462400
+                "_version_": 1636129085845405700
               },
               {
                 "id": "856b85a8-c5fe-4a71-a180-c0b8845c569b",
@@ -8080,7 +8080,7 @@
                   "Pflughoeft, Danette"
                 ],
                 "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                "_version_": 1636043972175462400
+                "_version_": 1636129085845405700
               },
               {
                 "id": "d635bfdb-b9c7-4c11-83c4-b49c03427ca9",
@@ -8099,7 +8099,7 @@
                   "Caterina, Paris"
                 ],
                 "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                "_version_": 1636043972175462400
+                "_version_": 1636129085845405700
               },
               {
                 "id": "416491bc-8996-41fb-a023-af9835bb553c",
@@ -8118,7 +8118,7 @@
                   "Gilmour, Allie"
                 ],
                 "_root_": "2aa5c235-5716-42ad-a11b-5385a1ebf3c7",
-                "_version_": 1636043972175462400
+                "_version_": 1636129085845405700
               }
             ]
           },
@@ -8142,7 +8142,7 @@
             "vorbesitzer_s": "Devos, Bryant",
             "author_t": "Platner, Dee",
             "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-            "_version_": 1636043972181753900,
+            "_version_": 1636129085849600000,
             "entities": [
               {
                 "id": "2e0b721d-56e2-495e-a0d9-19055e7f62eb",
@@ -8151,7 +8151,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005248/manifest.json",
                 "digitalisatTitel_t": "Sapien non posuere. Maecenas et mi.",
                 "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                "_version_": 1636043972181753900
+                "_version_": 1636129085849600000
               },
               {
                 "id": "53d86920-231d-4218-934e-5dbe0d7195be",
@@ -8160,7 +8160,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002254/manifest.json",
                 "digitalisatTitel_t": "Mollis auctor. Aenean pretium augue.",
                 "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                "_version_": 1636043972181753900
+                "_version_": 1636129085849600000
               },
               {
                 "id": "cbf0ce2f-a586-4f00-8cc2-c4f704785872",
@@ -8169,22 +8169,22 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008140/manifest.json",
                 "digitalisatTitel_t": "Vehicula. Morbi nec dolor vel elit.",
                 "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                "_version_": 1636043972181753900
+                "_version_": 1636129085849600000
               },
               {
                 "id": "5218996f-1d19-465e-9526-9b4ee0b0ad63",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Condimentum. Sed cursus ligula et.",
                 "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                "_version_": 1636043972181753900,
+                "_version_": 1636129085849600000,
                 "entities": [
                   {
                     "id": "d4b08b0c-f0b7-4414-ac63-be8affca7049",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "A pretium nunc, vel mollis enim ante.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "A pretium nunc, vel mollis enim ante.",
                     "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                    "_version_": 1636043972181753900
+                    "_version_": 1636129085849600000
                   }
                 ]
               },
@@ -8193,15 +8193,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Aliquam, accumsan in turpis nec, ornare.",
                 "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                "_version_": 1636043972181753900,
+                "_version_": 1636129085849600000,
                 "entities": [
                   {
                     "id": "9cebbebd-681f-4547-b866-850110808b36",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Quis facilisis eros, a elementum enim.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Quis facilisis eros, a elementum enim.",
                     "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                    "_version_": 1636043972181753900
+                    "_version_": 1636129085849600000
                   }
                 ]
               },
@@ -8210,15 +8210,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Pellentesque feugiat. Praesent euismod.",
                 "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                "_version_": 1636043972181753900,
+                "_version_": 1636129085849600000,
                 "entities": [
                   {
                     "id": "53087c8c-eb3c-429e-8fcf-766f229e3c8b",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Nec, ornare velit. In quam quam, condimentum.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Nec, ornare velit. In quam quam, condimentum.",
                     "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                    "_version_": 1636043972181753900
+                    "_version_": 1636129085849600000
                   }
                 ]
               },
@@ -8228,7 +8228,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007201/manifest.json",
                 "annotationBody_t": "This sheet was necessary then all she had become used to the banister.",
                 "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                "_version_": 1636043972181753900
+                "_version_": 1636129085849600000
               },
               {
                 "id": "77f871e4-a4d7-4574-b46e-70d88600954f",
@@ -8236,7 +8236,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009295/manifest.json",
                 "annotationBody_t": "Not really be any help to him; it was the smell. The other two held.",
                 "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                "_version_": 1636043972181753900
+                "_version_": 1636129085849600000
               },
               {
                 "id": "c924bca4-ec3c-40ac-bbd0-eb03da22d1ac",
@@ -8244,7 +8244,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007338/manifest.json",
                 "annotationBody_t": "Towards their room at once and disappeared; his thoughts, the way.",
                 "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                "_version_": 1636043972181753900
+                "_version_": 1636129085849600000
               },
               {
                 "id": "8f108db6-9245-4dff-9fc3-fecb73a31bcd",
@@ -8264,7 +8264,7 @@
                   "Gerrero, Dena"
                 ],
                 "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                "_version_": 1636043972181753900
+                "_version_": 1636129085849600000
               },
               {
                 "id": "bce82059-e391-44a4-a272-f5ebb17f18d0",
@@ -8284,7 +8284,7 @@
                   "Carwin, Natashia"
                 ],
                 "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                "_version_": 1636043972181753900
+                "_version_": 1636129085849600000
               },
               {
                 "id": "e43d31bf-a226-4716-9673-f85e19b48d71",
@@ -8304,7 +8304,7 @@
                   "Zeimantz, Stevie"
                 ],
                 "_root_": "9c79e677-2409-40aa-bcf8-056fa1d1d8d5",
-                "_version_": 1636043972181753900
+                "_version_": 1636129085849600000
               }
             ]
           },
@@ -8328,7 +8328,7 @@
             "vorbesitzer_s": "Doster, Salvador",
             "schreiber_t": "Evan, Leo",
             "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-            "_version_": 1636043972207968300,
+            "_version_": 1636129085861134300,
             "entities": [
               {
                 "id": "deb45f08-d8d6-4285-a727-1f79527011f2",
@@ -8337,7 +8337,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005392/manifest.json",
                 "digitalisatTitel_t": "Elit. Nulla quis facilisis eros, a.",
                 "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-                "_version_": 1636043972207968300
+                "_version_": 1636129085861134300
               },
               {
                 "id": "c546e076-9aec-4af4-a434-4aa3a1d7215e",
@@ -8346,22 +8346,22 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000000619/manifest.json",
                 "digitalisatTitel_t": "Justo, feugiat ac aliquet eu, commodo.",
                 "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-                "_version_": 1636043972207968300
+                "_version_": 1636129085861134300
               },
               {
                 "id": "beb52b49-30f5-4c35-9bb4-ddf384bfc71f",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Libero. Praesent dolor ligula, tincidunt.",
                 "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-                "_version_": 1636043972207968300,
+                "_version_": 1636129085861134300,
                 "entities": [
                   {
                     "id": "b551b7e6-2124-4245-817a-b86f58e0bd5b",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Massa, sed eleifend ligula faucibus.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Massa, sed eleifend ligula faucibus.",
                     "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-                    "_version_": 1636043972207968300
+                    "_version_": 1636129085861134300
                   }
                 ]
               },
@@ -8370,15 +8370,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Massa nec, ornare laoreet elit. Aliquam.",
                 "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-                "_version_": 1636043972207968300,
+                "_version_": 1636129085861134300,
                 "entities": [
                   {
                     "id": "5f17289b-55de-4174-804b-9d35c1f72717",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Eros, a elementum enim. Vestibulum.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Eros, a elementum enim. Vestibulum.",
                     "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-                    "_version_": 1636043972207968300
+                    "_version_": 1636129085861134300
                   }
                 ]
               },
@@ -8387,15 +8387,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: At nisi a pharetra. Phasellus volutpat.",
                 "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-                "_version_": 1636043972207968300,
+                "_version_": 1636129085861134300,
                 "entities": [
                   {
                     "id": "54413202-9692-4c85-b4c8-0fe9901bc82c",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Id, rutrum ac justo. Praesent mattis.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Id, rutrum ac justo. Praesent mattis.",
                     "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-                    "_version_": 1636043972207968300
+                    "_version_": 1636129085861134300
                   }
                 ]
               },
@@ -8405,7 +8405,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005032/manifest.json",
                 "annotationBody_t": "Idea, not any cry, from spying out from under the couch as if intent.",
                 "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-                "_version_": 1636043972207968300
+                "_version_": 1636129085861134300
               },
               {
                 "id": "617dd9c7-55b7-4c5f-99f4-bf99fd6a0340",
@@ -8413,7 +8413,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007297/manifest.json",
                 "annotationBody_t": "Train connections, bad and irregular food, contact with different.",
                 "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-                "_version_": 1636043972207968300
+                "_version_": 1636129085861134300
               },
               {
                 "id": "fc55e7c0-77f1-4cb7-b274-2dd8146c9336",
@@ -8421,7 +8421,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005369/manifest.json",
                 "annotationBody_t": "Newspapers on the contrary, said the chief clerk seemed, at first.",
                 "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-                "_version_": 1636043972207968300
+                "_version_": 1636129085861134300
               },
               {
                 "id": "569a3e73-698e-46d9-9076-d43a64bbd4a0",
@@ -8429,7 +8429,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000006998/manifest.json",
                 "annotationBody_t": "Usual brief look in on him. Grete, come with us in the excitement.",
                 "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-                "_version_": 1636043972207968300
+                "_version_": 1636129085861134300
               },
               {
                 "id": "e3816f0e-7316-45e7-8e5f-900dba13105c",
@@ -8448,7 +8448,7 @@
                   "Roundabush, Laurie"
                 ],
                 "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-                "_version_": 1636043972207968300
+                "_version_": 1636129085861134300
               },
               {
                 "id": "bb27eeda-5750-4adc-9090-647578732457",
@@ -8467,7 +8467,7 @@
                   "Aalund, Angeles"
                 ],
                 "_root_": "f1555c05-86bc-4aea-a0d7-648081ffc3b4",
-                "_version_": 1636043972207968300
+                "_version_": 1636129085861134300
               }
             ]
           },
@@ -8491,7 +8491,7 @@
             "vorbesitzer_s": "Fanton, Meryl",
             "author_t": "Cujas, Sidney",
             "_root_": "6416afbd-aaf8-4e3e-9e9e-0ece7a3adaa6",
-            "_version_": 1636043972213211100,
+            "_version_": 1636129085865328600,
             "entities": [
               {
                 "id": "14abe88c-e829-48fc-bdc3-af312cd9f054",
@@ -8500,7 +8500,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006880/manifest.json",
                 "digitalisatTitel_t": "Diam a euismod. Donec id faucibus.",
                 "_root_": "6416afbd-aaf8-4e3e-9e9e-0ece7a3adaa6",
-                "_version_": 1636043972213211100
+                "_version_": 1636129085865328600
               },
               {
                 "id": "3362cfdb-de7c-4c0c-8532-4022163968d2",
@@ -8509,22 +8509,22 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000003259/manifest.json",
                 "digitalisatTitel_t": "Et luctus accumsan, mauris justo efficitur.",
                 "_root_": "6416afbd-aaf8-4e3e-9e9e-0ece7a3adaa6",
-                "_version_": 1636043972213211100
+                "_version_": 1636129085865328600
               },
               {
                 "id": "f436ae2c-38da-4746-875e-f9a13b2f78bd",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Mollis mauris vitae magna aliquam.",
                 "_root_": "6416afbd-aaf8-4e3e-9e9e-0ece7a3adaa6",
-                "_version_": 1636043972213211100,
+                "_version_": 1636129085865328600,
                 "entities": [
                   {
                     "id": "8b7e885c-593b-4a7f-a898-1905f9792f0d",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Purus, vel vulputate mauris. Fusce.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Purus, vel vulputate mauris. Fusce.",
                     "_root_": "6416afbd-aaf8-4e3e-9e9e-0ece7a3adaa6",
-                    "_version_": 1636043972213211100
+                    "_version_": 1636129085865328600
                   }
                 ]
               },
@@ -8533,15 +8533,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Id faucibus sapien, consequat non.",
                 "_root_": "6416afbd-aaf8-4e3e-9e9e-0ece7a3adaa6",
-                "_version_": 1636043972213211100,
+                "_version_": 1636129085865328600,
                 "entities": [
                   {
                     "id": "10f0396f-3730-4baa-83ca-c9935d680008",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Phasellus volutpat vestibulum ex,.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Phasellus volutpat vestibulum ex,.",
                     "_root_": "6416afbd-aaf8-4e3e-9e9e-0ece7a3adaa6",
-                    "_version_": 1636043972213211100
+                    "_version_": 1636129085865328600
                   }
                 ]
               },
@@ -8550,15 +8550,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Mollis elit velit, sed sollicitudin.",
                 "_root_": "6416afbd-aaf8-4e3e-9e9e-0ece7a3adaa6",
-                "_version_": 1636043972213211100,
+                "_version_": 1636129085865328600,
                 "entities": [
                   {
                     "id": "de2cb560-0f09-4521-889a-233debe0076b",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Metus rhoncus varius. Aenean pretium.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Metus rhoncus varius. Aenean pretium.",
                     "_root_": "6416afbd-aaf8-4e3e-9e9e-0ece7a3adaa6",
-                    "_version_": 1636043972213211100
+                    "_version_": 1636129085865328600
                   }
                 ]
               },
@@ -8568,7 +8568,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005993/manifest.json",
                 "annotationBody_t": "Distinguish one from the evening than she noticed the change in his.",
                 "_root_": "6416afbd-aaf8-4e3e-9e9e-0ece7a3adaa6",
-                "_version_": 1636043972213211100
+                "_version_": 1636129085865328600
               },
               {
                 "id": "b71b2602-5f4c-4885-96c0-cf45bd37bb11",
@@ -8576,7 +8576,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008224/manifest.json",
                 "annotationBody_t": "Him from his mother came in while they worked and he really could.",
                 "_root_": "6416afbd-aaf8-4e3e-9e9e-0ece7a3adaa6",
-                "_version_": 1636043972213211100
+                "_version_": 1636129085865328600
               },
               {
                 "id": "ddf18fc5-b270-4f5e-9ee5-39aad63c0964",
@@ -8595,7 +8595,7 @@
                   "Thomaston, Leisha"
                 ],
                 "_root_": "6416afbd-aaf8-4e3e-9e9e-0ece7a3adaa6",
-                "_version_": 1636043972213211100
+                "_version_": 1636129085865328600
               },
               {
                 "id": "7dc75fc1-0ccb-4768-8ad1-8e61c6a1b20c",
@@ -8614,7 +8614,7 @@
                   "Yoh, Rhea"
                 ],
                 "_root_": "6416afbd-aaf8-4e3e-9e9e-0ece7a3adaa6",
-                "_version_": 1636043972213211100
+                "_version_": 1636129085865328600
               }
             ]
           },
@@ -8638,7 +8638,7 @@
             "vorbesitzer_s": "Jhonston, Reagan",
             "author_t": "Porrazzo, Vallie",
             "_root_": "75451827-c895-4502-9f94-581d21741985",
-            "_version_": 1636043972217405400,
+            "_version_": 1636129085868474400,
             "entities": [
               {
                 "id": "a7147a12-3a4a-44cb-ae52-1835bed014d6",
@@ -8647,7 +8647,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000003982/manifest.json",
                 "digitalisatTitel_t": "Maecenas convallis pretium purus,.",
                 "_root_": "75451827-c895-4502-9f94-581d21741985",
-                "_version_": 1636043972217405400
+                "_version_": 1636129085868474400
               },
               {
                 "id": "b83315c0-be26-48b7-9f3d-d4a90ec39c5e",
@@ -8656,7 +8656,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002470/manifest.json",
                 "digitalisatTitel_t": "Massa nec, ornare velit. In malesuada.",
                 "_root_": "75451827-c895-4502-9f94-581d21741985",
-                "_version_": 1636043972217405400
+                "_version_": 1636129085868474400
               },
               {
                 "id": "93e4e412-ff7d-4a49-ba42-22ab83143a05",
@@ -8665,22 +8665,22 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008106/manifest.json",
                 "digitalisatTitel_t": "Commodo velit sagittis euismod ultricies.",
                 "_root_": "75451827-c895-4502-9f94-581d21741985",
-                "_version_": 1636043972217405400
+                "_version_": 1636129085868474400
               },
               {
                 "id": "8d11e438-3191-4e1e-959b-8b2da926c4f5",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Metus. Fusce tempus quis diam vel.",
                 "_root_": "75451827-c895-4502-9f94-581d21741985",
-                "_version_": 1636043972217405400,
+                "_version_": 1636129085868474400,
                 "entities": [
                   {
                     "id": "b39885a5-d7ee-4a80-a852-4fa75d68c436",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Risus mollis auctor. Aenean pretium.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Risus mollis auctor. Aenean pretium.",
                     "_root_": "75451827-c895-4502-9f94-581d21741985",
-                    "_version_": 1636043972217405400
+                    "_version_": 1636129085868474400
                   }
                 ]
               },
@@ -8689,15 +8689,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Eu luctus nisl. Etiam feugiat suscipit.",
                 "_root_": "75451827-c895-4502-9f94-581d21741985",
-                "_version_": 1636043972217405400,
+                "_version_": 1636129085868474400,
                 "entities": [
                   {
                     "id": "67f3fa0c-0983-459a-aa3f-7742107904d3",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Ultricies, at vehicula nibh semper.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Ultricies, at vehicula nibh semper.",
                     "_root_": "75451827-c895-4502-9f94-581d21741985",
-                    "_version_": 1636043972217405400
+                    "_version_": 1636129085868474400
                   }
                 ]
               },
@@ -8706,15 +8706,15 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Id, rutrum ac justo. Cras commodo.",
                 "_root_": "75451827-c895-4502-9f94-581d21741985",
-                "_version_": 1636043972217405400,
+                "_version_": 1636129085868474400,
                 "entities": [
                   {
                     "id": "e944ae91-a02f-4bb5-88c5-9e81505ed42e",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Massa, sed mattis metus rhoncus varius.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Massa, sed mattis metus rhoncus varius.",
                     "_root_": "75451827-c895-4502-9f94-581d21741985",
-                    "_version_": 1636043972217405400
+                    "_version_": 1636129085868474400
                   }
                 ]
               },
@@ -8724,7 +8724,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007372/manifest.json",
                 "annotationBody_t": "It difficult to eat the food came out in tears, he called to him directly.",
                 "_root_": "75451827-c895-4502-9f94-581d21741985",
-                "_version_": 1636043972217405400
+                "_version_": 1636129085868474400
               },
               {
                 "id": "96a20e2e-71f9-4236-83ed-0405b36a6a61",
@@ -8732,7 +8732,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001413/manifest.json",
                 "annotationBody_t": "To come into his room being left open every evening. But he soon had.",
                 "_root_": "75451827-c895-4502-9f94-581d21741985",
-                "_version_": 1636043972217405400
+                "_version_": 1636129085868474400
               },
               {
                 "id": "513432d0-0e3e-4b7a-89b1-dd4c95e1489f",
@@ -8740,7 +8740,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007181/manifest.json",
                 "annotationBody_t": "Would tug at his father gave him a whole selection of things in her.",
                 "_root_": "75451827-c895-4502-9f94-581d21741985",
-                "_version_": 1636043972217405400
+                "_version_": 1636129085868474400
               },
               {
                 "id": "b7dbf615-a797-48fb-990f-5f9199d857f9",
@@ -8748,7 +8748,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008467/manifest.json",
                 "annotationBody_t": "His left his sister was in serious pain but he had nearly finished.",
                 "_root_": "75451827-c895-4502-9f94-581d21741985",
-                "_version_": 1636043972217405400
+                "_version_": 1636129085868474400
               },
               {
                 "id": "8adbe28e-7a7b-48f3-9775-45eed07af5a3",
@@ -8768,7 +8768,7 @@
                   "Christinat, Elida"
                 ],
                 "_root_": "75451827-c895-4502-9f94-581d21741985",
-                "_version_": 1636043972217405400
+                "_version_": 1636129085868474400
               },
               {
                 "id": "ca3f8152-9fc8-41dd-af15-98a000e51b1c",
@@ -8788,7 +8788,7 @@
                   "Vanvolkenburg, Jasmine"
                 ],
                 "_root_": "75451827-c895-4502-9f94-581d21741985",
-                "_version_": 1636043972217405400
+                "_version_": 1636129085868474400
               },
               {
                 "id": "2c005ccb-35b4-41da-ab92-ba37d2912057",
@@ -8808,7 +8808,7 @@
                   "Camposano, Monica"
                 ],
                 "_root_": "75451827-c895-4502-9f94-581d21741985",
-                "_version_": 1636043972217405400
+                "_version_": 1636129085868474400
               }
             ]
           },
@@ -8831,7 +8831,7 @@
             "schreibsprache_t": "neutretto",
             "schreiber_t": "Damoro, Roger",
             "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-            "_version_": 1636043972222648300,
+            "_version_": 1636129085875814400,
             "entities": [
               {
                 "id": "02f139b1-7327-46bc-95b4-4206199d0e26",
@@ -8840,7 +8840,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008988/manifest.json",
                 "digitalisatTitel_t": "Sapien non posuere. Maecenas convallis.",
                 "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                "_version_": 1636043972222648300
+                "_version_": 1636129085875814400
               },
               {
                 "id": "e816d1d2-a7d4-45a6-bd91-594544f6aa04",
@@ -8849,7 +8849,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008673/manifest.json",
                 "digitalisatTitel_t": "Ac ante ipsum primis in faucibus..",
                 "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                "_version_": 1636043972222648300
+                "_version_": 1636129085875814400
               },
               {
                 "id": "2238a9e3-eb4c-4425-bb87-996e5f121ba5",
@@ -8858,38 +8858,38 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005947/manifest.json",
                 "digitalisatTitel_t": "Felis. Nulla eget neque dictum, efficitur.",
                 "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                "_version_": 1636043972222648300
+                "_version_": 1636129085875814400
               },
               {
                 "id": "e32f51b6-246f-4ee8-a5b5-c2854f3281d8",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Molestie arcu rhoncus, sed interdum.",
                 "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                "_version_": 1636043972222648300,
+                "_version_": 1636129085875814400,
                 "entities": [
                   {
                     "id": "7a09c1d6-691d-4b19-864a-92bbc091e577",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Sed ante placerat, venenatis dictum.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Sed ante placerat, venenatis dictum.",
                     "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                    "_version_": 1636043972222648300
+                    "_version_": 1636129085875814400
                   },
                   {
                     "id": "7d7f1d18-8980-4292-bc06-11d9e4039a4e",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Ac ante ipsum primis in faucibus..",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Ac ante ipsum primis in faucibus..",
                     "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                    "_version_": 1636043972222648300
+                    "_version_": 1636129085875814400
                   },
                   {
                     "id": "08633542-4d25-4cdd-ba06-421d1e9d7b7f",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 3",
-                    "beschreibungFazikelText_t": "Suscipit ultrices. Suspendisse dapibus.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                    "beschreibungFaszikelText_t": "Suscipit ultrices. Suspendisse dapibus.",
                     "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                    "_version_": 1636043972222648300
+                    "_version_": 1636129085875814400
                   }
                 ]
               },
@@ -8898,31 +8898,31 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Nulla felis nibh, aliquam ut ipsum.",
                 "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                "_version_": 1636043972222648300,
+                "_version_": 1636129085875814400,
                 "entities": [
                   {
                     "id": "0ced87f2-7a1c-41c4-bb78-0c367fb5db05",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Id posuere neque. Aliquam pharetra.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Id posuere neque. Aliquam pharetra.",
                     "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                    "_version_": 1636043972222648300
+                    "_version_": 1636129085875814400
                   },
                   {
                     "id": "3c354996-be00-4a56-b542-6d57c33b1251",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Semper lorem ac porttitor sagittis.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Semper lorem ac porttitor sagittis.",
                     "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                    "_version_": 1636043972222648300
+                    "_version_": 1636129085875814400
                   },
                   {
                     "id": "e5c8600c-b64f-4059-84ed-89d3b8bbc31d",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 3",
-                    "beschreibungFazikelText_t": "Posuere neque. Aliquam sed ante placerat.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                    "beschreibungFaszikelText_t": "Posuere neque. Aliquam sed ante placerat.",
                     "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                    "_version_": 1636043972222648300
+                    "_version_": 1636129085875814400
                   }
                 ]
               },
@@ -8931,31 +8931,31 @@
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Ornare velit. In quam quam, condimentum.",
                 "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                "_version_": 1636043972222648300,
+                "_version_": 1636129085875814400,
                 "entities": [
                   {
                     "id": "f04ac17c-e55b-42a3-80af-58cfcd3055d7",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Facilisis eros, a elementum enim..",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Facilisis eros, a elementum enim..",
                     "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                    "_version_": 1636043972222648300
+                    "_version_": 1636129085875814400
                   },
                   {
                     "id": "b41df3d6-9739-41fc-b5de-23d2da3252ad",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 2",
-                    "beschreibungFazikelText_t": "Pharetra. Phasellus quis euismod eros.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                    "beschreibungFaszikelText_t": "Pharetra. Phasellus quis euismod eros.",
                     "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                    "_version_": 1636043972222648300
+                    "_version_": 1636129085875814400
                   },
                   {
                     "id": "01ff501e-697b-481d-bbfd-d351c8ba720b",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 3",
-                    "beschreibungFazikelText_t": "Nibh lorem. In quam quam, condimentum.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                    "beschreibungFaszikelText_t": "Nibh lorem. In quam quam, condimentum.",
                     "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                    "_version_": 1636043972222648300
+                    "_version_": 1636129085875814400
                   }
                 ]
               },
@@ -8965,7 +8965,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008942/manifest.json",
                 "annotationBody_t": "Laughed, as her mother out of her clothes after she had fallen to.",
                 "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                "_version_": 1636043972222648300
+                "_version_": 1636129085875814400
               },
               {
                 "id": "0422b3d3-026c-4d3a-ac6a-763913f56f8f",
@@ -8973,7 +8973,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004769/manifest.json",
                 "annotationBody_t": "More answer than no thanks, i must say that if we people in commerce.",
                 "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                "_version_": 1636043972222648300
+                "_version_": 1636129085875814400
               },
               {
                 "id": "d4670208-a76c-423d-9efe-9cf049ebb1fb",
@@ -8981,7 +8981,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001604/manifest.json",
                 "annotationBody_t": "Himself next to it, soon he was bound to make of; and he was quite.",
                 "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                "_version_": 1636043972222648300
+                "_version_": 1636129085875814400
               },
               {
                 "id": "1dac60fb-c864-4bae-8572-75071b52b7cb",
@@ -8989,7 +8989,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009504/manifest.json",
                 "annotationBody_t": "Hours afterwards. The three gentlemen were more quickly moving toward.",
                 "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                "_version_": 1636043972222648300
+                "_version_": 1636129085875814400
               },
               {
                 "id": "b027063c-6a19-421b-ab97-78ce303800c7",
@@ -8997,7 +8997,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002676/manifest.json",
                 "annotationBody_t": "On company business? was it really not enough to him where he could.",
                 "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                "_version_": 1636043972222648300
+                "_version_": 1636129085875814400
               },
               {
                 "id": "cf88c096-6fab-466e-ad13-9b97ec7e3ac9",
@@ -9005,7 +9005,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005697/manifest.json",
                 "annotationBody_t": "And sister had been very reliable. Now they all should have been quite.",
                 "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                "_version_": 1636043972222648300
+                "_version_": 1636129085875814400
               },
               {
                 "id": "7e7e476b-9d84-4932-9a0e-a843c7f14da2",
@@ -9013,7 +9013,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009681/manifest.json",
                 "annotationBody_t": "Direction of the double doors, and to speak, and they had realised.",
                 "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                "_version_": 1636043972222648300
+                "_version_": 1636129085875814400
               },
               {
                 "id": "f4a14681-a0db-4f42-9c19-f7e5570ff267",
@@ -9033,7 +9033,7 @@
                   "Leuasseur, Carmelina"
                 ],
                 "_root_": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
-                "_version_": 1636043972222648300
+                "_version_": 1636129085875814400
               }
             ]
           },
@@ -9057,7 +9057,7 @@
             "vorbesitzer_s": "Hoolihan, Minerva",
             "schreiber_t": "Frenzel, Chase",
             "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-            "_version_": 1636043972227891200,
+            "_version_": 1636129085883154400,
             "entities": [
               {
                 "id": "05d9cc1a-a495-4063-afb2-81e25fd50309",
@@ -9066,7 +9066,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000004929/manifest.json",
                 "digitalisatTitel_t": "Venenatis, nunc est placerat purus.",
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200
+                "_version_": 1636129085883154400
               },
               {
                 "id": "60e89811-9f51-4642-9906-96d4b2eb6cb0",
@@ -9075,7 +9075,7 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005458/manifest.json",
                 "digitalisatTitel_t": "Vitae tempor ac, mattis vel odio..",
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200
+                "_version_": 1636129085883154400
               },
               {
                 "id": "d09510a3-226f-47f5-89c9-6bcd1a224a58",
@@ -9084,22 +9084,22 @@
                 "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000004114/manifest.json",
                 "digitalisatTitel_t": "Pretium purus, vel mollis enim ante.",
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200
+                "_version_": 1636129085883154400
               },
               {
                 "id": "933ed2e3-0183-4b9c-8419-33c3806c00c2",
                 "type_s": "Beschreibung",
                 "beschreibungTitle_t": "In: Id lacus. Praesent dolor ligula, tincidunt.",
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200,
+                "_version_": 1636129085883154400,
                 "entities": [
                   {
                     "id": "f1edc4ca-dfa9-4b80-b0c0-2ec9101a4014",
-                    "type_s": "Fazikel",
-                    "beschreibungFazikelLabel_t": "Fazikel: 1",
-                    "beschreibungFazikelText_t": "Ac aliquet eu, commodo non tortor.",
+                    "type_s": "Faszikel",
+                    "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                    "beschreibungFaszikelText_t": "Ac aliquet eu, commodo non tortor.",
                     "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                    "_version_": 1636043972227891200
+                    "_version_": 1636129085883154400
                   }
                 ]
               },
@@ -9109,7 +9109,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007555/manifest.json",
                 "annotationBody_t": "Sit on their seats, they had not done for months, must have rung..",
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200
+                "_version_": 1636129085883154400
               },
               {
                 "id": "41732734-4cb4-4d9e-a118-dc47a1c2f83f",
@@ -9117,7 +9117,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003630/manifest.json",
                 "annotationBody_t": "So? it seemed to regret her behaviour, as he crawled over everything.",
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200
+                "_version_": 1636129085883154400
               },
               {
                 "id": "542bafb6-fdeb-4670-a4a0-d609eb36fa2e",
@@ -9125,7 +9125,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001937/manifest.json",
                 "annotationBody_t": "Way over to the entrance hall and talk him out of her and her alone.",
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200
+                "_version_": 1636129085883154400
               },
               {
                 "id": "5d600799-15db-462a-8850-63d1c4321ee3",
@@ -9133,7 +9133,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001088/manifest.json",
                 "annotationBody_t": "That should not be the death of both of you, and only then would he.",
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200
+                "_version_": 1636129085883154400
               },
               {
                 "id": "1ffb4472-746b-44f1-9bda-434ce6a098a6",
@@ -9141,7 +9141,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002435/manifest.json",
                 "annotationBody_t": "And heavily bleeding, deep into his room every day instead of them.",
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200
+                "_version_": 1636129085883154400
               },
               {
                 "id": "337979f6-a906-4855-b8cd-ae4de238b749",
@@ -9149,7 +9149,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000688/manifest.json",
                 "annotationBody_t": "We. Come and give me a bit of him. He concentrated on crawling as.",
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200
+                "_version_": 1636129085883154400
               },
               {
                 "id": "4e185bb4-bda5-43c8-b24b-bc76daf932ff",
@@ -9157,7 +9157,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002197/manifest.json",
                 "annotationBody_t": "Him even if that had taken on. They sat at the ground so that gregor.",
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200
+                "_version_": 1636129085883154400
               },
               {
                 "id": "a1a140ad-d78f-4588-a97f-ff9fde5d1a9c",
@@ -9165,7 +9165,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005993/manifest.json",
                 "annotationBody_t": "Him and crying. But the lack of attention he was. Gregor, he thought.",
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200
+                "_version_": 1636129085883154400
               },
               {
                 "id": "7e287024-3202-4a3e-aebd-7fcc64f614f3",
@@ -9173,7 +9173,7 @@
                 "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002556/manifest.json",
                 "annotationBody_t": "And only stopped when his sister was screaming, his food each day.",
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200
+                "_version_": 1636129085883154400
               },
               {
                 "id": "fb7eafdc-c271-4531-8b4c-4596956695ff",
@@ -9193,7 +9193,7 @@
                   "Bautiste, Daniell"
                 ],
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200
+                "_version_": 1636129085883154400
               },
               {
                 "id": "0ff4f81d-66e2-4279-9046-36ea285c312a",
@@ -9213,7 +9213,7 @@
                   "Vanderburg, Clayton"
                 ],
                 "_root_": "7f804c34-de54-4f61-8fcc-b0140dd74815",
-                "_version_": 1636043972227891200
+                "_version_": 1636129085883154400
               }
             ]
           },

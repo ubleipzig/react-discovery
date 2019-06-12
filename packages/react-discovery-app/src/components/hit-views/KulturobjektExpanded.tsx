@@ -3,6 +3,7 @@ import {
   CardActions,
   CardContent,
 } from "@material-ui/core"
+import {Domain, useHitViewStyles} from '.'
 import {
   EntityDisplay,
   FieldLabel,
@@ -13,12 +14,11 @@ import {
   annotationDisplayFields,
   beschreibungDisplayFields,
   digitalisatDisplayFields,
-  personDisplayFields, facetDisplayFields
+  facetDisplayFields, personDisplayFields
 } from '..'
 import {IHit, ISearchField} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
 import {buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
-import {useHitViewStyles} from '.'
 
 interface IDefaultItemComponent {
   classes: any;
@@ -36,7 +36,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const {hit, i, searchFields} = props
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('titel_t', hit)
-
+  const id = hit && hit._source.id
   const buildFieldValueDisplay = (field): ReactElement => {
     return (
       <>
@@ -47,7 +47,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
 
   return hit ? (
     <Card className={classes.root} key={i}>
-      <ViewSwitcherToggle/>
+      <ViewSwitcherToggle id={id}/>
       <TitleIdHeader
         id={hit._source.id}
         title={title}
@@ -72,7 +72,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
             <EntityDisplay
               displayFields={digitalisatDisplayFields}
               hit={hit}
-              type='Digitalisat'
+              type={Domain.DIGITALISAT}
             />
           </CardActions>
           <CardActions disableSpacing>
@@ -81,21 +81,21 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
               hit={hit}
               isNested={true}
               nestedDisplayFields={facetDisplayFields}
-              type='Beschreibung'
+              type={Domain.BESCHREIBUNG}
             />
           </CardActions>
           <CardActions disableSpacing>
             <EntityDisplay
               displayFields={personDisplayFields}
               hit={hit}
-              type='Person'
+              type={Domain.PERSON}
             />
           </CardActions>
           <CardActions disableSpacing>
             <EntityDisplay
               displayFields={annotationDisplayFields}
               hit={hit}
-              type='Annotation'
+              type={Domain.ANNOTATION}
             />
           </CardActions>
         </div>

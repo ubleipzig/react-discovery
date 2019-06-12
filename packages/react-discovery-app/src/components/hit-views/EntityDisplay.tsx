@@ -1,22 +1,19 @@
+import {Book, ChatBubble, ExpandMore, Image, Person} from "@material-ui/icons"
 import {
+  Card,
   CardContent,
-  Divider,
   ExpansionPanel,
   ExpansionPanelDetails,
   ExpansionPanelSummary,
-  List,
-  Typography
+  List, Typography,
 } from "@material-ui/core"
+import {Domain, NestedEntityDisplay, useHitViewStyles} from '.'
 import React, {Fragment, ReactElement} from "react"
-import {ExpandMore} from "@material-ui/icons"
 import {FieldLabel} from "../FieldLabel"
 import {IHit} from "@react-discovery/solr"
 import {InnerHtmlValue} from "../InnerHtmlValue"
-import {NestedEntityDisplay} from '.'
 import {buildEntityCountForType} from "../../utils"
-import {useHitViewStyles} from "./useHitViewStyles"
 import {useTranslation} from "react-i18next"
-
 
 interface IEntityDisplay {
   displayFields: any[];
@@ -31,71 +28,90 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
   const {displayFields, hit, isNested, nestedDisplayFields, type} = props
   const [isExpanded, setExpanded] = React.useState(true);
   const {t} = useTranslation('vocab')
-
+  const entities = hit && hit._source.entities && hit._source.entities.filter((entity): boolean => entity.type_s === type)
   const handleExpandClick = (): void => {
     setExpanded(!isExpanded)
   }
 
-  const buildEntityFields = (entityFields, hit, type): ReactElement[] => {
-    const entities = hit && hit._source.entities && hit._source.entities.filter((entity): boolean => entity.type_s === type)
+  const buildEntityIcon = (type): ReactElement => {
+    switch (type) {
+      case Domain.ANNOTATION:
+        return <ChatBubble fontSize='small' htmlColor='#86173e' style={{padding: '5px'}}/>
+      case Domain.BESCHREIBUNG:
+        return <Book fontSize='small' htmlColor='#86173e' style={{padding: '5px'}}/>
+      case Domain.DIGITALISAT:
+        return <Image fontSize='small' htmlColor='#86173e' style={{padding: '5px'}}/>
+      case Domain.PERSON:
+        return <Person fontSize='small' htmlColor='#86173e' style={{padding: '5px'}}/>
+    }
+  }
+
+  const buildEntityFields = (entityFields, type): ReactElement[] => {
     return entities && entities.map((entity, i): ReactElement => {
       return (
         <div key={i}>
-          <Divider component='hr'/>
-          {entityFields.map((field, i): ReactElement => {
-            const value = [].concat(entity[field.field] || null).filter((v): any => v !== null).join(", ")
-            return (
-              <Fragment key={i}>
-                <CardContent
-                  className={classes.content}
-                  key={i}
-                >
-                  <FieldLabel label={field.label}/>
-                  <div style={{flex: 'auto'}}>
-                    <Typography
-                      className={classes.inline}
-                      color="textSecondary"
-                      component="span"
-                    >
-                      <InnerHtmlValue value={value}/>
-                    </Typography>
-                  </div>
-                </CardContent>
-                {isNested ?
-                  <NestedEntityDisplay
-                    displayFields={nestedDisplayFields}
-                    entity={entity}
-                    type='Fazikel'
-                  /> : null}
-              </Fragment>
-            )
-          })}
-          <Divider component='hr'/>
+          <Card className={classes.root}>
+            <div style={{display: 'flex'}}>
+              {buildEntityIcon(type)}
+              <div>
+                {entityFields.map((field, i): ReactElement => {
+                  const value = [].concat(entity[field.field] || null).filter((v): any => v !== null).join(", ")
+                  return (
+                    <Fragment key={i}>
+                      <CardContent
+                        className={classes.content}
+                        key={i}
+                      >
+                        <FieldLabel label={field.label}/>
+                        <div style={{flex: 'auto'}}>
+                          <Typography
+                            className={classes.inline}
+                            color="textSecondary"
+                            component="span"
+                          >
+                            <InnerHtmlValue value={value}/>
+                          </Typography>
+                        </div>
+                      </CardContent>
+                      {isNested ?
+                        <NestedEntityDisplay
+                          displayFields={nestedDisplayFields}
+                          entity={entity}
+                          type={Domain.FASZIKEL}
+                        /> : null}
+                    </Fragment>
+                  )
+                })}
+              </div>
+            </div>
+          </Card>
         </div>)
     })
   }
 
   return (
     <ExpansionPanel
+      TransitionProps={{ unmountOnExit: true }}
       defaultExpanded={Boolean(true)}
       expanded={Boolean(isExpanded)}
       onChange={handleExpandClick}
-      TransitionProps={{ unmountOnExit: true }}
     >
       <ExpansionPanelSummary
         aria-controls="panel1bh-content"
-        className={classes.expansionPanelRoot}
+        classes={{
+          expanded: classes.expanded,
+          root: classes.expansionSummaryRoot}}
         expandIcon={<ExpandMore />}
         id="panel1bh-header"
       >
         <Typography
           className={classes.heading}>
-          {t(type)} <i>({buildEntityCountForType(hit, type)})</i>
+          {t(type)} <i>({buildEntityCountForType(entities, type)})</i>
         </Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <List component="nav">
-          {buildEntityFields(displayFields, hit, type)}
+          {buildEntityFields(displayFields, type)}
         </List>
       </ExpansionPanelDetails>
     </ExpansionPanel>

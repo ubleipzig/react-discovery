@@ -11,7 +11,7 @@ import React, {ReactElement} from "react"
 import {ExpandMore} from "@material-ui/icons"
 import {FieldLabel} from "../FieldLabel"
 import {InnerHtmlValue} from "../InnerHtmlValue"
-import {buildNestedEntityCountForType} from "../../utils"
+import {buildEntityCountForType} from "../../utils"
 import {useHitViewStyles} from "./useHitViewStyles"
 import {useTranslation} from "react-i18next"
 
@@ -65,20 +65,23 @@ export const NestedEntityDisplay: React.FC<INestedEntityDisplay> = (props): Reac
 
   return (
     <ExpansionPanel
+      TransitionProps={{ unmountOnExit: true }}
       defaultExpanded={Boolean(true)}
       expanded={Boolean(isExpanded)}
       onChange={handleExpandClick}
-      TransitionProps={{ unmountOnExit: true }}
+
     >
       <ExpansionPanelSummary
         aria-controls="panel1bh-content"
-        className={classes.expansionPanelRoot}
+        classes={{
+          expanded: classes.expanded,
+          root: classes.expansionSummaryRoot}}
         expandIcon={<ExpandMore />}
         id="panel1bh-header"
       >
         <Typography
           className={classes.heading}>
-          {t(type)} <i>({buildNestedEntityCountForType(entity, type)})</i>
+          {entity && t(type)} <i>({buildEntityCountForType(entity.entities, type)})</i>
         </Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>

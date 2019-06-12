@@ -33,8 +33,17 @@ const useStyles = makeStyles((theme): any => ({
     flex: '1 0 auto',
     padding: 0,
   },
-  expansionPanelRoot: {
-    backgroundColor: '#eae7e7',
+  expanded: {
+    maxHeight: 32,
+    minHeight: 0
+  },
+  expansionSummaryRoot: {
+    '&$expanded': {
+      maxHeight: 32,
+      minHeight: 0
+    },
+    maxHeight: 32,
+    minHeight: 0,
   },
   heading: {
     flexBasis: '33.33%',
@@ -117,7 +126,9 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
     >
       <ExpansionPanelSummary
         aria-controls="panel1bh-content"
-        className={classes.expansionPanelRoot}
+        classes={{
+          expanded: classes.expanded,
+          root: classes.expansionSummaryRoot}}
         data-testid={`item-list-expansion-panel`}
         expandIcon={<ExpandMore />}
         id="panel1bh-header"

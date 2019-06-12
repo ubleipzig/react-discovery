@@ -91,7 +91,7 @@ export const test04: IConfig = {
         },
         4: {
           field: "type_s",
-          label: "Document Type",
+          label: "documentType",
         },
       },
       searchFields: [
@@ -130,15 +130,15 @@ export const test04: IConfig = {
           type: "text"
         },
         {
-          field: "beschreibungFazikelLabel_t",
+          field: "beschreibungFaszikelLabel_t",
           isChild: true,
-          label: "beschreibungFazikelLabel",
+          label: "beschreibungFaszikelLabel",
           type: "text"
         },
         {
-          field: "beschreibungFazikelText_t",
+          field: "beschreibungFaszikelText_t",
           isChild: true,
-          label: "beschreibungFazikelText",
+          label: "beschreibungFaszikelText",
           type: "text"
         },
         {
@@ -293,7 +293,7 @@ export const test04: IConfig = {
       sortFields: [
         {
           field: "type_s",
-          label: "Type",
+          label: "type",
           order: "asc"
         },
         {
