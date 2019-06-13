@@ -10,14 +10,14 @@ import {
 import React, {ReactElement} from "react"
 import {ExpandMore} from "@material-ui/icons"
 import {FieldLabel} from "../FieldLabel"
+import {IDisplayField} from "./displayFields"
 import {InnerHtmlValue} from "../InnerHtmlValue"
 import {buildEntityCountForType} from "../../utils"
 import {useHitViewStyles} from "./useHitViewStyles"
 import {useTranslation} from "react-i18next"
 
-
 interface INestedEntityDisplay {
-  displayFields: any[];
+  displayFields: IDisplayField[];
   entity;
   type: string;
 }

@@ -1,18 +1,15 @@
-import {FacetViewSwitcher, GroupSelectedFilters, HitStats, Pagination, RefinementListFilters,
+import {FacetViewSwitcher, GroupSelectedFilters, HitStats, MinWidthResultsGrid, Pagination, RefinementListFilters,
   SearchAppBar, SortingSelector, Suggester, TabsAppBar} from '.'
+import React, {ReactElement, useEffect} from 'react'
 import {
-  IQuery,
   SolrResponseProvider,
   getCurrentLanguage,
   getHits,
-  getInitialQuery,
   usePrevious,
 } from '@react-discovery/solr'
-import React, {ReactElement, useEffect} from 'react'
-import {Theme, createStyles, makeStyles} from "@material-ui/core"
+import {Theme, createStyles, makeStyles, useMediaQuery} from "@material-ui/core"
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Grid from '@material-ui/core/Grid'
-
 import {useTranslation} from "react-i18next"
 
 const useStyles = makeStyles((theme: Theme): any =>
@@ -42,7 +39,7 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles({})
   const currentLanguage = getCurrentLanguage()
   const previousLanguage = usePrevious(currentLanguage)
-
+  const matches = useMediaQuery('(min-width:600px)')
   useEffect((): void => {
     if (previousLanguage !== currentLanguage) {
       i18n.changeLanguage(currentLanguage)
@@ -57,57 +54,60 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
         <Grid item xs={12}>
           <SearchAppBar/>
         </Grid>
-        <Grid
+        {matches ? <Grid
           className={classes.gridLeft}
           item
           xs={2}
         >
           <Suggester/>
           <RefinementListFilters/>
-        </Grid>
-        <Grid
-          item xs={10}
-        >
+        </Grid> : null}
+        {matches ?
           <Grid
-            className={classes.gridActions}
-            container
-            direction="row"
+            item xs={10}
           >
-            <HitStats/>
-            <SortingSelector/>
-          </Grid>
-          <Grid
-            container
-            direction="row"
-          >
-            <GroupSelectedFilters/>
-          </Grid>
-          <Grid
-            alignItems="center"
-            container
-            direction="row"
-            justify="center"
-          >
-            <Pagination/>
-          </Grid>
-          <Grid
-            className={classes.gridContent}
-          >
-            {hits ?
-              <>
-                <TabsAppBar/>
-                <FacetViewSwitcher/>
-              </> : <CircularProgress className={classes.progress}/>}
-          </Grid>
-          <Grid
-            alignItems="center"
-            container
-            direction="row"
-            justify="center"
-          >
-            <Pagination/>
-          </Grid>
-        </Grid>
+            <Grid
+              className={classes.gridActions}
+              container
+              direction="row"
+            >
+              <HitStats/>
+              <SortingSelector/>
+            </Grid>
+            <Grid
+              container
+              direction="row"
+            >
+              <GroupSelectedFilters/>
+            </Grid>
+            <Grid
+              alignItems="center"
+              container
+              direction="row"
+              justify="center"
+            >
+              <Pagination/>
+            </Grid>
+            <Grid
+              className={classes.gridContent}
+            >
+              {hits ?
+                <>
+                  <TabsAppBar/>
+                  <FacetViewSwitcher/>
+                </> : <CircularProgress className={classes.progress}/>}
+            </Grid>
+            <Grid
+              alignItems="center"
+              container
+              direction="row"
+              justify="center"
+            >
+              <Pagination/>
+            </Grid>
+          </Grid> :
+          <MinWidthResultsGrid/>
+        }
       </Grid>
     </SolrResponseProvider>
   )

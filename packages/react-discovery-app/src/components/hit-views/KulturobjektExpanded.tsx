@@ -1,12 +1,8 @@
-import {
-  Card,
-  CardActions,
-  CardContent,
-} from "@material-ui/core"
+import {Card, CardActions, CardContent} from "@material-ui/core"
 import {Domain, useHitViewStyles} from '.'
 import {
   EntityDisplay,
-  FieldLabel,
+  FieldValueDisplay,
   Thumbnail,
   TitleIdHeader,
   ValueDisplay,
@@ -14,7 +10,8 @@ import {
   annotationDisplayFields,
   beschreibungDisplayFields,
   digitalisatDisplayFields,
-  facetDisplayFields, personDisplayFields
+  facetDisplayFields,
+  personDisplayFields
 } from '..'
 import {IHit, ISearchField} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
@@ -37,13 +34,6 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('titel_t', hit)
   const id = hit && hit._source.id
-  const buildFieldValueDisplay = (field): ReactElement => {
-    return (
-      <>
-        <FieldLabel label={field.label}/>
-        <ValueDisplay field={field.field} hit={hit} style={{flex: 'auto'}}/>
-      </>)
-  }
 
   return hit ? (
     <Card className={classes.root} key={i}>
@@ -66,7 +56,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
               className={classes.content}
               key={key}
             >{hit._source && hit._source[field.field] ?
-                buildFieldValueDisplay(field) : null}
+                <FieldValueDisplay field={field} hit={hit}/> : null}
             </CardContent>)}
           <CardActions disableSpacing>
             <EntityDisplay

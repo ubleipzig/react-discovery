@@ -22,7 +22,11 @@ import {useDispatch} from 'react-redux'
 import {usePrevious} from "../hooks"
 const isEqual = require('lodash/isEqual')
 
-export const SolrResponseProvider: React.FC<any> = (props): ReactElement => {
+interface ISolrResponseProvider {
+  useHistory?: boolean;
+}
+
+export const SolrResponseProvider: React.FC<ISolrResponseProvider> = (props): ReactElement => {
   const rootContext = getRootContext()
   const navigation = useNavigation()
   const route = useCurrentRoute()
@@ -65,8 +69,7 @@ export const SolrResponseProvider: React.FC<any> = (props): ReactElement => {
       const responseRequestURI = queryBuilder({...mergedQuery})
       fetchResponse(responseRequestURI)
       setIsInitialized(true)
-    }
-    if (isInitialized) {
+    } else {
       if (prevSelectedIndex !== selectedIndex || prevStringInput !== stringInput
         || filters !== prevFilters || prevSortFields !== sortFields) {
         pushHistory(navigation, stringInput, start, rootContext)

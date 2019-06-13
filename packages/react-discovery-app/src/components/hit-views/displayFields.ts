@@ -1,3 +1,8 @@
+export interface IDisplayField {
+  field: string;
+  label: string;
+}
+
 export const digitalisatDisplayFields = [
   {field: 'digitalisatTitel_t', label: 'title'},
   {field: 'digitalisatDescription_t', label: 'description'},

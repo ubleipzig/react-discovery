@@ -1,8 +1,8 @@
 import {Card, CardContent} from "@material-ui/core"
+import {FieldValueDisplay, RelatedItems, Thumbnail, TitleIdHeader} from '..'
 import {IHit, ISearchField} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
-import {FieldLabel, RelatedItems, Thumbnail, TitleIdHeader, ValueDisplay} from '..'
-import {buildRandomUBLThumbnail} from "../../utils"
+import {buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
 import {useHitViewStyles, } from '.'
 
 interface IDigitalisat {
@@ -17,20 +17,13 @@ const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
   const {hit, i, searchFields} = props
   const filteredFields = ['digitalisatDescription', 'manifest']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
-
-  const buildFieldValueDisplay = (field): ReactElement => {
-    return (
-      <>
-        <FieldLabel label={field.label}/>
-        <ValueDisplay field={field.field} hit={hit} style={{flex: 'auto'}}/>
-      </>)
-  }
+  const title = buildHighlightedValueForHit('digitalisatTitel_t', hit)
 
   return hit ? (
     <Card className={classes.root} key={i}>
       <TitleIdHeader
         id={hit._source.id}
-        title={hit._source.digitalisatTitel_t}
+        title={title}
       />
       <div style={{display: 'flex'}}>
         <Thumbnail image={buildRandomUBLThumbnail()}/>
@@ -40,7 +33,7 @@ const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
               className={classes.contentNoFlex}
               key={key}
             >{hit._source && hit._source[field.field] ?
-                buildFieldValueDisplay(field) : null}
+                <FieldValueDisplay field={field} hit={hit}/> : null}
             </CardContent>)}
         </div>
       </div>

@@ -3,11 +3,10 @@ import {
   CardContent,
 } from "@material-ui/core"
 import {
-  FieldLabel,
+  FieldValueDisplay,
   RelatedItems,
   Thumbnail,
   TitleIdHeader,
-  ValueDisplay,
   facetDisplayFields
 } from '..'
 import {IHit, ISearchField} from "@react-discovery/solr"
@@ -28,14 +27,6 @@ const Beschreibung: React.FC<IDescriptionHitComponent> = (props): ReactElement =
   const {hit, i, searchFields} = props
   const displayFields = searchFields.filter((sf): boolean => sf.field === 'beschreibungTitle_t')
 
-  const buildFieldValueDisplay = (field): ReactElement => {
-    return (
-      <>
-        <FieldLabel label={field.label}/>
-        <ValueDisplay field={field.field} hit={hit} style={{flex: 'auto'}}/>
-      </>)
-  }
-
   return hit ? (
     <Card className={classes.root} key={i}>
       <TitleIdHeader
@@ -50,7 +41,7 @@ const Beschreibung: React.FC<IDescriptionHitComponent> = (props): ReactElement =
               className={classes.content}
               key={key}
             >{hit._source && hit._source[field.field] ?
-                buildFieldValueDisplay(field) : null}
+                <FieldValueDisplay field={field} hit={hit}/> : null}
             </CardContent>)}
           <CardActions disableSpacing>
             <EntityDisplay displayFields={facetDisplayFields} hit={hit} type='Faszikel'/>

@@ -39,11 +39,14 @@ const useStyles = makeStyles((theme): any => ({
   },
   expansionSummaryRoot: {
     '&$expanded': {
-      maxHeight: 32,
+      maxHeight: 36,
       minHeight: 0
     },
-    maxHeight: 32,
+    maxHeight: 36,
     minHeight: 0,
+  },
+  grow: {
+    flexGrow: 1
   },
   heading: {
     flexBasis: '33.33%',
@@ -52,6 +55,7 @@ const useStyles = makeStyles((theme): any => ({
   },
   inline: {
     display: 'inline',
+    textAlign: 'right'
   },
   secondaryHeading: {
     color: theme.palette.text.secondary,
@@ -89,6 +93,7 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
           component='div'
           data-testid={`item-${i}`}
           dense
+          disableGutters={true}
           key={bucket.key}
           onClick={(): void => handleChange(bucket.key)}
           role={undefined}
@@ -96,17 +101,19 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
           <ListItemText
             className={classes.content}
             primary={
-              <div style={{margin: "0 20px 0 0", width: 120}}>
-                <Typography component="span">
-                  {bucket.key}
-                </Typography>
-              </div>
+              <Typography
+                className={classes.grow}
+                component="div"
+                variant='body2'
+              >
+                {bucket.key}
+              </Typography>
             }
             secondary={
               <Typography
                 className={classes.inline}
                 color="textPrimary"
-                component="span"
+                component="div"
                 variant="body2"
               >
                 {bucket.docCount}
@@ -136,7 +143,10 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
         <Typography className={classes.heading}>{label}</Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
-        <List component="nav">
+        <List
+          component="nav"
+          style={{width: '100%'}}
+        >
           {aggregation && actions(aggregation)}
         </List>
       </ExpansionPanelDetails>

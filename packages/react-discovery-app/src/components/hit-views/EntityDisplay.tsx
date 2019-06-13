@@ -5,9 +5,10 @@ import {
   ExpansionPanel,
   ExpansionPanelDetails,
   ExpansionPanelSummary,
-  List, Typography,
+  List,
+  Typography,
 } from "@material-ui/core"
-import {Domain, NestedEntityDisplay, useHitViewStyles} from '.'
+import {Domain, IDisplayField, NestedEntityDisplay, useHitViewStyles} from '.'
 import React, {Fragment, ReactElement} from "react"
 import {FieldLabel} from "../FieldLabel"
 import {IHit} from "@react-discovery/solr"
@@ -16,10 +17,10 @@ import {buildEntityCountForType} from "../../utils"
 import {useTranslation} from "react-i18next"
 
 interface IEntityDisplay {
-  displayFields: any[];
+  displayFields: IDisplayField[];
   hit: IHit;
   isNested?: boolean;
-  nestedDisplayFields?: any[];
+  nestedDisplayFields?: IDisplayField[];
   type: string;
 }
 

@@ -23,7 +23,7 @@ export const en = {
     Digitalisat: 'Images',
     digitalisatDescription: 'Description',
     digitalisations: 'Images',
-    documentType: 'Doc Type',
+    documentType: 'DocType',
     facetLabel: 'Label',
     facetText: 'Text',
     Faszikel: 'Parts',

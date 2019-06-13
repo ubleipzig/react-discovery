@@ -3,6 +3,9 @@ import {Reducer, combineReducers} from "redux"
 import {localConfig} from "../config"
 
 const {collections, currentCollection} = localConfig
+if (!(currentCollection in collections)) {
+  throw new Error("current collection does not exist in collections configuration")
+}
 const {initialFilter, searchFields, sortFields, url} = collections[currentCollection]
 
 const initialConfigState: IConfig = localConfig

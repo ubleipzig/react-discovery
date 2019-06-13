@@ -1,5 +1,5 @@
 import {Card, CardContent} from "@material-ui/core"
-import {FieldLabel, Thumbnail, TitleIdHeader, ValueDisplay} from '..'
+import {FieldValueDisplay, Thumbnail, TitleIdHeader} from '..'
 import {IHit, ISearchField} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
 import {buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
@@ -17,14 +17,6 @@ const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultIte
   const {hit, i, searchFields} = props
   const title = buildHighlightedValueForHit('titel_t', hit)
 
-  const buildFieldValueDisplay = (field): ReactElement => {
-    return (
-      <>
-        <FieldLabel label={field.label}/>
-        <ValueDisplay field={field.field} hit={hit} style={{flex: 'auto'}}/>
-      </>)
-  }
-
   return (
     <Card className={classes.root} key={i}>
       <TitleIdHeader
@@ -39,7 +31,7 @@ const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultIte
               className={classes.content}
               key={key}
             >{hit._source && hit._source[field.field] ?
-                buildFieldValueDisplay(field) : null}
+                <FieldValueDisplay field={field} hit={hit}/> : null}
             </CardContent>)}
         </div>
       </div>
