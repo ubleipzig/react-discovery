@@ -1,19 +1,16 @@
 import {Card, CardActions, CardContent} from "@material-ui/core"
-import {Domain, useHitViewStyles} from '.'
 import {
+  Domain,
   EntityDisplay,
-  FieldValueDisplay,
-  Thumbnail,
-  TitleIdHeader,
-  ValueDisplay,
-  ViewSwitcherToggle,
   annotationDisplayFields,
   beschreibungDisplayFields,
   digitalisatDisplayFields,
   facetDisplayFields,
-  personDisplayFields
-} from '..'
-import {IHit, ISearchField} from "@react-discovery/solr"
+  personDisplayFields,
+  useHitViewStyles
+} from '.'
+import {FieldValueDisplay, Thumbnail, TitleIdHeader, ValueDisplay, ViewSwitcherToggle,} from '..'
+import {IHit, getSearchFields} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
 import {buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
 
@@ -21,7 +18,6 @@ interface IDefaultItemComponent {
   classes: any;
   hit: IHit;
   i: number;
-  searchFields: ISearchField[];
 }
 
 // TODO add this to configuration
@@ -30,14 +26,14 @@ const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDa
 
 const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const {hit, i, searchFields} = props
+  const searchFields = getSearchFields()
+  const {hit, i} = props
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('titel_t', hit)
-  const id = hit && hit._source.id
 
   return hit ? (
     <Card className={classes.root} key={i}>
-      <ViewSwitcherToggle id={id}/>
+      <ViewSwitcherToggle/>
       <TitleIdHeader
         id={hit._source.id}
         title={title}

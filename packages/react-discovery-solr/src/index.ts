@@ -83,7 +83,6 @@ export interface IHit {
 
 export interface IHitComponent {
   key: string;
-  title: string;
   hitComponent: string;
   defaultOption?: boolean;
   expandedView?: boolean;

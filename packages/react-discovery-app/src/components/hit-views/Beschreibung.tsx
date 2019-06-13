@@ -1,30 +1,20 @@
-import {
-  Card, CardActions,
-  CardContent,
-} from "@material-ui/core"
-import {
-  FieldValueDisplay,
-  RelatedItems,
-  Thumbnail,
-  TitleIdHeader,
-  facetDisplayFields
-} from '..'
-import {IHit, ISearchField} from "@react-discovery/solr"
+import {Card, CardActions, CardContent} from "@material-ui/core"
+import {Domain, useHitViewStyles} from '.'
+import {FieldValueDisplay, RelatedItems, Thumbnail, TitleIdHeader, facetDisplayFields} from '..'
+import {IHit, getSearchFields} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
 import {EntityDisplay} from "./EntityDisplay"
 import {buildRandomUBLThumbnail} from "../../utils"
-import {useHitViewStyles, } from '.'
 
 interface IDescriptionHitComponent {
-  classes: any;
   hit: IHit;
-  i: number;
-  searchFields: ISearchField[];
+  i?: number;
 }
 
 const Beschreibung: React.FC<IDescriptionHitComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const {hit, i, searchFields} = props
+  const searchFields = getSearchFields()
+  const {hit, i} = props
   const displayFields = searchFields.filter((sf): boolean => sf.field === 'beschreibungTitle_t')
 
   return hit ? (
@@ -44,13 +34,13 @@ const Beschreibung: React.FC<IDescriptionHitComponent> = (props): ReactElement =
                 <FieldValueDisplay field={field} hit={hit}/> : null}
             </CardContent>)}
           <CardActions disableSpacing>
-            <EntityDisplay displayFields={facetDisplayFields} hit={hit} type='Faszikel'/>
+            <EntityDisplay displayFields={facetDisplayFields} hit={hit} type={Domain.FASZIKEL}/>
           </CardActions>
         </div>
       </div>
       <RelatedItems
         id={hit._source._root_}
-        primaryDocFilter='Kulturobjekt'
+        primaryDocFilter={Domain.KULTUROBJEKT}
       />
     </Card>
   ) : null

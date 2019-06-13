@@ -12,6 +12,7 @@ import {
 } from "@react-discovery/solr"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
+import {Domain} from "./hit-views"
 
 const useStyles = makeStyles((theme: Theme): any => ({
   root: {
@@ -55,7 +56,12 @@ export const TabsAppBar: React.FC<any> = (): ReactElement => {
     dispatch(setIsViewExpanded({isViewExpanded: false}))
     dispatch(setStart({start: 0}))
     dispatch(setGroupField({groupField}))
-    dispatch(setTypeDef({typeDef: SolrParameters.EDISMAX}))
+    // fix this
+    if (newFilters.includes(Domain.KULTUROBJEKT)) {
+      dispatch(setTypeDef({typeDef: SolrParameters.LUCENE}))
+    } else {
+      dispatch(setTypeDef({typeDef: SolrParameters.EDISMAX}))
+    }
     setValue(newValue)
   }
 

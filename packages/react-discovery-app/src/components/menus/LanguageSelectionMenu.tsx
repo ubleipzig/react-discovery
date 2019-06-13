@@ -37,6 +37,7 @@ export const LanguageSelectionMenu: React.FC<any> = (): ReactElement => {
       <MenuItem
         button={true}
         component='div'
+        data-testid={`language-settings-menu-item-${i}`}
         divider
         key={i}
         onClick={(): void => handleMenuAction(language.locale)}
@@ -71,6 +72,7 @@ export const LanguageSelectionMenu: React.FC<any> = (): ReactElement => {
         aria-owns={isMenuOpen ? 'material-appbar' : undefined}
         className={classes.menuButton}
         color="inherit"
+        data-testid='language-settings-menu'
         edge="end"
         href=''
         onClick={handleMenuOpen}

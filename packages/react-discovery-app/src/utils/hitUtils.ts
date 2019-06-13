@@ -28,3 +28,10 @@ export const buildDateFormat = (field, hit): string => {
 export const buildEntityCountForType = (entities, type): number => {
   return entities && entities.filter((entity): boolean => entity.type_s === type).length
 }
+
+export const getTypeForId = (hit, id): string => {
+  const {_source} = hit
+  if (_source.id === id) {
+    return _source.type_s
+  }
+}

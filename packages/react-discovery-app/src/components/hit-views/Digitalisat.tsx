@@ -1,20 +1,19 @@
 import {Card, CardContent} from "@material-ui/core"
+import {Domain, useHitViewStyles} from '.'
 import {FieldValueDisplay, RelatedItems, Thumbnail, TitleIdHeader} from '..'
-import {IHit, ISearchField} from "@react-discovery/solr"
+import {IHit, getSearchFields} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
 import {buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
-import {useHitViewStyles, } from '.'
 
 interface IDigitalisat {
-  classes: any;
   hit: IHit;
-  i: number;
-  searchFields: ISearchField[];
+  i?: number;
 }
 
 const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const {hit, i, searchFields} = props
+  const searchFields = getSearchFields()
+  const {hit, i} = props
   const filteredFields = ['digitalisatDescription', 'manifest']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('digitalisatTitel_t', hit)
@@ -39,7 +38,7 @@ const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
       </div>
       <RelatedItems
         id={hit._source._root_}
-        primaryDocFilter='Kulturobjekt'
+        primaryDocFilter={Domain.KULTUROBJEKT}
       />
     </Card>
   ) : null

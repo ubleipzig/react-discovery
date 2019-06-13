@@ -1,5 +1,6 @@
 export * from './hit-views'
 export * from './menus'
+export * from './hit-views/DetailBreadcrumbs'
 export * from './ExpertSearchBox'
 export * from './FacetViewSwitcher'
 export * from './FieldLabel'

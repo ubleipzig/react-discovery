@@ -5,6 +5,7 @@ import {TextField} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles';
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
+import {useCurrentRoute, useNavigation} from "react-navi"
 
 const useStyles = makeStyles((theme): any => ({
   container: {
@@ -33,6 +34,9 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles({})
   const dispatch = useDispatch()
   const [values, setValues] = React.useState("")
+  const navigation = useNavigation()
+  const route = useCurrentRoute()
+  const pathname = route.url.pathname
 
   const handleChange = (e): void => {
     setValues(e.target.value)
@@ -45,6 +49,9 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
 
   const handleSubmit = ((e): void => {
     e.preventDefault()
+    if (pathname !== '/') {
+      navigation.navigate('/')
+    }
     dispatch(setQueryInput({stringInput: values}))
     dispatch(setSelectedIndex({selectedIndex: 0}))
     dispatch(setStart({start: 0}))

@@ -1,7 +1,7 @@
 import {Book, ChatBubble, Image, Person} from '@material-ui/icons'
 import {Card, CardActions, CardContent, Typography} from "@material-ui/core"
 import {Domain, useHitViewStyles} from '.'
-import {IHit, ISearchField, getFilterType} from "@react-discovery/solr"
+import {IHit, getFilterType, getSearchFields} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
 import {Thumbnail, TitleIdHeader, ValueDisplay} from '..'
 import {buildEntityCountForType, buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
@@ -13,12 +13,12 @@ interface IDefaultItemComponent {
   classes: any;
   hit: IHit;
   i: number;
-  searchFields: ISearchField[];
 }
 
 const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const {hit, i, searchFields} = props
+  const searchFields = getSearchFields()
+  const {hit, i} = props
   const title = buildHighlightedValueForHit('titel_t', hit)
   const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))

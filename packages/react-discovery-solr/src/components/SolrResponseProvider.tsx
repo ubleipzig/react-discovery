@@ -27,9 +27,11 @@ interface ISolrResponseProvider {
 }
 
 export const SolrResponseProvider: React.FC<ISolrResponseProvider> = (props): ReactElement => {
+  const {useHistory} = props
   const rootContext = getRootContext()
   const navigation = useNavigation()
   const route = useCurrentRoute()
+  const pathname = route.url.pathname
   const urlStart = route.url.query.start ? Number.parseInt(route.url.query.start) : 0
   const qString = {
     start: urlStart,
@@ -72,8 +74,11 @@ export const SolrResponseProvider: React.FC<ISolrResponseProvider> = (props): Re
     } else {
       if (prevSelectedIndex !== selectedIndex || prevStringInput !== stringInput
         || filters !== prevFilters || prevSortFields !== sortFields) {
-        pushHistory(navigation, stringInput, start, rootContext)
-        if (!isEqual(mergedQuery, query) || filters !== prevFilters || prevSortFields !== sortFields) {
+        if (useHistory && pathname === '/') {
+          pushHistory(navigation, stringInput, start, rootContext)
+        }
+        if (!isEqual(mergedQuery, query) || filters !== prevFilters
+          || prevSortFields !== sortFields || prevStringInput !== stringInput) {
           const responseRequestURI = queryBuilder({...query})
           fetchResponse(responseRequestURI)
         }

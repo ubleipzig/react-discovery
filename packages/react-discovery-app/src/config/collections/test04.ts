@@ -36,43 +36,36 @@ export const test04: IConfig = {
           expandedView: false,
           hitComponent: "DefaultHitComponent",
           key: "default",
-          title: "Default"
         },
         {
           expandedView: false,
           hitComponent: "Kulturobjekt",
           key: "facet",
-          title: "Kulturobjekt"
         },
         {
           expandedView: false,
           hitComponent: "Beschreibung",
           key: "facet",
-          title: "Beschreibung"
         },
         {
           expandedView: false,
           hitComponent: "Digitalisat",
           key: "facet",
-          title: "Digitalisat"
         },
         {
           expandedView: true,
           hitComponent: "DigitalisatExpanded",
           key: "facet",
-          title: "Digitalisat"
         },
         {
           expandedView: true,
           hitComponent: "KulturobjektExpanded",
           key: "facet",
-          title: "Kulturobjekt"
         },
         {
           expandedView: false,
           hitComponent: "Person",
           key: "facet",
-          title: "Person"
         },
       ],
       initialFilter: {'type_s': ['Kulturobjekt']},

@@ -1,13 +1,12 @@
 import {FacetViewSwitcher, GroupSelectedFilters, HitStats, MinWidthResultsGrid, Pagination, RefinementListFilters,
   SearchAppBar, SortingSelector, Suggester, TabsAppBar} from '.'
 import React, {ReactElement, useEffect} from 'react'
+import {Theme, createStyles, makeStyles, useMediaQuery} from "@material-ui/core"
 import {
-  SolrResponseProvider,
   getCurrentLanguage,
   getHits,
   usePrevious,
 } from '@react-discovery/solr'
-import {Theme, createStyles, makeStyles, useMediaQuery} from "@material-ui/core"
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Grid from '@material-ui/core/Grid'
 import {useTranslation} from "react-i18next"
@@ -49,66 +48,64 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
   const hits = getHits()
 
   return (
-    <SolrResponseProvider>
-      <Grid container>
-        <Grid item xs={12}>
-          <SearchAppBar/>
-        </Grid>
-        {matches ? <Grid
-          className={classes.gridLeft}
-          item
-          xs={2}
-        >
-          <Suggester/>
-          <RefinementListFilters/>
-        </Grid> : null}
-        {matches ?
-          <Grid
-            item xs={10}
-          >
-            <Grid
-              className={classes.gridActions}
-              container
-              direction="row"
-            >
-              <HitStats/>
-              <SortingSelector/>
-            </Grid>
-            <Grid
-              container
-              direction="row"
-            >
-              <GroupSelectedFilters/>
-            </Grid>
-            <Grid
-              alignItems="center"
-              container
-              direction="row"
-              justify="center"
-            >
-              <Pagination/>
-            </Grid>
-            <Grid
-              className={classes.gridContent}
-            >
-              {hits ?
-                <>
-                  <TabsAppBar/>
-                  <FacetViewSwitcher/>
-                </> : <CircularProgress className={classes.progress}/>}
-            </Grid>
-            <Grid
-              alignItems="center"
-              container
-              direction="row"
-              justify="center"
-            >
-              <Pagination/>
-            </Grid>
-          </Grid> :
-          <MinWidthResultsGrid/>
-        }
+    <Grid container>
+      <Grid item xs={12}>
+        <SearchAppBar/>
       </Grid>
-    </SolrResponseProvider>
+      {matches ? <Grid
+        className={classes.gridLeft}
+        item
+        xs={2}
+      >
+        <Suggester/>
+        <RefinementListFilters/>
+      </Grid> : null}
+      {matches ?
+        <Grid
+          item xs={10}
+        >
+          <Grid
+            className={classes.gridActions}
+            container
+            direction="row"
+          >
+            <HitStats/>
+            <SortingSelector/>
+          </Grid>
+          <Grid
+            container
+            direction="row"
+          >
+            <GroupSelectedFilters/>
+          </Grid>
+          <Grid
+            alignItems="center"
+            container
+            direction="row"
+            justify="center"
+          >
+            <Pagination/>
+          </Grid>
+          <Grid
+            className={classes.gridContent}
+          >
+            {hits ?
+              <>
+                <TabsAppBar/>
+                <FacetViewSwitcher/>
+              </> : <CircularProgress className={classes.progress}/>}
+          </Grid>
+          <Grid
+            alignItems="center"
+            container
+            direction="row"
+            justify="center"
+          >
+            <Pagination/>
+          </Grid>
+        </Grid> :
+        <MinWidthResultsGrid/>
+      }
+    </Grid>
   )
 }

@@ -23,6 +23,7 @@ export const de = {
     Digitalisat: 'Digitalisate',
     digitalisatDescription: 'Description',
     digitalisations: 'Digitalisate',
+    digitalisatTitel: 'Digitalisate Title',
     documentType: 'Dokumententyp',
     facetLabel: 'Label',
     facetText: 'Text',

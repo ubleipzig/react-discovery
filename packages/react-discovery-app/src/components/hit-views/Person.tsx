@@ -1,15 +1,13 @@
 import {Card, CardContent} from "@material-ui/core"
 import {Domain, useHitViewStyles} from '.'
 import {FieldValueDisplay, RelatedItems, Thumbnail, TitleIdHeader} from '..'
-import {IHit, ISearchField} from "@react-discovery/solr"
+import {IHit, getSearchFields} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
 import {buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
 
 interface IPerson {
-  classes: any;
   hit: IHit;
-  i: number;
-  searchFields: ISearchField[];
+  i?: number;
 }
 
 const filteredFields = ['personBirthDate', 'personDeathDate', 'personBirthPlace',
@@ -17,7 +15,8 @@ const filteredFields = ['personBirthDate', 'personDeathDate', 'personBirthPlace'
 
 const Person: React.FC<IPerson> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const {hit, i, searchFields} = props
+  const searchFields = getSearchFields()
+  const {hit, i} = props
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('personFullname_t', hit)
 
@@ -40,7 +39,7 @@ const Person: React.FC<IPerson> = (props): ReactElement => {
         </div>
       </div>
       <RelatedItems
-        id={hit._source.personFullname_t}
+        id={hit._source._root_}
         primaryDocFilter={Domain.KULTUROBJEKT}
       />
     </Card>
