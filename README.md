@@ -22,7 +22,7 @@ REACT_APP_SEARCH_API_COLLECTION=test02
     ```
 - load sample data
     ```bash
-    $ curl -X POST -H"Content-Type: application/json" http://localhost/solr/test02/update/json?commit=true --data-binary @test-data/test-data-02.json
+    $ curl -X POST -H"Content-Type: application/json" http://localhost/solr/test04/update/json?commit=true --data-binary @test-data/test-data-04.json
     ```
 - OR execute 
     ```bash
