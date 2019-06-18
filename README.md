@@ -1,15 +1,15 @@
 ## React Discovery
-[![CircleCI](https://circleci.com/gh/ubl-chj/react-discovery.svg?style=shield)](https://circleci.com/gh/ubl-chj/react-discovery)
+[![CircleCI](https://circleci.com/gh/ubleipzig/react-discovery.svg?style=shield)](https://circleci.com/gh/ubleipzig/react-discovery)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c5727bf2-2ed5-42f7-a8c1-274871f0c3ea/deploy-status)](https://app.netlify.com/sites/react-discovery/deploys)
-[![codecov](https://codecov.io/gh/ubl-chj/react-discovery/branch/master/graph/badge.svg)](https://codecov.io/gh/ubl-chj/react-discovery)
-
+[![codecov](https://codecov.io/gh/ubleipzig/react-discovery/branch/master/graph/badge.svg)](https://codecov.io/gh/ubleipzig/react-discovery)
+[![npm](https://img.shields.io/npm/v/@react-discovery/solr.svg)](https://www.npmjs.com/package/@react-discovery/solr)
 ### Quick Start
 
 #### Create Environment
 - configure `search api host` and `collection` in `.env` file in test app root
 ```yaml
 REACT_APP_SEARCH_API_HOST=http://localhost/solr/
-REACT_APP_SEARCH_API_COLLECTION=test02
+REACT_APP_SEARCH_API_COLLECTION=test04
 ```
 ##### Setup Test Solr Instance
 - start docker composition 
@@ -18,7 +18,7 @@ REACT_APP_SEARCH_API_COLLECTION=test02
     ```
 - create core in docker:
     ```
-    $ docker exec solr1 /opt/solr/bin/solr create_collection -c test02
+    $ docker exec solr1 /opt/solr/bin/solr create_collection -c test04
     ```
 - load sample data
     ```bash
