@@ -1,4 +1,4 @@
-import {AppBar, Tab, Tabs, Theme, makeStyles} from '@material-ui/core'
+import {AppBar, Tab, Tabs} from '@material-ui/core'
 import {
   FieldConstants,
   SolrParameters,
@@ -10,19 +10,13 @@ import {
   setIsViewExpanded,
   setSelectedFilters, setStart, setSuggest, setTypeDef, usePrevious
 } from "@react-discovery/solr"
+import {IOverridableStyledComponent, useTabsAppBarStyles} from ".."
 import React, {ReactElement, useEffect} from 'react'
-import {IOverridableStyledComponent} from ".."
+
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 
 const typeField = FieldConstants.TYPE_FIELD
-
-export const useTabsAppBarStyles = makeStyles((theme: Theme): any => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    width: '100%',
-  },
-}))
 
 export const TabsAppBar: React.FC<IOverridableStyledComponent> = (props): ReactElement => {
   const classes: any = props.classes || useTabsAppBarStyles({})
@@ -58,7 +52,6 @@ export const TabsAppBar: React.FC<IOverridableStyledComponent> = (props): ReactE
     dispatch(setIsViewExpanded({isViewExpanded: false}))
     dispatch(setStart({start: 0}))
     dispatch(setGroupField({groupField}))
-    // fix this
     if (newFilters.includes(primaryTypeField)) {
       dispatch(setTypeDef({typeDef: SolrParameters.LUCENE}))
     } else {

@@ -1,8 +1,8 @@
 import {ArrowDownward, ArrowUpward} from '@material-ui/icons'
+import {FlexBox, IOverridableStyledComponent} from ".."
 import {FormControl, IconButton, Input, NativeSelect} from '@material-ui/core'
 import {ISortField, getSortFields, getStringInput, setSortFields, setSuggest} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
-import {IOverridableStyledComponent} from ".."
 import {useDispatch} from "react-redux"
 import {useSortingSelectorStyles} from "../styles"
 import {useTranslation} from "react-i18next"
@@ -92,7 +92,7 @@ export const SortingSelector: React.FC<IOverridableStyledComponent> = (props): R
       className={classes.formControl}
       component='div'
     >
-      <div style={{display: 'flex'}}>
+      <FlexBox>
         {buildSortOrderButton()}
         <NativeSelect
           input={<Input id="sort-native-simple" name="sort" />}
@@ -101,7 +101,7 @@ export const SortingSelector: React.FC<IOverridableStyledComponent> = (props): R
         >
           {buildOptions()}
         </NativeSelect>
-      </div>
+      </FlexBox>
     </FormControl>
   ) : null
 }

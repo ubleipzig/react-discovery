@@ -8,6 +8,14 @@ export const useFacetViewSwitcherStyles = makeStyles((theme: Theme): any =>
   }),
 )
 
+export const useFieldLabelStyles = makeStyles((): any => ({
+  fieldLabel: {margin: "0 20px 0 10px", minWidth: 180},
+}))
+
+export const useFlexBoxStyles = makeStyles((): any => ({
+  flexBox: {display: 'flex'}
+}))
+
 export const useGroupSelectedFiltersStyles = makeStyles((theme): any => ({
   chip: {
     margin: theme.spacing(0.5),
@@ -113,6 +121,9 @@ export const usePaginationStyles = makeStyles((theme): any => ({
     }`,
     padding: '5px 16px',
   },
+  listWrapper: {
+    maxWidth: 360, width: '100%'
+  }
 }))
 
 export const useRelatedItemsStyles = makeStyles((theme: Theme): any =>
@@ -251,6 +262,13 @@ export const useSuggesterStyles = makeStyles((theme): any => ({
   },
   root: {
     flexGrow: 1,
+  },
+}))
+
+export const useTabsAppBarStyles = makeStyles((theme: Theme): any => ({
+  root: {
+    backgroundColor: theme.palette.background.paper,
+    width: '100%',
   },
 }))
 

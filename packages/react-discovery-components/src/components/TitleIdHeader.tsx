@@ -1,16 +1,18 @@
+import {FlexBox, InnerHtmlValue} from "."
 import {Link, useCurrentRoute} from 'react-navi'
 import React, {ReactElement} from "react"
-import {setStart, setSuggest} from "@react-discovery/solr"
+import {getRootContext, setStart, setSuggest} from "@react-discovery/solr"
 import {CardHeader} from "@material-ui/core"
-import {InnerHtmlValue} from "./InnerHtmlValue"
 import {useDispatch} from 'react-redux'
 
 interface ITitleIdHeader {
   title: string;
   id: string;
 }
+
 export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => {
   const {id, title} = props
+  const rootContext = getRootContext()
   const route = useCurrentRoute()
   const pathname = route.url.pathname
   const dispatch = useDispatch()
@@ -20,9 +22,9 @@ export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => 
     dispatch(setSuggest({stringInput: id, suggest: false}))
   }
   const buildTitleHeaderForPathName = (): ReactElement => {
-    if (pathname === '/') {
+    if (pathname === rootContext) {
       return (
-        <div style={{display: 'flex'}}>
+        <FlexBox>
           <Link
             data-testid='detail-link'
             href={`detail/${id}`}
@@ -30,17 +32,17 @@ export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => 
           >
             <CardHeader style={{width: '100%'}} title={<InnerHtmlValue value={title}/>}/>
           </Link>
-        </div>
+        </FlexBox>
       )
     } else {
       return (
-        <div style={{display: 'flex'}}>
+        <FlexBox>
           <Link
-            href={`/?q=${id}`}
+            href={`${rootContext}?q=${id}`}
           >
             <CardHeader style={{width: '100%'}} title={<InnerHtmlValue value={title}/>}/>
           </Link>
-        </div>
+        </FlexBox>
       )
     }
   }

@@ -1,4 +1,3 @@
-import {Button, Theme, createStyles, makeStyles} from "@material-ui/core"
 import {Link, useCurrentRoute} from "react-navi"
 import React, {ReactElement} from "react"
 import {
@@ -9,7 +8,7 @@ import {
   setStart,
   setTypeDef
 } from "@react-discovery/solr"
-
+import {Button} from "@material-ui/core"
 import MuiLink from '@material-ui/icons/Link';
 import clsx from 'clsx';
 import {useDispatch} from "react-redux"

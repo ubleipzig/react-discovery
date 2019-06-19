@@ -105,7 +105,7 @@ export const Pagination: React.FC<IOverridableStyledComponent> = (props): ReactE
   }
 
   return (
-    <div style={{maxWidth: 360, width: '100%'}}>
+    <div className={classes.listWrapper}>
       <List component="nav" style={{display: 'flex'}}>
         {PageControlButton(0, "first")}
         {PageControlButton(currentPage - 1, "previous")}

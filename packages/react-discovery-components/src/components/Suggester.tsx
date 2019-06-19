@@ -2,11 +2,11 @@ import {Chip, MenuItem, Paper, TextField} from '@material-ui/core'
 import React, {ReactElement} from 'react'
 import {getTerms, setStart, setSuggest} from "@react-discovery/solr"
 import Downshift from 'downshift'
+import {IOverridableStyledComponent} from ".."
 import deburr from 'lodash/deburr'
 import {useDispatch} from "react-redux"
-import {useSearchBoxStyles, useSuggesterStyles} from "../styles"
+import {useSuggesterStyles} from "../styles"
 import {useTranslation} from "react-i18next"
-import {IOverridableStyledComponent} from "../index"
 
 interface ISuggestion {
   highlightedIndex: number;
