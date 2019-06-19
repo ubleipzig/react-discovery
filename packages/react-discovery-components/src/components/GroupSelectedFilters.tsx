@@ -1,19 +1,12 @@
-import {Chip, List, makeStyles} from '@material-ui/core'
+import {Chip, List} from '@material-ui/core'
 import React, {ReactElement} from "react"
 import {getFilters, setSelectedFilters, setStart} from "@react-discovery/solr"
+import {IOverridableStyledComponent} from ".."
 import {useDispatch} from "react-redux"
+import {useGroupSelectedFiltersStyles} from '../styles'
 
-const useStyles = makeStyles((theme): any => ({
-  chip: {
-    margin: theme.spacing(0.5),
-  },
-  icon: {
-    fontSize: 20,
-  },
-}))
-
-export const GroupSelectedFilters: React.FC<any> = (): ReactElement => {
-  const classes: any = useStyles({})
+export const GroupSelectedFilters: React.FC<IOverridableStyledComponent> = (props): ReactElement => {
+  const classes: any = props.classes || useGroupSelectedFiltersStyles({})
   const dispatch = useDispatch()
   const filters = getFilters()
 

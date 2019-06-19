@@ -9,10 +9,17 @@ import {
   personDisplayFields,
   useHitViewStyles
 } from '.'
-import {FieldValueDisplay, Thumbnail, TitleIdHeader, ValueDisplay, ViewSwitcherToggle,} from '..'
+import {
+  FieldValueDisplay,
+  Thumbnail,
+  TitleIdHeader,
+  ValueDisplay,
+  ViewSwitcherToggle,
+  buildHighlightedValueForHit
+} from '@react-discovery/components'
 import {IHit, getSearchFields} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
-import {buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
+import {buildRandomUBLThumbnail} from "../../utils"
 
 interface IDefaultItemComponent {
   classes: any;

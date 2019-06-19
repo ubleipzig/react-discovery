@@ -1,10 +1,10 @@
 import '@react-discovery/i18n'
 import {AnyAction, Store, applyMiddleware, createStore} from "redux"
+import {DetailsView, MinimalResultsViewer} from './components'
 import { Router, View } from 'react-navi'
 import { mount, route } from 'navi'
 import thunkMiddleware, { ThunkMiddleware } from 'redux-thunk'
-import {DetailsView} from './components/hit-views'
-import {MinimalResultsViewer} from './components'
+
 import {Provider} from 'react-redux'
 import React from "react"
 import ReactDOM from "react-dom"

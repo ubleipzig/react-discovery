@@ -11,7 +11,10 @@ import {
   ISortField,
   IState
 } from "../.."
+import {FieldConstants} from '../../enum'
 import {useSelector} from "react-redux"
+
+const typeField = FieldConstants.TYPE_FIELD
 
 export const getAggregation = (field): IAggregation => {
   return useSelector((state: IState): IAggregation =>
@@ -35,7 +38,7 @@ export const getFiltersForField = (field): string[] => {
 }
 
 export const getFilterType = (): string => {
-  return useSelector((state: IState): string => state.query.filters && state.query.filters.type_s && state.query.filters.type_s[0])
+  return useSelector((state: IState): string => state.query.filters && state.query.filters[typeField] && state.query.filters[typeField][0])
 }
 
 export const getGroupField = (): string => {
@@ -73,6 +76,10 @@ export const getNumFound = (): number => {
 export const getRefinementListFilters = (): IRefinementListFilters => {
   return useSelector((state: IState): IRefinementListFilters =>
     state.config.collections[state.config.currentCollection].refinementListFilters)
+}
+
+export const getPrimaryTypeField = (): string => {
+  return useSelector((state: IState): string => state.config.collections[state.config.currentCollection].primaryTypeField)
 }
 
 export const getResponse = (): IResponse => {

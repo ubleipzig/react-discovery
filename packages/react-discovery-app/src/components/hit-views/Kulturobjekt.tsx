@@ -3,10 +3,15 @@ import {Card, CardActions, CardContent, Typography} from "@material-ui/core"
 import {Domain, useHitViewStyles} from '.'
 import {IHit, getFilterType, getSearchFields} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
-import {Thumbnail, TitleIdHeader, ValueDisplay} from '..'
-import {buildEntityCountForType, buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
-import {ViewSwitcherToggle} from "../ViewSwitcherToggle"
-
+import {
+  Thumbnail,
+  TitleIdHeader,
+  ValueDisplay,
+  ViewSwitcherToggle,
+  buildEntityCountForType,
+  buildHighlightedValueForHit
+} from '@react-discovery/components'
+import {buildRandomUBLThumbnail} from "../../utils"
 import {useTranslation} from "react-i18next"
 
 interface IDefaultItemComponent {

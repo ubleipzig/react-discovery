@@ -1,56 +1,11 @@
-import {AppBar, Badge, IconButton, Toolbar, Typography, makeStyles} from '@material-ui/core'
+import {AppBar, Badge, IconButton, Toolbar, Typography} from '@material-ui/core'
 import {Bookmark, Menu} from '@material-ui/icons'
-import {ExpertSearchBox, LanguageSelectionMenu, ProfileMenu, ResetButton, SearchBox, SearchSettingsMenu} from '.'
+import {ExpertSearchBox, IOverridableStyledComponent, LanguageSelectionMenu, ProfileMenu, ResetButton, SearchBox, SearchSettingsMenu, useSearchAppBarStyles} from '@react-discovery/components'
 import React, {ReactElement} from 'react'
 import {SolrParameters, getTypeDef} from "@react-discovery/solr"
 
-const useStyles = makeStyles((theme): any => ({
-  colorPrimary: {
-    backgroundColor: '#050531',
-    color: theme.palette.primary.contrastText,
-  },
-  grow: {
-    flexGrow: 1,
-    position: 'fixed',
-    width: '100%',
-    zIndex: '1000'
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 7),
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: 200,
-    },
-  },
-  inputRoot: {
-    color: 'inherit',
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
-    },
-  },
-  sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
-  title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
-  },
-}))
-
-export const SearchAppBar: React.FC<any> = (): ReactElement => {
-  const classes: any = useStyles({})
+export const SearchAppBar: React.FC<IOverridableStyledComponent> = (props): ReactElement => {
+  const classes: any = props.classes || useSearchAppBarStyles({})
   const typeDef = getTypeDef()
 
   return (

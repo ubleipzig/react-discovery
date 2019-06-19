@@ -1,6 +1,5 @@
+import {FacetTypes, SolrParameters} from "../enum"
 import {IFilters, IQuery, ISearchField, ISortField} from ".."
-import {FacetTypes} from "./FacetTypes"
-import {SolrParameters} from "./SolrParameters"
 import {stringify} from 'query-string'
 
 export const buildQueryFieldParams = (typeDef: string, searchFields: ISearchField[]): {} => {

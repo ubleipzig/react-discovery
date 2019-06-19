@@ -1,34 +1,18 @@
-import {createStyles, makeStyles, Theme} from "@material-ui/core"
-import CircularProgress from "@material-ui/core/CircularProgress"
-import {FacetViewSwitcher} from "./FacetViewSwitcher"
-import Grid from "@material-ui/core/Grid"
-import {GroupSelectedFilters} from "./GroupSelectedFilters"
-import {HitStats} from "./HitStats"
-import {Pagination} from "./Pagination"
-import React from "react"
-import {SortingSelector} from "./SortingSelector"
-import {TabsAppBar} from "./TabsAppBar"
+import {CircularProgress, Grid} from "@material-ui/core"
+import {
+  GroupSelectedFilters,
+  HitStats,
+  Pagination,
+  SortingSelector,
+  TabsAppBar,
+  useMinWidthResultsGridStyles
+} from "@react-discovery/components"
+import React, {ReactElement} from "react"
+import {FacetViewSwitcher} from "."
 import {getHits} from "@react-discovery/solr"
 
-const useStyles = makeStyles((theme: Theme): any =>
-  createStyles({
-    gridActions: {
-      alignItems: 'center',
-      marginTop: '50px',
-      padding: '10px'
-    },
-    gridContent: {
-      backgroundColor: 'lightgray',
-      padding: 20
-    },
-    progress: {
-      margin: theme.spacing(2),
-    },
-  }),
-)
-
-export const MinWidthResultsGrid = () => {
-  const classes: any = useStyles({})
+export const MinWidthResultsGrid: React.FC<any> = (): ReactElement => {
+  const classes: any = useMinWidthResultsGridStyles({})
   const hits = getHits()
   return (
     <Grid

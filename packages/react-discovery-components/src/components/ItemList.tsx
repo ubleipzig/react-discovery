@@ -20,51 +20,17 @@ import {
 } from "@react-discovery/solr"
 import {ExpandMore} from '@material-ui/icons'
 import {useDispatch} from "react-redux"
+import {useItemListStyles} from '../styles'
 
 export interface IItemListProps {
+  classes?: any;
   field: string;
   key: number;
   label: string;
 }
 
-const useStyles = makeStyles((theme): any => ({
-  content: {
-    display: 'flex',
-    flex: '1 0 auto',
-    padding: 0,
-  },
-  expanded: {
-    maxHeight: 32,
-    minHeight: 0
-  },
-  expansionSummaryRoot: {
-    '&$expanded': {
-      maxHeight: 36,
-      minHeight: 0
-    },
-    maxHeight: 36,
-    minHeight: 0,
-  },
-  grow: {
-    flexGrow: 1
-  },
-  heading: {
-    flexBasis: '33.33%',
-    flexShrink: 0,
-    fontSize: theme.typography.pxToRem(15),
-  },
-  inline: {
-    display: 'inline',
-    textAlign: 'right'
-  },
-  secondaryHeading: {
-    color: theme.palette.text.secondary,
-    fontSize: theme.typography.pxToRem(15),
-  }
-}))
-
 export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
-  const classes: any = useStyles({})
+  const classes: any = props.classes || useItemListStyles({})
   const dispatch = useDispatch()
   const {field, label} = props
   const aggregation = getAggregation(field)

@@ -1,4 +1,4 @@
-import {Card, CardActions, CardContent, createStyles, Grid, makeStyles, Theme} from "@material-ui/core"
+import {Card, CardActions, CardContent, Grid, Theme, createStyles, makeStyles} from "@material-ui/core"
 import {
   DetailBreadcrumbs,
   Domain,
@@ -10,13 +10,21 @@ import {
   personDisplayFields,
   useHitViewStyles,
 } from '.'
-import {FieldValueDisplay, SearchAppBar, Thumbnail, TitleIdHeader, ValueDisplay} from '..'
+import {
+  FieldValueDisplay,
+  Thumbnail,
+  TitleIdHeader,
+  ValueDisplay,
+  buildHighlightedValueForHit,
+  getTypeForId
+} from '@react-discovery/components'
 import React, {ReactElement, useEffect, useState} from "react"
-import {buildHighlightedValueForHit, buildRandomUBLThumbnail, getTypeForId} from "../../utils"
 import {getHits, getSearchFields, getStringInput, setQueryInput, usePrevious} from "@react-discovery/solr"
 import Beschreibung from './Beschreibung'
 import Digitalisat from './Digitalisat'
 import Person from './Person'
+import {SearchAppBar} from '..'
+import {buildRandomUBLThumbnail} from "../../utils"
 import {useDispatch} from "react-redux"
 
 interface IDetailsView {

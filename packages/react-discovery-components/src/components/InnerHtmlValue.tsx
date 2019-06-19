@@ -1,20 +1,12 @@
 import React, {ReactElement} from "react"
-import {makeStyles} from "@material-ui/core"
+import {useInnerHtmlValueStyles} from '../styles'
 
 interface IInnerHtmlValue {
   value: string;
 }
 
-const useStyles = makeStyles((): any => ({
-  values: {
-    '& em': {
-      background: '#cfe1f3'
-    }
-  }
-}))
-
 export const InnerHtmlValue: React.FC<IInnerHtmlValue> = (props): ReactElement => {
-  const classes: any = useStyles({})
+  const classes: any = useInnerHtmlValueStyles({})
   const {value} = props
   return (
     <div className={classes.values} dangerouslySetInnerHTML={{__html: value}}/>

@@ -1,4 +1,5 @@
 import {IConfig} from "@react-discovery/solr"
+import {Domain} from '../../enum'
 
 export const test04: IConfig = {
   collections: {
@@ -69,6 +70,7 @@ export const test04: IConfig = {
         },
       ],
       initialFilter: {'type_s': ['Kulturobjekt']},
+      primaryTypeField: Domain.KULTUROBJEKT,
       refinementListFilters: {
         1: {
           field: "entstehungsort_s",

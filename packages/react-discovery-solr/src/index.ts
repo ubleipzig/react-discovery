@@ -1,4 +1,5 @@
 export * from './components'
+export * from './enum'
 export * from './hooks'
 export * from './query-builders'
 export * from './state'
@@ -24,6 +25,7 @@ export interface IConfig {
       docTypes?: IDocType[];
       hitComponents: IHitComponent[];
       initialFilter?: IFilters;
+      primaryTypeField: string;
       refinementListFilters: IRefinementListFilters;
       searchFields: ISearchField[];
       sortFields: ISortField[];

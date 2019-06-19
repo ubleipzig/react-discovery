@@ -13,6 +13,7 @@ import {
 import MuiLink from '@material-ui/icons/Link';
 import clsx from 'clsx';
 import {useDispatch} from "react-redux"
+import {useRelatedItemsStyles} from "../styles"
 import {useTranslation} from "react-i18next"
 
 interface IRelatedItems {
@@ -20,25 +21,11 @@ interface IRelatedItems {
   primaryDocFilter: string;
 }
 
-const useStyles = makeStyles((theme: Theme): any =>
-  createStyles({
-    button: {
-      margin: theme.spacing(1),
-    },
-    iconSmall: {
-      fontSize: 20,
-    },
-    leftIcon: {
-      marginRight: theme.spacing(1),
-    },
-  }),
-);
-
 export const RelatedItems: React.FC<IRelatedItems> = (props): ReactElement => {
   const dispatch = useDispatch()
   const route = useCurrentRoute()
   const pathname = route.url.pathname
-  const classes: any = useStyles({});
+  const classes: any = useRelatedItemsStyles({});
   const {id, primaryDocFilter} = props
   const filters = primaryDocFilter ? [primaryDocFilter] : []
   const {t} = useTranslation('vocab')

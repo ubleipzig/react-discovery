@@ -1,8 +1,8 @@
 import {Card, CardContent} from "@material-ui/core"
-import {FieldValueDisplay, Thumbnail, TitleIdHeader} from '..'
+import {FieldValueDisplay, Thumbnail, TitleIdHeader, buildHighlightedValueForHit} from '@react-discovery/components'
 import {IHit, ISearchField, getSearchFields} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
-import {buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
+import {buildRandomUBLThumbnail} from "../../utils"
 import {useHitViewStyles} from '.'
 
 interface IDefaultItemComponent {

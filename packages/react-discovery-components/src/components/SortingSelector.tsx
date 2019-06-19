@@ -1,27 +1,15 @@
 import {ArrowDownward, ArrowUpward} from '@material-ui/icons'
-import {FormControl, IconButton, Input, NativeSelect, makeStyles} from '@material-ui/core'
+import {FormControl, IconButton, Input, NativeSelect} from '@material-ui/core'
 import {ISortField, getSortFields, getStringInput, setSortFields, setSuggest} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
+import {IOverridableStyledComponent} from ".."
 import {useDispatch} from "react-redux"
+import {useSortingSelectorStyles} from "../styles"
 import {useTranslation} from "react-i18next"
 
-const useStyles = makeStyles((theme): any => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-}));
-
-export const SortingSelector: React.FC<any> = (): ReactElement => {
+export const SortingSelector: React.FC<IOverridableStyledComponent> = (props): ReactElement => {
   const {t} = useTranslation('vocab')
-  const classes: any = useStyles({})
+  const classes: any = props.classes || useSortingSelectorStyles({})
   const dispatch = useDispatch()
   const sortFields = getSortFields()
   const stringInput = getStringInput()

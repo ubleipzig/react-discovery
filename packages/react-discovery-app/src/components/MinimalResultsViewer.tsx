@@ -1,44 +1,26 @@
-import {FacetViewSwitcher, GroupSelectedFilters, HitStats, MinWidthResultsGrid, Pagination, RefinementListFilters,
-  SearchAppBar, SortingSelector, Suggester, TabsAppBar} from '.'
-import React, {ReactElement, useEffect} from 'react'
-import {Theme, createStyles, makeStyles, useMediaQuery} from "@material-ui/core"
+import {CircularProgress, Grid, useMediaQuery} from '@material-ui/core'
+import {FacetViewSwitcher, MinWidthResultsGrid, SearchAppBar} from '.'
 import {
-  getCurrentLanguage,
-  getHits,
-  usePrevious,
-} from '@react-discovery/solr'
-import CircularProgress from '@material-ui/core/CircularProgress'
-import Grid from '@material-ui/core/Grid'
+  GroupSelectedFilters,
+  HitStats,
+  Pagination,
+  RefinementListFilters,
+  SortingSelector,
+  Suggester,
+  TabsAppBar,
+  useMinimalResultViewerStyles
+} from '@react-discovery/components'
+import React, {ReactElement, useEffect} from 'react'
+import {getCurrentLanguage, getHits, usePrevious} from '@react-discovery/solr'
 import {useTranslation} from "react-i18next"
-
-const useStyles = makeStyles((theme: Theme): any =>
-  createStyles({
-    gridActions: {
-      alignItems: 'center',
-      marginTop: '50px',
-      padding: '10px'
-    },
-    gridContent: {
-      backgroundColor: 'lightgray',
-      padding: 20
-    },
-    gridLeft: {
-      backgroundColor: 'whitesmoke',
-      marginTop: '50px',
-      padding: '10px'
-    },
-    progress: {
-      margin: theme.spacing(2),
-    },
-  }),
-)
 
 export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
   const {i18n} = useTranslation(['common', 'vocab'])
-  const classes: any = useStyles({})
+  const classes: any = useMinimalResultViewerStyles({})
   const currentLanguage = getCurrentLanguage()
   const previousLanguage = usePrevious(currentLanguage)
   const matches = useMediaQuery('(min-width:600px)')
+
   useEffect((): void => {
     if (previousLanguage !== currentLanguage) {
       i18n.changeLanguage(currentLanguage)

@@ -1,27 +1,17 @@
+import {Hits, useFacetViewSwitcherStyles} from "@react-discovery/components"
 import React, {ReactElement, Suspense} from "react"
-import {Theme, createStyles, makeStyles} from '@material-ui/core/styles'
 import {getFilterType, getHitComponents, getIsViewExpanded} from "@react-discovery/solr"
 import CircularProgress from '@material-ui/core/CircularProgress'
-import {Hits} from "."
-
-const useStyles = makeStyles((theme: Theme): any =>
-  createStyles({
-    progress: {
-      margin: theme.spacing(2),
-    },
-  }),
-)
 
 const CUSTOM_COMPONENT_PATH = './hit-views/'
 const FACET_KEY = 'facet'
 const EXPANDED = 'Expanded'
 
 export const FacetViewSwitcher: React.FC<any> = (props): ReactElement => {
-  const classes: any = useStyles({})
+  const classes: any = useFacetViewSwitcherStyles({})
   const filterType = getFilterType()
   const hitComponents = getHitComponents()
   const isViewExpanded = getIsViewExpanded()
-
   const buildHitComponent = (): ReactElement => {
     const [defaultHitComponent] = hitComponents.filter((hc): boolean => hc.defaultOption === true)
     const [facetComponent] = hitComponents.filter((hc): boolean =>

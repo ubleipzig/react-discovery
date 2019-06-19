@@ -1,6 +1,6 @@
 import React, {ReactElement} from "react"
 import {getHits} from "@react-discovery/solr"
-import {renderComponent} from '../utils'
+import {renderComponent} from '.'
 
 export interface IHits {
   hitComponent: React.Component;

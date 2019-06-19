@@ -1,7 +1,7 @@
 import {fireEvent, render} from '@testing-library/react'
 import {Provider} from 'react-redux'
 import React from 'react'
-import {TabsAppBar} from '../../../src/components'
+import {TabsAppBar} from '@react-discovery/components'
 import {createStore} from "redux"
 import {rootReducer} from '../../../src/state'
 

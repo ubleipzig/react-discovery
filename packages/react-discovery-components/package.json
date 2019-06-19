@@ -1,0 +1,39 @@
+{
+  "name": "@react-discovery/components",
+  "license": "Apache 2.0",
+  "keywords": [
+    "solr",
+    "react",
+    "redux",
+    "typescript"
+  ],
+  "version": "0.1.2",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": {
+    "name": "Christopher Johnson",
+    "email": "chjohnson39@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ubleipzig/react-discovery.git"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "peerDependencies": {
+    "react": ">= 16",
+    "react-dom": ">= 16"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.0.1",
+    "@material-ui/icons": "^4.0.1",
+    "@material-ui/styles": "^4.0.1",
+    "@react-discovery/solr": "file:../react-discovery-solr"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.14",
+    "eslint": "^1.5.1",
+    "typescript": "^3.5.1"
+  }
+}

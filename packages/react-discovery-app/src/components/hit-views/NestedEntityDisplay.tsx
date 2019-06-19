@@ -7,14 +7,15 @@ import {
   List,
   Typography
 } from "@material-ui/core"
+import {FieldLabel, InnerHtmlValue, buildEntityCountForType} from "@react-discovery/components"
 import React, {ReactElement} from "react"
 import {ExpandMore} from "@material-ui/icons"
-import {FieldLabel} from "../FieldLabel"
+import {FieldConstants} from '@react-discovery/solr'
 import {IDisplayField} from "./displayFields"
-import {InnerHtmlValue} from "../InnerHtmlValue"
-import {buildEntityCountForType} from "../../utils"
 import {useHitViewStyles} from "./useHitViewStyles"
 import {useTranslation} from "react-i18next"
+
+const typeField = FieldConstants.TYPE_FIELD
 
 interface INestedEntityDisplay {
   displayFields: IDisplayField[];
@@ -33,7 +34,7 @@ export const NestedEntityDisplay: React.FC<INestedEntityDisplay> = (props): Reac
   }
 
   const buildEntityFields = (entityFields, type): ReactElement[] => {
-    const nestedEntities = entity && entity.entities.filter((entity): boolean => entity.type_s === type)
+    const nestedEntities = entity && entity.entities.filter((entity): boolean => entity[typeField] === type)
     return nestedEntities && nestedEntities.map((entity, i): ReactElement => {
       return (
         <div key={i}>

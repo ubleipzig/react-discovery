@@ -1,9 +1,15 @@
 import {Card, CardContent} from "@material-ui/core"
 import {Domain, useHitViewStyles} from '.'
-import {FieldValueDisplay, RelatedItems, Thumbnail, TitleIdHeader} from '..'
+import {
+  FieldValueDisplay,
+  RelatedItems,
+  Thumbnail,
+  TitleIdHeader,
+  buildHighlightedValueForHit
+} from '@react-discovery/components'
 import {IHit, getSearchFields} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
-import {buildHighlightedValueForHit, buildRandomUBLThumbnail} from "../../utils"
+import {buildRandomUBLThumbnail} from "../../utils"
 
 interface IPerson {
   hit: IHit;

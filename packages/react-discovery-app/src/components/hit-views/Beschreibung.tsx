@@ -1,11 +1,10 @@
 import {Card, CardActions, CardContent} from "@material-ui/core"
-import {Domain, useHitViewStyles} from '.'
-import {FieldValueDisplay, RelatedItems, Thumbnail, TitleIdHeader, facetDisplayFields} from '..'
+import {Domain, facetDisplayFields, useHitViewStyles} from '.'
+import {FieldValueDisplay, RelatedItems, Thumbnail, TitleIdHeader} from '@react-discovery/components'
 import {IHit, getSearchFields} from "@react-discovery/solr"
 import React, {ReactElement} from "react"
 import {EntityDisplay} from "./EntityDisplay"
 import {buildRandomUBLThumbnail} from "../../utils"
-
 interface IDescriptionHitComponent {
   hit: IHit;
   i?: number;

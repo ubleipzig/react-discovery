@@ -20,6 +20,7 @@
     "@material-ui/icons": "^4.0.1",
     "@material-ui/styles": "^4.0.1",
     "@react-discovery/i18n": "file:packages/react-discovery-i18n",
+    "@react-discovery/components": "file:packages/react-discovery-components",
     "@react-discovery/solr": "file:packages/react-discovery-solr",
     "@types/react-redux": "^7.1.0",
     "downshift": "^3.2.10",

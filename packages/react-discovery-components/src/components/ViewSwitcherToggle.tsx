@@ -1,27 +1,13 @@
-import {FormControl, FormControlLabel, Switch, makeStyles} from "@material-ui/core"
+import {FormControl, FormControlLabel, Switch} from "@material-ui/core"
 import React, {ReactElement} from "react"
 import {getIsViewExpanded, setIsViewExpanded} from "@react-discovery/solr"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
-
-const useStyles = makeStyles((theme): any => ({
-  formControl: {
-    justifyContent: 'center',
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-}));
+import {useViewSwitcherStyles} from "../styles"
 
 export const ViewSwitcherToggle: React.FC<any> = (): ReactElement => {
   const {t} = useTranslation()
-  const classes: any = useStyles({});
+  const classes: any = useViewSwitcherStyles({})
   const dispatch = useDispatch()
   const isViewExpanded = getIsViewExpanded()
 

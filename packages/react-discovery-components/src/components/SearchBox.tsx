@@ -1,50 +1,28 @@
 import {EndAdornment, StartAdornment} from "./SearchBoxInputAdornments"
 import React, {ReactElement} from "react"
-import {setQueryInput, setStart} from "@react-discovery/solr"
-import {TextField} from '@material-ui/core'
-import {makeStyles} from '@material-ui/core/styles';
-import {useDispatch} from "react-redux"
-import {useTranslation} from "react-i18next"
+import {setQueryInput, setSelectedIndex, setStart, setSuggest} from "@react-discovery/solr"
 import {useCurrentRoute, useNavigation} from "react-navi"
+import {TextField} from '@material-ui/core'
+import {useDispatch} from "react-redux"
+import {useSearchBoxStyles} from "../styles"
+import {useTranslation} from "react-i18next"
 
-const useStyles = makeStyles((theme): any => ({
-  container: {
-    display: 'flex',
-    flex: '1',
-    marginLeft: 0,
-    marginRight: theme.spacing(2),
-    maxHeight: '48px',
-    position: 'relative',
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
-    },
-  },
-  dense: {
-    marginTop: 19,
-  },
-  menu: {
-    width: 200,
-  },
-}));
-
-export const ExpertSearchBox: React.FC<any> = (): ReactElement => {
+export const SearchBox: React.FC<any> = (): ReactElement => {
   const {t} = useTranslation()
-  const classes: any = useStyles({})
+  const classes: any = useSearchBoxStyles({})
   const dispatch = useDispatch()
   const [values, setValues] = React.useState("")
   const navigation = useNavigation()
   const route = useCurrentRoute()
   const pathname = route.url.pathname
 
+  const handleChange = (e): void => {
+    setValues(e.target.value)
+  }
+
   const handleClear = (): void => {
     setValues('')
     dispatch(setQueryInput({stringInput: null}))
-  }
-
-  const handleChange = (e): void => {
-    setValues(e.target.value)
   }
 
   const handleSubmit = ((e): void => {
@@ -53,14 +31,16 @@ export const ExpertSearchBox: React.FC<any> = (): ReactElement => {
       navigation.navigate('/')
     }
     dispatch(setQueryInput({stringInput: values}))
+    dispatch(setSelectedIndex({selectedIndex: 0}))
     dispatch(setStart({start: 0}))
+    dispatch(setSuggest({stringInput: values, suggest: false}))
   })
 
   return (
     <form
       autoComplete="off"
       className={classes.container}
-      data-testid='expert-searchform'
+      data-testid='standard-searchform'
       noValidate
       onSubmit={handleSubmit}
     >
@@ -78,11 +58,10 @@ export const ExpertSearchBox: React.FC<any> = (): ReactElement => {
         }
         className={classes.input}
         fullWidth
-        id="expert-full-width"
+        id="standard-full-width"
         margin="normal"
         onChange={handleChange}
-        placeholder={t('expertSearch')}
-        style={{ backgroundColor: 'white', margin: 8 }}
+        placeholder={t('search')}
         type="search"
         value={values}
       />

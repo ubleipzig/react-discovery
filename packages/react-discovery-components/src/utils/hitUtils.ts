@@ -1,3 +1,7 @@
+import {FieldConstants} from '@react-discovery/solr'
+
+const typeField = FieldConstants.TYPE_FIELD
+
 export const getRandomInt = (min, max): string => {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -26,12 +30,12 @@ export const buildDateFormat = (field, hit): string => {
 }
 
 export const buildEntityCountForType = (entities, type): number => {
-  return entities && entities.filter((entity): boolean => entity.type_s === type).length
+  return entities && entities.filter((entity): boolean => entity[typeField] === type).length
 }
 
 export const getTypeForId = (hit, id): string => {
   const {_source} = hit
   if (_source.id === id) {
-    return _source.type_s
+    return _source[typeField]
   }
 }

@@ -1,33 +1,37 @@
-import {AppBar, Tab, Tabs, Theme, makeStyles, } from '@material-ui/core'
-import React, {ReactElement, useEffect} from 'react'
+import {AppBar, Tab, Tabs, Theme, makeStyles} from '@material-ui/core'
 import {
+  FieldConstants,
   SolrParameters,
   getDocTypes,
   getFilters,
+  getPrimaryTypeField,
   getStringInput,
   setGroupField,
   setIsViewExpanded,
-  setSelectedFilters,
-  setStart, setSuggest, setTypeDef, usePrevious
+  setSelectedFilters, setStart, setSuggest, setTypeDef, usePrevious
 } from "@react-discovery/solr"
+import React, {ReactElement, useEffect} from 'react'
+import {IOverridableStyledComponent} from ".."
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
-import {Domain} from "./hit-views"
 
-const useStyles = makeStyles((theme: Theme): any => ({
+const typeField = FieldConstants.TYPE_FIELD
+
+export const useTabsAppBarStyles = makeStyles((theme: Theme): any => ({
   root: {
     backgroundColor: theme.palette.background.paper,
     width: '100%',
   },
 }))
 
-export const TabsAppBar: React.FC<any> = (): ReactElement => {
-  const classes: any = useStyles({})
+export const TabsAppBar: React.FC<IOverridableStyledComponent> = (props): ReactElement => {
+  const classes: any = props.classes || useTabsAppBarStyles({})
   const dispatch = useDispatch()
   const docTypes = getDocTypes()
   const stringInput = getStringInput()
   const filters = getFilters()
   const prevFilters = usePrevious(filters)
+  const primaryTypeField = getPrimaryTypeField()
   const {t} = useTranslation('vocab')
   const [value, setValue] = React.useState(0)
   const docTypesKeys = docTypes.reduce((accumulator, currentValue): string[] => {
@@ -37,10 +41,8 @@ export const TabsAppBar: React.FC<any> = (): ReactElement => {
     return [...accumulator, currentValue.groupField];
   }, [])
 
-  const TYPE_FIELD = 'type_s'
-
   useEffect((): void => {
-    const [typeFilter] = filters[TYPE_FIELD]
+    const [typeFilter] = filters[typeField]
     if (prevFilters !== filters && typeFilter !== docTypesKeys[value]) {
       const index = typeFilter ? docTypesKeys.indexOf(typeFilter) : 0
       setValue(index)
@@ -52,12 +54,12 @@ export const TabsAppBar: React.FC<any> = (): ReactElement => {
     const groupField = docTypesGroupFields[newValue]
     const newFilters = typeObject.key ? Array.of(typeObject.key) : []
     dispatch(setSuggest({stringInput, suggest: false}))
-    dispatch(setSelectedFilters({field: TYPE_FIELD, filters: newFilters}))
+    dispatch(setSelectedFilters({field: typeField, filters: newFilters}))
     dispatch(setIsViewExpanded({isViewExpanded: false}))
     dispatch(setStart({start: 0}))
     dispatch(setGroupField({groupField}))
     // fix this
-    if (newFilters.includes(Domain.KULTUROBJEKT)) {
+    if (newFilters.includes(primaryTypeField)) {
       dispatch(setTypeDef({typeDef: SolrParameters.LUCENE}))
     } else {
       dispatch(setTypeDef({typeDef: SolrParameters.EDISMAX}))

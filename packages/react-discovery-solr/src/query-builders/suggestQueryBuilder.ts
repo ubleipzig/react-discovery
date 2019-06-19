@@ -1,4 +1,4 @@
-import {SolrParameters} from "./SolrParameters"
+import {SolrParameters} from "../enum/SolrParameters"
 const queryString = require('query-string')
 
 interface ISuggestQuery {

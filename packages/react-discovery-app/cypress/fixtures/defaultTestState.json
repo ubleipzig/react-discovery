@@ -34,44 +34,37 @@
             "defaultOption": true,
             "expandedView": false,
             "hitComponent": "DefaultHitComponent",
-            "key": "default",
-            "title": "Default"
+            "key": "default"
           },
           {
             "expandedView": false,
             "hitComponent": "Kulturobjekt",
-            "key": "facet",
-            "title": "Kulturobjekt"
+            "key": "facet"
           },
           {
             "expandedView": false,
             "hitComponent": "Beschreibung",
-            "key": "facet",
-            "title": "Beschreibung"
+            "key": "facet"
           },
           {
             "expandedView": false,
             "hitComponent": "Digitalisat",
-            "key": "facet",
-            "title": "Digitalisat"
+            "key": "facet"
           },
           {
             "expandedView": true,
             "hitComponent": "DigitalisatExpanded",
-            "key": "facet",
-            "title": "Digitalisat"
+            "key": "facet"
           },
           {
             "expandedView": true,
             "hitComponent": "KulturobjektExpanded",
-            "key": "facet",
-            "title": "Kulturobjekt"
+            "key": "facet"
           },
           {
             "expandedView": false,
             "hitComponent": "Person",
-            "key": "facet",
-            "title": "Person"
+            "key": "facet"
           }
         ],
         "initialFilter": {
@@ -79,6 +72,7 @@
             "Kulturobjekt"
           ]
         },
+        "primaryTypeField": "Kulturobjekt",
         "refinementListFilters": {
           "1": {
             "field": "entstehungsort_s",
@@ -296,7 +290,7 @@
         "sortFields": [
           {
             "field": "type_s",
-            "label": "Type",
+            "label": "type",
             "order": "asc"
           },
           {
@@ -537,7 +531,7 @@
     "sortFields": [
       {
         "field": "type_s",
-        "label": "Type",
+        "label": "type",
         "order": "asc"
       },
       {
