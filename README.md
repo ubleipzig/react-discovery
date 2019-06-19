@@ -2,7 +2,7 @@
 [![CircleCI](https://circleci.com/gh/ubleipzig/react-discovery.svg?style=shield)](https://circleci.com/gh/ubleipzig/react-discovery)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c5727bf2-2ed5-42f7-a8c1-274871f0c3ea/deploy-status)](https://app.netlify.com/sites/react-discovery/deploys)
 [![codecov](https://codecov.io/gh/ubleipzig/react-discovery/branch/master/graph/badge.svg)](https://codecov.io/gh/ubleipzig/react-discovery)
-[![npm](https://img.shields.io/npm/v/@react-discovery/solr.svg)](https://www.npmjs.com/package/@react-discovery/solr)
+[![npm (scoped)](https://img.shields.io/npm/v/@react-discovery/solr.svg?color=blue)](https://www.npmjs.com/package/@react-discovery/solr)
 ### Quick Start
 
 #### Create Environment
