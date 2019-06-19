@@ -5,6 +5,8 @@
     "solr",
     "react",
     "redux",
+    "material-ui ",
+    "react-component",
     "typescript"
   ],
   "version": "0.1.2",
