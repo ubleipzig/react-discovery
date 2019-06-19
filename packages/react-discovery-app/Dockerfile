@@ -10,7 +10,7 @@ ENV CIRCLE_BRANCH=${CIRCLE_BRANCH} \
     REACT_APP_SEARCH_API_COLLECTION=${REACT_APP_SEARCH_API_COLLECTION}
 RUN printenv
 WORKDIR /srv/react-discovery
-RUN git clone https://github.com/ubl-chj/react-discovery.git ./
+RUN git clone https://github.com/ubleipzig/react-discovery.git ./
 RUN git checkout ${CIRCLE_BRANCH}
 RUN npm i npm@latest -g
 RUN npm install --global lerna

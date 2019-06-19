@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:ubl-chj/react-discovery.git"
+    "url": "git@github.com:ubleipzig/react-discovery.git"
   },
   "dependencies": {
     "i18next": "^15.0.7",

@@ -1,5 +1,6 @@
 {
   "name": "@react-discovery/solr",
+  "license": "Apache 2.0",
   "keywords": [
     "solr",
     "react",
@@ -15,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:ubl-chj/react-discovery.git"
+    "url": "git@github.com:ubleipzig/react-discovery.git"
   },
   "scripts": {
     "build": "tsc"
