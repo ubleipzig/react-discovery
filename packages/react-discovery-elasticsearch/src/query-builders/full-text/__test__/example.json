@@ -1,0 +1,145 @@
+{
+  "query": {
+    "simple_query_string": {
+      "query": "Album",
+      "fields": [
+        "accessRights",
+        "alternatives",
+        "attribution",
+        "catalogueId",
+        "collections",
+        "contributors",
+        "coverages",
+        "creators",
+        "dates",
+        "description",
+        "descriptions",
+        "displayLanguages",
+        "formats",
+        "identifiers",
+        "incipits",
+        "languages",
+        "locations",
+        "manifest",
+        "publisher",
+        "related",
+        "shelfmark",
+        "sources",
+        "subjects",
+        "title",
+        "titles",
+        "types",
+        "seeAlso"
+      ]
+    }
+  },
+  "aggs": {
+    "collection2": {
+      "filter": {
+        "match_all": {}
+      },
+      "aggs": {
+        "collections.keyword": {
+          "terms": {
+            "field": "collections.keyword",
+            "size": 50
+          }
+        },
+        "collections.keyword_count": {
+          "cardinality": {
+            "field": "collections.keyword"
+          }
+        }
+      }
+    },
+    "subjects3": {
+      "filter": {
+        "match_all": {}
+      },
+      "aggs": {
+        "subjects.keyword": {
+          "terms": {
+            "field": "subjects.keyword",
+            "size": 50
+          }
+        },
+        "subjects.keyword_count": {
+          "cardinality": {
+            "field": "subjects.keyword"
+          }
+        }
+      }
+    },
+    "location4": {
+      "filter": {
+        "match_all": {}
+      },
+      "aggs": {
+        "locations.keyword": {
+          "terms": {
+            "field": "locations.keyword",
+            "size": 50
+          }
+        },
+        "locations.keyword_count": {
+          "cardinality": {
+            "field": "locations.keyword"
+          }
+        }
+      }
+    }
+  },
+  "size": 50,
+  "sort": [
+    {
+      "titles.keyword": "asc"
+    }
+  ],
+  "highlight": {
+    "fields": {
+      "accessRights": {},
+      "alternatives": {},
+      "attribution": {},
+      "catalogueId": {},
+      "collections": {},
+      "contributors": {},
+      "coverages": {},
+      "creators": {},
+      "dates": {},
+      "description": {},
+      "descriptions": {},
+      "displayLanguages": {},
+      "formats": {},
+      "identifiers": {},
+      "incipits": {},
+      "languages": {},
+      "locations": {},
+      "publisher": {},
+      "related": {},
+      "shelfmark": {},
+      "sources": {},
+      "subjects": {},
+      "title": {},
+      "titles": {},
+      "types": {}
+    }
+  },
+  "suggest": {
+    "text": "Album",
+    "suggestions": {
+      "phrase": {
+        "field": "title",
+        "real_word_error_likelihood": 0.95,
+        "max_errors": 1,
+        "gram_size": 4,
+        "direct_generator": [
+          {
+            "field": "title",
+            "suggest_mode": "always",
+            "min_word_length": 1
+          }
+        ]
+      }
+    }
+  }
+}

@@ -16,7 +16,7 @@ import {
 import {queryBuilder, suggestQueryBuilder} from "../query-builders"
 import {useCurrentRoute, useNavigation} from 'react-navi'
 import {IQuery} from ".."
-import {getInitialQuery} from "../state/selectors"
+import {getDefaultQuery} from "../state/selectors"
 import {pushHistory} from "../history"
 import {useDispatch} from 'react-redux'
 import {usePrevious} from "../hooks"
@@ -38,7 +38,7 @@ export const SolrResponseProvider: React.FC<ISolrResponseProvider> = (props): Re
     stringInput: route.url.query.q ? route.url.query.q : null
   }
   const start = getStart()
-  const query: IQuery = getInitialQuery()
+  const query: IQuery = getDefaultQuery()
   const dispatch = useDispatch()
   const stringInput = getStringInput()
   const prevStringInput = usePrevious(stringInput)

@@ -1,0 +1,16 @@
+{
+  "name": "@react-discovery/configuration",
+  "version": "0.1.0",
+  "description": "react discovery configuration",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ubleipzig/react-discovery.git"
+  },
+  "author": "Christopher Johnson",
+  "license": "Apache-2.0"
+}

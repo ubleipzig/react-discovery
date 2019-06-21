@@ -134,7 +134,7 @@ export const getUrl = (): string => {
   return useSelector((state: IState): string => state.query.url)
 }
 
-export const getInitialQuery = (): IQuery => {
+export const getDefaultQuery = (): IQuery => {
   const filters = getFilters()
   const groupField = getGroupField()
   const isHighlighted = getIsHighlighted()

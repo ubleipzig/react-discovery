@@ -1,0 +1,4 @@
+.env
+coverage/
+videos/
+.nyc_output

@@ -1,6 +1,6 @@
 import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
 import {setCurrentLanguage, setHitComponent, setIsPersisted, setIsViewExpanded, setSelectedIndex} from "../actions"
-import {IConfig} from "../../index"
+import {IConfig} from "../.."
 
 export const config = (initialState): ReducerBuilder<IConfig> => reducerWithInitialState(initialState)
   .case(setSelectedIndex, (state, {selectedIndex}): ReducerBuilder<IConfig> => ({

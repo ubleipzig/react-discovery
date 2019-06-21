@@ -1,0 +1,49 @@
+{
+  "name": "@react-discovery/solr-app",
+  "version": "0.1.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ubleipzig/react-discovery.git"
+  },
+  "author": {
+    "name": "Christopher Johnson",
+    "email": "chjohnson39@gmail.com"
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "start": "node scripts/start.js",
+    "cypress:open": "CYPRESS_baseUrl=http://localhost:3000 cypress open",
+    "report": "nyc report --reporter=text-lcov | codecov --pipe -t $CODECOV_TOKEN",
+    "test": "CYPRESS_baseUrl=http://localhost:3000 cypress run"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.0.1",
+    "@material-ui/icons": "^4.0.1",
+    "@material-ui/styles": "^4.0.1",
+    "@react-discovery/components": "file:../react-discovery-components",
+    "@react-discovery/i18n": "file:../react-discovery-i18n",
+    "@react-discovery/solr": "file:../react-discovery-solr",
+    "clsx": "^1.0.4",
+    "deepmerge": "^3.2.0",
+    "downshift": "^3.2.10",
+    "i18next": "^15.0.7",
+    "navi": "^0.12.7",
+    "react-navi": "^0.12.7"
+  }
+}
