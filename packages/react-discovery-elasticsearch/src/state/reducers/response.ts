@@ -27,7 +27,8 @@ const buildDocs = (result): IHit[] => {
   return result.hits.hits.map((hit): IHit => {
     return {
       _source: hit._source,
-      highlighting: hit.highlight || {}
+      highlighting: hit.highlight || {},
+      id: hit._id,
     }
   })
 }

@@ -1,2 +1,3 @@
-export * from '../../enum/Domain'
+export * from './DefaultHitComponent'
+export * from './DetailsView'
 export * from './useHitViewStyles'

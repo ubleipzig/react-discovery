@@ -1,15 +1,13 @@
 import {Card, CardContent} from "@material-ui/core"
 import {FieldValueDisplay, Thumbnail, TitleIdHeader, buildHighlightedValueForHit} from '@react-discovery/components'
-import {IHit, ISearchField, getSearchFields} from "@react-discovery/solr"
+import {IHit, getSearchFields} from "@react-discovery/elasticsearch"
 import React, {ReactElement} from "react"
 import {Domain} from '../../enum'
 import {useHitViewStyles} from '.'
 
 interface IDefaultItemComponent {
-  classes: any;
   hit: IHit;
-  i: number;
-  searchFields: ISearchField[];
+  i?: number;
 }
 
 const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultItemComponent): ReactElement => {
@@ -22,7 +20,7 @@ const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultIte
   return (
     <Card className={classes.root} key={i}>
       <TitleIdHeader
-        id={hit._source.id}
+        id={hit._source.id || hit.id}
         title={title}
       />
       <div style={{display: 'flex'}}>

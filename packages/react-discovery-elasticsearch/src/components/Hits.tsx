@@ -1,6 +1,6 @@
 import React, {ReactElement} from "react"
 import {getHits} from "../state"
-import {renderComponent} from '@react-discovery/components'
+import {renderComponent} from '.'
 
 export interface IHits {
   hitComponent: React.Component;

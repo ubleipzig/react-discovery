@@ -31,6 +31,7 @@ export interface IHits {
 }
 
 export interface IHit {
+  id: string;
   _source: any;
   highlighting: any;
 }
