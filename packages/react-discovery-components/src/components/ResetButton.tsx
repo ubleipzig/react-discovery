@@ -1,8 +1,9 @@
 import React, {ReactElement} from "react"
-import {SolrParameters, getRootContext, setQueryInput, setStart, setTypeDef} from "@react-discovery/solr"
 import {IOverridableStyledComponent} from ".."
 import {IconButton} from "@material-ui/core"
 import {Redo} from "@material-ui/icons"
+import {SolrCore} from "@react-discovery/core"
+import {getRootContext} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 import {useNavigation} from 'react-navi'
 import {useResetButtonStyles} from "../styles"
@@ -13,9 +14,9 @@ export const ResetButton: React.FC<IOverridableStyledComponent> = (props): React
   const navigation = useNavigation()
   const rootContext = getRootContext()
   const handleChange = (): void => {
-    dispatch(setQueryInput({stringInput: ''}))
-    dispatch(setStart({start: 0}))
-    dispatch(setTypeDef({typeDef: SolrParameters.EDISMAX}))
+    dispatch(SolrCore.state.setQueryInput({stringInput: ''}))
+    dispatch(SolrCore.state.setStart({start: 0}))
+    dispatch(SolrCore.state.setTypeDef({typeDef: SolrCore.enums.SolrParameters.EDISMAX}))
     navigation.navigate(rootContext)
   }
 

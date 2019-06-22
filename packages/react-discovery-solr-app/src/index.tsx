@@ -1,14 +1,13 @@
 import '@react-discovery/i18n'
 import {AnyAction, Store, applyMiddleware, createStore} from "redux"
 import {DetailsView, MinimalResultsViewer} from './components'
-import { Router, View } from 'react-navi'
+import {Router, View} from 'react-navi'
 import { mount, route } from 'navi'
 import thunkMiddleware, { ThunkMiddleware } from 'redux-thunk'
-
 import {Provider} from 'react-redux'
 import React from "react"
 import ReactDOM from "react-dom"
-import {SolrResponseProvider} from "@react-discovery/solr"
+import {SolrResponseProvider} from "@react-discovery/core"
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {rootReducer} from "./state"
 

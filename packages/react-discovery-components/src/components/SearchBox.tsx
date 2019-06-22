@@ -1,8 +1,9 @@
 import {EndAdornment, StartAdornment} from "./SearchBoxInputAdornments"
 import React, {ReactElement} from "react"
-import {setQueryInput, setSelectedIndex, setStart, setSuggest} from "@react-discovery/solr"
 import {useCurrentRoute, useNavigation} from "react-navi"
+import {SolrCore} from "@react-discovery/core"
 import {TextField} from '@material-ui/core'
+import {setSelectedIndex} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 import {useSearchBoxStyles} from "../styles"
 import {useTranslation} from "react-i18next"
@@ -22,7 +23,7 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
 
   const handleClear = (): void => {
     setValues('')
-    dispatch(setQueryInput({stringInput: null}))
+    dispatch(SolrCore.state.setQueryInput({stringInput: null}))
   }
 
   const handleSubmit = ((e): void => {
@@ -30,10 +31,10 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
     if (pathname !== '/') {
       navigation.navigate('/')
     }
-    dispatch(setQueryInput({stringInput: values}))
+    dispatch(SolrCore.state.setQueryInput({stringInput: values}))
     dispatch(setSelectedIndex({selectedIndex: 0}))
-    dispatch(setStart({start: 0}))
-    dispatch(setSuggest({stringInput: values, suggest: false}))
+    dispatch(SolrCore.state.setStart({start: 0}))
+    dispatch(SolrCore.state.setSuggest({stringInput: values, suggest: false}))
   })
 
   return (

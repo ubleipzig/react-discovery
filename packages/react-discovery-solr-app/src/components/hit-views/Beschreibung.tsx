@@ -1,7 +1,7 @@
 import {Card, CardActions, CardContent} from "@material-ui/core"
 import {Domain, facetDisplayFields, useHitViewStyles} from '.'
 import {FieldValueDisplay, RelatedItems, Thumbnail, TitleIdHeader} from '@react-discovery/components'
-import {IHit, getSearchFields} from "@react-discovery/solr"
+import {IHit, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {EntityDisplay} from "./EntityDisplay"
 import {buildRandomUBLThumbnail} from "../../utils"
@@ -12,7 +12,7 @@ interface IDescriptionHitComponent {
 
 const Beschreibung: React.FC<IDescriptionHitComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const searchFields = getSearchFields()
+  const searchFields = SolrCore.state.getSearchFields()
   const {hit, i} = props
   const displayFields = searchFields.filter((sf): boolean => sf.field === 'beschreibungTitle_t')
 

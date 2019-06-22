@@ -10,12 +10,12 @@ import {
 import {FieldLabel, InnerHtmlValue, buildEntityCountForType} from "@react-discovery/components"
 import React, {ReactElement} from "react"
 import {ExpandMore} from "@material-ui/icons"
-import {FieldConstants} from '@react-discovery/solr'
 import {IDisplayField} from "./displayFields"
+import {SolrCore} from '@react-discovery/core'
 import {useHitViewStyles} from "./useHitViewStyles"
 import {useTranslation} from "react-i18next"
 
-const typeField = FieldConstants.TYPE_FIELD
+const typeField = SolrCore.enums.FieldConstants.TYPE_FIELD
 
 interface INestedEntityDisplay {
   displayFields: IDisplayField[];

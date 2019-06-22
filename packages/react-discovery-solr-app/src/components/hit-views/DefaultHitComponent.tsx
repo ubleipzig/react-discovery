@@ -1,6 +1,6 @@
 import {Card, CardContent} from "@material-ui/core"
 import {FieldValueDisplay, Thumbnail, TitleIdHeader, buildHighlightedValueForHit} from '@react-discovery/components'
-import {IHit, getSearchFields} from "@react-discovery/solr"
+import {IHit, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {buildRandomUBLThumbnail} from "../../utils"
 import {useHitViewStyles} from '.'
@@ -12,7 +12,7 @@ interface IDefaultItemComponent {
 
 const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultItemComponent): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const searchFields = getSearchFields()
+  const searchFields = SolrCore.state.getSearchFields()
   const {hit, i} = props
   const title = buildHighlightedValueForHit('titel_t', hit)
 

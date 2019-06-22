@@ -1,5 +1,5 @@
-import {ElasticSearchConstants} from "@react-discovery/elasticsearch"
-import {IConfig} from "@react-discovery/solr"
+import {ESCore} from "@react-discovery/core"
+import {IConfig} from "@react-discovery/configuration"
 
 export const ox1: IConfig = {
   collections: {
@@ -181,7 +181,7 @@ export const ox1: IConfig = {
           order: "desc"
         }
       ],
-      url: process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION + ElasticSearchConstants.SEARCH
+      url: process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION + ESCore.enums.ElasticSearchConstants.SEARCH
     }
   }
 }

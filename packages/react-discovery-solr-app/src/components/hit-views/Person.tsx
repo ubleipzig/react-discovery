@@ -7,7 +7,7 @@ import {
   TitleIdHeader,
   buildHighlightedValueForHit
 } from '@react-discovery/components'
-import {IHit, getSearchFields} from "@react-discovery/solr"
+import {IHit, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {buildRandomUBLThumbnail} from "../../utils"
 
@@ -21,7 +21,7 @@ const filteredFields = ['personBirthDate', 'personDeathDate', 'personBirthPlace'
 
 const Person: React.FC<IPerson> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const searchFields = getSearchFields()
+  const searchFields = SolrCore.state.getSearchFields()
   const {hit, i} = props
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('personFullname_t', hit)

@@ -1,7 +1,7 @@
 import React, {ReactElement} from "react"
 import {IOverridableStyledComponent} from ".."
 import {ItemList} from "./ItemList"
-import {getRefinementListFilters} from "@react-discovery/solr"
+import {getRefinementListFilters} from "@react-discovery/configuration"
 import {useTranslation} from "react-i18next"
 
 export const RefinementListFilters: React.FC<IOverridableStyledComponent> = (props): ReactElement => {

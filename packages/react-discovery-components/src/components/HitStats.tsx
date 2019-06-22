@@ -1,10 +1,10 @@
 import {Box, Typography} from '@material-ui/core'
 import React, {ReactElement} from "react"
-import {getNumFound} from "@react-discovery/solr"
+import {SolrCore} from "@react-discovery/core"
 import {useTranslation} from 'react-i18next'
 
 export const HitStats: React.FC<any> = (): ReactElement => {
-  const numFound = getNumFound()
+  const numFound = SolrCore.state.getNumFound()
   const {t} = useTranslation()
   return (
     <Box

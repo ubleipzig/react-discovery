@@ -1,5 +1,5 @@
 import React, {ReactElement} from "react"
-import {getHits} from "@react-discovery/solr"
+import {SolrCore} from "@react-discovery/core"
 import {renderComponent} from '.'
 
 export interface IHits {
@@ -7,7 +7,7 @@ export interface IHits {
 }
 
 export const Hits: React.FC<IHits> = (props): ReactElement => {
-  const hits = getHits()
+  const hits = SolrCore.state.getHits()
   const {hitComponent} = props
 
   const buildHits = (hits): ReactElement => hits.map((hit, i): ReactElement => (

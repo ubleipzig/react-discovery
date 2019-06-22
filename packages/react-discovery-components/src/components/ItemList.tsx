@@ -6,18 +6,9 @@ import {
   ListItem,
   ListItemText,
   Typography,
-  makeStyles
 } from '@material-ui/core'
 import React, {ReactElement} from "react"
-import {
-  getAggregation,
-  getFiltersForField,
-  getStringInput,
-  setQueryInput,
-  setSelectedFilters,
-  setStart,
-  setSuggest
-} from "@react-discovery/solr"
+import {SolrCore} from "@react-discovery/core"
 import {ExpandMore} from '@material-ui/icons'
 import {useDispatch} from "react-redux"
 import {useItemListStyles} from '../styles'
@@ -33,9 +24,9 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
   const classes: any = props.classes || useItemListStyles({})
   const dispatch = useDispatch()
   const {field, label} = props
-  const aggregation = getAggregation(field)
-  const filters = getFiltersForField(field)
-  const stringInput = getStringInput()
+  const aggregation = SolrCore.state.getAggregation(field)
+  const filters = SolrCore.state.getFiltersForField(field)
+  const stringInput = SolrCore.state.getStringInput()
   const [isExpanded, setExpanded] = React.useState(false)
 
   const handleExpand = (panel): any => ({}, isExpanded): void => { // eslint-disable-line no-empty-pattern
@@ -45,10 +36,10 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
   const handleChange = (key): void => {
     const newFilters = filters && filters.length ? filters.filter((f): any => f !== key) : []
     newFilters.push(key)
-    dispatch(setSuggest({suggest: false}))
-    dispatch(setSelectedFilters({field, filters: newFilters}))
-    dispatch(setQueryInput({stringInput}))
-    dispatch(setStart({start: 0}))
+    dispatch(SolrCore.state.setSuggest({suggest: false}))
+    dispatch(SolrCore.state.setSelectedFilters({field, filters: newFilters}))
+    dispatch(SolrCore.state.setQueryInput({stringInput}))
+    dispatch(SolrCore.state.setStart({start: 0}))
   }
 
   const actions = (aggregation): ReactElement => {

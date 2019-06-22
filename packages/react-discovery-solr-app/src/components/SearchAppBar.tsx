@@ -11,11 +11,11 @@ import {
   useSearchAppBarStyles
 } from '@react-discovery/components'
 import React, {ReactElement} from 'react'
-import {SolrParameters, getTypeDef} from "@react-discovery/solr"
+import {SolrCore} from "@react-discovery/core"
 
 export const SearchAppBar: React.FC<IOverridableStyledComponent> = (props): ReactElement => {
   const classes: any = props.classes || useSearchAppBarStyles({})
-  const typeDef = getTypeDef()
+  const typeDef = SolrCore.state.getTypeDef()
 
   return (
     <div className={classes.grow}>
@@ -41,7 +41,7 @@ export const SearchAppBar: React.FC<IOverridableStyledComponent> = (props): Reac
           >
             Discovery App
           </Typography>
-          {typeDef === SolrParameters.EDISMAX ? <SearchBox/> : <ExpertSearchBox/>}
+          {typeDef === SolrCore.enums.SolrParameters.EDISMAX ? <SearchBox/> : <ExpertSearchBox/>}
           <div className={classes.sectionDesktop}>
             <ResetButton/>
             <SearchSettingsMenu/>

@@ -1,29 +1,19 @@
 import {AppBar, Tab, Tabs} from '@material-ui/core'
-import {
-  FieldConstants,
-  SolrParameters,
-  getDocTypes,
-  getFilters,
-  getPrimaryTypeField,
-  getStringInput,
-  setGroupField,
-  setIsViewExpanded,
-  setSelectedFilters, setStart, setSuggest, setTypeDef, usePrevious
-} from "@react-discovery/solr"
 import {IOverridableStyledComponent, useTabsAppBarStyles} from ".."
 import React, {ReactElement, useEffect} from 'react'
-
+import {SolrCore, usePrevious} from "@react-discovery/core"
+import {getDocTypes, getPrimaryTypeField, setIsViewExpanded} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 
-const typeField = FieldConstants.TYPE_FIELD
+const typeField = SolrCore.enums.FieldConstants.TYPE_FIELD
 
 export const TabsAppBar: React.FC<IOverridableStyledComponent> = (props): ReactElement => {
   const classes: any = props.classes || useTabsAppBarStyles({})
   const dispatch = useDispatch()
   const docTypes = getDocTypes()
-  const stringInput = getStringInput()
-  const filters = getFilters()
+  const stringInput = SolrCore.state.getStringInput()
+  const filters = SolrCore.state.getFilters()
   const prevFilters = usePrevious(filters)
   const primaryTypeField = getPrimaryTypeField()
   const {t} = useTranslation('vocab')
@@ -47,15 +37,15 @@ export const TabsAppBar: React.FC<IOverridableStyledComponent> = (props): ReactE
     const typeObject = docTypes[newValue]
     const groupField = docTypesGroupFields[newValue]
     const newFilters = typeObject.key ? Array.of(typeObject.key) : []
-    dispatch(setSuggest({stringInput, suggest: false}))
-    dispatch(setSelectedFilters({field: typeField, filters: newFilters}))
+    dispatch(SolrCore.state.setSuggest({stringInput, suggest: false}))
+    dispatch(SolrCore.state.setSelectedFilters({field: typeField, filters: newFilters}))
     dispatch(setIsViewExpanded({isViewExpanded: false}))
-    dispatch(setStart({start: 0}))
-    dispatch(setGroupField({groupField}))
+    dispatch(SolrCore.state.setStart({start: 0}))
+    dispatch(SolrCore.state.setGroupField({groupField}))
     if (newFilters.includes(primaryTypeField)) {
-      dispatch(setTypeDef({typeDef: SolrParameters.LUCENE}))
+      dispatch(SolrCore.state.setTypeDef({typeDef: SolrCore.enums.SolrParameters.LUCENE}))
     } else {
-      dispatch(setTypeDef({typeDef: SolrParameters.EDISMAX}))
+      dispatch(SolrCore.state.setTypeDef({typeDef: SolrCore.enums.SolrParameters.EDISMAX}))
     }
     setValue(newValue)
   }

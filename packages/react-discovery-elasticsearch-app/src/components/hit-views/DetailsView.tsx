@@ -1,6 +1,6 @@
 import {Grid, Theme, createStyles, makeStyles} from "@material-ui/core"
 import React, {ReactElement, useEffect, useState} from "react"
-import {getHits, getStringInput, setQueryInput, usePrevious} from "@react-discovery/elasticsearch"
+import {ESCore, usePrevious} from "@react-discovery/core"
 import DefaultHitComponent from "./DefaultHitComponent"
 import {SearchAppBar} from '..'
 import {getTypeForId} from '@react-discovery/components'
@@ -29,19 +29,19 @@ const useStyles = makeStyles((theme: Theme): any =>
 
 export const DetailsView: React.FC<IDetailsView> = (props): ReactElement => {
   const {id} = props
-  const stringInput = getStringInput()
+  const stringInput = ESCore.state.getStringInput()
   const prevStringInput = usePrevious(stringInput)
   const [isInitialized, setIsInitialized] = useState(false)
-  const hits = getHits()
+  const hits = ESCore.state.getHits()
   const hit = hits && hits.hits.length ? hits.hits[0] : null
   const dispatch = useDispatch()
 
   useEffect((): void => {
     if (!isInitialized) {
-      dispatch(setQueryInput({stringInput: id}))
+      dispatch(ESCore.state.setQueryInput({stringInput: id}))
       setIsInitialized(true)
     } else if (prevStringInput !== stringInput) {
-      dispatch(setQueryInput({stringInput: id}))
+      dispatch(ESCore.state.setQueryInput({stringInput: id}))
     }
   })
   const lClasses: any = useStyles({})

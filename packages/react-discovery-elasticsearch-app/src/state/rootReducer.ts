@@ -1,6 +1,6 @@
-import {IQuery, config, query, response} from "@react-discovery/elasticsearch"
+import {IConfig, config} from "@react-discovery/configuration"
+import {ESCore, IElasticSearchQuery} from "@react-discovery/core"
 import {Reducer, combineReducers} from "redux"
-import {IConfig} from "@react-discovery/configuration"
 import {localConfig} from "../config"
 
 const {collections, currentCollection} = localConfig
@@ -12,17 +12,18 @@ const {searchFields, sortFields} = collections[currentCollection]
 const initialConfigState: IConfig = localConfig
 const configReducer: Reducer = config(initialConfigState)
 
-export const initialQueryState: IQuery = {
+export const initialQueryState: IElasticSearchQuery = {
+  from: 0,
   searchFields,
   size: 20,
   sortFields,
   stringInput: null,
 }
 
-const queryReducer: Reducer = query(initialQueryState)
+const queryReducer: Reducer = ESCore.state.query(initialQueryState)
 
 export const rootReducer = (): Reducer => combineReducers({
   config: configReducer,
   query: queryReducer,
-  response,
+  response: ESCore.state.response
 })

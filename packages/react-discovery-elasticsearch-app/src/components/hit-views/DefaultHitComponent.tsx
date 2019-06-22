@@ -1,6 +1,6 @@
 import {Card, CardContent} from "@material-ui/core"
+import {ESCore, IHit} from "@react-discovery/core"
 import {FieldValueDisplay, Thumbnail, TitleIdHeader, buildHighlightedValueForHit} from '@react-discovery/components'
-import {IHit, getSearchFields} from "@react-discovery/elasticsearch"
 import React, {ReactElement} from "react"
 import {Domain} from '../../enum'
 import {useHitViewStyles} from '.'
@@ -12,7 +12,7 @@ interface IDefaultItemComponent {
 
 const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultItemComponent): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const searchFields = getSearchFields()
+  const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
   const {_source} = hit
   const title = buildHighlightedValueForHit('title', hit)

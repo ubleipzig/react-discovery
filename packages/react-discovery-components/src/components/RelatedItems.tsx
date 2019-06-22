@@ -1,15 +1,8 @@
 import {Link, useCurrentRoute} from "react-navi"
 import React, {ReactElement} from "react"
-import {
-  SolrParameters,
-  setGroupField,
-  setQueryInput,
-  setSelectedFilters,
-  setStart,
-  setTypeDef
-} from "@react-discovery/solr"
 import {Button} from "@material-ui/core"
 import MuiLink from '@material-ui/icons/Link';
+import {SolrCore} from "@react-discovery/core"
 import clsx from 'clsx';
 import {useDispatch} from "react-redux"
 import {useRelatedItemsStyles} from "../styles"
@@ -30,18 +23,18 @@ export const RelatedItems: React.FC<IRelatedItems> = (props): ReactElement => {
   const {t} = useTranslation('vocab')
 
   const handleChange = (): void => {
-    dispatch(setQueryInput({stringInput: id}))
-    dispatch(setSelectedFilters({field: 'type_s', filters}))
-    dispatch(setStart({start: 0}))
-    dispatch(setGroupField({groupField: ''}))
-    dispatch(setTypeDef({typeDef: SolrParameters.LUCENE}))
+    dispatch(SolrCore.state.setQueryInput({stringInput: id}))
+    dispatch(SolrCore.state.setSelectedFilters({field: 'type_s', filters}))
+    dispatch(SolrCore.state.setStart({start: 0}))
+    dispatch(SolrCore.state.setGroupField({groupField: ''}))
+    dispatch(SolrCore.state.setTypeDef({typeDef: SolrCore.enums.SolrParameters.LUCENE}))
   }
 
   const handleContextReset = (): void => {
-    dispatch(setQueryInput({stringInput: id}))
-    dispatch(setSelectedFilters({field: 'type_s', filters: []}))
-    dispatch(setStart({start: 0}))
-    dispatch(setGroupField({groupField: ''}))
+    dispatch(SolrCore.state.setQueryInput({stringInput: id}))
+    dispatch(SolrCore.state.setSelectedFilters({field: 'type_s', filters: []}))
+    dispatch(SolrCore.state.setStart({start: 0}))
+    dispatch(SolrCore.state.setGroupField({groupField: ''}))
   }
 
   const buildRelatedItemsForPathName = (): ReactElement => {

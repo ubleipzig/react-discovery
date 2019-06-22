@@ -1,19 +1,19 @@
 import {Chip, List} from '@material-ui/core'
 import React, {ReactElement} from "react"
-import {getFilters, setSelectedFilters, setStart} from "@react-discovery/solr"
 import {IOverridableStyledComponent} from ".."
+import {SolrCore} from "@react-discovery/core"
 import {useDispatch} from "react-redux"
 import {useGroupSelectedFiltersStyles} from '../styles'
 
 export const GroupSelectedFilters: React.FC<IOverridableStyledComponent> = (props): ReactElement => {
   const classes: any = props.classes || useGroupSelectedFiltersStyles({})
   const dispatch = useDispatch()
-  const filters = getFilters()
+  const filters = SolrCore.state.getFilters()
 
   const onClose = (field: string, filter: any): void => {
     const newFilters = filters[field].filter((f): boolean => f !== filter)
-    dispatch(setSelectedFilters({field, filters: newFilters}))
-    dispatch(setStart({start: 0}))
+    dispatch(SolrCore.state.setSelectedFilters({field, filters: newFilters}))
+    dispatch(SolrCore.state.setStart({start: 0}))
   }
 
   const buildFilters = (filters): ReactElement[] => {

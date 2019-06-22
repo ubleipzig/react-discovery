@@ -1,8 +1,8 @@
 import {IconButton, Menu, MenuItem} from "@material-ui/core"
 import React, {ReactElement} from "react"
-import {getTypeDef, setTypeDef} from "@react-discovery/solr"
 import {IOverridableStyledComponent} from "../.."
 import Settings from "@material-ui/icons/Settings"
+import {SolrCore} from "@react-discovery/core"
 import {useDispatch} from "react-redux"
 import {useMenuButtonStyles} from "../../styles"
 import {useTranslation} from "react-i18next"
@@ -11,7 +11,7 @@ export const SearchSettingsMenu: React.FC<IOverridableStyledComponent> = (props)
   const classes: any = props.classes || useMenuButtonStyles({})
   const dispatch = useDispatch()
   const {t} = useTranslation()
-  const typeDef = getTypeDef()
+  const typeDef = SolrCore.state.getTypeDef()
   const parsers = [
     {
       key: 'edismax',
@@ -31,7 +31,7 @@ export const SearchSettingsMenu: React.FC<IOverridableStyledComponent> = (props)
   }
 
   const handleMenuAction = (typeDef): void => {
-    dispatch(setTypeDef({typeDef}))
+    dispatch(SolrCore.state.setTypeDef({typeDef}))
     setAnchorEl(null)
   }
 

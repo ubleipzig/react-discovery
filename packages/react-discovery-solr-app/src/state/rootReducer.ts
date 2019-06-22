@@ -1,6 +1,6 @@
-import {IQuery, config, query, response, suggestions} from "@react-discovery/solr"
+import {IConfig, config} from "@react-discovery/configuration"
+import {ISolrQuery, SolrCore} from "@react-discovery/core"
 import {Reducer, combineReducers} from "redux"
-import {IConfig} from "@react-discovery/configuration"
 import {localConfig} from "../config"
 
 const {collections, currentCollection} = localConfig
@@ -12,7 +12,7 @@ const {initialFilter, searchFields, sortFields, url} = collections[currentCollec
 const initialConfigState: IConfig = localConfig
 const configReducer: Reducer = config(initialConfigState)
 
-export const initialQueryState: IQuery = {
+export const initialQueryState: ISolrQuery = {
   fieldList: null,
   filters: initialFilter || {},
   isHighlighted: true,
@@ -26,11 +26,11 @@ export const initialQueryState: IQuery = {
   typeDef: 'edismax',
   url
 }
-const queryReducer: Reducer = query(initialQueryState)
+const queryReducer: Reducer = SolrCore.state.query(initialQueryState)
 
 export const rootReducer = (): Reducer => combineReducers({
   config: configReducer,
   query: queryReducer,
-  response,
-  suggestions
+  response: SolrCore.state.response,
+  suggestions: SolrCore.state.suggestions
 })

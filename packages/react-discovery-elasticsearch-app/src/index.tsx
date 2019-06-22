@@ -4,7 +4,7 @@ import { Router, View } from 'react-navi'
 import { mount, route } from 'navi'
 import thunkMiddleware, { ThunkMiddleware } from 'redux-thunk'
 import {DetailsView} from "./components/hit-views"
-import {ElasticSearchProvider} from "@react-discovery/elasticsearch"
+import {ElasticSearchProvider} from "@react-discovery/core"
 import {MinimalResultsViewer} from './components'
 import {Provider} from 'react-redux'
 import React from "react"

@@ -1,7 +1,7 @@
 import {Book, ChatBubble, Image, Person} from '@material-ui/icons'
 import {Card, CardActions, CardContent, Typography} from "@material-ui/core"
 import {Domain, useHitViewStyles} from '.'
-import {IHit, getFilterType, getSearchFields} from "@react-discovery/solr"
+import {IHit, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {
   Thumbnail,
@@ -22,12 +22,12 @@ interface IDefaultItemComponent {
 
 const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const searchFields = getSearchFields()
+  const searchFields = SolrCore.state.getSearchFields()
   const {hit, i} = props
   const title = buildHighlightedValueForHit('titel_t', hit)
   const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
-  const filterType = getFilterType()
+  const filterType = SolrCore.state.getFilterType()
   const {t} = useTranslation('vocab')
   const entities = hit && hit._source.entities && hit._source.entities
 
