@@ -9,8 +9,8 @@ import {
   Typography,
 } from "@material-ui/core"
 import {Domain, IDisplayField, NestedEntityDisplay, useHitViewStyles} from '.'
-import {FieldConstants, IHit} from "@react-discovery/solr"
 import {FieldLabel, InnerHtmlValue, buildEntityCountForType} from "@react-discovery/components"
+import {IHit, SolrCore} from "@react-discovery/core"
 import React, {Fragment, ReactElement} from "react"
 import {useTranslation} from "react-i18next"
 
@@ -22,7 +22,7 @@ interface IEntityDisplay {
   type: string;
 }
 
-const typeField = FieldConstants.TYPE_FIELD
+const typeField = SolrCore.enums.FieldConstants.TYPE_FIELD
 
 export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})

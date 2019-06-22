@@ -1,7 +1,8 @@
 import {Hits, useFacetViewSwitcherStyles} from "@react-discovery/components"
 import React, {ReactElement, Suspense} from "react"
-import {getFilterType, getHitComponents, getIsViewExpanded} from "@react-discovery/solr"
+import {getHitComponents, getIsViewExpanded} from "@react-discovery/configuration"
 import CircularProgress from '@material-ui/core/CircularProgress'
+import {SolrCore} from "@react-discovery/core"
 
 const CUSTOM_COMPONENT_PATH = './hit-views/'
 const FACET_KEY = 'facet'
@@ -9,7 +10,7 @@ const EXPANDED = 'Expanded'
 
 export const FacetViewSwitcher: React.FC<any> = (props): ReactElement => {
   const classes: any = useFacetViewSwitcherStyles({})
-  const filterType = getFilterType()
+  const filterType = SolrCore.state.getFilterType()
   const hitComponents = getHitComponents()
   const isViewExpanded = getIsViewExpanded()
   const buildHitComponent = (): ReactElement => {

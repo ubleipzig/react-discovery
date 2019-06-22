@@ -9,11 +9,11 @@ import {
 } from "@react-discovery/components"
 import React, {ReactElement} from "react"
 import {FacetViewSwitcher} from "."
-import {getHits} from "@react-discovery/solr"
+import {SolrCore} from "@react-discovery/core"
 
 export const MinWidthResultsGrid: React.FC<any> = (): ReactElement => {
   const classes: any = useMinWidthResultsGridStyles({})
-  const hits = getHits()
+  const hits = SolrCore.state.getHits()
   return (
     <Grid
       item xs={12}

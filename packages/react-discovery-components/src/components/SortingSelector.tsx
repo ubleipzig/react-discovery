@@ -1,7 +1,8 @@
 import {ArrowDownward, ArrowUpward} from '@material-ui/icons'
 import {FlexBox, IOverridableStyledComponent} from ".."
 import {FormControl, IconButton, Input, NativeSelect} from '@material-ui/core'
-import {ISortField, getSortFields, getStringInput, setSortFields, setSuggest} from "@react-discovery/solr"
+import {ISortField} from "@react-discovery/configuration"
+import {SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {useDispatch} from "react-redux"
 import {useSortingSelectorStyles} from "../styles"
@@ -11,8 +12,8 @@ export const SortingSelector: React.FC<IOverridableStyledComponent> = (props): R
   const {t} = useTranslation('vocab')
   const classes: any = props.classes || useSortingSelectorStyles({})
   const dispatch = useDispatch()
-  const sortFields = getSortFields()
-  const stringInput = getStringInput()
+  const sortFields = SolrCore.state.getSortFields()
+  const stringInput = SolrCore.state.getStringInput()
   const [selectorValue, setSelectorValue] = React.useState('')
   const [sortOrder, setSortOrder] = React.useState('asc')
 
@@ -34,8 +35,8 @@ export const SortingSelector: React.FC<IOverridableStyledComponent> = (props): R
     }, [])
     const sorted = newSortFields.sort((a: any, b: any): any => (a.isSelected === b.isSelected) ? 0 : a.isSelected ? -1 : 1)
     const [currentSortSelection] = sorted
-    dispatch(setSuggest({stringInput, suggest: false}))
-    dispatch(setSortFields({sortFields: sorted}))
+    dispatch(SolrCore.state.setSuggest({stringInput, suggest: false}))
+    dispatch(SolrCore.state.setSortFields({sortFields: sorted}))
     setSelectorValue(currentSortSelection.field)
     setSortOrder(currentSortSelection.order)
   }
@@ -54,7 +55,7 @@ export const SortingSelector: React.FC<IOverridableStyledComponent> = (props): R
         }
         return sf
       })
-      dispatch(setSortFields({sortFields: newSortFields}))
+      dispatch(SolrCore.state.setSortFields({sortFields: newSortFields}))
     }
   }
 

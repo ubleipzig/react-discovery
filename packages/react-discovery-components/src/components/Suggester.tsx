@@ -1,8 +1,8 @@
 import {Chip, MenuItem, Paper, TextField} from '@material-ui/core'
 import React, {ReactElement} from 'react'
-import {getTerms, setStart, setSuggest} from "@react-discovery/solr"
 import Downshift from 'downshift'
 import {IOverridableStyledComponent} from ".."
+import {SolrCore} from "@react-discovery/core"
 import deburr from 'lodash/deburr'
 import {useDispatch} from "react-redux"
 import {useSuggesterStyles} from "../styles"
@@ -62,13 +62,13 @@ export const Suggester: React.FC<IOverridableStyledComponent> = (props): ReactEl
   const {t} = useTranslation()
   const classes: any = props.classes || useSuggesterStyles({})
   const dispatch = useDispatch()
-  const terms = getTerms()
+  const terms = SolrCore.state.getTerms()
   const [selectedItem, setSelectedItem] = React.useState([])
   const [inputValue, setInputValue] = React.useState('')
 
   const onInputChange = (e): void => {
     setInputValue(e.target.value)
-    dispatch(setSuggest({stringInput: e.target.value, suggest: true}))
+    dispatch(SolrCore.state.setSuggest({stringInput: e.target.value, suggest: true}))
   }
 
   const onSelect = (item): void => {
@@ -79,16 +79,16 @@ export const Suggester: React.FC<IOverridableStyledComponent> = (props): ReactEl
     setInputValue('')
     setSelectedItem(newSelectedItem)
     const quotedItem = `"${item}"`
-    dispatch(setSuggest({stringInput: quotedItem, suggest: true}))
-    dispatch(setStart({start: 0}))
+    dispatch(SolrCore.state.setSuggest({stringInput: quotedItem, suggest: true}))
+    dispatch(SolrCore.state.setStart({start: 0}))
   }
 
   const handleDelete = (item): any => (): void => {
     const newSelectedItem = [...selectedItem]
     newSelectedItem.splice(newSelectedItem.indexOf(item), 1)
     setSelectedItem(newSelectedItem)
-    dispatch(setSuggest({stringInput: '', suggest: true}))
-    dispatch(setStart({start: 0}))
+    dispatch(SolrCore.state.setSuggest({stringInput: '', suggest: true}))
+    dispatch(SolrCore.state.setStart({start: 0}))
   }
 
   const handleKeyDown = (event): void => {

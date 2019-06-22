@@ -1,3 +1,4 @@
+export * from './state'
 export interface IConfig {
   currentCollection?: string;
   currentLanguage?: string;

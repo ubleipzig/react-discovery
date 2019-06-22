@@ -1,6 +1,6 @@
 import {FormControl, FormControlLabel, Switch} from "@material-ui/core"
 import React, {ReactElement} from "react"
-import {getIsViewExpanded, setIsViewExpanded} from "@react-discovery/solr"
+import {getIsViewExpanded, setIsViewExpanded} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 import {useViewSwitcherStyles} from "../styles"

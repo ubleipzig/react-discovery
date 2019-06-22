@@ -17,7 +17,7 @@ import {
   ViewSwitcherToggle,
   buildHighlightedValueForHit
 } from '@react-discovery/components'
-import {IHit, getSearchFields} from "@react-discovery/solr"
+import {IHit, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {buildRandomUBLThumbnail} from "../../utils"
 
@@ -33,7 +33,7 @@ const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDa
 
 const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const searchFields = getSearchFields()
+  const searchFields = SolrCore.state.getSearchFields()
   const {hit, i} = props
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('titel_t', hit)

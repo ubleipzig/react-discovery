@@ -1,6 +1,6 @@
-import {FieldConstants} from '@react-discovery/solr'
+import {SolrCore} from '@react-discovery/core'
 
-const typeField = FieldConstants.TYPE_FIELD
+const typeField = SolrCore.enums.FieldConstants.TYPE_FIELD
 
 export const buildHighlightedValueForHit = (field, hit): string => {
   const {_source, highlighting} = hit

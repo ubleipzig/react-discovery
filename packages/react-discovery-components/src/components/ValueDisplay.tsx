@@ -1,6 +1,6 @@
 import React, {ReactElement} from "react"
 import {buildDateFormat, buildHighlightedValueForHit} from '../utils'
-import {IHit} from "@react-discovery/solr"
+import {IHit} from "@react-discovery/core"
 import {InnerHtmlValue} from '.'
 import {Typography} from "@material-ui/core"
 import {useValueDisplayStyles} from "../styles"

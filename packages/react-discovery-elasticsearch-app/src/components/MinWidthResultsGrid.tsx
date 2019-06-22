@@ -1,19 +1,15 @@
 import {CircularProgress, Grid} from "@material-ui/core"
+import React, {ReactElement} from "react"
 import {
-  GroupSelectedFilters,
-  HitStats,
-  Pagination,
-  SortingSelector,
   TabsAppBar,
   useMinWidthResultsGridStyles
 } from "@react-discovery/components"
-import React, {ReactElement} from "react"
+import {ESCore} from "@react-discovery/core"
 import {FacetViewSwitcher} from "."
-import {getHits} from "@react-discovery/elasticsearch"
 
 export const MinWidthResultsGrid: React.FC<any> = (): ReactElement => {
   const classes: any = useMinWidthResultsGridStyles({})
-  const hits = getHits()
+  const hits = ESCore.state.getHits()
   return (
     <Grid
       item xs={12}

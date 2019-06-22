@@ -19,7 +19,7 @@ import {
   getTypeForId
 } from '@react-discovery/components'
 import React, {ReactElement, useEffect, useState} from "react"
-import {getHits, getSearchFields, getStringInput, setQueryInput, usePrevious} from "@react-discovery/solr"
+import {SolrCore, usePrevious} from "@react-discovery/core"
 import Beschreibung from './Beschreibung'
 import Digitalisat from './Digitalisat'
 import Person from './Person'
@@ -54,20 +54,20 @@ const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDa
 
 export const DetailsView: React.FC<IDetailsView> = (props): ReactElement => {
   const {id} = props
-  const stringInput = getStringInput()
+  const stringInput = SolrCore.state.getStringInput()
   const prevStringInput = usePrevious(stringInput)
   const [isInitialized, setIsInitialized] = useState(false)
-  const hits = getHits()
-  const searchFields = getSearchFields()
+  const hits = SolrCore.state.getHits()
+  const searchFields = SolrCore.state.getSearchFields()
   const hit = hits && hits.hits.length ? hits.hits[0] : null
   const dispatch = useDispatch()
 
   useEffect((): void => {
     if (!isInitialized) {
-      dispatch(setQueryInput({stringInput: id}))
+      dispatch(SolrCore.state.setQueryInput({stringInput: id}))
       setIsInitialized(true)
     } else if (prevStringInput !== stringInput) {
-      dispatch(setQueryInput({stringInput: id}))
+      dispatch(SolrCore.state.setQueryInput({stringInput: id}))
     }
   })
   const lClasses: any = useStyles({})

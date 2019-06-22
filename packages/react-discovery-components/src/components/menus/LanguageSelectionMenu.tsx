@@ -1,6 +1,6 @@
 import {IconButton, Menu, MenuItem} from "@material-ui/core"
 import React, {ReactElement} from "react"
-import {getCurrentLanguage, getLanguages, setCurrentLanguage} from "@react-discovery/solr"
+import {getCurrentLanguage, getLanguages, setCurrentLanguage} from "@react-discovery/configuration"
 import {IOverridableStyledComponent} from "../.."
 import Language from "@material-ui/icons/Language"
 import {useDispatch} from "react-redux"

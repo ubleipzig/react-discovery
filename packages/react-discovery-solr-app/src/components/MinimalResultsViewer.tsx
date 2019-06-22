@@ -1,17 +1,18 @@
 import {CircularProgress, Grid, useMediaQuery} from '@material-ui/core'
 import {FacetViewSwitcher, MinWidthResultsGrid, SearchAppBar} from '.'
+import React, {ReactElement, useEffect} from 'react'
 import {
   GroupSelectedFilters,
   HitStats,
-  Pagination,
   RefinementListFilters,
+  Solr,
   SortingSelector,
   Suggester,
   TabsAppBar,
   useMinimalResultViewerStyles
 } from '@react-discovery/components'
-import React, {ReactElement, useEffect} from 'react'
-import {getCurrentLanguage, getHits, usePrevious} from '@react-discovery/solr'
+import {SolrCore, usePrevious} from '@react-discovery/core'
+import {getCurrentLanguage} from "@react-discovery/configuration"
 import {useTranslation} from "react-i18next"
 
 export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
@@ -27,7 +28,7 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
     }
   }, [currentLanguage, i18n, previousLanguage])
 
-  const hits = getHits()
+  const hits = SolrCore.state.getHits()
 
   return (
     <Grid container>
@@ -66,7 +67,7 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
             direction="row"
             justify="center"
           >
-            <Pagination/>
+            <Solr.Pagination/>
           </Grid>
           <Grid
             className={classes.gridContent}
@@ -83,7 +84,7 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
             direction="row"
             justify="center"
           >
-            <Pagination/>
+            <Solr.Pagination/>
           </Grid>
         </Grid> :
         <MinWidthResultsGrid/>

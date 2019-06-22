@@ -1,10 +1,4 @@
-import {
-  buildFacetFieldParams,
-  buildFilterQueryParams,
-  buildQueryFieldParams,
-  buildStringInputParams,
-  queryBuilder
-} from '@react-discovery/solr'
+import {SolrCore} from '@react-discovery/core'
 
 const searchFields = [{
   field: "field_01",
@@ -52,19 +46,19 @@ const sortFields = [
 describe("solr query builder", (): void => {
   describe("buildQuery", (): void => {
     it("should return space separated query fields", (): void => {
-      expect(buildQueryFieldParams("edismax", searchFields)).to.deep.equal({"qf": "field_01 field_02"});
+      expect(SolrCore.builders.buildQueryFieldParams("edismax", searchFields)).to.deep.equal({"qf": "field_01 field_02"});
     });
     it("should return string input", (): void => {
-      expect(buildStringInputParams("edismax", "12345", [])).to.deep.equal({"q": "12345"});
+      expect(SolrCore.builders.buildStringInputParams("edismax", "12345", [])).to.deep.equal({"q": "12345"});
     });
     it("should return wildcard if no string input and edismax", (): void => {
-      expect(buildStringInputParams("edismax", "", [])).to.deep.equal({"q": "*"});
+      expect(SolrCore.builders.buildStringInputParams("edismax", "", [])).to.deep.equal({"q": "*"});
     });
     it("should return wildcards if no string input and lucene", (): void => {
-      expect(buildStringInputParams("lucene", "", [])).to.deep.equal({"q": "*:*"});
+      expect(SolrCore.builders.buildStringInputParams("lucene", "", [])).to.deep.equal({"q": "*:*"});
     });
     it("should return facet fields", (): void => {
-      expect(buildFacetFieldParams([{
+      expect(SolrCore.builders.buildFacetFieldParams([{
         field: "field_01",
         label: '',
         type: 'range-facet'
@@ -76,10 +70,10 @@ describe("solr query builder", (): void => {
       }])).to.deep.equal({"facet.field": ['field_01', 'field_02']});
     });
     it("should return empty string given no facet fields", (): void => {
-      expect(buildFacetFieldParams([])).to.equal("");
+      expect(SolrCore.builders.buildFacetFieldParams([])).to.equal("");
     });
     it("should return a filter query", (): void => {
-      expect(buildFilterQueryParams(filters))
+      expect(SolrCore.builders.buildFilterQueryParams(filters))
         .to.deep.equal({"fq": ["department_s:\"IT\"", "department_s:\"Accounting\"", "place_s:\"Sarajevo\"", "place_s:\"Oslo\""]});
     });
     it("should return complete query string", (): void => {
@@ -97,7 +91,7 @@ describe("solr query builder", (): void => {
         typeDef: 'edismax',
         url: 'https://example.org',
       }
-      expect(queryBuilder(props)).to.equal("https://example.org/query?defType=edismax&facet=true" +
+      expect(SolrCore.builders.queryBuilder(props)).to.equal("https://example.org/query?defType=edismax&facet=true" +
         "&facet.limit=-1" +
         "&facet.mincount=1" +
         "&facet.sort=count" +

@@ -1,12 +1,13 @@
 import {CircularProgress, Grid, useMediaQuery} from '@material-ui/core'
+import {ESCore, usePrevious} from '@react-discovery/core'
 import {FacetViewSwitcher, MinWidthResultsGrid, SearchAppBar} from '.'
 import {
   HitStats,
-  Pagination,
+  ES,
   useMinimalResultViewerStyles
 } from '@react-discovery/components'
 import React, {ReactElement, useEffect} from 'react'
-import {getCurrentLanguage, getHits, usePrevious} from '@react-discovery/elasticsearch'
+import {getCurrentLanguage} from "@react-discovery/configuration"
 import {useTranslation} from "react-i18next"
 
 export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
@@ -22,7 +23,7 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
     }
   }, [currentLanguage, i18n, previousLanguage])
 
-  const hits = getHits()
+  const hits = ESCore.state.getHits()
 
   return (
     <Grid container>
@@ -50,6 +51,7 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
             container
             direction="row"
           >
+            <ES.Pagination/>
           </Grid>
           <Grid
             alignItems="center"

@@ -1,7 +1,7 @@
+import {ESCore, Hits} from "@react-discovery/core"
 import React, {ReactElement, Suspense} from "react"
-import {getFilterType, getHitComponents, getIsViewExpanded} from "@react-discovery/solr"
+import {getHitComponents, getIsViewExpanded} from "@react-discovery/configuration"
 import CircularProgress from '@material-ui/core/CircularProgress'
-import {Hits} from "@react-discovery/elasticsearch"
 import {useFacetViewSwitcherStyles} from "@react-discovery/components"
 
 const CUSTOM_COMPONENT_PATH = './hit-views/'
@@ -10,7 +10,7 @@ const EXPANDED = 'Expanded'
 
 export const FacetViewSwitcher: React.FC<any> = (props): ReactElement => {
   const classes: any = useFacetViewSwitcherStyles({})
-  const filterType = getFilterType()
+  const filterType = ESCore.state.getFilterType()
   const hitComponents = getHitComponents()
   const isViewExpanded = getIsViewExpanded()
   const buildHitComponent = (): ReactElement => {

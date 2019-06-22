@@ -1,7 +1,7 @@
 import {Card, CardContent} from "@material-ui/core"
 import {Domain, useHitViewStyles} from '.'
 import {FieldValueDisplay, RelatedItems, Thumbnail, TitleIdHeader, buildHighlightedValueForHit} from '@react-discovery/components'
-import {IHit, getSearchFields} from "@react-discovery/solr"
+import {IHit, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {buildRandomUBLThumbnail} from "../../utils"
 
@@ -12,7 +12,7 @@ interface IDigitalisat {
 
 const Digitalisat: React.FC<IDigitalisat> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const searchFields = getSearchFields()
+  const searchFields = SolrCore.state.getSearchFields()
   const {hit, i} = props
   const filteredFields = ['digitalisatDescription', 'manifest']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))

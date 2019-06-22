@@ -70,8 +70,9 @@ describe('React Discovery Base', (): void => {
     cy.get('[data-testid=tab-1]').click()
     cy.get('[data-testid=view-switcher-toggle]').first().click({ force: true })
       .then((): void => {
-        cy.get('[data-testid=view-switcher-toggle]').first().within((): void => {
-          cy.get('input').should('have.attr', 'checked')
+        cy.get('[data-testid=view-switcher-toggle]').first().should(($span): void => {
+          const className = $span[0].className
+          expect(className).to.match(/Mui-checked/)
         })
       })
   })

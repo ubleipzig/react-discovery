@@ -3,8 +3,11 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c5727bf2-2ed5-42f7-a8c1-274871f0c3ea/deploy-status)](https://app.netlify.com/sites/react-discovery/deploys)
 [![codecov](https://codecov.io/gh/ubleipzig/react-discovery/branch/master/graph/badge.svg)](https://codecov.io/gh/ubleipzig/react-discovery)
 
-#### @react-discovery/solr
-[![npm (scoped)](https://img.shields.io/npm/v/@react-discovery/solr.svg?color=blue)](https://www.npmjs.com/package/@react-discovery/solr)
+#### @react-discovery/configuration
+[![npm (scoped)](https://img.shields.io/npm/v/@react-discovery/configuration.svg?color=blue)](https://www.npmjs.com/package/@react-discovery/configuration)
+
+#### @react-discovery/core
+[![npm (scoped)](https://img.shields.io/npm/v/@react-discovery/core.svg?color=blue)](https://www.npmjs.com/package/@react-discovery/core)
 
 #### @react-discovery/components
 [![npm (scoped)](https://img.shields.io/npm/v/@react-discovery/components.svg?color=blue)](https://www.npmjs.com/package/@react-discovery/components)
@@ -20,6 +23,7 @@ REACT_APP_SEARCH_API_COLLECTION=test04
 ##### Setup Test Solr Instance
 - start docker composition 
     ```bash
+    $ cd deployment/solr
     $ docker-compose up
     ```
 - create core in docker:

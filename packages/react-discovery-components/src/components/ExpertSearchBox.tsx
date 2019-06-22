@@ -1,8 +1,8 @@
 import {EndAdornment, StartAdornment} from "./SearchBoxInputAdornments"
 import React, {ReactElement} from "react"
-import {setQueryInput, setStart} from "@react-discovery/solr"
 import {useCurrentRoute, useNavigation} from "react-navi"
 import {IOverridableStyledComponent} from ".."
+import {SolrCore} from "@react-discovery/core"
 import {TextField} from '@material-ui/core'
 import {useDispatch} from "react-redux"
 import {useSearchBoxStyles} from "../styles"
@@ -19,7 +19,7 @@ export const ExpertSearchBox: React.FC<IOverridableStyledComponent> = (props): R
 
   const handleClear = (): void => {
     setValues('')
-    dispatch(setQueryInput({stringInput: null}))
+    dispatch(SolrCore.state.setQueryInput({stringInput: null}))
   }
 
   const handleChange = (e): void => {
@@ -31,8 +31,8 @@ export const ExpertSearchBox: React.FC<IOverridableStyledComponent> = (props): R
     if (pathname !== '/') {
       navigation.navigate('/')
     }
-    dispatch(setQueryInput({stringInput: values}))
-    dispatch(setStart({start: 0}))
+    dispatch(SolrCore.state.setQueryInput({stringInput: values}))
+    dispatch(SolrCore.state.setStart({start: 0}))
   })
 
   return (
