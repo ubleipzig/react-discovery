@@ -10,6 +10,7 @@ export const ESCore = {
 }
 
 export * from './components'
+
 export interface IElasticSearchQuery {
   query?: any;
   searchFields: ISearchField[];

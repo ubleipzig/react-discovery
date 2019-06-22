@@ -11,6 +11,7 @@ export const SolrCore = {
 }
 
 export * from './components'
+
 export interface IDocList {
   numFound: number;
   start: number;

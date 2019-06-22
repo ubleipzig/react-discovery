@@ -1,11 +1,11 @@
 import {CircularProgress, Grid, useMediaQuery} from '@material-ui/core'
-import {ESCore, usePrevious} from '@react-discovery/core'
-import {FacetViewSwitcher, MinWidthResultsGrid, SearchAppBar} from '.'
 import {
-  HitStats,
   ES,
+  HitStats,
   useMinimalResultViewerStyles
 } from '@react-discovery/components'
+import {ESCore, usePrevious} from '@react-discovery/core'
+import {FacetViewSwitcher, MinWidthResultsGrid, SearchAppBar} from '.'
 import React, {ReactElement, useEffect} from 'react'
 import {getCurrentLanguage} from "@react-discovery/configuration"
 import {useTranslation} from "react-i18next"
