@@ -58,18 +58,18 @@ const buildHits = (result): IHits => {
 }
 
 export const response = reducerWithInitialState(initialState)
-  .case(fetchSolrResponse.started, (state): IResponse => ({
+  .case(fetchSolrResponse.async.started, (state): IResponse => ({
     ...state,
     updating: true
   }))
-  .case(fetchSolrResponse.done, (state: IResponse, {params, result}): IResponse => ({
+  .case(fetchSolrResponse.async.done, (state: IResponse, {params, result}): IResponse => ({
     ...state,
     aggregations: result.facet_counts ? buildAggregations(result.facet_counts.facet_fields) : state.aggregations,
     hits: buildHits(result),
     updating: false,
     url: params.url,
   }))
-  .case(fetchSolrResponse.failed, (state, { error }): IResponse => ({
+  .case(fetchSolrResponse.async.failed, (state, { error }): IResponse => ({
     ...state,
     error,
     updating: false,

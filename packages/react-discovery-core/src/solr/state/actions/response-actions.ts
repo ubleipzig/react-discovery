@@ -1,16 +1,14 @@
-import {IFetchSolrResponseParams, Succ} from '../../index'
+import {IFetchSolrResponseParams, IState, Succ} from '../../index'
 import actionCreatorFactory from 'typescript-fsa';
-import {bindThunkAction} from 'typescript-fsa-redux-thunk';
+import {asyncFactory} from 'typescript-fsa-redux-thunk';
 
 const FETCH_SOLR_RESPONSE = 'FETCH_SOLR_RESPONSE'
 const SET_RESPONSE_ERROR = "SET_RESPONSE_ERROR"
-const actionCreator = actionCreatorFactory()
+const create = actionCreatorFactory()
+const createAsync = asyncFactory<IState>(create)
+export const setResponseError = create<{error: string}>(SET_RESPONSE_ERROR)
 
-export const setResponseError = actionCreator<{error: string}>(SET_RESPONSE_ERROR)
-
-export const fetchSolrResponse = actionCreator.async<IFetchSolrResponseParams, Succ>(FETCH_SOLR_RESPONSE)
-
-export const fetchSolrResponseWorker = bindThunkAction(fetchSolrResponse,
+export const fetchSolrResponse = createAsync<IFetchSolrResponseParams, Succ>(FETCH_SOLR_RESPONSE,
   async (params: IFetchSolrResponseParams): Promise<string> => {
     try {
       const res = await fetch(params.requestURI)

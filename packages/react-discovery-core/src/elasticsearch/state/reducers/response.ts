@@ -41,18 +41,18 @@ const buildHits = (result): IHits => {
 }
 
 export const response = reducerWithInitialState(initialState)
-  .case(fetchElasticSearchResponse.started, (state): IResponse => ({
+  .case(fetchElasticSearchResponse.async.started, (state): IResponse => ({
     ...state,
     updating: true
   }))
-  .case(fetchElasticSearchResponse.done, (state: IResponse, {params, result}): IResponse => ({
+  .case(fetchElasticSearchResponse.async.done, (state: IResponse, {params, result}): IResponse => ({
     ...state,
     aggregations: result.facet_counts ? buildAggregations(result.facet_counts.facet_fields) : state.aggregations,
     hits: buildHits(result),
     updating: false,
     url: params.url,
   }))
-  .case(fetchElasticSearchResponse.failed, (state, { error }): IResponse => ({
+  .case(fetchElasticSearchResponse.async.failed, (state, { error }): IResponse => ({
     ...state,
     error,
     updating: false,

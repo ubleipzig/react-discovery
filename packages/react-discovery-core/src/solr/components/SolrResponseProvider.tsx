@@ -1,7 +1,7 @@
 import React, {ReactElement, useEffect, useState} from "react"
 import {
-  fetchSolrResponseWorker,
-  fetchSolrSuggestionsWorker,
+  fetchSolrResponse,
+  fetchSolrSuggestions,
   getFilters,
   getSize,
   getSortFields,
@@ -52,12 +52,12 @@ export const SolrResponseProvider: React.FC<ISolrResponseProvider> = (props): Re
   const mergedQuery = {...query, ...qString}
 
   const fetchResponse = (requestURI): boolean => {
-    dispatch(fetchSolrResponseWorker({requestURI}))
+    dispatch(fetchSolrResponse.action({requestURI}))
     return true
   }
 
   const fetchSuggestions = (requestURI): boolean => {
-    dispatch(fetchSolrSuggestionsWorker({requestURI}))
+    dispatch(fetchSolrSuggestions.action({requestURI}))
     return true
   }
 

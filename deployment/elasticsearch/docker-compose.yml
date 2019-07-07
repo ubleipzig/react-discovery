@@ -13,7 +13,6 @@ services:
   es01:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.1.1
     container_name: es01
-    restart: always
     environment:
       - node.name=es01
       - discovery.seed_hosts=es02
@@ -58,7 +57,6 @@ services:
       ELASTICSEARCH_HOSTS: http://es01:9200
     ports:
       - 5601:5601
-    restart: always
     networks:
       - esnet
 

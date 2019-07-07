@@ -1,17 +1,14 @@
+import {IState, Succ} from '../../..'
 import {IFetchElasticSearchResponseParams} from '../../index'
-import {Succ} from '../../..'
 import actionCreatorFactory from 'typescript-fsa'
-import {bindThunkAction} from 'typescript-fsa-redux-thunk'
-
+import {asyncFactory} from 'typescript-fsa-redux-thunk'
+const create = actionCreatorFactory()
 const FETCH_ELASTICSEARCH_RESPONSE = 'FETCH_ELASTICSEARCH_RESPONSE'
 const SET_RESPONSE_ERROR = "SET_RESPONSE_ERROR"
-const actionCreator = actionCreatorFactory()
+const createAsync = asyncFactory<IState>(create)
+export const setResponseError = create<{error: string}>(SET_RESPONSE_ERROR)
 
-export const setResponseError = actionCreator<{error: string}>(SET_RESPONSE_ERROR)
-
-export const fetchElasticSearchResponse = actionCreator.async<IFetchElasticSearchResponseParams, Succ>(FETCH_ELASTICSEARCH_RESPONSE)
-
-export const fetchElasticSearchResponseWorker = bindThunkAction(fetchElasticSearchResponse,
+export const fetchElasticSearchResponse = createAsync<IFetchElasticSearchResponseParams, Succ>(FETCH_ELASTICSEARCH_RESPONSE,
   async (params: IFetchElasticSearchResponseParams): Promise<string> => {
     try {
       const headers = new Headers();
