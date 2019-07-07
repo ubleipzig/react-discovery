@@ -25,18 +25,18 @@ const buildTerms = (suggester): string[] => {
 }
 
 export const suggestions = reducerWithInitialState(initialState)
-  .case(fetchSolrSuggestions.started, (state): ISuggestions => ({
+  .case(fetchSolrSuggestions.async.started, (state): ISuggestions => ({
     ...state,
     updating: true
   }))
-  .case(fetchSolrSuggestions.done, (state: ISuggestions, {params, result}): ISuggestions => ({
+  .case(fetchSolrSuggestions.async.done, (state: ISuggestions, {params, result}): ISuggestions => ({
     ...state,
     suggester: result.suggest && result.suggest.suggester,
     terms: result.suggest && buildTerms(result.suggest.suggester),
     updating: false,
     url: params.url,
   }))
-  .case(fetchSolrSuggestions.failed, (state, { error }): ISuggestions => ({
+  .case(fetchSolrSuggestions.async.failed, (state, { error }): ISuggestions => ({
     ...state,
     error,
     updating: false,

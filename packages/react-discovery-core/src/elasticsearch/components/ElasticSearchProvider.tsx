@@ -1,5 +1,5 @@
 import React, {ReactElement, useEffect, useState} from "react"
-import {fetchElasticSearchResponseWorker, getStringInput} from "../state"
+import {fetchElasticSearchResponse, getStringInput} from "../state"
 import {getDefaultQuery, getFrom, getSize} from "../state/selectors"
 import {IElasticSearchQuery} from "../index"
 import {getUrl} from "@react-discovery/configuration"
@@ -26,7 +26,7 @@ export const ElasticSearchProvider: React.FC<IElasticSearchProvider> = (props): 
   const prevStringInput = usePrevious(stringInput)
 
   const fetchResponse = (): boolean => {
-    dispatch(fetchElasticSearchResponseWorker({json, url}))
+    dispatch(fetchElasticSearchResponse.action({json, url}))
     return true
   }
 
