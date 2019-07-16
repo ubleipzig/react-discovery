@@ -1,7 +1,6 @@
+import {Nested, SimpleQueryString} from "./full-text"
 import {ElasticSearchConstants} from '../enum'
 import {IElasticSearchQuery} from "../.."
-
-import {SimpleQueryString} from "./full-text"
 
 export const buildSize = (size: number = 10): {} => {
   return {[ElasticSearchConstants.SIZE]: size}
@@ -21,5 +20,5 @@ export const queryBuilder = (props: IElasticSearchQuery): any => {
     ...buildSize(size),
     ...buildFrom(from),
     ...buildTrackTotal(),
-    query: SimpleQueryString(stringInput)}
+    ...Nested(stringInput)}
 }

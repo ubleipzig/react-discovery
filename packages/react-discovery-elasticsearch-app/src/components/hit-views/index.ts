@@ -1,3 +1,6 @@
-export * from './DefaultHitComponent'
+export * from './displayFields'
 export * from './DetailsView'
+export * from '../../enum/Domain'
+export * from './EntityDisplay'
+export * from './NestedEntityDisplay'
 export * from './useHitViewStyles'

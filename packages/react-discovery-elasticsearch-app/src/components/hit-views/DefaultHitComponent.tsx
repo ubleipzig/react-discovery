@@ -3,6 +3,7 @@ import {ESCore, IHit} from "@react-discovery/core"
 import {FieldValueDisplay, Thumbnail, TitleIdHeader, buildHighlightedValueForHit} from '@react-discovery/components'
 import React, {ReactElement} from "react"
 import {Domain} from '../../enum'
+import {buildRandomUBLThumbnail} from "../../utils"
 import {useHitViewStyles} from '.'
 
 interface IDefaultItemComponent {
@@ -24,7 +25,7 @@ const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultIte
         title={title}
       />
       <div style={{display: 'flex'}}>
-        <Thumbnail image={thumbnail}/>
+        <Thumbnail image={buildRandomUBLThumbnail()}/>
         <div className={classes.details}>
           {searchFields.map((field, key): ReactElement =>
             <CardContent

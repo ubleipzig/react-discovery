@@ -17,13 +17,25 @@ export interface IBucket extends IAggregation {
 
 export interface IHits {
   hits: IHit[];
+  total?: {
+    value: number;
+  };
   numFound: number;
 }
 
 export interface IHit {
   id?: string;
+  _id?: string;
   _source: any;
-  highlighting: any;
+  highlight?: any;
+  highlighting?: any;
+  innerHits?: any;
+}
+
+export type IInnerHitField = Record<string, IHits>
+
+export interface IInnerHits {
+  "inner_hits": IInnerHitField;
 }
 
 export interface IResponse {

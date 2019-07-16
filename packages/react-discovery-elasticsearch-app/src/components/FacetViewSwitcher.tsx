@@ -10,7 +10,7 @@ const EXPANDED = 'Expanded'
 
 export const FacetViewSwitcher: React.FC<any> = (props): ReactElement => {
   const classes: any = useFacetViewSwitcherStyles({})
-  const filterType = ESCore.state.getFilterType()
+  const filterType = ESCore.state.getFilterType() || 'Kulturobjekt'
   const hitComponents = getHitComponents()
   const isViewExpanded = getIsViewExpanded()
   const buildHitComponent = (): ReactElement => {

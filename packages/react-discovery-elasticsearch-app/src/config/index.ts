@@ -1,8 +1,8 @@
 import {IConfig} from "@react-discovery/configuration"
 import deepmerge from 'deepmerge'
-import {ox1} from './collections'
+import {hsp1} from './collections'
 
-export const mergedCollections: any = deepmerge.all([ox1])
+export const mergedCollections: any = deepmerge.all([hsp1])
 const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "ox1"
 const {collections} = mergedCollections
 const {url} = collections[currentCollection]
