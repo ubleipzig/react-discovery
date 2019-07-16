@@ -23,12 +23,37 @@ const buildAggregations = (fields): IAggregations => {
   }, {})
 }
 
+const buildInnerHitHighlight = (highlight) => {
+  const ihHighlight = Object.entries(highlight).map(([k, v]) => {
+    const field = k.split('.').pop()
+    return {
+      [field]: v[0]
+    }
+  })
+  return ihHighlight[0]
+}
+
+const buildInnerHits = (hit): IHit[] => {
+  const ih = Object.keys(hit.inner_hits).map((key): any => {
+    return hit.inner_hits[key].hits.hits.map((hit) => {
+      return {
+        _source: hit._source,
+        field: key,
+        highlighting: buildInnerHitHighlight(hit.highlight),
+        id: hit._id,
+      }
+    })
+  })
+  return [].concat(...ih)
+}
+
 const buildDocs = (result): IHit[] => {
   return result.hits.hits.map((hit): IHit => {
     return {
       _source: hit._source,
       highlighting: hit.highlight || {},
       id: hit._id,
+      innerHits: hit.inner_hits ? buildInnerHits(hit) : [],
     }
   })
 }

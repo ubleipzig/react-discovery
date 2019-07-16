@@ -57,6 +57,7 @@ export interface IRefinementListFilters {
 export interface ISearchField {
   field: string;
   isChild?: boolean;
+  isGrandchild?: boolean;
   label: string;
   type: string;
 }
