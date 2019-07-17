@@ -1,3 +1,9 @@
 [build]
   command = "lerna bootstrap --hoist && lerna run build"
 
+[context.deploy-preview]
+  publish = "packages/react-discovery-elasticsearch-app/build"
+
+[context.deploy-preview.environment]
+  REACT_APP_SEARCH_API_COLLECTION = "hsp1"
+  REACT_APP_SEARCH_API_HOST = "https://es.iiif.cloud/"
