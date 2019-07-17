@@ -102,55 +102,55 @@ export const hsp1: IConfig = {
           type: "list-facet"
         },
         {
-          field: "annotationTarget_s",
+          field: "entities.annotationTarget_s",
           isChild: true,
           label: "annotationTarget",
           type: "text"
         },
         {
-          field: "annotationBody_t",
+          field: "entities.annotationBody_t",
           isChild: true,
           label: "annotationBody",
           type: "text"
         },
         {
-          field: "beschreibungText_t",
+          field: "entities.beschreibungText_t",
           isChild: true,
           label: "descriptionText",
           type: "text"
         },
         {
-          field: "beschreibungTitle_t",
+          field: "entities.beschreibungTitle_t",
           isChild: true,
           label: "beschreibungTitle",
           type: "text"
         },
         {
-          field: "beschreibungFaszikelLabel_t",
-          isChild: true,
+          field: "entities.entities.beschreibungFaszikelLabel_t",
+          isGrandchild: true,
           label: "beschreibungFaszikelLabel",
           type: "text"
         },
         {
-          field: "beschreibungFaszikelText_t",
-          isChild: true,
+          field: "entities.entities.beschreibungFaszikelText_t",
+          isGrandchild: true,
           label: "beschreibungFaszikelText",
           type: "text"
         },
         {
-          field: "digitalisatDescription_t",
+          field: "entities.digitalisatDescription_t",
           isChild: true,
           label: "digitalisatDescription",
           type: "text"
         },
         {
-          field: "digitalisatTitel_t",
+          field: "entities.digitalisatTitel_t",
           isChild: true,
           label: "digitalisatTitel",
           type: "text"
         },
         {
-          field: "digitalisatManifestId_s",
+          field: "entities.digitalisatManifestId_s",
           isChild: true,
           label: "manifest",
           type: "text"
@@ -221,61 +221,61 @@ export const hsp1: IConfig = {
           type: "list-facet"
         },
         {
-          field: "personFullname_t",
+          field: "entities.personFullname_t",
           isChild: true,
           label: "personFullName",
           type: "list-facet"
         },
         {
-          field: "personBirthDate_dt",
+          field: "entities.personBirthDate_dt",
           isChild: true,
           label: "personBirthDate",
           type: "range-racet"
         },
         {
-          field: "personDeathDate_dt",
+          field: "entities.personDeathDate_dt",
           isChild: true,
           label: "personDeathDate",
           type: "range-racet"
         },
         {
-          field: "personBirthPlace_t",
+          field: "entities.personBirthPlace_t",
           isChild: true,
           label: "personBirthPlace",
           type: "list-facet"
         },
         {
-          field: "personDeathPlace_t",
+          field: "entities.personDeathPlace_t",
           isChild: true,
           label: "personDeathPlace",
           type: "list-facet"
         },
         {
-          field: "personWorkingPlace_t",
+          field: "entities.personWorkingPlace_t",
           isChild: true,
           label: "personWorkingPlace",
           type: "list-facet"
         },
         {
-          field: "personOccupation_t",
+          field: "entities.personOccupation_t",
           isChild: true,
           label: "personOccupation",
           type: "list-facet"
         },
         {
-          field: "personRole_s",
+          field: "entities.personRole_s",
           isChild: true,
           label: "personRole",
           type: "list-facet"
         },
         {
-          field: "personGender_s",
+          field: "entities.personGender_s",
           isChild: true,
           label: "personGender",
           type: "list-facet"
         },
         {
-          field: "personAlternateNames_ss",
+          field: "entities.personAlternateNames_ss",
           isChild: true,
           label: "personAlternateNames",
           type: "list-facet"

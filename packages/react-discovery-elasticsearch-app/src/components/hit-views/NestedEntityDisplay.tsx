@@ -39,13 +39,16 @@ export const NestedEntityDisplay: React.FC<INestedEntityDisplay> = (props): Reac
   }
 
   const buildEntityFields = (entityFields, type): ReactElement[] => {
-    const nestedEntities = entity && entity.entities && entity.entities.filter((entity): boolean => entity[typeField] === type)
+    const nestedEntities = entity && entity.entities ?
+      entity.entities.filter((entity): boolean => entity[typeField] === type) :
+      entity._source && entity._source[typeField] === type ? [entity] : null
     return nestedEntities && nestedEntities.map((entity, i): ReactElement => {
       return (
         <div key={i}>
           <Divider component='hr'/>
           {entityFields.map((field, i): ReactElement => {
-            const value = [].concat(entity[field.field] || null).filter((v): any => v !== null).join(", ")
+            const value = entity.field && entity.field === 'entities.entities' ?
+              buildHighlightedValueForHit(field.field, entity) : [].concat(entity[field.field] || null).filter((v): any => v !== null).join(", ")
             return (
               <CardContent
                 className={classes.content}

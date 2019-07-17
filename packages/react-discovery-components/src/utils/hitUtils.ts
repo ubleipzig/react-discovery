@@ -5,8 +5,7 @@ const typeField = SolrCore.enums.FieldConstants.TYPE_FIELD
 export const buildHighlightedValueForHit = (field, hit): string => {
   const {_source, highlighting} = hit
   const source = Object.keys(highlighting).length > 0 ? Object.assign({}, _source, highlighting) : _source
-  const val = [].concat(source[field] || null).filter((v): any => v !== null).join(", ")
-  return val
+  return [].concat(source[field] || null).filter((v): any => v !== null).join(", ")
 }
 
 export const buildDateFormat = (field, hit): string => {

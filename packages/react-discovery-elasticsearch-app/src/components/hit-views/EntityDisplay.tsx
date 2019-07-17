@@ -61,7 +61,6 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
                 {entityFields.map((field, i): ReactElement => {
                   const value = entity.field && entity.field === 'entities' ?
                     buildHighlightedValueForHit(field.field, entity) : [].concat(entity[field.field] || null).filter((v): any => v !== null).join(", ")
-                  console.log(value)
                   return (
                     <Fragment key={i}>
                       <CardContent

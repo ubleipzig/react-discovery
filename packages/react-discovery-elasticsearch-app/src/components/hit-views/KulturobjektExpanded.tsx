@@ -1,16 +1,15 @@
-import {Card, CardActions, CardContent} from "@material-ui/core"
+import {Card, CardActions, CardContent, Grid, makeStyles} from "@material-ui/core"
 import {
   EntityDisplay,
+  ThumbnailGrid,
   annotationDisplayFields,
   beschreibungDisplayFields,
   digitalisatDisplayFields,
   facetDisplayFields,
-  personDisplayFields,
   useHitViewStyles
 } from '.'
 import {
   FieldValueDisplay,
-  Thumbnail,
   TitleIdHeader,
   ValueDisplay,
   ViewSwitcherToggle,
@@ -19,13 +18,20 @@ import {
 import {IHit, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {Domain} from "../../enum"
-import {buildRandomUBLThumbnail} from "../../utils"
+import {useTranslation} from "react-i18next"
 
 interface IDefaultItemComponent {
   classes: any;
   hit: IHit;
   i: number;
 }
+
+export const useThumbnailStyles = makeStyles((): any => ({
+  cover: {
+    flexShrink: 0,
+    padding: 20,
+  },
+}))
 
 // TODO add this to configuration
 const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate', 'formType',
@@ -35,64 +41,62 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const classes: any = useHitViewStyles({})
   const searchFields = SolrCore.state.getSearchFields()
   const {hit, i} = props
+  const entities = hit && hit._source.entities && hit._source.entities
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('titel_t', hit)
 
   return hit ? (
     <Card className={classes.root} key={i}>
-      <ViewSwitcherToggle/>
-      <TitleIdHeader
-        id={hit._source.id}
-        title={title}
-      />
-      <div style={{display: 'flex'}}>
-        <Thumbnail image={buildRandomUBLThumbnail()}/>
-        <div className={classes.details}>
-          <ValueDisplay
-            field={'subtitel_t'}
-            hit={hit}
-            style={{display: 'flex', padding: '10px'}}
-            variant='h6'
+      <Grid container>
+        <Grid
+          item xs={8}
+        >
+          <TitleIdHeader
+            id={hit._source.id}
+            title={title}
           />
-          {displayFields.map((field, key): ReactElement =>
-            <CardContent
-              className={classes.content}
-              key={key}
-            >{hit._source && hit._source[field.field] ?
-                <FieldValueDisplay field={field} hit={hit}/> : null}
-            </CardContent>)}
-          <CardActions disableSpacing>
-            <EntityDisplay
-              displayFields={digitalisatDisplayFields}
+          <div className={classes.details}>
+            <ValueDisplay
+              field={'subtitel_t'}
               hit={hit}
-              type={Domain.DIGITALISAT}
+              style={{display: 'flex', padding: '10px'}}
+              variant='h6'
             />
-          </CardActions>
-          <CardActions disableSpacing>
-            <EntityDisplay
-              displayFields={beschreibungDisplayFields}
-              hit={hit}
-              isNested={true}
-              nestedDisplayFields={facetDisplayFields}
-              type={Domain.BESCHREIBUNG}
-            />
-          </CardActions>
-          <CardActions disableSpacing>
-            <EntityDisplay
-              displayFields={personDisplayFields}
-              hit={hit}
-              type={Domain.PERSON}
-            />
-          </CardActions>
-          <CardActions disableSpacing>
-            <EntityDisplay
-              displayFields={annotationDisplayFields}
-              hit={hit}
-              type={Domain.ANNOTATION}
-            />
-          </CardActions>
-        </div>
-      </div>
+            {displayFields.map((field, key): ReactElement =>
+              <CardContent
+                className={classes.content}
+                key={key}
+              >{hit._source && hit._source[field.field] ?
+                  <FieldValueDisplay field={field} hit={hit}/> : null}
+              </CardContent>)}
+            <CardActions disableSpacing>
+              <EntityDisplay
+                displayFields={digitalisatDisplayFields}
+                hit={hit}
+                type={Domain.DIGITALISAT}
+              />
+            </CardActions>
+            <CardActions disableSpacing>
+              <EntityDisplay
+                displayFields={beschreibungDisplayFields}
+                hit={hit}
+                isNested={true}
+                nestedDisplayFields={facetDisplayFields}
+                type={Domain.BESCHREIBUNG}
+              />
+            </CardActions>
+            <CardActions disableSpacing>
+              <EntityDisplay
+                displayFields={annotationDisplayFields}
+                hit={hit}
+                type={Domain.ANNOTATION}
+              />
+            </CardActions>
+          </div>
+        </Grid>
+        <ThumbnailGrid entities={entities}/>
+      </Grid>
+      <ViewSwitcherToggle/>
     </Card>
   ) : null
 }
