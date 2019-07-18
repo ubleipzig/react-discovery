@@ -8,8 +8,8 @@ import {
   Typography,
 } from '@material-ui/core'
 import React, {ReactElement} from "react"
-import {SolrCore} from "@react-discovery/core"
 import {ExpandMore} from '@material-ui/icons'
+import {SolrCore} from "@react-discovery/core"
 import {useDispatch} from "react-redux"
 import {useItemListStyles} from '../styles'
 
@@ -73,7 +73,7 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
                 component="div"
                 variant="body2"
               >
-                {bucket.docCount}
+                {bucket.doc_count}
               </Typography>
             }/>
         </ListItem>

@@ -16,8 +16,9 @@ export const query = (initialState): ReducerBuilder<IElasticSearchQuery> => redu
     ...state,
     groupField,
   }))
-  .case(setQueryFields, (state, {filters, searchFields, size, sortFields, from, stringInput, url}): ReducerBuilder<IElasticSearchQuery> => ({
+  .case(setQueryFields, (state, {aggs, filters, searchFields, size, sortFields, from, stringInput, url}): ReducerBuilder<IElasticSearchQuery> => ({
     ...state,
+    aggs,
     filters,
     from,
     searchFields,

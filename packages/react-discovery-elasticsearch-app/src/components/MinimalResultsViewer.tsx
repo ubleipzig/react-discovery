@@ -1,7 +1,7 @@
 import {CircularProgress, Grid, useMediaQuery} from '@material-ui/core'
 import {
-  ES,
-  HitStats,
+  ES, GroupSelectedFilters,
+  HitStats, RefinementListFilters,
   useMinimalResultViewerStyles
 } from '@react-discovery/components'
 import {ESCore, usePrevious} from '@react-discovery/core'
@@ -35,6 +35,7 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
         item
         xs={2}
       >
+        <RefinementListFilters/>
       </Grid> : null}
       {matches ?
         <Grid
@@ -46,6 +47,12 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
             direction="row"
           >
             <HitStats/>
+          </Grid>
+          <Grid
+            container
+            direction="row"
+          >
+            <GroupSelectedFilters/>
           </Grid>
           <Grid
             container

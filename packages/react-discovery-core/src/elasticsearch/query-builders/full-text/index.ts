@@ -1,3 +1,3 @@
-export * from './Nested'
+export * from './NestedQuery'
 export * from './SimpleQueryString'
 

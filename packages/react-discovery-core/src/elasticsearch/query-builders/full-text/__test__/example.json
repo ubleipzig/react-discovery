@@ -1,145 +1,4117 @@
 {
-  "query": {
-    "simple_query_string": {
-      "query": "Album",
-      "fields": [
-        "accessRights",
-        "alternatives",
-        "attribution",
-        "catalogueId",
-        "collections",
-        "contributors",
-        "coverages",
-        "creators",
-        "dates",
-        "description",
-        "descriptions",
-        "displayLanguages",
-        "formats",
-        "identifiers",
-        "incipits",
-        "languages",
-        "locations",
-        "manifest",
-        "publisher",
-        "related",
-        "shelfmark",
-        "sources",
-        "subjects",
-        "title",
-        "titles",
-        "types",
-        "seeAlso"
+  "took": 171,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 34,
+      "relation": "eq"
+    },
+    "max_score": 4.89784,
+    "hits": [
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
+        "_score": 4.89784,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "9fb66112-bd51-4a3b-b8f3-62352e01d73d",
+          "titel_t": "A elementum enim. Fusce interdum pharetra.",
+          "subtitel_t": "Ut interdum libero feugiat. Praesent.",
+          "stoff_t": "without",
+          "blattzahl_i": 64,
+          "format_t": "yq5u3wgVaHgCZWN",
+          "entstehungsort_s": "South Tarawa",
+          "entstehungdatum_t": "U9x8qy8tSD3wYWv",
+          "formtyp_t": "gidgee",
+          "status_t": "carbazole",
+          "schrift_t": "odor",
+          "schreibsprache_t": "thripses",
+          "schreiber_t": "Yokiel, Kenny",
+          "entities": [
+            {
+              "id": "ce839170-0010-4bc2-a580-41216e7e8ec5",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Remove the writing desk had to do was rock back and forth behind her.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002925/manifest.json",
+              "digitalisatTitel_t": "Nulla. Morbi porta mauris libero,."
+            },
+            {
+              "id": "6670bd48-ae55-4e22-9b1b-3fa27c0d33f9",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Rutrum eget. Sed cursus ligula et.",
+              "entities": [
+                {
+                  "id": "a80c8c4f-ca60-4b7b-9050-d036e47bc1c5",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Convallis pretium purus, vel vulputate."
+                },
+                {
+                  "id": "d316e620-d9c4-4273-adef-2f0ce2a4370e",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Praesent vel velit posuere, semper."
+                },
+                {
+                  "id": "1b034b62-5985-4b8c-871a-e1acd6f79180",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Auctor pellentesque ex, ac consectetur."
+                }
+              ]
+            },
+            {
+              "id": "d0195686-a487-465f-ae79-7651d505e111",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Vulputate in. Maecenas bibendum libero.",
+              "entities": [
+                {
+                  "id": "e272adb7-32c6-4970-90d0-458358479183",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Mattis vel odio. Integer rutrum non."
+                },
+                {
+                  "id": "59b07624-b1b2-4b09-93f4-a406d3a429df",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Vulputate porta. Nullam quis orci."
+                },
+                {
+                  "id": "5a6f40f4-2aba-4bfb-9657-0794d72be313",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Pulvinar ante. Morbi diam ante, lobortis."
+                }
+              ]
+            },
+            {
+              "id": "a8ffcc0a-a885-4560-9b83-dac2e0bf3191",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007693/manifest.json",
+              "annotationBody_t": "We arrive back home exhausted from going out to three gentlemen before."
+            },
+            {
+              "id": "5cb9fab5-8ae5-4ff1-8733-d78f8b33e87d",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007921/manifest.json",
+              "annotationBody_t": "Would happen to it falling onto the cool, leather sofa next to the."
+            },
+            {
+              "id": "ac220e47-cc37-41cf-99ff-e5b6668fffe6",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002261/manifest.json",
+              "annotationBody_t": "A result of this much longer. They had seen her as her head suggested."
+            },
+            {
+              "id": "dd315469-3213-4c7f-933f-637c26681716",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001958/manifest.json",
+              "annotationBody_t": "Direction of the rooms in the entire length of his body than before."
+            },
+            {
+              "id": "cb346f37-4521-426f-9a11-7c13beab7511",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003734/manifest.json",
+              "annotationBody_t": "See what he was not a word to me? he thought back of his pleasure."
+            },
+            {
+              "id": "42fd6392-b239-4982-b966-453784761b47",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003504/manifest.json",
+              "annotationBody_t": "Before she even realised it was so that you need anything? gregor."
+            },
+            {
+              "id": "ba5c878f-e031-4e04-87c5-78ae2560b9f3",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000493/manifest.json",
+              "annotationBody_t": "The dirt as well as having to look after it and striking it against."
+            },
+            {
+              "id": "fe38534a-38f6-4396-b48e-4ab8989e4d9d",
+              "type_s": "Person",
+              "personFullname_t": "Jameel, Marry",
+              "personBirthDate_dt": "0162-01-18T00:07:33Z",
+              "personDeathDate_dt": "0199-09-04T00:07:33Z",
+              "personRole_s": "Schreiber",
+              "personBirthPlace_t": "Ankara",
+              "personDeathPlace_t": "Baku",
+              "personWorkingPlace_t": "Bratislava",
+              "personOccupation_t": "moan",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Lindburg, Ronda"
+              ]
+            },
+            {
+              "id": "9ef57f64-3bed-4af2-901d-5b0bd3a5848b",
+              "type_s": "Person",
+              "personFullname_t": "Yokiel, Kenny",
+              "personBirthDate_dt": "1111-05-12T00:07:33Z",
+              "personDeathDate_dt": "1178-11-14T00:07:33Z",
+              "personRole_s": "Schreiber",
+              "personBirthPlace_t": "Warsaw",
+              "personDeathPlace_t": "Tbilisi",
+              "personWorkingPlace_t": "Stockholm",
+              "personOccupation_t": "plump",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Sures, Jefferson"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "stoff_t": [
+            "<em>without</em>"
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "343d56e2-3142-482a-ad31-17bff4e94213",
+        "_score": 4.007684,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "343d56e2-3142-482a-ad31-17bff4e94213",
+          "titel_t": "Non, venenatis dictum justo. Cras.",
+          "subtitel_t": "Nulla quis facilisis eros, id ultrices.",
+          "stoff_t": "atherine",
+          "blattzahl_i": 91,
+          "format_t": "kYVgDVVuDB4xsxQ",
+          "entstehungsort_s": "Ljubljana",
+          "entstehungdatum_t": "Z6hlsawfI7bvogH",
+          "formtyp_t": "backstroke",
+          "status_t": "glut",
+          "schrift_t": "calyx",
+          "schreibsprache_t": "monteiths",
+          "vorbesitzer_s": "Merlos, Peggy",
+          "schreiber_t": "Varnado, Seth",
+          "entities": [
+            {
+              "id": "69d444e1-c4b0-49a0-adaf-e17e56eed321",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Soon; grete' s feet and beg her for all her courage, was not there.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008897/manifest.json",
+              "digitalisatTitel_t": "Dapibus porta lectus non egestas.."
+            },
+            {
+              "id": "b71e25f8-223e-4a32-82a0-08cf9041878b",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "The sauce; the chief clerk had already finished their letters as if.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005293/manifest.json",
+              "digitalisatTitel_t": "Commodo vehicula. Fusce tempus quis."
+            },
+            {
+              "id": "ab8d36a7-fa58-442e-973e-7de2b3c27c29",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Trembling shoulders as he could have known it even without checking.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002730/manifest.json",
+              "digitalisatTitel_t": "Justo velit, sed sollicitudin eros."
+            },
+            {
+              "id": "7ec63938-5fc8-42dd-b658-c7f0254f000b",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: In sodales vel purus sed vehicula.",
+              "entities": [
+                {
+                  "id": "7e37de92-e4c3-4f12-9b77-b4a7b0a8df58",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Diam ante, lobortis vitae tempor ac."
+                }
+              ]
+            },
+            {
+              "id": "755c06d1-9bad-4271-94bb-1729ff42f094",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Nunc. Sed lectus sapien, ac consectetur.",
+              "entities": [
+                {
+                  "id": "2c1af0a4-aaed-490e-831c-edcf995e529e",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Sapien, consequat non ornare id, elementum."
+                }
+              ]
+            },
+            {
+              "id": "6309255c-2897-4bf3-bae2-b548f0b99b87",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004838/manifest.json",
+              "annotationBody_t": "Some nonsensical hope. But then there was now all the new work his."
+            },
+            {
+              "id": "8331bde5-1237-448b-951e-367f46e5c29a",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003905/manifest.json",
+              "annotationBody_t": "Causing some kind of smelling salts to bring things back to the conservatory."
+            },
+            {
+              "id": "1cfaa634-4710-4346-9ba4-3c520a6fce1e",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008494/manifest.json",
+              "annotationBody_t": "Splinter cut gregor' s gregor. He really had to stay with him totally."
+            },
+            {
+              "id": "82e06344-a1ac-4ad1-a5ee-278f97ac5086",
+              "type_s": "Person",
+              "personFullname_t": "Varnado, Seth",
+              "personBirthDate_dt": "0753-03-16T00:07:33Z",
+              "personDeathDate_dt": "0782-01-20T00:07:33Z",
+              "personRole_s": "Schreiber",
+              "personBirthPlace_t": "Podgorica",
+              "personDeathPlace_t": "London",
+              "personWorkingPlace_t": "Vienna",
+              "personOccupation_t": "unprojected",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Vandeveer, Debora",
+                "Keyna, Armand",
+                "Savitts, Addie"
+              ]
+            },
+            {
+              "id": "b69a4a6a-302b-4626-9f46-d74f917c5fb3",
+              "type_s": "Person",
+              "personFullname_t": "Loaiza, Barney",
+              "personBirthDate_dt": "0785-01-16T00:07:33Z",
+              "personDeathDate_dt": "0807-06-05T00:07:33Z",
+              "personRole_s": "Vorbesitzer",
+              "personBirthPlace_t": "Vatican City",
+              "personDeathPlace_t": "Yerevan",
+              "personWorkingPlace_t": "Reykjavík",
+              "personOccupation_t": "inconstantly",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Zinter, Angelique",
+                "Falvo, Mike",
+                "Jesmer, Mariano"
+              ]
+            },
+            {
+              "id": "9860aa09-fa1f-4ff1-ba5c-7a44144ab5d4",
+              "type_s": "Person",
+              "personFullname_t": "Merlos, Peggy",
+              "personBirthDate_dt": "0758-02-09T00:07:33Z",
+              "personDeathDate_dt": "0838-08-16T00:07:33Z",
+              "personRole_s": "Vorbesitzer",
+              "personBirthPlace_t": "Tallinn",
+              "personDeathPlace_t": "Sofia",
+              "personWorkingPlace_t": "Dublin",
+              "personOccupation_t": "levirate",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Serens, Carlos",
+                "Mccammack, Danial",
+                "Csubak, Maggie"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.digitalisatDescription_t": [
+            "Trembling shoulders as he could have known it even <em>without</em> checking."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 4.007684,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "343d56e2-3142-482a-ad31-17bff4e94213",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 2
+                  },
+                  "_score": 4.007684,
+                  "_source": {
+                    "id": "ab8d36a7-fa58-442e-973e-7de2b3c27c29",
+                    "type_s": "Digitalisat",
+                    "digitalisatDescription_t": "Trembling shoulders as he could have known it even without checking.",
+                    "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002730/manifest.json",
+                    "digitalisatTitel_t": "Justo velit, sed sollicitudin eros."
+                  },
+                  "highlight": {
+                    "entities.digitalisatDescription_t": [
+                      "Trembling shoulders as he could have known it even <em>without</em> checking."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
+        "_score": 4.0034285,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
+          "titel_t": "Mauris. Fusce non eros pharetra, pharetra.",
+          "subtitel_t": "Consectetur. Aenean a pretium nunc.",
+          "stoff_t": "subreptitious",
+          "blattzahl_i": 54,
+          "format_t": "xZciQI4XCweF5Xc",
+          "entstehungsort_s": "Minsk",
+          "entstehungdatum_t": "skmh88bOAE6YPdb",
+          "formtyp_t": "beauticians",
+          "status_t": "gazeboes",
+          "schrift_t": "passableness",
+          "schreibsprache_t": "brume",
+          "vorbesitzer_s": "Boomershine, Anne",
+          "author_t": "Albu, Arthur",
+          "schreiber_t": "Berardinelli, Mckenzie",
+          "entities": [
+            {
+              "id": "f3e5f28a-5d69-4dfa-be47-531c0c5b0433",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Them say how they went round the living room was alright; and why.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005509/manifest.json",
+              "digitalisatTitel_t": "Accumsan, mauris justo efficitur ipsum."
+            },
+            {
+              "id": "fae9dc2e-289b-437c-bc0e-1e6d2d8a23d0",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Begun to get up and went, as well as having a soft time of year to.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006555/manifest.json",
+              "digitalisatTitel_t": "Sagittis semper eros metus laoreet."
+            },
+            {
+              "id": "d6753e45-63d6-43f0-bc68-39dc5bf300f3",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Come very close to his seat, feeling his way over to the conservatory.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008023/manifest.json",
+              "digitalisatTitel_t": "Pharetra. Phasellus commodo ornare."
+            },
+            {
+              "id": "e3c92ca1-ff59-4823-b4ac-0ec8e821c422",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Ipsum dolor sit amet purus cursus.",
+              "entities": [
+                {
+                  "id": "3801f3a7-f3e5-4141-b92e-8012fbf4654c",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Aliquam, accumsan tempor lacus luctus."
+                },
+                {
+                  "id": "ca9b6148-9008-4908-919f-546fd80ac680",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Tortor nec, feugiat pulvinar ante."
+                },
+                {
+                  "id": "b0b44e44-ed17-4be5-b0b7-553aa27f43b2",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Suspendisse dapibus porta lectus non."
+                }
+              ]
+            },
+            {
+              "id": "b99901c3-ffe5-441d-aba5-1f968e812233",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Vel purus sed vehicula. Morbi diam.",
+              "entities": [
+                {
+                  "id": "c922c5d2-79fb-49f3-ad1a-91fe5ae152ff",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Vel mollis enim ante ac purus. Suspendisse."
+                },
+                {
+                  "id": "92778686-79c8-440c-ad1f-d9d6e990bea8",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Pharetra a ex nec congue. Nullam quis."
+                },
+                {
+                  "id": "1698cc7e-2dae-403d-b8f1-ae0d9b2ed7b1",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Magna at hendrerit. Nulla eget neque."
+                }
+              ]
+            },
+            {
+              "id": "43c299dd-b67f-4bd2-80c3-9fd9038536db",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Non posuere. Maecenas et mi vel lorem.",
+              "entities": [
+                {
+                  "id": "23f2b5e5-719e-4be1-ac6d-b87a311365e2",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Ex, ac consectetur lorem. In sodales."
+                },
+                {
+                  "id": "a3ea4b03-713b-4e32-8d4f-38ebf8b2ccf7",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Scelerisque condimentum libero. Praesent."
+                },
+                {
+                  "id": "209c18e1-85fe-4ebd-86f8-e4679780bf3a",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Aliquam ut ipsum non, venenatis dictum."
+                }
+              ]
+            },
+            {
+              "id": "8fc311ae-9eda-4483-bcdd-88bbb82b43fa",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003187/manifest.json",
+              "annotationBody_t": "Come again, they discussed their prospects and found herself face."
+            },
+            {
+              "id": "a477a925-5976-49ae-937a-b417cc2bafde",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005520/manifest.json",
+              "annotationBody_t": "When i' ll get dressed so quickly? there was a loud quarrel which."
+            },
+            {
+              "id": "4d60cca3-d042-4489-aa3b-2dec0896a33f",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002523/manifest.json",
+              "annotationBody_t": "Was blossoming into a panic as well. Until then they quickly finished."
+            },
+            {
+              "id": "55276a0a-9a0f-4b22-a50d-835856cd68a1",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002183/manifest.json",
+              "annotationBody_t": "Could bear the unpleasantness that he must have rung. Yes, mother."
+            },
+            {
+              "id": "4b8126f4-c498-431b-9e7b-f1c96b782131",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000006774/manifest.json",
+              "annotationBody_t": "Housed in a light swing to it, said gregor. In this way was becoming."
+            },
+            {
+              "id": "bd1debc4-0f5b-4182-a934-96f0e5a0400b",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000651/manifest.json",
+              "annotationBody_t": "The strangeness from his father, pointing, without wasting any more."
+            },
+            {
+              "id": "e088c519-4303-49ba-a5ed-9d1c280a21dd",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005613/manifest.json",
+              "annotationBody_t": "Have come round from work, he said, hurrying over to one side, saw."
+            },
+            {
+              "id": "0e94199e-26cf-43c0-af31-668def94543c",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004588/manifest.json",
+              "annotationBody_t": "S words had made him confused- he had left the door, i' ll make the."
+            },
+            {
+              "id": "5dacd8e0-c026-47c4-8236-ec58642911dd",
+              "type_s": "Person",
+              "personFullname_t": "Albu, Arthur",
+              "personBirthDate_dt": "1266-02-02T00:07:33Z",
+              "personDeathDate_dt": "1286-03-11T00:07:33Z",
+              "personRole_s": "Autor",
+              "personBirthPlace_t": "Vilnius",
+              "personDeathPlace_t": "Podgorica",
+              "personWorkingPlace_t": "Podgorica",
+              "personOccupation_t": "behavioural",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Drinski, Antonio",
+                "Mcdermitt, Kristopher",
+                "Koelle, Neva"
+              ]
+            },
+            {
+              "id": "d3b1b21f-2d5c-4a00-95a6-75ea1ca89a5e",
+              "type_s": "Person",
+              "personFullname_t": "Berardinelli, Mckenzie",
+              "personBirthDate_dt": "1424-05-02T00:07:33Z",
+              "personDeathDate_dt": "1427-11-13T00:07:33Z",
+              "personRole_s": "Schreiber",
+              "personBirthPlace_t": "Tbilisi",
+              "personDeathPlace_t": "Astana",
+              "personWorkingPlace_t": "Minsk",
+              "personOccupation_t": "sketch",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Flitton, Earnest",
+                "Tekautz, Prince",
+                "Moosa, Jeramy"
+              ]
+            },
+            {
+              "id": "c7d484cc-1a67-4497-993b-ee49e8145c4f",
+              "type_s": "Person",
+              "personFullname_t": "Boomershine, Anne",
+              "personBirthDate_dt": "0204-06-24T00:07:33Z",
+              "personDeathDate_dt": "0244-02-19T00:07:33Z",
+              "personRole_s": "Vorbesitzer",
+              "personBirthPlace_t": "Budapest",
+              "personDeathPlace_t": "Monaco",
+              "personWorkingPlace_t": "Moscow",
+              "personOccupation_t": "eighteenths",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Muzii, Jeramy",
+                "Cartan, Jess",
+                "Lamphier, Edward"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.annotationBody_t": [
+            "The strangeness from his father, pointing, <em>without</em> wasting any more."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 4.0034285,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "41ba04a4-8ee8-440e-857c-dc37f76f74ec",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 11
+                  },
+                  "_score": 4.0034285,
+                  "_source": {
+                    "id": "bd1debc4-0f5b-4182-a934-96f0e5a0400b",
+                    "type_s": "Annotation",
+                    "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000651/manifest.json",
+                    "annotationBody_t": "The strangeness from his father, pointing, without wasting any more."
+                  },
+                  "highlight": {
+                    "entities.annotationBody_t": [
+                      "The strangeness from his father, pointing, <em>without</em> wasting any more."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "d48331e6-b2f1-4418-bdde-47c86a857d7e",
+        "_score": 4.0034285,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "d48331e6-b2f1-4418-bdde-47c86a857d7e",
+          "titel_t": "Metus laoreet felis. Nulla felis nibh.",
+          "subtitel_t": "Adipiscing elit. Nulla quis facilisis.",
+          "stoff_t": "croakier",
+          "blattzahl_i": 96,
+          "format_t": "gEOGHeLygUZXDIh",
+          "entstehungsort_s": "Freetown",
+          "entstehungdatum_t": "6nmFFZXiKK9s3Mc",
+          "formtyp_t": "echograms",
+          "status_t": "teen",
+          "schrift_t": "segnos",
+          "schreibsprache_t": "traumas",
+          "vorbesitzer_s": "Rogers, Mi",
+          "entities": [
+            {
+              "id": "13028f61-c0cd-4572-996b-e6ac140d64ab",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "S driven out our tenants, it was like a beer, hoping for the gentlemen.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008941/manifest.json",
+              "digitalisatTitel_t": "Interdum libero feugiat. In sodales."
+            },
+            {
+              "id": "5905f9a9-e422-46f4-bcdd-d1b82d1bf1b4",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Would pull it hurriedly open almost as a business trainee, at high.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000001405/manifest.json",
+              "digitalisatTitel_t": "Mauris. Fusce a varius magna. Duis."
+            },
+            {
+              "id": "2bc0b374-b341-4b5e-b309-d87ab22da018",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "To slide off any moment. Eventually, though, i' d finished her work.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005593/manifest.json",
+              "digitalisatTitel_t": "Fusce interdum pharetra erat a sagittis."
+            },
+            {
+              "id": "98a9fe6e-c105-41bf-aed4-35627f2983d1",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Volutpat vestibulum ex, ut interdum.",
+              "entities": [
+                {
+                  "id": "2c4d3f5c-afd1-4f73-a409-a1dcf5999664",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Tortor nec, ornare velit. Ut scelerisque."
+                },
+                {
+                  "id": "9dac2590-c73d-468c-a084-249cc70a6f08",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Sem id ultricies. Nam vel consequat."
+                },
+                {
+                  "id": "4f8bf788-6119-4364-b7c1-b8330622e24b",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Lacus sit amet, consectetur adipiscing."
+                }
+              ]
+            },
+            {
+              "id": "e55bfcf1-645e-4957-9611-f03eb2c24518",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Aenean pretium augue eget mollis auctor.",
+              "entities": [
+                {
+                  "id": "4f9189b4-1906-4753-9914-17f3fe9c3c86",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Consequat dolor, sed eleifend ligula."
+                },
+                {
+                  "id": "8d1166bf-21b9-4851-aea9-e81df91cad75",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Suspendisse dictum eget sem id ultricies."
+                },
+                {
+                  "id": "5dc25351-f34e-4528-86d3-bbd1ea919e70",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Varius magna. Duis condimentum ornare."
+                }
+              ]
+            },
+            {
+              "id": "d503ccee-6efe-4f2e-8f0d-fa41bb95cf06",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Nec elit accumsan commodo. Phasellus.",
+              "entities": [
+                {
+                  "id": "8c6a5376-d610-460c-b9db-cc3ce3cd49f0",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Mauris libero, sed mattis metus rhoncus."
+                },
+                {
+                  "id": "37d927c9-1a9b-4aed-bef5-1eb456101edd",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Commodo ornare viverra. Etiam odio."
+                },
+                {
+                  "id": "7ee17f15-cf38-4b7c-bc37-2316800f3658",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Dui rutrum eget. Sed tincidunt nec."
+                }
+              ]
+            },
+            {
+              "id": "311ae49a-f724-4a37-a7ab-13b310999090",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002839/manifest.json",
+              "annotationBody_t": "Good as to what was said next would be said. Even before the first."
+            },
+            {
+              "id": "6e0ec373-b5a8-441d-b1ff-affa669957cb",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001615/manifest.json",
+              "annotationBody_t": "Down in there, gregor' s room while his parents were sat at the table."
+            },
+            {
+              "id": "d9737a34-3726-41b7-8861-237e9a5fe092",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000372/manifest.json",
+              "annotationBody_t": "Was totally beyond gregor' s back. Aren' t have my parents suffer."
+            },
+            {
+              "id": "f7ab075c-9d0d-4e30-b052-fe08ab36383b",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002208/manifest.json",
+              "annotationBody_t": "The uncontrolled way his father, pointing, without even giving the."
+            },
+            {
+              "id": "c32b859c-ebfd-458d-a357-5fdf671d1c35",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009967/manifest.json",
+              "annotationBody_t": "Hard. The other of the chambermaids from a hat shop for whom his attention."
+            },
+            {
+              "id": "0317e6ce-b254-41bc-8bb4-5e94888b4710",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005873/manifest.json",
+              "annotationBody_t": "About them, who seemed to him even if that was the boss and the two."
+            },
+            {
+              "id": "2b5f3b20-21e6-4794-9090-aa4f824b8aae",
+              "type_s": "Person",
+              "personFullname_t": "Rogers, Mi",
+              "personBirthDate_dt": "1431-01-01T00:07:33Z",
+              "personDeathDate_dt": "1503-03-18T00:07:33Z",
+              "personRole_s": "Vorbesitzer",
+              "personBirthPlace_t": "Madrid",
+              "personDeathPlace_t": "Tirana",
+              "personWorkingPlace_t": "Andorra la Vella",
+              "personOccupation_t": "bossier",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Fifer, Enid",
+                "Easlick, Kelley",
+                "Hemsath, Guy"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.annotationBody_t": [
+            "The uncontrolled way his father, pointing, <em>without</em> even giving the."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 4.0034285,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "d48331e6-b2f1-4418-bdde-47c86a857d7e",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 9
+                  },
+                  "_score": 4.0034285,
+                  "_source": {
+                    "id": "f7ab075c-9d0d-4e30-b052-fe08ab36383b",
+                    "type_s": "Annotation",
+                    "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002208/manifest.json",
+                    "annotationBody_t": "The uncontrolled way his father, pointing, without even giving the."
+                  },
+                  "highlight": {
+                    "entities.annotationBody_t": [
+                      "The uncontrolled way his father, pointing, <em>without</em> even giving the."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "f244d6f1-d9a4-4deb-9cd0-dd1f2da4d726",
+        "_score": 4.0034285,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "f244d6f1-d9a4-4deb-9cd0-dd1f2da4d726",
+          "titel_t": "Justo commodo vehicula. Sed tincidunt.",
+          "subtitel_t": "Cursus ligula et odio ultricies, at.",
+          "stoff_t": "husk",
+          "blattzahl_i": 13,
+          "format_t": "4PdQKl0fFHMWM6y",
+          "entstehungsort_s": "Manama",
+          "entstehungdatum_t": "6yrH1pI8JQ9oZ3a",
+          "formtyp_t": "vug",
+          "status_t": "bivalences",
+          "schrift_t": "snuffiness",
+          "schreibsprache_t": "cucurbits",
+          "vorbesitzer_s": "Jemmett, Shirley",
+          "author_t": "Schuh, Frank",
+          "schreiber_t": "Gotshall, Oliva",
+          "entities": [
+            {
+              "id": "76f878ef-baa3-4f25-9a25-118238523fa6",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "A state of empty and peaceful rumination until he heard the violin.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000001431/manifest.json",
+              "digitalisatTitel_t": "Ullamcorper. Morbi interdum lorem."
+            },
+            {
+              "id": "3fdb6ef2-8df5-4367-a14b-13442b0539dc",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "The wallpaper, and really must request a clear and immediate explanation.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000003077/manifest.json",
+              "digitalisatTitel_t": "Leo sit amet odio pellentesque feugiat."
+            },
+            {
+              "id": "637869f8-f07b-4c3e-9c52-2582de7c2ddc",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Blue uniform with gold buttons, the few drops of milk splashed around.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002431/manifest.json",
+              "digitalisatTitel_t": "Rhoncus, sed sollicitudin eros. Donec."
+            },
+            {
+              "id": "0596efda-4556-4eda-aad0-9a4708efe139",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Velit lobortis, ut interdum libero.",
+              "entities": [
+                {
+                  "id": "d4be7278-c247-4ecd-bca4-3cca5bb333f3",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Vulputate porta. Nullam convallis."
+                },
+                {
+                  "id": "b771cb77-e6a2-477e-8ba3-5eac683e4630",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Felis nibh, aliquam ut ipsum non,."
+                },
+                {
+                  "id": "94133987-39a0-417f-9058-20f2bc9e936a",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Velit sagittis euismod ultricies.."
+                }
+              ]
+            },
+            {
+              "id": "aa0f45c1-c416-4dcd-b4db-3916ee475ae8",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001530/manifest.json",
+              "annotationBody_t": "Probably all the breakfast things on it without further difficulty."
+            },
+            {
+              "id": "1e6db1dd-edcc-48d0-9889-8ca8ea3eff2f",
+              "type_s": "Person",
+              "personFullname_t": "Jemmett, Shirley",
+              "personBirthDate_dt": "0753-11-04T00:07:33Z",
+              "personDeathDate_dt": "0852-09-02T00:07:33Z",
+              "personRole_s": "Vorbesitzer",
+              "personBirthPlace_t": "Tirana",
+              "personDeathPlace_t": "Sofia",
+              "personWorkingPlace_t": "Bratislava",
+              "personOccupation_t": "intermeddle",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Grandinetti, Darwin",
+                "Ravenell, Jimmie",
+                "Passero, Ute"
+              ]
+            },
+            {
+              "id": "3bc5f4d3-2329-41a5-8ef5-e50887cfbd4c",
+              "type_s": "Person",
+              "personFullname_t": "Schuh, Frank",
+              "personBirthDate_dt": "1615-03-25T00:07:33Z",
+              "personDeathDate_dt": "1680-01-12T00:07:33Z",
+              "personRole_s": "Autor",
+              "personBirthPlace_t": "Amsterdam",
+              "personDeathPlace_t": "Oslo",
+              "personWorkingPlace_t": "Bucharest",
+              "personOccupation_t": "plunk",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Zingler, Mariah",
+                "Campen, Merry",
+                "Hillegas, Viola"
+              ]
+            },
+            {
+              "id": "0b2f0584-6f66-4ac8-85a9-ca6242264215",
+              "type_s": "Person",
+              "personFullname_t": "Gotshall, Oliva",
+              "personBirthDate_dt": "0219-03-23T00:07:33Z",
+              "personDeathDate_dt": "0226-09-16T00:07:33Z",
+              "personRole_s": "Schreiber",
+              "personBirthPlace_t": "Belgrade",
+              "personDeathPlace_t": "Yerevan",
+              "personWorkingPlace_t": "Astana",
+              "personOccupation_t": "dissolvings",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Veltin, Romana",
+                "Eggler, Jess",
+                "Minix, Ivan"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.annotationBody_t": [
+            "Probably all the breakfast things on it <em>without</em> further difficulty."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 4.0034285,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "f244d6f1-d9a4-4deb-9cd0-dd1f2da4d726",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 4
+                  },
+                  "_score": 4.0034285,
+                  "_source": {
+                    "id": "aa0f45c1-c416-4dcd-b4db-3916ee475ae8",
+                    "type_s": "Annotation",
+                    "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001530/manifest.json",
+                    "annotationBody_t": "Probably all the breakfast things on it without further difficulty."
+                  },
+                  "highlight": {
+                    "entities.annotationBody_t": [
+                      "Probably all the breakfast things on it <em>without</em> further difficulty."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "ae6d7f7a-5be6-40d7-9be2-2867c8f05a4e",
+        "_score": 3.8847804,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "ae6d7f7a-5be6-40d7-9be2-2867c8f05a4e",
+          "titel_t": "Dolor lectus. Maecenas et mi vel lorem.",
+          "subtitel_t": "Luctus purus euismod condimentum..",
+          "stoff_t": "untarred",
+          "blattzahl_i": 55,
+          "format_t": "srskVG4VQ3X99RA",
+          "entstehungsort_s": "Moscow",
+          "entstehungdatum_t": "Xxrg1eRHdRWNV8n",
+          "formtyp_t": "baetyls",
+          "status_t": "linns",
+          "schrift_t": "mainframes",
+          "schreibsprache_t": "restrictiveness",
+          "vorbesitzer_s": "Nipple, Keith",
+          "author_t": "Aben, Lincoln",
+          "schreiber_t": "Jewett, Eusebio",
+          "entities": [
+            {
+              "id": "e09d9336-b7ea-42d0-b422-5bd31607b675",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "He crossed himself, and froze very still, remained there as a girl.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000000524/manifest.json",
+              "digitalisatTitel_t": "Quis lacinia sed, ultrices id lacus."
+            },
+            {
+              "id": "9de45480-a552-483b-943d-24f91578f102",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Him several times without anything decisive happening, they took everything.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005960/manifest.json",
+              "digitalisatTitel_t": "Lectus non egestas. Sed cursus ligula."
+            },
+            {
+              "id": "0645af1c-28c0-4337-8413-1b0eeeeb13c3",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Enemy. On hearing all this, but nothing would have been quite easy.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000000984/manifest.json",
+              "digitalisatTitel_t": "Efficitur mi ac, mattis vel odio.."
+            },
+            {
+              "id": "bb02fe0c-3e81-45a3-b5ee-2edbcedc4bf0",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Hendrerit vestibulum velit. Ut scelerisque.",
+              "entities": [
+                {
+                  "id": "5ee188e6-0bb9-4ddb-9469-4a0ebc606e3a",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Rhoncus, sed interdum risus ullamcorper."
+                }
+              ]
+            },
+            {
+              "id": "46701ab4-5179-47c2-98cc-6c90c7fe3e98",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002302/manifest.json",
+              "annotationBody_t": "Late her cheeks had become used to be held back, making an effort."
+            },
+            {
+              "id": "2c9e8744-6869-4f87-9ff2-4990327d1e1f",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002918/manifest.json",
+              "annotationBody_t": "See the dirt as well as he lay there on the walls and ceiling. Whatever."
+            },
+            {
+              "id": "5399b589-347d-4c67-8fd7-28bfc8b67f93",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000423/manifest.json",
+              "annotationBody_t": "And dripped onto the door if he had no reason to mistrust the men."
+            },
+            {
+              "id": "e7c06a29-e638-4e9f-8fc3-6e186b92cb3a",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005976/manifest.json",
+              "annotationBody_t": "Re also well aware that he could breathe more freely; his shocking."
+            },
+            {
+              "id": "06889fdf-f6e2-4dd3-85ca-ed2bf2ef73e9",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009584/manifest.json",
+              "annotationBody_t": "To cheek; his mother said it would be to get the job himself. So she."
+            },
+            {
+              "id": "b7f28726-4a74-4943-9def-00db937db20e",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000765/manifest.json",
+              "annotationBody_t": "But grete' s mother to help her. But gregor found it easy to set out."
+            },
+            {
+              "id": "f2ca332a-d3ae-4101-bbea-abb9759e00a0",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009813/manifest.json",
+              "annotationBody_t": "Been suddenly overcome with humility and wanted permission again from."
+            },
+            {
+              "id": "a930a69b-c4a4-475f-a2bb-d7d266ee9dab",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001964/manifest.json",
+              "annotationBody_t": "Clock train, as even the other side. They had become convinced that."
+            },
+            {
+              "id": "e7f2432b-e143-46cc-85b9-704b3a3c0f6a",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000645/manifest.json",
+              "annotationBody_t": "Leave it there for weeks without his sister to get a locksmith here."
+            },
+            {
+              "id": "1aa983c6-c4e4-4e90-a50e-2506f2e59b45",
+              "type_s": "Person",
+              "personFullname_t": "Aben, Lincoln",
+              "personBirthDate_dt": "0654-08-24T00:07:33Z",
+              "personDeathDate_dt": "0684-03-11T00:07:33Z",
+              "personRole_s": "Autor",
+              "personBirthPlace_t": "Riga",
+              "personDeathPlace_t": "Paris",
+              "personWorkingPlace_t": "Warsaw",
+              "personOccupation_t": "geologize",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Ximines, Belia",
+                "Drawbaugh, Laure",
+                "Rohdenburg, Irmgard"
+              ]
+            },
+            {
+              "id": "82719578-bb3a-473a-911c-407f9f88134c",
+              "type_s": "Person",
+              "personFullname_t": "Nipple, Keith",
+              "personBirthDate_dt": "0932-11-15T00:07:33Z",
+              "personDeathDate_dt": "0938-09-15T00:07:33Z",
+              "personRole_s": "Vorbesitzer",
+              "personBirthPlace_t": "Belgrade",
+              "personDeathPlace_t": "Sarajevo",
+              "personWorkingPlace_t": "Moscow",
+              "personOccupation_t": "cousin",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Leezer, Alla",
+                "Morford, Syreeta",
+                "Painton, Eduardo"
+              ]
+            },
+            {
+              "id": "608d9812-8889-495a-bef2-09ebd15815ef",
+              "type_s": "Person",
+              "personFullname_t": "Jewett, Eusebio",
+              "personBirthDate_dt": "0053-09-08T00:07:33Z",
+              "personDeathDate_dt": "0123-03-13T00:07:33Z",
+              "personRole_s": "Schreiber",
+              "personBirthPlace_t": "Ljubljana",
+              "personDeathPlace_t": "Vaduz",
+              "personWorkingPlace_t": "Paris",
+              "personOccupation_t": "froggier",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Ridenour, Jesica",
+                "Drewes, Cornell",
+                "Hussy, Starr"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.annotationBody_t": [
+            "Leave it there for weeks <em>without</em> his sister to get a locksmith here."
+          ],
+          "entities.digitalisatDescription_t": [
+            "Him several times <em>without</em> anything decisive happening, they took everything."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 2,
+                "relation": "eq"
+              },
+              "max_score": 4.148194,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "ae6d7f7a-5be6-40d7-9be2-2867c8f05a4e",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 1
+                  },
+                  "_score": 4.148194,
+                  "_source": {
+                    "id": "9de45480-a552-483b-943d-24f91578f102",
+                    "type_s": "Digitalisat",
+                    "digitalisatDescription_t": "Him several times without anything decisive happening, they took everything.",
+                    "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005960/manifest.json",
+                    "digitalisatTitel_t": "Lectus non egestas. Sed cursus ligula."
+                  },
+                  "highlight": {
+                    "entities.digitalisatDescription_t": [
+                      "Him several times <em>without</em> anything decisive happening, they took everything."
+                    ]
+                  }
+                },
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "ae6d7f7a-5be6-40d7-9be2-2867c8f05a4e",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 12
+                  },
+                  "_score": 3.621367,
+                  "_source": {
+                    "id": "e7f2432b-e143-46cc-85b9-704b3a3c0f6a",
+                    "type_s": "Annotation",
+                    "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000645/manifest.json",
+                    "annotationBody_t": "Leave it there for weeks without his sister to get a locksmith here."
+                  },
+                  "highlight": {
+                    "entities.annotationBody_t": [
+                      "Leave it there for weeks <em>without</em> his sister to get a locksmith here."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
+        "_score": 3.8763814,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
+          "titel_t": "Blandit. Sed ex justo, feugiat ac.",
+          "subtitel_t": "Sed ex justo, feugiat pulvinar ante.",
+          "stoff_t": "week",
+          "blattzahl_i": 90,
+          "format_t": "18pW891Jzi1qKef",
+          "entstehungsort_s": "Chisinau",
+          "entstehungdatum_t": "oVze0mIumMqVKF7",
+          "formtyp_t": "warrantee",
+          "status_t": "deportation",
+          "schrift_t": "moue",
+          "schreibsprache_t": "neutretto",
+          "schreiber_t": "Damoro, Roger",
+          "entities": [
+            {
+              "id": "02f139b1-7327-46bc-95b4-4206199d0e26",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Sheet to see him. Two strong people- he had far better control of.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008988/manifest.json",
+              "digitalisatTitel_t": "Sapien non posuere. Maecenas convallis."
+            },
+            {
+              "id": "e816d1d2-a7d4-45a6-bd91-594544f6aa04",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Just lie quietly through the doorway without regard for what she would.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008673/manifest.json",
+              "digitalisatTitel_t": "Ac ante ipsum primis in faucibus.."
+            },
+            {
+              "id": "2238a9e3-eb4c-4425-bb87-996e5f121ba5",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Much better than rushing to desperate conclusions. At first just nodded.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005947/manifest.json",
+              "digitalisatTitel_t": "Felis. Nulla eget neque dictum, efficitur."
+            },
+            {
+              "id": "e32f51b6-246f-4ee8-a5b5-c2854f3281d8",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Molestie arcu rhoncus, sed interdum.",
+              "entities": [
+                {
+                  "id": "7a09c1d6-691d-4b19-864a-92bbc091e577",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Sed ante placerat, venenatis dictum."
+                },
+                {
+                  "id": "7d7f1d18-8980-4292-bc06-11d9e4039a4e",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Ac ante ipsum primis in faucibus.."
+                },
+                {
+                  "id": "08633542-4d25-4cdd-ba06-421d1e9d7b7f",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Suscipit ultrices. Suspendisse dapibus."
+                }
+              ]
+            },
+            {
+              "id": "75ed05b0-4369-4af7-9b4f-3c5a05bd1e72",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Nulla felis nibh, aliquam ut ipsum.",
+              "entities": [
+                {
+                  "id": "0ced87f2-7a1c-41c4-bb78-0c367fb5db05",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Id posuere neque. Aliquam pharetra."
+                },
+                {
+                  "id": "3c354996-be00-4a56-b542-6d57c33b1251",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Semper lorem ac porttitor sagittis."
+                },
+                {
+                  "id": "e5c8600c-b64f-4059-84ed-89d3b8bbc31d",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Posuere neque. Aliquam sed ante placerat."
+                }
+              ]
+            },
+            {
+              "id": "87269fda-73c9-4534-92fd-c0405bf693a5",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Ornare velit. In quam quam, condimentum.",
+              "entities": [
+                {
+                  "id": "f04ac17c-e55b-42a3-80af-58cfcd3055d7",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Facilisis eros, a elementum enim.."
+                },
+                {
+                  "id": "b41df3d6-9739-41fc-b5de-23d2da3252ad",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Pharetra. Phasellus quis euismod eros."
+                },
+                {
+                  "id": "01ff501e-697b-481d-bbfd-d351c8ba720b",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Nibh lorem. In quam quam, condimentum."
+                }
+              ]
+            },
+            {
+              "id": "11909ed8-ca58-4570-b161-a2b2a9ec1a9f",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008942/manifest.json",
+              "annotationBody_t": "Laughed, as her mother out of her clothes after she had fallen to."
+            },
+            {
+              "id": "0422b3d3-026c-4d3a-ac6a-763913f56f8f",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004769/manifest.json",
+              "annotationBody_t": "More answer than no thanks, i must say that if we people in commerce."
+            },
+            {
+              "id": "d4670208-a76c-423d-9efe-9cf049ebb1fb",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001604/manifest.json",
+              "annotationBody_t": "Himself next to it, soon he was bound to make of; and he was quite."
+            },
+            {
+              "id": "1dac60fb-c864-4bae-8572-75071b52b7cb",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009504/manifest.json",
+              "annotationBody_t": "Hours afterwards. The three gentlemen were more quickly moving toward."
+            },
+            {
+              "id": "b027063c-6a19-421b-ab97-78ce303800c7",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002676/manifest.json",
+              "annotationBody_t": "On company business? was it really not enough to him where he could."
+            },
+            {
+              "id": "cf88c096-6fab-466e-ad13-9b97ec7e3ac9",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005697/manifest.json",
+              "annotationBody_t": "And sister had been very reliable. Now they all should have been quite."
+            },
+            {
+              "id": "7e7e476b-9d84-4932-9a0e-a843c7f14da2",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009681/manifest.json",
+              "annotationBody_t": "Direction of the double doors, and to speak, and they had realised."
+            },
+            {
+              "id": "f4a14681-a0db-4f42-9c19-f7e5570ff267",
+              "type_s": "Person",
+              "personFullname_t": "Damoro, Roger",
+              "personBirthDate_dt": "0645-03-01T00:07:33Z",
+              "personDeathDate_dt": "0707-02-18T00:07:33Z",
+              "personRole_s": "Schreiber",
+              "personBirthPlace_t": "Vaduz",
+              "personDeathPlace_t": "Ankara",
+              "personWorkingPlace_t": "Bucharest",
+              "personOccupation_t": "swam",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Silliman, Hyacinth",
+                "Robair, Ruthann",
+                "Leuasseur, Carmelina"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.digitalisatDescription_t": [
+            "Just lie quietly through the doorway <em>without</em> regard for what she would."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 3.8763814,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "fe659f23-c3b8-475f-bae2-a7d42fcb80e7",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 1
+                  },
+                  "_score": 3.8763814,
+                  "_source": {
+                    "id": "e816d1d2-a7d4-45a6-bd91-594544f6aa04",
+                    "type_s": "Digitalisat",
+                    "digitalisatDescription_t": "Just lie quietly through the doorway without regard for what she would.",
+                    "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008673/manifest.json",
+                    "digitalisatTitel_t": "Ac ante ipsum primis in faucibus.."
+                  },
+                  "highlight": {
+                    "entities.digitalisatDescription_t": [
+                      "Just lie quietly through the doorway <em>without</em> regard for what she would."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "7655993c-a063-4039-aadf-f8abf2f79d7b",
+        "_score": 3.8763814,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "7655993c-a063-4039-aadf-f8abf2f79d7b",
+          "titel_t": "Interdum et malesuada fames ac ante.",
+          "subtitel_t": "Enim, aliquet sed massa nec, feugiat.",
+          "stoff_t": "unbeneficed",
+          "blattzahl_i": 81,
+          "format_t": "knafHdXlw86GbrY",
+          "entstehungsort_s": "Bangkok",
+          "entstehungdatum_t": "wKwvnRWKOhBGMYt",
+          "formtyp_t": "caress",
+          "status_t": "expedients",
+          "schrift_t": "mot",
+          "schreibsprache_t": "ruse",
+          "schreiber_t": "Scerbo, Lemuel",
+          "entities": [
+            {
+              "id": "79edba92-6440-44ab-94ad-d7ef3e341291",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Traces of the whole night through, not without looking back at him.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005965/manifest.json",
+              "digitalisatTitel_t": "Condimentum dui rutrum eget. Sed tincidunt."
+            },
+            {
+              "id": "f4ec878e-34a6-4d8c-b6c6-df6dfe5adbbf",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Through his mind in his room and looked straight ahead. He was entitled.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002781/manifest.json",
+              "digitalisatTitel_t": "Pharetra urna sit amet purus cursus."
+            },
+            {
+              "id": "8dcd5650-f8f0-45a3-984f-08380c111554",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Current sad and tired to continue listening, when he finally had his.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000007405/manifest.json",
+              "digitalisatTitel_t": "Sed vehicula. Sed lectus sapien, ac."
+            },
+            {
+              "id": "94815312-5d01-4aa2-b28c-cfc0f8d31bcf",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Quis lacinia sed, ultrices id lacus.",
+              "entities": [
+                {
+                  "id": "4c51dde3-1dfe-4106-b569-b1323e3b50cf",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Curabitur massa nulla, maximus eu."
+                }
+              ]
+            },
+            {
+              "id": "5578284f-0722-4a96-8e06-946ea8bdd992",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Amet odio pellentesque feugiat. Praesent.",
+              "entities": [
+                {
+                  "id": "061ebf9a-9a59-4fff-95fb-69aad2c3a888",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Lorem ipsum dolor sit amet, iaculis."
+                }
+              ]
+            },
+            {
+              "id": "13be2431-0641-46ea-97ec-adc4062120b9",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007391/manifest.json",
+              "annotationBody_t": "Off any moment. Be patient and careful as he had, tugged excitedly."
+            },
+            {
+              "id": "88bca152-bbba-46d8-8b3c-4df4920cd59a",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007894/manifest.json",
+              "annotationBody_t": "Difficulty. In his tender left side seemed like one, and that' s go."
+            },
+            {
+              "id": "dff1f1bd-2590-4717-b7f6-1316e0642b66",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009370/manifest.json",
+              "annotationBody_t": "Father whether he would have wanted, he called, what is it you want."
+            },
+            {
+              "id": "cd5909d8-4d5e-4c6d-ad63-cf4aa81871fe",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009964/manifest.json",
+              "annotationBody_t": "Starve either, but we could come to an end, his food soon stopped."
+            },
+            {
+              "id": "cf2710ac-e158-4358-a1a6-04011949b4fe",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001760/manifest.json",
+              "annotationBody_t": "Sitting in the flat was much more uneasy than usual and found that."
+            },
+            {
+              "id": "b65c039a-3751-4b80-9208-0ec8a0336f06",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007659/manifest.json",
+              "annotationBody_t": "Move straight ahead. He concentrated on crawling as fast as he could."
+            },
+            {
+              "id": "f9acdf5f-caad-4f58-88b5-3ae0aa23a38c",
+              "type_s": "Person",
+              "personFullname_t": "Scerbo, Lemuel",
+              "personBirthDate_dt": "0230-09-12T00:07:33Z",
+              "personDeathDate_dt": "0302-06-13T00:07:33Z",
+              "personRole_s": "Schreiber",
+              "personBirthPlace_t": "Kiev",
+              "personDeathPlace_t": "Budapest",
+              "personWorkingPlace_t": "Sarajevo",
+              "personOccupation_t": "glowingly",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Yiu, Karlene",
+                "Rehberg, Petra",
+                "Goldade, Cierra"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.digitalisatDescription_t": [
+            "Traces of the whole night through, not <em>without</em> looking back at him."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 3.8763814,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "7655993c-a063-4039-aadf-f8abf2f79d7b",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 0
+                  },
+                  "_score": 3.8763814,
+                  "_source": {
+                    "id": "79edba92-6440-44ab-94ad-d7ef3e341291",
+                    "type_s": "Digitalisat",
+                    "digitalisatDescription_t": "Traces of the whole night through, not without looking back at him.",
+                    "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005965/manifest.json",
+                    "digitalisatTitel_t": "Condimentum dui rutrum eget. Sed tincidunt."
+                  },
+                  "highlight": {
+                    "entities.digitalisatDescription_t": [
+                      "Traces of the whole night through, not <em>without</em> looking back at him."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "4cd3d990-3901-4c06-9af7-11b663a13ad3",
+        "_score": 3.8763814,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "4cd3d990-3901-4c06-9af7-11b663a13ad3",
+          "titel_t": "Velit, sed sollicitudin eros. Donec.",
+          "subtitel_t": "Vestibulum velit. Morbi nec dolor.",
+          "stoff_t": "fencible",
+          "blattzahl_i": 86,
+          "format_t": "8IQBAycigHU1GCW",
+          "entstehungsort_s": "Valletta",
+          "entstehungdatum_t": "HmeBSherUNRxUW5",
+          "formtyp_t": "swarth",
+          "status_t": "maintop",
+          "schrift_t": "publishment",
+          "schreibsprache_t": "dops",
+          "vorbesitzer_s": "Lenhoff, Freddie",
+          "schreiber_t": "Bhakta, Toby",
+          "entities": [
+            {
+              "id": "f455057c-a466-41e0-b8d4-5c759c4d6c19",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Company, accuse his parents, surely she could do without if he had.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006324/manifest.json",
+              "digitalisatTitel_t": "Condimentum dui rutrum eget. Sed mollis."
+            },
+            {
+              "id": "5cdf4997-d9a6-4fef-a3a6-59ee5fe647bc",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Silence; in the way he stood up and were ready to slide off any moment.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000005279/manifest.json",
+              "digitalisatTitel_t": "Diam a euismod. Donec id faucibus."
+            },
+            {
+              "id": "f0c1dacc-1d45-44f5-b71c-ee9a4feda7d7",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Nibh semper. Morbi in dolor lectus.",
+              "entities": [
+                {
+                  "id": "b848dfc1-ef88-4370-a8d9-4837b3ecb0ef",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Vel consequat dolor, sed sollicitudin."
+                }
+              ]
+            },
+            {
+              "id": "55d5a29f-6b2b-4b2e-a900-b0397bf5b45c",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Scelerisque at nisi a pharetra. Phasellus.",
+              "entities": [
+                {
+                  "id": "86356c50-8bdb-4ae2-aef6-d08613a4c352",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Velit, sed eleifend ligula faucibus."
+                }
+              ]
+            },
+            {
+              "id": "2862656c-0d6a-4d7c-b943-e270ea04100c",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Purus sed vehicula. Morbi nec dolor.",
+              "entities": [
+                {
+                  "id": "fe7b5bbb-28d6-4e28-8d1d-9b4defc28a2c",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Ultrices eget metus. Nullam at malesuada."
+                }
+              ]
+            },
+            {
+              "id": "6eab7375-2bd4-4a6c-861a-6dc5a737e0f3",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009783/manifest.json",
+              "annotationBody_t": "The hall, he could only end in their marriage bed and had not taken."
+            },
+            {
+              "id": "0048cd8d-bcee-4860-be45-36c4d0a88bb7",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003019/manifest.json",
+              "annotationBody_t": "Loud no, said gregor anxiously, but you, i hope it' s father as he."
+            },
+            {
+              "id": "2bb812e5-a504-4c08-b2c7-2b8dff3272e9",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003007/manifest.json",
+              "annotationBody_t": "Ask for help from her father with her hands to push their arms around."
+            },
+            {
+              "id": "59813aaa-1685-4f6d-9981-b201f747637d",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005246/manifest.json",
+              "annotationBody_t": "Family to distract him. He sat reading a number of different newspapers."
+            },
+            {
+              "id": "c7a6faa4-6392-41a5-ae23-6c66f7f5474b",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005518/manifest.json",
+              "annotationBody_t": "Startled him that he was and he was silent and looked round. They."
+            },
+            {
+              "id": "c5dbb7f2-6e64-41cf-b30d-cc2faa896021",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007371/manifest.json",
+              "annotationBody_t": "Of teeth was, and gregor would often turn to the window while he lived."
+            },
+            {
+              "id": "6d6d5be1-6f01-4215-b28b-a0f2907fbca6",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001650/manifest.json",
+              "annotationBody_t": "Different people all the doors were locked? despite all their misfortunes."
+            },
+            {
+              "id": "5c27d563-88b7-45f7-93d4-f03ffb4fd96d",
+              "type_s": "Person",
+              "personFullname_t": "Bhakta, Toby",
+              "personBirthDate_dt": "0231-04-03T00:07:33Z",
+              "personDeathDate_dt": "0276-03-02T00:07:33Z",
+              "personRole_s": "Schreiber",
+              "personBirthPlace_t": "Belgrade",
+              "personDeathPlace_t": "Kiev",
+              "personWorkingPlace_t": "Warsaw",
+              "personOccupation_t": "plumiest",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Gilmartin, Drew",
+                "Coreas, Waylon"
+              ]
+            },
+            {
+              "id": "9b592b0f-c05b-4d3f-ac55-0b2f8e4b4e65",
+              "type_s": "Person",
+              "personFullname_t": "Starlin, Jimmy",
+              "personBirthDate_dt": "1205-03-07T00:07:33Z",
+              "personDeathDate_dt": "1250-07-12T00:07:33Z",
+              "personRole_s": "Vorbesitzer",
+              "personBirthPlace_t": "Podgorica",
+              "personDeathPlace_t": "Valletta",
+              "personWorkingPlace_t": "Andorra la Vella",
+              "personOccupation_t": "lazarettes",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Keliipio, Cecil",
+                "Pendola, Alyce"
+              ]
+            },
+            {
+              "id": "c3244ebc-e3e7-4308-96da-cbbb7b0054b6",
+              "type_s": "Person",
+              "personFullname_t": "Lenhoff, Freddie",
+              "personBirthDate_dt": "0118-07-13T00:07:33Z",
+              "personDeathDate_dt": "0195-08-07T00:07:33Z",
+              "personRole_s": "Vorbesitzer",
+              "personBirthPlace_t": "London",
+              "personDeathPlace_t": "Skopje",
+              "personWorkingPlace_t": "Valletta",
+              "personOccupation_t": "beamier",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Kamrath, Brock",
+                "Clodfelter, Freda"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.digitalisatDescription_t": [
+            "Company, accuse his parents, surely she could do <em>without</em> if he had."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 3.8763814,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "4cd3d990-3901-4c06-9af7-11b663a13ad3",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 0
+                  },
+                  "_score": 3.8763814,
+                  "_source": {
+                    "id": "f455057c-a466-41e0-b8d4-5c759c4d6c19",
+                    "type_s": "Digitalisat",
+                    "digitalisatDescription_t": "Company, accuse his parents, surely she could do without if he had.",
+                    "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006324/manifest.json",
+                    "digitalisatTitel_t": "Condimentum dui rutrum eget. Sed mollis."
+                  },
+                  "highlight": {
+                    "entities.digitalisatDescription_t": [
+                      "Company, accuse his parents, surely she could do <em>without</em> if he had."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "9a1f4034-800a-44a0-a959-d0b81cee931c",
+        "_score": 3.8674216,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "9a1f4034-800a-44a0-a959-d0b81cee931c",
+          "titel_t": "Lorem malesuada hendrerit. Donec sed.",
+          "subtitel_t": "Fringilla eu. Vivamus id ultricies.",
+          "stoff_t": "surmises",
+          "blattzahl_i": 63,
+          "format_t": "4sk7RrhENsmMbj2",
+          "entstehungsort_s": "Santiago",
+          "entstehungdatum_t": "Rri7i4f8rb9lQRg",
+          "formtyp_t": "conservancies",
+          "status_t": "alps",
+          "schrift_t": "halms",
+          "schreibsprache_t": "macs",
+          "author_t": "Madonna, Irene",
+          "entities": [
+            {
+              "id": "0cc584c7-5375-47b8-b35c-b191070e1054",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Firmly and felt fully rested. But on the handle of the room of someone.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000007909/manifest.json",
+              "digitalisatTitel_t": "Lobortis, ut interdum libero feugiat."
+            },
+            {
+              "id": "73ec8342-0c92-45ca-8323-1be369d4954e",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Nam quis nibh lorem. In sodales vel.",
+              "entities": [
+                {
+                  "id": "097d5ab5-7f63-4067-a97d-c468f1ab500b",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Posuere. Maecenas bibendum libero."
+                },
+                {
+                  "id": "6294c709-4363-4ce8-98bd-b8141d3cc6bf",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Morbi porta mauris libero, sed interdum."
+                }
+              ]
+            },
+            {
+              "id": "e8886a97-a2e1-4535-b310-0dcd11f9fc72",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Dolor sit amet, consectetur adipiscing.",
+              "entities": [
+                {
+                  "id": "152c5f9a-f7ab-4265-bdc4-46d0fa790366",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Aliquam nibh, nec finibus nulla vulputate."
+                },
+                {
+                  "id": "5617609c-7c4c-480d-a18c-99559e14aae8",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Lorem nec elit accumsan commodo. Phasellus."
+                }
+              ]
+            },
+            {
+              "id": "935be90f-44ea-4bc4-9857-9e7f24116c98",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008611/manifest.json",
+              "annotationBody_t": "Without the good influence the furniture away, but just remained where."
+            },
+            {
+              "id": "368b1761-f770-4806-90ad-70bbbbda7f05",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008691/manifest.json",
+              "annotationBody_t": "Same time. From these repeated explanations gregor learned, listening."
+            },
+            {
+              "id": "a2273a47-6b09-455e-bcd6-4b5644fb8502",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008071/manifest.json",
+              "annotationBody_t": "Sleep through that furniture- rattling noise? true, he thought back."
+            },
+            {
+              "id": "18c967be-9a1a-48a5-94ab-b1a5b9d72bc9",
+              "type_s": "Person",
+              "personFullname_t": "Madonna, Irene",
+              "personBirthDate_dt": "0344-08-15T00:07:33Z",
+              "personDeathDate_dt": "0391-07-03T00:07:33Z",
+              "personRole_s": "Autor",
+              "personBirthPlace_t": "Minsk",
+              "personDeathPlace_t": "Moscow",
+              "personWorkingPlace_t": "Amsterdam",
+              "personOccupation_t": "woodsy",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Tosco, Clifton"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.annotationBody_t": [
+            "<em>Without</em> the good influence the furniture away, but just remained where."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 3.8674216,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "9a1f4034-800a-44a0-a959-d0b81cee931c",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 3
+                  },
+                  "_score": 3.8674216,
+                  "_source": {
+                    "id": "935be90f-44ea-4bc4-9857-9e7f24116c98",
+                    "type_s": "Annotation",
+                    "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008611/manifest.json",
+                    "annotationBody_t": "Without the good influence the furniture away, but just remained where."
+                  },
+                  "highlight": {
+                    "entities.annotationBody_t": [
+                      "<em>Without</em> the good influence the furniture away, but just remained where."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "504ebb2f-540b-46dc-8409-eaa712362321",
+        "_score": 3.8674216,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "504ebb2f-540b-46dc-8409-eaa712362321",
+          "titel_t": "Id metus. Nullam convallis aliquam.",
+          "subtitel_t": "Donec id posuere neque. Aliquam sed.",
+          "stoff_t": "exceedingly",
+          "blattzahl_i": 65,
+          "format_t": "tL5cd43jX8BMS6s",
+          "entstehungsort_s": "Kyiv or Kiev",
+          "entstehungdatum_t": "KSKM5kN2Tl5qMhB",
+          "formtyp_t": "stingos",
+          "status_t": "shipways",
+          "schrift_t": "antitoxins",
+          "schreibsprache_t": "pleasantries",
+          "schreiber_t": "Yarbough, Delbert",
+          "entities": [
+            {
+              "id": "c4fa8543-d9c1-49d4-b11a-bda7a7780643",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Fresh foods, on the window open from then on it; and finally, all.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000003827/manifest.json",
+              "digitalisatTitel_t": "Fames ac ante ipsum primis in faucibus."
+            },
+            {
+              "id": "2e3164f7-e6ea-4464-a5a4-e47e8aa58216",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Month, keeping only a little scream as he slowly moved forward. The.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000009951/manifest.json",
+              "digitalisatTitel_t": "Sed eleifend ligula faucibus. Cras."
+            },
+            {
+              "id": "d7e5358f-bfeb-4a77-899c-8e5bead8f609",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Quite impossible, then?, she asked when gregor comes back to us again.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000009962/manifest.json",
+              "digitalisatTitel_t": "Velit, in condimentum dui rutrum eget."
+            },
+            {
+              "id": "4d0e649e-17da-4c13-8944-aea4b86fece2",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Felis nibh, aliquam ut ipsum non,.",
+              "entities": [
+                {
+                  "id": "a441ff62-748f-4228-8b4d-198cc3ef36ba",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Eu luctus nisl. Etiam auctor pellentesque."
+                }
+              ]
+            },
+            {
+              "id": "f2da17b3-628f-4400-b7f3-c152ff9fb6bc",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Curabitur massa nulla, maximus eu.",
+              "entities": [
+                {
+                  "id": "93051c05-f854-4942-98a9-c5bb23f6615b",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Dictum justo. Cras maximus vestibulum."
+                }
+              ]
+            },
+            {
+              "id": "8b28e050-9240-4b52-88dc-c8ebd163acc2",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005917/manifest.json",
+              "annotationBody_t": "Been to arrange things so that you grant that i see your incomprehensible."
+            },
+            {
+              "id": "a0033539-f940-4262-b8fc-278b078736c4",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000006166/manifest.json",
+              "annotationBody_t": "Admit to himself; but even between meals they spoke about the bare."
+            },
+            {
+              "id": "0f55cfc8-87fa-4a9d-960a-8ca4c94a2564",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001013/manifest.json",
+              "annotationBody_t": "Frequently woke from troubled dreams, he was the sort worn by the."
+            },
+            {
+              "id": "ef65c308-bbc8-4ce0-b7f2-4fc6e9fed3dd",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005201/manifest.json",
+              "annotationBody_t": "Just chuck in there, relaxed and almost without noticing it. Nothing."
+            },
+            {
+              "id": "834c965e-324e-4aaa-94b3-4d5919ff23b6",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008007/manifest.json",
+              "annotationBody_t": "New method was more suitable? if she had to admit that the gas had."
+            },
+            {
+              "id": "5ebdec39-484e-4f8a-a99f-beb8f5d5c545",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000654/manifest.json",
+              "annotationBody_t": "Reminder of his sister, now everything' s elderly mother now have."
+            },
+            {
+              "id": "18cf9ee6-1835-4b21-b4d7-458d289c6a06",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008620/manifest.json",
+              "annotationBody_t": "Hard to just lie quietly through the junk and moved it somewhere else."
+            },
+            {
+              "id": "9d487283-7297-45ca-a24b-779f6e947ca7",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009153/manifest.json",
+              "annotationBody_t": "Used them to move straight ahead as if there was now ten past seven."
+            },
+            {
+              "id": "1a11a277-7c4d-48ac-9a6b-ab56dbe3c7c6",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009072/manifest.json",
+              "annotationBody_t": "Air flew in from the medical insurance company, accuse his parents."
+            },
+            {
+              "id": "284e761f-96ee-41d4-be13-d99d6152f1a5",
+              "type_s": "Person",
+              "personFullname_t": "Yarbough, Delbert",
+              "personBirthDate_dt": "1526-07-06T00:07:33Z",
+              "personDeathDate_dt": "1611-09-16T00:07:33Z",
+              "personRole_s": "Schreiber",
+              "personBirthPlace_t": "Reykjavík",
+              "personDeathPlace_t": "Tbilisi",
+              "personWorkingPlace_t": "Ankara",
+              "personOccupation_t": "farthest",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Belle, Lou",
+                "Pecci, Levi",
+                "Mcclave, Robbin"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.annotationBody_t": [
+            "Just chuck in there, relaxed and almost <em>without</em> noticing it. Nothing."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 3.8674216,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "504ebb2f-540b-46dc-8409-eaa712362321",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 8
+                  },
+                  "_score": 3.8674216,
+                  "_source": {
+                    "id": "ef65c308-bbc8-4ce0-b7f2-4fc6e9fed3dd",
+                    "type_s": "Annotation",
+                    "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005201/manifest.json",
+                    "annotationBody_t": "Just chuck in there, relaxed and almost without noticing it. Nothing."
+                  },
+                  "highlight": {
+                    "entities.annotationBody_t": [
+                      "Just chuck in there, relaxed and almost <em>without</em> noticing it. Nothing."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "6393e3d3-42d4-4cd5-8798-07f6eaa6f637",
+        "_score": 3.8674216,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "6393e3d3-42d4-4cd5-8798-07f6eaa6f637",
+          "titel_t": "Vulputate mauris. Fusce interdum pharetra.",
+          "subtitel_t": "Eget bibendum est. Interdum et malesuada.",
+          "stoff_t": "sad",
+          "blattzahl_i": 71,
+          "format_t": "akJB1jEBpkSAjgR",
+          "entstehungsort_s": "Brasília",
+          "entstehungdatum_t": "zrxSknmzoFInprI",
+          "formtyp_t": "flexors",
+          "status_t": "synthesizer",
+          "schrift_t": "gaucheries",
+          "schreibsprache_t": "bersagliere",
+          "vorbesitzer_s": "Maccarthy, Colin",
+          "entities": [
+            {
+              "id": "2c0b3b93-9446-45d7-bcdc-10c78124023a",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Appearance unbearable and would move about the things that were quite.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000007432/manifest.json",
+              "digitalisatTitel_t": "Sed ante placerat, venenatis dictum."
+            },
+            {
+              "id": "fe909a68-79d8-40ab-a673-8ffd396dff26",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Id, rutrum ac justo. Cras maximus.",
+              "entities": [
+                {
+                  "id": "f1609462-9b34-437e-9953-0fb38d9cf9b0",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Ac purus. Suspendisse velit enim,."
+                }
+              ]
+            },
+            {
+              "id": "1175ef9c-e455-4878-bb45-1b1f51617a92",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Euismod condimentum. Sed mollis elit.",
+              "entities": [
+                {
+                  "id": "fa2a1ebe-77e2-439d-822a-2619fdca3dac",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Rutrum non justo commodo vehicula."
+                }
+              ]
+            },
+            {
+              "id": "2b75f19f-9154-4451-b18e-7893ddd8ad1b",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002185/manifest.json",
+              "annotationBody_t": "At seven; if he was stuck fast to the floor, even though both mother."
+            },
+            {
+              "id": "9a481d9a-5e8c-4add-847d-16cfcc838142",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005975/manifest.json",
+              "annotationBody_t": "Heaving about, but not without reason, many things had become much."
+            },
+            {
+              "id": "379229a0-bc24-4466-856f-5c8636352390",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005023/manifest.json",
+              "annotationBody_t": "Irregular food, contact with different people all the easier. Hearing."
+            },
+            {
+              "id": "35d85eba-bc91-47b5-a118-3c6cb42e02a7",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002978/manifest.json",
+              "annotationBody_t": "Knows, maybe that would excuse their behaviour. The first fourteen."
+            },
+            {
+              "id": "870b40dc-a19f-45bb-9eb0-7c1e09c80b80",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009244/manifest.json",
+              "annotationBody_t": "Directly since his transformation. She stood very still, although."
+            },
+            {
+              "id": "12b4b186-b7f9-4c57-9f82-d9e9ab3919b5",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005226/manifest.json",
+              "annotationBody_t": "Seem to want to go to bed, gregor, somebody called- it occurred to."
+            },
+            {
+              "id": "a3b7b8f0-9fca-4ef4-ab20-c6bc410508a0",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003386/manifest.json",
+              "annotationBody_t": "Is wrong? you barricade yourself in your room, a warm room fitted."
+            },
+            {
+              "id": "5ecc36b2-1df1-4090-83a6-6b6c85f583e2",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004301/manifest.json",
+              "annotationBody_t": "Across his room at once to hiss and spit at the door to the sound."
+            },
+            {
+              "id": "ebc469ba-8df1-4198-bd29-e3f71a0e33c0",
+              "type_s": "Person",
+              "personFullname_t": "Maccarthy, Colin",
+              "personBirthDate_dt": "0676-06-05T00:07:33Z",
+              "personDeathDate_dt": "0773-09-23T00:07:33Z",
+              "personRole_s": "Vorbesitzer",
+              "personBirthPlace_t": "Ljubljana",
+              "personDeathPlace_t": "Skopje",
+              "personWorkingPlace_t": "Stockholm",
+              "personOccupation_t": "caricatured",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Mundo, Nathanael"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.annotationBody_t": [
+            "Heaving about, but not <em>without</em> reason, many things had become much."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 3.8674216,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "6393e3d3-42d4-4cd5-8798-07f6eaa6f637",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 4
+                  },
+                  "_score": 3.8674216,
+                  "_source": {
+                    "id": "9a481d9a-5e8c-4add-847d-16cfcc838142",
+                    "type_s": "Annotation",
+                    "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005975/manifest.json",
+                    "annotationBody_t": "Heaving about, but not without reason, many things had become much."
+                  },
+                  "highlight": {
+                    "entities.annotationBody_t": [
+                      "Heaving about, but not <em>without</em> reason, many things had become much."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "cc9f9ae7-5ed3-430d-aba3-d28888ee4211",
+        "_score": 3.7534094,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "cc9f9ae7-5ed3-430d-aba3-d28888ee4211",
+          "titel_t": "Arcu rhoncus, sed lacinia odio fringilla.",
+          "subtitel_t": "Non egestas. Sed cursus ligula et.",
+          "stoff_t": "delinquencies",
+          "blattzahl_i": 78,
+          "format_t": "4SlS9ZCVJuY7hFY",
+          "entstehungsort_s": "Dili",
+          "entstehungdatum_t": "ndVA3jFux6vmFal",
+          "formtyp_t": "sacks",
+          "status_t": "stoniness",
+          "schrift_t": "redd",
+          "schreibsprache_t": "said",
+          "schreiber_t": "Fugett, Federico",
+          "entities": [
+            {
+              "id": "bbf41fc8-2ffc-4144-85c4-de1cb4f0ab62",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "A smile at this time on the floor, largely because he feared his father.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000009235/manifest.json",
+              "digitalisatTitel_t": "Sed massa nec, feugiat pulvinar ante."
+            },
+            {
+              "id": "ae4fe2f4-7513-46b2-88ec-7e5bef382095",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "To lay on the banister with both hands; but without daring to raise.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008150/manifest.json",
+              "digitalisatTitel_t": "Maecenas et mi vel lorem malesuada."
+            },
+            {
+              "id": "5d2f49d4-dc67-4f2c-8cb6-9671d9b8d9bc",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Neque dictum, efficitur mi ac, mattis.",
+              "entities": [
+                {
+                  "id": "8186fe21-5701-408e-9237-5daff0654ef0",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "At malesuada enim. Fusce a varius."
+                },
+                {
+                  "id": "7ce0894f-4bd8-488e-a1b4-d26286537c06",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Ante placerat, venenatis metus nec."
+                }
+              ]
+            },
+            {
+              "id": "bfbc7304-9883-426a-884d-e018ceb50990",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Non eros pharetra, pharetra urna sit.",
+              "entities": [
+                {
+                  "id": "1a7556b2-9a10-49d3-8bde-78c7d8ece05f",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Neque id, elementum eros. Sed mollis."
+                },
+                {
+                  "id": "e9b593cb-4bc2-4fa7-aff2-1a4bae230d62",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "In quam quam, condimentum quis lacinia."
+                }
+              ]
+            },
+            {
+              "id": "aac865b0-7233-4b1d-a884-848698fe7d4b",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009319/manifest.json",
+              "annotationBody_t": "Was dear to him that made it impossible for her dismissal as if the."
+            },
+            {
+              "id": "1c6a28f4-2cf8-4510-9320-fa4a13925ddf",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003251/manifest.json",
+              "annotationBody_t": "With jaws that are toothless however nice they might like to hear."
+            },
+            {
+              "id": "ec1e5dc6-1ebd-4a76-94f3-e8d58d8475de",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002724/manifest.json",
+              "annotationBody_t": "Glimpsed a look at the same splendour, even though both mother and."
+            },
+            {
+              "id": "e9643b34-6318-41d2-8bc0-43618b73fab2",
+              "type_s": "Person",
+              "personFullname_t": "Fugett, Federico",
+              "personBirthDate_dt": "1899-03-17T00:01:01Z",
+              "personDeathDate_dt": "1953-07-07T00:01:01Z",
+              "personRole_s": "Schreiber",
+              "personBirthPlace_t": "Nicosia",
+              "personDeathPlace_t": "Ankara",
+              "personWorkingPlace_t": "Moscow",
+              "personOccupation_t": "inby",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Korte, Dustin",
+                "Goldwyn, Gregory"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.digitalisatDescription_t": [
+            "To lay on the banister with both hands; but <em>without</em> daring to raise."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 3.7534094,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "cc9f9ae7-5ed3-430d-aba3-d28888ee4211",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 1
+                  },
+                  "_score": 3.7534094,
+                  "_source": {
+                    "id": "ae4fe2f4-7513-46b2-88ec-7e5bef382095",
+                    "type_s": "Digitalisat",
+                    "digitalisatDescription_t": "To lay on the banister with both hands; but without daring to raise.",
+                    "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008150/manifest.json",
+                    "digitalisatTitel_t": "Maecenas et mi vel lorem malesuada."
+                  },
+                  "highlight": {
+                    "entities.digitalisatDescription_t": [
+                      "To lay on the banister with both hands; but <em>without</em> daring to raise."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "b7538e92-9f33-42ab-9deb-44f6e6878a6c",
+        "_score": 3.7534094,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "b7538e92-9f33-42ab-9deb-44f6e6878a6c",
+          "titel_t": "Ligula convallis ullamcorper. Morbi.",
+          "subtitel_t": "Mauris auctor leo sit amet odio pellentesque.",
+          "stoff_t": "shoeblacks",
+          "blattzahl_i": 42,
+          "format_t": "DpkVtdik8rU4D0L",
+          "entstehungsort_s": "Pyongyang",
+          "entstehungdatum_t": "bIRVcvjgTKv38vD",
+          "formtyp_t": "viscometry",
+          "status_t": "chook",
+          "schrift_t": "frailness",
+          "schreibsprache_t": "shatters",
+          "vorbesitzer_s": "Mitchener, Ethyl",
+          "schreiber_t": "Medieros, Daria",
+          "entities": [
+            {
+              "id": "688ad18d-e073-401d-9026-2ddabd9b349e",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Or two years, they could not have helped in this flat and force us.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006648/manifest.json",
+              "digitalisatTitel_t": "Vivamus id ultricies nunc. Sed mollis."
+            },
+            {
+              "id": "fb49e652-19ef-488b-aae0-7a1e84aa9ed0",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Steps at once and disappeared again, at high school, even though there.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000000371/manifest.json",
+              "digitalisatTitel_t": "Quis euismod eros, a elementum enim."
+            },
+            {
+              "id": "3e001fa8-1c50-4630-a4d6-4952e0c3197a",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Gregor quite confused. When the cleaner came in in the next room without.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006921/manifest.json",
+              "digitalisatTitel_t": "Dui porttitor congue. Nunc eget bibendum."
+            },
+            {
+              "id": "b684bf58-a8d7-4dfc-8d0b-8f718253e03f",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Ante ipsum primis in faucibus. Cras.",
+              "entities": [
+                {
+                  "id": "7ae81d21-075c-4be1-841c-021f0beb5bbb",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Dictum justo. Cras maximus vestibulum."
+                },
+                {
+                  "id": "838d2970-5870-424a-a972-1aee27b62314",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Eget neque dictum, efficitur mi ac."
+                },
+                {
+                  "id": "bd15b4e4-22cc-4cb5-87bf-9bbb59ea7224",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Lobortis consectetur malesuada id."
+                }
+              ]
+            },
+            {
+              "id": "6136ee05-a878-4797-aae8-5ba2df39551d",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Id, elementum eros. Donec id faucibus.",
+              "entities": [
+                {
+                  "id": "19cbd239-64d8-461a-b54d-191078c7fa00",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Ex mattis consectetur. Aenean scelerisque."
+                },
+                {
+                  "id": "1a7d739b-bae9-4b1f-b584-d882a153fc09",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Eros pharetra, pharetra urna sit amet."
+                },
+                {
+                  "id": "5dd72c53-8cbb-46c4-83a4-f9ef34be983f",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Dolor ligula, tincidunt id tortor."
+                }
+              ]
+            },
+            {
+              "id": "33af2a78-0ce8-4070-8722-09b114d96325",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Dolor lectus. Maecenas convallis pretium.",
+              "entities": [
+                {
+                  "id": "5622f629-0124-4281-a356-73a85d4a8810",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Commodo vehicula. Fusce dignissim."
+                },
+                {
+                  "id": "eb620c78-d009-45b4-b4b3-bdbe582b48d4",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Consectetur malesuada id metus. Nullam."
+                },
+                {
+                  "id": "bef80eb0-d1a6-4cbc-9e88-48d9ecf1fddb",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 3",
+                  "beschreibungFaszikelText_t": "Porta. Nullam at malesuada enim. Fusce."
+                }
+              ]
+            },
+            {
+              "id": "15038ebb-57d6-4d72-abc1-b70c3ba39bd0",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008479/manifest.json",
+              "annotationBody_t": "Her out of his astonished and delighted family. They sat up at work."
+            },
+            {
+              "id": "9694b1c2-cd8c-474e-b8f6-2784afcf519b",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001524/manifest.json",
+              "annotationBody_t": "Would fall wearily against the door had never once yet been ill. His."
+            },
+            {
+              "id": "a0c3b256-faf9-4227-9956-62cfc04c8370",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007574/manifest.json",
+              "annotationBody_t": "Talk him out of his body lifted itself, he looked round to see his."
+            },
+            {
+              "id": "d1685fab-2a3d-44ed-9f70-816869c5779b",
+              "type_s": "Person",
+              "personFullname_t": "Medieros, Daria",
+              "personBirthDate_dt": "0387-08-01T00:07:33Z",
+              "personDeathDate_dt": "0404-08-03T00:07:33Z",
+              "personRole_s": "Schreiber",
+              "personBirthPlace_t": "Ankara",
+              "personDeathPlace_t": "Nicosia",
+              "personWorkingPlace_t": "Tallinn",
+              "personOccupation_t": "entrepots",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Turchi, Dina",
+                "Jurasin, Denver",
+                "Vosburgh, Tracie"
+              ]
+            },
+            {
+              "id": "d1956704-96c7-4386-b550-f7a3cefc3577",
+              "type_s": "Person",
+              "personFullname_t": "Mitchener, Ethyl",
+              "personBirthDate_dt": "0299-09-22T00:07:33Z",
+              "personDeathDate_dt": "0329-01-22T00:07:33Z",
+              "personRole_s": "Vorbesitzer",
+              "personBirthPlace_t": "Tbilisi",
+              "personDeathPlace_t": "Astana",
+              "personWorkingPlace_t": "Sofia",
+              "personOccupation_t": "gleam",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Guadian, Tiesha",
+                "Radabaugh, Justin",
+                "Blouin, Jodie"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.digitalisatDescription_t": [
+            "When the cleaner came in in the next room <em>without</em>."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 3.7534094,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "b7538e92-9f33-42ab-9deb-44f6e6878a6c",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 2
+                  },
+                  "_score": 3.7534094,
+                  "_source": {
+                    "id": "3e001fa8-1c50-4630-a4d6-4952e0c3197a",
+                    "type_s": "Digitalisat",
+                    "digitalisatDescription_t": "Gregor quite confused. When the cleaner came in in the next room without.",
+                    "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006921/manifest.json",
+                    "digitalisatTitel_t": "Dui porttitor congue. Nunc eget bibendum."
+                  },
+                  "highlight": {
+                    "entities.digitalisatDescription_t": [
+                      "When the cleaner came in in the next room <em>without</em>."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "71227d9e-8dae-40d0-b7d7-245c536d8cbf",
+        "_score": 3.7403522,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "71227d9e-8dae-40d0-b7d7-245c536d8cbf",
+          "titel_t": "Interdum risus ullamcorper quis. Mauris.",
+          "subtitel_t": "Consectetur adipiscing elit. Aliquam.",
+          "stoff_t": "belauds",
+          "blattzahl_i": 94,
+          "format_t": "jDaMRWlvEKXEK4D",
+          "entstehungsort_s": "Podgorica",
+          "entstehungdatum_t": "w29382gMX88ZwNO",
+          "formtyp_t": "ticklishness",
+          "status_t": "thespians",
+          "schrift_t": "ranch",
+          "schreibsprache_t": "dormer",
+          "vorbesitzer_s": "Keeney, Vaughn",
+          "schreiber_t": "Maglaras, Cory",
+          "entities": [
+            {
+              "id": "95a41e2a-d0ab-4444-9927-10fa760dbec4",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Serious but too slow, - all of them left the inner pane of the hospital.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000009919/manifest.json",
+              "digitalisatTitel_t": "Quis. Mauris egestas vulputate porta."
+            },
+            {
+              "id": "6863e933-0243-4bc8-ac4b-2320bb12b3d6",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Euismod ultricies. Nam quis nibh lorem.",
+              "entities": [
+                {
+                  "id": "47284ae2-1b63-489a-882c-32b84645fc2c",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Venenatis metus nec, ornare velit."
+                },
+                {
+                  "id": "c7ca923b-811c-484c-8338-50e7d3b8f0dd",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Iaculis erat. Phasellus commodo ornare."
+                }
+              ]
+            },
+            {
+              "id": "5e3b3bb7-2dd3-455a-8c84-589d9c64769f",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Ornare viverra. Etiam odio felis,.",
+              "entities": [
+                {
+                  "id": "feee1b2d-943d-43ce-bd80-a0f3348050e2",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Id ultricies. Nam vel consequat dolor."
+                },
+                {
+                  "id": "c65c16f2-395c-460c-b7b4-21baf0a1d169",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Ex nec congue. Nunc eget bibendum."
+                }
+              ]
+            },
+            {
+              "id": "6c066d2d-5217-4541-8efd-f9f590f08d08",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000006469/manifest.json",
+              "annotationBody_t": "Not suppress a smile on his head kept nodding it could not be noticed."
+            },
+            {
+              "id": "c439f53c-e03f-4c72-8193-589954fc5b26",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008283/manifest.json",
+              "annotationBody_t": "But taking care to do by herself without, of course, the charwoman."
+            },
+            {
+              "id": "5d242aed-f7f8-417d-a27d-7e0bc1b59cb6",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000769/manifest.json",
+              "annotationBody_t": "Overcome the despair she had been in so much food had rounded out."
+            },
+            {
+              "id": "9289b7ad-8dad-4874-8caf-8565a079efe2",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005247/manifest.json",
+              "annotationBody_t": "For his uniform and bearing. The cleaner still did not occur to his."
+            },
+            {
+              "id": "be3cb69e-f219-4bb8-a87b-9d2a2ae6ef4b",
+              "type_s": "Person",
+              "personFullname_t": "Maglaras, Cory",
+              "personBirthDate_dt": "1050-05-11T00:07:33Z",
+              "personDeathDate_dt": "1071-09-09T00:07:33Z",
+              "personRole_s": "Schreiber",
+              "personBirthPlace_t": "Prague",
+              "personDeathPlace_t": "Minsk",
+              "personWorkingPlace_t": "Madrid",
+              "personOccupation_t": "falsetto",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Bonsee, Seymour"
+              ]
+            },
+            {
+              "id": "3adc7441-9353-46f0-a0ac-bcc50e2e9833",
+              "type_s": "Person",
+              "personFullname_t": "Keeney, Vaughn",
+              "personBirthDate_dt": "0979-04-17T00:07:33Z",
+              "personDeathDate_dt": "1032-09-15T00:07:33Z",
+              "personRole_s": "Vorbesitzer",
+              "personBirthPlace_t": "Ankara",
+              "personDeathPlace_t": "Madrid",
+              "personWorkingPlace_t": "London",
+              "personOccupation_t": "harassingly",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Bannowsky, Merle"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.annotationBody_t": [
+            "But taking care to do by herself <em>without</em>, of course, the charwoman."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 3.7403522,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "71227d9e-8dae-40d0-b7d7-245c536d8cbf",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 4
+                  },
+                  "_score": 3.7403522,
+                  "_source": {
+                    "id": "c439f53c-e03f-4c72-8193-589954fc5b26",
+                    "type_s": "Annotation",
+                    "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008283/manifest.json",
+                    "annotationBody_t": "But taking care to do by herself without, of course, the charwoman."
+                  },
+                  "highlight": {
+                    "entities.annotationBody_t": [
+                      "But taking care to do by herself <em>without</em>, of course, the charwoman."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "678e8f20-66a6-4c0b-ada9-f6183eec7dbe",
+        "_score": 3.7403522,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "678e8f20-66a6-4c0b-ada9-f6183eec7dbe",
+          "titel_t": "Dolor ligula, tincidunt id tortor.",
+          "subtitel_t": "Eget metus. Fusce dignissim lacus.",
+          "stoff_t": "bobs",
+          "blattzahl_i": 84,
+          "format_t": "dHQgETbHGgDoAGr",
+          "entstehungsort_s": "London",
+          "entstehungdatum_t": "5Du3xQkAJrTed3n",
+          "formtyp_t": "refrigerants",
+          "status_t": "petticoats",
+          "schrift_t": "marver",
+          "schreibsprache_t": "phones",
+          "vorbesitzer_s": "Glaspy, Tammi",
+          "entities": [
+            {
+              "id": "2a2579be-2276-4ed2-b23f-5825200d7d38",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Accused her of not leaving the chair twice before she rushed over.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008675/manifest.json",
+              "digitalisatTitel_t": "Aliquam sed ante placerat, venenatis."
+            },
+            {
+              "id": "5080e62c-2f33-416e-a8ce-1a945a26285d",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Distance in his condition seemed serious enough to attract his mother.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002728/manifest.json",
+              "digitalisatTitel_t": "Elit lobortis consectetur malesuada."
+            },
+            {
+              "id": "fca0ffec-4849-4666-9a27-898180e5a98e",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Happy, it makes you stupid. You can see, he made plans of how he had.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008600/manifest.json",
+              "digitalisatTitel_t": "Mauris libero, sed lacinia odio fringilla."
+            },
+            {
+              "id": "140a7ef8-fbdb-42dc-8c98-d88f10848042",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Tortor nec, ornare laoreet elit. Aliquam.",
+              "entities": [
+                {
+                  "id": "4db7d6fe-bbc2-42cb-8af6-5875ad9e2489",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Vel mollis enim ante ac purus. Suspendisse."
+                }
+              ]
+            },
+            {
+              "id": "e179a71c-b032-4ade-a96f-737c77d2dd96",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Nunc est placerat purus, vel vulputate.",
+              "entities": [
+                {
+                  "id": "4c7a05de-8757-4902-a63a-5a469f33efd0",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Ultrices velit. In sodales vel purus."
+                }
+              ]
+            },
+            {
+              "id": "b0f6d0eb-ea91-4f7e-b42d-44d030dd8565",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003713/manifest.json",
+              "annotationBody_t": "Clumsy. Would his sister even abandoned his mother said it would not."
+            },
+            {
+              "id": "b2bcb818-3d47-4732-8db7-6b787d87a73a",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009131/manifest.json",
+              "annotationBody_t": "Gregor hissed in anger that no- one dared to come into gregor' s wrong."
+            },
+            {
+              "id": "83e6eb13-4367-4c79-962c-4951fed7c4a5",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008782/manifest.json",
+              "annotationBody_t": "During these two months, and she had kept free without any necklace."
+            },
+            {
+              "id": "fc1f2465-9db6-4331-9d2c-13ce525792cd",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008349/manifest.json",
+              "annotationBody_t": "Do but wait; and, clearly peeved, called out cheerio then, however."
+            },
+            {
+              "id": "1ded0481-a9bc-4e84-b459-cd16c72bba85",
+              "type_s": "Person",
+              "personFullname_t": "Glaspy, Tammi",
+              "personBirthDate_dt": "1782-01-11T00:07:33Z",
+              "personDeathDate_dt": "1812-05-04T00:07:33Z",
+              "personRole_s": "Vorbesitzer",
+              "personBirthPlace_t": "Nicosia",
+              "personDeathPlace_t": "Monaco",
+              "personWorkingPlace_t": "Sofia",
+              "personOccupation_t": "albitic",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Prindiville, Michael",
+                "Morejon, Ivory",
+                "Logan, Antonio"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.annotationBody_t": [
+            "During these two months, and she had kept free <em>without</em> any necklace."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 3.7403522,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "678e8f20-66a6-4c0b-ada9-f6183eec7dbe",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 7
+                  },
+                  "_score": 3.7403522,
+                  "_source": {
+                    "id": "83e6eb13-4367-4c79-962c-4951fed7c4a5",
+                    "type_s": "Annotation",
+                    "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008782/manifest.json",
+                    "annotationBody_t": "During these two months, and she had kept free without any necklace."
+                  },
+                  "highlight": {
+                    "entities.annotationBody_t": [
+                      "During these two months, and she had kept free <em>without</em> any necklace."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "511a5dde-3e01-4309-9be0-b4b03a54500c",
+        "_score": 3.7403522,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "511a5dde-3e01-4309-9be0-b4b03a54500c",
+          "titel_t": "Eget bibendum est. Interdum et malesuada.",
+          "subtitel_t": "Mauris justo efficitur ipsum, sagittis.",
+          "stoff_t": "novitiate",
+          "blattzahl_i": 46,
+          "format_t": "RkQ1HKNbFAZ1O3U",
+          "entstehungsort_s": "Singapore",
+          "entstehungdatum_t": "gke2gfbGZ4sxxX2",
+          "formtyp_t": "carrell",
+          "status_t": "quackery",
+          "schrift_t": "mopes",
+          "schreibsprache_t": "strikes",
+          "author_t": "Mollet, Yetta",
+          "entities": [
+            {
+              "id": "1e4200ec-da62-4b5f-8246-8db4ba2ee5ea",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "My time here for no good reason i don' t have flown away- she made.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002427/manifest.json",
+              "digitalisatTitel_t": "Pellentesque ex, ac interdum risus."
+            },
+            {
+              "id": "90ed5ea0-0df6-4c61-bfec-ab4b46ae8d15",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Head. Gregor' s enjoyed his dinner today, she had thought that nothing.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000009871/manifest.json",
+              "digitalisatTitel_t": "Eleifend ligula faucibus. Cras maximus."
+            },
+            {
+              "id": "30976129-b4c8-4030-abff-7cf2c2ae1206",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "To and then closed it with its place clearly worn into the hallway.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000009967/manifest.json",
+              "digitalisatTitel_t": "Leo sit amet velit lobortis, ut luctus."
+            },
+            {
+              "id": "260aff66-c737-4db9-9cba-7b7840f3e468",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Egestas. Sed mollis elit velit, in.",
+              "entities": [
+                {
+                  "id": "b7b6d246-2dcc-44fe-b87c-590eb02b4594",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Duis semper lorem ac porttitor sagittis."
+                },
+                {
+                  "id": "3f12c84d-195c-4871-9ef9-ed41087a68d0",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Consectetur adipiscing elit. Nulla."
+                }
+              ]
+            },
+            {
+              "id": "f6cc5a1f-3398-4ad1-bccd-f4a330e1f4f7",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001306/manifest.json",
+              "annotationBody_t": "Him so? it' s mother would throw down her needle and his sister, glowering."
+            },
+            {
+              "id": "ea1b33aa-f533-4afb-a98c-2f3cc7e76f71",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001553/manifest.json",
+              "annotationBody_t": "Had finally finished turning round, still, looking at the same time."
+            },
+            {
+              "id": "7e3f46a6-0c86-461d-9b53-d01b468c9177",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002181/manifest.json",
+              "annotationBody_t": "Driving gregor out, even if she was clearly asked to. They asked gregor."
+            },
+            {
+              "id": "f5e420ba-0fc0-4e5d-9a58-c56f45b14710",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009749/manifest.json",
+              "annotationBody_t": "Might happen. One day, he' s room. No- one would have been able to."
+            },
+            {
+              "id": "78140f97-58c4-4e10-a9f2-b8f51685e808",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004010/manifest.json",
+              "annotationBody_t": "The paper or studies train timetables. His father' s sake, help! the."
+            },
+            {
+              "id": "1f11b432-a386-4114-b251-fee4012fc708",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009021/manifest.json",
+              "annotationBody_t": "One noticed him, waved about helplessly as he regained his breath."
+            },
+            {
+              "id": "96e9fda6-a336-4f33-9779-0c9acd95661e",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000007312/manifest.json",
+              "annotationBody_t": "Another. These earnest gentlemen- all three of them were blown onto."
+            },
+            {
+              "id": "a54411c2-4b60-4ba7-8709-c8c616a3355e",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009527/manifest.json",
+              "annotationBody_t": "Without looking back at the body. The dustbins from the effort and."
+            },
+            {
+              "id": "c507fe52-d8ac-4464-8e8e-2fcef39c3b42",
+              "type_s": "Person",
+              "personFullname_t": "Gadue, Toby",
+              "personBirthDate_dt": "0685-02-24T00:07:33Z",
+              "personDeathDate_dt": "0717-11-09T00:07:33Z",
+              "personRole_s": "Autor",
+              "personBirthPlace_t": "Copenhagen",
+              "personDeathPlace_t": "Moscow",
+              "personWorkingPlace_t": "Budapest",
+              "personOccupation_t": "scandalising",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Costenive, Jennette",
+                "Evon, Anya",
+                "Schiermeier, Julie"
+              ]
+            },
+            {
+              "id": "a0425e2d-bcc0-4931-b4d8-8100b9cfec1d",
+              "type_s": "Person",
+              "personFullname_t": "Mollet, Yetta",
+              "personBirthDate_dt": "1425-05-24T00:07:33Z",
+              "personDeathDate_dt": "1459-11-09T00:07:33Z",
+              "personRole_s": "Autor",
+              "personBirthPlace_t": "Podgorica",
+              "personDeathPlace_t": "Ankara",
+              "personWorkingPlace_t": "Dublin",
+              "personOccupation_t": "partition",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Malafronte, Latrice",
+                "Mahle, Garrett",
+                "Kreutzbender, Ivana"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.annotationBody_t": [
+            "<em>Without</em> looking back at the body. The dustbins from the effort and."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 3.7403522,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "511a5dde-3e01-4309-9be0-b4b03a54500c",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 11
+                  },
+                  "_score": 3.7403522,
+                  "_source": {
+                    "id": "a54411c2-4b60-4ba7-8709-c8c616a3355e",
+                    "type_s": "Annotation",
+                    "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009527/manifest.json",
+                    "annotationBody_t": "Without looking back at the body. The dustbins from the effort and."
+                  },
+                  "highlight": {
+                    "entities.annotationBody_t": [
+                      "<em>Without</em> looking back at the body. The dustbins from the effort and."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "8622ea42-e147-4e8e-a367-9a481846b482",
+        "_score": 3.7403522,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "8622ea42-e147-4e8e-a367-9a481846b482",
+          "titel_t": "Massa, sed interdum risus mollis auctor.",
+          "subtitel_t": "Nulla vulputate in. Maecenas convallis.",
+          "stoff_t": "cheesy",
+          "blattzahl_i": 91,
+          "format_t": "GLyqzKr7nQIYcWn",
+          "entstehungsort_s": "Vienna",
+          "entstehungdatum_t": "AQOSRbJHZyWl7VI",
+          "formtyp_t": "mezzanine",
+          "status_t": "whidah",
+          "schrift_t": "rightism",
+          "schreibsprache_t": "towelling",
+          "author_t": "Hallio, Thalia",
+          "entities": [
+            {
+              "id": "c5eb33f0-c57a-44cf-b0c0-9d538bd07a9d",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "The smooth chest of drawers- this was no surprise to him that he must.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008284/manifest.json",
+              "digitalisatTitel_t": "Tortor. Morbi nec dolor vel elit lobortis."
+            },
+            {
+              "id": "4b7f68a0-0d4e-4404-97d8-dde610d5f513",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Much he humbly turned his head until he had the most sensible thing.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000008078/manifest.json",
+              "digitalisatTitel_t": "Nisi a pharetra. Phasellus commodo."
+            },
+            {
+              "id": "3e5e1a34-fd72-48fb-9196-d23a03825c39",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Hat, which was something he was bound to make use of it. His main.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000002471/manifest.json",
+              "digitalisatTitel_t": "Laoreet elit. Nulla quis facilisis."
+            },
+            {
+              "id": "46a2f600-dd29-4e1e-a9c8-6d1f82062508",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Nulla, maximus eu maximus vel, ultrices.",
+              "entities": [
+                {
+                  "id": "3432d783-d511-4704-9302-1d347f10bbba",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Condimentum. Sed ex justo, feugiat."
+                },
+                {
+                  "id": "b31b3967-f7a6-40a7-bc6c-44c9d3df99ae",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 2",
+                  "beschreibungFaszikelText_t": "Consequat dolor, sed sollicitudin."
+                }
+              ]
+            },
+            {
+              "id": "911e0847-b455-450f-929b-728f8ee9ba03",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000006899/manifest.json",
+              "annotationBody_t": "Many steps. As they reached their destination grete was becoming less."
+            },
+            {
+              "id": "28dfab99-6a17-4b81-bfac-db0241f2e34d",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008699/manifest.json",
+              "annotationBody_t": "Simply glad that she had thought at first, carefully turning his head."
+            },
+            {
+              "id": "8ade60a3-af94-4bab-9cd5-a7333902bef1",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001886/manifest.json",
+              "annotationBody_t": "His taste, she fell onto the landing; but without travelling i couldn."
+            },
+            {
+              "id": "10251e65-8181-4da6-98e8-81f7afa69556",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000700/manifest.json",
+              "annotationBody_t": "Cautious knock at the table, even slightly. In the family to distract."
+            },
+            {
+              "id": "dd3c062b-ab78-4989-a5fa-ae532de8220b",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004404/manifest.json",
+              "annotationBody_t": "He forgot all the force he could think of no way of saving himself."
+            },
+            {
+              "id": "73a3c788-087b-4371-a388-9d9837140b30",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001223/manifest.json",
+              "annotationBody_t": "Gregor gushed out these words, she had come. You' ll be amazed how."
+            },
+            {
+              "id": "dc9441e6-e172-41c7-b22c-0425d80cf9cc",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003995/manifest.json",
+              "annotationBody_t": "Shock; there was no surprise to him to it. We wouldn' t been able."
+            },
+            {
+              "id": "9ce8eb34-b53d-4806-83cc-316f64f35509",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003645/manifest.json",
+              "annotationBody_t": "Almost happy, it obviously wants to speak with the doctor' s responsibility."
+            },
+            {
+              "id": "73fd21d9-1f62-4927-a921-fa721c753ea2",
+              "type_s": "Person",
+              "personFullname_t": "Hallio, Thalia",
+              "personBirthDate_dt": "0071-04-19T00:07:33Z",
+              "personDeathDate_dt": "0106-10-06T00:07:33Z",
+              "personRole_s": "Autor",
+              "personBirthPlace_t": "Luxembourg",
+              "personDeathPlace_t": "Bucharest",
+              "personWorkingPlace_t": "Podgorica",
+              "personOccupation_t": "barrelling",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Nostrand, Ivy",
+                "Avellano, Jeanene",
+                "Bureau, Jarrett"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.annotationBody_t": [
+            "His taste, she fell onto the landing; but <em>without</em> travelling i couldn."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 3.7403522,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "8622ea42-e147-4e8e-a367-9a481846b482",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 6
+                  },
+                  "_score": 3.7403522,
+                  "_source": {
+                    "id": "8ade60a3-af94-4bab-9cd5-a7333902bef1",
+                    "type_s": "Annotation",
+                    "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001886/manifest.json",
+                    "annotationBody_t": "His taste, she fell onto the landing; but without travelling i couldn."
+                  },
+                  "highlight": {
+                    "entities.annotationBody_t": [
+                      "His taste, she fell onto the landing; but <em>without</em> travelling i couldn."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "ae1c5df7-ce9b-41b2-91f5-dd86a29f0aa4",
+        "_score": 3.7403522,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "ae1c5df7-ce9b-41b2-91f5-dd86a29f0aa4",
+          "titel_t": "Fusce a varius magna. Duis condimentum.",
+          "subtitel_t": "Nunc est placerat purus, ut luctus.",
+          "stoff_t": "roundlets",
+          "blattzahl_i": 71,
+          "format_t": "xVC0Y5TCyguYcK6",
+          "entstehungsort_s": "Victoria",
+          "entstehungdatum_t": "WQveHPhDlEMzjHO",
+          "formtyp_t": "activator",
+          "status_t": "turd",
+          "schrift_t": "enclosures",
+          "schreibsprache_t": "carabiniers",
+          "vorbesitzer_s": "Quidas, Otilia",
+          "author_t": "Yoakum, Darin",
+          "entities": [
+            {
+              "id": "dde0b8c5-6d57-4564-b391-969327339bea",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Minor discourtesy, and so he started working especially hard, with.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000007081/manifest.json",
+              "digitalisatTitel_t": "Blandit. Sed mollis, enim et luctus."
+            },
+            {
+              "id": "75fdcd24-42bb-4792-91f2-d97efe20bca3",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "She came into the fresh air had something of warmth mixed in with.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000007193/manifest.json",
+              "digitalisatTitel_t": "Ullamcorper quis. Mauris egestas vulputate."
+            },
+            {
+              "id": "9707ef65-3a10-4645-833a-629df69e024b",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Managed to do next, as if she had spoken to in that way once again.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000006208/manifest.json",
+              "digitalisatTitel_t": "Euismod. Donec id posuere neque. Aliquam."
+            },
+            {
+              "id": "40f65fd2-5e7a-43fa-abb7-c3040775db1c",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: In sodales vel purus sed vehicula.",
+              "entities": [
+                {
+                  "id": "6945e495-3dce-40ad-b87c-0a961ad6535f",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Hendrerit. Nulla eget neque dictum."
+                }
+              ]
+            },
+            {
+              "id": "874d5d2a-56e7-4ac6-b641-d52902f89c66",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Rutrum ac justo. Cras commodo velit.",
+              "entities": [
+                {
+                  "id": "586dd0fb-4955-450a-a866-76fa545c02e9",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Pellentesque. Etiam odio felis, accumsan."
+                }
+              ]
+            },
+            {
+              "id": "bf58006a-1ba2-42cf-ab6f-83bb1a8a5e15",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001468/manifest.json",
+              "annotationBody_t": "S anger as the key turned round sharply and left, the scraping of."
+            },
+            {
+              "id": "ca3139c7-4e56-49a8-9450-87180dbf00fd",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008800/manifest.json",
+              "annotationBody_t": "Face into his room; you had to do the heaviest work; everything had."
+            },
+            {
+              "id": "9b123d91-eabf-45d2-ae7c-0764249a4eb4",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005642/manifest.json",
+              "annotationBody_t": "His feeding than being told about it, repeatedly raising it and seemed."
+            },
+            {
+              "id": "655e3323-3ef1-40df-9e82-3c210535074b",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000005802/manifest.json",
+              "annotationBody_t": "A misfortune unlike anything experienced by anyone else they knew."
+            },
+            {
+              "id": "fcf62b96-9f8e-438a-8fc7-ebfeddb79e5a",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004908/manifest.json",
+              "annotationBody_t": "Froze in shock; there was no pleasure for gregor as he fell; annoyed."
+            },
+            {
+              "id": "63d29a19-abac-42f9-a5e8-c3e62de89e98",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008261/manifest.json",
+              "annotationBody_t": "Breath where she was going on without even giving the impression that."
+            },
+            {
+              "id": "c24d7f7e-43e3-454e-99f4-0a9ca2287c53",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000002053/manifest.json",
+              "annotationBody_t": "You understand a word of the city, he stretched his right hand pushed."
+            },
+            {
+              "id": "6b6a4553-b647-46fd-86d3-54a993177bd3",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009878/manifest.json",
+              "annotationBody_t": "Peel him away from them because he was being said. Even if that had."
+            },
+            {
+              "id": "007b0f17-e0ac-4bff-ac6e-008574863d5b",
+              "type_s": "Person",
+              "personFullname_t": "Yoakum, Darin",
+              "personBirthDate_dt": "1753-08-06T00:07:33Z",
+              "personDeathDate_dt": "1787-01-07T00:07:33Z",
+              "personRole_s": "Autor",
+              "personBirthPlace_t": "Berlin",
+              "personDeathPlace_t": "Dublin",
+              "personWorkingPlace_t": "Ankara",
+              "personOccupation_t": "polytypic",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Mcclard, Mee",
+                "Eastern, Luis",
+                "Sporer, Linh"
+              ]
+            },
+            {
+              "id": "38791bfe-424c-4585-a3ae-8352fb43513b",
+              "type_s": "Person",
+              "personFullname_t": "Quidas, Otilia",
+              "personBirthDate_dt": "1684-11-17T00:07:33Z",
+              "personDeathDate_dt": "1755-02-01T00:07:33Z",
+              "personRole_s": "Vorbesitzer",
+              "personBirthPlace_t": "Brussels",
+              "personDeathPlace_t": "Stockholm",
+              "personWorkingPlace_t": "Berlin",
+              "personOccupation_t": "all",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Brynga, Donny",
+                "Abedi, Cecile",
+                "Alvaro, Leroy"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.annotationBody_t": [
+            "Breath where she was going on <em>without</em> even giving the impression that."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 3.7403522,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "ae1c5df7-ce9b-41b2-91f5-dd86a29f0aa4",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 10
+                  },
+                  "_score": 3.7403522,
+                  "_source": {
+                    "id": "63d29a19-abac-42f9-a5e8-c3e62de89e98",
+                    "type_s": "Annotation",
+                    "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000008261/manifest.json",
+                    "annotationBody_t": "Breath where she was going on without even giving the impression that."
+                  },
+                  "highlight": {
+                    "entities.annotationBody_t": [
+                      "Breath where she was going on <em>without</em> even giving the impression that."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "_index": "hsp1",
+        "_type": "_doc",
+        "_id": "520ad34a-36df-4d1d-989a-f95c0635b63f",
+        "_score": 3.7403522,
+        "_source": {
+          "type_s": "Kulturobjekt",
+          "id": "520ad34a-36df-4d1d-989a-f95c0635b63f",
+          "titel_t": "Auctor. Mauris auctor leo sit amet.",
+          "subtitel_t": "Sagittis euismod ultricies. Suspendisse.",
+          "stoff_t": "squander",
+          "blattzahl_i": 53,
+          "format_t": "BTLaxyFXobYTEoe",
+          "entstehungsort_s": "Jerusalem",
+          "entstehungdatum_t": "lK5MpAvkijWlGnV",
+          "formtyp_t": "input",
+          "status_t": "nutritions",
+          "schrift_t": "toucanets",
+          "schreibsprache_t": "strangers",
+          "vorbesitzer_s": "Corporal, Odis",
+          "author_t": "Finnel, Tawny",
+          "entities": [
+            {
+              "id": "b307a1e7-4ace-4297-a5a2-3daeefad36e1",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "One in the middle of the time to catch her breath, even though she.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000004402/manifest.json",
+              "digitalisatTitel_t": "Quam, condimentum quis lacinia sed."
+            },
+            {
+              "id": "f8afa3d9-4d3a-4569-8816-73761ab5f2b6",
+              "type_s": "Digitalisat",
+              "digitalisatDescription_t": "Found that on closer examination they were writing to tell them she.",
+              "digitalisatManifestId_s": "https://iiif.ub.uni-leipzig.de/0000009165/manifest.json",
+              "digitalisatTitel_t": "A varius magna. Duis semper lorem."
+            },
+            {
+              "id": "dbd984d5-39c6-4ace-901b-b1839812bbd2",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Pretium nunc, eu luctus nisl. Etiam.",
+              "entities": [
+                {
+                  "id": "eea5fb05-c78b-445c-a4b5-9281940fc72d",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Ligula, tincidunt id tortor nec, feugiat."
+                }
+              ]
+            },
+            {
+              "id": "bde02c9c-2a8a-4196-b8f5-3409de552b1c",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Erat massa, sed sollicitudin eros.",
+              "entities": [
+                {
+                  "id": "8e6f3d62-18d6-477d-bf4f-9847998033cc",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Molestie arcu rhoncus, sed mattis."
+                }
+              ]
+            },
+            {
+              "id": "4b43b5a2-abb7-4817-ac8e-6e0164b06c34",
+              "type_s": "Beschreibung",
+              "beschreibungTitle_t": "In: Tincidunt ante in blandit. Sed cursus.",
+              "entities": [
+                {
+                  "id": "956faaea-2d21-4033-958c-80099831ac45",
+                  "type_s": "Faszikel",
+                  "beschreibungFaszikelLabel_t": "Faszikel: 1",
+                  "beschreibungFaszikelText_t": "Est placerat purus, ut luctus ex mattis."
+                }
+              ]
+            },
+            {
+              "id": "c1bc64bf-2747-4d57-a114-35720eca3e12",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001741/manifest.json",
+              "annotationBody_t": "Some receipt or document from the holder, bowed without a word and."
+            },
+            {
+              "id": "588ebb57-0010-432c-a9c8-ee9ee7b49cdc",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000009664/manifest.json",
+              "annotationBody_t": "Sat quickly down on his back or the inflamed area around it, only."
+            },
+            {
+              "id": "73150731-1f9f-4aad-bb8e-35e025627cc2",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000000633/manifest.json",
+              "annotationBody_t": "Them out onto the ceiling and landing on the spot and spread himself."
+            },
+            {
+              "id": "da4bbfab-cab0-40c2-896b-db0418e635a4",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004662/manifest.json",
+              "annotationBody_t": "Slightly every evening. But who knows, maybe that was dear to him."
+            },
+            {
+              "id": "65799871-aa75-493d-938c-730eecb91f01",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000006316/manifest.json",
+              "annotationBody_t": "Gentlemen, did indeed cut off a piece of meat while it was hard to."
+            },
+            {
+              "id": "311d04d5-fb4e-409d-a059-a5b43a45382a",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000003361/manifest.json",
+              "annotationBody_t": "Never seen this lower part of his astonished and helpless; then they."
+            },
+            {
+              "id": "bff97c3e-a9eb-41eb-af0c-4b9296248e3d",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004658/manifest.json",
+              "annotationBody_t": "Was shocked when he moved very gradually, as if nailed to the edges."
+            },
+            {
+              "id": "119f0c5b-5695-43d7-9a80-d7c62943b662",
+              "type_s": "Annotation",
+              "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000004975/manifest.json",
+              "annotationBody_t": "Turning his head better; found where the itch was, and mumbled something."
+            },
+            {
+              "id": "a23b0377-fb5e-44d4-ae06-7844ade2c7af",
+              "type_s": "Person",
+              "personFullname_t": "Corporal, Odis",
+              "personBirthDate_dt": "0130-08-01T00:07:33Z",
+              "personDeathDate_dt": "0197-08-07T00:07:33Z",
+              "personRole_s": "Vorbesitzer",
+              "personBirthPlace_t": "Valletta",
+              "personDeathPlace_t": "Moscow",
+              "personWorkingPlace_t": "Tallinn",
+              "personOccupation_t": "overprice",
+              "personGender_s": "Female",
+              "personAlternateNames_ss": [
+                "Pixler, Leigh",
+                "Leasure, Trinidad"
+              ]
+            },
+            {
+              "id": "4cc1efaf-4f35-4958-ad11-b494fdc2b0ad",
+              "type_s": "Person",
+              "personFullname_t": "Finnel, Tawny",
+              "personBirthDate_dt": "0944-02-08T00:07:33Z",
+              "personDeathDate_dt": "0956-04-08T00:07:33Z",
+              "personRole_s": "Autor",
+              "personBirthPlace_t": "Prague",
+              "personDeathPlace_t": "Bern",
+              "personWorkingPlace_t": "Bratislava",
+              "personOccupation_t": "rickeys",
+              "personGender_s": "Male",
+              "personAlternateNames_ss": [
+                "Weisgerber, Winifred",
+                "Stublaski, Ross"
+              ]
+            }
+          ]
+        },
+        "highlight": {
+          "entities.annotationBody_t": [
+            "Some receipt or document from the holder, bowed <em>without</em> a word and."
+          ]
+        },
+        "inner_hits": {
+          "entities.entities": {
+            "hits": {
+              "total": {
+                "value": 0,
+                "relation": "eq"
+              },
+              "max_score": null,
+              "hits": []
+            }
+          },
+          "entities": {
+            "hits": {
+              "total": {
+                "value": 1,
+                "relation": "eq"
+              },
+              "max_score": 3.7403522,
+              "hits": [
+                {
+                  "_index": "hsp1",
+                  "_type": "_doc",
+                  "_id": "520ad34a-36df-4d1d-989a-f95c0635b63f",
+                  "_nested": {
+                    "field": "entities",
+                    "offset": 5
+                  },
+                  "_score": 3.7403522,
+                  "_source": {
+                    "id": "c1bc64bf-2747-4d57-a114-35720eca3e12",
+                    "type_s": "Annotation",
+                    "annotationTarget_s": "https://iiif.ub.uni-leipzig.de/0000001741/manifest.json",
+                    "annotationBody_t": "Some receipt or document from the holder, bowed without a word and."
+                  },
+                  "highlight": {
+                    "entities.annotationBody_t": [
+                      "Some receipt or document from the holder, bowed <em>without</em> a word and."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  "aggregations": {
+    "entstehungsort_s.keyword": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 24,
+      "buckets": [
+        {
+          "key": "Abuja",
+          "doc_count": 1
+        },
+        {
+          "key": "Addis Ababa",
+          "doc_count": 1
+        },
+        {
+          "key": "Ankara",
+          "doc_count": 1
+        },
+        {
+          "key": "Bandar Seri Begawan",
+          "doc_count": 1
+        },
+        {
+          "key": "Bangkok",
+          "doc_count": 1
+        },
+        {
+          "key": "Brasília",
+          "doc_count": 1
+        },
+        {
+          "key": "Brussels",
+          "doc_count": 1
+        },
+        {
+          "key": "Chisinau",
+          "doc_count": 1
+        },
+        {
+          "key": "Dili",
+          "doc_count": 1
+        },
+        {
+          "key": "Freetown",
+          "doc_count": 1
+        }
       ]
-    }
-  },
-  "aggs": {
-    "collection2": {
-      "filter": {
-        "match_all": {}
-      },
-      "aggs": {
-        "collections.keyword": {
-          "terms": {
-            "field": "collections.keyword",
-            "size": 50
-          }
-        },
-        "collections.keyword_count": {
-          "cardinality": {
-            "field": "collections.keyword"
-          }
-        }
-      }
     },
-    "subjects3": {
-      "filter": {
-        "match_all": {}
-      },
-      "aggs": {
-        "subjects.keyword": {
-          "terms": {
-            "field": "subjects.keyword",
-            "size": 50
-          }
-        },
-        "subjects.keyword_count": {
-          "cardinality": {
-            "field": "subjects.keyword"
-          }
+    "type_s.keyword": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 0,
+      "buckets": [
+        {
+          "key": "Kulturobjekt",
+          "doc_count": 34
         }
-      }
+      ]
     },
-    "location4": {
-      "filter": {
-        "match_all": {}
-      },
-      "aggs": {
-        "locations.keyword": {
-          "terms": {
-            "field": "locations.keyword",
-            "size": 50
-          }
+    "status_t.keyword": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 24,
+      "buckets": [
+        {
+          "key": "alps",
+          "doc_count": 1
         },
-        "locations.keyword_count": {
-          "cardinality": {
-            "field": "locations.keyword"
-          }
+        {
+          "key": "anarchy",
+          "doc_count": 1
+        },
+        {
+          "key": "bivalences",
+          "doc_count": 1
+        },
+        {
+          "key": "carbazole",
+          "doc_count": 1
+        },
+        {
+          "key": "chook",
+          "doc_count": 1
+        },
+        {
+          "key": "cicisbeism",
+          "doc_count": 1
+        },
+        {
+          "key": "deportation",
+          "doc_count": 1
+        },
+        {
+          "key": "drovers",
+          "doc_count": 1
+        },
+        {
+          "key": "eluders",
+          "doc_count": 1
+        },
+        {
+          "key": "escritoires",
+          "doc_count": 1
         }
-      }
-    }
-  },
-  "size": 50,
-  "sort": [
-    {
-      "titles.keyword": "asc"
-    }
-  ],
-  "highlight": {
-    "fields": {
-      "accessRights": {},
-      "alternatives": {},
-      "attribution": {},
-      "catalogueId": {},
-      "collections": {},
-      "contributors": {},
-      "coverages": {},
-      "creators": {},
-      "dates": {},
-      "description": {},
-      "descriptions": {},
-      "displayLanguages": {},
-      "formats": {},
-      "identifiers": {},
-      "incipits": {},
-      "languages": {},
-      "locations": {},
-      "publisher": {},
-      "related": {},
-      "shelfmark": {},
-      "sources": {},
-      "subjects": {},
-      "title": {},
-      "titles": {},
-      "types": {}
-    }
-  },
-  "suggest": {
-    "text": "Album",
-    "suggestions": {
-      "phrase": {
-        "field": "title",
-        "real_word_error_likelihood": 0.95,
-        "max_errors": 1,
-        "gram_size": 4,
-        "direct_generator": [
-          {
-            "field": "title",
-            "suggest_mode": "always",
-            "min_word_length": 1
-          }
-        ]
-      }
+      ]
+    },
+    "schreibsprache_t.keyword": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 24,
+      "buckets": [
+        {
+          "key": "amphiboly",
+          "doc_count": 1
+        },
+        {
+          "key": "asserters",
+          "doc_count": 1
+        },
+        {
+          "key": "bersagliere",
+          "doc_count": 1
+        },
+        {
+          "key": "bravery",
+          "doc_count": 1
+        },
+        {
+          "key": "brume",
+          "doc_count": 1
+        },
+        {
+          "key": "buzzers",
+          "doc_count": 1
+        },
+        {
+          "key": "carabiniers",
+          "doc_count": 1
+        },
+        {
+          "key": "coadjutress",
+          "doc_count": 1
+        },
+        {
+          "key": "cucurbits",
+          "doc_count": 1
+        },
+        {
+          "key": "dops",
+          "doc_count": 1
+        }
+      ]
     }
   }
 }

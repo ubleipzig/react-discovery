@@ -70,23 +70,23 @@ export const hsp1: IConfig = {
           key: "facet",
         },
       ],
-      initialFilter: {'type_s': ['Kulturobjekt']},
+      initialFilter: {'type_s.keyword': ['Kulturobjekt']},
       primaryTypeField: Domain.KULTUROBJEKT,
       refinementListFilters: {
         1: {
-          field: "entstehungsort_s",
+          field: "entstehungsort_s.keyword",
           label: "originPlace",
         },
         2: {
-          field: "status_t",
+          field: "status_t.keyword",
           label: "status",
         },
         3: {
-          field: "schreibsprache_t",
+          field: "schreibsprache_t.keyword",
           label: "language",
         },
         4: {
-          field: "type_s",
+          field: "type_s.keyword",
           label: "documentType",
         },
       },

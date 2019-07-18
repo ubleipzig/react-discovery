@@ -6,11 +6,20 @@ export interface INestedQuery {
   [str: string]: any;
 }
 
-export const Nested = (lvl2QfList, nestedQfList, qfList, stringInput) => {
+export const NestedQuery = (aggregations, lvl2QfList, nestedQfList, postFilters, qfList, stringInput) => {
   if (!stringInput) {
-    return
+    return {
+      "aggs": aggregations,
+      "query": {
+        "bool": {
+          "filter": postFilters,
+        }
+      }
+    }
   }
+
   return {
+    "aggs": aggregations,
     "highlight": {
       "fields": {
         "*": {}
@@ -18,6 +27,7 @@ export const Nested = (lvl2QfList, nestedQfList, qfList, stringInput) => {
     },
     "query": {
       "bool": {
+        "filter": postFilters,
         "should": [
           {
             "simple_query_string": {
