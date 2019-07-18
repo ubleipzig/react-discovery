@@ -1,12 +1,13 @@
 import {CircularProgress, Grid, useMediaQuery} from '@material-ui/core'
 import {
   ES, GroupSelectedFilters,
-  HitStats, RefinementListFilters,
-  useMinimalResultViewerStyles
+  HitStats, RefinementListFilters, SearchBox,
+  ViewSwitcherToggle, useMinimalResultViewerStyles
 } from '@react-discovery/components'
 import {ESCore, usePrevious} from '@react-discovery/core'
 import {FacetViewSwitcher, MinWidthResultsGrid, SearchAppBar} from '.'
 import React, {ReactElement, useEffect} from 'react'
+import {ContextActionTabs} from "./ContextActionTabs"
 import {getCurrentLanguage} from "@react-discovery/configuration"
 import {useTranslation} from "react-i18next"
 
@@ -30,6 +31,10 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
       <Grid item xs={12}>
         <SearchAppBar/>
       </Grid>
+      <Grid item style={{marginTop: 50}} xs={12}>
+        <ContextActionTabs/>
+        <SearchBox/>
+      </Grid>
       {matches ? <Grid
         className={classes.gridLeft}
         item
@@ -47,18 +52,14 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
             direction="row"
           >
             <HitStats/>
+            <ViewSwitcherToggle/>
+            <ES.Pagination/>
           </Grid>
           <Grid
             container
             direction="row"
           >
             <GroupSelectedFilters/>
-          </Grid>
-          <Grid
-            container
-            direction="row"
-          >
-            <ES.Pagination/>
           </Grid>
           <Grid
             alignItems="center"

@@ -1,6 +1,6 @@
 import {Domain} from '../../enum'
-import {IConfig} from "@react-discovery/configuration"
 import {ESCore} from "@react-discovery/core"
+import {IConfig} from "@react-discovery/configuration"
 
 export const hsp1: IConfig = {
   collections: {
@@ -70,7 +70,6 @@ export const hsp1: IConfig = {
           key: "facet",
         },
       ],
-      initialFilter: {'type_s.keyword': ['Kulturobjekt']},
       primaryTypeField: Domain.KULTUROBJEKT,
       refinementListFilters: {
         1: {

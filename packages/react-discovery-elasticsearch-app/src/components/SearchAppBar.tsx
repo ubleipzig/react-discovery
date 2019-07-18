@@ -5,7 +5,6 @@ import {
   LanguageSelectionMenu,
   ProfileMenu,
   ResetButton,
-  SearchBox,
   SearchSettingsMenu,
   useSearchAppBarStyles
 } from '@react-discovery/components'
@@ -34,11 +33,12 @@ export const SearchAppBar: React.FC<IOverridableStyledComponent> = (props): Reac
           </IconButton>
           <Typography
             className={classes.title}
-            noWrap variant="subtitle2"
+            noWrap
+            style={{width: '100%'}}
+            variant="subtitle2"
           >
             Discovery App
           </Typography>
-          <SearchBox/>
           <div className={classes.sectionDesktop}>
             <ResetButton/>
             <SearchSettingsMenu/>
