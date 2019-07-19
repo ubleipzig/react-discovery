@@ -8,8 +8,8 @@ import {
   Typography,
 } from '@material-ui/core'
 import React, {ReactElement} from "react"
-import {SolrCore} from "@react-discovery/core"
 import {ExpandMore} from '@material-ui/icons'
+import {ESCore, SolrCore} from "@react-discovery/core"
 import {useDispatch} from "react-redux"
 import {useItemListStyles} from '../styles'
 
@@ -40,6 +40,7 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
     dispatch(SolrCore.state.setSelectedFilters({field, filters: newFilters}))
     dispatch(SolrCore.state.setQueryInput({stringInput}))
     dispatch(SolrCore.state.setStart({start: 0}))
+    dispatch(ESCore.state.setFrom({from: 0}))
   }
 
   const actions = (aggregation): ReactElement => {
@@ -73,7 +74,7 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
                 component="div"
                 variant="body2"
               >
-                {bucket.docCount}
+                {bucket.doc_count}
               </Typography>
             }/>
         </ListItem>

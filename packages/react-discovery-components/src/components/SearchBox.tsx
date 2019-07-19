@@ -1,7 +1,7 @@
-import {EndAdornment, StartAdornment} from "./SearchBoxInputAdornments"
+import {ESCore, SolrCore} from "@react-discovery/core"
+import {EndAdornment, SearchIconButton} from "./SearchBoxInputAdornments"
 import React, {ReactElement} from "react"
 import {useCurrentRoute, useNavigation} from "react-navi"
-import {SolrCore} from "@react-discovery/core"
 import {TextField} from '@material-ui/core'
 import {setSelectedIndex} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
@@ -34,6 +34,7 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
     dispatch(SolrCore.state.setQueryInput({stringInput: values}))
     dispatch(setSelectedIndex({selectedIndex: 0}))
     dispatch(SolrCore.state.setStart({start: 0}))
+    dispatch(ESCore.state.setFrom({from: 0}))
     dispatch(SolrCore.state.setSuggest({stringInput: values, suggest: false}))
   })
 
@@ -51,11 +52,11 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
         }}
         InputProps={
           values ? {
-            endAdornment: <EndAdornment onClick={handleClear}/>,
-            startAdornment: <StartAdornment/>,
-          } : {
-            startAdornment: <StartAdornment/>,
-          }
+            endAdornment: <>
+            <EndAdornment onClick={handleClear}/>
+            <SearchIconButton onClick={handleSubmit}/>
+            </>,
+          } : null
         }
         className={classes.input}
         fullWidth
@@ -64,6 +65,7 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
         onChange={handleChange}
         placeholder={t('search')}
         type="search"
+        variant="outlined"
         value={values}
       />
     </form>

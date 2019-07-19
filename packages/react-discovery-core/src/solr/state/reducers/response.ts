@@ -15,7 +15,7 @@ const buildAggregations = (fields): IAggregations => {
     const keys = (v as []).filter(({}, i): boolean => i % 2 === 0)
     const values = (v as []).filter(({}, i): boolean => i % 2 === 1)
     keys.map((k, i): void => {
-      buckets.push({docCount: values[i], key: k})
+      buckets.push({doc_count: values[i], key: k}) // eslint-disable-line
     })
     return {
       ...object,

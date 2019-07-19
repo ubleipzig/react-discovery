@@ -1,68 +1,63 @@
 import {AppBar, Badge, IconButton, Toolbar, Typography} from '@material-ui/core'
 import {Bookmark, Menu} from '@material-ui/icons'
 import {
-  ExpertSearchBox,
   IOverridableStyledComponent,
   LanguageSelectionMenu,
   ProfileMenu,
   ResetButton,
-  SearchBox,
   SearchSettingsMenu,
   useSearchAppBarStyles
 } from '@react-discovery/components'
 import React, {ReactElement} from 'react'
-import {SolrCore} from "@react-discovery/core"
 
 export const SearchAppBar: React.FC<IOverridableStyledComponent> = (props): ReactElement => {
   const classes: any = props.classes || useSearchAppBarStyles({})
-  const typeDef = SolrCore.state.getTypeDef()
 
   return (
-    <div className={classes.grow}>
-      <AppBar
-        className={classes.colorPrimary}
-        position="static"
+    <AppBar
+      className={classes.colorPrimary}
+      position="static"
+    >
+      <Toolbar
+        variant="dense"
       >
-        <Toolbar
-          variant="dense"
+        <IconButton
+          aria-label="Open drawer"
+          className={classes.menuButton}
+          color="inherit"
+          edge="start"
+          href=''
         >
+          <Menu />
+        </IconButton>
+        <Typography
+          className={classes.title}
+          noWrap
+          style={{width: '100%'}}
+          variant="subtitle2"
+        >
+          Discovery App
+        </Typography>
+        <div className={classes.sectionDesktop}>
+          <ResetButton/>
+          <SearchSettingsMenu/>
+          <LanguageSelectionMenu/>
           <IconButton
-            aria-label="Open drawer"
             className={classes.menuButton}
             color="inherit"
-            edge="start"
             href=''
           >
-            <Menu />
-          </IconButton>
-          <Typography
-            className={classes.title}
-            noWrap variant="subtitle2"
-          >
-            Discovery App
-          </Typography>
-          {typeDef === SolrCore.enums.SolrParameters.EDISMAX ? <SearchBox/> : <ExpertSearchBox/>}
-          <div className={classes.sectionDesktop}>
-            <ResetButton/>
-            <SearchSettingsMenu/>
-            <LanguageSelectionMenu/>
-            <IconButton
-              className={classes.menuButton}
-              color="inherit"
-              href=''
+            <Badge
+              badgeContent={4}
+              color="secondary"
             >
-              <Badge
-                badgeContent={4}
-                color="secondary"
-              >
-                <Bookmark/>
-              </Badge>
-            </IconButton>
-            <ProfileMenu/>
-          </div>
-        </Toolbar>
-      </AppBar>
-    </div>
+              <Bookmark/>
+            </Badge>
+          </IconButton>
+          <ProfileMenu/>
+        </div>
+      </Toolbar>
+    </AppBar>
   )
 }
 

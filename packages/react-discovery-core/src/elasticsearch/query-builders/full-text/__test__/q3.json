@@ -1,0 +1,93 @@
+{
+  "aggs": {
+    "artist2": {
+      "filter": {
+        "match_all": {}
+      },
+      "aggs": {
+        "Artist.keyword": {
+          "terms": {
+            "field": "Artist.keyword",
+            "size": 50
+          }
+        },
+        "Artist.keyword_count": {
+          "cardinality": {
+            "field": "Artist.keyword"
+          }
+        }
+      }
+    },
+    "creation3": {
+      "filter": {
+        "match_all": {}
+      },
+      "aggs": {
+        "Creation Year.keyword": {
+          "terms": {
+            "field": "Creation Year.keyword",
+            "size": 50
+          }
+        },
+        "Creation Year.keyword_count": {
+          "cardinality": {
+            "field": "Creation Year.keyword"
+          }
+        }
+      }
+    },
+    "description4": {
+      "filter": {
+        "match_all": {}
+      },
+      "aggs": {
+        "description.keyword": {
+          "terms": {
+            "field": "description.keyword",
+            "size": 50
+          }
+        },
+        "description.keyword_count": {
+          "cardinality": {
+            "field": "description.keyword"
+          }
+        }
+      }
+    },
+    "date7": {
+      "filter": {
+        "range": {
+          "Creation Year.raw": {
+            "gte": 1400,
+            "lte": 1975
+          }
+        }
+      },
+      "aggs": {
+        "date": {
+          "histogram": {
+            "field": "Creation Year.raw",
+            "interval": 29,
+            "min_doc_count": 0,
+            "extended_bounds": {
+              "min": 1400,
+              "max": 1975
+            }
+          }
+        }
+      }
+    }
+  },
+  "size": 50,
+  "sort": [
+    {
+      "title.keyword": "asc"
+    }
+  ],
+  "highlight": {
+    "fields": {
+      "title": {},
+      "Artist": {}
+    }
+  }
+}

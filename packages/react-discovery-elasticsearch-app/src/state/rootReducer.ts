@@ -1,5 +1,5 @@
-import {IConfig, config} from "@react-discovery/configuration"
 import {ESCore, IElasticSearchQuery} from "@react-discovery/core"
+import {IConfig, config} from "@react-discovery/configuration"
 import {Reducer, combineReducers} from "redux"
 import {localConfig} from "../config"
 
@@ -7,12 +7,14 @@ const {collections, currentCollection} = localConfig
 if (!(currentCollection in collections)) {
   throw new Error("current collection does not exist in collections configuration")
 }
-const {searchFields, sortFields} = collections[currentCollection]
+const {initialFilter, refinementListFilters, searchFields, sortFields} = collections[currentCollection]
 
 const initialConfigState: IConfig = localConfig
 const configReducer: Reducer = config(initialConfigState)
-
+const aggs = ESCore.builders.buildAggs(refinementListFilters)
 export const initialQueryState: IElasticSearchQuery = {
+  aggs,
+  filters: initialFilter || {},
   from: 0,
   searchFields,
   size: 20,

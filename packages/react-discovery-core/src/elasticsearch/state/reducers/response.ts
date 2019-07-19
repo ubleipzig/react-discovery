@@ -8,21 +8,6 @@ const initialState: IResponse = {
   url: null,
 }
 
-const buildAggregations = (fields): IAggregations => {
-  return Object.entries(fields).reduce((object, [k, v]): IAggregations => {
-    const buckets = []
-    const keys = (v as []).filter(({}, i): boolean => i % 2 === 0)
-    const values = (v as []).filter(({}, i): boolean => i % 2 === 1)
-    keys.map((k, i): void => {
-      buckets.push({docCount: values[i], key: k})
-    })
-    return {
-      ...object,
-      [k]: {buckets}
-    }
-  }, {})
-}
-
 const buildInnerHitHighlight = (highlight) => {
   const ihHighlight = Object.entries(highlight).map(([k, v]) => {
     const field = k.split('.').pop()
@@ -72,7 +57,7 @@ export const response = reducerWithInitialState(initialState)
   }))
   .case(fetchElasticSearchResponse.async.done, (state: IResponse, {params, result}): IResponse => ({
     ...state,
-    aggregations: result.facet_counts ? buildAggregations(result.facet_counts.facet_fields) : state.aggregations,
+    aggregations: result.aggregations ? result.aggregations : state.aggregations,
     hits: buildHits(result),
     updating: false,
     url: params.url,

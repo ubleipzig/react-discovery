@@ -88,8 +88,8 @@ export const useMinimalResultViewerStyles = makeStyles((theme: Theme): any =>
     },
     gridLeft: {
       backgroundColor: 'whitesmoke',
-      marginTop: '50px',
-      padding: '10px'
+      marginTop: 280,
+      padding: 10
     },
     progress: {
       margin: theme.spacing(2),
@@ -121,9 +121,6 @@ export const usePaginationStyles = makeStyles((theme): any => ({
     }`,
     padding: '5px 16px',
   },
-  listWrapper: {
-    maxWidth: 360, width: '100%'
-  }
 }))
 
 export const useRelatedItemsStyles = makeStyles((theme: Theme): any =>
@@ -199,10 +196,10 @@ export const useSearchBoxStyles = makeStyles((theme): any => ({
     marginRight: theme.spacing(2),
     maxHeight: '48px',
     position: 'relative',
-    width: '100%',
+    width: '50%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
-      width: 'auto',
+      width: '50%',
     },
   },
   dense: {
@@ -275,6 +272,7 @@ export const useTabsAppBarStyles = makeStyles((theme: Theme): any => ({
 export const useThumbnailStyles = makeStyles((): any => ({
   cover: {
     flexShrink: 0,
+    minHeight: 290,
     padding: 20,
     width: '8%',
   },

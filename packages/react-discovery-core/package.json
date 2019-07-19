@@ -30,6 +30,7 @@
   "dependencies": {
     "@react-discovery/configuration": "file:../react-discovery-configuration",
     "@types/react-redux": "^7.1.0",
+    "lodash": "^4.17.14",
     "query-string": "^6.5.0",
     "react-navi": "^0.12.7",
     "typescript-fsa": "^3.0.0-beta-2",

@@ -6,6 +6,7 @@ import {getUrl} from "@react-discovery/configuration"
 import {queryBuilder} from "../query-builders"
 import {useDispatch} from 'react-redux'
 import {usePrevious} from '../../hooks'
+import {getFilters} from "../../solr/state/selectors"
 
 interface IElasticSearchProvider {
   useHistory?: boolean;
@@ -13,6 +14,8 @@ interface IElasticSearchProvider {
 
 export const ElasticSearchProvider: React.FC<IElasticSearchProvider> = (props): ReactElement => {
   const [isInitialized, setIsInitialized] = useState(false)
+  const filters = getFilters()
+  const prevFilters = usePrevious(filters)
   const query: IElasticSearchQuery = getDefaultQuery()
   const queryObj = queryBuilder(query)
   const json = JSON.stringify(queryObj)
@@ -35,7 +38,7 @@ export const ElasticSearchProvider: React.FC<IElasticSearchProvider> = (props): 
       fetchResponse()
       setIsInitialized(true)
     } else {
-      if (prevStringInput !== stringInput || prevFrom !== from || prevSize !== size) {
+      if (prevStringInput !== stringInput || filters !== prevFilters || prevFrom !== from || prevSize !== size) {
         fetchResponse()
       }
     }
