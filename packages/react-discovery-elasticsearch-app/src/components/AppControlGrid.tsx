@@ -1,18 +1,10 @@
-import {AppBar, Grid, makeStyles, useMediaQuery} from "@material-ui/core"
-import {
-  ES,
-  GroupSelectedFilters,
-  HitStats,
-  RefinementListFilters,
-  SearchBox,
-  ViewSwitcherToggle,
-  useMinimalResultViewerStyles
-} from "@react-discovery/components"
+import {AppBar, Grid, makeStyles} from "@material-ui/core"
+import {ES, GroupSelectedFilters, HitStats, SearchBox, ViewSwitcherToggle} from "@react-discovery/components"
 import React, {ReactElement, useEffect} from "react"
-import {ContextActionTabs} from "../ContextActionTabs"
-import {SearchAppBar} from "../SearchAppBar"
+import {ContextActionTabs} from "./ContextActionTabs"
+import {SearchAppBar} from "./SearchAppBar"
 import {usePrevious} from "@react-discovery/core"
-import {useScrollYPosition} from "../../utils"
+import {useScrollYPosition} from "../utils"
 
 export const useStyles = makeStyles((theme): any => ({
   gridActions: {

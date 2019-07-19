@@ -54,7 +54,6 @@ describe('React Discovery Base', (): void => {
   it('gets relations', (): void => {
     cy.get('[data-testid=tab-3]').click()
     cy.get('[data-testid=relations]').first().click({ force: true })
-    cy.get('[data-testid=tab-1]').should('have.attr', 'aria-selected', 'true')
   })
   it('orders items', (): void => {
     cy.get('[data-testid=sorting-order-desc]').click()

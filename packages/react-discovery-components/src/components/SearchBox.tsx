@@ -60,6 +60,7 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
         }
         className={classes.input}
         fullWidth
+        id="standard-full-width"
         margin="normal"
         onChange={handleChange}
         placeholder={t('search')}

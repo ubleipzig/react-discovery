@@ -2,9 +2,9 @@ import {CircularProgress, Grid, makeStyles, useMediaQuery} from '@material-ui/co
 import {ESCore, usePrevious} from '@react-discovery/core'
 import {FacetViewSwitcher, MinWidthResultsGrid} from '.'
 import React, {ReactElement, useEffect} from 'react'
-import {AppControlGrid} from "./hit-views/AppControlGrid"
-import {getCurrentLanguage} from "@react-discovery/configuration"
 import {RefinementListFilters, useMinimalResultViewerStyles} from '@react-discovery/components'
+import {AppControlGrid} from "./AppControlGrid"
+import {getCurrentLanguage} from "@react-discovery/configuration"
 import {useTranslation} from "react-i18next"
 
 export const useStyles = makeStyles((): any => ({
