@@ -13,6 +13,7 @@ interface IDefaultItemComponent {
 export const useThumbnailStyles = makeStyles((): any => ({
   cover: {
     flexShrink: 0,
+    minHeight: 290,
     padding: 20,
   },
 }))

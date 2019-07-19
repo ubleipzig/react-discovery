@@ -11,3 +11,5 @@ export const buildRandomUBLThumbnail = (): string => {
   const prefix = manifestId.substring(4, 8)
   return `https://iiif.ub.uni-leipzig.de/iiif/j2k/0000/${prefix}/${manifestId}/${page}.jpx/full/170,/0/default.jpg`
 }
+
+export * from './useScrollPosition'

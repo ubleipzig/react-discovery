@@ -23,3 +23,15 @@ export const EndAdornment = (props): ReactElement => {
     </InputAdornment>
   )
 }
+
+export const SearchIconButton = (props): ReactElement => {
+  return (
+    <IconButton
+      edge="end"
+      href=''
+      onClick={props.onClick}
+    >
+      <Search/>
+    </IconButton>
+  )
+}

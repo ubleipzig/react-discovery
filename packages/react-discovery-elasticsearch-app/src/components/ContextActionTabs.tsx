@@ -1,16 +1,9 @@
-import {AppBar, Tab, Tabs, Theme, makeStyles} from "@material-ui/core"
 import React, {ReactElement} from "react"
+import {Tab, Tabs} from "@material-ui/core"
 import {useTranslation} from "react-i18next"
 
-export const useTabsAppBarStyles = makeStyles((theme: Theme): any => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    width: '100%',
-  },
-}))
 
-export const ContextActionTabs: React.FC<any> = (props): ReactElement => {
-  const classes: any = props.classes || useTabsAppBarStyles({})
+export const ContextActionTabs: React.FC<any> = (): ReactElement => {
   const [value, setValue] = React.useState(0)
   const {t} = useTranslation('vocab')
   const actionTypes = [
@@ -24,7 +17,7 @@ export const ContextActionTabs: React.FC<any> = (props): ReactElement => {
     },
     {
       key: "advancedSearch",
-      label: "advanced search"
+      label: "advancedSearch"
     }
   ]
   const handleChange = ({}: React.ChangeEvent<{}>, newValue: number): void => {
@@ -41,18 +34,14 @@ export const ContextActionTabs: React.FC<any> = (props): ReactElement => {
   }
 
   return actionTypes ? (
-    <div className={classes.root}>
-      <AppBar color="default" position="static">
-        <Tabs
-          indicatorColor="primary"
-          onChange={handleChange}
-          scrollButtons="auto"
-          textColor="primary"
-          value={value}
-          variant="scrollable">
-          {buildTabs()}
-        </Tabs>
-      </AppBar>
-    </div>
+    <Tabs
+      indicatorColor="primary"
+      onChange={handleChange}
+      scrollButtons="auto"
+      textColor="primary"
+      value={value}
+      variant="scrollable">
+      {buildTabs()}
+    </Tabs>
   ) : null
 }
