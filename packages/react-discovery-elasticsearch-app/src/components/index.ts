@@ -1,5 +1,7 @@
 export * from './hit-views'
 export * from './FacetViewSwitcher'
+export * from './ListFilters'
 export * from './MinimalResultsViewer'
 export * from './MinWidthResultsGrid'
 export * from './SearchAppBar'
+export * from './PersistentDrawer'

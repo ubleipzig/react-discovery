@@ -192,18 +192,22 @@ export const useSearchBoxStyles = makeStyles((theme): any => ({
   container: {
     display: 'flex',
     flex: '1',
-    marginLeft: 0,
+    justifyContent: 'space-evenly',
+    marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
-    maxHeight: '48px',
+    maxHeight: '32px',
     position: 'relative',
-    width: '50%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
-      width: '50%',
     },
   },
   dense: {
     marginTop: 19,
+  },
+  divider: {
+    height: 32,
+    margin: 4,
+    width: 1,
   },
   input: {
     backgroundColor: 'white', margin: 8
@@ -211,6 +215,12 @@ export const useSearchBoxStyles = makeStyles((theme): any => ({
   menu: {
     width: 200,
   },
+  root: {
+    alignItems: 'center',
+    display: 'flex',
+    padding: '2px 4px',
+    width: '50%',
+  }
 }))
 
 export const useSortingSelectorStyles = makeStyles((theme): any => ({

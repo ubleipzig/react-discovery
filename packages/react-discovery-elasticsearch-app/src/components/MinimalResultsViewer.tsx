@@ -1,15 +1,45 @@
-import {CircularProgress, Grid, makeStyles, useMediaQuery} from '@material-ui/core'
+import {CircularProgress, Divider, Grid, makeStyles, useMediaQuery} from '@material-ui/core'
+import {
+  ES,
+  HitStats,
+  ViewSwitcherToggle,
+  useMinimalResultViewerStyles,
+} from '@react-discovery/components'
 import {ESCore, usePrevious} from '@react-discovery/core'
-import {FacetViewSwitcher, MinWidthResultsGrid} from '.'
+import {FacetViewSwitcher, ListFilters, MinWidthResultsGrid, PersistentDrawer, SearchAppBar} from '.'
 import React, {ReactElement, useEffect} from 'react'
-import {RefinementListFilters, useMinimalResultViewerStyles} from '@react-discovery/components'
-import {AppControlGrid} from "./AppControlGrid"
+import classNames from 'classnames'
 import {getCurrentLanguage} from "@react-discovery/configuration"
 import {useTranslation} from "react-i18next"
 
-export const useStyles = makeStyles((): any => ({
+const drawerWidth = 240
+export const useStyles = makeStyles((theme): any => ({
+  content: {
+    backgroundColor: '#fafafa',
+    flexGrow: 1,
+    marginLeft: drawerWidth,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create('margin', {
+      duration: theme.transitions.duration.leavingScreen,
+      easing: theme.transitions.easing.sharp,
+    }),
+  },
+  contentShift: {
+    backgroundColor: '#fafafa',
+    marginLeft: 73,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create('margin', {
+      duration: theme.transitions.duration.enteringScreen,
+      easing: theme.transitions.easing.easeOut,
+    }),
+  },
+  gridActions: {
+    alignItems: 'center',
+    padding: '10px'
+  },
   main: {
-    display: 'flex'
+    display: 'flex',
+    padding: 20
   },
 }))
 
@@ -27,49 +57,49 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
     }
   }, [currentLanguage, i18n, previousLanguage])
 
+  const [open, setOpen] = React.useState(true)
+
+  const handleDrawerChange = (): void => {
+    setOpen(!open)
+  }
+
   const hits = ESCore.state.getHits()
 
   return (
     <Grid container>
-      <AppControlGrid/>
+      <SearchAppBar
+        handleDrawerChange={handleDrawerChange}
+        open={open}/>
       <Grid
-        alignItems="center"
-        container
-        direction="row"
-        justify="center"
+        item
+        xs={12}
       >
-        <Grid
-          className={mainClasses.main}
-          item
-          xs={10}
-        >
-          {matches ?
-            <Grid
-              className={classes.gridLeft}
-              item
-              xs={2}
-            >
-              <RefinementListFilters/>
-            </Grid> : null
-          }
-          {matches ?
-            <Grid
-              item
-              style={{marginTop: 280}}
-              xs={8}
-            >
-              <Grid
-                className={classes.gridContent}
-              >
-                {hits ?
-                  <>
-                    <FacetViewSwitcher/>
-                  </> : <CircularProgress className={classes.progress}/>}
-              </Grid>
-            </Grid> :
-            <MinWidthResultsGrid/>
-          }
-        </Grid>
+        <PersistentDrawer open={open}/>
+        {matches ?
+          <main
+            className={classNames({[mainClasses.content]: open}, {
+              [mainClasses.contentShift]: !open,
+            })}
+          >
+            <>
+              {hits ?
+                <>
+                  <Grid
+                    className={mainClasses.gridActions}
+                    container
+                    direction="row"
+                  >
+                    <HitStats/>
+                    <ViewSwitcherToggle/>
+                    <ES.Pagination/>
+                  </Grid>
+                  <ListFilters/>
+                  <FacetViewSwitcher/>
+                </> : <CircularProgress className={classes.progress}/>
+              }
+            </>
+          </main> : <MinWidthResultsGrid/>
+        }
       </Grid>
     </Grid>
   )

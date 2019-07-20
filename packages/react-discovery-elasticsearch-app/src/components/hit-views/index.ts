@@ -1,4 +1,6 @@
 export * from './displayFields'
+export * from './DefaultHitComponent'
+export * from './DetailBreadcrumbs'
 export * from './DetailsView'
 export * from '../../enum/Domain'
 export * from './EntityDisplay'
