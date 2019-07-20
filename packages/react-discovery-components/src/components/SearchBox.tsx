@@ -2,7 +2,7 @@ import {ESCore, SolrCore} from "@react-discovery/core"
 import {EndAdornment, SearchIconButton} from "./SearchBoxInputAdornments"
 import React, {ReactElement} from "react"
 import {useCurrentRoute, useNavigation} from "react-navi"
-import {TextField} from '@material-ui/core'
+import {Divider, InputBase, Paper} from '@material-ui/core'
 import {setSelectedIndex} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 import {useSearchBoxStyles} from "../styles"
@@ -46,28 +46,25 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
       noValidate
       onSubmit={handleSubmit}
     >
-      <TextField
-        InputLabelProps={{
-          shrink: true,
-        }}
-        InputProps={
-          values ? {
-            endAdornment: <>
-            <EndAdornment onClick={handleClear}/>
-            <SearchIconButton onClick={handleSubmit}/>
-            </>,
-          } : null
+      <Paper className={classes.root}>
+        <InputBase
+          className={classes.input}
+          fullWidth
+          placeholder={t('search')}
+          id="standard-full-width"
+          onChange={handleChange}
+          type="search"
+          value={values}
+        />
+        {values ?
+        <>
+          <EndAdornment onClick={handleClear}/>
+
+          </> : null
         }
-        className={classes.input}
-        fullWidth
-        id="standard-full-width"
-        margin="normal"
-        onChange={handleChange}
-        placeholder={t('search')}
-        type="search"
-        variant="outlined"
-        value={values}
-      />
+        <Divider className={classes.divider} />
+        <SearchIconButton onClick={handleSubmit}/>
+      </Paper>
     </form>
   )
 }

@@ -1,24 +1,49 @@
-import {Grid, Theme, createStyles, makeStyles} from "@material-ui/core"
-import React, {ReactElement, useEffect, useState} from "react"
 import {ESCore, usePrevious} from "@react-discovery/core"
-import DefaultHitComponent from "./DefaultHitComponent"
-import {SearchAppBar} from '..'
+import {MinWidthResultsGrid, PersistentDrawer, SearchAppBar} from '..'
+import React, {ReactElement, useEffect, useState} from "react"
+import {DetailBreadcrumbs} from "."
+import DefaultHitComponent from './DefaultHitComponent'
+import {createStyles, Grid, makeStyles, Theme, useMediaQuery} from "@material-ui/core"
 import {getTypeForId} from '@react-discovery/components'
+import classNames from 'classnames'
 import {useDispatch} from "react-redux"
 
 interface IDetailsView {
   id: string;
 }
 
+const drawerWidth = 240
+
 const useStyles = makeStyles((theme: Theme): any =>
   createStyles({
+    content: {
+      flexGrow: 1,
+      marginLeft: drawerWidth,
+      padding: theme.spacing(3),
+      transition: theme.transitions.create('margin', {
+        duration: theme.transitions.duration.leavingScreen,
+        easing: theme.transitions.easing.sharp,
+      }),
+    },
+    contentShift: {
+      marginLeft: 73,
+      padding: theme.spacing(3),
+      transition: theme.transitions.create('margin', {
+        duration: theme.transitions.duration.enteringScreen,
+        easing: theme.transitions.easing.easeOut,
+      }),
+    },
     gridActions: {
       alignItems: 'center',
-      marginTop: '50px',
       padding: '10px'
     },
     gridContent: {
       backgroundColor: 'lightgray',
+      padding: 20
+    },
+    main: {
+      backgroundColor: 'lightgray',
+      display: 'flex',
       padding: 20
     },
     progress: {
@@ -29,12 +54,14 @@ const useStyles = makeStyles((theme: Theme): any =>
 
 export const DetailsView: React.FC<IDetailsView> = (props): ReactElement => {
   const {id} = props
+  const classes: any = useStyles({})
   const stringInput = ESCore.state.getStringInput()
   const prevStringInput = usePrevious(stringInput)
   const [isInitialized, setIsInitialized] = useState(false)
   const hits = ESCore.state.getHits()
   const hit = hits && hits.hits.length ? hits.hits[0] : null
   const dispatch = useDispatch()
+  const matches = useMediaQuery('(min-width:600px)')
 
   useEffect((): void => {
     if (!isInitialized) {
@@ -47,6 +74,12 @@ export const DetailsView: React.FC<IDetailsView> = (props): ReactElement => {
   const lClasses: any = useStyles({})
   const type = hit && getTypeForId(hit, id)
 
+  const [open, setOpen] = React.useState(true)
+
+  const handleDrawerChange = (): void => {
+    setOpen(!open)
+  }
+
   const buildObjectForType = (type): ReactElement => {
     switch (type) {
       default:
@@ -56,21 +89,34 @@ export const DetailsView: React.FC<IDetailsView> = (props): ReactElement => {
     }
   }
 
-  return <Grid container>
-    <Grid item xs={12}>
-      <SearchAppBar/>
-    </Grid>
-    <Grid
-      item xs={12}
-    >
+  return (
+    <Grid container>
+      <SearchAppBar
+        handleDrawerChange={handleDrawerChange}
+        open={open}/>
       <Grid
-        className={lClasses.gridActions}
-        container
-        direction="row"
+        item
+        xs={12}
       >
+        <PersistentDrawer open={open}/>
+        {matches ?
+          <main
+            className={classNames({[classes.content]: open}, {
+              [classes.contentShift]: !open,
+            })}
+          >
+            <Grid
+              className={lClasses.gridActions}
+              container
+              direction="row"
+            >
+              <DetailBreadcrumbs/>
+            </Grid>
+            {hit && type ?
+              buildObjectForType(type) : null
+            }
+          </main> : <MinWidthResultsGrid/>
+        }
       </Grid>
-      {hit && type ?
-        buildObjectForType(type) : null}
-    </Grid>
-  </Grid>
+    </Grid>)
 }
