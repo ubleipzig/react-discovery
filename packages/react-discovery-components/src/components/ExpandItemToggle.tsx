@@ -31,7 +31,7 @@ export const ExpandItemToggle: React.FC<any> = (props): ReactElement => {
             value="checkedB"
           />
         }
-        label={isItemExpanded ? t('reduceItem') : t('expandItem')}
+        label={t('showInner')}
       />
     </FormControl>
   )
