@@ -200,6 +200,7 @@ export const useSearchBoxStyles = makeStyles((theme): any => ({
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
     },
+    width: '100%'
   },
   dense: {
     marginTop: 19,

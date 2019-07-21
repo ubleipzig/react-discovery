@@ -5,10 +5,10 @@ import { mount, route } from 'navi'
 import thunkMiddleware, { ThunkMiddleware } from 'redux-thunk'
 import {DetailsView} from "./components/hit-views"
 import {ElasticSearchProvider} from "@react-discovery/core"
-import {MinimalResultsViewer} from './components'
 import {Provider} from 'react-redux'
 import React from "react"
 import ReactDOM from "react-dom"
+import {ResultsList} from './components'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {rootReducer} from "./state"
 
@@ -18,7 +18,7 @@ const routes =
   mount({
     '/': route({
       title: "React Discovery",
-      view: <MinimalResultsViewer />,
+      view: <ResultsList />,
     }),
     '/detail/:id': route((req): any => {
       let id = req.params.id

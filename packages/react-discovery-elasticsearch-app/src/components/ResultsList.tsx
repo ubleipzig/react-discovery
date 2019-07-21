@@ -1,4 +1,4 @@
-import {CircularProgress, Divider, Grid, makeStyles, useMediaQuery} from '@material-ui/core'
+import {CircularProgress, Grid, makeStyles, useMediaQuery} from '@material-ui/core'
 import {
   ES,
   HitStats,
@@ -39,11 +39,11 @@ export const useStyles = makeStyles((theme): any => ({
   },
   main: {
     display: 'flex',
-    padding: 20
+    padding: 20,
   },
 }))
 
-export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
+export const ResultsList: React.FC<any> = (): ReactElement => {
   const {i18n} = useTranslation(['common', 'vocab'])
   const classes: any = useMinimalResultViewerStyles({})
   const mainClasses: any = useStyles({})
@@ -69,7 +69,7 @@ export const MinimalResultsViewer: React.FC<any> = (): ReactElement => {
     <Grid container>
       <SearchAppBar
         handleDrawerChange={handleDrawerChange}
-        open={open}/>
+      />
       <Grid
         item
         xs={12}

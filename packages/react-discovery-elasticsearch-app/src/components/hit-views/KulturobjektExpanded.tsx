@@ -18,7 +18,6 @@ import {
 import {IHit, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {Domain} from "../../enum"
-import {useTranslation} from "react-i18next"
 
 interface IDefaultItemComponent {
   classes: any;

@@ -1,8 +1,15 @@
-import {Card, CardContent, Grid, makeStyles} from "@material-ui/core"
+import {Card, CardContent, Divider, Grid, List, ListItem, ListSubheader, makeStyles, Typography} from "@material-ui/core"
 import {IHit, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {ThumbnailGrid, useHitViewStyles} from '.'
-import {TitleIdHeader, ValueDisplay, ViewSwitcherToggle, buildHighlightedValueForHit} from '@react-discovery/components'
+import {
+  buildHighlightedValueForHit,
+  FieldLabel,
+  InnerHtmlValue,
+  TitleIdHeader,
+  ValueDisplay,
+  ViewSwitcherToggle
+} from '@react-discovery/components'
 
 interface IDefaultItemComponent {
   classes: any;
@@ -26,6 +33,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const entities = hit && hit._source.entities && hit._source.entities
+
   const buildValueDisplay = (field: string, hit: IHit, key: number): ReactElement => {
     return (
       <ValueDisplay
@@ -37,6 +45,41 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
         variant='body2'
       />
     )
+  }
+
+  const buildFieldValueHits = (values) => {
+    return values.map((v, i) => {
+      return (
+        <ListItem
+          key={i}
+        >
+          <Typography
+            className={classes.inline}
+            color="textSecondary"
+            component="span"
+
+          >
+            <InnerHtmlValue key={i} value={v}/>
+            <Divider/>
+          </Typography>
+        </ListItem>
+      )
+    })
+  }
+
+  const buildNestedHighlights = (hit: IHit): any => {
+    const highlights: any[] = hit && hit.highlighting
+    return Object.entries(highlights).map(([ field, values]: any) => {
+      const normalizedField = field.split('.').pop()
+      return (
+        <ListItem key={i}>
+          <FieldLabel
+            label={normalizedField}
+          />
+          {buildFieldValueHits(values)}
+        </ListItem>
+      )
+    })
   }
 
   return hit ? (
@@ -65,6 +108,19 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
                 {displayFields.map((field, key): ReactElement =>
                   buildValueDisplay(field.field, hit, key))}
               </CardContent>
+              <Divider style={{marginTop: 16}} variant="middle"/>
+              {Object.keys(hit.highlighting).length ?
+                <List
+                  dense={true}
+                  subheader={
+                    <ListSubheader component="div" id="nested-list-subheader">
+                      Hit Detail
+                    </ListSubheader>
+                  }
+                >
+                  {buildNestedHighlights(hit)}
+                </List> : null
+              }
             </div>
           </div>
         </Grid>
