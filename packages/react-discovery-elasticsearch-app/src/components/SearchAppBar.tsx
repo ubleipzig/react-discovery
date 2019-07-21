@@ -1,14 +1,12 @@
-import {AppBar, Badge, IconButton, Typography, makeStyles, Grid} from '@material-ui/core'
+import {AppBar, Badge, IconButton, Typography, makeStyles} from '@material-ui/core'
 import {Bookmark, Menu} from '@material-ui/icons'
 import {
   LanguageSelectionMenu,
   ProfileMenu,
   ResetButton, SearchBox,
-  SearchSettingsMenu,
 } from '@react-discovery/components'
 import React, {ReactElement} from 'react'
-import classNames from 'classnames'
-const drawerWidth = 240
+import {Domain} from "../enum"
 
 export const useSearchAppBarStyles = makeStyles((theme): any => ({
   appBar: {
@@ -19,13 +17,6 @@ export const useSearchAppBarStyles = makeStyles((theme): any => ({
       easing: theme.transitions.easing.sharp,
     }),
     zIndex: theme.zIndex.drawer + 1,
-  },
-  appBarShift: {
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
-      duration: theme.transitions.duration.enteringScreen,
-      easing: theme.transitions.easing.easeOut,
-    }),
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 7),
@@ -42,12 +33,7 @@ export const useSearchAppBarStyles = makeStyles((theme): any => ({
     marginRight: theme.spacing(2),
   },
   root: {
-    backgroundColor: theme.palette.background.paper,
-    position: 'fixed',
-    transform: 'translateY(0)',
-    transition: 'transform 0.3s ease',
-    width: '100%',
-    zIndex: 100
+
   },
   sectionDesktop: {
     display: 'none',
@@ -80,57 +66,52 @@ export const useSearchAppBarStyles = makeStyles((theme): any => ({
 
 export const SearchAppBar: React.FC<any> = (props): ReactElement => {
   const classes: any = useSearchAppBarStyles({})
-  const { handleDrawerChange, open } = props
+  const {handleDrawerChange} = props
 
   return (
-    <Grid className={classes.root} item xs={12} >
-      <AppBar
-        className={classNames(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-        position="fixed"
+    <AppBar
+      className={classes.appBar}
+      position="fixed"
+    >
+      <div
+        className={classes.toolbar}
       >
-        <div
-          className={classes.toolbar}
+        <IconButton
+          className={classes.menuButton}
+          color="inherit"
+          edge="start"
+          href=''
+          onClick={handleDrawerChange}
         >
+          <Menu />
+        </IconButton>
+        <Typography
+          className={classes.title}
+          noWrap
+          variant="subtitle2"
+        >
+          {Domain.APP_NAME}
+        </Typography>
+        <SearchBox/>
+        <div className={classes.sectionDesktop}>
+          <ResetButton/>
+          <LanguageSelectionMenu/>
           <IconButton
-            className={classNames(classes.menuButton, open && classes.hide)}
+            className={classes.menuButton}
             color="inherit"
-            edge="start"
             href=''
-            onClick={handleDrawerChange}
           >
-            <Menu />
-          </IconButton>
-          <Typography
-            className={classes.title}
-            noWrap
-            variant="subtitle2"
-          >
-            Discovery App
-          </Typography>
-          <SearchBox/>
-          <div className={classes.sectionDesktop}>
-            <ResetButton/>
-            <SearchSettingsMenu/>
-            <LanguageSelectionMenu/>
-            <IconButton
-              className={classes.menuButton}
-              color="inherit"
-              href=''
+            <Badge
+              badgeContent={4}
+              color="secondary"
             >
-              <Badge
-                badgeContent={4}
-                color="secondary"
-              >
-                <Bookmark/>
-              </Badge>
-            </IconButton>
-            <ProfileMenu/>
-          </div>
+              <Bookmark/>
+            </Badge>
+          </IconButton>
+          <ProfileMenu/>
         </div>
-      </AppBar>
-    </Grid>
+      </div>
+    </AppBar>
   )
 }
 

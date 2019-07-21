@@ -200,6 +200,7 @@ export const useSearchBoxStyles = makeStyles((theme): any => ({
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
     },
+    width: '100%'
   },
   dense: {
     marginTop: 19,
@@ -282,7 +283,6 @@ export const useTabsAppBarStyles = makeStyles((theme: Theme): any => ({
 export const useThumbnailStyles = makeStyles((): any => ({
   cover: {
     flexShrink: 0,
-    minHeight: 290,
     padding: 20,
     width: '8%',
   },

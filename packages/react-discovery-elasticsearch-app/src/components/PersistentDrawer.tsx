@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 const drawerWidth = 240
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme): any => ({
   drawer: {
     flexShrink: 0,
     whiteSpace: 'nowrap',
@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const PersistentDrawer: React.FC<any> = (props): ReactElement => {
-  const classes = useStyles({})
+  const classes: any = useStyles({})
   const {open} = props
   const listItems = [
     {

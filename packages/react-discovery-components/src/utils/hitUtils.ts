@@ -19,6 +19,10 @@ export const buildEntityCountForType = (entities, type): number => {
   return entities && entities.filter((entity): boolean => entity[typeField] === type).length
 }
 
+export const buildInnerHitCountForType = (entities, type): number => {
+  return entities && entities.filter((entity): boolean => entity._source[typeField] === type).length
+}
+
 export const getTypeForId = (hit, id): string => {
   const {_source} = hit
   if (_source.id === id) {

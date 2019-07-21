@@ -1,6 +1,7 @@
 export * from './elasticsearch'
 export * from './menus'
 export * from './renderComponent'
+export * from './ExpandItemToggle'
 export * from './ExpertSearchBox'
 export * from './FieldLabel'
 export * from './FieldValueDisplay'

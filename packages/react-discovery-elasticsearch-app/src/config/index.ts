@@ -10,6 +10,7 @@ export const rootConfig: IConfig = {
   collections: null,
   currentCollection,
   currentLanguage: 'en',
+  expandedItems: null,
   isViewExpanded: false,
   languages: [
     {

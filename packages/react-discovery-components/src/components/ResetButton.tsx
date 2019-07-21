@@ -2,7 +2,7 @@ import {ESCore, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {IOverridableStyledComponent} from ".."
 import {IconButton} from "@material-ui/core"
-import {Redo} from "@material-ui/icons"
+import {Loop} from "@material-ui/icons"
 import {getRootContext} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 import {useNavigation} from 'react-navi'
@@ -29,7 +29,7 @@ export const ResetButton: React.FC<IOverridableStyledComponent> = (props): React
       href=''
       onClick={handleChange}
     >
-      <Redo/>
+      <Loop/>
     </IconButton>
   )
 }

@@ -1,4 +1,5 @@
 export enum Domain {
+  APP_NAME = 'Discovery App',
   ANNOTATION = 'Annotation',
   BESCHREIBUNG = 'Beschreibung',
   DIGITALISAT = 'Digitalisat',

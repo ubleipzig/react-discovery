@@ -9,16 +9,17 @@ import {
   useHitViewStyles
 } from '.'
 import {
+  ExpandItemToggle,
   FieldValueDisplay,
   TitleIdHeader,
   ValueDisplay,
-  ViewSwitcherToggle,
   buildHighlightedValueForHit
 } from '@react-discovery/components'
 import {IHit, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
+import {getIsItemExpanded, getIsViewExpanded} from "@react-discovery/configuration"
 import {Domain} from "../../enum"
-import {useTranslation} from "react-i18next"
+import Kulturobjekt from './Kulturobjekt'
 
 interface IDefaultItemComponent {
   classes: any;
@@ -41,11 +42,13 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const classes: any = useHitViewStyles({})
   const searchFields = SolrCore.state.getSearchFields()
   const {hit, i} = props
+  const isItemExpanded = hit && getIsItemExpanded(hit._source.id)
+  const isViewExpanded = getIsViewExpanded()
   const entities = hit && hit._source.entities && hit._source.entities
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('titel_t', hit)
 
-  return hit ? (
+  return hit && (isItemExpanded || isViewExpanded) ? (
     <Card className={classes.root} key={i}>
       <Grid container>
         <Grid
@@ -69,6 +72,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
               >{hit._source && hit._source[field.field] ?
                   <FieldValueDisplay field={field} hit={hit}/> : null}
               </CardContent>)}
+            {!isViewExpanded ? <ExpandItemToggle id={hit._source.id}/> : null}
             <CardActions disableSpacing>
               <EntityDisplay
                 displayFields={digitalisatDisplayFields}
@@ -96,9 +100,8 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
         </Grid>
         <ThumbnailGrid entities={entities}/>
       </Grid>
-      <ViewSwitcherToggle/>
     </Card>
-  ) : null
+  ) : <Kulturobjekt {...props}/>
 }
 
 export default KulturobjektExpanded

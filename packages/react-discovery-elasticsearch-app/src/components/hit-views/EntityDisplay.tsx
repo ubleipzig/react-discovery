@@ -8,12 +8,18 @@ import {
   List,
   Typography,
 } from "@material-ui/core"
-import {Domain, IDisplayField, NestedEntityDisplay, useHitViewStyles} from '.'
-import {FieldLabel, InnerHtmlValue, buildEntityCountForType, buildHighlightedValueForHit} from "@react-discovery/components"
+import {
+  FieldLabel,
+  InnerHtmlValue,
+  buildEntityCountForType,
+  buildHighlightedValueForHit,
+  buildInnerHitCountForType
+} from "@react-discovery/components"
+import {IDisplayField, NestedEntityDisplay, useHitViewStyles} from '.'
 import {IHit, SolrCore} from "@react-discovery/core"
 import React, {Fragment, ReactElement} from "react"
+import {Domain} from '../../enum'
 import {useTranslation} from "react-i18next"
-
 
 interface IEntityDisplay {
   displayFields: IDisplayField[];
@@ -28,14 +34,16 @@ const typeField = SolrCore.enums.FieldConstants.TYPE_FIELD
 export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
   const {displayFields, hit, isNested, nestedDisplayFields, type} = props
-  const [isExpanded, setExpanded] = React.useState(true);
+  const [isExpanded, setExpanded] = React.useState(false);
   const {t} = useTranslation('vocab')
+  const innerHits = hit && hit.innerHits.length && hit.innerHits.map((ih) => ih)
   const entities = hit && hit.innerHits.length ?
     hit.innerHits.map((ih) => ih) : hit._source && hit._source.entities ?
-      hit._source.entities.filter((entity): boolean => entity[typeField] === type) : hit
+      hit._source.entities.filter((entity): boolean => entity[typeField] === type) : null
   const handleExpandClick = (): void => {
     setExpanded(!isExpanded)
   }
+  const entityCount = buildEntityCountForType(entities, type) || buildInnerHitCountForType(innerHits, type)
 
   const buildEntityIcon = (type): ReactElement => {
     switch (type) {
@@ -111,7 +119,7 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
       >
         <Typography
           className={classes.heading}>
-          {t(type)} <i>({buildEntityCountForType(entities, type)})</i>
+          {t(type)} <i>({entityCount})</i>
         </Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
