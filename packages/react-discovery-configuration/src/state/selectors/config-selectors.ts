@@ -13,6 +13,11 @@ export const getDocTypes = (): IDocType[] => {
   return useSelector((state: any): IDocType[] => state.config.collections[state.config.currentCollection].docTypes)
 }
 
+export const getIsItemExpanded = (id: string): boolean => {
+  const expandedItems = useSelector((state: any): boolean => state.config.expandedItems)
+  return expandedItems && Object.keys(expandedItems).length && expandedItems[id] === true
+}
+
 export const getHitComponents = (): IHitComponent[] => {
   return useSelector((state: any): IHitComponent[] => state.config.collections[state.config.currentCollection].hitComponents)
 }

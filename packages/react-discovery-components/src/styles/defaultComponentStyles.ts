@@ -283,7 +283,6 @@ export const useTabsAppBarStyles = makeStyles((theme: Theme): any => ({
 export const useThumbnailStyles = makeStyles((): any => ({
   cover: {
     flexShrink: 0,
-    minHeight: 290,
     padding: 20,
     width: '8%',
   },

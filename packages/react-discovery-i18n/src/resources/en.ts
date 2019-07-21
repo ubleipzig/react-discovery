@@ -1,10 +1,12 @@
 export const en = {
   common: {
     account: 'My Account',
+    expandItem: 'Expand Item',
     expandView: 'Expand View',
     expert: 'Expert',
     expertSearch: 'Expert Search',
     profile: 'Profile',
+    reduceItem: 'Reduce Item',
     resultsFound: 'results found',
     search: 'Search...',
     simple: 'Simple',

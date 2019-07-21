@@ -2,14 +2,16 @@ import {Card, CardContent, Divider, Grid, List, ListItem, ListSubheader, makeSty
 import {IHit, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {ThumbnailGrid, useHitViewStyles} from '.'
+import KulturobjektExpanded from './KulturobjektExpanded'
 import {
-  buildHighlightedValueForHit,
+  ExpandItemToggle,
   FieldLabel,
   InnerHtmlValue,
   TitleIdHeader,
   ValueDisplay,
-  ViewSwitcherToggle
+  buildHighlightedValueForHit,
 } from '@react-discovery/components'
+import {getIsItemExpanded, getIsViewExpanded} from "@react-discovery/configuration"
 
 interface IDefaultItemComponent {
   classes: any;
@@ -20,7 +22,6 @@ interface IDefaultItemComponent {
 export const useThumbnailStyles = makeStyles((): any => ({
   cover: {
     flexShrink: 0,
-    minHeight: 290,
     padding: 20,
   },
 }))
@@ -29,6 +30,8 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
   const searchFields = SolrCore.state.getSearchFields()
   const {hit, i} = props
+  const isItemExpanded = hit && getIsItemExpanded(hit._source.id)
+  const isViewExpanded = getIsViewExpanded()
   const title = buildHighlightedValueForHit('titel_t', hit)
   const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
@@ -69,10 +72,12 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
 
   const buildNestedHighlights = (hit: IHit): any => {
     const highlights: any[] = hit && hit.highlighting
-    return Object.entries(highlights).map(([ field, values]: any) => {
+    return Object.entries(highlights).map(([ field, values]: any, i) => {
       const normalizedField = field.split('.').pop()
       return (
-        <ListItem key={i}>
+        <ListItem
+          component='div'
+          key={i}>
           <FieldLabel
             label={normalizedField}
           />
@@ -82,7 +87,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
     })
   }
 
-  return hit ? (
+  return hit && (!isItemExpanded && !isViewExpanded) ? (
     <Card className={classes.root} key={i}>
       <Grid container>
         <Grid
@@ -126,9 +131,9 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
         </Grid>
         <ThumbnailGrid entities={entities}/>
       </Grid>
-      <ViewSwitcherToggle/>
+      {!isViewExpanded ? <ExpandItemToggle id={hit._source.id}/> : null}
     </Card>
-  ) : null
+  ) : <KulturobjektExpanded {...props}/>
 }
 
 export default Kulturobjekt

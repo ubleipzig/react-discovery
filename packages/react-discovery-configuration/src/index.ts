@@ -14,6 +14,7 @@ export interface IConfig {
       url: string;
     };
   };
+  expandedItems?: IExpandedItems;
   isHighlighted?: boolean;
   isPersisted?: boolean;
   languages?: ILanguage[];
@@ -22,6 +23,8 @@ export interface IConfig {
   selectedIndex?: number;
   url?: string;
 }
+
+export type IExpandedItems = Record<string, boolean>
 
 export interface IDocType {
   groupField?: string;

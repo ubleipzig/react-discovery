@@ -13,6 +13,7 @@ export const FacetViewSwitcher: React.FC<any> = (props): ReactElement => {
   const filterType = ESCore.state.getFilterType() || 'Kulturobjekt'
   const hitComponents = getHitComponents()
   const isViewExpanded = getIsViewExpanded()
+
   const buildHitComponent = (): ReactElement => {
     const [defaultHitComponent] = hitComponents.filter((hc): boolean => hc.defaultOption === true)
     const [facetComponent] = hitComponents.filter((hc): boolean =>
