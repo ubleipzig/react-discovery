@@ -7,7 +7,7 @@ import {
   digitalisatDisplayFields,
   facetDisplayFields,
   personDisplayFields
-} from "."
+} from "./hit-views"
 import {ESCore, usePrevious} from "@react-discovery/core"
 import {
   FieldValueDisplay,
@@ -17,19 +17,17 @@ import {
   buildHighlightedValueForHit,
   getTypeForId,
 } from '@react-discovery/components'
-import {MinWidthResultsGrid, PersistentDrawer, SearchAppBar} from '..'
+import {MinWidthResultsGrid} from './index'
 import React, {ReactElement, useEffect, useState} from "react"
-import DefaultHitComponent from './DefaultHitComponent'
-import {Domain} from "../../enum"
-import {buildRandomUBLThumbnail} from "../../utils"
-import classNames from 'classnames'
+import DefaultHitComponent from './hit-views/DefaultHitComponent'
+import {Domain} from "../enum"
+import {buildRandomUBLThumbnail} from "../utils"
+
 import {useDispatch} from "react-redux"
 
 interface IDetailsView {
   id: string;
 }
-
-const drawerWidth = 240
 
 const useStyles = makeStyles((theme: Theme): any =>
   createStyles({
@@ -37,25 +35,6 @@ const useStyles = makeStyles((theme: Theme): any =>
       display: 'flex',
       flex: '1 0 auto',
       padding: 0,
-    },
-    content: {
-      backgroundColor: '#fafafa',
-      flexGrow: 1,
-      marginLeft: drawerWidth,
-      padding: theme.spacing(3),
-      transition: theme.transitions.create('margin', {
-        duration: theme.transitions.duration.leavingScreen,
-        easing: theme.transitions.easing.sharp,
-      }),
-    },
-    contentShift: {
-      backgroundColor: '#fafafa',
-      marginLeft: 73,
-      padding: theme.spacing(3),
-      transition: theme.transitions.create('margin', {
-        duration: theme.transitions.duration.enteringScreen,
-        easing: theme.transitions.easing.easeOut,
-      }),
     },
     details: {
       display: 'flex',
@@ -114,12 +93,6 @@ export const DetailsView: React.FC<IDetailsView> = (props): ReactElement => {
   })
   const lClasses: any = useStyles({})
   const type = hit && getTypeForId(hit, id)
-
-  const [open, setOpen] = React.useState(true)
-
-  const handleDrawerChange = (): void => {
-    setOpen(!open)
-  }
 
   const buildKulturObjekt = (): ReactElement => {
     return (
@@ -191,32 +164,18 @@ export const DetailsView: React.FC<IDetailsView> = (props): ReactElement => {
   }
 
   return (
-    <Grid container>
-      <SearchAppBar
-        handleDrawerChange={handleDrawerChange}/>
-      <Grid
-        item
-        xs={12}
-      >
-        <PersistentDrawer open={open}/>
-        {matches ?
-          <main
-            className={classNames({[classes.content]: open}, {
-              [classes.contentShift]: !open,
-            })}
-          >
-            <Grid
-              className={lClasses.gridActions}
-              container
-              direction="row"
-            >
-              <DetailBreadcrumbs/>
-            </Grid>
-            {hit && type ?
-              buildObjectForType(type) : null
-            }
-          </main> : <MinWidthResultsGrid/>
+    matches ?
+      <>
+        <Grid
+          className={lClasses.gridActions}
+          container
+          direction="row"
+        >
+          <DetailBreadcrumbs/>
+        </Grid>
+        {hit && type ?
+          buildObjectForType(type) : null
         }
-      </Grid>
-    </Grid>)
+      </> : <MinWidthResultsGrid/>
+  )
 }

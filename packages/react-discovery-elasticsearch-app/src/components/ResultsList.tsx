@@ -6,33 +6,12 @@ import {
   useMinimalResultViewerStyles,
 } from '@react-discovery/components'
 import {ESCore, usePrevious} from '@react-discovery/core'
-import {FacetViewSwitcher, ListFilters, MinWidthResultsGrid, PersistentDrawer, SearchAppBar} from '.'
+import {FacetViewSwitcher, ListFilters, MinWidthResultsGrid} from '.'
 import React, {ReactElement, useEffect} from 'react'
-import classNames from 'classnames'
 import {getCurrentLanguage} from "@react-discovery/configuration"
 import {useTranslation} from "react-i18next"
 
-const drawerWidth = 240
-export const useStyles = makeStyles((theme): any => ({
-  content: {
-    backgroundColor: '#fafafa',
-    flexGrow: 1,
-    marginLeft: drawerWidth,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      duration: theme.transitions.duration.leavingScreen,
-      easing: theme.transitions.easing.sharp,
-    }),
-  },
-  contentShift: {
-    backgroundColor: '#fafafa',
-    marginLeft: 73,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      duration: theme.transitions.duration.enteringScreen,
-      easing: theme.transitions.easing.easeOut,
-    }),
-  },
+export const useStyles = makeStyles((): any => ({
   gridActions: {
     alignItems: 'center',
     padding: '10px'
@@ -57,50 +36,26 @@ export const ResultsList: React.FC<any> = (): ReactElement => {
     }
   }, [currentLanguage, i18n, previousLanguage])
 
-  const [open, setOpen] = React.useState(true)
-
-  const handleDrawerChange = (): void => {
-    setOpen(!open)
-  }
-
   const hits = ESCore.state.getHits()
 
   return (
-    <Grid container>
-      <SearchAppBar
-        handleDrawerChange={handleDrawerChange}
-      />
-      <Grid
-        item
-        xs={12}
-      >
-        <PersistentDrawer open={open}/>
-        {matches ?
-          <main
-            className={classNames({[mainClasses.content]: open}, {
-              [mainClasses.contentShift]: !open,
-            })}
-          >
-            <>
-              {hits ?
-                <>
-                  <Grid
-                    className={mainClasses.gridActions}
-                    container
-                    direction="row"
-                  >
-                    <HitStats/>
-                    <ViewSwitcherToggle/>
-                    <ES.Pagination/>
-                  </Grid>
-                  <ListFilters/>
-                  <FacetViewSwitcher/>
-                </> : <CircularProgress className={classes.progress}/>
-              }
-            </>
-          </main> : <MinWidthResultsGrid/>
+    matches ?
+      <>
+        {hits ?
+          <>
+            <Grid
+              className={mainClasses.gridActions}
+              container
+              direction="row"
+            >
+              <HitStats/>
+              <ViewSwitcherToggle/>
+              <ES.Pagination/>
+            </Grid>
+            <ListFilters/>
+            <FacetViewSwitcher/>
+          </> : <CircularProgress className={classes.progress}/>
         }
-      </Grid>
-    </Grid>
+      </> : <MinWidthResultsGrid/>
   )
 }

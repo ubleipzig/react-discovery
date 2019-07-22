@@ -1,8 +1,4 @@
-import {Card, CardContent, Divider, Grid, List, ListItem, ListSubheader, makeStyles, Typography} from "@material-ui/core"
-import {IHit, SolrCore} from "@react-discovery/core"
-import React, {ReactElement} from "react"
-import {ThumbnailGrid, useHitViewStyles} from '.'
-import KulturobjektExpanded from './KulturobjektExpanded'
+import {Card, CardContent, Divider, Grid, List, ListItem, ListSubheader, Typography, makeStyles} from "@material-ui/core"
 import {
   ExpandItemToggle,
   FieldLabel,
@@ -11,7 +7,11 @@ import {
   ValueDisplay,
   buildHighlightedValueForHit,
 } from '@react-discovery/components'
+import {IHit, SolrCore} from "@react-discovery/core"
+import React, {ReactElement} from "react"
+import {ThumbnailGrid, useHitViewStyles} from '.'
 import {getIsItemExpanded, getIsViewExpanded} from "@react-discovery/configuration"
+import KulturobjektExpanded from './KulturobjektExpanded'
 
 interface IDefaultItemComponent {
   classes: any;

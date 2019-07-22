@@ -1,14 +1,14 @@
 import '@react-discovery/i18n'
 import {AnyAction, Store, applyMiddleware, createStore} from "redux"
+import {DetailsView, DiscoveryApp, ResultsList, Workspace} from './components'
 import { Router, View } from 'react-navi'
 import { mount, route } from 'navi'
 import thunkMiddleware, { ThunkMiddleware } from 'redux-thunk'
-import {DetailsView} from "./components/hit-views"
 import {ElasticSearchProvider} from "@react-discovery/core"
 import {Provider} from 'react-redux'
 import React from "react"
 import ReactDOM from "react-dom"
-import {ResultsList} from './components'
+
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {rootReducer} from "./state"
 
@@ -18,12 +18,17 @@ const routes =
   mount({
     '/': route({
       title: "React Discovery",
-      view: <ResultsList />,
+      view: <DiscoveryApp component={<ResultsList />}/>,
     }),
     '/detail/:id': route((req): any => {
       let id = req.params.id
       return {
-        view: <DetailsView id={id} />,
+        view: <DiscoveryApp component={<DetailsView id={id}/>}/>,
+      }
+    }),
+    '/workspace': route((): any => {
+      return {
+        view: <DiscoveryApp component={<Workspace />}/>,
       }
     })
   })

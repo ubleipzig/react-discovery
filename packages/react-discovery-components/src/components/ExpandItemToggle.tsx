@@ -10,7 +10,7 @@ export const ExpandItemToggle: React.FC<any> = (props): ReactElement => {
   const {t} = useTranslation()
   const classes: any = useViewSwitcherStyles({})
   const dispatch = useDispatch()
-  const isItemExpanded = getIsItemExpanded(id)
+  const isItemExpanded = getIsItemExpanded(id) || false
 
   const handleChange = (isItemExpanded): void => {
     dispatch(setIsItemExpanded({id, isItemExpanded}))
