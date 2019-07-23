@@ -1,8 +1,4 @@
-import {Card, CardContent, Divider, Grid, List, ListItem, ListSubheader, makeStyles, Typography} from "@material-ui/core"
-import {IHit, SolrCore} from "@react-discovery/core"
-import React, {ReactElement} from "react"
-import {ThumbnailGrid, useHitViewStyles} from '.'
-import KulturobjektExpanded from './KulturobjektExpanded'
+import {Card, CardContent, Divider, Grid, List, ListItem, ListSubheader, Typography} from "@material-ui/core"
 import {
   ExpandItemToggle,
   FieldLabel,
@@ -11,20 +7,17 @@ import {
   ValueDisplay,
   buildHighlightedValueForHit,
 } from '@react-discovery/components'
+import {IHit, SolrCore} from "@react-discovery/core"
+import React, {ReactElement} from "react"
+import {ThumbnailGrid, useHitViewStyles} from '@react-discovery/views'
 import {getIsItemExpanded, getIsViewExpanded} from "@react-discovery/configuration"
+import KulturobjektExpanded from './KulturobjektExpanded'
 
 interface IDefaultItemComponent {
   classes: any;
   hit: IHit;
   i: number;
 }
-
-export const useThumbnailStyles = makeStyles((): any => ({
-  cover: {
-    flexShrink: 0,
-    padding: 20,
-  },
-}))
 
 const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})

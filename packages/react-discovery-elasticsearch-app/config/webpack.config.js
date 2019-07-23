@@ -158,6 +158,7 @@ module.exports = function(webpackEnv) {
             : undefined
         )
       ),
+      new webpack.IgnorePlugin({resourceRegExp: /@blueprintjs\/(core|icons)/}),
       isEnvProduction &&
         shouldInlineRuntimeChunk &&
         new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),

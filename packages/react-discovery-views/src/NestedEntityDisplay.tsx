@@ -15,7 +15,7 @@ import {
 } from "@react-discovery/components"
 import React, {ReactElement} from "react"
 import {ExpandMore} from "@material-ui/icons"
-import {IDisplayField} from "./displayFields"
+import {IDisplayField} from "."
 import {SolrCore} from '@react-discovery/core'
 import {useHitViewStyles} from "./useHitViewStyles"
 import {useTranslation} from "react-i18next"

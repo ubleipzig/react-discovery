@@ -1,6 +1,7 @@
 import {Collections, EditLocation, Home, PictureInPicture} from "@material-ui/icons"
 import {Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles} from "@material-ui/core"
-import React, {ReactElement} from "react"
+import React, {ReactElement, forwardRef} from "react"
+import { NavLink } from 'react-navi'
 import clsx from 'clsx'
 
 const drawerWidth = 240
@@ -65,7 +66,7 @@ export const PersistentDrawer: React.FC<any> = (props): ReactElement => {
     {
       id: 'workspace',
       index: 3,
-      path: '/',
+      path: '/workspace',
       text: 'Workspace'
     },
   ]
@@ -87,6 +88,7 @@ export const PersistentDrawer: React.FC<any> = (props): ReactElement => {
     return items.map((item: any): ReactElement =>
       <ListItem
         button
+        component={forwardRef((props: any, ref: any) => <NavLink href={item.path} {...props} ref={ref} />) as any}
         key={item.index}
         style={{color: '#2f2c2c', textDecoration: 'none'}}
       >

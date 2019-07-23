@@ -1,5 +1,6 @@
-import {Card, CardActions, CardContent, Grid, makeStyles} from "@material-ui/core"
+import {Card, CardActions, CardContent, Grid} from "@material-ui/core"
 import {
+  Domain,
   EntityDisplay,
   ThumbnailGrid,
   annotationDisplayFields,
@@ -7,7 +8,8 @@ import {
   digitalisatDisplayFields,
   facetDisplayFields,
   useHitViewStyles
-} from '.'
+} from "@react-discovery/views"
+
 import {
   ExpandItemToggle,
   FieldValueDisplay,
@@ -18,7 +20,6 @@ import {
 import {IHit, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {getIsItemExpanded, getIsViewExpanded} from "@react-discovery/configuration"
-import {Domain} from "../../enum"
 import Kulturobjekt from './Kulturobjekt'
 
 interface IDefaultItemComponent {
@@ -26,13 +27,6 @@ interface IDefaultItemComponent {
   hit: IHit;
   i: number;
 }
-
-export const useThumbnailStyles = makeStyles((): any => ({
-  cover: {
-    flexShrink: 0,
-    padding: 20,
-  },
-}))
 
 // TODO add this to configuration
 const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate', 'formType',

@@ -1,10 +1,14 @@
-import {IAggregations, IHit, IHits, IResponse} from "../../.."
-import {fetchElasticSearchResponse} from '../actions'
+import {IHit, IResponse} from "../../.."
+import {fetchElasticSearchDocument, fetchElasticSearchResponse} from '../actions'
 import {reducerWithInitialState} from 'typescript-fsa-reducers'
 
 const initialState: IResponse = {
   aggregations: null,
-  hits: null,
+  docs: {},
+  hits: {
+    hits: [],
+    numFound: 0,
+  },
   url: null,
 }
 
@@ -43,11 +47,12 @@ const buildDocs = (result): IHit[] => {
   })
 }
 
-const buildHits = (result): IHits => {
-  return {
-    hits: result.hits && result.hits.hits ? buildDocs(result) : [],
-    numFound: result.hits ? result.hits.total.value : null,
-  }
+const buildHits = (result): IHit[] => {
+  return result.hits && result.hits.hits ? buildDocs(result) : []
+}
+
+const buildNumFound = (result) => {
+  return result.hits ? result.hits.total.value : null
 }
 
 export const response = reducerWithInitialState(initialState)
@@ -58,11 +63,32 @@ export const response = reducerWithInitialState(initialState)
   .case(fetchElasticSearchResponse.async.done, (state: IResponse, {params, result}): IResponse => ({
     ...state,
     aggregations: result.aggregations ? result.aggregations : state.aggregations,
-    hits: buildHits(result),
+    hits: {
+      hits: [...buildHits(result)],
+      numFound: buildNumFound(result)
+    },
     updating: false,
     url: params.url,
   }))
   .case(fetchElasticSearchResponse.async.failed, (state, { error }): IResponse => ({
+    ...state,
+    error,
+    updating: false,
+  }))
+  .case(fetchElasticSearchDocument.async.started, (state): IResponse => ({
+    ...state,
+    updating: true
+  }))
+  .case(fetchElasticSearchDocument.async.done, (state: IResponse, {params, result}): IResponse => ({
+    ...state,
+    docs: {
+      ...state.docs,
+      [result._source.id]: result
+    },
+    updating: false,
+    url: params.url,
+  }))
+  .case(fetchElasticSearchDocument.async.failed, (state, { error }): IResponse => ({
     ...state,
     error,
     updating: false,

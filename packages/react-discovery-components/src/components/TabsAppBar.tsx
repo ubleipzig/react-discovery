@@ -26,7 +26,7 @@ export const TabsAppBar: React.FC<IOverridableStyledComponent> = (props): ReactE
   }, [])
 
   useEffect((): void => {
-    const [typeFilter] = filters[typeField]
+    const [typeFilter] = Object.keys(filters).length && filters[typeField]
     if (prevFilters !== filters && typeFilter !== docTypesKeys[value]) {
       const index = typeFilter ? docTypesKeys.indexOf(typeFilter) : 0
       setValue(index)

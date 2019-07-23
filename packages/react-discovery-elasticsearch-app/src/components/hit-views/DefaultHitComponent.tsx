@@ -2,9 +2,7 @@ import {Card, CardContent} from "@material-ui/core"
 import {ESCore, IHit} from "@react-discovery/core"
 import {FieldValueDisplay, Thumbnail, TitleIdHeader, buildHighlightedValueForHit} from '@react-discovery/components'
 import React, {ReactElement} from "react"
-import {Domain} from '../../enum'
-import {buildRandomUBLThumbnail} from "../../utils"
-import {useHitViewStyles} from '.'
+import {buildRandomUBLThumbnail, useHitViewStyles} from "@react-discovery/views"
 
 interface IDefaultItemComponent {
   hit: IHit;
@@ -15,9 +13,8 @@ const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultIte
   const classes: any = useHitViewStyles({})
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
-  const {_source} = hit
   const title = buildHighlightedValueForHit('title', hit)
-  const thumbnail = _source && _source.thumbnail + Domain.THUMBNAIL_API_REQUEST
+
   return (
     <Card className={classes.root} key={i}>
       <TitleIdHeader
