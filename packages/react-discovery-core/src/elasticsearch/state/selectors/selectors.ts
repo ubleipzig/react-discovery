@@ -10,6 +10,10 @@ export const getAggs = (): IFilters => {
   return useSelector((state: any): any => state.query.aggs)
 }
 
+export const getDocuments = (): IHits => {
+  return useSelector((state: any): IHits => state.response.docs)
+}
+
 export const getFilters = (): IFilters => {
   return useSelector((state: IState): IFilters => state.query.filters)
 }

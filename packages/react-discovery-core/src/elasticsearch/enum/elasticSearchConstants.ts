@@ -1,4 +1,5 @@
 export enum ElasticSearchConstants {
+  DOCUMENT = "/_doc/",
   FROM = "from",
   SEARCH = "/_search",
   SIZE = "size",

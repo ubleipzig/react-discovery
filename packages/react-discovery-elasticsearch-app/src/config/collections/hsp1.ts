@@ -1,4 +1,4 @@
-import {Domain} from '../../enum'
+import {Domain} from '@react-discovery/views'
 import {ESCore} from "@react-discovery/core"
 import {IConfig} from "@react-discovery/configuration"
 

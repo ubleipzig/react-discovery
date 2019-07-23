@@ -38,8 +38,11 @@ export interface IInnerHits {
   "inner_hits": IInnerHitField;
 }
 
+export type IDocument = Record<string, IHit>
+
 export interface IResponse {
   aggregations: IAggregations;
+  docs?: IDocument;
   error?: {};
   hits: IHits;
   updating?: boolean;

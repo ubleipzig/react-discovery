@@ -35,6 +35,8 @@
     "@react-discovery/components": "file:../react-discovery-components",
     "@react-discovery/core": "file:../react-discovery-core",
     "@react-discovery/i18n": "file:../react-discovery-i18n",
+    "@react-discovery/views": "file:../react-discovery-views",
+    "@react-discovery/workspace": "file:../react-discovery-workspace",
     "classnames": "^2.2.6",
     "clsx": "^1.0.4",
     "deepmerge": "^3.2.0",

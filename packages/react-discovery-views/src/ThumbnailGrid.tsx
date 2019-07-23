@@ -2,10 +2,9 @@ import {Book, ChatBubble, Image} from "@material-ui/icons"
 import {CardActions, Grid, Typography} from "@material-ui/core"
 import React, {ReactElement} from "react"
 import {Thumbnail, buildEntityCountForType} from "@react-discovery/components"
-import {Domain} from "../../enum"
-import {buildRandomUBLThumbnail} from "../../utils"
-import {useHitViewStyles} from "./useHitViewStyles"
-import {useThumbnailStyles} from "./Kulturobjekt"
+import {useHitViewStyles, useThumbnailStyles} from "."
+import {Domain} from "./enum"
+import {buildRandomUBLThumbnail} from "./utils"
 import {useTranslation} from "react-i18next"
 
 export const ThumbnailGrid: React.FC<any> = (props): ReactElement => {

@@ -182,7 +182,7 @@ export const useMosaicStyles = makeStyles((): any => ({
       background: 'white',
       flex: 1,
       height: 0,
-      overflow: 'hidden',
+      overflowY: 'scroll',
       position: 'relative',
       W: 1,
       zIndex: 1,

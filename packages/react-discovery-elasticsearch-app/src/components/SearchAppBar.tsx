@@ -6,7 +6,7 @@ import {
   ResetButton, SearchBox,
 } from '@react-discovery/components'
 import React, {ReactElement} from 'react'
-import {Domain} from "../enum"
+import {Domain} from "@react-discovery/views"
 
 export const useSearchAppBarStyles = makeStyles((theme): any => ({
   appBar: {

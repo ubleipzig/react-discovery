@@ -1,13 +1,15 @@
 import {Card, CardActions, CardContent, Grid, Theme, createStyles, makeStyles, useMediaQuery} from "@material-ui/core"
 import {
   DetailBreadcrumbs,
+  Domain,
   EntityDisplay,
   annotationDisplayFields,
   beschreibungDisplayFields,
+  buildRandomUBLThumbnail,
   digitalisatDisplayFields,
   facetDisplayFields,
   personDisplayFields
-} from "./hit-views"
+} from "@react-discovery/views"
 import {ESCore, usePrevious} from "@react-discovery/core"
 import {
   FieldValueDisplay,
@@ -17,11 +19,9 @@ import {
   buildHighlightedValueForHit,
   getTypeForId,
 } from '@react-discovery/components'
-import {MinWidthResultsGrid} from './index'
 import React, {ReactElement, useEffect, useState} from "react"
 import DefaultHitComponent from './hit-views/DefaultHitComponent'
-import {Domain} from "../enum"
-import {buildRandomUBLThumbnail} from "../utils"
+import {MinWidthResultsGrid} from './index'
 
 import {useDispatch} from "react-redux"
 

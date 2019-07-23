@@ -3,8 +3,6 @@ import {MosaicWorkspace} from '@react-discovery/workspace'
 
 export const Workspace: React.FC<any> = (): ReactElement => {
   return (
-    <MosaicWorkspace>
-      test
-    </MosaicWorkspace>
+    <MosaicWorkspace/>
   )
 }

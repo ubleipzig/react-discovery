@@ -28,3 +28,7 @@ export interface IFetchElasticSearchResponseParams {
   json: string;
   url: string;
 }
+
+export interface IFetchElasticSearchDocumentParams {
+  url: string;
+}

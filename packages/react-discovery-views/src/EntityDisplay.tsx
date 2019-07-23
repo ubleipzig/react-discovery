@@ -18,7 +18,7 @@ import {
 import {IDisplayField, NestedEntityDisplay, useHitViewStyles} from '.'
 import {IHit, SolrCore} from "@react-discovery/core"
 import React, {Fragment, ReactElement} from "react"
-import {Domain} from '../../enum'
+import {Domain} from './enum'
 import {useTranslation} from "react-i18next"
 
 interface IEntityDisplay {
@@ -36,8 +36,8 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
   const {displayFields, hit, isNested, nestedDisplayFields, type} = props
   const [isExpanded, setExpanded] = React.useState(false);
   const {t} = useTranslation('vocab')
-  const innerHits = hit && hit.innerHits.length && hit.innerHits.map((ih) => ih)
-  const entities = hit && hit.innerHits.length ?
+  const innerHits = hit && hit.innerHits && hit.innerHits.length && hit.innerHits.map((ih) => ih)
+  const entities = hit && hit.innerHits && hit.innerHits.length ?
     hit.innerHits.map((ih) => ih) : hit._source && hit._source.entities ?
       hit._source.entities.filter((entity): boolean => entity[typeField] === type) : null
   const handleExpandClick = (): void => {
