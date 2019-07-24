@@ -14,7 +14,7 @@ describe('React Discovery Base', (): void => {
   it('changes language', (): void => {
     cy.get('[data-testid=language-settings-menu]').click()
     cy.get('[data-testid=language-settings-menu-item-1]').click({ force: true })
-    cy.get('[data-testid=language-settings-menu-item-1]').click().should(($div): void => {
+    cy.get('[data-testid=language-settings-menu-item-1]').click({ force: true }).should(($div): void => {
       const className = $div[0].className
       expect(className).to.match(/Mui-selected/)
     })
