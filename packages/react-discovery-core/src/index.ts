@@ -1,4 +1,3 @@
-export * from './elasticsearch'
 export * from './hooks'
 export * from './solr'
 

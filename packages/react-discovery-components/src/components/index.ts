@@ -1,4 +1,3 @@
-export * from './elasticsearch'
 export * from './menus'
 export * from './renderComponent'
 export * from './ExpandItemToggle'

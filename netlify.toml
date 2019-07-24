@@ -20,4 +20,4 @@
 
 [context.solr.environment]
   REACT_APP_SEARCH_API_COLLECTION = "test04"
-  REACT_APP_SEARCH_API_HOST = "https://solr.iiif.cloud/"
+  REACT_APP_SEARCH_API_HOST = "https://solr.iiif.cloud/solr/"

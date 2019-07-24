@@ -1,7 +1,7 @@
 import {Breadcrumbs, Typography} from "@material-ui/core"
 import React, {ReactElement} from "react"
 import {Link} from 'react-navi'
-import {ESCore, SolrCore} from "@react-discovery/core"
+import {SolrCore} from "@react-discovery/core"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 
@@ -12,7 +12,7 @@ export const DetailBreadcrumbs: React.FC<any> = (): ReactElement => {
   const handleClick = () => {
     const filters = []
     dispatch(SolrCore.state.setQueryInput({stringInput: null}))
-    dispatch(ESCore.state.setFrom({from: 0}))
+    dispatch(SolrCore.state.setStart({start: 0}))
     dispatch(SolrCore.state.setSelectedFilters({field: 'type_s', filters}))
   }
 

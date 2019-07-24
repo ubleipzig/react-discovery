@@ -1,8 +1,8 @@
-import {ESCore, SolrCore} from "@react-discovery/core"
+import {Divider, InputBase, Paper} from '@material-ui/core'
 import {EndAdornment, SearchIconButton} from "./SearchBoxInputAdornments"
 import React, {ReactElement} from "react"
 import {useCurrentRoute, useNavigation} from "react-navi"
-import {Divider, InputBase, Paper} from '@material-ui/core'
+import {SolrCore} from "@react-discovery/core"
 import {setSelectedIndex} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 import {useSearchBoxStyles} from "../styles"
@@ -34,7 +34,6 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
     dispatch(SolrCore.state.setQueryInput({stringInput: values}))
     dispatch(setSelectedIndex({selectedIndex: 0}))
     dispatch(SolrCore.state.setStart({start: 0}))
-    dispatch(ESCore.state.setFrom({from: 0}))
     dispatch(SolrCore.state.setSuggest({stringInput: values, suggest: false}))
   })
 
