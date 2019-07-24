@@ -5,6 +5,8 @@ import {
   MosaicWindowContext,
 } from 'react-mosaic-component'
 import React, {ReactElement} from "react"
+import {removeViewId} from "./state/actions"
+import {useDispatch} from "react-redux"
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -22,8 +24,16 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export const MosaicWindowToolbar = (): ReactElement => {
+export const MosaicWindowToolbar = (props): ReactElement => {
   const classes = useStyles({})
+  const dispatch = useDispatch()
+  const {id} = props
+
+
+  const handleRemove = () => {
+    dispatch(removeViewId({id}))
+  }
+
   return (
     <AppBar
       classes={{colorPrimary: classes.appBar}}
@@ -68,7 +78,7 @@ export const MosaicWindowToolbar = (): ReactElement => {
                   color="primary"
                   edge="start"
                   href=''
-                  onClick={() => mosaicActions.remove(mosaicWindowActions.getPath())}>
+                  onClick={handleRemove}>
                   <Close/>
                 </IconButton>
               </Toolbar>

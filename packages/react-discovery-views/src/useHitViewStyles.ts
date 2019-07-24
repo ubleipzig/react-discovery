@@ -42,7 +42,6 @@ export const useHitViewStyles = makeStyles((theme): any => ({
   },
   root: {
     backgroundColor: theme.palette.background.paper,
-    display: 'flex-root',
     marginBottom: '5px',
   },
 }))

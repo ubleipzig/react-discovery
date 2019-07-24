@@ -5,7 +5,7 @@ import {Domain, EntityDisplay,
   buildRandomUBLThumbnail,
   digitalisatDisplayFields,
   facetDisplayFields, personDisplayFields} from "."
-import {ESCore, usePrevious} from "@react-discovery/core"
+import {ESCore} from "@react-discovery/core"
 import {
   FieldValueDisplay,
   Thumbnail,
@@ -13,7 +13,7 @@ import {
   ValueDisplay,
   buildHighlightedValueForHit,
 } from "@react-discovery/components"
-import React, {ReactElement, useEffect, useState} from "react"
+import React, {ReactElement, useEffect} from "react"
 import {useDispatch} from "react-redux"
 
 const useStyles = makeStyles((theme: Theme): any =>
@@ -58,10 +58,8 @@ const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDa
 
 export const SimpleDataView: React.FC<any> = (props): ReactElement => {
   const classes: any = useStyles({})
-  const [isInitialized, setIsInitialized] = useState(false)
   const {id} = props
   const dispatch = useDispatch()
-  const prevId = usePrevious(id)
   const docs = ESCore.state.getDocuments()
   const doc = Object.keys(docs).length ? docs[id] : null
   const url = process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION + ESCore.enums.ElasticSearchConstants.DOCUMENT + id
@@ -70,13 +68,10 @@ export const SimpleDataView: React.FC<any> = (props): ReactElement => {
   const title = doc && buildHighlightedValueForHit('titel_t', doc)
 
   useEffect((): void => {
-    if (!isInitialized) {
-      dispatch(ESCore.state.fetchElasticSearchDocument.action({url}))
-      setIsInitialized(true)
-    } else if (prevId !== id) {
+    if (!doc) {
       dispatch(ESCore.state.fetchElasticSearchDocument.action({url}))
     }
-  }, [id, prevId])
+  }, [doc])
 
   const cardActions = [
     {

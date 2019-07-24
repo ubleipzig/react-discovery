@@ -14,6 +14,7 @@ import {useTranslation} from "react-i18next"
 export const useStyles = makeStyles((): any => ({
   gridActions: {
     alignItems: 'center',
+    display: 'flex',
     padding: '10px'
   },
   main: {
@@ -40,22 +41,31 @@ export const ResultsList: React.FC<any> = (): ReactElement => {
 
   return (
     matches ?
-      <>
+      <Grid
+        alignItems="center"
+        container
+        direction="column"
+        justify="center"
+        spacing={3}
+      >
         {hits ?
           <>
-            <Grid
-              className={mainClasses.gridActions}
-              container
-              direction="row"
-            >
-              <HitStats/>
-              <ViewSwitcherToggle/>
-              <ES.Pagination/>
+            <Grid item style={{width: '100%'}} xs={8}>
+              <Grid
+                className={mainClasses.gridActions}
+                container
+                direction="row"
+              >
+                <HitStats/>
+                <ViewSwitcherToggle/>
+                <ES.Pagination/>
+              </Grid>
+              <ListFilters/>
+              <FacetViewSwitcher/>
             </Grid>
-            <ListFilters/>
-            <FacetViewSwitcher/>
-          </> : <CircularProgress className={classes.progress}/>
+          </>
+          : <CircularProgress className={classes.progress}/>
         }
-      </> : <MinWidthResultsGrid/>
+      </Grid> : <MinWidthResultsGrid/>
   )
 }

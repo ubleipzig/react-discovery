@@ -11,6 +11,7 @@ import {
 import React, {ReactElement} from "react"
 import {ThumbnailGrid, useHitViewStyles} from '@react-discovery/views'
 import {getIsItemExpanded, getIsViewExpanded} from "@react-discovery/configuration"
+import {HitViewOptionsMenu} from '..'
 import KulturobjektExpanded from './KulturobjektExpanded'
 
 interface IDefaultItemComponent {
@@ -23,7 +24,8 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
-  const isItemExpanded = hit && getIsItemExpanded(hit._source.id)
+  const id = hit && hit._source.id
+  const isItemExpanded = hit && getIsItemExpanded(id)
   const isViewExpanded = getIsViewExpanded()
   const title = buildHighlightedValueForHit('titel_t', hit)
   const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate']
@@ -82,9 +84,13 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
 
   return hit && (!isItemExpanded && !isViewExpanded) ? (
     <Card className={classes.root} key={i}>
-      <Grid container>
+      <Grid
+        container
+        justify="space-between"
+      >
         <Grid
-          item xs={8}
+          item
+          xs={8}
         >
           <TitleIdHeader
             id={hit._source.id}
@@ -123,8 +129,11 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
           </div>
         </Grid>
         <ThumbnailGrid entities={entities}/>
+        <Grid item style={{margin: 12}}>
+          <HitViewOptionsMenu id={id}/>
+        </Grid>
       </Grid>
-      {!isViewExpanded ? <ExpandItemToggle id={hit._source.id}/> : null}
+      {!isViewExpanded ? <ExpandItemToggle id={id}/> : null}
     </Card>
   ) : <KulturobjektExpanded {...props}/>
 }

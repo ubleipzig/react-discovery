@@ -9,7 +9,7 @@ import {
   facetDisplayFields,
   useHitViewStyles
 } from "@react-discovery/views"
-
+import {ESCore, IHit} from "@react-discovery/core"
 import {
   ExpandItemToggle,
   FieldValueDisplay,
@@ -17,9 +17,9 @@ import {
   ValueDisplay,
   buildHighlightedValueForHit
 } from '@react-discovery/components'
-import {IHit, ESCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {getIsItemExpanded, getIsViewExpanded} from "@react-discovery/configuration"
+import {HitViewOptionsMenu} from "../HitViewOptionsMenu"
 import Kulturobjekt from './Kulturobjekt'
 
 interface IDefaultItemComponent {
@@ -42,11 +42,53 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('titel_t', hit)
 
+  const cardActions = [
+    {
+      displayFields: digitalisatDisplayFields,
+      isNested: false,
+      nestedDisplayFields: null,
+      type: Domain.DIGITALISAT
+    },
+    {
+      displayFields: beschreibungDisplayFields,
+      isNested: true,
+      nestedDisplayFields: facetDisplayFields,
+      type: Domain.BESCHREIBUNG
+    },
+    {
+      displayFields: annotationDisplayFields,
+      isNested: false,
+      nestedDisplayFields: null,
+      type: Domain.ANNOTATION
+    },
+  ]
+
+  const buildCardActions = (cardActions): ReactElement[] => {
+    return cardActions.map((item, i): ReactElement =>
+      <CardActions
+        disableSpacing
+        key={i}
+      >
+        <EntityDisplay
+          displayFields={item.displayFields}
+          hit={hit}
+          isNested={item.isNested}
+          nestedDisplayFields={item.nestedDisplayFields}
+          type={item.type}
+        />
+      </CardActions>
+    )
+  }
+
   return hit && (isItemExpanded || isViewExpanded) ? (
     <Card className={classes.root} key={i}>
-      <Grid container>
+      <Grid
+        container
+        justify="space-between"
+      >
         <Grid
-          item xs={8}
+          item
+          xs={8}
         >
           <TitleIdHeader
             id={hit._source.id}
@@ -67,32 +109,13 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
                   <FieldValueDisplay field={field} hit={hit}/> : null}
               </CardContent>)}
             {!isViewExpanded ? <ExpandItemToggle id={hit._source.id}/> : null}
-            <CardActions disableSpacing>
-              <EntityDisplay
-                displayFields={digitalisatDisplayFields}
-                hit={hit}
-                type={Domain.DIGITALISAT}
-              />
-            </CardActions>
-            <CardActions disableSpacing>
-              <EntityDisplay
-                displayFields={beschreibungDisplayFields}
-                hit={hit}
-                isNested={true}
-                nestedDisplayFields={facetDisplayFields}
-                type={Domain.BESCHREIBUNG}
-              />
-            </CardActions>
-            <CardActions disableSpacing>
-              <EntityDisplay
-                displayFields={annotationDisplayFields}
-                hit={hit}
-                type={Domain.ANNOTATION}
-              />
-            </CardActions>
           </div>
+          {buildCardActions(cardActions)}
         </Grid>
         <ThumbnailGrid entities={entities}/>
+        <Grid item style={{margin: 12}}>
+          <HitViewOptionsMenu/>
+        </Grid>
       </Grid>
     </Card>
   ) : <Kulturobjekt {...props}/>
