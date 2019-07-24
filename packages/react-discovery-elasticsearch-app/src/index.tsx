@@ -8,7 +8,7 @@ import {ElasticSearchProvider} from "@react-discovery/core"
 import {Provider} from 'react-redux'
 import React from "react"
 import ReactDOM from "react-dom"
-import {SimpleDataView} from '@react-discovery/workspace'
+import {SimpleDataView} from '@react-discovery/views'
 
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {rootReducer} from "./state"
