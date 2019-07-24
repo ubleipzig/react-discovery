@@ -1,6 +1,7 @@
 export const de = {
   common: {
     account: 'Mein Konto',
+    addToWorkspace: 'Workspace Hinzufugen',
     expandView: 'Erweiterte Ansicht',
     expert: 'Expert',
     expertSearch: 'Expertensuche',
