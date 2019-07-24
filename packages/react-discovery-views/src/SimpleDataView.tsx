@@ -4,7 +4,7 @@ import {Domain, EntityDisplay,
   beschreibungDisplayFields,
   buildRandomUBLThumbnail,
   digitalisatDisplayFields,
-  facetDisplayFields, personDisplayFields} from "@react-discovery/views"
+  facetDisplayFields, personDisplayFields} from "."
 import {ESCore, usePrevious} from "@react-discovery/core"
 import {
   FieldValueDisplay,

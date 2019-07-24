@@ -1,4 +1,5 @@
 import {Card, CardContent, Divider, Grid, List, ListItem, ListSubheader, Typography} from "@material-ui/core"
+import {ESCore, IHit} from "@react-discovery/core"
 import {
   ExpandItemToggle,
   FieldLabel,
@@ -7,7 +8,6 @@ import {
   ValueDisplay,
   buildHighlightedValueForHit,
 } from '@react-discovery/components'
-import {IHit, ESCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {ThumbnailGrid, useHitViewStyles} from '@react-discovery/views'
 import {getIsItemExpanded, getIsViewExpanded} from "@react-discovery/configuration"

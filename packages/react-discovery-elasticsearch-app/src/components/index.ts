@@ -1,5 +1,4 @@
 export * from './hit-views'
-export * from './DetailsView'
 export * from './DiscoveryApp'
 export * from './FacetViewSwitcher'
 export * from './ListFilters'
