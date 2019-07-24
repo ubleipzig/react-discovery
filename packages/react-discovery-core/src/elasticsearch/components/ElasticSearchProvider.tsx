@@ -1,12 +1,11 @@
 import React, {ReactElement, useEffect, useState} from "react"
 import {fetchElasticSearchResponse, getStringInput} from "../state"
-import {getDefaultQuery, getFrom, getSize} from "../state/selectors"
+import {getDefaultQuery, getFilters, getFrom, getSize} from "../state/selectors"
 import {IElasticSearchQuery} from "../index"
 import {getUrl} from "@react-discovery/configuration"
 import {queryBuilder} from "../query-builders"
 import {useDispatch} from 'react-redux'
 import {usePrevious} from '../../hooks'
-import {getFilters} from "../../solr/state/selectors"
 
 interface IElasticSearchProvider {
   useHistory?: boolean;

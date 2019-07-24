@@ -16,7 +16,7 @@ import {
   buildInnerHitCountForType
 } from "@react-discovery/components"
 import {IDisplayField, NestedEntityDisplay, useHitViewStyles} from '.'
-import {IHit, SolrCore} from "@react-discovery/core"
+import {IHit, ESCore} from "@react-discovery/core"
 import React, {Fragment, ReactElement} from "react"
 import {Domain} from './enum'
 import {useTranslation} from "react-i18next"
@@ -29,7 +29,7 @@ interface IEntityDisplay {
   type: string;
 }
 
-const typeField = SolrCore.enums.FieldConstants.TYPE_FIELD
+const typeField = ESCore.enums.FieldConstants.TYPE_FIELD
 
 export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})

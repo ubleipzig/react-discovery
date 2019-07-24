@@ -2,7 +2,6 @@ import * as builders from './query-builders'
 import * as enums from './enum'
 import * as state from './state'
 import {IRefinementListFilters, ISearchField, ISortField} from "@react-discovery/configuration"
-import {IFilters} from "../solr"
 
 export const ESCore = {
   builders,
@@ -32,3 +31,8 @@ export interface IFetchElasticSearchResponseParams {
 export interface IFetchElasticSearchDocumentParams {
   url: string;
 }
+
+export interface IFilters {
+  [field: string]: string[];
+}
+

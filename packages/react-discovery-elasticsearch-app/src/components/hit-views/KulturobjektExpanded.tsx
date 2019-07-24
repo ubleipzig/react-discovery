@@ -17,7 +17,7 @@ import {
   ValueDisplay,
   buildHighlightedValueForHit
 } from '@react-discovery/components'
-import {IHit, SolrCore} from "@react-discovery/core"
+import {IHit, ESCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {getIsItemExpanded, getIsViewExpanded} from "@react-discovery/configuration"
 import Kulturobjekt from './Kulturobjekt'
@@ -34,7 +34,7 @@ const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDa
 
 const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const searchFields = SolrCore.state.getSearchFields()
+  const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
   const isItemExpanded = hit && getIsItemExpanded(hit._source.id)
   const isViewExpanded = getIsViewExpanded()

@@ -35,13 +35,6 @@ describe('react-discovery redux state management', (): void => {
         })
     })
   })
-  it('has expected suggestions state on load', (): void => {
-    cy.fixture('defaultTestState').as('testState').then((json): void => {
-      (cy as any).window().its('store').invoke('getState')
-        .its('suggestions')
-        .should('deep.equal', json.suggestions)
-    })
-  })
   it('sets expected currentLanguage in configuration ', (): void => {
     const cyp: any = cy
     cy.fixture('defaultTestState').as('testState').then((): void => {

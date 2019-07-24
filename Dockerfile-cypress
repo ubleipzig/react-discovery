@@ -12,5 +12,5 @@ RUN npm install --global lerna
 RUN lerna bootstrap --hoist
 RUN lerna run build
 RUN npx cypress verify
-WORKDIR /srv/react-discovery/packages/react-discovery-solr-app
+WORKDIR /srv/react-discovery/packages/react-discovery-elasticsearch-app
 RUN npm install nyc codecov

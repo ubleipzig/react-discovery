@@ -2,7 +2,7 @@ import {FlexBox, InnerHtmlValue} from "."
 import {Link, useCurrentRoute} from 'react-navi'
 import React, {ReactElement} from "react"
 import {CardHeader} from "@material-ui/core"
-import {SolrCore} from "@react-discovery/core"
+import {ESCore} from "@react-discovery/core"
 import {getRootContext} from "@react-discovery/configuration"
 import {useDispatch} from 'react-redux'
 
@@ -19,8 +19,7 @@ export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => 
   const dispatch = useDispatch()
 
   const handleClick = (): void => {
-    dispatch(SolrCore.state.setStart({start: 0}))
-    dispatch(SolrCore.state.setSuggest({stringInput: id, suggest: false}))
+    dispatch(ESCore.state.setFrom({from: 0}))
   }
   const buildTitleHeaderForPathName = (): ReactElement => {
     if (pathname === rootContext) {

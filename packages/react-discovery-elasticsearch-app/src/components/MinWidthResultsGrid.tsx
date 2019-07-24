@@ -1,7 +1,6 @@
 import {CircularProgress, Grid} from "@material-ui/core"
 import React, {ReactElement} from "react"
 import {
-  TabsAppBar,
   useMinWidthResultsGridStyles
 } from "@react-discovery/components"
 import {ESCore} from "@react-discovery/core"
@@ -37,7 +36,6 @@ export const MinWidthResultsGrid: React.FC<any> = (): ReactElement => {
       >
         {hits ?
           <>
-            <TabsAppBar/>
             <FacetViewSwitcher/>
           </> : <CircularProgress className={classes.progress}/>}
       </Grid>

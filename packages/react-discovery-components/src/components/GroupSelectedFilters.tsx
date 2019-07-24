@@ -1,6 +1,6 @@
 import {Chip, List} from '@material-ui/core'
-import {ESCore, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
+import {ESCore} from "@react-discovery/core"
 import {IOverridableStyledComponent} from ".."
 import {useDispatch} from "react-redux"
 import {useGroupSelectedFiltersStyles} from '../styles'
@@ -8,12 +8,11 @@ import {useGroupSelectedFiltersStyles} from '../styles'
 export const GroupSelectedFilters: React.FC<IOverridableStyledComponent> = (props): ReactElement => {
   const classes: any = props.classes || useGroupSelectedFiltersStyles({})
   const dispatch = useDispatch()
-  const filters = SolrCore.state.getFilters()
+  const filters = ESCore.state.getFilters()
 
   const onClose = (field: string, filter: any): void => {
     const newFilters = filters[field].filter((f): boolean => f !== filter)
-    dispatch(SolrCore.state.setSelectedFilters({field, filters: newFilters}))
-    dispatch(SolrCore.state.setStart({start: 0}))
+    dispatch(ESCore.state.setSelectedFilters({field, filters: newFilters}))
     dispatch(ESCore.state.setFrom({from: 0}))
   }
 

@@ -1,4 +1,4 @@
-import {IFilters, IHits, IState} from '../../..'
+import {IAggregation, IFilters, IHits, IState} from '../../..'
 import {ISearchField, ISortField, getRefinementListFilters} from "@react-discovery/configuration"
 import {FieldConstants} from '../../enum'
 import {IElasticSearchQuery} from "../../index"
@@ -10,12 +10,21 @@ export const getAggs = (): IFilters => {
   return useSelector((state: any): any => state.query.aggs)
 }
 
+export const getAggregation = (field): IAggregation => {
+  return useSelector((state: IState): IAggregation =>
+    state.response && state.response.aggregations && state.response.aggregations[field])
+}
+
 export const getDocuments = (): IHits => {
   return useSelector((state: any): IHits => state.response.docs)
 }
 
 export const getFilters = (): IFilters => {
   return useSelector((state: IState): IFilters => state.query.filters)
+}
+
+export const getFiltersForField = (field): string[] => {
+  return useSelector((state: IState): string[] => state.query.filters[field])
 }
 
 export const getFilterType = (): string => {

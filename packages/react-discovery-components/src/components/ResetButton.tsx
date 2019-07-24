@@ -1,5 +1,5 @@
-import {ESCore, SolrCore} from "@react-discovery/core"
 import React, {ReactElement} from "react"
+import {ESCore} from "@react-discovery/core"
 import {IOverridableStyledComponent} from ".."
 import {IconButton} from "@material-ui/core"
 import {Loop} from "@material-ui/icons"
@@ -14,10 +14,8 @@ export const ResetButton: React.FC<IOverridableStyledComponent> = (props): React
   const navigation = useNavigation()
   const rootContext = getRootContext()
   const handleChange = (): void => {
-    dispatch(SolrCore.state.setQueryInput({stringInput: ''}))
-    dispatch(SolrCore.state.setStart({start: 0}))
+    dispatch(ESCore.state.setQueryInput({stringInput: ''}))
     dispatch(ESCore.state.setFrom({from: 0}))
-    dispatch(SolrCore.state.setTypeDef({typeDef: SolrCore.enums.SolrParameters.EDISMAX}))
     navigation.navigate(rootContext)
   }
 

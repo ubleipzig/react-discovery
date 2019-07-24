@@ -7,7 +7,7 @@ import {
 import {MosaicWindowToolbar, ZeroState} from "."
 import React, {ReactElement, Suspense, useState} from 'react'
 import {getWorkspaceLayout, getWorkspaceViewIdMap, setWorkspaceLayout} from './state'
-import {SolrCore} from "@react-discovery/core"
+import {ESCore} from "@react-discovery/core"
 import {createRandomNode} from './utils'
 import {makeStyles} from "@material-ui/core"
 import {useDispatch} from "react-redux"
@@ -30,7 +30,7 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (): ReactElement => {
   const dispatch = useDispatch()
   useMosaicStyles({})
   const classes = useStyles({})
-  const hits = SolrCore.state.getHits()
+  const hits = ESCore.state.getHits()
   const nodes = hits.hits.map((hit) => hit._source.id)
   const createNode = (): string => nodes && createRandomNode(nodes)
   const initialState: MosaicParent<string> = getWorkspaceLayout()

@@ -8,8 +8,8 @@ import {
   Typography,
 } from '@material-ui/core'
 import React, {ReactElement} from "react"
+import {ESCore} from "@react-discovery/core"
 import {ExpandMore} from '@material-ui/icons'
-import {ESCore, SolrCore} from "@react-discovery/core"
 import {useDispatch} from "react-redux"
 import {useItemListStyles} from '../styles'
 
@@ -24,9 +24,9 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
   const classes: any = props.classes || useItemListStyles({})
   const dispatch = useDispatch()
   const {field, label} = props
-  const aggregation = SolrCore.state.getAggregation(field)
-  const filters = SolrCore.state.getFiltersForField(field)
-  const stringInput = SolrCore.state.getStringInput()
+  const aggregation = ESCore.state.getAggregation(field)
+  const filters = ESCore.state.getFiltersForField(field)
+  const stringInput = ESCore.state.getStringInput()
   const [isExpanded, setExpanded] = React.useState(false)
 
   const handleExpand = (panel): any => ({}, isExpanded): void => { // eslint-disable-line no-empty-pattern
@@ -36,10 +36,8 @@ export const ItemList: React.FC<IItemListProps> = (props): ReactElement => {
   const handleChange = (key): void => {
     const newFilters = filters && filters.length ? filters.filter((f): any => f !== key) : []
     newFilters.push(key)
-    dispatch(SolrCore.state.setSuggest({suggest: false}))
-    dispatch(SolrCore.state.setSelectedFilters({field, filters: newFilters}))
-    dispatch(SolrCore.state.setQueryInput({stringInput}))
-    dispatch(SolrCore.state.setStart({start: 0}))
+    dispatch(ESCore.state.setSelectedFilters({field, filters: newFilters}))
+    dispatch(ESCore.state.setQueryInput({stringInput}))
     dispatch(ESCore.state.setFrom({from: 0}))
   }
 

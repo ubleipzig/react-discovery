@@ -13,9 +13,9 @@
   "scripts": {
     "build": "node scripts/build.js",
     "start": "node scripts/start.js",
-    "cypress:open": "CYPRESS_baseUrl=http://localhost:3000 cypress open",
+    "cypress:open": "CYPRESS_baseUrl=http://localhost:3001 cypress open",
     "report": "nyc report --reporter=text-lcov | codecov --pipe -t $CODECOV_TOKEN",
-    "test": "CYPRESS_baseUrl=http://localhost:3000 cypress run"
+    "test": "CYPRESS_baseUrl=http://localhost:3001 cypress run"
   },
   "browserslist": {
     "production": [

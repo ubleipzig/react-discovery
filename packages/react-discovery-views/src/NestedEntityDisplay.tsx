@@ -16,11 +16,11 @@ import {
 import React, {ReactElement} from "react"
 import {ExpandMore} from "@material-ui/icons"
 import {IDisplayField} from "."
-import {SolrCore} from '@react-discovery/core'
+import {ESCore} from '@react-discovery/core'
 import {useHitViewStyles} from "./useHitViewStyles"
 import {useTranslation} from "react-i18next"
 
-const typeField = SolrCore.enums.FieldConstants.TYPE_FIELD
+const typeField = ESCore.enums.FieldConstants.TYPE_FIELD
 
 interface INestedEntityDisplay {
   displayFields: IDisplayField[];

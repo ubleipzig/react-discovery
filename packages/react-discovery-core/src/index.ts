@@ -1,6 +1,6 @@
+import {IConfig, ISearchField, ISortField} from "@react-discovery/configuration"
 export * from './elasticsearch'
 export * from './hooks'
-export * from './solr'
 
 export interface IAggregation {
   buckets: IBucket[];
@@ -10,7 +10,7 @@ export interface IAggregations {
   [field: string]: IAggregation;
 }
 
-export interface IBucket extends IAggregation {
+export interface IBucket {
   key: string;
   docCount: number;
 }
@@ -50,3 +50,9 @@ export interface IResponse {
 }
 
 export type Succ = any;
+
+export interface IState {
+  config: IConfig;
+  query: any;
+  response: IResponse;
+}
