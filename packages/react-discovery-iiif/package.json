@@ -1,5 +1,5 @@
 {
-  "name": "@react-discovery/views",
+  "name": "@react-discovery/iiif",
   "license": "Apache 2.0",
   "keywords": [
     "react",
@@ -26,11 +26,17 @@
   },
   "dependencies": {
     "@types/react-redux": "^7.1.0",
-    "@material-ui/core": "^4.1.3",
-    "@material-ui/icons": "^4.1.3",
+    "@react-discovery/configuration": "file:../react-discovery-configuration",
     "@react-discovery/components": "file:../react-discovery-components",
     "@react-discovery/core": "file:../react-discovery-core",
-    "@react-discovery/iiif": "file:../react-discovery-iiif",
+    "apollo-boost": "^0.1.23",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.0",
+    "openseadragon": "^2.4.1",
+    "react-apollo": "^2.3.3",
+    "typescript-fsa": "^3.0.0-beta-2",
+    "typescript-fsa-reducers": "^1.2.0",
+    "typescript-fsa-redux-thunk": "^2.0.0-beta.11",
     "uuidv5": "^1.0.0"
   },
   "devDependencies": {

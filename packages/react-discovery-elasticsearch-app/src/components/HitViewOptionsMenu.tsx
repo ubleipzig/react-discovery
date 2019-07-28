@@ -1,7 +1,7 @@
 import {IconButton, ListItemIcon, Menu, MenuItem, Typography} from "@material-ui/core"
 import {MoreVert, PlaylistAdd} from "@material-ui/icons"
 import React, {ReactElement} from "react"
-import {setViewIdMap} from '@react-discovery/workspace'
+import {getIsInWorkspace, setViewIdMap} from '@react-discovery/workspace'
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 
@@ -11,13 +11,13 @@ export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const isMenuOpen = Boolean(anchorEl)
   const dispatch = useDispatch()
-
+  const isInWorkspace = getIsInWorkspace(id)
   const handleHitViewOptionsMenuOpen = (event): void => {
     setAnchorEl(event.currentTarget)
   }
 
   const handleAddToWorkspace = ({}): void => {
-    dispatch(setViewIdMap({id, type: 'data'}))
+    dispatch(setViewIdMap({id, type: 'image'}))
     setAnchorEl(null)
   }
 
@@ -72,7 +72,7 @@ export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
       <IconButton
         aria-haspopup="true"
         aria-owns={isMenuOpen ? 'material-appbar' : undefined}
-        color="inherit"
+        color={isInWorkspace ? 'secondary' : 'primary'}
         edge="end"
         href=''
         onClick={handleHitViewOptionsMenuOpen}

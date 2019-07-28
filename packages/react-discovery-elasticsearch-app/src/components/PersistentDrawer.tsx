@@ -1,9 +1,9 @@
-import {Collections, EditLocation, Home, PictureInPicture} from "@material-ui/icons"
-import {Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles} from "@material-ui/core"
+import {Badge, Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles} from "@material-ui/core"
+import {Collections, EditLocation, Home, PictureInPicture, Search} from "@material-ui/icons"
 import React, {ReactElement, forwardRef} from "react"
 import { NavLink } from 'react-navi'
 import clsx from 'clsx'
-
+import {getNumberOfWorkspaceNodes} from '@react-discovery/workspace'
 const drawerWidth = 240
 
 const useStyles = makeStyles((theme): any => ({
@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme): any => ({
 
 export const PersistentDrawer: React.FC<any> = (props): ReactElement => {
   const classes: any = useStyles({})
+  const numberOfNodes = getNumberOfWorkspaceNodes()
   const {open} = props
   const listItems = [
     {
@@ -52,20 +53,26 @@ export const PersistentDrawer: React.FC<any> = (props): ReactElement => {
       text: 'Home'
     },
     {
-      id: 'albums',
+      id: 'search',
       index: 1,
+      path: '/',
+      text: 'search'
+    },
+    {
+      id: 'albums',
+      index: 2,
       path: '/',
       text: 'Gallery'
     },
     {
       id: 'editAnnotations',
-      index: 2,
+      index: 3,
       path: '/',
       text: 'Annotate'
     },
     {
       id: 'workspace',
-      index: 3,
+      index: 4,
       path: '/workspace',
       text: 'Workspace'
     },
@@ -75,12 +82,21 @@ export const PersistentDrawer: React.FC<any> = (props): ReactElement => {
     switch (item) {
       case 'home':
         return <Home/>
+      case 'search':
+        return <Search/>
       case 'albums':
         return <Collections/>
       case 'editAnnotations':
         return <EditLocation/>
       case 'workspace':
-        return <PictureInPicture/>
+        return (
+          <Badge
+            badgeContent={numberOfNodes}
+            color="secondary"
+          >
+            <PictureInPicture/>
+          </Badge>
+        )
     }
   }
 

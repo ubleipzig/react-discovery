@@ -1,5 +1,12 @@
 import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
-import {setCurrentLanguage, setHitComponent, setIsItemExpanded, setIsPersisted, setIsViewExpanded, setSelectedIndex} from "../actions"
+import {
+  setCurrentLanguage,
+  setHitComponent,
+  setIsItemExpanded,
+  setIsPersisted,
+  setIsViewExpanded,
+  setSelectedIndex
+} from "../actions"
 import {IConfig} from "../.."
 
 export const config = (initialState): ReducerBuilder<IConfig> => reducerWithInitialState(initialState)
@@ -30,3 +37,4 @@ export const config = (initialState): ReducerBuilder<IConfig> => reducerWithInit
     ...state,
     currentLanguage
   }))
+

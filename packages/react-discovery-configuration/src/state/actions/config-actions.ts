@@ -1,5 +1,7 @@
 import actionCreatorFactory from 'typescript-fsa';
+import {asyncFactory} from 'typescript-fsa-redux-thunk';
 const actionCreator = actionCreatorFactory()
+
 
 const SET_CURRENT_LANGUAGE = "SET_CURRENT_LANGUAGE"
 const SET_IS_PERSISTED = "SET_IS_PERSISTED"
