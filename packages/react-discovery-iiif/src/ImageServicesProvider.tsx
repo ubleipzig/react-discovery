@@ -1,13 +1,10 @@
 import React, {ReactElement, useEffect, useState} from "react"
 import {
   fetchImageServices,
-  getCurrentManifestsInCollection,
-  getImageServices,
   setInApolloRequest,
 } from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 import uuidv5 from 'uuidv5'
-import {usePrevious} from "@react-discovery/core"
 
 const getUUIDv5 = (uri) => {
   return uuidv5('url', uri)
