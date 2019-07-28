@@ -10,7 +10,7 @@ export const renderComponent = (component: RenderComponentType<any>, props, chil
   if (isLazyReactComponent) {
     return React.createElement(
       component,
-      props, children
+      ...props, children
     )
   }
   console.warn("Invalid component", component)

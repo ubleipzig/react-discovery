@@ -30,7 +30,7 @@ export const fetchElasticSearchResponse = createAsync<IFetchElasticSearchRespons
       }
       return res.json()
     } catch (e) {
-      throw new Error(e)
+      setResponseError({error: e})
     }
   }
 )

@@ -1,4 +1,4 @@
-import {Card, CardContent, Divider, Grid, List, ListItem, ListSubheader, Typography} from "@material-ui/core"
+import {Card, CardContent, Chip, Divider, Grid, List, ListItem, ListSubheader, Typography} from "@material-ui/core"
 import {ESCore, IHit} from "@react-discovery/core"
 import {
   ExpandItemToggle,
@@ -10,7 +10,8 @@ import {
 } from '@react-discovery/components'
 import React, {ReactElement} from "react"
 import {ThumbnailGrid, useHitViewStyles} from '@react-discovery/views'
-import {getIsItemExpanded, getIsViewExpanded} from "@react-discovery/configuration"
+import {getIsItemExpanded, getIsViewExpanded, getSelectedIndex} from "@react-discovery/configuration"
+import {EntityBadges} from '.'
 import {HitViewOptionsMenu} from '..'
 import KulturobjektExpanded from './KulturobjektExpanded'
 
@@ -24,6 +25,8 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
+  const indexMultiplier = getSelectedIndex()
+  const chipLabel = (i + 1) + (10 * indexMultiplier)
   const id = hit && hit._source.id
   const isItemExpanded = hit && getIsItemExpanded(id)
   const isViewExpanded = getIsViewExpanded()
@@ -92,6 +95,11 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
           item
           xs={8}
         >
+          <div style={{display: 'flex', flex: 1}}>
+            <Chip className={classes.chip} color="secondary" label={chipLabel} size="small" variant="outlined" />
+            <div style={{flex: 1, width: '100%'}}/>
+            <EntityBadges entities={entities}/>
+          </div>
           <TitleIdHeader
             id={hit._source.id}
             title={title}
