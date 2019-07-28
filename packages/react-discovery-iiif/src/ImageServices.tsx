@@ -1,7 +1,8 @@
+import {OSDViewer} from './components'
 import React from "react"
-import {getImageServices} from "@react-discovery/configuration"
 import {Thumbnail} from "@react-discovery/components"
-import {Grid, makeStyles} from "@material-ui/core"
+import {getImageServices} from "@react-discovery/configuration"
+import {makeStyles} from "@material-ui/core"
 
 export const useThumbnailStyles = makeStyles((): any => ({
   cover: {
@@ -22,28 +23,18 @@ export const ImageServiceItem = (props) => {
   )
 }
 
-const buildImageServices = (imageServices) => {
-  return imageServices && imageServices.map(
-    (s: any, i) =>
-      <Grid item key={i} style={{width: '100%'}} xs={3}>
-        <ImageServiceItem id={s.id}/>
-      </Grid>
-  )
+const buildTileSources = (imageServices) => {
+  return imageServices && imageServices.map((s: any) =>
+    `${s.id}/info.json`)
 }
 
 export const ImageServices = (props) => {
   const {uuid} = props
   const imageServices = uuid && getImageServices(uuid)
   return (
-    <Grid
-      alignItems="center"
-      container
-      direction="row"
-      justify="center"
-      spacing={3}
-    >
-      {buildImageServices(imageServices)}
-    </Grid>
+    <OSDViewer
+      images={buildTileSources(imageServices)}
+    />
   )
 }
 
