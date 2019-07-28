@@ -19,6 +19,7 @@ export interface IConfig {
   isPersisted?: boolean;
   languages?: ILanguage[];
   isViewExpanded?: boolean;
+  responses?: any;
   rootContext?: string;
   selectedIndex?: number;
   url?: string;
@@ -56,6 +57,22 @@ export interface IRefinementListFilter {
 export interface IRefinementListFilters {
   [id: string]: IRefinementListFilter;
 }
+
+export interface IResponse {
+  error?: any;
+  responses: {
+    imageServices?: imageServices;
+  };
+  updating: boolean;
+}
+
+export interface IImageServices {
+  id: string;
+  profile: string;
+  type: string;
+}
+
+export type imageServices = Record<string, IImageServices>
 
 export interface ISearchField {
   field: string;

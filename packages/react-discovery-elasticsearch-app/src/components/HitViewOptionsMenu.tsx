@@ -17,7 +17,7 @@ export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
   }
 
   const handleAddToWorkspace = ({}): void => {
-    dispatch(setViewIdMap({id, type: 'data'}))
+    dispatch(setViewIdMap({id, type: 'image'}))
     setAnchorEl(null)
   }
 

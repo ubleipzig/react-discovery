@@ -1,4 +1,4 @@
-import {IDocType, IHitComponent, ILanguage, IRefinementListFilters} from "../.."
+import {IDocType, IHitComponent, ILanguage, IRefinementListFilters, imageServices} from "../.."
 import {useSelector} from "react-redux"
 
 export const getCurrentCollection = (): string => {
@@ -9,8 +9,17 @@ export const getCurrentLanguage = (): string => {
   return useSelector((state: any): string => state.config.currentLanguage)
 }
 
+export const getCurrentManifestsInCollection = (): any => {
+  return useSelector((state: any): any => state.config.collection &&
+    Object.values(state.config.collection).map((item: any): any => item.manifest))
+}
+
 export const getDocTypes = (): IDocType[] => {
   return useSelector((state: any): IDocType[] => state.config.collections[state.config.currentCollection].docTypes)
+}
+
+export const getInApolloRequest = (): IDocType[] => {
+  return useSelector((state: any): IDocType[] => state.config.apollo)
 }
 
 export const getIsItemExpanded = (id: string): boolean => {
@@ -20,6 +29,11 @@ export const getIsItemExpanded = (id: string): boolean => {
 
 export const getHitComponents = (): IHitComponent[] => {
   return useSelector((state: any): IHitComponent[] => state.config.collections[state.config.currentCollection].hitComponents)
+}
+
+export const getImageServices = (manifestId): [] => {
+  return useSelector((state: any): any => state.config.responses && state.config.responses[manifestId]
+    && state.config.responses[manifestId].imageServices)
 }
 
 export const getIsPersisted = (): boolean => {

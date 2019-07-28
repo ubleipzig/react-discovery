@@ -21,6 +21,7 @@ export const rootConfig: IConfig = {
       label: 'English',
       locale: 'en',
     }],
+  responses: {},
   rootContext: '/',
   selectedIndex: 0,
   url
