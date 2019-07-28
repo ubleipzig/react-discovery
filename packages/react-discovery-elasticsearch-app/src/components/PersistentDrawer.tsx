@@ -1,5 +1,5 @@
-import {Collections, EditLocation, Home, PictureInPicture, Search} from "@material-ui/icons"
 import {Badge, Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles} from "@material-ui/core"
+import {Collections, EditLocation, Home, PictureInPicture, Search} from "@material-ui/icons"
 import React, {ReactElement, forwardRef} from "react"
 import { NavLink } from 'react-navi'
 import clsx from 'clsx'

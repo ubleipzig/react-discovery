@@ -1,7 +1,7 @@
 import {Breadcrumbs, Typography} from "@material-ui/core"
 import React, {ReactElement} from "react"
-import {Link} from 'react-navi'
 import {ESCore} from "@react-discovery/core"
+import {Link} from 'react-navi'
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 

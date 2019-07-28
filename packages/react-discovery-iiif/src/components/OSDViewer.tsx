@@ -6,7 +6,6 @@ export interface IOsdComponentProps {
 }
 
 export const OSDViewer: React.FC<IOsdComponentProps> = (props): ReactElement => {
-
   const [osd, setOsd] = useState(false)
   const osdRef = useRef(null)
   const getImages = () => {

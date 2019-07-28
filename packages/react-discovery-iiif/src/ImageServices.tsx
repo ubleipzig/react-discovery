@@ -1,7 +1,7 @@
 import {OSDViewer} from './components'
 import React from "react"
 import {Thumbnail} from "@react-discovery/components"
-import {getImageServices} from "@react-discovery/configuration"
+import {getImageServices} from "."
 import {makeStyles} from "@material-ui/core"
 
 export const useThumbnailStyles = makeStyles((): any => ({

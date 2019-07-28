@@ -2,7 +2,7 @@ import React, {ReactElement, useEffect, useState} from "react"
 import {
   fetchImageServices,
   setInApolloRequest,
-} from "@react-discovery/configuration"
+} from "."
 import {useDispatch} from "react-redux"
 import uuidv5 from 'uuidv5'
 

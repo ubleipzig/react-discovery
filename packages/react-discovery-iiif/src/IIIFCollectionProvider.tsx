@@ -1,6 +1,6 @@
-import data from './__test__/fixtures/oxford.json'
 import React, {ReactElement, useEffect, useState} from "react"
-import {setCurrentManifestCollection} from '@react-discovery/configuration'
+import data from './__test__/fixtures/oxford.json'
+import {setCurrentManifestCollection} from '.'
 import {useDispatch} from "react-redux"
 
 export const IIIFCollectionProvider: React.FC<any> = (props): ReactElement => {

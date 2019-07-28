@@ -1,6 +1,5 @@
-import {IIIFCollectionProvider, ImageServices, ImageServicesProvider} from '.'
+import {IIIFCollectionProvider, ImageServices, ImageServicesProvider, getCurrentManifestsInCollection} from '.'
 import React, {useEffect, useState} from 'react'
-import {getCurrentManifestsInCollection} from "@react-discovery/configuration"
 import {usePrevious} from "@react-discovery/core"
 
 const getRandomItemFromArray = (items: []) => {

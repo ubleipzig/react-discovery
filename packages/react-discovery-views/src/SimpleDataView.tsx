@@ -5,7 +5,6 @@ import {Domain, EntityDisplay,
   buildRandomUBLThumbnail,
   digitalisatDisplayFields,
   facetDisplayFields, personDisplayFields} from "."
-import {ESCore} from "@react-discovery/core"
 import {
   FieldValueDisplay,
   Thumbnail,
@@ -14,6 +13,7 @@ import {
   buildHighlightedValueForHit,
 } from "@react-discovery/components"
 import React, {ReactElement, useEffect} from "react"
+import {ESCore} from "@react-discovery/core"
 import {useDispatch} from "react-redux"
 
 const useStyles = makeStyles((theme: Theme): any =>
