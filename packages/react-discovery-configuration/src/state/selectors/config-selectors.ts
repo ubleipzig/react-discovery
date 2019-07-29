@@ -13,9 +13,9 @@ export const getDocTypes = (): IDocType[] => {
   return useSelector((state: any): IDocType[] => state.config.collections[state.config.currentCollection].docTypes)
 }
 
-export const getIsItemExpanded = (id: string): boolean => {
-  const expandedItems = useSelector((state: any): boolean => state.config.expandedItems)
-  return expandedItems && Object.keys(expandedItems).length && expandedItems[id] === true
+export const getItemViewType = (id: string): string => {
+  const itemViews = useSelector((state: any): boolean => state.config.itemViews)
+  return itemViews && Object.keys(itemViews).length && itemViews[id]
 }
 
 export const getHitComponents = (): IHitComponent[] => {

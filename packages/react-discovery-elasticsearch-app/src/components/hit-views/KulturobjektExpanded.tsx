@@ -18,10 +18,11 @@ import {
   buildHighlightedValueForHit, getFirstManifestFromHit
 } from '@react-discovery/components'
 import React, {ReactElement} from "react"
-import {getIsItemExpanded, getIsViewExpanded, getSelectedIndex} from "@react-discovery/configuration"
+import {getIsViewExpanded, getItemViewType, getSelectedIndex} from "@react-discovery/configuration"
 import {EntityBadges} from "./EntityBadges"
 import {HitViewOptionsMenu} from "../HitViewOptionsMenu"
 import Kulturobjekt from './Kulturobjekt'
+import {ItemActionBar} from "./ItemActionBar"
 
 interface IDefaultItemComponent {
   classes: any;
@@ -37,9 +38,8 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const classes: any = useHitViewStyles({})
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
-  const indexMultiplier = getSelectedIndex()
-  const chipLabel = (i + 1) + (10 * indexMultiplier)
-  const isItemExpanded = hit && getIsItemExpanded(hit._source.id)
+  const id = hit && hit._source.id
+  const itemViewType = hit && getItemViewType(id)
   const isViewExpanded = getIsViewExpanded()
   const entities = hit && hit._source.entities && hit._source.entities
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
@@ -83,7 +83,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
     )
   }
 
-  return hit && (isItemExpanded || isViewExpanded) ? (
+  return hit && (itemViewType === 'info' || isViewExpanded) ? (
     <Card className={classes.root} key={i}>
       <Grid
         container
@@ -93,11 +93,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
           item
           xs={8}
         >
-          <div style={{display: 'flex', flex: 1}}>
-            <Chip className={classes.chip} color="secondary" label={chipLabel} size="small" variant="outlined" />
-            <div style={{flex: 1, width: '100%'}}/>
-            <EntityBadges entities={entities}/>
-          </div>
+          <ItemActionBar entities={entities} i={i} id={id}/>
           <TitleIdHeader
             id={hit._source.id}
             title={title}
@@ -116,7 +112,6 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
               >{hit._source && hit._source[field.field] ?
                   <FieldValueDisplay field={field} hit={hit}/> : null}
               </CardContent>)}
-            {!isViewExpanded ? <ExpandItemToggle id={hit._source.id}/> : null}
           </div>
           {buildCardActions(cardActions)}
         </Grid>

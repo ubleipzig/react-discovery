@@ -14,7 +14,7 @@ export interface IConfig {
       url: string;
     };
   };
-  expandedItems?: IExpandedItems;
+  itemViews?: IItemViews;
   isHighlighted?: boolean;
   isPersisted?: boolean;
   languages?: ILanguage[];
@@ -24,7 +24,7 @@ export interface IConfig {
   url?: string;
 }
 
-export type IExpandedItems = Record<string, boolean>
+export type IItemViews = Record<string, string>
 
 export interface IDocType {
   groupField?: string;
