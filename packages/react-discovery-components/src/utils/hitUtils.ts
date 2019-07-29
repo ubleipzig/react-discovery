@@ -31,3 +31,10 @@ export const getTypeForId = (hit, id): string => {
     return _source[typeField]
   }
 }
+
+export const getFirstManifestFromHit = (hit, matchEntityField) => {
+  const manifests = hit && hit._source && hit._source.entities
+    .filter((entity) => entity[typeField] === matchEntityField)
+    .map((digitalisat) => digitalisat.digitalisatManifestId_s)
+  return manifests.length && manifests[0]
+}

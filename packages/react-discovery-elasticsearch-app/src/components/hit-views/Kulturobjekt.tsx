@@ -7,9 +7,10 @@ import {
   TitleIdHeader,
   ValueDisplay,
   buildHighlightedValueForHit,
+  getFirstManifestFromHit
 } from '@react-discovery/components'
 import React, {ReactElement} from "react"
-import {ThumbnailGrid, useHitViewStyles} from '@react-discovery/views'
+import {Domain, ThumbnailGrid, useHitViewStyles} from '@react-discovery/views'
 import {getIsItemExpanded, getIsViewExpanded, getSelectedIndex} from "@react-discovery/configuration"
 import {EntityBadges} from '.'
 import {HitViewOptionsMenu} from '..'
@@ -26,7 +27,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
   const indexMultiplier = getSelectedIndex()
-  const chipLabel = (i + 1) + (10 * indexMultiplier)
+  const chipLabel = (i + 1) + (20 * indexMultiplier)
   const id = hit && hit._source.id
   const isItemExpanded = hit && getIsItemExpanded(id)
   const isViewExpanded = getIsViewExpanded()
@@ -34,7 +35,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const entities = hit && hit._source.entities && hit._source.entities
-
+  const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
   const buildValueDisplay = (field: string, hit: IHit, key: number): ReactElement => {
     return (
       <ValueDisplay
@@ -96,7 +97,13 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
           xs={8}
         >
           <div style={{display: 'flex', flex: 1}}>
-            <Chip className={classes.chip} color="secondary" label={chipLabel} size="small" variant="outlined" />
+            <Chip
+              className={classes.chip}
+              color="secondary"
+              label={chipLabel}
+              size="small"
+              variant="outlined"
+            />
             <div style={{flex: 1, width: '100%'}}/>
             <EntityBadges entities={entities}/>
           </div>
@@ -136,7 +143,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
             </div>
           </div>
         </Grid>
-        <ThumbnailGrid entities={entities}/>
+        <ThumbnailGrid manifest={manifest}/>
         <Grid item style={{margin: 12}}>
           <HitViewOptionsMenu id={id}/>
         </Grid>

@@ -1,6 +1,6 @@
 import {Badge, CardActions, Theme, withStyles} from "@material-ui/core"
 import {Book, ChatBubble, Image} from "@material-ui/icons"
-import {Domain, useHitViewStyles} from "@react-discovery/views"
+import {Domain} from "@react-discovery/views"
 import React from "react"
 import {buildEntityCountForType} from "@react-discovery/components"
 import {useTranslation} from "react-i18next"
@@ -20,7 +20,6 @@ const StyledBadge = withStyles((theme: Theme) => ({
 }))(Badge)
 
 export const EntityBadges = (props) => {
-  const classes: any = useHitViewStyles({})
   const {entities} = props
   const {t} = useTranslation('vocab')
 
@@ -71,6 +70,6 @@ export const EntityBadges = (props) => {
   return (
     <>
       {buildCardActions(items)}
-      </>
+    </>
   )
 }

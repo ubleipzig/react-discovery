@@ -1,10 +1,12 @@
 import '@react-discovery/i18n'
-import {AnyAction, Store, applyMiddleware, createStore} from "redux"
+import {AnyAction, applyMiddleware, createStore, Store} from "redux"
 import {DiscoveryApp, ResultsList, Workspace} from './components'
-import { Router, View } from 'react-navi'
-import { mount, route } from 'navi'
-import thunkMiddleware, { ThunkMiddleware } from 'redux-thunk'
+import {Router, View} from 'react-navi'
+import {mount, route} from 'navi'
+import thunkMiddleware, {ThunkMiddleware} from 'redux-thunk'
 import {ElasticSearchProvider} from "@react-discovery/core"
+import ApolloClient from 'apollo-boost';
+import {ApolloProvider} from '@apollo/react-hooks';
 import {Provider} from 'react-redux'
 import React from "react"
 import ReactDOM from "react-dom"
@@ -42,13 +44,19 @@ const store: Store = createStore(
   ),
 )
 
+const client = new ApolloClient({
+  uri: 'https://apollo.iiif.cloud'
+});
+
 ReactDOM.render(
   <Router routes={routes}>
     <Provider store={store}>
       <ElasticSearchProvider
         useHistory={true}
       >
-        <View/>
+        <ApolloProvider client={client}>
+          <View/>
+        </ApolloProvider>
       </ElasticSearchProvider>
     </Provider>
   </Router>,

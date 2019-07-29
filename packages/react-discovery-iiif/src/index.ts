@@ -1,3 +1,4 @@
+export * from './components'
 export * from './SimpleImageViewer'
 export * from './IIIFCollectionProvider'
 export * from './ImageServices'

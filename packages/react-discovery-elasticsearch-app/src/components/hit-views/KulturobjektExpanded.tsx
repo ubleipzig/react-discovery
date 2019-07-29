@@ -15,7 +15,7 @@ import {
   FieldValueDisplay,
   TitleIdHeader,
   ValueDisplay,
-  buildHighlightedValueForHit
+  buildHighlightedValueForHit, getFirstManifestFromHit
 } from '@react-discovery/components'
 import React, {ReactElement} from "react"
 import {getIsItemExpanded, getIsViewExpanded, getSelectedIndex} from "@react-discovery/configuration"
@@ -44,7 +44,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const entities = hit && hit._source.entities && hit._source.entities
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('titel_t', hit)
-
+  const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
   const cardActions = [
     {
       displayFields: digitalisatDisplayFields,
@@ -120,7 +120,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
           </div>
           {buildCardActions(cardActions)}
         </Grid>
-        <ThumbnailGrid entities={entities}/>
+        <ThumbnailGrid manifest={manifest}/>
         <Grid item style={{margin: 12}}>
           <HitViewOptionsMenu/>
         </Grid>
