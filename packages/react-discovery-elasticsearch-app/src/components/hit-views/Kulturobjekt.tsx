@@ -1,4 +1,5 @@
 import {Card, CardContent, Chip, Divider, Grid, List, ListItem, ListSubheader, Typography} from "@material-ui/core"
+import {Domain, ThumbnailGrid, useHitViewStyles} from '@react-discovery/views'
 import {ESCore, IHit} from "@react-discovery/core"
 import {
   ExpandItemToggle,
@@ -10,7 +11,6 @@ import {
   getFirstManifestFromHit
 } from '@react-discovery/components'
 import React, {ReactElement} from "react"
-import {Domain, ThumbnailGrid, useHitViewStyles} from '@react-discovery/views'
 import {getIsItemExpanded, getIsViewExpanded, getSelectedIndex} from "@react-discovery/configuration"
 import {EntityBadges} from '.'
 import {HitViewOptionsMenu} from '..'

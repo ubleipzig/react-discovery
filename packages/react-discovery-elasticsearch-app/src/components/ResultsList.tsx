@@ -50,7 +50,7 @@ export const ResultsList: React.FC<any> = (): ReactElement => {
       >
         {hits ?
           <>
-            <Grid item style={{width: '100%'}} xs={8}>
+            <Grid item style={{width: '100%'}} xs={10}>
               <Grid
                 className={mainClasses.gridActions}
                 container

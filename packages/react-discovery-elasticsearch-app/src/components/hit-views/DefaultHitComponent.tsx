@@ -1,4 +1,5 @@
 import {Card, CardContent} from "@material-ui/core"
+import {Domain, useHitViewStyles} from "@react-discovery/views"
 import {ESCore, IHit} from "@react-discovery/core"
 import {
   FieldValueDisplay,
@@ -7,7 +8,6 @@ import {
   getFirstManifestFromHit
 } from '@react-discovery/components'
 import React, {ReactElement} from "react"
-import {buildRandomUBLThumbnail, Domain, useHitViewStyles} from "@react-discovery/views"
 import {Thumbnail} from '@react-discovery/iiif'
 
 interface IDefaultItemComponent {
