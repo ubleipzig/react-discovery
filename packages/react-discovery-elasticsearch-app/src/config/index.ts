@@ -21,7 +21,7 @@ export const rootConfig: IConfig = {
       label: 'English',
       locale: 'en',
     }],
-  rootContext: '/',
+  rootContext: '/search',
   selectedIndex: 0,
   url
 }
