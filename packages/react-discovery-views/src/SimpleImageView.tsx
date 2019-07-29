@@ -1,8 +1,8 @@
 import React, {ReactElement, useEffect} from "react"
-import {SimpleImageViewer} from '@react-discovery/iiif'
-import {useDispatch} from "react-redux"
 import {Domain} from './enum'
 import {ESCore} from "@react-discovery/core"
+import {SimpleImageViewer} from '@react-discovery/iiif'
+import {useDispatch} from "react-redux"
 
 export const SimpleImageView: React.FC<any> = (props): ReactElement => {
   const {id} = props
@@ -23,5 +23,5 @@ export const SimpleImageView: React.FC<any> = (props): ReactElement => {
     }
   }, [doc])
 
-  return manifests && manifests.length ? (<SimpleImageViewer/>) : null
+  return manifests && manifests.length ? (<SimpleImageViewer manifests={manifests}/>) : null
 }

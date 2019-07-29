@@ -55,7 +55,7 @@ export const PersistentDrawer: React.FC<any> = (props): ReactElement => {
     {
       id: 'search',
       index: 1,
-      path: '/',
+      path: '/search',
       text: 'search'
     },
     {

@@ -14,4 +14,9 @@ export const getCurrentManifestsInCollection = (): any => {
     Object.values(state.iiif.collection).map((item: any): any => item.manifest))
 }
 
+export const getThumbnail = (manifestId): string => {
+  return useSelector((state: any): any => state.iiif.responses && state.iiif.responses[manifestId]
+    && state.iiif.responses[manifestId].imageServices)
+}
+
 

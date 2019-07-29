@@ -2,18 +2,17 @@ import {Card, CardActions, CardContent, Theme, createStyles, makeStyles, } from 
 import {Domain, EntityDisplay,
   annotationDisplayFields,
   beschreibungDisplayFields,
-  buildRandomUBLThumbnail,
   digitalisatDisplayFields,
   facetDisplayFields, personDisplayFields} from "."
 import {
   FieldValueDisplay,
-  Thumbnail,
   TitleIdHeader,
   ValueDisplay,
-  buildHighlightedValueForHit,
+  buildHighlightedValueForHit, getFirstManifestFromHit,
 } from "@react-discovery/components"
 import React, {ReactElement, useEffect} from "react"
 import {ESCore} from "@react-discovery/core"
+import {Thumbnail} from "@react-discovery/iiif"
 import {useDispatch} from "react-redux"
 
 const useStyles = makeStyles((theme: Theme): any =>
@@ -66,7 +65,7 @@ export const SimpleDataView: React.FC<any> = (props): ReactElement => {
   const searchFields = ESCore.state.getSearchFields()
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = doc && buildHighlightedValueForHit('titel_t', doc)
-
+  const manifest = doc && getFirstManifestFromHit(doc, Domain.DIGITALISAT)
   useEffect((): void => {
     if (!doc) {
       dispatch(ESCore.state.fetchElasticSearchDocument.action({url}))
@@ -124,7 +123,7 @@ export const SimpleDataView: React.FC<any> = (props): ReactElement => {
           title={title}
         />
         <div style={{display: 'flex'}}>
-          <Thumbnail image={buildRandomUBLThumbnail()}/>
+          <Thumbnail manifest={manifest}/>
           <div className={classes.details}>
             <ValueDisplay
               field={'subtitel_t'}

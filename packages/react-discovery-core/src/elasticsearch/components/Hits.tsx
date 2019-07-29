@@ -11,7 +11,7 @@ export const Hits: React.FC<IHits> = (props): ReactElement => {
   const {hitComponent} = props
 
   const buildHits = (hits): ReactElement => hits.map((hit, i): ReactElement => (
-    renderComponent(hitComponent, {hit, key: i})
+    renderComponent(hitComponent, {hit, i, key: i})
   ))
 
   return hits && buildHits(hits.hits)

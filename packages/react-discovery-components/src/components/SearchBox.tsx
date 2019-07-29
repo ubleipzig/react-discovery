@@ -28,8 +28,8 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
 
   const handleSubmit = ((e): void => {
     e.preventDefault()
-    if (pathname !== '/') {
-      navigation.navigate('/')
+    if (pathname !== '/search') {
+      navigation.navigate('/search')
     }
     dispatch(ESCore.state.setQueryInput({stringInput: values}))
     dispatch(setSelectedIndex({selectedIndex: 0}))

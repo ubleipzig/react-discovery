@@ -2,19 +2,15 @@ import {IIIFCollectionProvider, ImageServices, ImageServicesProvider, getCurrent
 import React, {useEffect, useState} from 'react'
 import {usePrevious} from "@react-discovery/core"
 
-const getRandomItemFromArray = (items: []) => {
-  return items[Math.floor(Math.random() * items.length)]
-}
-
-export const SimpleImageViewer = () => {
+export const SimpleImageViewer = (props: any) => {
   const [isInitialized, setIsInitialized] = useState(false)
   const [manifest, setCurrentManifest] = useState(undefined)
-  const manifests = getCurrentManifestsInCollection()
+  const manifests = props.manifests || getCurrentManifestsInCollection()
   const prevManifests = usePrevious(manifests)
 
   useEffect((): void => {
     if (!isInitialized && manifests !== prevManifests) {
-      const manifest = manifests && getRandomItemFromArray(manifests)
+      const manifest = manifests[0]
       setIsInitialized(true)
       setCurrentManifest(manifest)
     }

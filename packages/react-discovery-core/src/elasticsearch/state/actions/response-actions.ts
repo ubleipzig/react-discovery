@@ -30,7 +30,7 @@ export const fetchElasticSearchResponse = createAsync<IFetchElasticSearchRespons
       }
       return res.json()
     } catch (e) {
-      throw new Error(e)
+      setResponseError({error: e})
     }
   }
 )
@@ -55,7 +55,7 @@ export const fetchElasticSearchDocument = createAsync<IFetchElasticSearchDocumen
       }
       return res.json()
     } catch (e) {
-      throw new Error(e)
+      setResponseError({error: e})
     }
   }
 )

@@ -1,7 +1,7 @@
 /* global cy */
 describe('React Discovery Base', (): void => {
   beforeEach((): void => {
-    cy.visit('/')
+    cy.visit('/search')
   })
   it('enters text in standard search box, submits form, and clears text', (): void => {
     cy.get('input#standard-full-width').type('Astana')

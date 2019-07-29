@@ -2,9 +2,9 @@ import {Domain} from '@react-discovery/views'
 import {ESCore} from "@react-discovery/core"
 import {IConfig} from "@react-discovery/configuration"
 
-export const hsp1: IConfig = {
+export const hsp2: IConfig = {
   collections: {
-    hsp1: {
+    hsp2: {
       docTypes: [
         {
           key: '',

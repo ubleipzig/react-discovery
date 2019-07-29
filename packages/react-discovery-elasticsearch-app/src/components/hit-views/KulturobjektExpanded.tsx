@@ -1,4 +1,4 @@
-import {Card, CardActions, CardContent, Grid} from "@material-ui/core"
+import {Card, CardActions, CardContent, Chip, Grid} from "@material-ui/core"
 import {
   Domain,
   EntityDisplay,
@@ -15,10 +15,11 @@ import {
   FieldValueDisplay,
   TitleIdHeader,
   ValueDisplay,
-  buildHighlightedValueForHit
+  buildHighlightedValueForHit, getFirstManifestFromHit
 } from '@react-discovery/components'
 import React, {ReactElement} from "react"
-import {getIsItemExpanded, getIsViewExpanded} from "@react-discovery/configuration"
+import {getIsItemExpanded, getIsViewExpanded, getSelectedIndex} from "@react-discovery/configuration"
+import {EntityBadges} from "./EntityBadges"
 import {HitViewOptionsMenu} from "../HitViewOptionsMenu"
 import Kulturobjekt from './Kulturobjekt'
 
@@ -36,12 +37,14 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const classes: any = useHitViewStyles({})
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
+  const indexMultiplier = getSelectedIndex()
+  const chipLabel = (i + 1) + (10 * indexMultiplier)
   const isItemExpanded = hit && getIsItemExpanded(hit._source.id)
   const isViewExpanded = getIsViewExpanded()
   const entities = hit && hit._source.entities && hit._source.entities
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit('titel_t', hit)
-
+  const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
   const cardActions = [
     {
       displayFields: digitalisatDisplayFields,
@@ -90,6 +93,11 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
           item
           xs={8}
         >
+          <div style={{display: 'flex', flex: 1}}>
+            <Chip className={classes.chip} color="secondary" label={chipLabel} size="small" variant="outlined" />
+            <div style={{flex: 1, width: '100%'}}/>
+            <EntityBadges entities={entities}/>
+          </div>
           <TitleIdHeader
             id={hit._source.id}
             title={title}
@@ -112,7 +120,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
           </div>
           {buildCardActions(cardActions)}
         </Grid>
-        <ThumbnailGrid entities={entities}/>
+        <ThumbnailGrid manifest={manifest}/>
         <Grid item style={{margin: 12}}>
           <HitViewOptionsMenu/>
         </Grid>

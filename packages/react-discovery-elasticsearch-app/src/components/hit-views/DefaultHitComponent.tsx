@@ -1,8 +1,14 @@
 import {Card, CardContent} from "@material-ui/core"
+import {Domain, useHitViewStyles} from "@react-discovery/views"
 import {ESCore, IHit} from "@react-discovery/core"
-import {FieldValueDisplay, Thumbnail, TitleIdHeader, buildHighlightedValueForHit} from '@react-discovery/components'
+import {
+  FieldValueDisplay,
+  TitleIdHeader,
+  buildHighlightedValueForHit,
+  getFirstManifestFromHit
+} from '@react-discovery/components'
 import React, {ReactElement} from "react"
-import {buildRandomUBLThumbnail, useHitViewStyles} from "@react-discovery/views"
+import {Thumbnail} from '@react-discovery/iiif'
 
 interface IDefaultItemComponent {
   hit: IHit;
@@ -14,7 +20,7 @@ const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultIte
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
   const title = buildHighlightedValueForHit('title', hit)
-
+  const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
   return (
     <Card className={classes.root} key={i}>
       <TitleIdHeader
@@ -22,7 +28,7 @@ const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultIte
         title={title}
       />
       <div style={{display: 'flex'}}>
-        <Thumbnail image={buildRandomUBLThumbnail()}/>
+        <Thumbnail manifest={manifest}/>
         <div className={classes.details}>
           {searchFields.map((field, key): ReactElement =>
             <CardContent

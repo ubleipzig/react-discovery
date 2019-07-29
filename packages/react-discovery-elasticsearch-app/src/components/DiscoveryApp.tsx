@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme: Theme): any =>
     },
     contentShift: {
       backgroundColor: '#fafafa',
+      height: '100%',
       marginLeft: 73,
       padding: theme.spacing(3),
       transition: theme.transitions.create('margin', {
@@ -48,6 +49,7 @@ export const DiscoveryApp: React.FC<IDiscoveryApp> = (props): ReactElement => {
         handleDrawerChange={handleDrawerChange}/>
       <Grid
         item
+        style={{height: '100vh'}}
         xs={12}
       >
         <PersistentDrawer open={open}/>

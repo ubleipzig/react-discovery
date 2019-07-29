@@ -40,7 +40,7 @@ export const NestedEntityDisplay: React.FC<INestedEntityDisplay> = (props): Reac
 
   const buildEntityFields = (entityFields, type): ReactElement[] => {
     const nestedEntities = entity && entity.entities ?
-      entity.entities.filter((entity): boolean => entity[typeField] === type) :
+      entity.entities.filter((e): boolean => e[typeField] === type) :
       entity._source && entity._source[typeField] === type ? [entity] : null
     return nestedEntities && nestedEntities.map((entity, i): ReactElement => {
       return (

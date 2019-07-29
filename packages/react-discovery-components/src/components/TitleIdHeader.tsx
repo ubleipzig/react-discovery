@@ -27,7 +27,7 @@ export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => 
         <FlexBox>
           <Link
             data-testid='detail-link'
-            href={`detail/${id}`}
+            href={`/detail/${id}`}
             onClick={handleClick}
           >
             <CardHeader style={{width: '100%'}} title={<InnerHtmlValue value={title}/>}/>
