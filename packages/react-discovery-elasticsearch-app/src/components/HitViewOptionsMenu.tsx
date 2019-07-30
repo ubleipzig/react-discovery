@@ -16,8 +16,14 @@ export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
     setAnchorEl(event.currentTarget)
   }
 
-  const handleAddToWorkspace = ({}): void => {
-    dispatch(setViewIdMap({id, type: 'image'}))
+  const handleAddToWorkspace = (key): void => {
+    switch (key) {
+      case 'addImagesToWorkspace':
+        dispatch(setViewIdMap({id, type: 'image'}))
+        break
+      case 'addDataToWorkspace':
+        dispatch(setViewIdMap({id, type: 'data'}))
+    }
     setAnchorEl(null)
   }
 
@@ -27,8 +33,12 @@ export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
 
   const options = [
     {
-      key: 'addToWorkspace',
-      label: 'addToWorkspace'
+      key: 'addImagesToWorkspace',
+      label: 'addImagesToWorkspace'
+    },
+    {
+      key: 'addDataToWorkspace',
+      label: 'addDataToWorkspace'
     },
   ]
 

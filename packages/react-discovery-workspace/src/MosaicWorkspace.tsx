@@ -41,11 +41,11 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (): ReactElement => {
   const prevLayout = usePrevious(workspaceLayout)
 
   const buildWorkspaceLayout: any = () => {
-    const windowKeys = Object.keys(viewIdMap).sort();
+    const windowInstances = Object.keys(viewIdMap).sort();
     const leaveKeys = getLeaves(workspaceLayout);
-    if (!windowKeys.every(e => leaveKeys.includes(e))
-      || !leaveKeys.every(e => windowKeys.includes(e))) {
-      return createBalancedTreeFromLeaves(windowKeys);
+    if (windowInstances && (!windowInstances.every(e => leaveKeys.includes(e))
+      || !leaveKeys.every(e => windowInstances.includes(e)))) {
+      return createBalancedTreeFromLeaves(windowInstances);
     }
     return workspaceLayout;
   }
@@ -55,6 +55,8 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (): ReactElement => {
   }
 
   const renderTile = (id, path): ReactElement => {
+    const dataId = Object.keys(viewIdMap).length && viewIdMap[id] && viewIdMap[id].id
+    const type = Object.keys(viewIdMap).length && viewIdMap[id] && viewIdMap[id].type
     return (
       <MosaicWindow<string>
         createNode={createNode}
@@ -65,7 +67,7 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (): ReactElement => {
           </div>}
         title={`Window ${id}`}
       >
-        <Suspense fallback={'loading'}><Component id={id} key={id} viewType={viewIdMap[id]}/></Suspense>
+        <Suspense fallback={'loading'}><Component id={dataId} key={id} viewType={type}/></Suspense>
       </MosaicWindow>
     )
   }
@@ -87,7 +89,7 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (): ReactElement => {
     <div style={{height: '100%', margin: 0, overflow: 'hidden', width: '100%'}}>
       <Mosaic<string>
         onChange={onChange}
-        renderTile={(count, path) => renderTile(count, path)}
+        renderTile={(id, path) => renderTile(id, path)}
         value={workspaceLayout}
         zeroStateView={zeroStateView}
       />

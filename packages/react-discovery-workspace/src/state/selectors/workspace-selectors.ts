@@ -15,5 +15,5 @@ export const getNumberOfWorkspaceNodes = () => {
 
 export const getIsInWorkspace = (uuid): boolean => {
   return useSelector((state: any) => !!(state.workspace.viewIdMap
-    && state.workspace.viewIdMap && Object.keys(state.workspace.viewIdMap).filter((vId) => vId === uuid).length))
+    && state.workspace.viewIdMap && Object.values(state.workspace.viewIdMap).filter((instance: any) => instance.id === uuid).length))
 }
