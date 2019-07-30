@@ -8,15 +8,16 @@ import {
   List,
   Typography,
 } from "@material-ui/core"
+import {ESCore, IHit} from "@react-discovery/core"
 import {
   FieldLabel,
   InnerHtmlValue,
   buildEntityCountForType,
   buildHighlightedValueForHit,
-  buildInnerHitCountForType
+  buildInnerHitCountForType,
+  getParentEntityByChildIdentifier
 } from "@react-discovery/components"
 import {IDisplayField, NestedEntityDisplay, useHitViewStyles} from '.'
-import {ESCore, IHit} from "@react-discovery/core"
 import React, {Fragment, ReactElement} from "react"
 import {Domain} from './enum'
 import {useTranslation} from "react-i18next"
@@ -40,6 +41,8 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
   const entities = hit && hit.innerHits && hit.innerHits.length ?
     hit.innerHits.map((ih) => ih) : hit._source && hit._source.entities ?
       hit._source.entities.filter((entity): boolean => entity[typeField] === type) : null
+  const defaultEntities = hit && hit._source && hit._source.entities ?
+    hit._source.entities.filter((entity): boolean => entity[typeField] === type) : null
   const handleExpandClick = (): void => {
     setExpanded(!isExpanded)
   }
@@ -58,51 +61,58 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
     }
   }
 
-  const buildEntityFields = (entityFields, type): ReactElement[] => {
-    return entities && entities.map((entity, i): ReactElement => {
-      return (
-        <div key={i}>
-          <Card className={classes.root}>
-            <div style={{display: 'flex'}}>
-              {buildEntityIcon(type)}
-              <div>
-                {entityFields.map((field, i): ReactElement => {
-                  const value = entity.field && entity.field === 'entities' ?
-                    buildHighlightedValueForHit(field.field, entity) : [].concat(entity[field.field] || null).filter((v): any => v !== null).join(", ")
-                  return (
-                    <Fragment key={i}>
-                      <CardContent
-                        className={classes.content}
-                        key={i}
-                      >
-                        <FieldLabel label={field.label}/>
-                        <div style={{flex: 'auto'}}>
-                          <Typography
-                            className={classes.inline}
-                            color="textSecondary"
-                            component="span"
-                          >
-                            <InnerHtmlValue value={value}/>
-                          </Typography>
-                        </div>
-                      </CardContent>
-                      {isNested ?
-                        <NestedEntityDisplay
-                          displayFields={nestedDisplayFields}
-                          entity={entity}
-                          type={Domain.FASZIKEL}
-                        /> : null}
-                    </Fragment>
-                  )
-                })}
-              </div>
-            </div>
-          </Card>
-        </div>)
-    })
+  // TODO abstract parent primary field name into type
+  const buildParentEntityTitleForChild = (entity) => {
+    const parentEntity = getParentEntityByChildIdentifier(entity.id, defaultEntities)[0]
+    return parentEntity['beschreibungTitle_t']
   }
 
-  return (
+  const buildEntityFields = (displayFields: IDisplayField[], type: string): ReactElement[] => {
+    return entities && entities.map((entity: any, i: number): any =>
+      <div key={i}>
+        <Card className={classes.root}>
+          <div style={{display: 'flex'}}>
+            {buildEntityIcon(type)}
+            <div>
+              {displayFields.map((field, i): ReactElement => {
+                const value = entity.field && entity.field === 'entities' ?
+                  buildHighlightedValueForHit(field.field, entity) :
+                  entity.field === 'entities.entities' && field.field === 'beschreibungTitle_t' ? buildParentEntityTitleForChild(entity) :
+                    [].concat(entity[field.field] || null).filter((v): any => v !== null).join(", ")
+                return (
+                  <Fragment key={i}>
+                    <CardContent
+                      className={classes.content}
+                      key={i}
+                    >
+                      <FieldLabel label={field.label}/>
+                      <div style={{flex: 'auto'}}>
+                        <Typography
+                          className={classes.inline}
+                          color="textSecondary"
+                          component="span"
+                        >
+                          <InnerHtmlValue value={value}/>
+                        </Typography>
+                      </div>
+                    </CardContent>
+                    {isNested ?
+                      <NestedEntityDisplay
+                        displayFields={nestedDisplayFields}
+                        entity={entity}
+                        type={Domain.FASZIKEL}
+                      /> : null}
+                  </Fragment>
+                )
+              })}
+            </div>
+          </div>
+        </Card>
+      </div>
+    )
+  }
+
+  return entityCount ? (
     <ExpansionPanel
       TransitionProps={{ unmountOnExit: true }}
       defaultExpanded={Boolean(true)}
@@ -128,6 +138,6 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
         </List>
       </ExpansionPanelDetails>
     </ExpansionPanel>
-  )
+  ) : <Typography variant='caption'>No Matching {type} Documents</Typography>
 }
 

@@ -54,6 +54,8 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   }
   const buildItemViewForType = (itemViewType) => {
     switch (itemViewType) {
+      case 'index':
+        return defaultDisplay()
       case 'info':
         return <ExpandedInfo {...props}/>
       case Domain.DIGITALISAT:

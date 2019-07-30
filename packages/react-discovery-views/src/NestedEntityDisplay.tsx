@@ -11,12 +11,12 @@ import {
   FieldLabel,
   InnerHtmlValue,
   buildEntityCountForType,
-  buildHighlightedValueForHit
+  buildHighlightedValueForHit, buildInnerHitCountForType
 } from "@react-discovery/components"
 import React, {ReactElement} from "react"
+import {ESCore} from '@react-discovery/core'
 import {ExpandMore} from "@material-ui/icons"
 import {IDisplayField} from "."
-import {ESCore} from '@react-discovery/core'
 import {useHitViewStyles} from "./useHitViewStyles"
 import {useTranslation} from "react-i18next"
 
@@ -38,11 +38,14 @@ export const NestedEntityDisplay: React.FC<INestedEntityDisplay> = (props): Reac
     setExpanded(!isExpanded)
   }
 
-  const buildEntityFields = (entityFields, type): ReactElement[] => {
-    const nestedEntities = entity && entity.entities ?
-      entity.entities.filter((e): boolean => e[typeField] === type) :
-      entity._source && entity._source[typeField] === type ? [entity] : null
-    return nestedEntities && nestedEntities.map((entity, i): ReactElement => {
+  const entities = entity && entity.entities ?
+    entity.entities.filter((e): boolean => e[typeField] === type) :
+    entity._source && entity._source[typeField] === type ? [entity] : null
+
+  const entityCount = buildEntityCountForType(entities, type) || buildInnerHitCountForType(entities, type)
+
+  const buildEntityFields = (entityFields): ReactElement[] => {
+    return entities && entities.map((entity, i): ReactElement => {
       return (
         <div key={i}>
           <Divider component='hr'/>
@@ -72,7 +75,7 @@ export const NestedEntityDisplay: React.FC<INestedEntityDisplay> = (props): Reac
     })
   }
 
-  return (
+  return entityCount ? (
     <ExpansionPanel
       TransitionProps={{ unmountOnExit: true }}
       defaultExpanded={Boolean(true)}
@@ -90,15 +93,15 @@ export const NestedEntityDisplay: React.FC<INestedEntityDisplay> = (props): Reac
       >
         <Typography
           className={classes.heading}>
-          {entity && t(type)} <i>({buildEntityCountForType(entity.entities, type)})</i>
+          {entity && t(type)} <i>({entityCount})</i>
         </Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <List component="nav">
-          {buildEntityFields(displayFields, type)}
+          {buildEntityFields(displayFields)}
         </List>
       </ExpansionPanelDetails>
     </ExpansionPanel>
-  )
+  ) : <Typography variant='caption'>No Matching {type} Documents</Typography>
 }
 
