@@ -6,11 +6,10 @@ export interface IOsdComponentProps {
 }
 
 export const OSDViewer: React.FC<IOsdComponentProps> = (props): ReactElement => {
+  const [isInitialized, setIsInitialized] = useState(false)
   const [osd, setOsd] = useState(false)
   const osdRef = useRef(null)
-  const getImages = () => {
-    return props.images
-  }
+  const {images} = props
 
   const defaultOsdProps = () => {
     let showNavigator = true
@@ -38,11 +37,10 @@ export const OSDViewer: React.FC<IOsdComponentProps> = (props): ReactElement => 
       showRotationControl: false,
       showSequenceControl: false,
       showZoomControl: false,
-      tileSources: [getImages()],
+      tileSources: [images],
       visibilityRatio: 0.5,
     }
   }
-
 
   const updateViewer = (config) => {
     if (!osd) {
@@ -54,12 +52,16 @@ export const OSDViewer: React.FC<IOsdComponentProps> = (props): ReactElement => 
 
   useEffect(
     () => {
-      if (props.images) {
+      if (!isInitialized) {
         updateViewer(defaultOsdProps())
+        setIsInitialized(true)
       }
     })
 
   return (
-    <div ref={osdRef} style={{background: 'black', height: '100%', position: 'absolute', width: '100%'}} />
+    <div
+      ref={osdRef}
+      style={{background: 'black', height: '100%', position: 'absolute', width: '100%'}}
+    />
   )
 }

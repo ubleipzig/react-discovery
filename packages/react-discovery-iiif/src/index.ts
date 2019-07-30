@@ -1,8 +1,6 @@
 export * from './components'
 export * from './SimpleImageViewer'
 export * from './IIIFCollectionProvider'
-export * from './ImageServices'
-export * from './ImageServicesProvider'
 export * from './state'
 
 export interface IResponse {
