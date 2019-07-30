@@ -16,7 +16,7 @@ import {
   buildInnerHitCountForType
 } from "@react-discovery/components"
 import {IDisplayField, NestedEntityDisplay, useHitViewStyles} from '.'
-import {IHit, ESCore} from "@react-discovery/core"
+import {ESCore, IHit} from "@react-discovery/core"
 import React, {Fragment, ReactElement} from "react"
 import {Domain} from './enum'
 import {useTranslation} from "react-i18next"
@@ -34,7 +34,7 @@ const typeField = ESCore.enums.FieldConstants.TYPE_FIELD
 export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
   const {displayFields, hit, isNested, nestedDisplayFields, type} = props
-  const [isExpanded, setExpanded] = React.useState(false);
+  const [isExpanded, setExpanded] = React.useState(true);
   const {t} = useTranslation('vocab')
   const innerHits = hit && hit.innerHits && hit.innerHits.length && hit.innerHits.map((ih) => ih)
   const entities = hit && hit.innerHits && hit.innerHits.length ?

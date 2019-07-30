@@ -2,9 +2,9 @@ import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
 import {
   setCurrentLanguage,
   setHitComponent,
-  setIsItemExpanded,
   setIsPersisted,
   setIsViewExpanded,
+  setItemViewType,
   setSelectedIndex
 } from "../actions"
 import {IConfig} from "../.."
@@ -26,11 +26,11 @@ export const config = (initialState): ReducerBuilder<IConfig> => reducerWithInit
     ...state,
     isViewExpanded
   }))
-  .case(setIsItemExpanded, (state, {id, isItemExpanded}): ReducerBuilder<IConfig> => ({
+  .case(setItemViewType, (state, {id, itemViewType}): ReducerBuilder<IConfig> => ({
     ...state,
-    expandedItems: {
-      ...state.expandedItems,
-      [id]: isItemExpanded,
+    itemViews: {
+      ...state.itemViews,
+      [id]: itemViewType,
     }
   }))
   .case(setCurrentLanguage, (state, {currentLanguage}): ReducerBuilder<IConfig> => ({
