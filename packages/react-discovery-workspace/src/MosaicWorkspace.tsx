@@ -8,7 +8,7 @@ import {
   getLeaves,
 } from 'react-mosaic-component'
 import {MosaicWindowToolbar, ZeroState} from "."
-import React, {ReactElement, Suspense, useEffect, useState} from 'react'
+import React, {ReactElement, Suspense, useEffect} from 'react'
 import {getWorkspaceLayout, getWorkspaceViewIdMap, setWorkspaceLayout} from './state'
 import {createRandomNode} from './utils'
 import {makeStyles} from "@material-ui/core"
@@ -39,7 +39,6 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (): ReactElement => {
   const viewIdMap = getWorkspaceViewIdMap()
   const prevViewIdMap = usePrevious(viewIdMap)
   const prevLayout = usePrevious(workspaceLayout)
-  const windowPaths = {}
 
   const buildWorkspaceLayout: any = () => {
     const windowKeys = Object.keys(viewIdMap).sort();
@@ -51,17 +50,11 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (): ReactElement => {
     return workspaceLayout;
   }
 
-  const bookkeepPath = (viewId, path) => {
-    windowPaths[viewId] = path;
-  }
-
   const onChange = (currentNode: MosaicParent<string> | null): void => {
     dispatch(setWorkspaceLayout({layout: currentNode}))
   }
 
   const renderTile = (id, path): ReactElement => {
-    const viewId = viewIdMap && viewIdMap[id]
-    bookkeepPath(viewId, path)
     return (
       <MosaicWindow<string>
         createNode={createNode}
@@ -81,12 +74,10 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (): ReactElement => {
     dispatch(setWorkspaceLayout({layout: buildWorkspaceLayout()}))
     if (Object.is(workspaceLayout, prevLayout)) {
       dispatch(setWorkspaceLayout({layout: workspaceLayout}))
-      console.log('object is update')
     }
 
     if (viewIdMap !== prevViewIdMap) {
       dispatch(setWorkspaceLayout({layout: buildWorkspaceLayout()}))
-      console.log('remove update')
     }
   }, [workspaceLayout, prevLayout, prevViewIdMap, viewIdMap])
 

@@ -15,6 +15,7 @@ const GET_THUMBNAIL = gql`
               manifest(id: $manifestId)
           {thumbnail{id, type, service {id, type, profile}}}
           }`
+
 export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
   const classes: any = props.classes || useThumbnailStyles({})
   const {manifest} = props

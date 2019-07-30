@@ -1,4 +1,4 @@
-import {IIIFCollectionProvider, ImageServices, ImageServicesProvider, getCurrentManifestsInCollection} from '.'
+import {ImageServices, getCurrentManifestsInCollection} from '.'
 import React, {useEffect, useState} from 'react'
 import {usePrevious} from "@react-discovery/core"
 
@@ -17,10 +17,6 @@ export const SimpleImageViewer = (props: any) => {
   }, [manifests])
 
   return (
-    <IIIFCollectionProvider>
-      <ImageServicesProvider manifest={manifest}>
-        <ImageServices/>
-      </ImageServicesProvider>
-    </IIIFCollectionProvider>
+    <ImageServices manifest={manifest}/>
   )
 }

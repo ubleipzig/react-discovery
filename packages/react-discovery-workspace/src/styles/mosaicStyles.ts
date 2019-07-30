@@ -179,7 +179,7 @@ export const useMosaicStyles = makeStyles((): any => ({
       zIndex: 3,
     },
     '.mosaic-window .mosaic-window-body, .mosaic-preview .mosaic-window-body': {
-      background: 'white',
+      background: 'black',
       flex: 1,
       height: 0,
       overflowY: 'scroll',
