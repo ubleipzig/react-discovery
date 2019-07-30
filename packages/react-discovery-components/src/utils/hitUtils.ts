@@ -21,8 +21,14 @@ export const buildEntityCountForType = (entities, type): number => {
   return entities && entities.filter((entity): boolean => entity[typeField] === type).length
 }
 
+// TODO Abstract nested type matching logic
 export const buildInnerHitCountForType = (entities, type): number => {
-  return entities && entities.filter((entity): boolean => entity._source[typeField] === type).length
+  if (type === 'Beschreibung' || type === 'Faszikel') {
+    const types = ['Beschreibung', 'Faszikel']
+    return entities && entities.filter((entity): boolean => types.includes(entity._source[typeField])).length
+  } else {
+    return entities && entities.filter((entity): boolean => entity._source[typeField] === type).length
+  }
 }
 
 export const getTypeForId = (hit, id): string => {
@@ -30,6 +36,10 @@ export const getTypeForId = (hit, id): string => {
   if (_source.id === id) {
     return _source[typeField]
   }
+}
+
+export const getParentEntityByChildIdentifier = (childId, entities) => {
+  return entities.filter((entity) => entity.entities.filter((child) => child.id === childId))
 }
 
 export const getFirstManifestFromHit = (hit, matchEntityField) => {

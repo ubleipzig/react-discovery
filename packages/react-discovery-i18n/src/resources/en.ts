@@ -12,6 +12,8 @@ export const en = {
     simple: 'Simple',
     sortOrder: 'Sort Order',
     suggest: 'Suggest...',
+    unfoldLess: 'Reduce',
+    unfoldMore: 'Expand'
   },
   vocab: {
     advancedSearch: 'Advanced Search',

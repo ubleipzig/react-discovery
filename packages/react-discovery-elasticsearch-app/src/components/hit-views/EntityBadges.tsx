@@ -1,10 +1,10 @@
-import {Badge, IconButton, Tab, Tabs, Theme, withStyles} from "@material-ui/core"
+import {Badge, Chip, IconButton, Tab, Tabs, Theme, withStyles} from "@material-ui/core"
 import {Book, ChatBubble, Image, Info} from "@material-ui/icons"
-import {Domain} from "@react-discovery/views"
+import {Domain, useHitViewStyles} from "@react-discovery/views"
 import React from "react"
 import {buildEntityCountForType} from "@react-discovery/components"
 import {useTranslation} from "react-i18next"
-import {setItemViewType} from "@react-discovery/configuration"
+import {getSelectedIndex, setItemViewType} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 
 const StyledBadge = withStyles((theme: Theme) => ({
@@ -22,8 +22,11 @@ const StyledBadge = withStyles((theme: Theme) => ({
 }))(Badge)
 
 export const EntityBadges = (props) => {
+  const {entities, id, i} = props
+  const classes: any = useHitViewStyles({})
+  const indexMultiplier = getSelectedIndex()
+  const chipLabel = (i + 1) + (20 * indexMultiplier)
   const dispatch = useDispatch()
-  const {entities, id} = props
   const {t} = useTranslation('vocab')
   const [value, setValue] = React.useState(0);
 
@@ -34,37 +37,81 @@ export const EntityBadges = (props) => {
   const items = [
     {
       key: 0,
-      type: 'info',
+      type: 'index',
     },
     {
       key: 1,
-      type: Domain.DIGITALISAT,
+      type: 'info',
     },
     {
       key: 2,
-      type: Domain.BESCHREIBUNG,
+      type: Domain.DIGITALISAT,
     },
     {
       key: 3,
+      type: Domain.BESCHREIBUNG,
+    },
+    {
+      key: 4,
       type: Domain.ANNOTATION,
     },
   ]
 
+  const buildStyledBadge = (component, type) => {
+    return (
+      <StyledBadge
+        badgeContent={buildEntityCountForType(entities, type)}
+        color="secondary"
+      >
+        {component}
+      </StyledBadge>
+    )
+  }
+
   const buildIconForEntityType = (type) => {
     switch (type) {
+      case 'index':
+        return (
+          <Chip
+            className={classes.chip}
+            color="secondary"
+            label={chipLabel}
+            size="small"
+            variant="outlined"
+          />
+        )
       case 'info':
         return <Info fontSize='default' style={{padding: '5px'}}/>
       case Domain.DIGITALISAT:
-        return <Image fontSize='default' style={{padding: '5px'}}/>
+        const DIGITALISAT = <Image fontSize='default' style={{padding: '5px'}}/>
+        return buildStyledBadge(DIGITALISAT, type)
       case Domain.BESCHREIBUNG:
-        return <Book fontSize='default' style={{padding: '5px'}}/>
+        const BESCHREIBUNG = <Book fontSize='default' style={{padding: '5px'}}/>
+        return buildStyledBadge(BESCHREIBUNG, type)
       case Domain.ANNOTATION:
-        return <ChatBubble fontSize='default' style={{padding: '5px'}}/>
+        const ANNOTATION = <ChatBubble fontSize='default' style={{padding: '5px'}}/>
+        return buildStyledBadge(ANNOTATION, type)
+      default:
+        return (
+          <Chip
+            className={classes.chip}
+            color="secondary"
+            label={chipLabel}
+            size="small"
+            variant="outlined"
+          />
+        )
     }
   }
 
   const handleClick = (id, type) => {
     switch (type) {
+      case 'index':
+        dispatch(setItemViewType({id, itemViewType: 'index'}))
+        break
+      case 'info':
+        dispatch(setItemViewType({id, itemViewType: 'info'}))
+        break
       case Domain.DIGITALISAT:
         dispatch(setItemViewType({id, itemViewType: Domain.DIGITALISAT}))
         break
@@ -83,14 +130,7 @@ export const EntityBadges = (props) => {
       return (
         <Tab
           href=''
-          icon={
-            <StyledBadge
-              badgeContent={buildEntityCountForType(entities, item.type)}
-              color="secondary"
-            >
-              {buildIconForEntityType(item.type)}
-            </StyledBadge>
-          }
+          icon={buildIconForEntityType(item.type)}
           key={item.key}
           onClick={() => handleClick(id, item.type)}
           title={t(item.type)}
