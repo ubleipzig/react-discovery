@@ -4,12 +4,12 @@ export const useThumbnailStyles = makeStyles((): any => ({
   cover: {
     display: 'flex',
     flexShrink: 0,
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     padding: 20,
   },
   media: {
     borderRadius: 8,
+    maxWidth: 180,
     objectFit: 'cover',
-    width: 'auto'
   },
 }))

@@ -9,7 +9,7 @@ export const ThumbnailGrid: React.FC<any> = (props): ReactElement => {
   const component = <HitViewOptionsMenu id={id}/>
   return (
     <Grid style={{background: 'whitesmoke', flexGrow: 1, padding: 24}}>
-      <Container fixed>
+      <Container maxWidth="xs">
         <Thumbnail
           classes={thumbnailClasses}
           manifest={manifest}
