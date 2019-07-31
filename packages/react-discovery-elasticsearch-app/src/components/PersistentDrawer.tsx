@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme): any => ({
 export const PersistentDrawer: React.FC<any> = (props): ReactElement => {
   const classes: any = useStyles({})
   const numberOfNodes = getNumberOfWorkspaceNodes()
+  const [selectedIndex, setSelectedIndex] = React.useState(0)
   const {open} = props
   const listItems = [
     {
@@ -100,12 +101,18 @@ export const PersistentDrawer: React.FC<any> = (props): ReactElement => {
     }
   }
 
+  const handleListItemClick = ({}, index) => {
+    setSelectedIndex(index);
+  }
+
   const buildListItems = (items: any): ReactElement[] => {
-    return items.map((item: any): ReactElement =>
+    return items.map((item: any, i): ReactElement =>
       <ListItem
         button
         component={forwardRef((props: any, ref: any) => <NavLink href={item.path} {...props} ref={ref} />) as any}
         key={item.index}
+        onClick={(event): void => handleListItemClick(event, i)}
+        selected={selectedIndex === i}
         style={{color: '#2f2c2c', textDecoration: 'none'}}
       >
         <ListItemIcon>
