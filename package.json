@@ -91,8 +91,6 @@
     "react-dev-utils": "^9.0.0",
     "react-hot-loader": "^4.9.0",
     "react-jss": "^10.0.0-alpha.21",
-    "source-map-loader": "^0.2.4",
-    "source-map-support": "^0.5.12",
     "tsify": "^4.0.1",
     "typedoc": "^0.14.2",
     "typescript": "^3.5.1",
