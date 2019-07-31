@@ -1,27 +1,26 @@
-import {IconButton, Menu, MenuItem, Tooltip, Typography, withStyles} from "@material-ui/core"
+import {Badge, IconButton, Menu, MenuItem, Theme, Tooltip, Typography, withStyles} from "@material-ui/core"
 import React, {ReactElement} from "react"
-import {getIsInWorkspace, setViewIdMap} from '@react-discovery/workspace'
-import {MoreVert} from "@material-ui/icons"
+import {Star, StarBorder} from "@material-ui/icons"
+import {getNumberOfWorkspaceNodesForId, setViewIdMap} from '@react-discovery/workspace'
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 
-const ColorButton = withStyles(() => ({
-  root: {
-    "&:hover": {
-      opacity: 1
-    },
-    color: 'white',
-    opacity: 0
+const StyledBadge = withStyles((theme: Theme) => ({
+  badge: {
+    border: `2px solid ${
+      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[900]
+    }`,
   },
-}))(IconButton)
+}))(Badge)
 
 export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
   const {id} = props
+  const nodeCount = getNumberOfWorkspaceNodesForId(id)
   const {t} = useTranslation()
   const [anchorEl, setAnchorEl] = React.useState(null)
   const isMenuOpen = Boolean(anchorEl)
   const dispatch = useDispatch()
-  const isInWorkspace = getIsInWorkspace(id)
+
   const handleHitViewOptionsMenuOpen = (event): void => {
     setAnchorEl(event.currentTarget)
   }
@@ -76,18 +75,27 @@ export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
     </Menu>
   )
 
+  const buildStyledBadge = () => {
+    return (
+      <StyledBadge
+        badgeContent={nodeCount}
+        color="secondary"
+      > <IconButton
+          onClick={handleHitViewOptionsMenuOpen}>
+          {
+            nodeCount > 0 ? <Star fontSize='default' style={{padding: '5px'}}/>
+              : <StarBorder fontSize='default' style={{padding: '5px'}}/>
+          }
+        </IconButton>
+      </StyledBadge>
+    )
+  }
+
   return (
-    <div style={{position: 'absolute'}}>
+    <div>
       <Tooltip
         title={t('moreOptions')}>
-        <ColorButton
-          aria-haspopup="true"
-          aria-owns={isMenuOpen ? 'material-appbar' : undefined}
-          color={isInWorkspace ? 'secondary' : 'primary'}
-          onClick={handleHitViewOptionsMenuOpen}
-        >
-          <MoreVert />
-        </ColorButton>
+        {buildStyledBadge()}
       </Tooltip>
       {renderMenu}
     </div>
