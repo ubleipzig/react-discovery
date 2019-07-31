@@ -1,11 +1,11 @@
-import {Badge, Chip, IconButton, Tab, Tabs, Theme, withStyles} from "@material-ui/core"
+import {Badge, Chip, Tab, Tabs, Theme, Tooltip, withStyles} from "@material-ui/core"
 import {Book, ChatBubble, Image, Info} from "@material-ui/icons"
 import {Domain, useHitViewStyles} from "@react-discovery/views"
-import React from "react"
-import {buildEntityCountForType} from "@react-discovery/components"
-import {useTranslation} from "react-i18next"
+import React, {ReactElement} from "react"
 import {getSelectedIndex, setItemViewType} from "@react-discovery/configuration"
+import {buildEntityCountForType} from "@react-discovery/components"
 import {useDispatch} from "react-redux"
+import {useTranslation} from "react-i18next"
 
 const StyledBadge = withStyles((theme: Theme) => ({
   badge: {
@@ -21,7 +21,7 @@ const StyledBadge = withStyles((theme: Theme) => ({
   }
 }))(Badge)
 
-export const EntityBadges = (props) => {
+export const EntityBadges: React.FC<any> = (props): ReactElement => {
   const {entities, id, i} = props
   const classes: any = useHitViewStyles({})
   const indexMultiplier = getSelectedIndex()
@@ -128,13 +128,15 @@ export const EntityBadges = (props) => {
   const buildCardActions = (items) => {
     return items && items.map((item) => {
       return (
-        <Tab
-          href=''
-          icon={buildIconForEntityType(item.type)}
+        <Tooltip
           key={item.key}
-          onClick={() => handleClick(id, item.type)}
-          title={t(item.type)}
-        />
+          title={t(item.type)}>
+          <Tab
+            href=''
+            icon={buildIconForEntityType(item.type)}
+            onClick={() => handleClick(id, item.type)}
+          />
+        </Tooltip>
       )
     })
   }

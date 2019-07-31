@@ -8,6 +8,7 @@ interface IThumbnail {
   classes?: any;
   image?: string;
   manifest?: string;
+  menuComponent?: ReactElement;
 }
 
 const GET_THUMBNAIL = gql`
@@ -15,25 +16,35 @@ const GET_THUMBNAIL = gql`
               manifest(id: $manifestId)
           {thumbnail{id, type, service {id, type, profile}}}
           }`
-
+const GET_MANIFEST_SUMMARY = gql`
+          query Summary($manifestId: String!) {
+              manifest(id: $manifestId)
+          {summary}
+          }`
 export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
   const classes: any = props.classes || useThumbnailStyles({})
-  const {manifest} = props
+  const {manifest, menuComponent} = props
   const {data} = manifest && useQuery(GET_THUMBNAIL, {
     variables: { manifestId: manifest },
   })
-  return data ? (
+  const {data: dataS} = manifest && useQuery(GET_MANIFEST_SUMMARY, {
+    variables: { manifestId: manifest },
+  })
+
+  return data && dataS ? (
     <div className={classes.cover}>
-      {data.manifest ? data.manifest.thumbnail.map(
+      {data.manifest && dataS.manifest ? data.manifest.thumbnail.map(
         (t, i) =>
           <CardMedia
             alt="Placeholder"
+            className={classes.media}
             component="img"
             image={t.id}
             key={i}
-            title="Thumbnail"
+            title={dataS.manifest.summary}
           />) : null
       }
+      {menuComponent}
     </div>
   ) : null
 }

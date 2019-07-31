@@ -1,8 +1,7 @@
-import {Card, CardActions, CardContent, Chip, Grid} from "@material-ui/core"
+import {Card, CardActions, CardContent, Grid} from "@material-ui/core"
 import {
   Domain,
   EntityDisplay,
-  ThumbnailGrid,
   annotationDisplayFields,
   beschreibungDisplayFields,
   digitalisatDisplayFields,
@@ -11,18 +10,17 @@ import {
 } from "@react-discovery/views"
 import {ESCore, IHit} from "@react-discovery/core"
 import {
-  ExpandItemToggle,
   FieldValueDisplay,
   TitleIdHeader,
   ValueDisplay,
-  buildHighlightedValueForHit, getFirstManifestFromHit
+  buildHighlightedValueForHit,
+  getFirstManifestFromHit,
 } from '@react-discovery/components'
+import {ItemActionBar, ThumbnailGrid} from "."
 import React, {ReactElement} from "react"
-import {getIsViewExpanded, getItemViewType, getSelectedIndex} from "@react-discovery/configuration"
-import {EntityBadges} from "./EntityBadges"
-import {HitViewOptionsMenu} from "../HitViewOptionsMenu"
+import {getIsViewExpanded, getItemViewType} from "@react-discovery/configuration"
 import Kulturobjekt from './Kulturobjekt'
-import {ItemActionBar} from "./ItemActionBar"
+import {getNumberOfWorkspaceNodesForId} from "@react-discovery/workspace"
 
 interface IDefaultItemComponent {
   classes: any;
@@ -39,6 +37,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
   const id = hit && hit._source.id
+  const nodeCount = getNumberOfWorkspaceNodesForId(id)
   const itemViewType = hit && getItemViewType(id)
   const isViewExpanded = getIsViewExpanded()
   const entities = hit && hit._source.entities && hit._source.entities
@@ -96,6 +95,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
           <ItemActionBar entities={entities} i={i} id={id}/>
           <TitleIdHeader
             id={hit._source.id}
+            nodeCount={nodeCount}
             title={title}
           />
           <div className={classes.details}>
@@ -115,10 +115,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
           </div>
           {buildCardActions(cardActions)}
         </Grid>
-        <ThumbnailGrid manifest={manifest}/>
-        <Grid item style={{margin: 12}}>
-          <HitViewOptionsMenu/>
-        </Grid>
+        <ThumbnailGrid id={id} manifest={manifest}/>
       </Grid>
     </Card>
   ) : <Kulturobjekt {...props}/>

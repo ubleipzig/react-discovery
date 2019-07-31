@@ -1,9 +1,19 @@
-import {IconButton, ListItemIcon, Menu, MenuItem, Typography} from "@material-ui/core"
-import {MoreVert, PlaylistAdd} from "@material-ui/icons"
+import {IconButton, Menu, MenuItem, Tooltip, Typography, withStyles} from "@material-ui/core"
 import React, {ReactElement} from "react"
 import {getIsInWorkspace, setViewIdMap} from '@react-discovery/workspace'
+import {MoreVert} from "@material-ui/icons"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
+
+const ColorButton = withStyles(() => ({
+  root: {
+    "&:hover": {
+      opacity: 1
+    },
+    color: 'white',
+    opacity: 0
+  },
+}))(IconButton)
 
 export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
   const {id} = props
@@ -16,8 +26,14 @@ export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
     setAnchorEl(event.currentTarget)
   }
 
-  const handleAddToWorkspace = ({}): void => {
-    dispatch(setViewIdMap({id, type: 'image'}))
+  const handleAddToWorkspace = (key): void => {
+    switch (key) {
+      case 'addMediaToWorkspace':
+        dispatch(setViewIdMap({id, type: 'image'}))
+        break
+      case 'addDataToWorkspace':
+        dispatch(setViewIdMap({id, type: 'data'}))
+    }
     setAnchorEl(null)
   }
 
@@ -27,8 +43,12 @@ export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
 
   const options = [
     {
-      key: 'addToWorkspace',
-      label: 'addToWorkspace'
+      key: 'addMediaToWorkspace',
+      label: 'addMediaToWorkspace'
+    },
+    {
+      key: 'addDataToWorkspace',
+      label: 'addDataToWorkspace'
     },
   ]
 
@@ -41,9 +61,6 @@ export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
         key={i}
         onClick={(): void => handleAddToWorkspace(option.key)}
       >
-        <ListItemIcon>
-          <PlaylistAdd/>
-        </ListItemIcon>
         <Typography>{t(option.label)}</Typography>
       </MenuItem>)
   }
@@ -51,35 +68,28 @@ export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
   const renderMenu: ReactElement = (
     <Menu
       anchorEl={anchorEl}
-      anchorOrigin={{
-        horizontal: "left",
-        vertical: "bottom",
-      }}
       getContentAnchorEl={null}
       onClose={handleMenuClose}
       open={isMenuOpen}
-      transformOrigin={{
-        horizontal: 'left',
-        vertical: 'top',
-      }}
     >
       {buildMenuItems()}
     </Menu>
   )
 
   return (
-    <>
-      <IconButton
-        aria-haspopup="true"
-        aria-owns={isMenuOpen ? 'material-appbar' : undefined}
-        color={isInWorkspace ? 'secondary' : 'primary'}
-        edge="end"
-        href=''
-        onClick={handleHitViewOptionsMenuOpen}
-      >
-        <MoreVert />
-      </IconButton>
+    <div style={{position: 'absolute'}}>
+      <Tooltip
+        title={t('moreOptions')}>
+        <ColorButton
+          aria-haspopup="true"
+          aria-owns={isMenuOpen ? 'material-appbar' : undefined}
+          color={isInWorkspace ? 'secondary' : 'primary'}
+          onClick={handleHitViewOptionsMenuOpen}
+        >
+          <MoreVert />
+        </ColorButton>
+      </Tooltip>
       {renderMenu}
-    </>
+    </div>
   )
 }

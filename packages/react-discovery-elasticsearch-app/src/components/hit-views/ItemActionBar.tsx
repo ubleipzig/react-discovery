@@ -1,5 +1,5 @@
 import React, {ReactElement} from "react"
-import {EntityBadges} from "./EntityBadges"
+import {EntityBadges} from "."
 
 export const ItemActionBar: React.FC<any> = (props): ReactElement => {
   const {entities, i, id} = props

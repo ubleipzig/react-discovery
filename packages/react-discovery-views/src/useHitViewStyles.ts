@@ -2,7 +2,7 @@ import {makeStyles} from "@material-ui/core"
 
 export const useHitViewStyles = makeStyles((theme): any => ({
   chip: {
-    margin: theme.spacing(2),
+    margin: theme.spacing(1),
   },
   content: {
     display: 'flex',

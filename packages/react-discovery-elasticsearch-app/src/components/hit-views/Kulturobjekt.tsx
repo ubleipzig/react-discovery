@@ -1,6 +1,6 @@
-import {Annotations, Descriptions, Digitalisate, ExpandedInfo, HitAbstract, ItemActionBar} from '.'
+import {Annotations, Descriptions, Digitalisate, ExpandedInfo, HitAbstract, ItemActionBar, ThumbnailGrid} from '.'
 import {Card, CardContent, Divider, Grid} from "@material-ui/core"
-import {Domain, ThumbnailGrid, useHitViewStyles} from '@react-discovery/views'
+import {Domain, useHitViewStyles} from '@react-discovery/views'
 import {ESCore, IHit} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {
@@ -10,7 +10,7 @@ import {
   getFirstManifestFromHit
 } from '@react-discovery/components'
 import {getIsViewExpanded, getItemViewType} from "@react-discovery/configuration"
-import {HitViewOptionsMenu} from '..'
+import {getNumberOfWorkspaceNodesForId} from "@react-discovery/workspace"
 
 interface IDefaultItemComponent {
   classes: any;
@@ -23,6 +23,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
   const id = hit && hit._source.id
+  const nodeCount = getNumberOfWorkspaceNodesForId(id)
   const itemViewType = hit && getItemViewType(id)
   const isViewExpanded = getIsViewExpanded()
   const title = buildHighlightedValueForHit('titel_t', hit)
@@ -82,6 +83,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
           <ItemActionBar entities={entities} i={i} id={id}/>
           <TitleIdHeader
             id={hit._source.id}
+            nodeCount={nodeCount}
             title={title}
           />
           <div style={{display: 'flex'}}>
@@ -102,10 +104,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
             </div>
           </div>
         </Grid>
-        <ThumbnailGrid manifest={manifest}/>
-        <Grid item style={{margin: 12}}>
-          <HitViewOptionsMenu id={id}/>
-        </Grid>
+        <ThumbnailGrid id={id} manifest={manifest}/>
       </Grid>
     </Card>
   ) : null

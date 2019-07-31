@@ -1,10 +1,13 @@
 export const de = {
   common: {
     account: 'Mein Konto',
-    addToWorkspace: 'Workspace Hinzufugen',
+    addDataToWorkspace: 'Add Data To Workspace',
+    addMediaToWorkspace: 'Bilder Workspace Hinzufugen',
     expandView: 'Erweiterte Ansicht',
     expert: 'Expert',
     expertSearch: 'Expertensuche',
+    itemsInWorkspace: 'Items In Workspace',
+    moreOptions: 'More Options',
     profile: 'Profil',
     resultsFound: 'treffer gefunden',
     search: 'Suche...',
@@ -35,6 +38,8 @@ export const de = {
     Faszikel: 'Teile',
     format: 'Format',
     formType: 'FormTyp',
+    index: 'Index',
+    info: 'Info',
     language: 'Sprache',
     manifest: 'Manifest',
     material: 'Stoff',

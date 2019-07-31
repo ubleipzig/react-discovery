@@ -37,9 +37,7 @@ module.exports = function(webpackEnv) {
   return {
     bail: isEnvProduction,
     devtool: isEnvProduction
-      ? shouldUseSourceMap
-        ? 'source-map'
-        : false
+      ? false
       : isEnvDevelopment && 'inline-source-map',
     entry: [
       isEnvDevelopment &&
@@ -84,7 +82,7 @@ module.exports = function(webpackEnv) {
         new TerserPlugin({
           cache: true,
           parallel: !isWsl,
-          sourceMap: shouldUseSourceMap,
+          sourceMap: false,
           terserOptions: {
             compress: {
               comparisons: false,
