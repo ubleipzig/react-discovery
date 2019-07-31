@@ -1,33 +1,20 @@
-import {Badge, CardHeader, Theme, Tooltip, withStyles} from "@material-ui/core"
+import {CardHeader, Tooltip} from "@material-ui/core"
 import {FlexBox, InnerHtmlValue} from "."
 import {Link, useCurrentRoute} from 'react-navi'
 import React, {ReactElement} from "react"
-import {Star, StarBorder} from "@material-ui/icons"
 import {ESCore} from "@react-discovery/core"
 import {getRootContext} from "@react-discovery/configuration"
 import {useDispatch} from 'react-redux'
 import {useTranslation} from "react-i18next"
 
 interface ITitleIdHeader {
-  nodeCount?: number;
+  optionsMenu?: ReactElement;
   title: string;
   id: string;
 }
 
-const StyledBadge = withStyles((theme: Theme) => ({
-  badge: {
-    border: `2px solid ${
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[900]
-    }`,
-  },
-  colorSecondary: {
-    backgroundColor: '#46926c',
-    color: theme.palette.secondary.contrastText,
-  }
-}))(Badge)
-
 export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => {
-  const {id, nodeCount, title} = props
+  const {id, optionsMenu, title} = props
   const rootContext = getRootContext()
   const route = useCurrentRoute()
   const pathname = route.url.pathname
@@ -36,16 +23,6 @@ export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => 
 
   const handleClick = (): void => {
     dispatch(ESCore.state.setFrom({from: 0}))
-  }
-
-  const buildStyledBadge = () => {
-    return nodeCount > 0 ? (
-      <StyledBadge
-        badgeContent={nodeCount}
-        color="secondary"
-      > <Star fontSize='default' style={{padding: '5px'}}/>
-      </StyledBadge>
-    ) : <StarBorder fontSize='default' style={{padding: '5px'}}/>
   }
 
   const buildTitleHeaderForPathName = (): ReactElement => {
@@ -62,7 +39,7 @@ export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => 
           <div style={{flexGrow: 1}}/>
           <Tooltip
             title={t('itemsInWorkspace')}>
-            {buildStyledBadge()}
+            {optionsMenu}
           </Tooltip>
         </FlexBox>
       )

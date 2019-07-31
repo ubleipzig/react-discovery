@@ -16,7 +16,7 @@ import {
   buildHighlightedValueForHit,
   getFirstManifestFromHit,
 } from '@react-discovery/components'
-import {ItemActionBar, ThumbnailGrid} from "."
+import {HitViewOptionsMenu, ItemActionBar, ThumbnailGrid} from "."
 import React, {ReactElement} from "react"
 import {getIsViewExpanded, getItemViewType} from "@react-discovery/configuration"
 import Kulturobjekt from './Kulturobjekt'
@@ -81,6 +81,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
       </CardActions>
     )
   }
+  const optionsMenu = <HitViewOptionsMenu id={id}/>
 
   return hit && (itemViewType === 'info' || isViewExpanded) ? (
     <Card className={classes.root} key={i}>
@@ -95,7 +96,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
           <ItemActionBar entities={entities} i={i} id={id}/>
           <TitleIdHeader
             id={hit._source.id}
-            nodeCount={nodeCount}
+            optionsMenu={optionsMenu}
             title={title}
           />
           <div className={classes.details}>

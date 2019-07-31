@@ -1,4 +1,4 @@
-import {Annotations, Descriptions, Digitalisate, ExpandedInfo, HitAbstract, ItemActionBar, ThumbnailGrid} from '.'
+import {Annotations, Descriptions, Digitalisate, ExpandedInfo, HitAbstract, HitViewOptionsMenu, ItemActionBar, ThumbnailGrid} from '.'
 import {Card, CardContent, Divider, Grid} from "@material-ui/core"
 import {Domain, useHitViewStyles} from '@react-discovery/views'
 import {ESCore, IHit} from "@react-discovery/core"
@@ -10,7 +10,6 @@ import {
   getFirstManifestFromHit
 } from '@react-discovery/components'
 import {getIsViewExpanded, getItemViewType} from "@react-discovery/configuration"
-import {getNumberOfWorkspaceNodesForId} from "@react-discovery/workspace"
 
 interface IDefaultItemComponent {
   classes: any;
@@ -23,7 +22,6 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
   const id = hit && hit._source.id
-  const nodeCount = getNumberOfWorkspaceNodesForId(id)
   const itemViewType = hit && getItemViewType(id)
   const isViewExpanded = getIsViewExpanded()
   const title = buildHighlightedValueForHit('titel_t', hit)
@@ -69,6 +67,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
         return defaultDisplay()
     }
   }
+  const optionsMenu = id && <HitViewOptionsMenu id={id}/>
 
   return hit && !isViewExpanded ? (
     <Card className={classes.root} key={i}>
@@ -83,7 +82,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
           <ItemActionBar entities={entities} i={i} id={id}/>
           <TitleIdHeader
             id={hit._source.id}
-            nodeCount={nodeCount}
+            optionsMenu={optionsMenu}
             title={title}
           />
           <div style={{display: 'flex'}}>
