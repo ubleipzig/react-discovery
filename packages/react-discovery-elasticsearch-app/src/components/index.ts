@@ -1,6 +1,7 @@
 export * from './hit-views'
 export * from './DiscoveryApp'
 export * from './FacetViewSwitcher'
+export * from './hit-views/HitViewOptionsMenu'
 export * from './Landing'
 export * from './ListFilters'
 export * from './ResultsList'
@@ -8,3 +9,5 @@ export * from './MinWidthResultsGrid'
 export * from './SearchAppBar'
 export * from './PersistentDrawer'
 export * from './Workspace'
+export * from './hit-views/useThumbnailStyles'
+

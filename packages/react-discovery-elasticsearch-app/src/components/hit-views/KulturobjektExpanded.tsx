@@ -2,7 +2,6 @@ import {Card, CardActions, CardContent, Grid} from "@material-ui/core"
 import {
   Domain,
   EntityDisplay,
-  ThumbnailGrid,
   annotationDisplayFields,
   beschreibungDisplayFields,
   digitalisatDisplayFields,
@@ -17,9 +16,9 @@ import {
   buildHighlightedValueForHit,
   getFirstManifestFromHit,
 } from '@react-discovery/components'
+import {ItemActionBar, ThumbnailGrid} from "."
 import React, {ReactElement} from "react"
 import {getIsViewExpanded, getItemViewType} from "@react-discovery/configuration"
-import {ItemActionBar} from "./ItemActionBar"
 import Kulturobjekt from './Kulturobjekt'
 import {getNumberOfWorkspaceNodesForId} from "@react-discovery/workspace"
 

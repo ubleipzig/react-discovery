@@ -1,6 +1,6 @@
-import {Annotations, Descriptions, Digitalisate, ExpandedInfo, HitAbstract, ItemActionBar} from '.'
+import {Annotations, Descriptions, Digitalisate, ExpandedInfo, HitAbstract, ItemActionBar, ThumbnailGrid} from '.'
 import {Card, CardContent, Divider, Grid} from "@material-ui/core"
-import {Domain, ThumbnailGrid, useHitViewStyles} from '@react-discovery/views'
+import {Domain, useHitViewStyles} from '@react-discovery/views'
 import {ESCore, IHit} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {

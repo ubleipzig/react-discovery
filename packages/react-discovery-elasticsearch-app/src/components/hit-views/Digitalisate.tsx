@@ -1,10 +1,10 @@
-import React, {ReactElement} from "react"
-import {CardActions} from "@material-ui/core"
 import {
   Domain,
   EntityDisplay,
   digitalisatDisplayFields,
 } from "@react-discovery/views"
+import React, {ReactElement} from "react"
+import {CardActions} from "@material-ui/core"
 
 export const Digitalisate: React.FC<any> = (props): ReactElement => {
   const {hit} = props
