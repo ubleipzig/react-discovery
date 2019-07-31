@@ -1,6 +1,7 @@
 export * from './displayFields'
 export * from './DetailBreadcrumbs'
 export * from './EntityDisplay'
+export * from './HitViewOptionsMenu'
 export * from './NestedEntityDisplay'
 export * from './SimpleDataView'
 export * from './SimpleImageView'

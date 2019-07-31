@@ -1,4 +1,4 @@
-import {Badge, Chip, IconButton, Tab, Tabs, Theme, withStyles} from "@material-ui/core"
+import {Badge, Chip, Tab, Tabs, Theme, Tooltip, withStyles} from "@material-ui/core"
 import {Book, ChatBubble, Image, Info} from "@material-ui/icons"
 import {Domain, useHitViewStyles} from "@react-discovery/views"
 import React from "react"
@@ -128,13 +128,15 @@ export const EntityBadges = (props) => {
   const buildCardActions = (items) => {
     return items && items.map((item) => {
       return (
-        <Tab
-          href=''
-          icon={buildIconForEntityType(item.type)}
+        <Tooltip
           key={item.key}
-          onClick={() => handleClick(id, item.type)}
-          title={t(item.type)}
-        />
+          title={t(item.type)}>
+          <Tab
+            href=''
+            icon={buildIconForEntityType(item.type)}
+            onClick={() => handleClick(id, item.type)}
+          />
+        </Tooltip>
       )
     })
   }

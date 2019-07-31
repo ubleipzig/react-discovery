@@ -1,19 +1,21 @@
+import {Container, Grid} from "@material-ui/core"
+import {HitViewOptionsMenu, useThumbnailStyles} from "."
 import React, {ReactElement} from "react"
-import {Grid} from "@material-ui/core"
 import {Thumbnail} from "@react-discovery/iiif"
-import {buildRandomUBLThumbnail} from "./utils"
-import {useThumbnailStyles} from "."
 
 export const ThumbnailGrid: React.FC<any> = (props): ReactElement => {
-  const {manifest} = props
+  const {id, manifest} = props
   const thumbnailClasses = useThumbnailStyles({})
+  const component = <HitViewOptionsMenu id={id}/>
   return (
-    <Grid>
-      <Thumbnail
-        classes={thumbnailClasses}
-        image={buildRandomUBLThumbnail()}
-        manifest={manifest}
-      />
+    <Grid style={{background: 'whitesmoke', flexGrow: 1, padding: 24}}>
+      <Container fixed>
+        <Thumbnail
+          classes={thumbnailClasses}
+          manifest={manifest}
+          menuComponent={component}
+        />
+      </Container>
     </Grid>
   )
 }
