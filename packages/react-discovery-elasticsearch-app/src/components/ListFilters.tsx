@@ -1,5 +1,5 @@
 import {Button, makeStyles, withStyles} from "@material-ui/core"
-import {GroupSelectedFilters, IOverridableStyledComponent, ItemList} from "@react-discovery/components"
+import {GroupSelectedFilters, IOverridableStyledComponent, ItemList, SortingSelector} from "@react-discovery/components"
 import React, {ReactElement} from "react"
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
@@ -100,6 +100,7 @@ export const ListFilters: React.FC<IOverridableStyledComponent> = (): ReactEleme
         key={id}
         label={t(`vocab:${refinementListFilters[id].label}`)}/>))
   }
+
   return (
     <ExpansionPanel
       expanded={expanded}
@@ -123,6 +124,7 @@ export const ListFilters: React.FC<IOverridableStyledComponent> = (): ReactEleme
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         {buildRefinementListFilters()}
+        <SortingSelector/>
       </ExpansionPanelDetails>
     </ExpansionPanel>)
 }

@@ -1,6 +1,6 @@
 import React, {ReactElement, useEffect, useState} from "react"
 import {fetchElasticSearchResponse, getStringInput} from "../state"
-import {getDefaultQuery, getFilters, getFrom, getSize} from "../state/selectors"
+import {getDefaultQuery, getFilters, getFrom, getSize, getSortFields} from "../state/selectors"
 import {IElasticSearchQuery} from "../index"
 import {getUrl} from "@react-discovery/configuration"
 import {queryBuilder} from "../query-builders"
@@ -24,6 +24,8 @@ export const ElasticSearchProvider: React.FC<IElasticSearchProvider> = (props): 
   const prevFrom = usePrevious(from)
   const size = getSize()
   const prevSize = usePrevious(size)
+  const sortFields = getSortFields()
+  const prevSortFields = usePrevious(sortFields)
   const stringInput = getStringInput()
   const prevStringInput = usePrevious(stringInput)
 
@@ -37,7 +39,8 @@ export const ElasticSearchProvider: React.FC<IElasticSearchProvider> = (props): 
       fetchResponse()
       setIsInitialized(true)
     } else {
-      if (prevStringInput !== stringInput || filters !== prevFilters || prevFrom !== from || prevSize !== size) {
+      if (prevStringInput !== stringInput || filters !== prevFilters || prevFrom !== from
+        || prevSize !== size || prevSortFields !== sortFields) {
         fetchResponse()
       }
     }

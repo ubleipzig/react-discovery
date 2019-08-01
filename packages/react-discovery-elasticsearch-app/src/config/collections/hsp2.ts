@@ -85,9 +85,9 @@ export const hsp2: IConfig = {
           label: "language",
         },
         4: {
-          field: "type_s.keyword",
-          label: "documentType",
-        },
+          field: "author_t.keyword",
+          label: "author"
+        }
       },
       searchFields: [
         {
@@ -287,17 +287,17 @@ export const hsp2: IConfig = {
       ],
       sortFields: [
         {
-          field: "type_s",
-          label: "type",
+          field: "titel_t.keyword",
+          label: "title",
           order: "asc"
         },
         {
-          field: "entstehungsort_s",
+          field: "entstehungsort_s.keyword",
           label: "originPlace",
           order: "asc"
         },
         {
-          field: "status_t",
+          field: "status_t.keyword",
           label: "status",
           order: "asc"
         },
