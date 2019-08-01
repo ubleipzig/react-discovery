@@ -5,7 +5,7 @@ export const useThumbnailStyles = makeStyles((): any => ({
     display: 'flex',
     flexShrink: 0,
     justifyContent: 'center',
-    padding: 20,
+    padding: 36,
   },
   media: {
     borderRadius: 8,

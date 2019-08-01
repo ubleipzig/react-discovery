@@ -1,5 +1,6 @@
 export * from './hit-views'
 export * from './DiscoveryApp'
+export * from './DrawerListItems'
 export * from './FacetViewSwitcher'
 export * from './Landing'
 export * from './ListFilters'
