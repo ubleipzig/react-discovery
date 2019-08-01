@@ -1,7 +1,7 @@
 import {CardHeader, Tooltip} from "@material-ui/core"
 import {FlexBox, InnerHtmlValue} from "."
 import {Link, useCurrentRoute} from 'react-navi'
-import React, {ReactElement} from "react"
+import React, {forwardRef, ReactElement} from "react"
 import {ESCore} from "@react-discovery/core"
 import {getRootContext} from "@react-discovery/configuration"
 import {useDispatch} from 'react-redux'
@@ -19,7 +19,6 @@ export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => 
   const route = useCurrentRoute()
   const pathname = route.url.pathname
   const dispatch = useDispatch()
-  const {t} = useTranslation('common')
 
   const handleClick = (): void => {
     dispatch(ESCore.state.setFrom({from: 0}))
@@ -37,10 +36,7 @@ export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => 
             <CardHeader style={{width: '100%'}} title={<InnerHtmlValue value={title}/>}/>
           </Link>
           <div style={{flexGrow: 1}}/>
-          <Tooltip
-            title={t('itemsInWorkspace')}>
-            {optionsMenu}
-          </Tooltip>
+          {optionsMenu}
         </FlexBox>
       )
     } else {
