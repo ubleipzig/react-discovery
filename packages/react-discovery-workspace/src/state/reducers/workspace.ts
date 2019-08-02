@@ -13,12 +13,13 @@ export const workspace = (initialState): ReducerBuilder<IWorkspace> => reducerWi
     ...state,
     layout
   }))
-  .case(setViewIdMap, (state, {id, type}): ReducerBuilder<IWorkspace> => ({
+  .case(setViewIdMap, (state, {id, manifest, type}): ReducerBuilder<IWorkspace> => ({
     ...state,
     viewIdMap: {
       ...state.viewIdMap,
       [uuid()]: {
         id,
+        manifest,
         type
       }
     }

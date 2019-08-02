@@ -2,14 +2,14 @@ import React, {ReactElement} from "react"
 import {SimpleDataView, SimpleImageView} from "@react-discovery/views"
 
 const View: React.FC<any> = (props): ReactElement => {
-  const {id, viewType} = props
+  const {id, manifest, viewType} = props
 
   const buildViewForType = () => {
     switch (viewType) {
       case 'data':
         return <SimpleDataView id={id}/>
       case 'image':
-        return <SimpleImageView id={id}/>
+        return <SimpleImageView id={id} manifest={manifest}/>
       default:
         return <SimpleDataView id={id}/>
     }
