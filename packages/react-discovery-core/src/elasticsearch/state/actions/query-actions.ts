@@ -13,7 +13,7 @@ const SET_TYPE_DEF = "SET_TYPE_DEF"
 
 export const setGroupField = actionCreator<{groupField: string}>(SET_GROUP_FIELD)
 export const setQueryFields = actionCreator<{aggs: any; filters: IFilters; searchFields: ISearchField[]; sortFields: ISortField[];
-  from: number; size: number; stringInput: string; url: string;}>(SET_QUERY_FIELDS)
+  from: number; size: number; stringInput: string;}>(SET_QUERY_FIELDS)
 export const setFrom = actionCreator<{from: number}>(SET_FROM)
 export const setQueryInput = actionCreator<{stringInput: string}>(SET_QUERY_INPUT)
 export const setTypeDef = actionCreator<{typeDef: string}>(SET_TYPE_DEF)

@@ -3,6 +3,8 @@ export enum Domain {
   ANNOTATION = 'Annotation',
   BESCHREIBUNG = 'Beschreibung',
   DIGITALISAT = 'Digitalisat',
+  DOC_TITLE_FIELD = 'titel_t',
+  DOC_SUBTITLE_FIELD = 'subtitel_t',
   FASZIKEL = 'Faszikel',
   KULTUROBJEKT = 'Kulturobjekt',
   PERSON = 'Person',

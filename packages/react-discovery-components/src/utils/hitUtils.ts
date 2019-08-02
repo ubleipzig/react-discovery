@@ -42,9 +42,14 @@ export const getParentEntityByChildIdentifier = (childId, entities) => {
   return entities.filter((entity) => entity.entities.filter((child) => child.id === childId))
 }
 
+// TODO determine how to handle manifest field location with different schemas
 export const getFirstManifestFromHit = (hit, matchEntityField) => {
-  const manifests = hit && hit._source && hit._source.entities
-    .filter((entity) => entity[typeField] === matchEntityField)
-    .map((digitalisat) => digitalisat.digitalisatManifestId_s)
-  return manifests.length && manifests[0]
+  const manifest = hit && hit._source && hit._source.manifest
+  if (!manifest) {
+    const manifests = hit && hit._source && hit._source.entities
+      .filter((entity) => entity[typeField] === matchEntityField)
+      .map((digitalisat) => digitalisat.digitalisatManifestId_s)
+    return manifests.length && manifests[0]
+  }
+  return manifest
 }

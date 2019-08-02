@@ -1,6 +1,6 @@
 import '@react-discovery/i18n'
 import {AnyAction, Store, applyMiddleware, createStore} from "redux"
-import {DiscoveryApp, Landing, ResultsList, Workspace} from './components'
+import {DiscoveryApp, Landing, ResultsList, Settings, Workspace} from './components'
 import {Router, View} from 'react-navi'
 import {mount, route} from 'navi'
 import thunkMiddleware, {ThunkMiddleware} from 'redux-thunk'
@@ -30,6 +30,11 @@ const routes =
     '/search': route({
       title: "React Discovery",
       view: <DiscoveryApp component={<ResultsList />}/>,
+    }),
+    '/settings': route((): any => {
+      return {
+        view: <DiscoveryApp component={<Settings />}/>,
+      }
     }),
     '/workspace': route((): any => {
       return {

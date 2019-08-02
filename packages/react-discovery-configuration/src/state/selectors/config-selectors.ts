@@ -1,6 +1,14 @@
 import {IDocType, IHitComponent, ILanguage, IRefinementListFilters} from "../.."
 import {useSelector} from "react-redux"
 
+export const getCollections = (): string[] => {
+  return useSelector((state: any): string[] => state.config.collections)
+}
+
+export const getCollectionByKey = (key: string) => {
+  return useSelector((state: any): any => state.config.collections && state.config.collections[key])
+}
+
 export const getCurrentCollection = (): string => {
   return useSelector((state: any): string => state.config.currentCollection)
 }

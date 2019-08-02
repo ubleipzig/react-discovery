@@ -1,19 +1,22 @@
 export * from './state'
+
+export interface ICollection {
+  docTypes?: IDocType[];
+  hitComponents: IHitComponent[];
+  initialFilter?: IFilters;
+  name: string;
+  primaryTypeField: string;
+  refinementListFilters: IRefinementListFilters;
+  searchFields: ISearchField[];
+  sortFields: ISortField[];
+}
+
+export type ICollectionRecord = Record<string, ICollection>
+
 export interface IConfig {
   currentCollection?: string;
   currentLanguage?: string;
-  collections: {
-    [collection: string]: {
-      docTypes?: IDocType[];
-      hitComponents: IHitComponent[];
-      initialFilter?: IFilters;
-      primaryTypeField: string;
-      refinementListFilters: IRefinementListFilters;
-      searchFields: ISearchField[];
-      sortFields: ISortField[];
-      url: string;
-    };
-  };
+  collections: ICollectionRecord;
   itemViews?: IItemViews;
   isHighlighted?: boolean;
   isPersisted?: boolean;

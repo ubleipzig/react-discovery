@@ -1,8 +1,9 @@
 import React, {ReactElement, useEffect, useState} from "react"
 import {fetchElasticSearchResponse, getStringInput} from "../state"
 import {getDefaultQuery, getFilters, getFrom, getSize, getSortFields} from "../state/selectors"
+import {ElasticSearchConstants} from "../enum"
 import {IElasticSearchQuery} from "../index"
-import {getUrl} from "@react-discovery/configuration"
+import {getCurrentCollection} from "@react-discovery/configuration"
 import {queryBuilder} from "../query-builders"
 import {useDispatch} from 'react-redux'
 import {usePrevious} from '../../hooks'
@@ -18,7 +19,8 @@ export const ElasticSearchProvider: React.FC<IElasticSearchProvider> = (props): 
   const query: IElasticSearchQuery = getDefaultQuery()
   const queryObj = queryBuilder(query)
   const json = JSON.stringify(queryObj)
-  const url = getUrl()
+  const currentCollection = getCurrentCollection()
+  const url = process.env.REACT_APP_SEARCH_API_HOST + currentCollection + ElasticSearchConstants.SEARCH
   const dispatch = useDispatch()
   const from = getFrom()
   const prevFrom = usePrevious(from)

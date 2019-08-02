@@ -1,5 +1,6 @@
 import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
 import {
+  setCurrentCollection,
   setCurrentLanguage,
   setHitComponent,
   setIsPersisted,
@@ -37,4 +38,7 @@ export const config = (initialState): ReducerBuilder<IConfig> => reducerWithInit
     ...state,
     currentLanguage
   }))
-
+  .case(setCurrentCollection, (state, {currentCollection}): ReducerBuilder<IConfig> => ({
+    ...state,
+    currentCollection
+  }))
