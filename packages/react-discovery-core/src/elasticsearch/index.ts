@@ -12,7 +12,7 @@ export const ESCore = {
 export * from './components'
 
 export interface IElasticSearchQuery {
-  aggs?: any;
+  aggs: any;
   filters: IFilters;
   query?: any;
   refinementListFilters?: IRefinementListFilters;

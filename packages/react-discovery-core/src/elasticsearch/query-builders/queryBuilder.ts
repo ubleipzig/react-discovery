@@ -1,6 +1,7 @@
 import {IElasticSearchQuery, IFilters} from "../.."
 import {ElasticSearchConstants} from '../enum'
 import {NestedQuery} from "./full-text"
+import {ISortField} from "@react-discovery/configuration"
 const assign = require("lodash/assign")
 const reduce = require("lodash/reduce")
 const compact = require("lodash/compact")
@@ -78,15 +79,28 @@ const buildPostFilter = (filters: IFilters) => {
   return [].concat(...tq)
 }
 
+export const buildSortFields = (sortFields: ISortField[]): {} => {
+  const sf = sortFields
+    .filter((sortField, i): boolean => sortField.isSelected || i === 0)
+    .reduce((acc, sortField): any => {
+      const field = {
+        [sortField.field]: sortField.order
+      }
+      return [...acc, field]
+    }, [])
+  return sf.length ? {[ElasticSearchConstants.SORT]: sf} : ""
+}
+
 export const queryBuilder = (props: IElasticSearchQuery): any => {
-  const {aggs, filters, from, size, searchFields, stringInput} = props
+  const {aggs, filters, from, size, searchFields, sortFields, stringInput} = props
   const qfList = buildSearchFieldList(searchFields)
   const nestedQfList = buildNestedSearchFieldList(searchFields)
   const level2QfList = buildLevel2NestedSearchFieldList(searchFields)
   const postFilter = buildPostFilter(filters)
+  const sort = buildSortFields(sortFields)
   return {
     ...buildSize(size),
     ...buildFrom(from),
     ...buildTrackTotal(),
-    ...NestedQuery(aggs, level2QfList, nestedQfList, postFilter, qfList, stringInput)}
+    ...NestedQuery(aggs, level2QfList, nestedQfList, postFilter, qfList, sort, stringInput)}
 }

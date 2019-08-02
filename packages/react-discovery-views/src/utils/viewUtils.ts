@@ -1,8 +1,9 @@
 import {ESCore} from "@react-discovery/core"
 
-export const buildDocumentUri = (id) => {
+export const buildDocumentUri = (currentCollection, id) => {
+  const collection = currentCollection || process.env.REACT_APP_SEARCH_API_COLLECTION
   return process.env.REACT_APP_SEARCH_API_HOST
-    + process.env.REACT_APP_SEARCH_API_COLLECTION
+    + collection
     + ESCore.enums.ElasticSearchConstants.DOCUMENT + id
 }
 

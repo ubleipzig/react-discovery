@@ -1,6 +1,6 @@
 import {ArrowDownward, ArrowUpward} from '@material-ui/icons'
 import {FlexBox, IOverridableStyledComponent} from ".."
-import {FormControl, IconButton, Input, NativeSelect} from '@material-ui/core'
+import {FormControl, IconButton, Input, InputLabel, NativeSelect} from '@material-ui/core'
 import React, {ReactElement} from "react"
 import {ESCore} from "@react-discovery/core"
 import {ISortField} from "@react-discovery/configuration"
@@ -87,12 +87,12 @@ export const SortingSelector: React.FC<IOverridableStyledComponent> = (props): R
   }
 
   return sortFields ? (
-    <FormControl
-      className={classes.formControl}
-      component='div'
-    >
-      <FlexBox>
-        {buildSortOrderButton()}
+    <div>
+      <FormControl
+        className={classes.formControl}
+        component='div'
+      >
+        <InputLabel shrink htmlFor="sort-native-simple">Sort By</InputLabel>
         <NativeSelect
           input={<Input id="sort-native-simple" name="sort" />}
           onChange={handleChange}
@@ -100,7 +100,8 @@ export const SortingSelector: React.FC<IOverridableStyledComponent> = (props): R
         >
           {buildOptions()}
         </NativeSelect>
-      </FlexBox>
-    </FormControl>
+      </FormControl>
+      {buildSortOrderButton()}
+    </div>
   ) : null
 }

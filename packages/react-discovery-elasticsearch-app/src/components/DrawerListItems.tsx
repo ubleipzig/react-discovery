@@ -1,5 +1,5 @@
 import {Badge, ListItem, ListItemIcon, ListItemText, Tooltip} from "@material-ui/core"
-import {Collections, EditLocation, Home, PictureInPicture, Search} from "@material-ui/icons"
+import {Collections, EditLocation, Home, PictureInPicture, Search, Settings} from "@material-ui/icons"
 
 import {NavLink, useCurrentRoute} from "react-navi"
 import React, {ReactElement, forwardRef, useEffect, useState} from "react"
@@ -29,22 +29,28 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
       text: 'Search'
     },
     {
-      id: 'albums',
+      id: 'workspace',
       index: 2,
+      path: '/workspace',
+      text: 'Workspace'
+    },
+    {
+      id: 'albums',
+      index: 3,
       path: '/',
       text: 'Gallery'
     },
     {
       id: 'editAnnotations',
-      index: 3,
+      index: 4,
       path: '/',
       text: 'Annotate'
     },
     {
-      id: 'workspace',
-      index: 4,
-      path: '/workspace',
-      text: 'Workspace'
+      id: 'settings',
+      index: 5,
+      path: '/settings',
+      text: 'Settings'
     },
   ]
 
@@ -82,6 +88,8 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
             <PictureInPicture/>
           </Badge>
         )
+      case 'settings':
+        return <Settings/>
     }
   }
 

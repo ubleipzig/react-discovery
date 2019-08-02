@@ -1,5 +1,4 @@
 import {Domain} from '@react-discovery/views'
-import {ESCore} from "@react-discovery/core"
 import {IConfig} from "@react-discovery/configuration"
 
 export const hsp2: IConfig = {
@@ -70,6 +69,7 @@ export const hsp2: IConfig = {
           key: "facet",
         },
       ],
+      name: 'Handschriftenportal',
       primaryTypeField: Domain.KULTUROBJEKT,
       refinementListFilters: {
         1: {
@@ -85,9 +85,9 @@ export const hsp2: IConfig = {
           label: "language",
         },
         4: {
-          field: "type_s.keyword",
-          label: "documentType",
-        },
+          field: "author_t.keyword",
+          label: "author"
+        }
       },
       searchFields: [
         {
@@ -287,22 +287,21 @@ export const hsp2: IConfig = {
       ],
       sortFields: [
         {
-          field: "type_s",
-          label: "type",
+          field: "titel_t.keyword",
+          label: "title",
           order: "asc"
         },
         {
-          field: "entstehungsort_s",
+          field: "entstehungsort_s.keyword",
           label: "originPlace",
           order: "asc"
         },
         {
-          field: "status_t",
+          field: "status_t.keyword",
           label: "status",
           order: "asc"
         },
       ],
-      url: process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION + ESCore.enums.ElasticSearchConstants.SEARCH
     }
   }
 }

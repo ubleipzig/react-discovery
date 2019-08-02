@@ -1,13 +1,10 @@
+import {collections} from './collections'
 import {IConfig} from "@react-discovery/configuration"
 import deepmerge from 'deepmerge'
-import {hsp2} from './collections'
 
-export const mergedCollections: any = deepmerge.all([hsp2])
-const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION || "ox1"
-const {collections} = mergedCollections
-const {url} = collections[currentCollection]
+const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION
 export const rootConfig: IConfig = {
-  collections: null,
+  collections: {},
   currentCollection,
   currentLanguage: 'en',
   isViewExpanded: false,
@@ -23,7 +20,6 @@ export const rootConfig: IConfig = {
     }],
   rootContext: '/search',
   selectedIndex: 0,
-  url
 }
 
-export const localConfig: any = deepmerge(rootConfig, mergedCollections)
+export const localConfig: any = deepmerge(rootConfig, collections)

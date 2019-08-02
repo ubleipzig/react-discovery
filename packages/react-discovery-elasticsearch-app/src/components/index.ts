@@ -8,5 +8,6 @@ export * from './ResultsList'
 export * from './MinWidthResultsGrid'
 export * from './SearchAppBar'
 export * from './PersistentDrawer'
+export * from './Settings'
 export * from './Workspace'
 

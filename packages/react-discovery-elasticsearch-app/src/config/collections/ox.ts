@@ -12,6 +12,7 @@ export const ox1: IConfig = {
           key: "default",
         },
       ],
+      name: 'Oxford',
       primaryTypeField: "collections.keyword",
       refinementListFilters: {
         1: {
@@ -181,7 +182,6 @@ export const ox1: IConfig = {
           order: "desc"
         }
       ],
-      url: process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION + ESCore.enums.ElasticSearchConstants.SEARCH
     }
   }
 }
