@@ -1,9 +1,11 @@
 import {Card, CardActions, CardContent, Theme, createStyles, makeStyles, } from "@material-ui/core"
-import {Domain, EntityDisplay,
+import {
+  Domain, EntityDisplay,
   annotationDisplayFields,
   beschreibungDisplayFields,
   digitalisatDisplayFields,
-  facetDisplayFields, personDisplayFields} from "."
+  facetDisplayFields, personDisplayFields, buildDocumentUri
+} from "."
 import {
   FieldValueDisplay,
   TitleIdHeader,
@@ -61,11 +63,12 @@ export const SimpleDataView: React.FC<any> = (props): ReactElement => {
   const dispatch = useDispatch()
   const docs = ESCore.state.getDocuments()
   const doc = Object.keys(docs).length ? docs[id] : null
-  const url = process.env.REACT_APP_SEARCH_API_HOST + process.env.REACT_APP_SEARCH_API_COLLECTION + ESCore.enums.ElasticSearchConstants.DOCUMENT + id
+  const url = buildDocumentUri(id)
   const searchFields = ESCore.state.getSearchFields()
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = doc && buildHighlightedValueForHit('titel_t', doc)
   const manifest = doc && getFirstManifestFromHit(doc, Domain.DIGITALISAT)
+
   useEffect((): void => {
     if (!doc) {
       dispatch(ESCore.state.fetchElasticSearchDocument.action({url}))

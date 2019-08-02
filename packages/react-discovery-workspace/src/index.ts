@@ -1,5 +1,4 @@
 export * from './MosaicWorkspace'
-export * from './MosaicWindowToolbar'
 export * from './ZeroState'
 export * from './state'
 export * from './styles'

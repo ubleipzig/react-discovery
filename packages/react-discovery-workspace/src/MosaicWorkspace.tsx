@@ -7,9 +7,9 @@ import {
   createBalancedTreeFromLeaves,
   getLeaves,
 } from 'react-mosaic-component'
-import {MosaicWindowToolbar, ZeroState} from "."
 import React, {ReactElement, Suspense, useEffect} from 'react'
-import {getWorkspaceLayout, getWorkspaceViewIdMap, setWorkspaceLayout} from './state'
+import {getWorkspaceLayout, getWorkspaceViewIdMap, removeViewId, setWorkspaceLayout} from './state'
+import {ZeroState} from "."
 import {createRandomNode} from './utils'
 import {makeStyles} from "@material-ui/core"
 import {useDispatch} from "react-redux"
@@ -17,6 +17,7 @@ import {useMosaicStyles} from "./styles"
 
 export interface IWorkspaceMosaic {
   currentNode?: MosaicNode<number> | null;
+  windowAppBar?: any;
 }
 
 const useStyles = makeStyles(() => ({
@@ -27,7 +28,8 @@ const useStyles = makeStyles(() => ({
 
 const VIEW_COMPONENT_PATH = './views'
 
-export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (): ReactElement => {
+export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (props): ReactElement => {
+  const {windowAppBar} = props
   const dispatch = useDispatch()
   useMosaicStyles({})
   const classes = useStyles({})
@@ -57,13 +59,14 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (): ReactElement => {
   const renderTile = (id, path): ReactElement => {
     const dataId = Object.keys(viewIdMap).length && viewIdMap[id] && viewIdMap[id].id
     const type = Object.keys(viewIdMap).length && viewIdMap[id] && viewIdMap[id].type
+    const WindowAppBar = windowAppBar
     return (
       <MosaicWindow<string>
         createNode={createNode}
         path={path}
         renderToolbar={() =>
           <div className={classes.root}>
-            <MosaicWindowToolbar id={id}/>
+            <WindowAppBar dataId={dataId} id={id} removeViewId={removeViewId}/>
           </div>}
         title={`Window ${id}`}
       >
