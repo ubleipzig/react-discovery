@@ -64,7 +64,7 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
     if (route !== prevRoute) {
       const pathname = route.url.pathname
       const [startItem] = listItems.filter((item) => item.path === pathname)
-      setSelectedIndex(startItem.index)
+      startItem && setSelectedIndex(startItem.index)
     }
   }, [route, prevRoute])
 

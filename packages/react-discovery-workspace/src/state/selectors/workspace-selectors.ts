@@ -22,3 +22,8 @@ export const getNumberOfWorkspaceNodesForId = (id) => {
   return useSelector((state: any) => state.workspace.viewIdMap &&
     Object.values(state.workspace.viewIdMap).filter((instance: any) => instance.id === id)).length
 }
+
+export const getNumberOfWorkspaceNodesForManifest = (manifest) => {
+  return useSelector((state: any) => state.workspace.viewIdMap &&
+    Object.values(state.workspace.viewIdMap).filter((instance: any) => instance.manifest === manifest)).length
+}

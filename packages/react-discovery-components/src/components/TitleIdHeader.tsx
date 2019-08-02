@@ -1,11 +1,10 @@
-import {CardHeader, Tooltip} from "@material-ui/core"
 import {FlexBox, InnerHtmlValue} from "."
 import {Link, useCurrentRoute} from 'react-navi'
-import React, {forwardRef, ReactElement} from "react"
+import React, {ReactElement} from "react"
+import {CardHeader} from "@material-ui/core"
 import {ESCore} from "@react-discovery/core"
 import {getRootContext} from "@react-discovery/configuration"
 import {useDispatch} from 'react-redux'
-import {useTranslation} from "react-i18next"
 
 interface ITitleIdHeader {
   optionsMenu?: ReactElement;

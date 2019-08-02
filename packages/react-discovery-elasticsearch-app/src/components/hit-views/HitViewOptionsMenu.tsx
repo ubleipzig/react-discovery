@@ -27,9 +27,6 @@ export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
 
   const handleAddToWorkspace = (key): void => {
     switch (key) {
-      case 'addMediaToWorkspace':
-        dispatch(setViewIdMap({id, type: 'image'}))
-        break
       case 'addDataToWorkspace':
         dispatch(setViewIdMap({id, type: 'data'}))
     }
@@ -41,10 +38,6 @@ export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
   }
 
   const options = [
-    {
-      key: 'addMediaToWorkspace',
-      label: 'addMediaToWorkspace'
-    },
     {
       key: 'addDataToWorkspace',
       label: 'addDataToWorkspace'
