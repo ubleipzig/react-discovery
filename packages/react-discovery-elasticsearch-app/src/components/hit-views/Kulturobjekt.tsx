@@ -103,7 +103,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
             </div>
           </div>
         </Grid>
-        <ThumbnailGrid id={id} manifest={manifest}/>
+        <ThumbnailGrid hit={hit} id={id} manifest={manifest}/>
       </Grid>
     </Card>
   ) : null

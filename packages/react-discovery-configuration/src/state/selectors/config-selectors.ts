@@ -59,6 +59,10 @@ export const getSelectedIndex = (): number => {
   return useSelector((state: any): number => state.config.selectedIndex)
 }
 
+export const getSelectedTabForId = (id): number => {
+  return useSelector((state: any): number => state.config.selectedTabs && state.config.selectedTabs[id])
+}
+
 export const getUrl = (): string => {
   return useSelector((state: any): string => state.config.url)
 }

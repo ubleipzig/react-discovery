@@ -2,6 +2,7 @@ import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
 import {
   setCurrentCollection,
   setCurrentLanguage,
+  setCurrentSelectedTab,
   setHitComponent,
   setIsPersisted,
   setIsViewExpanded,
@@ -41,4 +42,11 @@ export const config = (initialState): ReducerBuilder<IConfig> => reducerWithInit
   .case(setCurrentCollection, (state, {currentCollection}): ReducerBuilder<IConfig> => ({
     ...state,
     currentCollection
+  }))
+  .case(setCurrentSelectedTab, (state, {currentSelectedTab, id}): ReducerBuilder<IConfig> => ({
+    ...state,
+    selectedTabs: {
+      ...state.selectedTabs,
+      [id]: currentSelectedTab,
+    }
   }))

@@ -1,6 +1,6 @@
 import {Badge, IconButton, Menu, MenuItem, Theme, Tooltip, Typography, withStyles} from "@material-ui/core"
+import {MoreVert, MoreVertOutlined} from "@material-ui/icons"
 import React, {ReactElement} from "react"
-import {Star, StarBorder} from "@material-ui/icons"
 import {getNumberOfWorkspaceNodesForId, setViewIdMap} from '@react-discovery/workspace'
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
@@ -76,8 +76,8 @@ export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
       > <IconButton
           onClick={handleHitViewOptionsMenuOpen}>
           {
-            nodeCount > 0 ? <Star fontSize='default' style={{padding: '5px'}}/>
-              : <StarBorder fontSize='default' style={{padding: '5px'}}/>
+            nodeCount > 0 ? <MoreVert fontSize='default' style={{padding: '5px'}}/>
+              : <MoreVertOutlined fontSize='default' style={{padding: '5px'}}/>
           }
         </IconButton>
       </StyledBadge>
