@@ -1,24 +1,25 @@
-import React, {ReactElement, useEffect} from "react"
+import {CheckCircle, CheckCircleOutline} from "@material-ui/icons"
 import {GridListTileBar, IconButton, Tooltip, makeStyles, withStyles} from "@material-ui/core"
+import React, {ReactElement, useEffect} from "react"
+import {getWorkspaceViewIdMap, setViewIdMap} from "@react-discovery/workspace"
 import {Domain} from "@react-discovery/views"
 import {useDispatch} from "react-redux"
-import {getWorkspaceViewIdMap, setViewIdMap} from "@react-discovery/workspace"
 import {usePrevious} from "@react-discovery/core"
 import {useTranslation} from "react-i18next"
-import {CheckCircle, CheckCircleOutline} from "@material-ui/icons"
 
-const useStyles = makeStyles(theme => ({
+
+const useStyles = makeStyles((theme): any => ({
   title: {
     color: theme.palette.common.white,
   },
   titleBar: {
     background:
-      'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
+      'linear-gradient(to bottom, #00102d 0%, ' +
       'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
   },
 }))
 
-const ColorButton = withStyles(() => ({
+const HoverButton = withStyles(() => ({
   root: {
     "&:hover": {
       opacity: 1
@@ -29,7 +30,7 @@ const ColorButton = withStyles(() => ({
 }))(IconButton)
 
 export const ImageGridListTitleBar: React.FC<any> = (props): ReactElement => {
-  const classes = useStyles({})
+  const classes: any = useStyles({})
   const {hit, item} = props
   const id = hit && hit._source.id
   const dispatch = useDispatch()
@@ -59,17 +60,18 @@ export const ImageGridListTitleBar: React.FC<any> = (props): ReactElement => {
             {nodeCount && nodeCount.length ?
               <IconButton
                 aria-label={`star ${item[Domain.MEDIA_TITLE_FIELD]}`}
+                color='primary'
                 href=''
                 onClick={() => handleAddToWorkspace(item[Domain.MANIFEST_ID_FIELD])}
               >
                 <CheckCircle className={classes.title}/>
               </IconButton> :
-              <ColorButton
+              <HoverButton
                 aria-label={`star ${item[Domain.MEDIA_TITLE_FIELD]}`}
                 onClick={() => handleAddToWorkspace(item[Domain.MANIFEST_ID_FIELD])}
               >
                 <CheckCircleOutline className={classes.title}/>
-              </ColorButton>
+              </HoverButton>
             }
           </Tooltip>
         }

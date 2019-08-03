@@ -2,7 +2,7 @@ import {Badge, Chip, Tab, Tabs, Theme, Tooltip, withStyles} from "@material-ui/c
 import {Book, ChatBubble, Image, Info} from "@material-ui/icons"
 import {Domain, useHitViewStyles} from "@react-discovery/views"
 import React, {ReactElement} from "react"
-import {getSelectedIndex, setItemViewType} from "@react-discovery/configuration"
+import {getSelectedTabForId, getSelectedIndex, setCurrentSelectedTab, setItemViewType} from "@react-discovery/configuration"
 import {buildEntityCountForType} from "@react-discovery/components"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
@@ -28,10 +28,10 @@ export const EntityBadges: React.FC<any> = (props): ReactElement => {
   const chipLabel = (i + 1) + (20 * indexMultiplier)
   const dispatch = useDispatch()
   const {t} = useTranslation('vocab')
-  const [value, setValue] = React.useState(0);
+  const value = getSelectedTabForId(id) || 0
 
-  const handleChange = ({}, newValue: number) => {
-    setValue(newValue);
+  const handleChange = ({}, newValue: number): void => {
+    dispatch(setCurrentSelectedTab({currentSelectedTab: newValue, id}));
   }
 
   const items = [
