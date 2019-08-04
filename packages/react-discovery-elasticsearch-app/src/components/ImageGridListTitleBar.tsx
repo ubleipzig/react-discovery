@@ -7,7 +7,6 @@ import {useDispatch} from "react-redux"
 import {usePrevious} from "@react-discovery/core"
 import {useTranslation} from "react-i18next"
 
-
 const useStyles = makeStyles((theme): any => ({
   title: {
     color: theme.palette.common.white,
@@ -32,7 +31,7 @@ const HoverButton = withStyles(() => ({
 export const ImageGridListTitleBar: React.FC<any> = (props): ReactElement => {
   const classes: any = useStyles({})
   const {hit, item} = props
-  const id = hit && hit._source.id
+  const id = hit && (hit._source.id || hit.id)
   const dispatch = useDispatch()
   const viewIdMap = getWorkspaceViewIdMap()
   const prevViewIdMap = usePrevious(viewIdMap)

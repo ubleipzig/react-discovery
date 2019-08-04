@@ -17,6 +17,8 @@ interface IDefaultItemComponent {
   i: number;
 }
 
+const typeField = ESCore.enums.FieldConstants.TYPE_FIELD
+
 const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
   const searchFields = ESCore.state.getSearchFields()
@@ -24,11 +26,14 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const id = hit && hit._source.id
   const itemViewType = hit && getItemViewType(id)
   const isViewExpanded = getIsViewExpanded()
-  const title = buildHighlightedValueForHit('titel_t', hit)
+  const title = buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, hit)
   const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate']
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const entities = hit && hit._source.entities && hit._source.entities
   const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
+  const media = hit && hit._source && hit._source.entities
+    .filter((entity) => entity[typeField] === Domain.DIGITALISAT)
+  const item = media.length && media[0]
 
   const buildValueDisplay = (field: string, hit: IHit, key: number): ReactElement => {
     return (
@@ -81,7 +86,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
         >
           <ItemActionBar entities={entities} i={i} id={id}/>
           <TitleIdHeader
-            id={hit._source.id}
+            id={id}
             optionsMenu={optionsMenu}
             title={title}
           />
@@ -91,7 +96,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
                 className={classes.content}
               >
                 <ValueDisplay
-                  field={'subtitel_t'}
+                  field={Domain.DOC_SUBTITLE_FIELD}
                   hit={hit}
                   style={{flex: 'auto'}}
                   variant='h6'
@@ -103,7 +108,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
             </div>
           </div>
         </Grid>
-        <ThumbnailGrid hit={hit} id={id} manifest={manifest}/>
+        <ThumbnailGrid hit={hit} item={item} manifest={manifest}/>
       </Grid>
     </Card>
   ) : null

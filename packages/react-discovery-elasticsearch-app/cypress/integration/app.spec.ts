@@ -11,14 +11,6 @@ describe('React Discovery Base', (): void => {
     cy.get('[data-testid=clear-searchbox]').click()
     cy.get('input#standard-full-width').should('have.value', '')
   })
-  it('changes language', (): void => {
-    cy.get('[data-testid=language-settings-menu]').click()
-    cy.get('[data-testid=language-settings-menu-item-1]').click({ force: true })
-    cy.get('[data-testid=language-settings-menu-item-1]').click({ force: true }).should(($div): void => {
-      const className = $div[0].className
-      expect(className).to.match(/Mui-selected/)
-    })
-  })
   it('resets query state', (): void => {
     cy.get('[data-testid=reset]').click()
   })

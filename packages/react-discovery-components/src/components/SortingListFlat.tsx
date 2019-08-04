@@ -1,25 +1,25 @@
 import {ArrowDownward, ArrowUpward} from '@material-ui/icons'
-import {IOverridableStyledComponent} from ".."
-import {FormControl, IconButton, Input, InputLabel, NativeSelect} from '@material-ui/core'
+import {Divider, IconButton, List, ListItem, ListItemText, Typography} from '@material-ui/core'
 import React, {ReactElement} from "react"
 import {ESCore} from "@react-discovery/core"
+import {FlexBox} from '.'
+import {IOverridableStyledComponent} from ".."
 import {ISortField} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 import {useSortingSelectorStyles} from "../styles"
 import {useTranslation} from "react-i18next"
 
-export const SortingSelector: React.FC<IOverridableStyledComponent> = (props): ReactElement => {
+export const SortingListFlat: React.FC<IOverridableStyledComponent> = (props): ReactElement => {
   const {t} = useTranslation('vocab')
   const classes: any = props.classes || useSortingSelectorStyles({})
   const dispatch = useDispatch()
   const sortFields = ESCore.state.getSortFields()
-  const [selectorValue, setSelectorValue] = React.useState('')
   const [sortOrder, setSortOrder] = React.useState('asc')
 
-  const handleChange = (e): void => {
+  const handleChange = (field): void => {
     const newSortFields = sortFields.reduce((acc, currVal): any => {
       let val
-      if (currVal.field === e.target.value) {
+      if (currVal.field === field) {
         val = {
           ...currVal,
           isSelected: true
@@ -35,7 +35,6 @@ export const SortingSelector: React.FC<IOverridableStyledComponent> = (props): R
     const sorted = newSortFields.sort((a: any, b: any): any => (a.isSelected === b.isSelected) ? 0 : a.isSelected ? -1 : 1)
     const [currentSortSelection] = sorted
     dispatch(ESCore.state.setSortFields({sortFields: sorted}))
-    setSelectorValue(currentSortSelection.field)
     setSortOrder(currentSortSelection.order)
   }
 
@@ -57,10 +56,6 @@ export const SortingSelector: React.FC<IOverridableStyledComponent> = (props): R
     }
   }
 
-  const buildOptions = (): ReactElement[] => {
-    return sortFields.map((sf, i): ReactElement => <option key={i} value={sf.field}>{t(sf.label)}</option>)
-  }
-
   const buildSortOrderButton = (): ReactElement => {
     if (sortOrder === 'asc') {
       return (
@@ -69,7 +64,9 @@ export const SortingSelector: React.FC<IOverridableStyledComponent> = (props): R
           className={classes.button}
           data-testid='sorting-order-desc'
           href=''
-          onClick={(): void => handleSortOrder('desc')}>
+          onClick={(): void => handleSortOrder('desc')}
+          size='small'
+        >
           <ArrowUpward/>
         </IconButton>)
     } else {
@@ -80,28 +77,63 @@ export const SortingSelector: React.FC<IOverridableStyledComponent> = (props): R
           data-testid='sorting-order-asc'
           href=''
           onClick={(): void => handleSortOrder('asc')}
+          size='small'
         >
           <ArrowDownward/>
         </IconButton>)
     }
   }
 
-  return sortFields ? (
-    <div className={classes.root}>
-      <FormControl
-        className={classes.formControl}
-        component='div'
-      >
-        <InputLabel shrink htmlFor="sort-native-simple">Sort By</InputLabel>
-        <NativeSelect
-          input={<Input id="sort-native-simple" name="sort" />}
-          onChange={handleChange}
-          value={selectorValue}
+  const actions = (): any => {
+    return sortFields.map((sf, i): any => {
+      return (
+        <ListItem
+          button={true}
+          component='div'
+          data-testid={`item-${i}`}
+          dense
+          disableGutters={true}
+          key={i}
+          onClick={(): void => handleChange(sf.field)}
+          role={undefined}
         >
-          {buildOptions()}
-        </NativeSelect>
-      </FormControl>
-      {buildSortOrderButton()}
-    </div>
+          <ListItemText
+            className={classes.content}
+            primary={
+              <Typography
+                className={classes.grow}
+                color='textSecondary'
+                component="div"
+                variant='body2'
+              >
+                {t(sf.label)}
+              </Typography>
+            }
+          />
+        </ListItem>
+      )
+    })
+  }
+
+  return sortFields ? (
+    <List
+      component="nav"
+      style={{minWidth: 100, paddingRight: 32, width: '100%'}}
+    >
+      <FlexBox>
+        <Typography
+          className={classes.inline}
+          color="textPrimary"
+          component="div"
+          variant="button"
+        >
+          Sort By
+        </Typography>
+        <div style={{flexGrow: 1}}/>
+        {buildSortOrderButton()}
+      </FlexBox>
+      <Divider style={{margin: 12, marginLeft: 0}} variant="fullWidth"/>
+      {actions()}
+    </List>
   ) : null
 }

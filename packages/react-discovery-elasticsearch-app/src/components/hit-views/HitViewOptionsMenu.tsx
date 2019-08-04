@@ -74,6 +74,7 @@ export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
         badgeContent={nodeCount}
         color="secondary"
       > <IconButton
+          href=''
           onClick={handleHitViewOptionsMenuOpen}>
           {
             nodeCount > 0 ? <MoreVert fontSize='default' style={{padding: '5px'}}/>
