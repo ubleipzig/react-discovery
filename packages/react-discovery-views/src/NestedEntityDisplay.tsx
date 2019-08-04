@@ -4,7 +4,7 @@ import {
   ExpansionPanel,
   ExpansionPanelDetails,
   ExpansionPanelSummary,
-  List,
+  List, ListSubheader,
   Typography
 } from "@material-ui/core"
 import {
@@ -26,11 +26,12 @@ interface INestedEntityDisplay {
   displayFields: IDisplayField[];
   entity;
   type: string;
+  useExpansion?: boolean;
 }
 
 export const NestedEntityDisplay: React.FC<INestedEntityDisplay> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const {displayFields, entity, type} = props
+  const {displayFields, entity, type, useExpansion} = props
   const [isExpanded, setExpanded] = React.useState(true);
   const {t} = useTranslation('vocab')
 
@@ -54,10 +55,9 @@ export const NestedEntityDisplay: React.FC<INestedEntityDisplay> = (props): Reac
               buildHighlightedValueForHit(field.field, entity) : [].concat(entity[field.field] || null).filter((v): any => v !== null).join(", ")
             return (
               <CardContent
-                className={classes.content}
+                className={classes.contentDefaultPadding}
                 key={i}
               >
-                <FieldLabel label={field.label}/>
                 <div style={{flex: 'auto'}}>
                   <Typography
                     className={classes.inline}
@@ -75,7 +75,14 @@ export const NestedEntityDisplay: React.FC<INestedEntityDisplay> = (props): Reac
     })
   }
 
-  return entityCount ? (
+  const buildDetails = () =>
+    <ExpansionPanelDetails>
+      <List component="nav">
+        {buildEntityFields(displayFields)}
+      </List>
+    </ExpansionPanelDetails>
+
+  return entityCount && useExpansion ? (
     <ExpansionPanel
       TransitionProps={{ unmountOnExit: true }}
       defaultExpanded={Boolean(true)}
@@ -96,12 +103,19 @@ export const NestedEntityDisplay: React.FC<INestedEntityDisplay> = (props): Reac
           {entity && t(type)} <i>({entityCount})</i>
         </Typography>
       </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
-        <List component="nav">
-          {buildEntityFields(displayFields)}
-        </List>
-      </ExpansionPanelDetails>
+      {buildDetails()}
     </ExpansionPanel>
-  ) : <Typography variant='caption'>No Matching {type} Documents</Typography>
+  ) : entityCount && !useExpansion ?
+    <List
+      component="nav"
+      subheader={
+        <ListSubheader component="div" id="nested-list-subheader">
+          {t(type)} <i>({entityCount})</i>
+        </ListSubheader>
+      }
+    >
+      {buildEntityFields(displayFields)}
+    </List> :
+    <Typography variant='caption'>No Matching {type} Documents</Typography>
 }
 

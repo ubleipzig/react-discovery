@@ -19,7 +19,7 @@ export const NestedQuery = (aggregations, lvl2QfList, nestedQfList, postFilters,
     }
   }
 
-  if (!lvl2QfList || nestedQfList) {
+  if (!lvl2QfList.length || !nestedQfList.length) {
     return {
       "aggs": aggregations,
       "highlight": {

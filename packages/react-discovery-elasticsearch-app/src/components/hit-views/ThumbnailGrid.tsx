@@ -7,6 +7,7 @@ import {useThumbnailStyles} from "."
 export const ThumbnailGrid: React.FC<any> = (props): ReactElement => {
   const {hit, item, manifest} = props
   const thumbnailClasses = useThumbnailStyles({})
+  const thumbnail = hit && hit._source && hit._source.thumbnail
   return hit && item ? (
     <Grid style={{background: 'whitesmoke', flexGrow: 1, padding: 24}}>
       <Container maxWidth="xs">
@@ -16,6 +17,7 @@ export const ThumbnailGrid: React.FC<any> = (props): ReactElement => {
           <Thumbnail
             classes={thumbnailClasses}
             manifest={manifest}
+            thumbnail={thumbnail}
           />
           <ImageGridListTitleBar hit={hit} item={item}/>
         </GridListTile>

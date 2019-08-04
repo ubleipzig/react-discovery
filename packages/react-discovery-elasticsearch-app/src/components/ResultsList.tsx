@@ -58,10 +58,16 @@ export const ResultsList: React.FC<any> = (): ReactElement => {
               >
                 <HitStats/>
                 <ViewSwitcherToggle/>
-                <ES.Pagination/>
               </Grid>
               <ListFilters/>
               <FacetViewSwitcher/>
+              <Grid
+                className={mainClasses.gridActions}
+                container
+                direction="row"
+              >
+                <ES.Pagination/>
+              </Grid>
             </Grid>
           </>
           : <CircularProgress className={classes.progress}/>

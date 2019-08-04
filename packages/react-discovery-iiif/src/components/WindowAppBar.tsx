@@ -38,7 +38,7 @@ export const WindowAppBar = (props): ReactElement => {
   const {dataId, id, removeViewId} = props
   const docs = ESCore.state.getDocuments()
   const doc = Object.keys(docs).length ? docs[dataId] : null
-  const title = doc && buildHighlightedValueForHit('titel_t', doc)
+  const title = doc && (buildHighlightedValueForHit('titel_t', doc) || buildHighlightedValueForHit('title', doc))
   const dispatch = useDispatch()
 
   const handleRemove = () => {

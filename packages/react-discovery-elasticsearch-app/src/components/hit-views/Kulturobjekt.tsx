@@ -9,7 +9,7 @@ import {
   buildHighlightedValueForHit,
   getFirstManifestFromHit
 } from '@react-discovery/components'
-import {getIsViewExpanded, getItemViewType} from "@react-discovery/configuration"
+import {getHitComponentConfig, getIsViewExpanded, getItemViewType} from "@react-discovery/configuration"
 
 interface IDefaultItemComponent {
   classes: any;
@@ -27,7 +27,8 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const itemViewType = hit && getItemViewType(id)
   const isViewExpanded = getIsViewExpanded()
   const title = buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, hit)
-  const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate']
+  const componentConfig = getHitComponentConfig(Domain.KULTUROBJEKT)
+  const filteredFields = componentConfig && componentConfig.filteredFields
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const entities = hit && hit._source.entities && hit._source.entities
   const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
