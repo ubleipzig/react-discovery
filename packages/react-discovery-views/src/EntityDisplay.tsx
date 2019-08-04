@@ -6,6 +6,7 @@ import {
   ExpansionPanelDetails,
   ExpansionPanelSummary,
   List,
+  ListSubheader,
   Typography,
 } from "@material-ui/core"
 import {ESCore, IHit} from "@react-discovery/core"
@@ -28,13 +29,14 @@ interface IEntityDisplay {
   isNested?: boolean;
   nestedDisplayFields?: IDisplayField[];
   type: string;
+  useExpansion?: boolean;
 }
 
 const typeField = ESCore.enums.FieldConstants.TYPE_FIELD
 
 export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const {displayFields, hit, isNested, nestedDisplayFields, type} = props
+  const {displayFields, hit, isNested, nestedDisplayFields, type, useExpansion} = props
   const [isExpanded, setExpanded] = React.useState(true);
   const {t} = useTranslation('vocab')
   const innerHits = hit && hit.innerHits && hit.innerHits.length && hit.innerHits.map((ih) => ih)
@@ -67,12 +69,11 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
     return parentEntity['beschreibungTitle_t']
   }
 
-  const buildEntityFields = (displayFields: IDisplayField[], type: string): ReactElement[] => {
+  const buildEntityFields = (displayFields: IDisplayField[]): ReactElement[] => {
     return entities && entities.map((entity: any, i: number): any =>
       <div key={i}>
         <Card className={classes.root}>
           <div style={{display: 'flex'}}>
-            {buildEntityIcon(type)}
             <div>
               {displayFields.map((field, i): ReactElement => {
                 const value = entity.field && entity.field === 'entities' ?
@@ -85,14 +86,16 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
                       className={classes.content}
                       key={i}
                     >
-                      <FieldLabel label={field.label}/>
+                      {field.field !== 'beschreibungTitle_t' ? <FieldLabel label={field.label}/> : null}
                       <div style={{flex: 'auto'}}>
                         <Typography
                           className={classes.inline}
                           color="textSecondary"
                           component="span"
                         >
-                          <InnerHtmlValue value={value}/>
+                          {field.field !== 'beschreibungTitle_t' ?
+                            <InnerHtmlValue value={value}/> : <strong><InnerHtmlValue value={value}/></strong>
+                          }
                         </Typography>
                       </div>
                     </CardContent>
@@ -101,6 +104,7 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
                         displayFields={nestedDisplayFields}
                         entity={entity}
                         type={Domain.FASZIKEL}
+                        useExpansion={false}
                       /> : null}
                   </Fragment>
                 )
@@ -112,7 +116,7 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
     )
   }
 
-  return entityCount ? (
+  return entityCount && useExpansion ? (
     <ExpansionPanel
       TransitionProps={{ unmountOnExit: true }}
       defaultExpanded={Boolean(true)}
@@ -134,10 +138,21 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <List component="nav">
-          {buildEntityFields(displayFields, type)}
+          {buildEntityFields(displayFields)}
         </List>
       </ExpansionPanelDetails>
     </ExpansionPanel>
-  ) : <Typography variant='caption'>No Matching {type} Documents</Typography>
+  ) : entityCount && !useExpansion ?
+    <List
+      component="nav"
+      subheader={
+        <ListSubheader component="div" id="nested-list-subheader">
+          {buildEntityIcon(type)} {t(type)} <i>({entityCount})</i>
+        </ListSubheader>
+      }
+    >
+      {buildEntityFields(displayFields)}
+    </List> :
+    <Typography variant='caption'>No Matching {type} Documents</Typography>
 }
 

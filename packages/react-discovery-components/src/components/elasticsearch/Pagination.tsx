@@ -51,6 +51,7 @@ export const Pagination: React.FC<IOverridableStyledComponent> = (props): ReactE
     }
     dispatch(ESCore.state.setFrom({from: page * size}))
     dispatch(setSelectedIndex({selectedIndex: page}))
+    window.scrollTo(0, 0)
   }
 
   const buildIcon = (key): ReactElement => {

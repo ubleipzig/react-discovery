@@ -4,8 +4,8 @@ import {
   EntityDisplay,
   annotationDisplayFields,
   beschreibungDisplayFields,
-  digitalisatDisplayFields,
   facetDisplayFields,
+  personDisplayFields,
   useHitViewStyles
 } from "@react-discovery/views"
 import {ESCore, IHit} from "@react-discovery/core"
@@ -18,18 +18,15 @@ import {
 } from '@react-discovery/components'
 import {HitViewOptionsMenu, ItemActionBar, ThumbnailGrid} from "."
 import React, {ReactElement} from "react"
-import {getIsViewExpanded, getItemViewType} from "@react-discovery/configuration"
+import {getHitComponentConfig, getIsViewExpanded, getItemViewType} from "@react-discovery/configuration"
 import Kulturobjekt from './Kulturobjekt'
+import {MediaGrid} from '..'
 
 interface IDefaultItemComponent {
   classes: any;
   hit: IHit;
   i: number;
 }
-
-// TODO add this to configuration
-const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate', 'formType',
-  'status', 'writingStyle', 'language', 'previousOwner']
 
 const typeField = ESCore.enums.FieldConstants.TYPE_FIELD
 
@@ -41,6 +38,8 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const itemViewType = hit && getItemViewType(id)
   const isViewExpanded = getIsViewExpanded()
   const entities = hit && hit._source.entities && hit._source.entities
+  const componentConfig = getHitComponentConfig('KulturobjektExpanded')
+  const filteredFields = componentConfig && componentConfig.filteredFields
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, hit)
   const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
@@ -50,16 +49,16 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
 
   const cardActions = [
     {
-      displayFields: digitalisatDisplayFields,
-      isNested: false,
-      nestedDisplayFields: null,
-      type: Domain.DIGITALISAT
-    },
-    {
       displayFields: beschreibungDisplayFields,
       isNested: true,
       nestedDisplayFields: facetDisplayFields,
       type: Domain.BESCHREIBUNG
+    },
+    {
+      displayFields: personDisplayFields,
+      isNested: false,
+      nestedDisplayFields: null,
+      type: Domain.PERSON
     },
     {
       displayFields: annotationDisplayFields,
@@ -81,6 +80,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
           isNested={item.isNested}
           nestedDisplayFields={item.nestedDisplayFields}
           type={item.type}
+          useExpansion={false}
         />
       </CardActions>
     )
@@ -118,6 +118,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
                   <FieldValueDisplay field={field} hit={hit}/> : null}
               </CardContent>)}
           </div>
+          <MediaGrid hit={hit}/>
           {buildCardActions(cardActions)}
         </Grid>
         <ThumbnailGrid hit={hit} item={item} manifest={manifest}/>

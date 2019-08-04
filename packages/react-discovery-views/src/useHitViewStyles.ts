@@ -9,6 +9,10 @@ export const useHitViewStyles = makeStyles((theme): any => ({
     flex: '1 0 auto',
     padding: 0,
   },
+  contentDefaultPadding: {
+    display: 'flex',
+    flex: '1 0 auto',
+  },
   contentNoFlex: {
     padding: 10,
   },

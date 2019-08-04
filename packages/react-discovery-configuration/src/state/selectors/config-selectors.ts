@@ -30,6 +30,11 @@ export const getHitComponents = (): IHitComponent[] => {
   return useSelector((state: any): IHitComponent[] => state.config.collections[state.config.currentCollection].hitComponents)
 }
 
+export const getHitComponentConfig = (type): IHitComponent => {
+  return useSelector((state: any): IHitComponent => state.config.collections[state.config.currentCollection].hitComponents
+    && state.config.collections[state.config.currentCollection].hitComponents.filter((hc) => hc.hitComponent === type)[0])
+}
+
 export const getIsPersisted = (): boolean => {
   return useSelector((state: any): boolean => state.config.isPersisted)
 }

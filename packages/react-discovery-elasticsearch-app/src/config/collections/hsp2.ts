@@ -40,6 +40,7 @@ export const hsp2: IConfig = {
         {
           defaultOption: true,
           expandedView: false,
+          filteredFields: ['author', 'material', 'format', 'originPlace', 'originDate'],
           hitComponent: "Kulturobjekt",
           key: "default",
         },
@@ -60,6 +61,8 @@ export const hsp2: IConfig = {
         },
         {
           expandedView: true,
+          filteredFields: ['author', 'material', 'format', 'originPlace', 'originDate', 'formType',
+            'status', 'writingStyle', 'language', 'previousOwner'],
           hitComponent: "KulturobjektExpanded",
           key: "facet",
         },
