@@ -83,7 +83,7 @@ export const response = reducerWithInitialState(initialState)
     ...state,
     docs: {
       ...state.docs,
-      [result._source.id]: result
+      [result._id]: result
     },
     updating: false,
     url: params.url,

@@ -19,6 +19,32 @@ export const NestedQuery = (aggregations, lvl2QfList, nestedQfList, postFilters,
     }
   }
 
+  if (!lvl2QfList || nestedQfList) {
+    return {
+      "aggs": aggregations,
+      "highlight": {
+        "fields": {
+          "*": {}
+        }
+      },
+      "query": {
+        "bool": {
+          "filter": postFilters,
+          "should": [
+            {
+              "simple_query_string": {
+                "default_operator": "and",
+                "fields": qfList,
+                "query": stringInput
+              }
+            }
+          ]
+        },
+      },
+      ...sort,
+    }
+  }
+
   return {
     "aggs": aggregations,
     "highlight": {

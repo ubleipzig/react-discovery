@@ -20,7 +20,6 @@ import {HitViewOptionsMenu, ItemActionBar, ThumbnailGrid} from "."
 import React, {ReactElement} from "react"
 import {getIsViewExpanded, getItemViewType} from "@react-discovery/configuration"
 import Kulturobjekt from './Kulturobjekt'
-import {getNumberOfWorkspaceNodesForId} from "@react-discovery/workspace"
 
 interface IDefaultItemComponent {
   classes: any;
@@ -32,18 +31,23 @@ interface IDefaultItemComponent {
 const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate', 'formType',
   'status', 'writingStyle', 'language', 'previousOwner']
 
+const typeField = ESCore.enums.FieldConstants.TYPE_FIELD
+
 const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
   const id = hit && hit._source.id
-  const nodeCount = getNumberOfWorkspaceNodesForId(id)
   const itemViewType = hit && getItemViewType(id)
   const isViewExpanded = getIsViewExpanded()
   const entities = hit && hit._source.entities && hit._source.entities
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
-  const title = buildHighlightedValueForHit('titel_t', hit)
+  const title = buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, hit)
   const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
+  const media = hit && hit._source && hit._source.entities
+    .filter((entity) => entity[typeField] === Domain.DIGITALISAT)
+  const item = media.length && media[0]
+
   const cardActions = [
     {
       displayFields: digitalisatDisplayFields,
@@ -95,13 +99,13 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
         >
           <ItemActionBar entities={entities} i={i} id={id}/>
           <TitleIdHeader
-            id={hit._source.id}
+            id={id}
             optionsMenu={optionsMenu}
             title={title}
           />
           <div className={classes.details}>
             <ValueDisplay
-              field={'subtitel_t'}
+              field={Domain.DOC_SUBTITLE_FIELD}
               hit={hit}
               style={{display: 'flex', padding: '10px'}}
               variant='h6'
@@ -116,7 +120,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
           </div>
           {buildCardActions(cardActions)}
         </Grid>
-        <ThumbnailGrid id={id} manifest={manifest}/>
+        <ThumbnailGrid hit={hit} item={item} manifest={manifest}/>
       </Grid>
     </Card>
   ) : <Kulturobjekt {...props}/>
