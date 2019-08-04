@@ -1,5 +1,5 @@
 import {Button, makeStyles, withStyles} from "@material-ui/core"
-import {GroupSelectedFilters, IOverridableStyledComponent, ItemList, SortingSelector} from "@react-discovery/components"
+import {GroupSelectedFilters, IOverridableStyledComponent, ItemListFlat, SortingListFlat} from "@react-discovery/components"
 import React, {ReactElement} from "react"
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme): any => ({
   content: {
     display: 'flex',
     flex: '1 0 auto',
-    padding: 0,
+    paddingRight: 36,
   },
   grow: {
     flexGrow: 1
@@ -69,6 +69,7 @@ const useStyles = makeStyles((theme): any => ({
   },
   inline: {
     display: 'inline',
+    paddingLeft: 16,
     textAlign: 'right'
   },
   leftIcon: {
@@ -94,7 +95,7 @@ export const ListFilters: React.FC<IOverridableStyledComponent> = (): ReactEleme
 
   const buildRefinementListFilters = (): ReactElement[] => {
     return Object.keys(refinementListFilters).map((id: any): ReactElement => (
-      <ItemList
+      <ItemListFlat
         classes={classes}
         field={refinementListFilters[id].field}
         key={id}
@@ -124,7 +125,7 @@ export const ListFilters: React.FC<IOverridableStyledComponent> = (): ReactEleme
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         {buildRefinementListFilters()}
-        <SortingSelector/>
+        <SortingListFlat/>
       </ExpansionPanelDetails>
     </ExpansionPanel>)
 }

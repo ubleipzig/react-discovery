@@ -230,8 +230,7 @@ export const useSortingSelectorStyles = makeStyles((theme): any => ({
     minWidth: 120,
   },
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    width: '100%'
   },
   selectEmpty: {
     marginTop: theme.spacing(2),

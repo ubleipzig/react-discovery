@@ -1,5 +1,5 @@
 import {ArrowDownward, ArrowUpward} from '@material-ui/icons'
-import {FlexBox, IOverridableStyledComponent} from ".."
+import {IOverridableStyledComponent} from ".."
 import {FormControl, IconButton, Input, InputLabel, NativeSelect} from '@material-ui/core'
 import React, {ReactElement} from "react"
 import {ESCore} from "@react-discovery/core"
@@ -87,7 +87,7 @@ export const SortingSelector: React.FC<IOverridableStyledComponent> = (props): R
   }
 
   return sortFields ? (
-    <div>
+    <div className={classes.root}>
       <FormControl
         className={classes.formControl}
         component='div'
