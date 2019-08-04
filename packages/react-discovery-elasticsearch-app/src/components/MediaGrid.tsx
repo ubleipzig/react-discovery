@@ -49,6 +49,7 @@ export const MediaGrid: React.FC<any> = (props): ReactElement => {
   const {hit} = props
   const media = hit && hit._source && hit._source.entities
     .filter((entity) => entity[typeField] === Domain.DIGITALISAT)
+  const thumbnail = hit && hit._source && hit._source.thumbnail
 
   const buildMediaGrid = (): ReactElement[] => {
     return media.map((item, i) => (
@@ -58,7 +59,9 @@ export const MediaGrid: React.FC<any> = (props): ReactElement => {
       >
         <Thumbnail
           classes={classes}
-          manifest={item[Domain.MANIFEST_ID_FIELD]}/>
+          manifest={item[Domain.MANIFEST_ID_FIELD]}
+          thumbnail={thumbnail}
+        />
         <ImageGridListTitleBar
           hit={hit}
           item={item}

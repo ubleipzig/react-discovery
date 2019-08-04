@@ -1,4 +1,3 @@
-import {ESCore} from "@react-discovery/core"
 import {IConfig} from "@react-discovery/configuration"
 
 export const ox1: IConfig = {

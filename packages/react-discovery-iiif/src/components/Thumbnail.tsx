@@ -1,5 +1,6 @@
 import React, {ReactElement} from "react"
 import {CardMedia} from "@material-ui/core"
+import {IIIF} from "../enum"
 import gql from 'graphql-tag'
 import {useQuery} from '@apollo/react-hooks'
 import {useThumbnailStyles} from "@react-discovery/components"
@@ -9,12 +10,13 @@ interface IThumbnail {
   image?: string;
   manifest?: string;
   menuComponent?: ReactElement;
+  thumbnail?: string;
 }
 
 const GET_THUMBNAIL = gql`
           query Thumbnail($manifestId: String!) {
               manifest(id: $manifestId)
-          {thumbnail{id, type, service {id, type, profile}}}
+          {thumbnail{id, type, service {id, profile}}}
           }`
 const GET_MANIFEST_SUMMARY = gql`
           query Summary($manifestId: String!) {
@@ -23,8 +25,8 @@ const GET_MANIFEST_SUMMARY = gql`
           }`
 export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
   const classes: any = props.classes || useThumbnailStyles({})
-  const {manifest, menuComponent} = props
-  const {data} = manifest && useQuery(GET_THUMBNAIL, {
+  const {manifest, menuComponent, thumbnail} = props
+  const {data} = !thumbnail && manifest && useQuery(GET_THUMBNAIL, {
     variables: { manifestId: manifest },
   })
   const {data: dataS} = manifest && useQuery(GET_MANIFEST_SUMMARY, {
@@ -44,6 +46,16 @@ export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
             title={dataS.manifest.summary}
           />) : null
       }
+      {menuComponent}
+    </div>
+  ) : thumbnail && dataS ? (
+    <div className={classes.cover}>
+      <CardMedia
+        alt="Placeholder"
+        className={classes.media}
+        component="img"
+        image={thumbnail + IIIF.THUMBNAIL_API_REQUEST}
+      />
       {menuComponent}
     </div>
   ) : null

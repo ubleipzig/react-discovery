@@ -10,6 +10,5 @@ export enum Domain {
   FASZIKEL = 'Faszikel',
   KULTUROBJEKT = 'Kulturobjekt',
   PERSON = 'Person',
-  THUMBNAIL_API_REQUEST = '/full/170,/0/default.jpg',
   TYPE_FIELD = 'type_s'
 }
