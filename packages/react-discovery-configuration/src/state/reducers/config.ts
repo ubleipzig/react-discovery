@@ -5,9 +5,9 @@ import {
   setCurrentSelectedTab,
   setHitComponent,
   setIsPersisted,
-  setIsViewExpanded,
   setItemViewType,
-  setSelectedIndex
+  setSelectedIndex,
+  setViewType,
 } from "../actions"
 import {IConfig} from "../.."
 
@@ -24,9 +24,9 @@ export const config = (initialState): ReducerBuilder<IConfig> => reducerWithInit
     ...state,
     currentHitComponent
   }))
-  .case(setIsViewExpanded, (state, {isViewExpanded}): ReducerBuilder<IConfig> => ({
+  .case(setViewType, (state, {viewType}): ReducerBuilder<IConfig> => ({
     ...state,
-    isViewExpanded
+    viewType
   }))
   .case(setItemViewType, (state, {id, itemViewType}): ReducerBuilder<IConfig> => ({
     ...state,

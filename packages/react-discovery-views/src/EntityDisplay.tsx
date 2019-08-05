@@ -66,7 +66,7 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
   // TODO abstract parent primary field name into type
   const buildParentEntityTitleForChild = (entity) => {
     const parentEntity = getParentEntityByChildIdentifier(entity.id, defaultEntities)[0]
-    return parentEntity['beschreibungTitle_t']
+    return parentEntity[Domain.DESCRIPTION_TITLE_FIELD]
   }
 
   const buildEntityFields = (displayFields: IDisplayField[]): ReactElement[] => {
@@ -78,7 +78,7 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
               {displayFields.map((field, i): ReactElement => {
                 const value = entity.field && entity.field === 'entities' ?
                   buildHighlightedValueForHit(field.field, entity) :
-                  entity.field === 'entities.entities' && field.field === 'beschreibungTitle_t' ? buildParentEntityTitleForChild(entity) :
+                  entity.field === 'entities.entities' && field.field === Domain.DESCRIPTION_TITLE_FIELD ? buildParentEntityTitleForChild(entity) :
                     [].concat(entity[field.field] || null).filter((v): any => v !== null).join(", ")
                 return (
                   <Fragment key={i}>
@@ -86,18 +86,27 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
                       className={classes.content}
                       key={i}
                     >
-                      {field.field !== 'beschreibungTitle_t' ? <FieldLabel label={field.label}/> : null}
-                      <div style={{flex: 'auto'}}>
-                        <Typography
-                          className={classes.inline}
-                          color="textSecondary"
-                          component="span"
-                        >
-                          {field.field !== 'beschreibungTitle_t' ?
-                            <InnerHtmlValue value={value}/> : <strong><InnerHtmlValue value={value}/></strong>
-                          }
-                        </Typography>
-                      </div>
+                      {field.field !== Domain.DESCRIPTION_TITLE_FIELD ? <FieldLabel label={field.label}/> : null}
+                      {field.field !== Domain.DESCRIPTION_TITLE_FIELD ?
+                        <div style={{flex: 'auto'}}>
+                          <Typography
+                            className={classes.inline}
+                            color="textSecondary"
+                            component="span"
+                          >
+                            <InnerHtmlValue value={value}/>
+                          </Typography>
+                        </div> :
+                        <div style={{flex: 'auto', padding: 10}}>
+                          <Typography
+                            className={classes.inline}
+                            component="span"
+                            variant='subtitle2'
+                          >
+                            <InnerHtmlValue value={value}/>
+                          </Typography>
+                        </div>
+                      }
                     </CardContent>
                     {isNested ?
                       <NestedEntityDisplay

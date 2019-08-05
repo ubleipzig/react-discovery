@@ -29,7 +29,7 @@ const HoverButton = withStyles(() => ({
 }))(IconButton)
 
 export const ImageGridListTitleBar: React.FC<any> = (props): ReactElement => {
-  const classes: any = useStyles({})
+  const classes: any = props.classes || useStyles({})
   const {hit, item} = props
   const id = hit && (hit._source.id || hit.id)
   const dispatch = useDispatch()
@@ -49,8 +49,8 @@ export const ImageGridListTitleBar: React.FC<any> = (props): ReactElement => {
     dispatch(setViewIdMap({id, manifest, type: 'image'}))
   }
 
-  const buildGridListTitleBar = (item) => {
-    const nodeCount = currentManifestNodes.filter((node) => node === item[Domain.MANIFEST_ID_FIELD])
+  const buildGridListTitleBar = (item): ReactElement => {
+    const nodeCount = currentManifestNodes.filter((node): boolean => node === item[Domain.MANIFEST_ID_FIELD])
     return (
       <GridListTileBar
         actionIcon={
@@ -61,13 +61,13 @@ export const ImageGridListTitleBar: React.FC<any> = (props): ReactElement => {
                 aria-label={`star ${item[Domain.MEDIA_TITLE_FIELD]}`}
                 color='primary'
                 href=''
-                onClick={() => handleAddToWorkspace(item[Domain.MANIFEST_ID_FIELD])}
+                onClick={(): void => handleAddToWorkspace(item[Domain.MANIFEST_ID_FIELD])}
               >
                 <CheckCircle className={classes.title}/>
               </IconButton> :
               <HoverButton
                 aria-label={`star ${item[Domain.MEDIA_TITLE_FIELD]}`}
-                onClick={() => handleAddToWorkspace(item[Domain.MANIFEST_ID_FIELD])}
+                onClick={(): void => handleAddToWorkspace(item[Domain.MANIFEST_ID_FIELD])}
               >
                 <CheckCircleOutline className={classes.title}/>
               </HoverButton>
@@ -80,7 +80,7 @@ export const ImageGridListTitleBar: React.FC<any> = (props): ReactElement => {
           title: classes.title,
         }}
         title={item[Domain.MEDIA_TITLE_FIELD]}
-        titlePosition="top"
+        titlePosition='top'
       />
     )
   }

@@ -42,7 +42,7 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (props): ReactElement
   const prevViewIdMap = usePrevious(viewIdMap)
   const prevLayout = usePrevious(workspaceLayout)
 
-  const buildWorkspaceLayout: any = () => {
+  const buildWorkspaceLayout: any = (): MosaicNode<string> => {
     const windowInstances = Object.keys(viewIdMap).sort();
     const leaveKeys = getLeaves(workspaceLayout);
     if (windowInstances && (!windowInstances.every(e => leaveKeys.includes(e))
@@ -65,7 +65,7 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (props): ReactElement
       <MosaicWindow<string>
         createNode={createNode}
         path={path}
-        renderToolbar={() =>
+        renderToolbar={(): ReactElement =>
           <div className={classes.root}>
             <WindowAppBar dataId={dataId} id={id} removeViewId={removeViewId}/>
           </div>}
@@ -83,7 +83,7 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (props): ReactElement
     )
   }
 
-  useEffect(() => {
+  useEffect((): void => {
     dispatch(setWorkspaceLayout({layout: buildWorkspaceLayout()}))
     if (Object.is(workspaceLayout, prevLayout)) {
       dispatch(setWorkspaceLayout({layout: workspaceLayout}))
@@ -100,7 +100,7 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (props): ReactElement
     <div style={{height: '100%', margin: 0, overflow: 'hidden', width: '100%'}}>
       <Mosaic<string>
         onChange={onChange}
-        renderTile={(id, path) => renderTile(id, path)}
+        renderTile={(id, path): ReactElement => renderTile(id, path)}
         value={workspaceLayout}
         zeroStateView={zeroStateView}
       />

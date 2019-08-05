@@ -39,8 +39,8 @@ export const getIsPersisted = (): boolean => {
   return useSelector((state: any): boolean => state.config.isPersisted)
 }
 
-export const getIsViewExpanded = (): boolean => {
-  return useSelector((state: any): boolean => state.config.isViewExpanded)
+export const getViewType = (): string => {
+  return useSelector((state: any): string => state.config.viewType)
 }
 
 export const getLanguages = (): ILanguage[] => {

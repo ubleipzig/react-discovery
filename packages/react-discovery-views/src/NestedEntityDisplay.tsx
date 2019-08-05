@@ -8,7 +8,6 @@ import {
   Typography
 } from "@material-ui/core"
 import {
-  FieldLabel,
   InnerHtmlValue,
   buildEntityCountForType,
   buildHighlightedValueForHit, buildInnerHitCountForType
@@ -75,7 +74,7 @@ export const NestedEntityDisplay: React.FC<INestedEntityDisplay> = (props): Reac
     })
   }
 
-  const buildDetails = () =>
+  const buildDetails = (): ReactElement =>
     <ExpansionPanelDetails>
       <List component="nav">
         {buildEntityFields(displayFields)}

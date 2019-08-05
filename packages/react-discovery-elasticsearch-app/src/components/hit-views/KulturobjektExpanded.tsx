@@ -18,7 +18,7 @@ import {
 } from '@react-discovery/components'
 import {HitViewOptionsMenu, ItemActionBar, ThumbnailGrid} from "."
 import React, {ReactElement} from "react"
-import {getHitComponentConfig, getIsViewExpanded, getItemViewType} from "@react-discovery/configuration"
+import {getHitComponentConfig, getItemViewType, getViewType} from "@react-discovery/configuration"
 import Kulturobjekt from './Kulturobjekt'
 import {MediaGrid} from '..'
 
@@ -36,7 +36,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const {hit, i} = props
   const id = hit && hit._source.id
   const itemViewType = hit && getItemViewType(id)
-  const isViewExpanded = getIsViewExpanded()
+  const viewType = getViewType()
   const entities = hit && hit._source.entities && hit._source.entities
   const componentConfig = getHitComponentConfig('KulturobjektExpanded')
   const filteredFields = componentConfig && componentConfig.filteredFields
@@ -44,7 +44,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const title = buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, hit)
   const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
   const media = hit && hit._source && hit._source.entities
-    .filter((entity) => entity[typeField] === Domain.DIGITALISAT)
+    .filter((entity): boolean => entity[typeField] === Domain.DIGITALISAT)
   const item = media.length && media[0]
 
   const cardActions = [
@@ -87,7 +87,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   }
   const optionsMenu = <HitViewOptionsMenu id={id}/>
 
-  return hit && (itemViewType === 'info' || isViewExpanded) ? (
+  return hit && (itemViewType === 'info' || viewType === 'expanded') ? (
     <Card className={classes.root} key={i}>
       <Grid
         container

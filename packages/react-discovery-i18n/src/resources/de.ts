@@ -6,6 +6,7 @@ export const de = {
     expandView: 'Erweiterte Ansicht',
     expert: 'Expert',
     expertSearch: 'Expertensuche',
+    grid: 'Grid',
     itemsInWorkspace: 'Items In Workspace',
     moreOptions: 'More Options',
     profile: 'Profil',
@@ -14,7 +15,7 @@ export const de = {
     simple: 'Einfach',
     sortOrder: 'Sortierreihenfolge fest',
     suggest: 'Vorschlagen...',
-    unfoldLess: 'Reduce',
+    unfoldLess: 'Compact',
     unfoldMore: 'Expand'
   },
   vocab: {

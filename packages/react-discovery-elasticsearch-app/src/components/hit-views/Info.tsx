@@ -1,13 +1,14 @@
+import {Domain, useHitViewStyles} from "@react-discovery/views"
 import React, {ReactElement} from "react"
 import {CardContent} from "@material-ui/core"
 import {ESCore} from "@react-discovery/core"
 import {FieldValueDisplay} from "@react-discovery/components"
-import {useHitViewStyles} from "@react-discovery/views"
+import {getHitComponentConfig} from "@react-discovery/configuration"
 
-export const ExpandedInfo: React.FC<any> = (props): ReactElement => {
+export const Info: React.FC<any> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
-  const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate', 'formType',
-    'status', 'writingStyle', 'language', 'previousOwner']
+  const componentConfig = getHitComponentConfig(Domain.INFO)
+  const filteredFields = componentConfig && componentConfig.filteredFields
   const searchFields = ESCore.state.getSearchFields()
   const {hit} = props
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))

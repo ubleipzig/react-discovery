@@ -13,7 +13,6 @@ const drawerWidth = 240
 const useStyles = makeStyles((theme: Theme): any =>
   createStyles({
     content: {
-      backgroundColor: '#fafafa',
       flexGrow: 1,
       marginLeft: drawerWidth,
       padding: theme.spacing(3),
@@ -23,7 +22,6 @@ const useStyles = makeStyles((theme: Theme): any =>
       }),
     },
     contentShift: {
-      backgroundColor: '#fafafa',
       height: '100%',
       marginLeft: 73,
       padding: theme.spacing(3),
@@ -49,7 +47,7 @@ export const DiscoveryApp: React.FC<IDiscoveryApp> = (props): ReactElement => {
         handleDrawerChange={handleDrawerChange}/>
       <Grid
         item
-        style={{height: '100vh'}}
+        style={{backgroundColor: '#fafafa', height: '100%'}}
         xs={12}
       >
         <PersistentDrawer open={open}/>

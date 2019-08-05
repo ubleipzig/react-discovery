@@ -8,7 +8,12 @@ export const harvard: IConfig = {
           defaultOption: true,
           expandedView: false,
           hitComponent: "DefaultHitComponent",
-          key: "default",
+          type: "list",
+        },
+        {
+          expandedView: false,
+          hitComponent: "GridComponent",
+          type: "grid"
         },
       ],
       name: 'Harvard',

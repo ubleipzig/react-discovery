@@ -1,5 +1,5 @@
+import React, {ReactElement} from "react"
 import {OSDViewer} from '.'
-import React from "react"
 import gql from 'graphql-tag'
 import {makeStyles} from "@material-ui/core"
 import {useQuery} from '@apollo/react-hooks'
@@ -11,8 +11,8 @@ export const useThumbnailStyles = makeStyles((): any => ({
   },
 }))
 
-const buildTileSources = (imageServices) => {
-  return imageServices && imageServices.map((s: any) =>
+const buildTileSources = (imageServices): string[] => {
+  return imageServices && imageServices.map((s: any): string =>
     `${s.id}/info.json`)
 }
 const GET_IMAGE_SERVICES = gql`
@@ -28,7 +28,7 @@ const GET_IMAGE_SERVICES_V2 = gql`
             profile: $profile)
             {id}
           }`
-export const ImageServices = (props) => {
+export const ImageServices: React.FC<any> = (props): ReactElement => {
   const {manifest} = props
   const response = manifest && useQuery(GET_IMAGE_SERVICES, {
     variables: { manifestId: manifest, type: 'ImageService2' },

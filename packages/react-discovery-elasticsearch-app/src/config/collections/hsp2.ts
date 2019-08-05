@@ -33,43 +33,45 @@ export const hsp2: IConfig = {
       ],
       hitComponents: [
         {
-          expandedView: false,
-          hitComponent: "DefaultHitComponent",
-          key: "facet"
-        },
-        {
           defaultOption: true,
           expandedView: false,
           filteredFields: ['author', 'material', 'format', 'originPlace', 'originDate'],
           hitComponent: "Kulturobjekt",
-          key: "default",
+          type: "list"
+        },
+        {
+          expandedView: false,
+          hitComponent: "GridComponent",
+          type: "grid"
         },
         {
           expandedView: false,
           hitComponent: "Beschreibung",
-          key: "facet",
+          type: "list"
         },
         {
           expandedView: false,
           hitComponent: "Digitalisat",
-          key: "facet",
+          type: "list"
         },
         {
-          expandedView: true,
-          hitComponent: "DigitalisatExpanded",
-          key: "facet",
+          expandedView: false,
+          filteredFields: ['author', 'material', 'format', 'originPlace', 'originDate', 'formType',
+            'status', 'writingStyle', 'language', 'previousOwner'],
+          hitComponent: "Info",
+          type: "list"
         },
         {
           expandedView: true,
           filteredFields: ['author', 'material', 'format', 'originPlace', 'originDate', 'formType',
             'status', 'writingStyle', 'language', 'previousOwner'],
           hitComponent: "KulturobjektExpanded",
-          key: "facet",
+          type: "list"
         },
         {
           expandedView: false,
           hitComponent: "Person",
-          key: "facet",
+          type: "list"
         },
       ],
       name: 'Handschriftenportal',

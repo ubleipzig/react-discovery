@@ -4,7 +4,7 @@ import {SimpleDataView, SimpleImageView} from "@react-discovery/views"
 const View: React.FC<any> = (props): ReactElement => {
   const {id, manifest, viewType} = props
 
-  const buildViewForType = () => {
+  const buildViewForType = (): ReactElement => {
     switch (viewType) {
       case 'data':
         return <SimpleDataView id={id}/>
