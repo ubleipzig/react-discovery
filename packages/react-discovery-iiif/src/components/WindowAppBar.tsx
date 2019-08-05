@@ -20,9 +20,6 @@ const useStyles = makeStyles((theme): any => ({
     marginRight: theme.spacing(2),
     marginTop: theme.spacing(2),
   },
-  root: {
-    flexGrow: 1,
-  },
   title: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
