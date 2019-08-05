@@ -9,7 +9,7 @@ import {ESCore} from "@react-discovery/core"
 import {buildHighlightedValueForHit} from "@react-discovery/components"
 import {useDispatch} from "react-redux"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme): any => ({
   appBar: {
     backgroundColor: '#FFF'
   },
@@ -30,18 +30,19 @@ const useStyles = makeStyles(theme => ({
     },
     marginRight: theme.spacing(2),
     marginTop: theme.spacing(2),
+    maxWidth: '65%'
   },
 }))
 
 export const WindowAppBar = (props): ReactElement => {
-  const classes = useStyles({})
+  const classes: any = useStyles({})
   const {dataId, id, removeViewId} = props
   const docs = ESCore.state.getDocuments()
   const doc = Object.keys(docs).length ? docs[dataId] : null
   const title = doc && (buildHighlightedValueForHit('titel_t', doc) || buildHighlightedValueForHit('title', doc))
   const dispatch = useDispatch()
 
-  const handleRemove = () => {
+  const handleRemove = (): void => {
     dispatch(removeViewId({id}))
   }
 
