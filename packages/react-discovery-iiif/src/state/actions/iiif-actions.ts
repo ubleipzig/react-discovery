@@ -3,12 +3,12 @@ import {asyncFactory} from 'typescript-fsa-redux-thunk';
 const actionCreator = actionCreatorFactory()
 
 const createAsync = asyncFactory<IState>(actionCreator)
-const SET_CURRENT_MANIFEST_COlLECTION = "SET_CURRENT_MANIFEST_COlLECTION"
+const SET_CURRENT_MANIFEST_COLLECTION = "SET_CURRENT_MANIFEST_COlLECTION"
 const FETCH_IMAGE_SERVICES = 'FETCH_IMAGE_SERVICES'
 const SET_RESPONSE_ERROR = "SET_RESPONSE_ERROR"
 const SET_IN_APOLLO_REQUEST = "SET_IN_APOLLO_REQUEST"
 
-export const setCurrentManifestCollection = actionCreator<{collection: any}>(SET_CURRENT_MANIFEST_COlLECTION)
+export const setCurrentManifestCollection = actionCreator<{collection: any}>(SET_CURRENT_MANIFEST_COLLECTION)
 export const setInApolloRequest = actionCreator<{uuid: string}>(SET_IN_APOLLO_REQUEST)
 export const setResponseError = actionCreator<{error: string}>(SET_RESPONSE_ERROR)
 

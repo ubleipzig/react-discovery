@@ -37,7 +37,7 @@ export const ZeroState: React.FC<any> = (props): ReactElement => {
           <Fab
             aria-label="Add"
             className={classes.menuButton}
-            onClick={() => replace(mosaicActions)}
+            onClick={(): Promise<any> => replace(mosaicActions)}
             size="small"
             variant="extended"
           >
