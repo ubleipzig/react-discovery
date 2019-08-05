@@ -1,5 +1,5 @@
 import {Button, makeStyles, withStyles} from "@material-ui/core"
-import {ESCore, IElasticSearchQuery, usePrevious} from "@react-discovery/core"
+import {ESCore, usePrevious} from "@react-discovery/core"
 import {
   GroupSelectedFilters,
   IOverridableStyledComponent,
@@ -92,8 +92,6 @@ const useStyles = makeStyles((theme): any => ({
 
 export const ListFilters: React.FC<IOverridableStyledComponent> = (): ReactElement => {
   const classes: any = useStyles({})
-  const filters = ESCore.state.getFilters()
-  const stringInput = ESCore.state.getStringInput()
   const currentCollection = getCurrentCollection()
   const collectionObj = getCollectionByKey(currentCollection)
   const refinementListFilters = getRefinementListFilters()
@@ -106,21 +104,11 @@ export const ListFilters: React.FC<IOverridableStyledComponent> = (): ReactEleme
     setExpanded(!expanded);
   }
 
-
   useEffect((): void => {
     if (prevRefinementListFilters !== refinementListFilters) {
-      const {initialFilter, refinementListFilters, searchFields, sortFields} = collectionObj
+      const {refinementListFilters} = collectionObj
       const aggs = ESCore.builders.buildAggs(refinementListFilters)
-      const qs: IElasticSearchQuery = {
-        aggs,
-        filters: filters || initialFilter || {},
-        from: 0,
-        searchFields,
-        size: 20,
-        sortFields,
-        stringInput,
-      }
-      dispatch(ESCore.state.setQueryFields({...qs}))
+      dispatch(ESCore.state.setAggs({aggs}))
     }
   }, [prevRefinementListFilters, refinementListFilters])
 

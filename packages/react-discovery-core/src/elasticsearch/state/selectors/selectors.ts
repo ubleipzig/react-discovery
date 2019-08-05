@@ -1,6 +1,6 @@
 import {IAggRecord, IElasticSearchQuery} from "../../index"
 import {IAggregation, IFilters, IHits, IState} from '../../..'
-import {ISearchField, ISortField, getRefinementListFilters} from "@react-discovery/configuration"
+import {ISearchField, ISortField} from "@react-discovery/configuration"
 import {FieldConstants} from '../../enum'
 import {useSelector} from "react-redux"
 
