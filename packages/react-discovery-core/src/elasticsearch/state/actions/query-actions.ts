@@ -20,3 +20,4 @@ export const setTypeDef = actionCreator<{typeDef: string}>(SET_TYPE_DEF)
 export const setSearchFields = actionCreator<{searchFields}>(SET_SEARCH_FIELDS)
 export const setSortFields = actionCreator<{sortFields}>(SET_SORT_FIELDS)
 export const setSelectedFilters = actionCreator<{field: string; filters: string[]}>(SET_SELECTED_FILTERS)
+

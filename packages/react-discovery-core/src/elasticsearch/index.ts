@@ -12,10 +12,9 @@ export const ESCore = {
 export * from './components'
 
 export interface IElasticSearchQuery {
-  aggs: any;
+  aggs: IAggRecord;
   filters: IFilters;
   query?: any;
-  refinementListFilters?: IRefinementListFilters;
   searchFields: ISearchField[];
   size: number;
   sortFields: ISortField[];
@@ -23,6 +22,14 @@ export interface IElasticSearchQuery {
   stringInput: string;
 }
 
+export type IAggRecord = Record<string, IAgg>
+
+export interface IAgg {
+  terms: {
+    field: string;
+    size: number;
+  };
+}
 export interface IFetchElasticSearchResponseParams {
   json: string;
   url: string;

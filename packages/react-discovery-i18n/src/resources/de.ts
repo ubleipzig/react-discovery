@@ -16,7 +16,8 @@ export const de = {
     sortOrder: 'Sortierreihenfolge fest',
     suggest: 'Vorschlagen...',
     unfoldLess: 'Compact',
-    unfoldMore: 'Expand'
+    unfoldMore: 'Expand',
+    viewMore: 'View More'
   },
   vocab: {
     advancedSearch: 'Erweiterte Suche',
