@@ -8,7 +8,12 @@ export const ox1: IConfig = {
           defaultOption: true,
           expandedView: false,
           hitComponent: "DefaultHitComponent",
-          key: "default",
+          type: "list",
+        },
+        {
+          expandedView: false,
+          hitComponent: "GridComponent",
+          type: "grid"
         },
       ],
       name: 'Oxford',

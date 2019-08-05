@@ -32,6 +32,7 @@
   "dependencies": {
     "@material-ui/core": "^4.2.1",
     "@material-ui/icons": "^4.2.1",
+    "@material-ui/lab": "^4.0.0-alpha.22",
     "@react-discovery/components": "file:../react-discovery-components",
     "@react-discovery/core": "file:../react-discovery-core",
     "@react-discovery/i18n": "file:../react-discovery-i18n",

@@ -29,7 +29,7 @@ const HoverButton = withStyles(() => ({
 }))(IconButton)
 
 export const ImageGridListTitleBar: React.FC<any> = (props): ReactElement => {
-  const classes: any = useStyles({})
+  const classes: any = props.classes || useStyles({})
   const {hit, item} = props
   const id = hit && (hit._source.id || hit.id)
   const dispatch = useDispatch()
@@ -80,7 +80,7 @@ export const ImageGridListTitleBar: React.FC<any> = (props): ReactElement => {
           title: classes.title,
         }}
         title={item[Domain.MEDIA_TITLE_FIELD]}
-        titlePosition="top"
+        titlePosition='top'
       />
     )
   }

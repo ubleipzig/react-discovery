@@ -35,20 +35,8 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
       text: 'Workspace'
     },
     {
-      id: 'albums',
-      index: 3,
-      path: '/',
-      text: 'Gallery'
-    },
-    {
-      id: 'editAnnotations',
-      index: 4,
-      path: '/',
-      text: 'Annotate'
-    },
-    {
       id: 'settings',
-      index: 5,
+      index: 3,
       path: '/settings',
       text: 'Settings'
     },
@@ -75,10 +63,6 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
         return <Home/>
       case 'search':
         return <Search/>
-      case 'albums':
-        return <Collections/>
-      case 'editAnnotations':
-        return <EditLocation/>
       case 'workspace':
         return (
           <Badge

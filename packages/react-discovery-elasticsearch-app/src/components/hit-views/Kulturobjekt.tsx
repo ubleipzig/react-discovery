@@ -9,7 +9,7 @@ import {
   buildHighlightedValueForHit,
   getFirstManifestFromHit
 } from '@react-discovery/components'
-import {getHitComponentConfig, getIsViewExpanded, getItemViewType} from "@react-discovery/configuration"
+import {getHitComponentConfig, getViewType, getItemViewType} from "@react-discovery/configuration"
 
 interface IDefaultItemComponent {
   classes: any;
@@ -25,7 +25,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const {hit, i} = props
   const id = hit && hit._source.id
   const itemViewType = hit && getItemViewType(id)
-  const isViewExpanded = getIsViewExpanded()
+  const viewType = getViewType()
   const title = buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, hit)
   const componentConfig = getHitComponentConfig(Domain.KULTUROBJEKT)
   const filteredFields = componentConfig && componentConfig.filteredFields
@@ -75,7 +75,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   }
   const optionsMenu = id && <HitViewOptionsMenu id={id}/>
 
-  return hit && !isViewExpanded ? (
+  return hit && viewType !== 'expanded' ? (
     <Card className={classes.root} key={i}>
       <Grid
         container

@@ -40,11 +40,11 @@ export interface IFilters {
 }
 
 export interface IHitComponent {
-  key: string;
   filteredFields?: string[];
   hitComponent: string;
   defaultOption?: boolean;
   expandedView?: boolean;
+  type: string;
 }
 
 export interface ILanguage {

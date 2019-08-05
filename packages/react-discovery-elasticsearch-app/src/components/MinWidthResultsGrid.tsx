@@ -1,7 +1,7 @@
 import {CircularProgress, Grid} from "@material-ui/core"
 import React, {ReactElement} from "react"
 import {ESCore} from "@react-discovery/core"
-import {FacetViewSwitcher} from "."
+import {ViewTypeSwitcher} from "."
 import {useMinWidthResultsGridStyles} from "@react-discovery/components"
 
 export const MinWidthResultsGrid: React.FC<any> = (): ReactElement => {
@@ -34,7 +34,7 @@ export const MinWidthResultsGrid: React.FC<any> = (): ReactElement => {
       >
         {hits ?
           <>
-            <FacetViewSwitcher/>
+            <ViewTypeSwitcher/>
           </> : <CircularProgress className={classes.progress}/>}
       </Grid>
       <Grid

@@ -19,7 +19,7 @@ export const ThumbnailGrid: React.FC<any> = (props): ReactElement => {
             manifest={manifest}
             thumbnail={thumbnail}
           />
-          <ImageGridListTitleBar hit={hit} item={item}/>
+          <ImageGridListTitleBar hit={hit} item={item} titlePosition='top'/>
         </GridListTile>
       </Container>
     </Grid>
