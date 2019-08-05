@@ -1,8 +1,8 @@
 import {CheckCircle, CheckCircleOutline} from "@material-ui/icons"
 import {GridListTile, IconButton, Tooltip, Typography, makeStyles, withStyles} from "@material-ui/core"
 import {IHit, usePrevious} from "@react-discovery/core"
+import {InnerHtmlValue, buildHighlightedValueForHit, getFirstManifestFromHit} from '@react-discovery/components'
 import React, {ReactElement, useEffect} from "react"
-import {buildHighlightedValueForHit, getFirstManifestFromHit, InnerHtmlValue} from '@react-discovery/components'
 import {getWorkspaceViewIdMap, setViewIdMap} from "@react-discovery/workspace"
 import {Domain} from "@react-discovery/views"
 import {Thumbnail} from "@react-discovery/iiif"
@@ -79,7 +79,7 @@ const GridComponent: React.FC<IGridComponent> = (props: IGridComponent): ReactEl
   const prevViewIdMap = usePrevious(viewIdMap)
   const {t} = useTranslation()
   const [currentManifestNodes, setManifestNodes] = React.useState([])
-  const nodeCount = currentManifestNodes.filter((node) => node === item[Domain.MANIFEST_ID_FIELD])
+  const nodeCount = currentManifestNodes.filter((node): boolean => node === item[Domain.MANIFEST_ID_FIELD])
 
   useEffect((): void => {
     if (prevViewIdMap !== viewIdMap) {
@@ -123,7 +123,9 @@ const GridComponent: React.FC<IGridComponent> = (props: IGridComponent): ReactEl
         manifest={manifest}
         thumbnail={thumbnail}
       />
-      <Typography variant='subtitle2'><InnerHtmlValue value={item[Domain.MEDIA_TITLE_FIELD]}/></Typography>
+      <Typography variant='subtitle2'>
+        <InnerHtmlValue value={item[Domain.MEDIA_TITLE_FIELD]}/>
+      </Typography>
     </GridListTile>
   )
 }

@@ -1,6 +1,5 @@
 import {Badge, ListItem, ListItemIcon, ListItemText, Tooltip} from "@material-ui/core"
-import {Collections, EditLocation, Home, PictureInPicture, Search, Settings} from "@material-ui/icons"
-
+import {Home, PictureInPicture, Search, Settings} from "@material-ui/icons"
 import {NavLink, useCurrentRoute} from "react-navi"
 import React, {ReactElement, forwardRef, useEffect, useState} from "react"
 import {getNumberOfWorkspaceNodes} from "@react-discovery/workspace"
@@ -45,13 +44,13 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
   useEffect((): any => {
     if (!isInitialized) {
       const pathname = route.url.pathname
-      const [startItem] = listItems.filter((item) => item.path === pathname)
+      const [startItem] = listItems.filter((item): boolean => item.path === pathname)
       setSelectedIndex(startItem.index)
       setIsInitialized(true)
     }
     if (route !== prevRoute) {
       const pathname = route.url.pathname
-      const [startItem] = listItems.filter((item) => item.path === pathname)
+      const [startItem] = listItems.filter((item): boolean => item.path === pathname)
       startItem && setSelectedIndex(startItem.index)
     }
   }, [route, prevRoute])
@@ -77,7 +76,7 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
     }
   }
 
-  const handleListItemClick = ({}, index) => {
+  const handleListItemClick = ({}, index): void => {
     setSelectedIndex(index);
   }
 

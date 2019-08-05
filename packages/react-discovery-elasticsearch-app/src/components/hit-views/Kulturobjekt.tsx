@@ -1,4 +1,4 @@
-import {Annotations, Descriptions, Digitalisate, ExpandedInfo, HitAbstract, HitViewOptionsMenu, ItemActionBar, ThumbnailGrid} from '.'
+import {Annotations, Descriptions, Digitalisate, HitAbstract, HitViewOptionsMenu, Info, ItemActionBar, ThumbnailGrid} from '.'
 import {Card, CardContent, Divider, Grid} from "@material-ui/core"
 import {Domain, useHitViewStyles} from '@react-discovery/views'
 import {ESCore, IHit} from "@react-discovery/core"
@@ -9,7 +9,7 @@ import {
   buildHighlightedValueForHit,
   getFirstManifestFromHit
 } from '@react-discovery/components'
-import {getHitComponentConfig, getViewType, getItemViewType} from "@react-discovery/configuration"
+import {getHitComponentConfig, getItemViewType, getViewType} from "@react-discovery/configuration"
 
 interface IDefaultItemComponent {
   classes: any;
@@ -33,7 +33,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const entities = hit && hit._source.entities && hit._source.entities
   const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
   const media = hit && hit._source && hit._source.entities
-    .filter((entity) => entity[typeField] === Domain.DIGITALISAT)
+    .filter((entity): boolean => entity[typeField] === Domain.DIGITALISAT)
   const item = media.length && media[0]
 
   const buildValueDisplay = (field: string, hit: IHit, key: number): ReactElement => {
@@ -49,7 +49,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
     )
   }
 
-  const defaultDisplay = () => {
+  const defaultDisplay = (): ReactElement => {
     return (
       <CardContent className={classes.content}>
         {displayFields.map((field, key): ReactElement =>
@@ -57,12 +57,12 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
       </CardContent>
     )
   }
-  const buildItemViewForType = (itemViewType) => {
+  const buildItemViewForType = (itemViewType): ReactElement => {
     switch (itemViewType) {
       case 'index':
         return defaultDisplay()
       case 'info':
-        return <ExpandedInfo {...props}/>
+        return <Info {...props}/>
       case Domain.DIGITALISAT:
         return <Digitalisate {...props}/>
       case Domain.BESCHREIBUNG:

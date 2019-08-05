@@ -17,6 +17,12 @@ export const useStyles = makeStyles((): any => ({
     display: 'flex',
     padding: '10px'
   },
+  gridRoot: {
+    background: '#eee',
+    display: 'flex',
+    flexWrap: 'wrap',
+    width: '100%'
+  },
   main: {
     display: 'flex',
     padding: 20,
@@ -67,7 +73,7 @@ export const ResultsList: React.FC<any> = (): ReactElement => {
                   direction="row"
                   justify="center"
                 >
-                  <Grid item style={{background: '#eee', display: 'flex', flexWrap: 'wrap', width: '100%'}} xs={12}>
+                  <Grid className={mainClasses.gridRoot} item xs={12}>
                     <ViewTypeSwitcher/>
                   </Grid>
                 </Grid> :

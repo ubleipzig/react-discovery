@@ -34,8 +34,8 @@ export const Landing: React.FC<any> = (): ReactElement => {
     },
   ]
 
-  const buildCards = (cards): JSX.Element => {
-    return cards.map((card) =>
+  const buildCards = (cards): ReactElement[] => {
+    return cards.map((card): ReactElement =>
       <Card
         className={classes.card}
         key={card.index}

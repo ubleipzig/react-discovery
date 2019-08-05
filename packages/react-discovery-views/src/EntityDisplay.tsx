@@ -87,15 +87,17 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
                       key={i}
                     >
                       {field.field !== Domain.DESCRIPTION_TITLE_FIELD ? <FieldLabel label={field.label}/> : null}
-                      <div style={{flex: 'auto', padding: 10}}>
-                        {field.field !== Domain.DESCRIPTION_TITLE_FIELD ?
+                      {field.field !== Domain.DESCRIPTION_TITLE_FIELD ?
+                        <div style={{flex: 'auto'}}>
                           <Typography
                             className={classes.inline}
                             color="textSecondary"
                             component="span"
                           >
                             <InnerHtmlValue value={value}/>
-                          </Typography> :
+                          </Typography>
+                        </div> :
+                        <div style={{flex: 'auto', padding: 10}}>
                           <Typography
                             className={classes.inline}
                             component="span"
@@ -103,8 +105,8 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
                           >
                             <InnerHtmlValue value={value}/>
                           </Typography>
-                        }
-                      </div>
+                        </div>
+                      }
                     </CardContent>
                     {isNested ?
                       <NestedEntityDisplay

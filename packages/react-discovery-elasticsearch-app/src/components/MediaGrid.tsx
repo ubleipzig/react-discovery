@@ -1,12 +1,11 @@
-import React, {ReactElement} from "react"
-import {IOverridableStyledComponent} from "@react-discovery/components"
-import {Domain} from "@react-discovery/views"
 import {GridListTile, makeStyles} from "@material-ui/core"
-import {Thumbnail} from "@react-discovery/iiif"
-import {ImageGridListTitleBar} from "./ImageGridListTitleBar"
+import React, {ReactElement} from "react"
+import {Domain} from "@react-discovery/views"
 import {ESCore} from "@react-discovery/core"
+import {ImageGridListTitleBar} from "./ImageGridListTitleBar"
+import {Thumbnail} from "@react-discovery/iiif"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme): any => ({
   cover: {
     display: 'flex',
     flexShrink: 0,
@@ -45,14 +44,14 @@ const useStyles = makeStyles(theme => ({
 const typeField = ESCore.enums.FieldConstants.TYPE_FIELD
 
 export const MediaGrid: React.FC<any> = (props): ReactElement => {
-  const classes = useStyles({})
+  const classes: any = useStyles({})
   const {hit} = props
   const media = hit && hit._source && hit._source.entities
-    .filter((entity) => entity[typeField] === Domain.DIGITALISAT)
+    .filter((entity): boolean => entity[typeField] === Domain.DIGITALISAT)
   const thumbnail = hit && hit._source && hit._source.thumbnail
 
   const buildMediaGrid = (): ReactElement[] => {
-    return media.map((item, i) => (
+    return media.map((item, i): ReactElement => (
       <GridListTile
         key={i}
         style={{listStyle: 'none'}}

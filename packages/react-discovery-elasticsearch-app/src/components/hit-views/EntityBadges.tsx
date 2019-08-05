@@ -2,7 +2,7 @@ import {Badge, Chip, Tab, Tabs, Theme, Tooltip, withStyles} from "@material-ui/c
 import {Book, ChatBubble, Image, Info} from "@material-ui/icons"
 import {Domain, useHitViewStyles} from "@react-discovery/views"
 import React, {ReactElement} from "react"
-import {getSelectedTabForId, getSelectedIndex, setCurrentSelectedTab, setItemViewType} from "@react-discovery/configuration"
+import {getSelectedIndex, getSelectedTabForId, setCurrentSelectedTab, setItemViewType, setViewType} from "@react-discovery/configuration"
 import {buildEntityCountForType} from "@react-discovery/components"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
@@ -31,7 +31,8 @@ export const EntityBadges: React.FC<any> = (props): ReactElement => {
   const value = getSelectedTabForId(id) || 0
 
   const handleChange = ({}, newValue: number): void => {
-    dispatch(setCurrentSelectedTab({currentSelectedTab: newValue, id}));
+    dispatch(setCurrentSelectedTab({currentSelectedTab: newValue, id}))
+    dispatch(setViewType({viewType: 'compact'}))
   }
 
   const items = [
@@ -57,7 +58,7 @@ export const EntityBadges: React.FC<any> = (props): ReactElement => {
     },
   ]
 
-  const buildStyledBadge = (component, type) => {
+  const buildStyledBadge = (component, type): ReactElement => {
     return (
       <StyledBadge
         badgeContent={buildEntityCountForType(entities, type)}
@@ -68,7 +69,7 @@ export const EntityBadges: React.FC<any> = (props): ReactElement => {
     )
   }
 
-  const buildIconForEntityType = (type) => {
+  const buildIconForEntityType = (type): ReactElement => {
     switch (type) {
       case 'index':
         return (
@@ -104,7 +105,7 @@ export const EntityBadges: React.FC<any> = (props): ReactElement => {
     }
   }
 
-  const handleClick = (id, type) => {
+  const handleClick = (id, type): void => {
     switch (type) {
       case 'index':
         dispatch(setItemViewType({id, itemViewType: 'index'}))
@@ -125,8 +126,8 @@ export const EntityBadges: React.FC<any> = (props): ReactElement => {
         dispatch(setItemViewType({id, itemViewType: 'info'}))
     }
   }
-  const buildCardActions = (items) => {
-    return items && items.map((item) => {
+  const buildCardActions = (items): ReactElement[] => {
+    return items && items.map((item): ReactElement => {
       return (
         <Tooltip
           key={item.key}
@@ -134,7 +135,7 @@ export const EntityBadges: React.FC<any> = (props): ReactElement => {
           <Tab
             href=''
             icon={buildIconForEntityType(item.type)}
-            onClick={() => handleClick(id, item.type)}
+            onClick={(): void => handleClick(id, item.type)}
           />
         </Tooltip>
       )

@@ -55,6 +55,13 @@ export const hsp2: IConfig = {
           type: "list"
         },
         {
+          expandedView: false,
+          filteredFields: ['author', 'material', 'format', 'originPlace', 'originDate', 'formType',
+            'status', 'writingStyle', 'language', 'previousOwner'],
+          hitComponent: "Info",
+          type: "list"
+        },
+        {
           expandedView: true,
           filteredFields: ['author', 'material', 'format', 'originPlace', 'originDate', 'formType',
             'status', 'writingStyle', 'language', 'previousOwner'],
