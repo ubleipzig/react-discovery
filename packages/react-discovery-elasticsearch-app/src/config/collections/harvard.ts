@@ -94,13 +94,13 @@ export const harvard: IConfig = {
       ],
       sortFields: [
         {
-          field: "title.keyword",
-          label: "Title",
-          order: "asc"
-        },
-        {
           field: "Technique.keyword",
           label: "Technique",
+          order: "desc"
+        },
+        {
+          field: "title.keyword",
+          label: "Title",
           order: "asc"
         },
         {

@@ -35,7 +35,7 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (props): ReactElement
   useMosaicStyles({})
   const classes = useStyles({})
   const hits = ESCore.state.getHits()
-  const nodes = hits.hits.map((hit) => hit._source.id)
+  const nodes = hits.hits.map((hit) => hit.id)
   const createNode = (): string => nodes && createRandomNode(nodes)
   const workspaceLayout: MosaicParent<string> = getWorkspaceLayout()
   const Component = React.lazy((): Promise<any> => import(`${VIEW_COMPONENT_PATH}/View`))

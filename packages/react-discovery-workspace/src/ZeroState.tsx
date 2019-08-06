@@ -1,8 +1,9 @@
 import {Fab, Toolbar, makeStyles, } from "@material-ui/core"
 import React, {ReactElement} from 'react'
 import {Add} from "@material-ui/icons"
-import {MosaicContext} from 'react-mosaic-component'
 import noop from 'lodash/noop'
+import {setViewIdMap} from "./state/actions"
+import {useDispatch} from "react-redux"
 
 const useStyles = makeStyles((theme): any => ({
   appBar: {
@@ -22,30 +23,27 @@ const useStyles = makeStyles((theme): any => ({
 
 export const ZeroState: React.FC<any> = (props): ReactElement => {
   const classes: any = useStyles({})
+  const dispatch = useDispatch()
   const {createNode} = props
-
-  const replace = (mosaicActions) =>
+  const handleAddToWorkspace = (): any => {
     Promise.resolve(createNode())
-      .then((node) => mosaicActions.replaceWith([], node))
+      .then((node) => dispatch(setViewIdMap({id: node, manifest: null, type: 'data'})))
       .catch(noop)
+  }
 
   return (
-    <MosaicContext.Consumer>
-      {({mosaicActions}) => (
-        <Toolbar variant="dense">
-          <div className={classes.grow}/>
-          <Fab
-            aria-label="Add"
-            className={classes.menuButton}
-            onClick={(): Promise<any> => replace(mosaicActions)}
-            size="small"
-            variant="extended"
-          >
-            <Add/>
-            Add New Window
-          </Fab>
-        </Toolbar>
-      )}
-    </MosaicContext.Consumer>
+    <Toolbar variant="dense">
+      <div className={classes.grow}/>
+      <Fab
+        aria-label="Add"
+        className={classes.menuButton}
+        onClick={(): Promise<any> => handleAddToWorkspace()}
+        size="small"
+        variant="extended"
+      >
+        <Add/>
+        Add New Window
+      </Fab>
+    </Toolbar>
   )
 }
