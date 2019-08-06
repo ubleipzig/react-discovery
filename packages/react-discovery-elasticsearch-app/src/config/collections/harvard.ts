@@ -16,7 +16,7 @@ export const harvard: IConfig = {
           type: "grid"
         },
       ],
-      name: 'Harvard',
+      name: 'Harvard University',
       primaryTypeField: "collections.keyword",
       refinementListFilters: {
         1: {

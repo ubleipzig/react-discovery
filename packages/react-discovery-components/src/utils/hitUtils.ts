@@ -44,7 +44,7 @@ export const getParentEntityByChildIdentifier = (childId, entities) => {
 
 // TODO determine how to handle manifest field location with different schemas
 export const getFirstManifestFromHit = (hit, matchEntityField) => {
-  const manifest = hit && hit._source && hit._source.manifest
+  const manifest = hit && hit._source && (hit._source.manifest || hit._source.Manifest)
   if (!manifest) {
     const manifests = hit && hit._source && hit._source.entities
       .filter((entity) => entity[typeField] === matchEntityField)

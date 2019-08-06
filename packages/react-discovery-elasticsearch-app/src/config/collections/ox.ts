@@ -16,7 +16,7 @@ export const ox1: IConfig = {
           type: "grid"
         },
       ],
-      name: 'Oxford',
+      name: 'Oxford University',
       primaryTypeField: "collections.keyword",
       refinementListFilters: {
         1: {
