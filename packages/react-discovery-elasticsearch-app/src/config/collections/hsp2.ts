@@ -296,13 +296,13 @@ export const hsp2: IConfig = {
       ],
       sortFields: [
         {
-          field: "titel_t.keyword",
-          label: "title",
+          field: "entstehungsort_s.keyword",
+          label: "originPlace",
           order: "asc"
         },
         {
-          field: "entstehungsort_s.keyword",
-          label: "originPlace",
+          field: "titel_t.keyword",
+          label: "title",
           order: "asc"
         },
         {

@@ -63,24 +63,6 @@ export const WindowAppBar = (props): ReactElement => {
                 </Typography>
                 <div className={classes.grow}/>
                 <IconButton
-                  aria-label="Replace"
-                  className={classes.menuButton}
-                  color="primary"
-                  edge="start"
-                  href=''
-                  onClick={() => mosaicWindowActions.replaceWithNew()}>
-                  <Autorenew/>
-                </IconButton>
-                <IconButton
-                  aria-label="Split"
-                  className={classes.menuButton}
-                  color="primary"
-                  edge="start"
-                  href=''
-                  onClick={() => mosaicWindowActions.split()}>
-                  <VerticalSplit/>
-                </IconButton>
-                <IconButton
                   aria-label="Expand"
                   className={classes.menuButton}
                   color="primary"
