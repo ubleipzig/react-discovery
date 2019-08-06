@@ -55,10 +55,6 @@ const useStyles = makeStyles((theme: Theme): any =>
   }),
 )
 
-const filteredFields = ['author', 'material', 'format', 'originPlace', 'originDate', 'formType',
-  'status', 'writingStyle', 'language', 'previousOwner']
-
-
 export const SimpleDataView: React.FC<any> = (props): ReactElement => {
   const classes: any = useStyles({})
   const {id} = props
@@ -68,7 +64,6 @@ export const SimpleDataView: React.FC<any> = (props): ReactElement => {
   const currentCollection = getCurrentCollection()
   const url = buildDocumentUri(currentCollection, id)
   const searchFields = ESCore.state.getSearchFields()
-  const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = doc && buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, doc)
   const manifest = doc && getFirstManifestFromHit(doc, Domain.DIGITALISAT)
 
@@ -137,7 +132,7 @@ export const SimpleDataView: React.FC<any> = (props): ReactElement => {
               style={{display: 'flex', padding: '10px'}}
               variant='h6'
             />
-            {displayFields.map((field, key): ReactElement =>
+            {searchFields.map((field, key): ReactElement =>
               <CardContent
                 className={classes.cardContent}
                 key={key}

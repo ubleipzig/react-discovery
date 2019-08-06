@@ -12,6 +12,7 @@ export const en = {
     profile: 'Profile',
     resultsFound: 'results found',
     search: 'Search...',
+    selectCollection: 'Select Collection',
     showInner: 'Show Inner',
     simple: 'Simple',
     sortOrder: 'Sort Order',

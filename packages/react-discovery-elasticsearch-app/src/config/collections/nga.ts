@@ -1,8 +1,8 @@
 import {IConfig} from "@react-discovery/configuration"
 
-export const harvard: IConfig = {
+export const nga: IConfig = {
   collections: {
-    hvd2: {
+    nga2: {
       hitComponents: [
         {
           defaultOption: true,
@@ -16,74 +16,59 @@ export const harvard: IConfig = {
           type: "grid"
         },
       ],
-      name: 'Harvard University',
+      name: 'National Gallery of Art',
       primaryTypeField: "collections.keyword",
       refinementListFilters: {
         1: {
-          field: "Classification.keyword",
-          label: "Classification",
+          field: "Artist.keyword",
+          label: "Artist",
           size: 10
         },
         2: {
-          field: "Date.keyword",
-          label: "Date",
+          field: "Creation Year.keyword",
+          label: "Creation Year",
           size: 10
         },
         3: {
-          field: "Technique.keyword",
-          label: "Technique",
+          field: "description.keyword",
+          label: "Description",
           size: 10
         },
       },
       searchFields: [
-        {
-          field: "Medium",
-          label: "Medium",
-          type: null
-        },
-        {
-          field: "Classification",
-          label: "Classification",
-          type: null
-        },
-        {
-          field: "Credit Line",
-          label: "Credit Line",
-          type: null
-        },
-        {
-          field: "Dimensions",
-          label: "Dimensions",
-          type: null
-        },
-        {
-          field: "Object Number",
-          label: "Object Number",
-          type: null
-        },
         {
           field: "title",
           label: "title",
           type: null
         },
         {
-          field: "Technique",
-          label: "Technique",
+          field: "Accession Number",
+          label: "Accession Number",
           type: null
         },
         {
-          field: "Provenance",
-          label: "Provenance",
+          field: "Artist",
+          label: "Artist",
           type: null
         },
         {
-          field: "People",
-          label: "People",
+          field: "Creation Year",
+          label: "Creation Year",
           type: null
         },
         {
-          field: "Date",
-          label: "Date",
+          field: "Title",
+          label: "Title",
+          type: null
+        },
+        {
+          field: "attribution",
+          label: "attribution",
+          type: null
+        },
+        {
+          field: "description",
+          label: "description",
           type: null
         },
         {
@@ -91,21 +76,26 @@ export const harvard: IConfig = {
           label: "manifest",
           type: null
         },
+        {
+          field: "thumbnail",
+          label: "thumbnail",
+          type: null
+        }
       ],
       sortFields: [
-        {
-          field: "Technique.keyword",
-          label: "Technique",
-          order: "desc"
-        },
         {
           field: "title.keyword",
           label: "Title",
           order: "asc"
         },
         {
-          field: "Date.keyword",
-          label: "Date",
+          field: "Creation Year.keyword",
+          label: "Creation Year",
+          order: "asc"
+        },
+        {
+          field: "Artist.keyword",
+          label: "Artist",
           order: "asc"
         }
       ],

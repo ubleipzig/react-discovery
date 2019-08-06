@@ -19,7 +19,7 @@ export const ubl: IConfig = {
       initialFilter: {
         "Sprache.keyword": ["lateinisch"]
       },
-      name: 'UBL',
+      name: 'Universitätsbibliothek Leipzig',
       primaryTypeField: "collections.keyword",
       refinementListFilters: {
         1: {

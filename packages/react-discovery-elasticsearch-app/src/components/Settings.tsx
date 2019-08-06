@@ -7,11 +7,13 @@ import {
   getCurrentCollection,
   setCurrentCollection
 } from '@react-discovery/configuration'
-import React, {ReactElement, useEffect} from "react"
+import React, {ReactElement, useEffect, useState} from "react"
 import {Search} from "@material-ui/icons"
 import {useDispatch} from 'react-redux'
+import {useNavigation} from 'react-navi'
+import {useTranslation} from "react-i18next"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme): any => ({
   primary: {
     fontFamily: 'Google Sans,Roboto,Arial,sans-serif',
     fontSize: '.875rem',
@@ -27,24 +29,32 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const Settings: React.FC<any> = (): ReactElement => {
-  const classes = useStyles({})
+  const [isInitialized, setIsInitialized] = useState(false)
+  const classes: any = useStyles({})
   const currentCollection = getCurrentCollection()
-  const prevCollection = usePrevious(currentCollection)
   const collections = getCollections()
   const collectionObj = getCollectionByKey(currentCollection)
+  const jsonCollection = JSON.stringify(collectionObj)
+  const prevJsonCollection = usePrevious(jsonCollection)
   const dispatch = useDispatch()
+  const navigation = useNavigation()
+  const {t} = useTranslation(['common'])
 
   const getIndexNames = (): any => {
     const map = new Map()
+    const sortStringValues = (a, b) => a[1] === b[1] ? 0 : a[1] > b[1] ? 1 : -1
     Object.keys(collections).forEach((key: string) => {
       map.set(key, (collections[key] as ICollection).name)
     })
-    return new Map([...map.entries()].sort())
+    return new Map([...map].sort(sortStringValues))
   }
   const indexMap = getIndexNames()
 
   useEffect((): void => {
-    if (prevCollection !== currentCollection) {
+    if (!isInitialized) {
+      setIsInitialized(true)
+    }
+    if (prevJsonCollection !== jsonCollection) {
       const {initialFilter, refinementListFilters, searchFields, sortFields} = collectionObj
       const aggs = ESCore.builders.buildAggs(refinementListFilters)
       const qs: IElasticSearchQuery = {
@@ -57,8 +67,11 @@ export const Settings: React.FC<any> = (): ReactElement => {
         stringInput: null,
       }
       dispatch(ESCore.state.setQueryFields({...qs}))
+      if (isInitialized) {
+        navigation.navigate('/search/')
+      }
     }
-  }, [prevCollection, currentCollection])
+  }, [prevJsonCollection, jsonCollection])
 
   const buildSelectOptions = (): any => {
     return Array.from(indexMap, ([key, value]) =>
@@ -72,7 +85,7 @@ export const Settings: React.FC<any> = (): ReactElement => {
       </MenuItem>)
   }
 
-  const handleChange = (event) => {
+  const handleChange = (event): void => {
     const currentCollection = event.target.value as string
     dispatch(setCurrentCollection({currentCollection}))
   }
@@ -84,7 +97,7 @@ export const Settings: React.FC<any> = (): ReactElement => {
           <ListItemIcon>
             <Search />
           </ListItemIcon>
-          <ListItemText primary="Select Collection" />
+          <ListItemText primary={t('selectCollection')} />
           <FormControl>
             <Select
               MenuProps={{

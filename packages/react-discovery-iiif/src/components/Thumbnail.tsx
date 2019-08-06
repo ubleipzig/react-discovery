@@ -1,6 +1,6 @@
 import React, {ReactElement} from "react"
 import {CardMedia} from "@material-ui/core"
-import {IIIF} from "../enum"
+import {buildThumbnailReference} from "../utils"
 import gql from 'graphql-tag'
 import {useQuery} from '@apollo/react-hooks'
 import {useThumbnailStyles} from "@react-discovery/components"
@@ -26,6 +26,7 @@ const GET_MANIFEST_SUMMARY = gql`
 export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
   const classes: any = props.classes || useThumbnailStyles({})
   const {manifest, menuComponent, thumbnail} = props
+  const thumbnailLink = buildThumbnailReference(thumbnail)
   const {data} = !thumbnail && manifest && useQuery(GET_THUMBNAIL, {
     variables: { manifestId: manifest },
   })
@@ -54,7 +55,7 @@ export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
         alt="Placeholder"
         className={classes.media}
         component="img"
-        image={thumbnail + IIIF.THUMBNAIL_API_REQUEST}
+        image={thumbnailLink}
       />
       {menuComponent}
     </div>
