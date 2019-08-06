@@ -22,14 +22,17 @@ export const ox1: IConfig = {
         1: {
           field: "collections.keyword",
           label: "Collection",
+          size: 10
         },
         2: {
           field: "subjects.keyword",
           label: "Subject",
+          size: 10
         },
         3: {
           field: "locations.keyword",
           label: "Location",
+          size: 10
         },
       },
       searchFields: [

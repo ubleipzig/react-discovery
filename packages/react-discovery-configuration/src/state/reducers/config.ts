@@ -6,6 +6,7 @@ import {
   setHitComponent,
   setIsPersisted,
   setItemViewType,
+  setRefinementListFilterSize,
   setSelectedIndex,
   setViewType,
 } from "../actions"
@@ -48,5 +49,21 @@ export const config = (initialState): ReducerBuilder<IConfig> => reducerWithInit
     selectedTabs: {
       ...state.selectedTabs,
       [id]: currentSelectedTab,
+    }
+  }))
+  .case(setRefinementListFilterSize, (state, {currentCollection, filterName, size}): ReducerBuilder<IConfig> => ({
+    ...state,
+    collections: {
+      ...state.collections,
+      [currentCollection]: {
+        ...state.collections[currentCollection],
+        refinementListFilters: {
+          ...state.collections[currentCollection].refinementListFilters,
+          [filterName]: {
+            ...state.collections[currentCollection].refinementListFilters[filterName],
+            size
+          }
+        }
+      }
     }
   }))

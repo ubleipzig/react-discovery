@@ -80,18 +80,22 @@ export const hsp2: IConfig = {
         1: {
           field: "entstehungsort_s.keyword",
           label: "originPlace",
+          size: 10
         },
         2: {
           field: "status_t.keyword",
           label: "status",
+          size: 10
         },
         3: {
           field: "schreibsprache_t.keyword",
           label: "language",
+          size: 10
         },
         4: {
           field: "author_t.keyword",
-          label: "author"
+          label: "author",
+          size: 10
         }
       },
       searchFields: [

@@ -1,5 +1,5 @@
-import {collections} from './collections'
 import {IConfig} from "@react-discovery/configuration"
+import {collections} from './collections'
 import deepmerge from 'deepmerge'
 
 const currentCollection = process.env.REACT_APP_SEARCH_API_COLLECTION

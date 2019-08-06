@@ -1,12 +1,12 @@
+import {IAggRecord, IElasticSearchQuery} from "../../index"
 import {IAggregation, IFilters, IHits, IState} from '../../..'
-import {ISearchField, ISortField, getRefinementListFilters} from "@react-discovery/configuration"
+import {ISearchField, ISortField} from "@react-discovery/configuration"
 import {FieldConstants} from '../../enum'
-import {IElasticSearchQuery} from "../../index"
 import {useSelector} from "react-redux"
 
 const typeField = FieldConstants.TYPE_FIELD
 
-export const getAggs = (): IFilters => {
+export const getAggs = (): IAggRecord => {
   return useSelector((state: any): any => state.query.aggs)
 }
 
@@ -63,7 +63,6 @@ export const getDefaultQuery = (): IElasticSearchQuery => {
   const aggs = getAggs()
   const filters = getFilters()
   const from = getFrom()
-  const refinementListFilters = getRefinementListFilters()
   const stringInput = getStringInput()
   const searchFields = getSearchFields()
   const size = getSize()
@@ -72,7 +71,6 @@ export const getDefaultQuery = (): IElasticSearchQuery => {
     aggs,
     filters,
     from,
-    refinementListFilters,
     searchFields,
     size,
     sortFields,

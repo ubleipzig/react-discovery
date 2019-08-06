@@ -1,12 +1,20 @@
 import {Button, makeStyles, withStyles} from "@material-ui/core"
-import {GroupSelectedFilters, IOverridableStyledComponent, ItemListFlat, SortingListFlat} from "@react-discovery/components"
-import React, {ReactElement} from "react"
+import {ESCore, usePrevious} from "@react-discovery/core"
+import {
+  GroupSelectedFilters,
+  IOverridableStyledComponent,
+  ItemListFlat,
+  SortingListFlat
+} from "@react-discovery/components"
+import React, {ReactElement, useEffect} from "react"
+import {getCollectionByKey, getCurrentCollection, getRefinementListFilters} from "@react-discovery/configuration"
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import {Tune} from "@material-ui/icons"
-import {getRefinementListFilters} from "@react-discovery/configuration"
+import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
+import uuid from 'uuid'
 
 const ExpansionPanel = withStyles({
   expanded: {},
@@ -57,6 +65,7 @@ const useStyles = makeStyles((theme): any => ({
   content: {
     display: 'flex',
     flex: '1 0 auto',
+    maxWidth: 200,
     paddingRight: 36,
   },
   grow: {
@@ -84,22 +93,36 @@ const useStyles = makeStyles((theme): any => ({
 
 export const ListFilters: React.FC<IOverridableStyledComponent> = (): ReactElement => {
   const classes: any = useStyles({})
+  const currentCollection = getCurrentCollection()
+  const collectionObj = getCollectionByKey(currentCollection)
   const refinementListFilters = getRefinementListFilters()
+  const prevRefinementListFilters = usePrevious(refinementListFilters)
   const {t} = useTranslation(['common', 'vocab'])
-
+  const dispatch = useDispatch()
   const [expanded, setExpanded] = React.useState(false)
 
   const handleChange = (): void => {
     setExpanded(!expanded);
   }
 
+  useEffect((): void => {
+    if (prevRefinementListFilters !== refinementListFilters) {
+      const {refinementListFilters} = collectionObj
+      const aggs = ESCore.builders.buildAggs(refinementListFilters)
+      dispatch(ESCore.state.setAggs({aggs}))
+    }
+  }, [prevRefinementListFilters, refinementListFilters])
+
   const buildRefinementListFilters = (): ReactElement[] => {
     return Object.keys(refinementListFilters).map((id: any): ReactElement => (
       <ItemListFlat
         classes={classes}
         field={refinementListFilters[id].field}
-        key={id}
-        label={t(`vocab:${refinementListFilters[id].label}`)}/>))
+        id={id}
+        key={uuid()}
+        label={t(`vocab:${refinementListFilters[id].label}`)}
+        size={refinementListFilters[id].size}
+      />))
   }
 
   return (

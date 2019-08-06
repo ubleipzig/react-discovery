@@ -1,7 +1,8 @@
 import {IElasticSearchQuery, IFilters} from "../.."
 import {ElasticSearchConstants} from '../enum'
-import {NestedQuery} from "./full-text"
 import {ISortField} from "@react-discovery/configuration"
+import {NestedQuery} from "./full-text"
+
 const assign = require("lodash/assign")
 const reduce = require("lodash/reduce")
 const compact = require("lodash/compact")
@@ -32,15 +33,19 @@ const buildAggsContainer = (key: string, inner, aggsArray: []) => {
   }
 }
 
-export const buildTermsBucket = (key, field, ...childAggs: any) => {
+export const buildTermsBucket = (key, term, ...childAggs: any) => {
   return buildAggsContainer(key, {
-    terms: assign({field})
+    terms: {...term}
   }, childAggs)
 }
 
 export const buildAggs = (refinementListFilters) => {
   return Object.values(refinementListFilters).map((filter: any) => {
-    return buildTermsBucket(filter.field, filter.field, null)
+    const term = {
+      field: filter.field,
+      size: filter.size
+    }
+    return buildTermsBucket(filter.field, term, null)
   }).reduce((acc, val) => {
     return {...acc, ...val}
   }, {})

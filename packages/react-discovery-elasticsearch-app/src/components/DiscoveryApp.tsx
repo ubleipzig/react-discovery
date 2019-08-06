@@ -47,7 +47,7 @@ export const DiscoveryApp: React.FC<IDiscoveryApp> = (props): ReactElement => {
         handleDrawerChange={handleDrawerChange}/>
       <Grid
         item
-        style={{backgroundColor: '#fafafa', height: '100%'}}
+        style={{height: '100%'}}
         xs={12}
       >
         <PersistentDrawer open={open}/>

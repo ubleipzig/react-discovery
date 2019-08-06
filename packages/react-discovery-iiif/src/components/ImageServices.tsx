@@ -23,9 +23,8 @@ const GET_IMAGE_SERVICES = gql`
           }`
 
 const GET_IMAGE_SERVICES_V2 = gql`
-          query ImageServicesv2($manifestId: String!, $profile: String!) {
-            imageServicesv2(manifestId: $manifestId, 
-            profile: $profile)
+          query ImageServicesv2NoProfile($manifestId: String!) {
+            imageServicesv2NoProfile(manifestId: $manifestId)
             {id}
           }`
 export const ImageServices: React.FC<any> = (props): ReactElement => {
@@ -34,11 +33,12 @@ export const ImageServices: React.FC<any> = (props): ReactElement => {
     variables: { manifestId: manifest, type: 'ImageService2' },
   })
   const responsev2 = manifest && useQuery(GET_IMAGE_SERVICES_V2, {
-    variables: {manifestId: manifest, profile: 'http://iiif.io/api/image/2/level2.json'},
+    variables: {manifestId: manifest},
   })
+
   const imageServices = response && response.data && response.data.imageServices
 
-  const imageServicesv2 = responsev2 && responsev2.data && responsev2.data.imageServicesv2
+  const imageServicesv2 = responsev2 && responsev2.data && responsev2.data.imageServicesv2NoProfile
 
   return imageServices ? (
     <OSDViewer

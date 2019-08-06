@@ -1,4 +1,5 @@
-import {IConfig, ISearchField, ISortField} from "@react-discovery/configuration"
+import {IConfig} from "@react-discovery/configuration"
+
 export * from './elasticsearch'
 export * from './hooks'
 

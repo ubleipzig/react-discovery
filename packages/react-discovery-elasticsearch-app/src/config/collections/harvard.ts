@@ -22,14 +22,17 @@ export const harvard: IConfig = {
         1: {
           field: "Classification.keyword",
           label: "Classification",
+          size: 10
         },
         2: {
           field: "Date.keyword",
           label: "Date",
+          size: 10
         },
         3: {
           field: "Technique.keyword",
           label: "Technique",
+          size: 10
         },
       },
       searchFields: [

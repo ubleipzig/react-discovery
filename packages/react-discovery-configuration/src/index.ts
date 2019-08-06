@@ -55,6 +55,7 @@ export interface ILanguage {
 export interface IRefinementListFilter {
   label: string;
   field: string;
+  size: number;
 }
 
 export interface IRefinementListFilters {
