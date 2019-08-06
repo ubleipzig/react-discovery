@@ -65,6 +65,7 @@ const useStyles = makeStyles((theme): any => ({
   content: {
     display: 'flex',
     flex: '1 0 auto',
+    maxWidth: 200,
     paddingRight: 36,
   },
   grow: {
