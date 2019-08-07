@@ -32,8 +32,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const entities = hit && hit._source.entities && hit._source.entities
   const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
-  const media = hit && hit._source && hit._source.entities
-    .filter((entity): boolean => entity[typeField] === Domain.DIGITALISAT)
+  const media = entities && entities.filter((entity): boolean => entity[typeField] === Domain.DIGITALISAT)
   const item = media.length && media[0]
 
   const buildValueDisplay = (field: string, hit: IHit, key: number): ReactElement => {

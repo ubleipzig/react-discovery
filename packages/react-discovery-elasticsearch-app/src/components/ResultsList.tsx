@@ -6,7 +6,7 @@ import {
   useMinimalResultViewerStyles,
 } from '@react-discovery/components'
 import {ESCore, usePrevious} from '@react-discovery/core'
-import {ListFilters, MinWidthResultsGrid, ViewTypeSwitcher} from '.'
+import {ImageGridViewer, ListFilters, MinWidthResultsGrid, ViewTypeSwitcher} from '.'
 import React, {ReactElement, useEffect} from 'react'
 import {getCurrentLanguage, getViewType} from "@react-discovery/configuration"
 import {useTranslation} from "react-i18next"
@@ -16,12 +16,6 @@ export const useStyles = makeStyles((): any => ({
     alignItems: 'center',
     display: 'flex',
     padding: '10px'
-  },
-  gridRoot: {
-    background: '#eee',
-    display: 'flex',
-    flexWrap: 'wrap',
-    width: '100%'
   },
   main: {
     display: 'flex',
@@ -37,6 +31,7 @@ export const ResultsList: React.FC<any> = (): ReactElement => {
   const previousLanguage = usePrevious(currentLanguage)
   const matches = useMediaQuery('(min-width:600px)')
   const viewType = getViewType()
+
   useEffect((): any => {
     if (previousLanguage !== currentLanguage) {
       i18n.changeLanguage(currentLanguage)
@@ -67,16 +62,7 @@ export const ResultsList: React.FC<any> = (): ReactElement => {
               </Grid>
               <ListFilters/>
               {viewType === 'grid' ?
-                <Grid
-                  alignItems="center"
-                  container
-                  direction="row"
-                  justify="center"
-                >
-                  <Grid className={mainClasses.gridRoot} item xs={12}>
-                    <ViewTypeSwitcher/>
-                  </Grid>
-                </Grid> :
+                <ImageGridViewer/> :
                 <ViewTypeSwitcher/>
               }
               <Grid

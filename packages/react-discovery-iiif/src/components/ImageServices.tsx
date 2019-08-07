@@ -1,5 +1,6 @@
 import React, {ReactElement} from "react"
 import {OSDViewer} from '.'
+import {buildTileSources} from '../utils'
 import gql from 'graphql-tag'
 import {makeStyles} from "@material-ui/core"
 import {useQuery} from '@apollo/react-hooks'
@@ -11,10 +12,6 @@ export const useThumbnailStyles = makeStyles((): any => ({
   },
 }))
 
-const buildTileSources = (imageServices): string[] => {
-  return imageServices && imageServices.map((s: any): string =>
-    `${s.id}/info.json`)
-}
 const GET_IMAGE_SERVICES = gql`
           query ImageServices($manifestId: String!, $type: String!) {
             imageServices(manifestId: $manifestId, 

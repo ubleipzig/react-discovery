@@ -1,30 +1,32 @@
 import React, {ReactElement, useEffect, useRef, useState} from 'react'
 import OpenSeadragon from 'openseadragon'
 import {makeStyles} from "@material-ui/core"
+import {usePrevious} from "@react-discovery/core"
 
-export interface IOsdComponentProps {
-  images?: any;
+export interface ISingleImageOsdComponentProps {
+  image?: any;
 }
 
 const useStyles = makeStyles((): any => ({
   osdRoot: {
     background: 'black',
-    height: '100%',
+    height: '75%',
     position: 'absolute',
     width: '100%'
   }
 }))
 
-export const OSDViewer: React.FC<IOsdComponentProps> = (props): ReactElement => {
+export const SingleImageOSDViewer: React.FC<ISingleImageOsdComponentProps> = (props): ReactElement => {
   const classes: any = useStyles({})
   const [isInitialized, setIsInitialized] = useState(false)
   const [osd, setOsd] = useState(null)
   const osdRef = useRef(null)
-  const {images} = props
+  const {image} = props
+  const prevImage = usePrevious(image)
 
   const defaultOsdProps = () => {
-    let showNavigator = true
-    let showReferenceStrip = true
+    let showNavigator = false
+    let showReferenceStrip = false
     const ajaxHeaders = {
       // "x-requested-with": "XMLHttpRequest",
     }
@@ -40,7 +42,7 @@ export const OSDViewer: React.FC<IOsdComponentProps> = (props): ReactElement => 
       minZoomLevel: 0,
       navigatorPosition: 'BOTTOM_RIGHT',
       referenceStripScroll: 'vertical',
-      sequenceMode: true,
+      sequenceMode: false,
       showFullPageControl: false,
       showHomeControl: false,
       showNavigator,
@@ -48,7 +50,6 @@ export const OSDViewer: React.FC<IOsdComponentProps> = (props): ReactElement => 
       showRotationControl: false,
       showSequenceControl: false,
       showZoomControl: false,
-      tileSources: [images],
       visibilityRatio: 0.5,
     }
   }
@@ -56,16 +57,26 @@ export const OSDViewer: React.FC<IOsdComponentProps> = (props): ReactElement => 
   const updateViewer = (config) => {
     if (!osd) {
       const osd = new OpenSeadragon(config)
+      osd.open([{
+        tileSource: image
+      }])
       osd.viewport.goHome(true)
       setOsd(osd)
+    } else {
+      osd.open([{
+        tileSource: image
+      }])
+      osd.viewport.goHome(true)
     }
   }
 
   useEffect(
-    () => {
-      if (!isInitialized) {
+    (): void => {
+      if (!isInitialized && image) {
         updateViewer(defaultOsdProps())
         setIsInitialized(true)
+      } else if (prevImage !== image) {
+        updateViewer(defaultOsdProps())
       }
     })
 

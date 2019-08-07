@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme): any => ({
     listStyle: 'none',
     margin: 5,
     maxWidth: 200,
-    padding: 10
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -51,6 +50,12 @@ const useStyles = makeStyles((theme): any => ({
   titleBar: {
     background: 'whitesmoke',
   },
+  values: {
+    '& em': {
+      background: '#cfe1f3'
+    },
+    padding: 10
+  }
 }))
 
 const HoverButton = withStyles(() => ({
@@ -96,7 +101,7 @@ const GridComponent: React.FC<IGridComponent> = (props: IGridComponent): ReactEl
     <GridListTile
       className={classes.gridListTile}
     >
-      <div style={{display: 'flex', left: 0, position: 'absolute', right: 0}}>
+      <div style={{display: 'flex', left: 0, position: 'absolute', right: 0, zIndex: 500}}>
         <div style={{flexGrow: 1}}/>
         <Tooltip
           title={t('addMediaToWorkspace')}>
@@ -124,7 +129,7 @@ const GridComponent: React.FC<IGridComponent> = (props: IGridComponent): ReactEl
         thumbnail={thumbnail}
       />
       <Typography variant='subtitle2'>
-        <InnerHtmlValue value={item[Domain.MEDIA_TITLE_FIELD]}/>
+        <InnerHtmlValue classes={classes} value={item[Domain.MEDIA_TITLE_FIELD]}/>
       </Typography>
     </GridListTile>
   )

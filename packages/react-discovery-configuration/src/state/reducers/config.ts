@@ -1,6 +1,7 @@
 import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
 import {
   setCurrentCollection,
+  setCurrentGridViewerImage,
   setCurrentLanguage,
   setCurrentSelectedTab,
   setHitComponent,
@@ -43,6 +44,10 @@ export const config = (initialState): ReducerBuilder<IConfig> => reducerWithInit
   .case(setCurrentCollection, (state, {currentCollection}): ReducerBuilder<IConfig> => ({
     ...state,
     currentCollection
+  }))
+  .case(setCurrentGridViewerImage, (state, {gridViewerImage}): ReducerBuilder<IConfig> => ({
+    ...state,
+    gridViewerImage
   }))
   .case(setCurrentSelectedTab, (state, {currentSelectedTab, id}): ReducerBuilder<IConfig> => ({
     ...state,

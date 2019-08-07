@@ -1,4 +1,5 @@
 export * from './ImageServices'
 export * from './WindowAppBar'
+export * from './SingleImageOSDViewer'
 export * from './OSDViewer'
 export * from './Thumbnail'
