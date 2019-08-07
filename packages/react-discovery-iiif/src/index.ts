@@ -2,6 +2,7 @@ export * from './components'
 export * from './SimpleImageViewer'
 export * from './IIIFCollectionProvider'
 export * from './state'
+export * from './utils'
 
 export interface IResponse {
   error?: any;

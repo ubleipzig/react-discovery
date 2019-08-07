@@ -1,13 +1,24 @@
 import React, {ReactElement, useEffect, useRef, useState} from 'react'
 import OpenSeadragon from 'openseadragon'
+import {makeStyles} from "@material-ui/core"
 
 export interface IOsdComponentProps {
   images?: any;
 }
 
+const useStyles = makeStyles((): any => ({
+  osdRoot: {
+    background: 'black',
+    height: '100%',
+    position: 'absolute',
+    width: '100%'
+  }
+}))
+
 export const OSDViewer: React.FC<IOsdComponentProps> = (props): ReactElement => {
+  const classes: any = useStyles({})
   const [isInitialized, setIsInitialized] = useState(false)
-  const [osd, setOsd] = useState(false)
+  const [osd, setOsd] = useState(null)
   const osdRef = useRef(null)
   const {images} = props
 
@@ -60,8 +71,8 @@ export const OSDViewer: React.FC<IOsdComponentProps> = (props): ReactElement => 
 
   return (
     <div
+      className={classes.osdRoot}
       ref={osdRef}
-      style={{background: 'black', height: '100%', position: 'absolute', width: '100%'}}
     />
   )
 }

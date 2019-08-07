@@ -13,6 +13,10 @@ export const getCurrentCollection = (): string => {
   return useSelector((state: any): string => state.config.currentCollection)
 }
 
+export const getCurrentGridViewerImage = (): string => {
+  return useSelector((state: any): string => state.config.gridViewerImage)
+}
+
 export const getCurrentLanguage = (): string => {
   return useSelector((state: any): string => state.config.currentLanguage)
 }

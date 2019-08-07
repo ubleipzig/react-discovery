@@ -1,9 +1,12 @@
+import {CardActionArea, CardMedia} from "@material-ui/core"
 import React, {ReactElement} from "react"
-import {CardMedia} from "@material-ui/core"
 import {buildThumbnailReference} from "../utils"
 import gql from 'graphql-tag'
+import {setCurrentGridViewerImage} from "@react-discovery/configuration"
+import {useDispatch} from "react-redux"
 import {useQuery} from '@apollo/react-hooks'
 import {useThumbnailStyles} from "@react-discovery/components"
+
 
 interface IThumbnail {
   classes?: any;
@@ -25,6 +28,7 @@ const GET_MANIFEST_SUMMARY = gql`
           }`
 export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
   const classes: any = props.classes || useThumbnailStyles({})
+  const dispatch = useDispatch()
   const {manifest, menuComponent, thumbnail} = props
   const thumbnailLink = buildThumbnailReference(thumbnail)
   const {data} = !thumbnail && manifest && useQuery(GET_THUMBNAIL, {
@@ -34,29 +38,41 @@ export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
     variables: { manifestId: manifest },
   })
 
+  const handleImageSelect = (thumbnail): void => {
+    dispatch(setCurrentGridViewerImage({gridViewerImage: thumbnail}))
+  }
+
   return data && dataS ? (
     <div className={classes.cover}>
       {data.manifest && dataS.manifest ? data.manifest.thumbnail.map(
         (t, i) =>
-          <CardMedia
-            alt="Placeholder"
-            className={classes.media}
-            component="img"
-            image={t.id}
+          <CardActionArea
             key={i}
-            title={dataS.manifest.summary}
-          />) : null
+            onClick={(): void => handleImageSelect(t.id)}
+          >
+            <CardMedia
+              alt="Placeholder"
+              className={classes.media}
+              component="img"
+              image={t.id}
+              title={dataS.manifest.summary}
+            />
+          </CardActionArea>) : null
       }
       {menuComponent}
     </div>
   ) : thumbnail && dataS ? (
     <div className={classes.cover}>
-      <CardMedia
-        alt="Placeholder"
-        className={classes.media}
-        component="img"
-        image={thumbnailLink}
-      />
+      <CardActionArea
+        onClick={(): void => handleImageSelect(thumbnail)}
+      >
+        <CardMedia
+          alt="Placeholder"
+          className={classes.media}
+          component="img"
+          image={thumbnailLink}
+        />
+      </CardActionArea>
       {menuComponent}
     </div>
   ) : null

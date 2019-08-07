@@ -16,3 +16,18 @@ export const buildThumbnailReference = (thumbnail) => {
   }
   return thumbnailLink
 }
+
+export const buildTileSources = (imageServices): string[] => {
+  return imageServices && imageServices.map((s: any): string =>
+    `${s.id}/info.json`)
+}
+
+export const buildTileSourceForGridViewerImage = (gridViewerImage): string[] => {
+  let viewerImage
+  if (gridViewerImage.includes('/full')) {
+    viewerImage = `${gridViewerImage.split('/full')[0]}/info.json`
+  } else {
+    viewerImage = `${gridViewerImage}/info.json`
+  }
+  return viewerImage
+}
