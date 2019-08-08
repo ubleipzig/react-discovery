@@ -21,6 +21,9 @@ export const useHitViewStyles = makeStyles((theme): any => ({
     flexDirection: 'column',
     padding: '20px'
   },
+  entityIcons: {
+    padding: 5
+  },
   expand: {
     marginLeft: 'auto',
     transform: 'rotate(0deg)',

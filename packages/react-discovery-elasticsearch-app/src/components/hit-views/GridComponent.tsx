@@ -11,7 +11,6 @@ import {useTranslation} from "react-i18next"
 
 interface IGridComponent {
   hit: IHit;
-  i?: number;
 }
 
 const useStyles = makeStyles((theme): any => ({
@@ -21,6 +20,12 @@ const useStyles = makeStyles((theme): any => ({
     justifyContent: 'center',
     maxHeight: 'fit-content',
     padding: 12,
+  },
+  coverBorder: {
+    backgroundColor: '#e8f0fe',
+    border: '1px solid',
+    borderColor: '#4285f4',
+    borderRadius: 6,
   },
   gridListTile: {
     background: '#FFF',
@@ -73,7 +78,7 @@ const GridComponent: React.FC<IGridComponent> = (props: IGridComponent): ReactEl
   const dispatch = useDispatch()
   const {hit} = props
   const id = hit && (hit._source.id || hit.id)
-  const title = buildHighlightedValueForHit('title', hit) || buildHighlightedValueForHit('titel_t', hit)
+  const title = buildHighlightedValueForHit('title', hit) || buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, hit)
   const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
   const item = {
     [Domain.MEDIA_TITLE_FIELD]: title,
@@ -128,7 +133,9 @@ const GridComponent: React.FC<IGridComponent> = (props: IGridComponent): ReactEl
         manifest={manifest}
         thumbnail={thumbnail}
       />
-      <Typography variant='subtitle2'>
+      <Typography
+        color='textSecondary'
+        variant='subtitle2'>
         <InnerHtmlValue classes={classes} value={item[Domain.MEDIA_TITLE_FIELD]}/>
       </Typography>
     </GridListTile>

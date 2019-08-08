@@ -22,6 +22,12 @@ export interface IWorkspaceMosaic {
 
 const useStyles = makeStyles(() => ({
   root: {
+    height: '100%',
+    margin: 0,
+    overflow: 'hidden',
+    width: '100%'
+  },
+  toolbarRoot: {
     flexGrow: 1,
     width: '100%'
   },
@@ -67,7 +73,7 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (props): ReactElement
         createNode={createNode}
         path={path}
         renderToolbar={(): ReactElement =>
-          <div className={classes.root}>
+          <div className={classes.toolbarRoot}>
             <WindowAppBar dataId={dataId} id={id} removeViewId={removeViewId}/>
           </div>}
         title={`Window ${id}`}
@@ -98,7 +104,7 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (props): ReactElement
   const zeroStateView = <div style={{margin: 'auto', position: 'absolute'}}><ZeroState createNode={createNode}/></div>
 
   return (
-    <div style={{height: '100%', margin: 0, overflow: 'hidden', width: '100%'}}>
+    <div className={classes.root}>
       <Mosaic<string>
         onChange={onChange}
         renderTile={(id, path): ReactElement => renderTile(id, path)}

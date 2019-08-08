@@ -5,7 +5,12 @@ import {buildDocumentUri} from "./utils"
 import {getCurrentCollection} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 
-export const SimpleImageView: React.FC<any> = (props): ReactElement => {
+interface ISimpleImageView {
+  id: string;
+  manifest: string;
+}
+
+export const SimpleImageView: React.FC<ISimpleImageView> = (props): ReactElement => {
   const {id, manifest} = props
   const dispatch = useDispatch()
   const docs = ESCore.state.getDocuments()

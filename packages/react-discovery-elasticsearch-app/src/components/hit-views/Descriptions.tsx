@@ -6,8 +6,13 @@ import {
 } from "@react-discovery/views"
 import React, {ReactElement} from "react"
 import {CardActions} from "@material-ui/core"
+import {IHit} from "@react-discovery/core"
 
-export const Descriptions: React.FC<any> = (props): ReactElement => {
+interface IDescriptions {
+  hit: IHit;
+}
+
+export const Descriptions: React.FC<IDescriptions> = (props): ReactElement => {
   const {hit} = props
   const cardActions = [
     {

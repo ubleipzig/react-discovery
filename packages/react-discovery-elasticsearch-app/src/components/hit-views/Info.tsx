@@ -1,11 +1,15 @@
 import {Domain, useHitViewStyles} from "@react-discovery/views"
+import {ESCore, IHit} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {CardContent} from "@material-ui/core"
-import {ESCore} from "@react-discovery/core"
 import {FieldValueDisplay} from "@react-discovery/components"
 import {getHitComponentConfig} from "@react-discovery/configuration"
 
-export const Info: React.FC<any> = (props): ReactElement => {
+interface IInfo {
+  hit: IHit;
+}
+
+export const Info: React.FC<IInfo> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
   const componentConfig = getHitComponentConfig(Domain.INFO)
   const filteredFields = componentConfig && componentConfig.filteredFields

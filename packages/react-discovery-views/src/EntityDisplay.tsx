@@ -53,13 +53,13 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
   const buildEntityIcon = (type): ReactElement => {
     switch (type) {
       case Domain.ANNOTATION:
-        return <ChatBubble fontSize='small' htmlColor='#86173e' style={{padding: '5px'}}/>
+        return <ChatBubble className={classes.entityIcon} fontSize='small' htmlColor='#86173e'/>
       case Domain.BESCHREIBUNG:
-        return <Book fontSize='small' htmlColor='#86173e' style={{padding: '5px'}}/>
+        return <Book className={classes.entityIcon} fontSize='small' htmlColor='#86173e'/>
       case Domain.DIGITALISAT:
-        return <Image fontSize='small' htmlColor='#86173e' style={{padding: '5px'}}/>
+        return <Image className={classes.entityIcon} fontSize='small' htmlColor='#86173e'/>
       case Domain.PERSON:
-        return <Person fontSize='small' htmlColor='#86173e' style={{padding: '5px'}}/>
+        return <Person className={classes.entityIcon} fontSize='small' htmlColor='#86173e'/>
     }
   }
 

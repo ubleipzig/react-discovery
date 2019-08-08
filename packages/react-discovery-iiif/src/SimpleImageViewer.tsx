@@ -1,8 +1,12 @@
-import React, {useEffect, useState} from 'react'
+import React, {ReactElement, useEffect, useState} from 'react'
 import {ImageServices} from '.'
 import {usePrevious} from "@react-discovery/core"
 
-export const SimpleImageViewer = (props: any) => {
+interface ISimpleImageViewer {
+  manifest: string;
+}
+
+export const SimpleImageViewer: React.FC<ISimpleImageViewer> = (props): ReactElement => {
   const [isInitialized, setIsInitialized] = useState(false)
   const [currentManifest, setCurrentManifest] = useState(undefined)
   const {manifest} = props

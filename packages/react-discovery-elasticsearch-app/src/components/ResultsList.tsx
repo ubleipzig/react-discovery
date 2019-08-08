@@ -50,32 +50,30 @@ export const ResultsList: React.FC<any> = (): ReactElement => {
         spacing={3}
       >
         {hits ?
-          <>
-            <Grid item style={{width: '100%'}} xs={10}>
-              <Grid
-                className={mainClasses.gridActions}
-                container
-                direction="row"
-              >
-                <HitStats/>
-                <ViewSwitcherToggle/>
-              </Grid>
-              <ListFilters/>
-              {viewType === 'grid' ?
-                <ImageGridViewer/> :
-                <ViewTypeSwitcher/>
-              }
-              <Grid
-                alignItems="center"
-                className={mainClasses.gridActions}
-                container
-                direction="row"
-                justify="center"
-              >
-                <ES.Pagination/>
-              </Grid>
+          <Grid item style={{width: '100%'}} xs={10}>
+            <Grid
+              className={mainClasses.gridActions}
+              container
+              direction="row"
+            >
+              <HitStats/>
+              <ViewSwitcherToggle/>
             </Grid>
-          </>
+            <ListFilters/>
+            {viewType === 'grid' ?
+              <ImageGridViewer/> :
+              <ViewTypeSwitcher/>
+            }
+            <Grid
+              alignItems="center"
+              className={mainClasses.gridActions}
+              container
+              direction="row"
+              justify="center"
+            >
+              <ES.Pagination/>
+            </Grid>
+          </Grid>
           : <CircularProgress className={classes.progress}/>
         }
       </Grid> : <MinWidthResultsGrid/>

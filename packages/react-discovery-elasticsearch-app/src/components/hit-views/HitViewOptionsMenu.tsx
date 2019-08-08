@@ -5,6 +5,10 @@ import {getNumberOfWorkspaceNodesForId, setViewIdMap} from '@react-discovery/wor
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 
+interface IHitViewOptionsMenu {
+  id: string;
+}
+
 const StyledBadge = withStyles((theme: Theme) => ({
   badge: {
     border: `2px solid ${
@@ -13,7 +17,7 @@ const StyledBadge = withStyles((theme: Theme) => ({
   },
 }))(Badge)
 
-export const HitViewOptionsMenu: React.FC<any> = (props): ReactElement => {
+export const HitViewOptionsMenu: React.FC<IHitViewOptionsMenu> = (props): ReactElement => {
   const {id} = props
   const nodeCount = getNumberOfWorkspaceNodesForId(id)
   const {t} = useTranslation()

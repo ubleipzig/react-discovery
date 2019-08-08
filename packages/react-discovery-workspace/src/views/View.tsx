@@ -1,7 +1,15 @@
 import React, {ReactElement} from "react"
 import {SimpleDataView, SimpleImageView} from "@react-discovery/views"
 
-const View: React.FC<any> = (props): ReactElement => {
+type ViewType = 'data' | 'image'
+
+interface IView {
+  id: string;
+  manifest?: string;
+  viewType: ViewType;
+}
+
+const View: React.FC<IView> = (props): ReactElement => {
   const {id, manifest, viewType} = props
 
   const buildViewForType = (): ReactElement => {
