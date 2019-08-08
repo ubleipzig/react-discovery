@@ -4,7 +4,11 @@ import React, {ReactElement} from "react"
 import {IHit} from "@react-discovery/core"
 import {useHitViewStyles} from "@react-discovery/views"
 
-export const HitAbstract: React.FC<any> = (props): ReactElement => {
+interface IHitAbstract {
+  hit: IHit;
+}
+
+export const HitAbstract: React.FC<IHitAbstract> = (props): ReactElement => {
   const classes: any = useHitViewStyles({})
   const {hit} = props
   const buildFieldValueHits = (values) => {

@@ -7,6 +7,12 @@ import {buildEntityCountForType} from "@react-discovery/components"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 
+interface IEntityBadges {
+  entities: any;
+  i: number;
+  id: string;
+}
+
 const StyledBadge = withStyles((theme: Theme) => ({
   badge: {
     border: `2px solid ${
@@ -21,7 +27,7 @@ const StyledBadge = withStyles((theme: Theme) => ({
   }
 }))(Badge)
 
-export const EntityBadges: React.FC<any> = (props): ReactElement => {
+export const EntityBadges: React.FC<IEntityBadges> = (props): ReactElement => {
   const {entities, id, i} = props
   const classes: any = useHitViewStyles({})
   const indexMultiplier = getSelectedIndex()

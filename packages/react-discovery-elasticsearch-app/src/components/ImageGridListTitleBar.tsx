@@ -1,11 +1,17 @@
 import {CheckCircle, CheckCircleOutline} from "@material-ui/icons"
 import {GridListTileBar, IconButton, Tooltip, makeStyles, withStyles} from "@material-ui/core"
+import {IHit, usePrevious} from "@react-discovery/core"
 import React, {ReactElement, useEffect} from "react"
 import {getWorkspaceViewIdMap, setViewIdMap} from "@react-discovery/workspace"
 import {Domain} from "@react-discovery/views"
 import {useDispatch} from "react-redux"
-import {usePrevious} from "@react-discovery/core"
 import {useTranslation} from "react-i18next"
+
+interface IImageGridListTitleBar {
+  classes?: any;
+  hit: IHit;
+  item: any;
+}
 
 const useStyles = makeStyles((theme): any => ({
   title: {
@@ -28,7 +34,7 @@ const HoverButton = withStyles(() => ({
   },
 }))(IconButton)
 
-export const ImageGridListTitleBar: React.FC<any> = (props): ReactElement => {
+export const ImageGridListTitleBar: React.FC<IImageGridListTitleBar> = (props): ReactElement => {
   const classes: any = props.classes || useStyles({})
   const {hit, item} = props
   const id = hit && (hit._source.id || hit.id)

@@ -19,6 +19,10 @@ import {Thumbnail} from "@react-discovery/iiif"
 import {getCurrentCollection} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 
+interface ISimpleDataView {
+  id: string;
+}
+
 const useStyles = makeStyles((theme: Theme): any =>
   createStyles({
     cardContent: {
@@ -55,7 +59,7 @@ const useStyles = makeStyles((theme: Theme): any =>
   }),
 )
 
-export const SimpleDataView: React.FC<any> = (props): ReactElement => {
+export const SimpleDataView: React.FC<ISimpleDataView> = (props): ReactElement => {
   const classes: any = useStyles({})
   const {id} = props
   const dispatch = useDispatch()

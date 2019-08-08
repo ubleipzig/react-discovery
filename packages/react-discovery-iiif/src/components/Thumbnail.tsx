@@ -8,7 +8,6 @@ import {useDispatch} from "react-redux"
 import {useQuery} from '@apollo/react-hooks'
 import {useThumbnailStyles} from "@react-discovery/components"
 
-
 interface IThumbnail {
   classes?: any;
   image?: string;
@@ -22,11 +21,13 @@ const GET_THUMBNAIL = gql`
               manifest(id: $manifestId)
           {thumbnail{id, type, service {id, profile}}}
           }`
+
 const GET_MANIFEST_SUMMARY = gql`
           query Summary($manifestId: String!) {
               manifest(id: $manifestId)
           {summary}
           }`
+
 export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
   const classes: any = props.classes || useThumbnailStyles({})
   const dispatch = useDispatch()

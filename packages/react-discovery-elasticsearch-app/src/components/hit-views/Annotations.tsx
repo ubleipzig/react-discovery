@@ -5,8 +5,13 @@ import {
 } from "@react-discovery/views"
 import React, {ReactElement} from "react"
 import {CardActions} from "@material-ui/core"
+import {IHit} from "@react-discovery/core"
 
-export const Annotations: React.FC<any> = (props): ReactElement => {
+interface IAnnotations {
+  hit: IHit;
+}
+
+export const Annotations: React.FC<IAnnotations> = (props): ReactElement => {
   const {hit} = props
   const cardActions = [
     {
