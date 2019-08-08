@@ -4,7 +4,8 @@ import {makeStyles} from "@material-ui/core"
 import {usePrevious} from "@react-discovery/core"
 
 export interface ISingleImageOsdComponentProps {
-  image?: any;
+  classes?: any;
+  image: string;
 }
 
 const useStyles = makeStyles((): any => ({
@@ -17,20 +18,20 @@ const useStyles = makeStyles((): any => ({
 }))
 
 export const SingleImageOSDViewer: React.FC<ISingleImageOsdComponentProps> = (props): ReactElement => {
-  const classes: any = useStyles({})
+  const classes: any = props.classes || useStyles({})
   const [isInitialized, setIsInitialized] = useState(false)
   const [osd, setOsd] = useState(null)
   const osdRef = useRef(null)
   const {image} = props
   const prevImage = usePrevious(image)
 
-  const defaultOsdProps = () => {
+  const defaultOsdProps = (): {} => {
     let showNavigator = false
     let showReferenceStrip = false
     const ajaxHeaders = {
       // "x-requested-with": "XMLHttpRequest",
     }
-    // @ts-ignore
+
     return {
       ajaxHeaders,
       constrainDuringPan: false,
@@ -54,7 +55,7 @@ export const SingleImageOSDViewer: React.FC<ISingleImageOsdComponentProps> = (pr
     }
   }
 
-  const updateViewer = (config) => {
+  const updateViewer = (config): void => {
     if (!osd) {
       const osd = new OpenSeadragon(config)
       osd.open([{

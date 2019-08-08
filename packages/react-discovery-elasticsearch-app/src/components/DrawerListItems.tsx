@@ -1,5 +1,5 @@
 import {Badge, ListItem, ListItemIcon, ListItemText, Tooltip} from "@material-ui/core"
-import {Home, PictureInPicture, Search, Settings} from "@material-ui/icons"
+import {Description, Home, PictureInPicture, Search, Settings} from "@material-ui/icons"
 import {NavLink, useCurrentRoute} from "react-navi"
 import React, {ReactElement, forwardRef, useEffect, useState} from "react"
 import {getNumberOfWorkspaceNodes} from "@react-discovery/workspace"
@@ -34,8 +34,14 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
       text: 'Workspace'
     },
     {
-      id: 'settings',
+      id: 'detail',
       index: 3,
+      path: '/detail',
+      text: 'Detail'
+    },
+    {
+      id: 'settings',
+      index: 4,
       path: '/settings',
       text: 'Settings'
     },
@@ -44,13 +50,15 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
   useEffect((): any => {
     if (!isInitialized) {
       const pathname = route.url.pathname
-      const [startItem] = listItems.filter((item): boolean => item.path === pathname)
+      const context = pathname.split('/')[1]
+      const [startItem] = listItems.filter((item): boolean => item.path.includes(context))
       setSelectedIndex(startItem.index)
       setIsInitialized(true)
     }
     if (route !== prevRoute) {
       const pathname = route.url.pathname
-      const [startItem] = listItems.filter((item): boolean => item.path === pathname)
+      const context = pathname.split('/')[1]
+      const [startItem] = listItems.filter((item): boolean => item.path.includes(context))
       startItem && setSelectedIndex(startItem.index)
     }
   }, [route, prevRoute])
@@ -71,6 +79,8 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
             <PictureInPicture/>
           </Badge>
         )
+      case 'detail':
+        return <Description/>
       case 'settings':
         return <Settings/>
     }

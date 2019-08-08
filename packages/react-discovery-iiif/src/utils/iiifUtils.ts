@@ -22,7 +22,7 @@ export const buildTileSources = (imageServices): string[] => {
     `${s.id}/info.json`)
 }
 
-export const buildTileSourceForGridViewerImage = (gridViewerImage): string[] => {
+export const buildTileSourceForGridViewerImage = (gridViewerImage): string => {
   let viewerImage
   if (gridViewerImage.includes('/full')) {
     viewerImage = `${gridViewerImage.split('/full')[0]}/info.json`

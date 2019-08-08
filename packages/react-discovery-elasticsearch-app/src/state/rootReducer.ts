@@ -36,7 +36,7 @@ const initialQueryState: IElasticSearchQuery = {
   searchFields,
   size: 20,
   sortFields,
-  stringInput: null,
+  stringInput: '',
 }
 
 const queryReducer: Reducer = ESCore.state.query(initialQueryState)

@@ -5,6 +5,10 @@ import gql from 'graphql-tag'
 import {makeStyles} from "@material-ui/core"
 import {useQuery} from '@apollo/react-hooks'
 
+interface IImageServices {
+  manifest: string;
+}
+
 export const useThumbnailStyles = makeStyles((): any => ({
   cover: {
     flexShrink: 0,
@@ -24,7 +28,8 @@ const GET_IMAGE_SERVICES_V2 = gql`
             imageServicesv2NoProfile(manifestId: $manifestId)
             {id}
           }`
-export const ImageServices: React.FC<any> = (props): ReactElement => {
+
+export const ImageServices: React.FC<IImageServices> = (props): ReactElement => {
   const {manifest} = props
   const response = manifest && useQuery(GET_IMAGE_SERVICES, {
     variables: { manifestId: manifest, type: 'ImageService2' },

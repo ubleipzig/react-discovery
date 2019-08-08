@@ -1,7 +1,7 @@
 import * as builders from './query-builders'
 import * as enums from './enum'
 import * as state from './state'
-import {IRefinementListFilters, ISearchField, ISortField} from "@react-discovery/configuration"
+import {ISearchField, ISortField} from "@react-discovery/configuration"
 
 export const ESCore = {
   builders,
