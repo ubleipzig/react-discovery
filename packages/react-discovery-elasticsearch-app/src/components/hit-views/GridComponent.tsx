@@ -22,6 +22,12 @@ const useStyles = makeStyles((theme): any => ({
     maxHeight: 'fit-content',
     padding: 12,
   },
+  coverBorder: {
+    backgroundColor: '#e8f0fe',
+    border: '1px solid',
+    borderColor: '#4285f4',
+    borderRadius: 6,
+  },
   gridListTile: {
     background: '#FFF',
     boxShadow: '0 2px 4px rgba(0,0,0,.1)',

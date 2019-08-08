@@ -1,8 +1,9 @@
 import {CardActionArea, CardMedia} from "@material-ui/core"
 import React, {ReactElement} from "react"
+import {getCurrentGridViewerImage, setCurrentGridViewerImage} from "@react-discovery/configuration"
 import {buildThumbnailReference} from "../utils"
+import clsx from 'clsx'
 import gql from 'graphql-tag'
-import {setCurrentGridViewerImage} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 import {useQuery} from '@apollo/react-hooks'
 import {useThumbnailStyles} from "@react-discovery/components"
@@ -30,6 +31,7 @@ export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
   const classes: any = props.classes || useThumbnailStyles({})
   const dispatch = useDispatch()
   const {manifest, menuComponent, thumbnail} = props
+  const currentGridViewerImage = getCurrentGridViewerImage()
   const thumbnailLink = buildThumbnailReference(thumbnail)
   const {data} = !thumbnail && manifest && useQuery(GET_THUMBNAIL, {
     variables: { manifestId: manifest },
@@ -42,8 +44,16 @@ export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
     dispatch(setCurrentGridViewerImage({gridViewerImage: thumbnail}))
   }
 
+  const isSelected = (): boolean => {
+    return currentGridViewerImage && currentGridViewerImage === thumbnail
+  }
+
+  const isSelectedInThumbnails = () => {
+    return data && data.manifest && data.manifest.thumbnail.filter((t): boolean => t.id === currentGridViewerImage).length
+  }
+
   return data && dataS ? (
-    <div className={classes.cover}>
+    <div className={clsx(classes.cover, {[classes.coverBorder]: isSelectedInThumbnails()})}>
       {data.manifest && dataS.manifest ? data.manifest.thumbnail.map(
         (t, i) =>
           <CardActionArea
@@ -62,7 +72,7 @@ export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
       {menuComponent}
     </div>
   ) : thumbnail && dataS ? (
-    <div className={classes.cover}>
+    <div className={clsx(classes.cover, {[classes.coverBorder]: isSelected()})}>
       <CardActionArea
         onClick={(): void => handleImageSelect(thumbnail)}
       >

@@ -12,7 +12,9 @@ export const ThumbnailGrid: React.FC<any> = (props): ReactElement => {
     <Grid style={{background: 'whitesmoke', flexGrow: 1, padding: 24}}>
       <Container maxWidth="xs">
         <GridListTile
-          style={{listStyle: 'none'}}
+          style={{
+            display: 'table-cell',
+            listStyle: 'none'}}
         >
           <Thumbnail
             classes={thumbnailClasses}
