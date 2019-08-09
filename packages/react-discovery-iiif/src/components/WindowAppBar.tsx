@@ -1,5 +1,5 @@
 import {AppBar, IconButton, Toolbar, Typography, makeStyles} from "@material-ui/core"
-import {Autorenew, Close, VerticalSplit, ZoomOutMap} from "@material-ui/icons"
+import {Close, ZoomOutMap} from "@material-ui/icons"
 import {
   MosaicContext,
   MosaicWindowContext,
@@ -68,7 +68,7 @@ export const WindowAppBar = (props): ReactElement => {
                   color="primary"
                   edge="start"
                   href=''
-                  onClick={() => mosaicActions.expand(mosaicWindowActions.getPath())}>
+                  onClick={(): void => mosaicActions.expand(mosaicWindowActions.getPath())}>
                   <ZoomOutMap/>
                 </IconButton>
                 <IconButton

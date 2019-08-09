@@ -3,13 +3,14 @@ import {ImageServices} from '.'
 import {usePrevious} from "@react-discovery/core"
 
 interface ISimpleImageViewer {
+  classes?: any;
   manifest: string;
 }
 
 export const SimpleImageViewer: React.FC<ISimpleImageViewer> = (props): ReactElement => {
   const [isInitialized, setIsInitialized] = useState(false)
   const [currentManifest, setCurrentManifest] = useState(undefined)
-  const {manifest} = props
+  const {classes, manifest} = props
   const prevManifest = usePrevious(manifest)
 
   useEffect((): void => {
@@ -20,6 +21,6 @@ export const SimpleImageViewer: React.FC<ISimpleImageViewer> = (props): ReactEle
   }, [manifest])
 
   return (
-    <ImageServices manifest={currentManifest}/>
+    <ImageServices classes={classes} manifest={currentManifest}/>
   )
 }

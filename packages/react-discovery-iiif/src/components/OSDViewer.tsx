@@ -3,7 +3,8 @@ import OpenSeadragon from 'openseadragon'
 import {makeStyles} from "@material-ui/core"
 
 export interface IOsdComponentProps {
-  images?: any;
+  classes?: any;
+  images: string[];
 }
 
 const useStyles = makeStyles((): any => ({
@@ -16,19 +17,19 @@ const useStyles = makeStyles((): any => ({
 }))
 
 export const OSDViewer: React.FC<IOsdComponentProps> = (props): ReactElement => {
-  const classes: any = useStyles({})
+  const classes: any = props.classes || useStyles({})
   const [isInitialized, setIsInitialized] = useState(false)
   const [osd, setOsd] = useState(null)
   const osdRef = useRef(null)
   const {images} = props
 
-  const defaultOsdProps = () => {
+  const defaultOsdProps = (): {} => {
     let showNavigator = true
     let showReferenceStrip = true
     const ajaxHeaders = {
       // "x-requested-with": "XMLHttpRequest",
     }
-    // @ts-ignore
+
     return {
       ajaxHeaders,
       constrainDuringPan: false,
@@ -53,7 +54,7 @@ export const OSDViewer: React.FC<IOsdComponentProps> = (props): ReactElement => 
     }
   }
 
-  const updateViewer = (config) => {
+  const updateViewer = (config): void => {
     if (!osd) {
       const osd = new OpenSeadragon(config)
       osd.viewport.goHome(true)
@@ -62,7 +63,7 @@ export const OSDViewer: React.FC<IOsdComponentProps> = (props): ReactElement => 
   }
 
   useEffect(
-    () => {
+    (): void => {
       if (!isInitialized) {
         updateViewer(defaultOsdProps())
         setIsInitialized(true)

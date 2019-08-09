@@ -1,10 +1,11 @@
 import React, {ReactElement, useEffect, useState} from "react"
+import {buildAggs, queryBuilder} from "../query-builders"
+import {fetchElasticSearchResponse, getDefaultQuery, getFrom, getSize, getStringInput, setQueryFields} from "../state"
+import {getCollections, getCurrentCollection, getCurrentSearchContext, setCurrentCollection, setSelectedIndex} from "@react-discovery/configuration"
+import {useCurrentRoute, useNavigation} from 'react-navi'
 import {ElasticSearchConstants} from "../enum"
 import {IElasticSearchQuery} from "../index"
-import {fetchElasticSearchResponse} from "../state"
-import {getCurrentCollection} from "@react-discovery/configuration"
-import {getDefaultQuery} from "../state/selectors"
-import {queryBuilder} from "../query-builders"
+import {pushHistory} from "../../history"
 import {useDispatch} from 'react-redux'
 import {usePrevious} from '../../hooks'
 
@@ -14,29 +15,65 @@ interface IElasticSearchProvider {
 
 export const ElasticSearchProvider: React.FC<IElasticSearchProvider> = (props): ReactElement => {
   const [isInitialized, setIsInitialized] = useState(false)
+  const {useHistory} = props
+  const from = getFrom()
+  const size = getSize()
+  const navigation = useNavigation()
+  const route = useCurrentRoute()
+  const pathname = route.url.pathname
+  const stringInput = getStringInput()
   const query: IElasticSearchQuery = getDefaultQuery()
   const queryObj = queryBuilder(query)
   const json = JSON.stringify(queryObj)
   const prevJson = usePrevious(json)
+  const collections = getCollections()
   const currentCollection = getCurrentCollection()
-  const url = process.env.REACT_APP_SEARCH_API_HOST + currentCollection + ElasticSearchConstants.SEARCH
+  const currentSearchContext = getCurrentSearchContext()
   const dispatch = useDispatch()
 
-  const fetchResponse = (): boolean => {
+  const fetchResponse = (url): boolean => {
     dispatch(fetchElasticSearchResponse.action({json, url}))
     return true
   }
 
+  const initFromRoute = (): string => {
+    const urlStart = route.url.query.start ? Number.parseInt(route.url.query.start) : 0
+    const currentPage = urlStart ? urlStart / size : 0
+    const q = route.url.query.q
+    const urlCollection = route.url.pathname.split('/')[2] || process.env.REACT_APP_SEARCH_API_COLLECTION
+    urlCollection && dispatch(setCurrentCollection({currentCollection: urlCollection}))
+    const url = process.env.REACT_APP_SEARCH_API_HOST + urlCollection + ElasticSearchConstants.SEARCH
+    const {initialFilter, refinementListFilters, searchFields, sortFields} = collections[urlCollection]
+    const aggs = buildAggs(refinementListFilters)
+    const initialQueryState: IElasticSearchQuery = {
+      aggs,
+      filters: initialFilter || {},
+      from: urlStart,
+      searchFields,
+      size: 20,
+      sortFields,
+      stringInput: q,
+    }
+    dispatch(setQueryFields({...initialQueryState}))
+    dispatch(setSelectedIndex({selectedIndex: currentPage}))
+    return url
+  }
+
   useEffect((): void => {
     if (!isInitialized) {
-      fetchResponse()
+      const url = initFromRoute()
+      fetchResponse(url)
       setIsInitialized(true)
     } else {
+      const url = process.env.REACT_APP_SEARCH_API_HOST + currentCollection + ElasticSearchConstants.SEARCH
+      if (useHistory && pathname === currentSearchContext) {
+        pushHistory(navigation, currentSearchContext, stringInput, from)
+      }
       if (prevJson !== json) {
-        fetchResponse()
+        fetchResponse(url)
       }
     }
-  }, [json, prevJson])
+  }, [json, prevJson, size])
 
   return (
     <>

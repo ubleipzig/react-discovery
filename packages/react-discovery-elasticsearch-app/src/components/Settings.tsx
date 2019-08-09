@@ -5,6 +5,7 @@ import {
   getCollectionByKey,
   getCollections,
   getCurrentCollection,
+  getCurrentSearchContext,
   setCurrentCollection
 } from '@react-discovery/configuration'
 import React, {ReactElement, useEffect, useState} from "react"
@@ -32,6 +33,7 @@ export const Settings: React.FC<any> = (): ReactElement => {
   const [isInitialized, setIsInitialized] = useState(false)
   const classes: any = useStyles({})
   const currentCollection = getCurrentCollection()
+  const currentSearchContext = getCurrentSearchContext()
   const collections = getCollections()
   const collectionObj = getCollectionByKey(currentCollection)
   const jsonCollection = JSON.stringify(collectionObj)
@@ -68,7 +70,7 @@ export const Settings: React.FC<any> = (): ReactElement => {
       }
       dispatch(ESCore.state.setQueryFields({...qs}))
       if (isInitialized) {
-        navigation.navigate('/search/')
+        navigation.navigate(currentSearchContext)
       }
     }
   }, [prevJsonCollection, jsonCollection])

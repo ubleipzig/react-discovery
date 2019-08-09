@@ -9,7 +9,6 @@ const {collections, currentCollection} = localConfig
 if (!(currentCollection in collections)) {
   throw new Error("current collection does not exist in collections configuration")
 }
-const {initialFilter, refinementListFilters, searchFields, sortFields} = collections[currentCollection]
 
 const initialWorkspaceState = {
   layout: {
@@ -28,15 +27,14 @@ const iiifReducer = iiif(initialIIIFState)
 const workspaceReducer = workspace(initialWorkspaceState)
 const initialConfigState: IConfig = localConfig
 const configReducer: Reducer = config(initialConfigState)
-const aggs = ESCore.builders.buildAggs(refinementListFilters)
 const initialQueryState: IElasticSearchQuery = {
-  aggs,
-  filters: initialFilter || {},
+  aggs: {},
+  filters: {},
   from: 0,
-  searchFields,
+  searchFields: [],
   size: 20,
-  sortFields,
-  stringInput: null,
+  sortFields: [],
+  stringInput: '',
 }
 
 const queryReducer: Reducer = ESCore.state.query(initialQueryState)

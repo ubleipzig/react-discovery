@@ -10,7 +10,7 @@ import {ElasticSearchProvider} from "@react-discovery/core"
 import {Provider} from 'react-redux'
 import React from "react"
 import ReactDOM from "react-dom"
-import {SimpleDataView} from '@react-discovery/views'
+import {DetailView} from '@react-discovery/views'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {rootReducer} from "./state"
 
@@ -21,13 +21,14 @@ const routes =
       title: "Home",
       view: <DiscoveryApp component={<Landing />}/>,
     }),
-    '/detail/:id': route((req): any => {
+    '/detail/:collection/:id': route((req): any => {
       let id = req.params.id
+      const collection = req.params.collection
       return {
-        view: <DiscoveryApp component={<SimpleDataView id={id}/>}/>,
+        view: <DiscoveryApp component={<DetailView collection={collection} id={id}/>}/>,
       }
     }),
-    '/search': route({
+    '/search/:collection': route({
       title: "React Discovery",
       view: <DiscoveryApp component={<ResultsList />}/>,
     }),

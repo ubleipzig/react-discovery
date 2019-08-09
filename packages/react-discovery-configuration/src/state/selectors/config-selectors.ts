@@ -21,6 +21,10 @@ export const getCurrentLanguage = (): string => {
   return useSelector((state: any): string => state.config.currentLanguage)
 }
 
+export const getCurrentSearchContext = (): string => {
+  return useSelector((state: any): string => state.config.rootContext + '/' + state.config.currentCollection)
+}
+
 export const getDocTypes = (): IDocType[] => {
   return useSelector((state: any): IDocType[] => state.config.collections[state.config.currentCollection].docTypes)
 }

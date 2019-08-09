@@ -1,7 +1,7 @@
 import {Button, Card, CardContent, CardMedia, Grid, makeStyles} from '@material-ui/core'
 import React, {ReactElement} from 'react'
 import { NavLink } from 'react-navi'
-
+import {getCurrentSearchContext} from '@react-discovery/configuration'
 const useStyles = makeStyles((): any => ({
   card: {
     margin: '4px',
@@ -16,7 +16,7 @@ const useStyles = makeStyles((): any => ({
 
 export const Landing: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles({})
-
+  const currentSearchcontext = getCurrentSearchContext()
   const cards = [
     {
       imageSrc: 'https://iiif.bodleian.ox.ac.uk/iiif/image/8a62827b-95ec-483a-a49e-2c92fc741100/full/256,/0/default.jpg',
@@ -28,7 +28,7 @@ export const Landing: React.FC<any> = (): ReactElement => {
     {
       imageSrc: 'https://iiif.bodleian.ox.ac.uk/iiif/image/b2c352ee-1356-4c8c-9c11-7c6d7f3587b2/full/256,/0/default.jpg',
       index: 1,
-      linkPath: '/search',
+      linkPath: currentSearchcontext,
       text: 'Search',
       title: 'Search',
     },

@@ -3,7 +3,7 @@ import {ESCore} from "@react-discovery/core"
 import {IOverridableStyledComponent} from ".."
 import {IconButton} from "@material-ui/core"
 import {Loop} from "@material-ui/icons"
-import {getRootContext} from "@react-discovery/configuration"
+import {getCurrentSearchContext} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 import {useNavigation} from 'react-navi'
 import {useResetButtonStyles} from "../styles"
@@ -12,11 +12,11 @@ export const ResetButton: React.FC<IOverridableStyledComponent> = (props): React
   const classes: any = props.classes || useResetButtonStyles({})
   const dispatch = useDispatch()
   const navigation = useNavigation()
-  const rootContext = getRootContext()
+  const currentSearchContext = getCurrentSearchContext()
   const handleChange = (): void => {
     dispatch(ESCore.state.setQueryInput({stringInput: ''}))
     dispatch(ESCore.state.setFrom({from: 0}))
-    navigation.navigate(rootContext)
+    navigation.navigate(currentSearchContext)
   }
 
   return (
