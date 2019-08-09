@@ -2,14 +2,14 @@ import {Badge, ListItem, ListItemIcon, ListItemText, Tooltip} from "@material-ui
 import {Description, Home, PictureInPicture, Search, Settings} from "@material-ui/icons"
 import {NavLink, useCurrentRoute} from "react-navi"
 import React, {ReactElement, forwardRef, useEffect, useState} from "react"
-import {getCurrentCollection} from '@react-discovery/configuration'
+import {getCurrentSearchContext} from '@react-discovery/configuration'
 import {getNumberOfWorkspaceNodes} from "@react-discovery/workspace"
 import {usePrevious} from "@react-discovery/core"
 import {useTranslation} from "react-i18next"
 
 export const DrawerListItems: React.FC<any> = (): ReactElement => {
   const [isInitialized, setIsInitialized] = useState(false)
-  const currentCollection = getCurrentCollection()
+  const currentSearchContext = getCurrentSearchContext()
   const route = useCurrentRoute()
   const prevRoute = usePrevious(route)
   const numberOfNodes = getNumberOfWorkspaceNodes()
@@ -26,7 +26,7 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
     {
       id: 'search',
       index: 1,
-      path: '/search/' + currentCollection,
+      path: currentSearchContext,
       text: 'Search'
     },
     {
