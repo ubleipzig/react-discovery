@@ -2,12 +2,14 @@ import {Badge, ListItem, ListItemIcon, ListItemText, Tooltip} from "@material-ui
 import {Description, Home, PictureInPicture, Search, Settings} from "@material-ui/icons"
 import {NavLink, useCurrentRoute} from "react-navi"
 import React, {ReactElement, forwardRef, useEffect, useState} from "react"
+import {getCurrentCollection} from '@react-discovery/configuration'
 import {getNumberOfWorkspaceNodes} from "@react-discovery/workspace"
 import {usePrevious} from "@react-discovery/core"
 import {useTranslation} from "react-i18next"
 
 export const DrawerListItems: React.FC<any> = (): ReactElement => {
   const [isInitialized, setIsInitialized] = useState(false)
+  const currentCollection = getCurrentCollection()
   const route = useCurrentRoute()
   const prevRoute = usePrevious(route)
   const numberOfNodes = getNumberOfWorkspaceNodes()
@@ -24,7 +26,7 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
     {
       id: 'search',
       index: 1,
-      path: '/search',
+      path: '/search/' + currentCollection,
       text: 'Search'
     },
     {
@@ -48,17 +50,15 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
   ]
 
   useEffect((): any => {
+    const pathname = route.url.pathname
+    const context = pathname.split('/')[1]
+    const [startItem] = listItems.filter((item): boolean => item.path.includes(context))
+
     if (!isInitialized) {
-      const pathname = route.url.pathname
-      const context = pathname.split('/')[1]
-      const [startItem] = listItems.filter((item): boolean => item.path.includes(context))
-      setSelectedIndex(startItem.index)
+      startItem ? setSelectedIndex(startItem.index) : setSelectedIndex(0)
       setIsInitialized(true)
     }
     if (route !== prevRoute) {
-      const pathname = route.url.pathname
-      const context = pathname.split('/')[1]
-      const [startItem] = listItems.filter((item): boolean => item.path.includes(context))
       startItem && setSelectedIndex(startItem.index)
     }
   }, [route, prevRoute])
@@ -91,7 +91,7 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
   }
 
   // eslint-disable-next-line react/display-name
-  const navRef = (item) => forwardRef((props: any, ref: any) => <NavLink href={item.path} {...props} ref={ref} />)
+  const navRef = (item) => item.path !== '/detail' ? forwardRef((props: any, ref: any) => <NavLink href={item.path} {...props} ref={ref} />) : 'li'
 
   const buildListItems = (items: any): ReactElement[] => {
     return items.map((item: any, i): ReactElement =>

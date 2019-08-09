@@ -1,11 +1,11 @@
 import React, {ReactElement, useEffect, useState} from "react"
-import {buildQueryStringObject, pushHistory} from "../../history"
-import {fetchElasticSearchResponse, getDefaultQuery, getFrom, getSize, getStringInput} from "../state"
-import {getCurrentCollection, getRootContext, setSelectedIndex} from "@react-discovery/configuration"
+import {buildAggs, queryBuilder} from "../query-builders"
+import {fetchElasticSearchResponse, getDefaultQuery, getFrom, getSize, getStringInput, setQueryFields} from "../state"
+import {getCollections, getCurrentCollection, getCurrentSearchContext, setCurrentCollection, setSelectedIndex} from "@react-discovery/configuration"
 import {useCurrentRoute, useNavigation} from 'react-navi'
 import {ElasticSearchConstants} from "../enum"
 import {IElasticSearchQuery} from "../index"
-import {queryBuilder} from "../query-builders"
+import {pushHistory} from "../../history"
 import {useDispatch} from 'react-redux'
 import {usePrevious} from '../../hooks'
 
@@ -18,42 +18,62 @@ export const ElasticSearchProvider: React.FC<IElasticSearchProvider> = (props): 
   const {useHistory} = props
   const from = getFrom()
   const size = getSize()
-  const rootContext = getRootContext()
   const navigation = useNavigation()
   const route = useCurrentRoute()
   const pathname = route.url.pathname
-  const urlStart = route.url.query.start ? Number.parseInt(route.url.query.start) : 0
-  const qString = buildQueryStringObject(route, from)
   const stringInput = getStringInput()
   const query: IElasticSearchQuery = getDefaultQuery()
-  const mergedQuery = {...query, ...qString}
-  const queryObj = queryBuilder(mergedQuery)
+  const queryObj = queryBuilder(query)
   const json = JSON.stringify(queryObj)
   const prevJson = usePrevious(json)
+  const collections = getCollections()
   const currentCollection = getCurrentCollection()
-  const url = process.env.REACT_APP_SEARCH_API_HOST + currentCollection + ElasticSearchConstants.SEARCH
+  const currentSearchContext = getCurrentSearchContext()
   const dispatch = useDispatch()
 
-  const fetchResponse = (): boolean => {
+  const fetchResponse = (url): boolean => {
     dispatch(fetchElasticSearchResponse.action({json, url}))
     return true
   }
 
+  const initFromRoute = (): string => {
+    const urlStart = route.url.query.start ? Number.parseInt(route.url.query.start) : 0
+    const currentPage = urlStart ? urlStart / size : 0
+    const q = route.url.query.q
+    const urlCollection = route.url.pathname.split('/')[2] || process.env.REACT_APP_SEARCH_API_COLLECTION
+    urlCollection && dispatch(setCurrentCollection({currentCollection: urlCollection}))
+    const url = process.env.REACT_APP_SEARCH_API_HOST + urlCollection + ElasticSearchConstants.SEARCH
+    const {initialFilter, refinementListFilters, searchFields, sortFields} = collections[urlCollection]
+    const aggs = buildAggs(refinementListFilters)
+    const initialQueryState: IElasticSearchQuery = {
+      aggs,
+      filters: initialFilter || {},
+      from: urlStart,
+      searchFields,
+      size: 20,
+      sortFields,
+      stringInput: q,
+    }
+    dispatch(setQueryFields({...initialQueryState}))
+    dispatch(setSelectedIndex({selectedIndex: currentPage}))
+    return url
+  }
+
   useEffect((): void => {
     if (!isInitialized) {
-      const currentPage = urlStart ? urlStart / size : 0
-      dispatch(setSelectedIndex({selectedIndex: currentPage}))
-      fetchResponse()
+      const url = initFromRoute()
+      fetchResponse(url)
       setIsInitialized(true)
     } else {
-      if (useHistory && pathname === rootContext) {
-        pushHistory(navigation, stringInput, from, rootContext)
+      const url = process.env.REACT_APP_SEARCH_API_HOST + currentCollection + ElasticSearchConstants.SEARCH
+      if (useHistory && pathname === currentSearchContext) {
+        pushHistory(navigation, currentSearchContext, stringInput, from)
       }
       if (prevJson !== json) {
-        fetchResponse()
+        fetchResponse(url)
       }
     }
-  }, [json, prevJson, urlStart, size])
+  }, [json, prevJson, size])
 
   return (
     <>

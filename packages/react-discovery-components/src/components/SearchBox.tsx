@@ -1,9 +1,9 @@
 import {Divider, InputBase, Paper} from '@material-ui/core'
 import {EndAdornment, SearchIconButton} from "./SearchBoxInputAdornments"
 import React, {ReactElement} from "react"
+import {getCurrentSearchContext, setSelectedIndex} from "@react-discovery/configuration"
 import {useCurrentRoute, useNavigation} from "react-navi"
 import {ESCore} from "@react-discovery/core"
-import {setSelectedIndex} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 import {useSearchBoxStyles} from "../styles"
 import {useTranslation} from "react-i18next"
@@ -11,6 +11,7 @@ import {useTranslation} from "react-i18next"
 export const SearchBox: React.FC<any> = (): ReactElement => {
   const {t} = useTranslation()
   const classes: any = useSearchBoxStyles({})
+  const currentSearchContext = getCurrentSearchContext()
   const dispatch = useDispatch()
   const [values, setValues] = React.useState("")
   const navigation = useNavigation()
@@ -28,8 +29,8 @@ export const SearchBox: React.FC<any> = (): ReactElement => {
 
   const handleSubmit = ((e): void => {
     e.preventDefault()
-    if (pathname !== '/search') {
-      navigation.navigate('/search')
+    if (pathname !== currentSearchContext) {
+      navigation.navigate(currentSearchContext)
     }
     dispatch(ESCore.state.setQueryInput({stringInput: values}))
     dispatch(setSelectedIndex({selectedIndex: 0}))

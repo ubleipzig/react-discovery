@@ -3,7 +3,7 @@ import {Link, useCurrentRoute} from 'react-navi'
 import React, {ReactElement} from "react"
 import {CardHeader} from "@material-ui/core"
 import {ESCore} from "@react-discovery/core"
-import {getRootContext} from "@react-discovery/configuration"
+import {getCurrentCollection, getCurrentSearchContext} from "@react-discovery/configuration"
 import {useDispatch} from 'react-redux'
 
 interface ITitleIdHeader {
@@ -14,23 +14,18 @@ interface ITitleIdHeader {
 
 export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => {
   const {id, optionsMenu, title} = props
-  const rootContext = getRootContext()
+  const currentCollection = getCurrentCollection()
+  const currentSearchContext = getCurrentSearchContext()
   const route = useCurrentRoute()
   const pathname = route.url.pathname
-  const dispatch = useDispatch()
-
-  const handleClick = (): void => {
-    dispatch(ESCore.state.setFrom({from: 0}))
-  }
 
   const buildTitleHeaderForPathName = (): ReactElement => {
-    if (pathname === rootContext) {
+    if (pathname === currentSearchContext) {
       return (
         <FlexBox>
           <Link
             data-testid='detail-link'
-            href={`/detail/${id}`}
-            onClick={handleClick}
+            href={`/detail/${currentCollection}/${id}`}
           >
             <CardHeader style={{width: '100%'}} title={<InnerHtmlValue value={title}/>}/>
           </Link>
@@ -42,7 +37,7 @@ export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => 
       return (
         <FlexBox>
           <Link
-            href={`${rootContext}?q=${id}`}
+            href={`${currentSearchContext}?q=${id}`}
           >
             <CardHeader style={{width: '100%'}} title={<InnerHtmlValue value={title}/>}/>
           </Link>

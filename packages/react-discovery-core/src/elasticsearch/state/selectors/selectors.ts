@@ -1,5 +1,5 @@
 import {IAggRecord, IElasticSearchQuery} from "../../index"
-import {IAggregation, IFilters, IHits, IState} from '../../..'
+import {IAggregation, IFilters, IHit, IHits, IState} from '../../..'
 import {ISearchField, ISortField} from "@react-discovery/configuration"
 import {FieldConstants} from '../../enum'
 import {useSelector} from "react-redux"
@@ -28,11 +28,22 @@ export const getFiltersForField = (field): string[] => {
 }
 
 export const getFilterType = (): string => {
-  return useSelector((state: IState): string => state.query.filters && state.query.filters[typeField] && state.query.filters[typeField][0])
+  return useSelector((state: IState): string => state.query.filters && state.query.filters[typeField]
+    && state.query.filters[typeField][0])
 }
 
 export const getHits = (): IHits => {
   return useSelector((state: any): IHits => state.response.hits)
+}
+
+export const getHitIndexForId = (id): number => {
+  return useSelector((state: any): number => state.response.hits && state.response.hits.hits
+    && state.response.hits.hits.findIndex((hit) => hit.id === id))
+}
+
+export const getHitForIndex = (index): IHit => {
+  return useSelector((state: any): IHit => state.response.hits && state.response.hits.hits
+    && state.response.hits.hits.filter(({}, i): boolean => i === index))[0]
 }
 
 export const getNumFound = (): number => {

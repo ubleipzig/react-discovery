@@ -1,5 +1,6 @@
 export * from './displayFields'
 export * from './DetailBreadcrumbs'
+export * from './DetailView'
 export * from './EntityDisplay'
 export * from './NestedEntityDisplay'
 export * from './SimpleDataView'
