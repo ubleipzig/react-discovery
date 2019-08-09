@@ -56,11 +56,13 @@ const useStyles = makeStyles((theme: Theme): any =>
 export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
   const classes: any = useStyles({})
   const currentCollection = getCurrentCollection()
+  const defaultCollection = process.env.REACT_APP_SEARCH_API_COLLECTION
   const {collection, id} = props
   const hitIndex = ESCore.state.getHitIndexForId(id)
   const currentHit = ESCore.state.getHitForIndex(hitIndex)
   const searchFields = ESCore.state.getSearchFields()
-  const title = currentHit && (buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, currentHit) || buildHighlightedValueForHit('title', currentHit))
+  const title = currentHit && (buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, currentHit)
+    || buildHighlightedValueForHit('title', currentHit))
   const manifest = currentHit && (getFirstManifestFromHit(currentHit, Domain.DIGITALISAT) || currentHit._source.manifest)
 
   const cardActions = [
@@ -138,7 +140,7 @@ export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
                 >{currentHit._source && currentHit._source[field.field] ?
                     <FieldValueDisplay field={field} hit={currentHit}/> : null}
                 </CardContent>)}
-              {currentCollection === 'hsp2' ? buildCardActions(cardActions) : null}
+              {currentCollection === defaultCollection ? buildCardActions(cardActions) : null}
             </div>
           </div>
         </Card>

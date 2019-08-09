@@ -29,8 +29,10 @@ export const ArrowForwardButton: React.FC<IArrowBackButton> = (props): ReactElem
   const currentCollection = getCurrentCollection()
   const dispatch = useDispatch()
   const navigation = useNavigation()
+  const numFound = ESCore.state.getNumFound()
   const size = ESCore.state.getSize()
-  const nextIndex = hitIndex + 1 <= size - 1 ? hitIndex + 1 : size - 1
+  const indexConstraint = Math.min(numFound, size) - 1
+  const nextIndex = hitIndex + 1 <= indexConstraint ? hitIndex + 1 : indexConstraint
   const nextHit = ESCore.state.getHitForIndex(nextIndex)
   const nextHitId = nextHit && nextHit.id
 
