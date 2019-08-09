@@ -1,25 +1,22 @@
-import {ArrowBack, ArrowForward} from '@material-ui/icons'
-import {Card, CardActions, CardContent, Divider, Fab, Grid, Theme, createStyles, makeStyles} from "@material-ui/core"
 import {
+  ArrowBackButton, ArrowForwardButton,
   Domain, EntityDisplay,
   annotationDisplayFields,
   beschreibungDisplayFields,
-  buildDocumentUri,
   digitalisatDisplayFields,
   facetDisplayFields, personDisplayFields,
 } from "."
+import {Card, CardActions, CardContent, Divider, Grid, Theme, createStyles, makeStyles} from "@material-ui/core"
 import {
   FieldValueDisplay,
   TitleIdHeader,
   ValueDisplay,
   buildHighlightedValueForHit, getFirstManifestFromHit,
 } from "@react-discovery/components"
-import React, {ReactElement, useEffect} from "react"
+import React, {ReactElement} from "react"
 import {ESCore} from "@react-discovery/core"
 import {SimpleImageViewer} from "@react-discovery/iiif"
 import {getCurrentCollection} from "@react-discovery/configuration"
-import {useDispatch} from "react-redux"
-import {useNavigation} from "react-navi"
 import uuid from 'uuid'
 
 interface IDetailView {
@@ -39,37 +36,14 @@ const useStyles = makeStyles((theme: Theme): any =>
       flexDirection: 'column',
       padding: '20px'
     },
-    gridActions: {
-      alignItems: 'center',
-      padding: '10px'
-    },
-    gridContent: {
-      backgroundColor: 'lightgray',
-      padding: 20
-    },
-    main: {
-      backgroundColor: 'lightgray',
-      display: 'flex',
-      padding: 20
-    },
-    nextItem: {
-      margin: theme.spacing(1),
-      position: 'absolute',
-      right: 24,
-      top: 'calc(30vh + 93px)'
+    imageGrid: {
+      height: '50vh',
+      minHeight: '50vh',
+      width: '100%'
     },
     osdRoot: {
       background: 'black',
       height: '100%',
-    },
-    prevItem: {
-      left: 84,
-      margin: theme.spacing(1),
-      position: 'absolute',
-      top: 'calc(30vh + 93px)'
-    },
-    progress: {
-      margin: theme.spacing(2),
     },
     root: {
       backgroundColor: theme.palette.background.paper,
@@ -82,32 +56,12 @@ const useStyles = makeStyles((theme: Theme): any =>
 export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
   const classes: any = useStyles({})
   const currentCollection = getCurrentCollection()
-  const navigation = useNavigation()
   const {collection, id} = props
-  const size = ESCore.state.getSize()
   const hitIndex = ESCore.state.getHitIndexForId(id)
   const currentHit = ESCore.state.getHitForIndex(hitIndex)
-  const prevHit = ESCore.state.getHitForIndex(Math.max(0, hitIndex - 1))
-  const prevHitId = prevHit && prevHit.id
-  const nextIndex = hitIndex + 1 <= size - 1 ? hitIndex + 1 : size - 1
-  const nextHit = ESCore.state.getHitForIndex(nextIndex)
-  const nextHitId = nextHit && nextHit.id
-  const dispatch = useDispatch()
   const searchFields = ESCore.state.getSearchFields()
   const title = currentHit && (buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, currentHit) || buildHighlightedValueForHit('title', currentHit))
   const manifest = currentHit && (getFirstManifestFromHit(currentHit, Domain.DIGITALISAT) || currentHit._source.manifest)
-
-  const handleGetNextDoc = () => {
-    const url = buildDocumentUri(collection, nextHitId)
-    dispatch(ESCore.state.fetchElasticSearchDocument.action({url}))
-    navigation.navigate(`/detail/${currentCollection}/${nextHitId}`)
-  }
-
-  const handleGetPrevDoc = () => {
-    const url = buildDocumentUri(collection, prevHitId)
-    dispatch(ESCore.state.fetchElasticSearchDocument.action({url}))
-    navigation.navigate(`/detail/${currentCollection}/${prevHitId}`)
-  }
 
   const cardActions = [
     {
@@ -154,7 +108,7 @@ export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
 
   const buildImageViewer = (): ReactElement => {
     return (
-      <Grid item style={{height: '50vh', minHeight: '50vh', width: '100%'}} xs={6}>
+      <Grid className={classes.imageGrid} item xs={6}>
         {manifest ? (<SimpleImageViewer classes={classes} manifest={manifest}/>) : null}
       </Grid>
     )
@@ -201,22 +155,10 @@ export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
       key={uuid()}
       spacing={3}
     >
-      <Fab
-        aria-label="back"
-        classes={{root: classes.prevItem}}
-        onClick={handleGetPrevDoc}
-      >
-        <ArrowBack/>
-      </Fab>
+      <ArrowBackButton collection={collection} hitIndex={hitIndex}/>
       {buildImageViewer()}
       {buildDetailView()}
-      <Fab
-        aria-label="next"
-        classes={{root: classes.nextItem}}
-        onClick={handleGetNextDoc}
-      >
-        <ArrowForward/>
-      </Fab>
+      <ArrowForwardButton collection={collection} hitIndex={hitIndex}/>
     </Grid>
   ) : null
 }

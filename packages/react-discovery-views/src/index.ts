@@ -1,4 +1,6 @@
 export * from './displayFields'
+export * from './ArrowBackButton'
+export * from './ArrowForwardButton'
 export * from './DetailBreadcrumbs'
 export * from './DetailView'
 export * from './EntityDisplay'
