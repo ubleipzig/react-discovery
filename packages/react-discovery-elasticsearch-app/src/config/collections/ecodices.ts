@@ -37,6 +37,11 @@ export const ecodices: IConfig = {
       },
       searchFields: [
         {
+          field: "_id",
+          label: "_id",
+          type: null
+        },
+        {
           field: "Century",
           label: "Century",
           type: null

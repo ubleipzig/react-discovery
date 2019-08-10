@@ -1,10 +1,7 @@
 import {
   ArrowBackButton, ArrowForwardButton,
   Domain, EntityDisplay,
-  annotationDisplayFields,
-  beschreibungDisplayFields,
-  digitalisatDisplayFields,
-  facetDisplayFields, personDisplayFields,
+  domainEntitySpec
 } from "."
 import {Card, CardActions, CardContent, Divider, Grid, Theme, createStyles, makeStyles} from "@material-ui/core"
 import {
@@ -58,6 +55,8 @@ export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
   const currentCollection = getCurrentCollection()
   const defaultCollection = process.env.REACT_APP_SEARCH_API_COLLECTION
   const {collection, id} = props
+  const numFound = ESCore.state.getNumFound()
+  const isSingleton = numFound === 1
   const hitIndex = ESCore.state.getHitIndexForId(id)
   const currentHit = ESCore.state.getHitForIndex(hitIndex)
   const searchFields = ESCore.state.getSearchFields()
@@ -65,32 +64,6 @@ export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
     || buildHighlightedValueForHit('title', currentHit))
   const manifest = currentHit && (getFirstManifestFromHit(currentHit, Domain.DIGITALISAT) || currentHit._source.manifest)
 
-  const cardActions = [
-    {
-      displayFields: digitalisatDisplayFields,
-      isNested: false,
-      nestedDisplayFields: null,
-      type: Domain.DIGITALISAT
-    },
-    {
-      displayFields: beschreibungDisplayFields,
-      isNested: true,
-      nestedDisplayFields: facetDisplayFields,
-      type: Domain.BESCHREIBUNG
-    },
-    {
-      displayFields: personDisplayFields,
-      isNested: false,
-      nestedDisplayFields: null,
-      type: Domain.PERSON
-    },
-    {
-      displayFields: annotationDisplayFields,
-      isNested: false,
-      nestedDisplayFields: null,
-      type: Domain.ANNOTATION
-    },
-  ]
   const buildCardActions = (cardActions): ReactElement[] => {
     return cardActions.map((item, i): ReactElement =>
       <CardActions
@@ -140,7 +113,7 @@ export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
                 >{currentHit._source && currentHit._source[field.field] ?
                     <FieldValueDisplay field={field} hit={currentHit}/> : null}
                 </CardContent>)}
-              {currentCollection === defaultCollection ? buildCardActions(cardActions) : null}
+              {currentCollection === defaultCollection ? buildCardActions(domainEntitySpec) : null}
             </div>
           </div>
         </Card>
@@ -157,10 +130,10 @@ export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
       key={uuid()}
       spacing={3}
     >
-      <ArrowBackButton collection={collection} hitIndex={hitIndex}/>
+      {!isSingleton ? <ArrowBackButton collection={collection} hitIndex={hitIndex}/> : null}
       {buildImageViewer()}
       {buildDetailView()}
-      <ArrowForwardButton collection={collection} hitIndex={hitIndex}/>
+      {!isSingleton ? <ArrowForwardButton collection={collection} hitIndex={hitIndex}/> : null}
     </Grid>
   ) : null
 }

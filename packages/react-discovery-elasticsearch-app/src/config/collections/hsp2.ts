@@ -184,11 +184,6 @@ export const hsp2: IConfig = {
           type: "list-facet"
         },
         {
-          field: "blattzahl_i",
-          label: "pageCount",
-          type: "text"
-        },
-        {
           field: "format_t",
           label: "format",
           type: "list-facet"

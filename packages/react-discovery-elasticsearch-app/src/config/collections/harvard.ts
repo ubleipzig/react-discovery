@@ -37,6 +37,11 @@ export const harvard: IConfig = {
       },
       searchFields: [
         {
+          field: "_id",
+          label: "_id",
+          type: null
+        },
+        {
           field: "Medium",
           label: "Medium",
           type: null

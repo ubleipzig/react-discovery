@@ -1,11 +1,8 @@
 import {Card, CardActions, CardContent, Theme, createStyles, makeStyles, } from "@material-ui/core"
 import {
   Domain, EntityDisplay,
-  annotationDisplayFields,
-  beschreibungDisplayFields,
   buildDocumentUri,
-  digitalisatDisplayFields,
-  facetDisplayFields, personDisplayFields,
+  domainEntitySpec
 } from "."
 import {
   FieldValueDisplay,
@@ -77,32 +74,6 @@ export const SimpleDataView: React.FC<ISimpleDataView> = (props): ReactElement =
     }
   }, [doc])
 
-  const cardActions = [
-    {
-      displayFields: digitalisatDisplayFields,
-      isNested: false,
-      nestedDisplayFields: null,
-      type: Domain.DIGITALISAT
-    },
-    {
-      displayFields: beschreibungDisplayFields,
-      isNested: true,
-      nestedDisplayFields: facetDisplayFields,
-      type: Domain.BESCHREIBUNG
-    },
-    {
-      displayFields: personDisplayFields,
-      isNested: false,
-      nestedDisplayFields: null,
-      type: Domain.PERSON
-    },
-    {
-      displayFields: annotationDisplayFields,
-      isNested: false,
-      nestedDisplayFields: null,
-      type: Domain.ANNOTATION
-    },
-  ]
   const buildCardActions = (cardActions): ReactElement[] => {
     return cardActions.map((item, i): ReactElement =>
       <CardActions
@@ -143,7 +114,7 @@ export const SimpleDataView: React.FC<ISimpleDataView> = (props): ReactElement =
               >{doc._source && doc._source[field.field] ?
                   <FieldValueDisplay field={field} hit={doc}/> : null}
               </CardContent>)}
-            {buildCardActions(cardActions)}
+            {buildCardActions(domainEntitySpec)}
           </div>
         </div>
       </Card>

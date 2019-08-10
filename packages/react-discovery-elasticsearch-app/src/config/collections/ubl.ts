@@ -45,6 +45,11 @@ export const ubl: IConfig = {
       },
       searchFields: [
         {
+          field: "_id",
+          label: "_id",
+          type: null
+        },
+        {
           field: "Abmessungen",
           label: "Abmessungen",
           type: null
