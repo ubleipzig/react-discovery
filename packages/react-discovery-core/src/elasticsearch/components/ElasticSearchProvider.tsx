@@ -51,7 +51,7 @@ export const ElasticSearchProvider: React.FC<IElasticSearchProvider> = (props): 
       filters: initialFilter || {},
       from: urlStart,
       searchFields,
-      size: 20,
+      size: size || 20,
       sortFields,
       stringInput: q,
     }

@@ -12,6 +12,8 @@ export const de = {
     profile: 'Profil',
     resultsFound: 'treffer gefunden',
     search: 'Suche...',
+    setCollection: 'Set Collection',
+    setSize: 'Set Result Size',
     simple: 'Einfach',
     sortOrder: 'Sortierreihenfolge fest',
     suggest: 'Vorschlagen...',

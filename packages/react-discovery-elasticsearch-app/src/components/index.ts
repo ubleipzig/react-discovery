@@ -1,4 +1,5 @@
 export * from './hit-views'
+export * from './CollectionSelector'
 export * from './DiscoveryApp'
 export * from './DrawerListItems'
 export * from './ViewTypeSwitcher'
@@ -12,5 +13,6 @@ export * from './MinWidthResultsGrid'
 export * from './SearchAppBar'
 export * from './PersistentDrawer'
 export * from './Settings'
+export * from './SizeSelector'
 export * from './Workspace'
 

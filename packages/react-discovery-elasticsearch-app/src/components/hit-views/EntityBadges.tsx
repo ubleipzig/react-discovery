@@ -3,6 +3,7 @@ import {Book, ChatBubble, Image, Info} from "@material-ui/icons"
 import {Domain, useHitViewStyles} from "@react-discovery/views"
 import React, {ReactElement} from "react"
 import {getSelectedIndex, getSelectedTabForId, setCurrentSelectedTab, setItemViewType, setViewType} from "@react-discovery/configuration"
+import {ESCore} from '@react-discovery/core'
 import {buildEntityCountForType} from "@react-discovery/components"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
@@ -31,7 +32,8 @@ export const EntityBadges: React.FC<IEntityBadges> = (props): ReactElement => {
   const {entities, id, i} = props
   const classes: any = useHitViewStyles({})
   const indexMultiplier = getSelectedIndex()
-  const chipLabel = (i + 1) + (20 * indexMultiplier)
+  const size = ESCore.state.getSize()
+  const chipLabel = (i + 1) + (size * indexMultiplier)
   const dispatch = useDispatch()
   const {t} = useTranslation('vocab')
   const value = getSelectedTabForId(id) || 0
