@@ -20,7 +20,7 @@ const buildTrackTotal = (): {} => {
 }
 
 const buildIsTextOrStringField = (field): boolean => {
-  return !(field.field.includes('_dt') || field.field.includes('_i'))
+  return !(field.field.includes('_dt'))
 }
 
 const buildAggsContainer = (key: string, inner, aggsArray: []) => {

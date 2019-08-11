@@ -37,6 +37,11 @@ export const nga: IConfig = {
       },
       searchFields: [
         {
+          field: "_id",
+          label: "_id",
+          type: null
+        },
+        {
           field: "title",
           label: "title",
           type: null

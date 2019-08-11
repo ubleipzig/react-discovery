@@ -36,11 +36,12 @@ export const ElasticSearchProvider: React.FC<IElasticSearchProvider> = (props): 
     return true
   }
 
-  const initFromRoute = (): string => {
+  const initSearchFromRoute = (): string => {
     const urlStart = route.url.query.start ? Number.parseInt(route.url.query.start) : 0
     const currentPage = urlStart ? urlStart / size : 0
-    const q = route.url.query.q
-    const urlCollection = route.url.pathname.split('/')[2] || process.env.REACT_APP_SEARCH_API_COLLECTION
+    const pathnameParts = route.url.pathname.split('/')
+    const q = route.url.query.q || pathnameParts[3]
+    const urlCollection = pathnameParts[2] || process.env.REACT_APP_SEARCH_API_COLLECTION
     urlCollection && dispatch(setCurrentCollection({currentCollection: urlCollection}))
     const url = process.env.REACT_APP_SEARCH_API_HOST + urlCollection + ElasticSearchConstants.SEARCH
     const {initialFilter, refinementListFilters, searchFields, sortFields} = collections[urlCollection]
@@ -50,7 +51,7 @@ export const ElasticSearchProvider: React.FC<IElasticSearchProvider> = (props): 
       filters: initialFilter || {},
       from: urlStart,
       searchFields,
-      size: 20,
+      size: size || 20,
       sortFields,
       stringInput: q,
     }
@@ -61,7 +62,7 @@ export const ElasticSearchProvider: React.FC<IElasticSearchProvider> = (props): 
 
   useEffect((): void => {
     if (!isInitialized) {
-      const url = initFromRoute()
+      const url = initSearchFromRoute()
       fetchResponse(url)
       setIsInitialized(true)
     } else {

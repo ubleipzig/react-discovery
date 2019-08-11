@@ -37,6 +37,11 @@ export const ox1: IConfig = {
       },
       searchFields: [
         {
+          field: "_id",
+          label: "_id",
+          type: null
+        },
+        {
           field: "accessRights",
           label: "accessRights",
           type: null

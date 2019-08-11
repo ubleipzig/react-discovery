@@ -7,6 +7,7 @@ import {
   setQueryInput,
   setSearchFields,
   setSelectedFilters,
+  setSize,
   setSortFields,
   setTypeDef
 } from "../actions"
@@ -50,6 +51,10 @@ export const query = (initialState): ReducerBuilder<IElasticSearchQuery> => redu
   .case(setFrom, (state, {from}): ReducerBuilder<IElasticSearchQuery> => ({
     ...state,
     from
+  }))
+  .case(setSize, (state, {size}): ReducerBuilder<IElasticSearchQuery> => ({
+    ...state,
+    size
   }))
   .case(setSelectedFilters, (state, {field, filters}): ReducerBuilder<IElasticSearchQuery> => ({
     ...state,

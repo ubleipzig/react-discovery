@@ -37,6 +37,11 @@ export const getty: IConfig = {
       },
       searchFields: [
         {
+          field: "_id",
+          label: "_id",
+          type: null
+        },
+        {
           field: "Artist",
           label: "Artist",
           type: null
