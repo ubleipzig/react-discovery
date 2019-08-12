@@ -46,8 +46,9 @@ const typeField = ESCore.enums.FieldConstants.TYPE_FIELD
 export const MediaGrid: React.FC<any> = (props): ReactElement => {
   const classes: any = useStyles({})
   const {hit} = props
-  const media = hit && hit._source && hit._source.entities
-    .filter((entity): boolean => entity[typeField] === Domain.DIGITALISAT)
+  const id = hit && hit._source.id
+  const entities = hit && hit._source.entities && hit._source.entities
+  const media = entities && entities.filter((entity): boolean => entity[typeField] === Domain.DIGITALISAT)
   const thumbnail = hit && hit._source && hit._source.thumbnail
 
   const buildMediaGrid = (): ReactElement[] => {
@@ -58,6 +59,7 @@ export const MediaGrid: React.FC<any> = (props): ReactElement => {
       >
         <Thumbnail
           classes={classes}
+          id={id}
           manifest={item[Domain.MANIFEST_ID_FIELD]}
           thumbnail={thumbnail}
         />

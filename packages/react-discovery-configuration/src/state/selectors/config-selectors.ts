@@ -1,11 +1,11 @@
-import {IDocType, IHitComponent, ILanguage, IRefinementListFilters} from "../.."
+import {ICollection, IDocType, IHitComponent, ILanguage, IRefinementListFilters} from "../.."
 import {useSelector} from "react-redux"
 
 export const getCollections = (): string[] => {
   return useSelector((state: any): string[] => state.config.collections)
 }
 
-export const getCollectionByKey = (key: string) => {
+export const getCollectionByKey = (key: string): ICollection => {
   return useSelector((state: any): any => state.config.collections && state.config.collections[key])
 }
 
@@ -13,8 +13,12 @@ export const getCurrentCollection = (): string => {
   return useSelector((state: any): string => state.config.currentCollection)
 }
 
-export const getCurrentGridViewerImage = (): string => {
-  return useSelector((state: any): string => state.config.gridViewerImage)
+export const getCurrentGridViewerObjectThumbnail = (): string => {
+  return useSelector((state: any): string => state.config.gridViewerObject && state.config.gridViewerObject.thumbnail)
+}
+
+export const getCurrentGridViewerObjectId = (): string => {
+  return useSelector((state: any): string => state.config.gridViewerObject && state.config.gridViewerObject.id)
 }
 
 export const getCurrentLanguage = (): string => {

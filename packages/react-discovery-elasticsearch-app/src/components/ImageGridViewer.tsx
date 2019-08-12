@@ -1,11 +1,14 @@
-import {Grid, IconButton, makeStyles, withStyles} from "@material-ui/core"
+import {Grid, GridListTile, IconButton, makeStyles, Typography, withStyles} from "@material-ui/core"
 import React, {ReactElement} from "react"
 import {SingleImageOSDViewer, buildTileSourceForGridViewerImage, } from "@react-discovery/iiif"
-import {getCurrentGridViewerImage, setCurrentGridViewerImage} from "@react-discovery/configuration"
+import {getCurrentGridViewerObjectId, getCurrentGridViewerObjectThumbnail, setCurrentGridViewerObject} from "@react-discovery/configuration"
 import {Close} from "@material-ui/icons"
+import {ESCore} from '@react-discovery/core'
 import {ViewTypeSwitcher} from "./ViewTypeSwitcher"
 import {useDispatch} from "react-redux"
 import uuid from 'uuid'
+import {buildHighlightedValueForHit, InnerHtmlValue, TitleIdHeader} from "@react-discovery/components"
+import {Domain} from "@react-discovery/views"
 
 const useStyles = makeStyles((): any => ({
   closeIcon: {
@@ -44,12 +47,15 @@ const ColoredButton = withStyles(() => ({
 
 export const ImageGridViewer: React.FC<any> = (): ReactElement => {
   const classes: any = useStyles({})
-  const currentGridViewerImage = getCurrentGridViewerImage()
-  const image = currentGridViewerImage && buildTileSourceForGridViewerImage(currentGridViewerImage)
+  const currentGridViewerObjectThumbnail = getCurrentGridViewerObjectThumbnail()
+  const image = currentGridViewerObjectThumbnail && buildTileSourceForGridViewerImage(currentGridViewerObjectThumbnail)
+  const id = getCurrentGridViewerObjectId()
+  const hit = ESCore.state.getHitForId(id)
+  const title = hit && (buildHighlightedValueForHit('title', hit) || buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, hit))
   const dispatch = useDispatch()
 
   const handleRemove = (): void => {
-    dispatch(setCurrentGridViewerImage({gridViewerImage: null}))
+    dispatch(setCurrentGridViewerObject({gridViewerObject: null}))
   }
 
   const buildCloseIcon = (): ReactElement => {
@@ -80,6 +86,10 @@ export const ImageGridViewer: React.FC<any> = (): ReactElement => {
           <Grid className={classes.gridViewer} item xs={5}>
             {buildCloseIcon()}
             <SingleImageOSDViewer image={image} key={uuid()}/>
+            <TitleIdHeader
+              id={id}
+              title={title}
+            />
           </Grid>
         </> :
         <Grid className={classes.gridRoot} item xs={12}>
