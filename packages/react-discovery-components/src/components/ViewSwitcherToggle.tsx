@@ -1,24 +1,10 @@
-import {Tooltip, makeStyles} from "@material-ui/core"
-import {ToggleButton, ToggleButtonGroup} from '@material-ui/lab'
-import React, {ReactElement} from "react"
 import {GridOn, UnfoldLess, UnfoldMore} from '@material-ui/icons'
+import React, {ReactElement} from "react"
+import {ToggleButton, ToggleButtonGroup} from '@material-ui/lab'
 import {getViewType, setViewType} from "@react-discovery/configuration"
+import {Tooltip} from "@material-ui/core"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
-
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-  toolbar: {
-    alignItems: 'center',
-    display: 'flex',
-    height: 56,
-    padding: '0 24px',
-    position: 'relative',
-    width: '100%'
-  }
-}))
 
 export const ViewSwitcherToggle: React.FC<any> = (): ReactElement => {
   const dispatch = useDispatch()

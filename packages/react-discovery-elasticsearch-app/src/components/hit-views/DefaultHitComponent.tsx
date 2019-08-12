@@ -56,7 +56,7 @@ const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultIte
             </div>
           </div>
         </Grid>
-        <ThumbnailGrid hit={hit} item={item} manifest={manifest}/>
+        <ThumbnailGrid hit={hit} id={id} item={item} manifest={manifest}/>
       </Grid>
     </Card>
   )

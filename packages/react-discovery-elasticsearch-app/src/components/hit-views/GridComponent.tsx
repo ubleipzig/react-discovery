@@ -79,7 +79,7 @@ const GridComponent: React.FC<IGridComponent> = (props: IGridComponent): ReactEl
   const {hit} = props
   const id = hit && (hit._source.id || hit.id)
   const title = buildHighlightedValueForHit('title', hit) || buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, hit)
-  const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
+  const manifest = hit && (getFirstManifestFromHit(hit, Domain.DIGITALISAT) || hit._source.manifest || hit._source.Manifest)
   const item = {
     [Domain.MEDIA_TITLE_FIELD]: title,
     [Domain.MANIFEST_ID_FIELD]: manifest,
@@ -130,6 +130,7 @@ const GridComponent: React.FC<IGridComponent> = (props: IGridComponent): ReactEl
       </div>
       <Thumbnail
         classes={classes}
+        id={id}
         manifest={manifest}
         thumbnail={thumbnail}
       />

@@ -43,9 +43,8 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, hit)
   const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
-  const media = hit && hit._source && hit._source.entities
-    .filter((entity): boolean => entity[typeField] === Domain.DIGITALISAT)
-  const item = media.length && media[0]
+  const media = entities && entities.filter((entity): boolean => entity[typeField] === Domain.DIGITALISAT)
+  const item = media && media.length && media[0]
 
   const cardActions = [
     {
@@ -121,7 +120,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
           <MediaGrid hit={hit}/>
           {buildCardActions(cardActions)}
         </Grid>
-        <ThumbnailGrid hit={hit} item={item} manifest={manifest}/>
+        <ThumbnailGrid hit={hit} id={id} item={item} manifest={manifest}/>
       </Grid>
     </Card>
   ) : <Kulturobjekt {...props}/>

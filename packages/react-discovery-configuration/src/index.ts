@@ -21,10 +21,10 @@ export interface IConfig {
   isHighlighted?: boolean;
   isPersisted?: boolean;
   languages?: ILanguage[];
-  isViewExpanded?: boolean;
   rootContext?: string;
   selectedIndex?: number;
   url?: string;
+  viewType?: string;
 }
 
 export type IItemViews = Record<string, string>

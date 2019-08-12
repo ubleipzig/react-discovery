@@ -1,6 +1,6 @@
 import {CardActionArea, CardMedia} from "@material-ui/core"
 import React, {ReactElement} from "react"
-import {getCurrentGridViewerImage, setCurrentGridViewerImage} from "@react-discovery/configuration"
+import {getCurrentGridViewerObjectThumbnail, setCurrentGridViewerObject} from "@react-discovery/configuration"
 import {buildThumbnailReference} from "../utils"
 import clsx from 'clsx'
 import gql from 'graphql-tag'
@@ -10,6 +10,7 @@ import {useThumbnailStyles} from "@react-discovery/components"
 
 interface IThumbnail {
   classes?: any;
+  id: string;
   image?: string;
   manifest?: string;
   menuComponent?: ReactElement;
@@ -22,35 +23,35 @@ const GET_THUMBNAIL = gql`
           {thumbnail{id, type, service {id, profile}}}
           }`
 
-const GET_MANIFEST_SUMMARY = gql`
+const GET_THUMBNAIL_DESCRIPTORS = gql`
           query Summary($manifestId: String!) {
               manifest(id: $manifestId)
-          {summary}
+          {label, summary}
           }`
 
 export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
   const classes: any = props.classes || useThumbnailStyles({})
   const dispatch = useDispatch()
-  const {manifest, menuComponent, thumbnail} = props
-  const currentGridViewerImage = getCurrentGridViewerImage()
+  const {id, manifest, menuComponent, thumbnail} = props
+  const currentGridViewerThumbnail = getCurrentGridViewerObjectThumbnail()
   const thumbnailLink = buildThumbnailReference(thumbnail)
   const {data} = !thumbnail && manifest && useQuery(GET_THUMBNAIL, {
     variables: { manifestId: manifest },
   })
-  const {data: dataS} = manifest && useQuery(GET_MANIFEST_SUMMARY, {
+  const {data: dataS} = manifest && useQuery(GET_THUMBNAIL_DESCRIPTORS, {
     variables: { manifestId: manifest },
   })
 
   const handleImageSelect = (thumbnail): void => {
-    dispatch(setCurrentGridViewerImage({gridViewerImage: thumbnail}))
+    dispatch(setCurrentGridViewerObject({gridViewerObject: {id, thumbnail}}))
   }
 
   const isSelected = (): boolean => {
-    return currentGridViewerImage && currentGridViewerImage === thumbnail
+    return currentGridViewerThumbnail && currentGridViewerThumbnail === thumbnail
   }
 
-  const isSelectedInThumbnails = () => {
-    return data && data.manifest && data.manifest.thumbnail.filter((t): boolean => t.id === currentGridViewerImage).length
+  const isSelectedInThumbnails = (): boolean => {
+    return data && data.manifest && data.manifest.thumbnail.filter((t): boolean => t.id === currentGridViewerThumbnail).length
   }
 
   return data && dataS ? (
@@ -66,7 +67,7 @@ export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
               className={classes.media}
               component="img"
               image={t.id}
-              title={dataS.manifest.summary}
+              title={dataS.manifest && (dataS.manifest.label || dataS.manifest.summary)}
             />
           </CardActionArea>) : null
       }
@@ -82,6 +83,7 @@ export const Thumbnail: React.FC<IThumbnail> = (props): ReactElement => {
           className={classes.media}
           component="img"
           image={thumbnailLink}
+          title={dataS.manifest && (dataS.manifest.label || dataS.manifest.summary)}
         />
       </CardActionArea>
       {menuComponent}

@@ -207,8 +207,8 @@ export const cambridge: IConfig = {
           type: null
         },
         {
-          field: "manifest",
-          label: "manifest",
+          field: "Manifest",
+          label: "Manifest",
           type: null
         },
         {

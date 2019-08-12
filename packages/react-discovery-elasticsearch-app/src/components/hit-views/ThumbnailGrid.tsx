@@ -7,12 +7,13 @@ import {useThumbnailStyles} from "."
 
 interface IThumbnailGrid {
   hit: IHit;
+  id: string;
   item: any;
   manifest: string;
 }
 
 export const ThumbnailGrid: React.FC<IThumbnailGrid> = (props): ReactElement => {
-  const {hit, item, manifest} = props
+  const {hit, id, item, manifest} = props
   const thumbnailClasses = useThumbnailStyles({})
   const thumbnail = hit && hit._source && hit._source.thumbnail
   return hit && item ? (
@@ -25,6 +26,7 @@ export const ThumbnailGrid: React.FC<IThumbnailGrid> = (props): ReactElement => 
         >
           <Thumbnail
             classes={thumbnailClasses}
+            id={id}
             manifest={manifest}
             thumbnail={thumbnail}
           />

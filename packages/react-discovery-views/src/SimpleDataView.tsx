@@ -95,11 +95,11 @@ export const SimpleDataView: React.FC<ISimpleDataView> = (props): ReactElement =
     return (
       <Card className={classes.root}>
         <TitleIdHeader
-          id={doc._source.id}
+          id={id}
           title={title}
         />
         <div style={{display: 'flex'}}>
-          <Thumbnail manifest={manifest}/>
+          <Thumbnail id={id} manifest={manifest}/>
           <div className={classes.details}>
             <ValueDisplay
               field={Domain.DOC_SUBTITLE_FIELD}
