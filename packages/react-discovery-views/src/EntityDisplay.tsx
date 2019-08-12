@@ -54,9 +54,9 @@ export const EntityDisplay: React.FC<IEntityDisplay> = (props): ReactElement => 
     switch (type) {
       case Domain.ANNOTATION:
         return <ChatBubble className={classes.entityIcon} fontSize='small' htmlColor='#86173e'/>
-      case Domain.BESCHREIBUNG:
+      case Domain.DESCRIPTION:
         return <Book className={classes.entityIcon} fontSize='small' htmlColor='#86173e'/>
-      case Domain.DIGITALISAT:
+      case Domain.MEDIA:
         return <Image className={classes.entityIcon} fontSize='small' htmlColor='#86173e'/>
       case Domain.PERSON:
         return <Person className={classes.entityIcon} fontSize='small' htmlColor='#86173e'/>

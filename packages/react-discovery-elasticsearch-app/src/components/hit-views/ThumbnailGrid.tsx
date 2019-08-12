@@ -1,7 +1,7 @@
 import {Container, Grid, GridListTile} from "@material-ui/core"
 import React, {ReactElement} from "react"
 import {IHit} from "@react-discovery/core"
-import {ImageGridListTitleBar} from "../ImageGridListTitleBar"
+import {MediaGridTitleBar} from "../MediaGridTitleBar"
 import {Thumbnail} from "@react-discovery/iiif"
 import {useThumbnailStyles} from "."
 
@@ -14,15 +14,13 @@ interface IThumbnailGrid {
 
 export const ThumbnailGrid: React.FC<IThumbnailGrid> = (props): ReactElement => {
   const {hit, id, item, manifest} = props
-  const thumbnailClasses = useThumbnailStyles({})
+  const thumbnailClasses: any = useThumbnailStyles({})
   const thumbnail = hit && hit._source && hit._source.thumbnail
   return hit && item ? (
-    <Grid style={{background: 'whitesmoke', flexGrow: 1, padding: 24}}>
+    <Grid className={thumbnailClasses.root}>
       <Container maxWidth="xs">
         <GridListTile
-          style={{
-            display: 'table-cell',
-            listStyle: 'none'}}
+          className={thumbnailClasses.gridList}
         >
           <Thumbnail
             classes={thumbnailClasses}
@@ -30,7 +28,7 @@ export const ThumbnailGrid: React.FC<IThumbnailGrid> = (props): ReactElement => 
             manifest={manifest}
             thumbnail={thumbnail}
           />
-          <ImageGridListTitleBar hit={hit} item={item}/>
+          <MediaGridTitleBar hit={hit} item={item}/>
         </GridListTile>
       </Container>
     </Grid>

@@ -22,7 +22,7 @@ const DefaultHitComponent: React.FC<IDefaultItemComponent> = (props: IDefaultIte
   const {hit, i} = props
   const id = hit && (hit._source.id || hit.id)
   const title = buildHighlightedValueForHit('title', hit)
-  const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
+  const manifest = hit && getFirstManifestFromHit(hit, Domain.MEDIA)
   const optionsMenu = id && <HitViewOptionsMenu id={id}/>
   const item = {
     [Domain.MEDIA_TITLE_FIELD]: title,

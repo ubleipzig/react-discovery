@@ -19,7 +19,7 @@ export const Descriptions: React.FC<IDescriptions> = (props): ReactElement => {
       displayFields: beschreibungDisplayFields,
       isNested: true,
       nestedDisplayFields: facetDisplayFields,
-      type: Domain.BESCHREIBUNG
+      type: Domain.DESCRIPTION
     },
   ]
 

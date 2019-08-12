@@ -62,7 +62,7 @@ export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
   const searchFields = ESCore.state.getSearchFields()
   const title = currentHit && (buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, currentHit)
     || buildHighlightedValueForHit('title', currentHit))
-  const manifest = currentHit && (getFirstManifestFromHit(currentHit, Domain.DIGITALISAT) || currentHit._source.manifest)
+  const manifest = currentHit && (getFirstManifestFromHit(currentHit, Domain.MEDIA) || currentHit._source.manifest)
 
   const buildCardActions = (cardActions): ReactElement[] => {
     return cardActions.map((item, i): ReactElement =>

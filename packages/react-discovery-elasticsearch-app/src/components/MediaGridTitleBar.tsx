@@ -34,7 +34,7 @@ const HoverButton = withStyles(() => ({
   },
 }))(IconButton)
 
-export const ImageGridListTitleBar: React.FC<IImageGridListTitleBar> = (props): ReactElement => {
+export const MediaGridTitleBar: React.FC<IImageGridListTitleBar> = (props): ReactElement => {
   const classes: any = props.classes || useStyles({})
   const {hit, item} = props
   const id = hit && (hit._source.id || hit.id)

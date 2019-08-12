@@ -66,7 +66,7 @@ export const SimpleDataView: React.FC<ISimpleDataView> = (props): ReactElement =
   const url = buildDocumentUri(currentCollection, id)
   const searchFields = ESCore.state.getSearchFields()
   const title = doc && buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, doc)
-  const manifest = doc && getFirstManifestFromHit(doc, Domain.DIGITALISAT)
+  const manifest = doc && getFirstManifestFromHit(doc, Domain.MEDIA)
 
   useEffect((): void => {
     if (!doc) {

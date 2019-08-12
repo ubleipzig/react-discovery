@@ -1,9 +1,9 @@
 export enum Domain {
   APP_NAME = 'Discovery App',
   ANNOTATION = 'Annotation',
-  BESCHREIBUNG = 'Beschreibung',
+  DESCRIPTION = 'Beschreibung',
   DESCRIPTION_TITLE_FIELD = 'beschreibungTitle_t',
-  DIGITALISAT = 'Digitalisat',
+  MEDIA = 'Digitalisat',
   DOC_TITLE_FIELD = 'titel_t',
   DOC_SUBTITLE_FIELD = 'subtitel_t',
   INFO = 'Info',
