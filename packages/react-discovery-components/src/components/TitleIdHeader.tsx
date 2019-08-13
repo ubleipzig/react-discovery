@@ -1,21 +1,24 @@
 import {FlexBox, InnerHtmlValue} from "."
 import {Link, useCurrentRoute} from 'react-navi'
 import React, {ReactElement} from "react"
+import {getCurrentCollection, getCurrentSearchContext, getRootContext} from "@react-discovery/configuration"
 import {CardHeader} from "@material-ui/core"
 import {ESCore} from "@react-discovery/core"
-import {getCurrentCollection, getCurrentSearchContext} from "@react-discovery/configuration"
 import {useDispatch} from 'react-redux'
 
 interface ITitleIdHeader {
+  docIndex?: string;
   optionsMenu?: ReactElement;
   title: string;
   id: string;
 }
 
 export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => {
-  const {id, optionsMenu, title} = props
-  const currentCollection = getCurrentCollection()
-  const currentSearchContext = getCurrentSearchContext()
+  const {docIndex, id, optionsMenu, title} = props
+  const currentCollection = docIndex || getCurrentCollection()
+  const rootContext = getRootContext()
+  const docIndexContext = rootContext + '/' + docIndex
+  const currentSearchContext = (docIndex && docIndexContext) || getCurrentSearchContext()
   const dispatch = useDispatch()
   const route = useCurrentRoute()
   const pathname = route.url.pathname

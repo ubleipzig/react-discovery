@@ -53,8 +53,9 @@ export const SimpleDataView: React.FC<ISimpleDataView> = (props): ReactElement =
   const currentCollection = getCurrentCollection()
   const url = buildDocumentUri(currentCollection, id)
   const searchFields = currentCollectionObj && currentCollectionObj.searchFields
-  const title = doc && buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, doc)
-  const manifest = doc && getFirstManifestFromHit(doc, Domain.MEDIA)
+  const title = doc && (buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, doc) || buildHighlightedValueForHit('title', doc))
+  const manifest = doc && (getFirstManifestFromHit(doc, Domain.MEDIA) || doc._source.manifest || doc._source.Manifest)
+  const thumbnail = doc && doc._source && doc._source.thumbnail
 
   useEffect((): void => {
     if (!doc) {
@@ -83,11 +84,16 @@ export const SimpleDataView: React.FC<ISimpleDataView> = (props): ReactElement =
     return (
       <Card className={classes.root}>
         <TitleIdHeader
+          docIndex={docIndex}
           id={id}
           title={title}
         />
         <div style={{display: 'flex'}}>
-          <Thumbnail id={id} manifest={manifest}/>
+          <Thumbnail
+            id={id}
+            manifest={manifest}
+            thumbnail={thumbnail}
+          />
           <div className={classes.details}>
             <ValueDisplay
               field={Domain.DOC_SUBTITLE_FIELD}
