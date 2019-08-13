@@ -15,7 +15,7 @@
 ### Quick Start
 
 #### Create Environment
-- configure `search api host` and `collection` in `.env` file in test app root
+- configure `search api host` and `collection` in `.env` file in elasticsearch-app root
 ```yaml
 REACT_APP_SEARCH_API_HOST=http://localhost:8000/
 REACT_APP_SEARCH_API_COLLECTION=hsp2

@@ -13,7 +13,7 @@ import {
 import React, {ReactElement, useEffect} from "react"
 import {ESCore} from "@react-discovery/core"
 import {Thumbnail} from "@react-discovery/iiif"
-import {getCurrentCollection} from "@react-discovery/configuration"
+import {getCollectionByKey, getCurrentCollection} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 
 interface ISimpleDataView {
@@ -30,23 +30,8 @@ const useStyles = makeStyles((theme: Theme): any =>
     details: {
       display: 'flex',
       flexDirection: 'column',
-      padding: '20px'
-    },
-    gridActions: {
-      alignItems: 'center',
-      padding: '10px'
-    },
-    gridContent: {
-      backgroundColor: 'lightgray',
-      padding: 20
-    },
-    main: {
-      backgroundColor: 'lightgray',
-      display: 'flex',
-      padding: 20
-    },
-    progress: {
-      margin: theme.spacing(2),
+      padding: '20px',
+      wordBreak: 'break-word'
     },
     root: {
       backgroundColor: theme.palette.background.paper,
@@ -59,12 +44,15 @@ const useStyles = makeStyles((theme: Theme): any =>
 export const SimpleDataView: React.FC<ISimpleDataView> = (props): ReactElement => {
   const classes: any = useStyles({})
   const {id} = props
+  const defaultCollection = process.env.REACT_APP_SEARCH_API_COLLECTION
   const dispatch = useDispatch()
   const docs = ESCore.state.getDocuments()
   const doc = Object.keys(docs).length ? docs[id] : null
+  const docIndex = doc && doc._index
+  const currentCollectionObj = getCollectionByKey(docIndex)
   const currentCollection = getCurrentCollection()
   const url = buildDocumentUri(currentCollection, id)
-  const searchFields = ESCore.state.getSearchFields()
+  const searchFields = currentCollectionObj && currentCollectionObj.searchFields
   const title = doc && buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, doc)
   const manifest = doc && getFirstManifestFromHit(doc, Domain.MEDIA)
 
@@ -114,14 +102,14 @@ export const SimpleDataView: React.FC<ISimpleDataView> = (props): ReactElement =
               >{doc._source && doc._source[field.field] ?
                   <FieldValueDisplay field={field} hit={doc}/> : null}
               </CardContent>)}
-            {buildCardActions(domainEntitySpec)}
+            {docIndex === defaultCollection ? buildCardActions(domainEntitySpec) : null}
           </div>
         </div>
       </Card>
     )
   }
 
-  return docs && doc ? (
+  return docs && doc && searchFields ? (
     buildKulturObjekt()
   ) : null
 }

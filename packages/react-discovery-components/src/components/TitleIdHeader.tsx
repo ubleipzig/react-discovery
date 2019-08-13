@@ -16,8 +16,13 @@ export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => 
   const {id, optionsMenu, title} = props
   const currentCollection = getCurrentCollection()
   const currentSearchContext = getCurrentSearchContext()
+  const dispatch = useDispatch()
   const route = useCurrentRoute()
   const pathname = route.url.pathname
+
+  const handleIdQuery = () => {
+    dispatch(ESCore.state.setQueryInput({stringInput: id}))
+  }
 
   const buildTitleHeaderForPathName = (): ReactElement => {
     if (pathname === currentSearchContext) {
@@ -38,6 +43,7 @@ export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => 
         <FlexBox>
           <Link
             href={`${currentSearchContext}?q=${id}`}
+            onClick={handleIdQuery}
           >
             <CardHeader style={{width: '100%'}} title={<InnerHtmlValue value={title}/>}/>
           </Link>

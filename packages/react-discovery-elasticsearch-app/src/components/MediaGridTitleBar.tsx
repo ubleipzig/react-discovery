@@ -4,6 +4,7 @@ import {IHit, usePrevious} from "@react-discovery/core"
 import React, {ReactElement, useEffect} from "react"
 import {getWorkspaceViewIdMap, setViewIdMap} from "@react-discovery/workspace"
 import {Domain} from "@react-discovery/views"
+import {InnerHtmlValue} from "@react-discovery/components"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 
@@ -85,7 +86,7 @@ export const MediaGridTitleBar: React.FC<IImageGridListTitleBar> = (props): Reac
           root: classes.titleBar,
           title: classes.title,
         }}
-        title={item[Domain.MEDIA_TITLE_FIELD]}
+        title={<InnerHtmlValue value={item[Domain.MEDIA_TITLE_FIELD]}/>}
         titlePosition='top'
       />
     )
