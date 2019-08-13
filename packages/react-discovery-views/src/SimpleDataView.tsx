@@ -11,9 +11,9 @@ import {
   buildHighlightedValueForHit, getFirstManifestFromHit,
 } from "@react-discovery/components"
 import React, {ReactElement, useEffect} from "react"
+import {getCollectionByKey, getCurrentCollection} from "@react-discovery/configuration"
 import {ESCore} from "@react-discovery/core"
 import {Thumbnail} from "@react-discovery/iiif"
-import {getCollectionByKey, getCurrentCollection} from "@react-discovery/configuration"
 import {useDispatch} from "react-redux"
 
 interface ISimpleDataView {
@@ -54,7 +54,7 @@ export const SimpleDataView: React.FC<ISimpleDataView> = (props): ReactElement =
   const url = buildDocumentUri(currentCollection, id)
   const searchFields = currentCollectionObj && currentCollectionObj.searchFields
   const title = doc && (buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, doc) || buildHighlightedValueForHit('title', doc))
-  const manifest = doc && (getFirstManifestFromHit(doc, Domain.MEDIA) || doc._source.manifest || doc._source.Manifest)
+  const manifest = doc && getFirstManifestFromHit(doc, Domain.MEDIA)
   const thumbnail = doc && doc._source && doc._source.thumbnail
 
   useEffect((): void => {

@@ -8,13 +8,14 @@ import {useDispatch} from 'react-redux'
 
 interface ITitleIdHeader {
   docIndex?: string;
+  addButton?: ReactElement;
   optionsMenu?: ReactElement;
   title: string;
   id: string;
 }
 
 export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => {
-  const {docIndex, id, optionsMenu, title} = props
+  const {addButton, docIndex, id, optionsMenu, title} = props
   const currentCollection = docIndex || getCurrentCollection()
   const rootContext = getRootContext()
   const docIndexContext = rootContext + '/' + docIndex
@@ -50,6 +51,9 @@ export const TitleIdHeader: React.FC<ITitleIdHeader> = (props): ReactElement => 
           >
             <CardHeader style={{width: '100%'}} title={<InnerHtmlValue value={title}/>}/>
           </Link>
+          <div style={{flexGrow: 1}}/>
+          {addButton}
+          {optionsMenu}
         </FlexBox>
       )
     }

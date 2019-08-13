@@ -2,6 +2,7 @@ import {Card, CardActions, CardContent, Grid} from "@material-ui/core"
 import {
   Domain,
   EntityDisplay,
+  HitViewOptionsMenu,
   domainEntitySpec,
   useHitViewStyles
 } from "@react-discovery/views"
@@ -13,7 +14,7 @@ import {
   buildHighlightedValueForHit,
   getFirstManifestFromHit,
 } from '@react-discovery/components'
-import {HitViewOptionsMenu, ItemActionBar, ThumbnailGrid} from "."
+import {ItemActionBar, ThumbnailGrid} from "."
 import React, {ReactElement} from "react"
 import {getHitComponentConfig, getItemViewType, getViewType} from "@react-discovery/configuration"
 import Kulturobjekt from './Kulturobjekt'
@@ -42,7 +43,6 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const manifest = hit && getFirstManifestFromHit(hit, Domain.MEDIA)
   const media = entities && entities.filter((entity): boolean => entity[typeField] === Domain.MEDIA)
   const item = media && media.length && media[0]
-
 
   const buildCardActions = (domainEntitySpec): ReactElement[] => {
     return domainEntitySpec.map((item, i): ReactElement =>

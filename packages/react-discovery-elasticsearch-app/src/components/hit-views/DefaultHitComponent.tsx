@@ -1,5 +1,5 @@
 import {Card, CardContent, Grid} from "@material-ui/core"
-import {Domain, useHitViewStyles} from "@react-discovery/views"
+import {Domain, HitViewOptionsMenu, useHitViewStyles} from "@react-discovery/views"
 import {ESCore, IHit} from "@react-discovery/core"
 import {
   FieldValueDisplay,
@@ -8,7 +8,6 @@ import {
   getFirstManifestFromHit
 } from '@react-discovery/components'
 import React, {ReactElement} from "react"
-import {HitViewOptionsMenu} from "./HitViewOptionsMenu"
 import {ThumbnailGrid} from "./ThumbnailGrid"
 
 interface IDefaultItemComponent {
