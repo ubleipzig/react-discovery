@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme: Theme): any =>
         easing: theme.transitions.easing.easeOut,
       }),
     },
+    mainGrid: {
+      height: '100%',
+    }
   }))
 
 export const DiscoveryApp: React.FC<IDiscoveryApp> = (props): ReactElement => {
@@ -46,8 +49,8 @@ export const DiscoveryApp: React.FC<IDiscoveryApp> = (props): ReactElement => {
       <SearchAppBar
         handleDrawerChange={handleDrawerChange}/>
       <Grid
+        className={classes.mainGrid}
         item
-        style={{height: '100%'}}
         xs={12}
       >
         <PersistentDrawer open={open}/>

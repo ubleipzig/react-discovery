@@ -30,7 +30,7 @@ export const NestedQuery = (aggregations, lvl2QfList, nestedQfList, postFilters,
       "query": {
         "bool": {
           "filter": postFilters,
-          "should": [
+          "must": [
             {
               "simple_query_string": {
                 "default_operator": "and",

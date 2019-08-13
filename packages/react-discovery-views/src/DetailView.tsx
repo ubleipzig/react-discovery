@@ -1,9 +1,11 @@
 import {
+  AddToWorkspaceButton,
   ArrowBackButton, ArrowForwardButton,
   Domain, EntityDisplay,
+  HitViewOptionsMenu,
   domainEntitySpec
 } from "."
-import {Card, CardActions, CardContent, Divider, Grid, Theme, createStyles, makeStyles} from "@material-ui/core"
+import {Card, CardActions, CardContent, Grid, Theme, createStyles, makeStyles} from "@material-ui/core"
 import {
   FieldValueDisplay,
   TitleIdHeader,
@@ -17,6 +19,7 @@ import {getCurrentCollection} from "@react-discovery/configuration"
 import uuid from 'uuid'
 
 interface IDetailView {
+  actions: any;
   collection: string;
   id: string;
 }
@@ -31,7 +34,7 @@ const useStyles = makeStyles((theme: Theme): any =>
     details: {
       display: 'flex',
       flexDirection: 'column',
-      padding: '20px'
+      padding: 20
     },
     imageGrid: {
       height: '50vh',
@@ -45,12 +48,23 @@ const useStyles = makeStyles((theme: Theme): any =>
     root: {
       backgroundColor: theme.palette.background.paper,
       display: 'flex-root',
-      marginBottom: '5px',
+      marginBottom: 5,
+      padding: 12
+    },
+    title: {
+      color: 'green'
     },
   }),
 )
 
 export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
+  const {getNumberOfWorkspaceNodesForId, getWorkspaceViewIdMap, setViewIdMap} = props.actions
+  const addToWorkspaceButtonActions = {
+    getWorkspaceViewIdMap, setViewIdMap
+  }
+  const optionsMenuActions = {
+    getNumberOfWorkspaceNodesForId, setViewIdMap
+  }
   const classes: any = useStyles({})
   const currentCollection = getCurrentCollection()
   const defaultCollection = process.env.REACT_APP_SEARCH_API_COLLECTION
@@ -62,7 +76,11 @@ export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
   const searchFields = ESCore.state.getSearchFields()
   const title = currentHit && (buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, currentHit)
     || buildHighlightedValueForHit('title', currentHit))
-  const manifest = currentHit && (getFirstManifestFromHit(currentHit, Domain.DIGITALISAT) || currentHit._source.manifest)
+  const manifest = currentHit && getFirstManifestFromHit(currentHit, Domain.MEDIA)
+  const item = {
+    [Domain.MEDIA_TITLE_FIELD]: title,
+    [Domain.MANIFEST_ID_FIELD]: manifest,
+  }
 
   const buildCardActions = (cardActions): ReactElement[] => {
     return cardActions.map((item, i): ReactElement =>
@@ -89,13 +107,16 @@ export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
     )
   }
 
+  const optionsMenu = id && <HitViewOptionsMenu actions={optionsMenuActions} id={id}/>
+  const addButton = currentHit && <AddToWorkspaceButton actions={addToWorkspaceButtonActions} classes={classes} hit={currentHit} item={item}/>
   const buildDetailView = (): ReactElement => {
     return (
       <Grid item style={{width: '100%'}} xs={6}>
-        <Divider variant='middle'/>
         <Card className={classes.root}>
           <TitleIdHeader
+            addButton={addButton}
             id={id}
+            optionsMenu={optionsMenu}
             title={title}
           />
           <div style={{display: 'flex'}}>

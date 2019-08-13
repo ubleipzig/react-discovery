@@ -2,7 +2,7 @@ import {GridListTile, makeStyles} from "@material-ui/core"
 import React, {ReactElement} from "react"
 import {Domain} from "@react-discovery/views"
 import {ESCore} from "@react-discovery/core"
-import {ImageGridListTitleBar} from "./ImageGridListTitleBar"
+import {MediaGridTitleBar} from "./MediaGridTitleBar"
 import {Thumbnail} from "@react-discovery/iiif"
 
 const useStyles = makeStyles((theme): any => ({
@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme): any => ({
   gridList: {
     flexWrap: 'nowrap',
     transform: 'translateZ(0)',
+  },
+  gridListTile: {
+    listStyle: 'none'
   },
   icon: {
     color: 'white',
@@ -48,14 +51,14 @@ export const MediaGrid: React.FC<any> = (props): ReactElement => {
   const {hit} = props
   const id = hit && hit._source.id
   const entities = hit && hit._source.entities && hit._source.entities
-  const media = entities && entities.filter((entity): boolean => entity[typeField] === Domain.DIGITALISAT)
+  const media = entities && entities.filter((entity): boolean => entity[typeField] === Domain.MEDIA)
   const thumbnail = hit && hit._source && hit._source.thumbnail
 
   const buildMediaGrid = (): ReactElement[] => {
     return media.map((item, i): ReactElement => (
       <GridListTile
+        className={classes.gridListTile}
         key={i}
-        style={{listStyle: 'none'}}
       >
         <Thumbnail
           classes={classes}
@@ -63,7 +66,7 @@ export const MediaGrid: React.FC<any> = (props): ReactElement => {
           manifest={item[Domain.MANIFEST_ID_FIELD]}
           thumbnail={thumbnail}
         />
-        <ImageGridListTitleBar
+        <MediaGridTitleBar
           hit={hit}
           item={item}
         />

@@ -1,6 +1,6 @@
-import {Annotations, Descriptions, Digitalisate, HitAbstract, HitViewOptionsMenu, Info, ItemActionBar, ThumbnailGrid} from '.'
+import {Annotations, Descriptions, Digitalisate, HitAbstract, Info, ItemActionBar, ThumbnailGrid} from '.'
 import {Card, CardContent, Divider, Grid} from "@material-ui/core"
-import {Domain, useHitViewStyles} from '@react-discovery/views'
+import {Domain, HitViewOptionsMenu, useHitViewStyles} from '@react-discovery/views'
 import {ESCore, IHit} from "@react-discovery/core"
 import React, {ReactElement} from "react"
 import {
@@ -10,6 +10,7 @@ import {
   getFirstManifestFromHit
 } from '@react-discovery/components'
 import {getHitComponentConfig, getItemViewType, getViewType} from "@react-discovery/configuration"
+import {getNumberOfWorkspaceNodesForId, setViewIdMap} from '@react-discovery/workspace'
 
 interface IDefaultItemComponent {
   classes: any;
@@ -20,6 +21,9 @@ interface IDefaultItemComponent {
 const typeField = ESCore.enums.FieldConstants.TYPE_FIELD
 
 const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
+  const optionsMenuActions = {
+    getNumberOfWorkspaceNodesForId, setViewIdMap
+  }
   const classes: any = useHitViewStyles({})
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
@@ -31,8 +35,8 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
   const filteredFields = componentConfig && componentConfig.filteredFields
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const entities = hit && hit._source.entities && hit._source.entities
-  const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
-  const media = entities && entities.filter((entity): boolean => entity[typeField] === Domain.DIGITALISAT)
+  const manifest = hit && getFirstManifestFromHit(hit, Domain.MEDIA)
+  const media = entities && entities.filter((entity): boolean => entity[typeField] === Domain.MEDIA)
   const item = media && media.length && media[0]
 
   const buildValueDisplay = (field: string, hit: IHit, key: number): ReactElement => {
@@ -62,9 +66,9 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
         return defaultDisplay()
       case 'info':
         return <Info {...props}/>
-      case Domain.DIGITALISAT:
+      case Domain.MEDIA:
         return <Digitalisate {...props}/>
-      case Domain.BESCHREIBUNG:
+      case Domain.DESCRIPTION:
         return <Descriptions {...props}/>
       case Domain.ANNOTATION:
         return <Annotations {...props}/>
@@ -72,7 +76,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
         return defaultDisplay()
     }
   }
-  const optionsMenu = id && <HitViewOptionsMenu id={id}/>
+  const optionsMenu = id && <HitViewOptionsMenu actions={optionsMenuActions} id={id}/>
 
   return hit && viewType !== 'expanded' ? (
     <Card className={classes.root} key={i}>

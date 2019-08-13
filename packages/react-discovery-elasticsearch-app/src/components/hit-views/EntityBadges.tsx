@@ -54,11 +54,11 @@ export const EntityBadges: React.FC<IEntityBadges> = (props): ReactElement => {
     },
     {
       key: 2,
-      type: Domain.DIGITALISAT,
+      type: Domain.MEDIA,
     },
     {
       key: 3,
-      type: Domain.BESCHREIBUNG,
+      type: Domain.DESCRIPTION,
     },
     {
       key: 4,
@@ -91,10 +91,10 @@ export const EntityBadges: React.FC<IEntityBadges> = (props): ReactElement => {
         )
       case 'info':
         return <Info fontSize='default' style={{padding: '5px'}}/>
-      case Domain.DIGITALISAT:
+      case Domain.MEDIA:
         const DIGITALISAT = <Image fontSize='default' style={{padding: '5px'}}/>
         return buildStyledBadge(DIGITALISAT, type)
-      case Domain.BESCHREIBUNG:
+      case Domain.DESCRIPTION:
         const BESCHREIBUNG = <Book fontSize='default' style={{padding: '5px'}}/>
         return buildStyledBadge(BESCHREIBUNG, type)
       case Domain.ANNOTATION:
@@ -121,11 +121,11 @@ export const EntityBadges: React.FC<IEntityBadges> = (props): ReactElement => {
       case 'info':
         dispatch(setItemViewType({id, itemViewType: 'info'}))
         break
-      case Domain.DIGITALISAT:
-        dispatch(setItemViewType({id, itemViewType: Domain.DIGITALISAT}))
+      case Domain.MEDIA:
+        dispatch(setItemViewType({id, itemViewType: Domain.MEDIA}))
         break
-      case Domain.BESCHREIBUNG:
-        dispatch(setItemViewType({id, itemViewType: Domain.BESCHREIBUNG}))
+      case Domain.DESCRIPTION:
+        dispatch(setItemViewType({id, itemViewType: Domain.DESCRIPTION}))
         break
       case Domain.ANNOTATION:
         dispatch(setItemViewType({id, itemViewType: Domain.ANNOTATION}))

@@ -1,11 +1,11 @@
 import {Badge, IconButton, Menu, MenuItem, Theme, Tooltip, Typography, withStyles} from "@material-ui/core"
 import {MoreVert, MoreVertOutlined} from "@material-ui/icons"
 import React, {ReactElement} from "react"
-import {getNumberOfWorkspaceNodesForId, setViewIdMap} from '@react-discovery/workspace'
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
 
 interface IHitViewOptionsMenu {
+  actions: any;
   id: string;
 }
 
@@ -18,7 +18,8 @@ const StyledBadge = withStyles((theme: Theme) => ({
 }))(Badge)
 
 export const HitViewOptionsMenu: React.FC<IHitViewOptionsMenu> = (props): ReactElement => {
-  const {id} = props
+  const {actions, id} = props
+  const {getNumberOfWorkspaceNodesForId, setViewIdMap} = actions
   const nodeCount = getNumberOfWorkspaceNodesForId(id)
   const {t} = useTranslation()
   const [anchorEl, setAnchorEl] = React.useState(null)

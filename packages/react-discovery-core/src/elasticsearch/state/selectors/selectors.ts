@@ -36,8 +36,8 @@ export const getHits = (): IHits => {
   return useSelector((state: any): IHits => state.response.hits)
 }
 
-export const getHitForId = (id): number => {
-  return useSelector((state: any): number => state.response.hits && state.response.hits.hits
+export const getHitForId = (id): IHit => {
+  return useSelector((state: any): IHit => state.response.hits && state.response.hits.hits
     && state.response.hits.hits.filter((hit) => hit.id === id)[0])
 }
 

@@ -10,9 +10,18 @@ export const useThumbnailStyles = makeStyles((): any => ({
     maxHeight: 'fit-content',
     padding: 36,
   },
+  gridList: {
+    display: 'table-cell',
+    listStyle: 'none'
+  },
   media: {
     borderRadius: 8,
     maxWidth: 180,
     objectFit: 'cover',
   },
+  root: {
+    background: 'whitesmoke',
+    flexGrow: 1,
+    padding: 24
+  }
 }))

@@ -12,13 +12,13 @@ export const domainEntitySpec = [
     displayFields: digitalisatDisplayFields,
     isNested: false,
     nestedDisplayFields: null,
-    type: Domain.DIGITALISAT
+    type: Domain.MEDIA
   },
   {
     displayFields: beschreibungDisplayFields,
     isNested: true,
     nestedDisplayFields: facetDisplayFields,
-    type: Domain.BESCHREIBUNG
+    type: Domain.DESCRIPTION
   },
   {
     displayFields: personDisplayFields,

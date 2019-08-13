@@ -15,10 +15,10 @@
 ### Quick Start
 
 #### Create Environment
-- configure `search api host` and `collection` in `.env` file in test app root
+- configure `search api host` and `collection` in `.env` file in elasticsearch-app root
 ```yaml
 REACT_APP_SEARCH_API_HOST=http://localhost:8000/
-REACT_APP_SEARCH_API_COLLECTION=hsp1
+REACT_APP_SEARCH_API_COLLECTION=hsp2
 ```
 ##### Setup Test Elasticsearch Instance
 - start docker composition 
@@ -28,12 +28,12 @@ REACT_APP_SEARCH_API_COLLECTION=hsp1
     ```
 - create index mapping
     ```bash
-    $ curl -X PUT "localhost:8000/hsp1" -H 'Content-Type: application/json' -d @test-data/hsp_mapping.json
+    $ curl -X PUT "localhost:8000/hsp2" -H 'Content-Type: application/json' -d @test-data/hsp_mapping.json
     ```
 
 - create test data set
     ```bash
-    $ curl -X PUT "localhost:8000/_bulk" -H 'Content-Type: application/x-ndjson' --data-binary @test-data/test-data-04.txt
+    $ curl -X PUT "localhost:8000/_bulk" -H 'Content-Type: application/x-ndjson' --data-binary @test-data/test-data-09.txt
     ```
     
 - OR execute 

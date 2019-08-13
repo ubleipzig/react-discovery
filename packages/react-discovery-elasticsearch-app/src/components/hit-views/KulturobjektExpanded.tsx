@@ -2,10 +2,8 @@ import {Card, CardActions, CardContent, Grid} from "@material-ui/core"
 import {
   Domain,
   EntityDisplay,
-  annotationDisplayFields,
-  beschreibungDisplayFields,
-  facetDisplayFields,
-  personDisplayFields,
+  HitViewOptionsMenu,
+  domainEntitySpec,
   useHitViewStyles
 } from "@react-discovery/views"
 import {ESCore, IHit} from "@react-discovery/core"
@@ -16,9 +14,10 @@ import {
   buildHighlightedValueForHit,
   getFirstManifestFromHit,
 } from '@react-discovery/components'
-import {HitViewOptionsMenu, ItemActionBar, ThumbnailGrid} from "."
+import {ItemActionBar, ThumbnailGrid} from "."
 import React, {ReactElement} from "react"
 import {getHitComponentConfig, getItemViewType, getViewType} from "@react-discovery/configuration"
+import {getNumberOfWorkspaceNodesForId, setViewIdMap} from '@react-discovery/workspace'
 import Kulturobjekt from './Kulturobjekt'
 import {MediaGrid} from '..'
 
@@ -31,6 +30,9 @@ interface IDefaultItemComponent {
 const typeField = ESCore.enums.FieldConstants.TYPE_FIELD
 
 const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {
+  const optionsMenuActions = {
+    getNumberOfWorkspaceNodesForId, setViewIdMap
+  }
   const classes: any = useHitViewStyles({})
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
@@ -42,33 +44,12 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
   const filteredFields = componentConfig && componentConfig.filteredFields
   const displayFields = searchFields.filter((sf): boolean => filteredFields.includes(sf.label))
   const title = buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, hit)
-  const manifest = hit && getFirstManifestFromHit(hit, Domain.DIGITALISAT)
-  const media = entities && entities.filter((entity): boolean => entity[typeField] === Domain.DIGITALISAT)
+  const manifest = hit && getFirstManifestFromHit(hit, Domain.MEDIA)
+  const media = entities && entities.filter((entity): boolean => entity[typeField] === Domain.MEDIA)
   const item = media && media.length && media[0]
 
-  const cardActions = [
-    {
-      displayFields: beschreibungDisplayFields,
-      isNested: true,
-      nestedDisplayFields: facetDisplayFields,
-      type: Domain.BESCHREIBUNG
-    },
-    {
-      displayFields: personDisplayFields,
-      isNested: false,
-      nestedDisplayFields: null,
-      type: Domain.PERSON
-    },
-    {
-      displayFields: annotationDisplayFields,
-      isNested: false,
-      nestedDisplayFields: null,
-      type: Domain.ANNOTATION
-    },
-  ]
-
-  const buildCardActions = (cardActions): ReactElement[] => {
-    return cardActions.map((item, i): ReactElement =>
+  const buildCardActions = (domainEntitySpec): ReactElement[] => {
+    return domainEntitySpec.map((item, i): ReactElement =>
       <CardActions
         disableSpacing
         key={i}
@@ -84,7 +65,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
       </CardActions>
     )
   }
-  const optionsMenu = <HitViewOptionsMenu id={id}/>
+  const optionsMenu = <HitViewOptionsMenu actions={optionsMenuActions} id={id}/>
 
   return hit && (itemViewType === 'info' || viewType === 'expanded') ? (
     <Card className={classes.root} key={i}>
@@ -118,7 +99,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
               </CardContent>)}
           </div>
           <MediaGrid hit={hit}/>
-          {buildCardActions(cardActions)}
+          {buildCardActions(domainEntitySpec)}
         </Grid>
         <ThumbnailGrid hit={hit} id={id} item={item} manifest={manifest}/>
       </Grid>
