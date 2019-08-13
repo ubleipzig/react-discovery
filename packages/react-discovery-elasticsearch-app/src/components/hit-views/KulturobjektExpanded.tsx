@@ -17,6 +17,7 @@ import {
 import {ItemActionBar, ThumbnailGrid} from "."
 import React, {ReactElement} from "react"
 import {getHitComponentConfig, getItemViewType, getViewType} from "@react-discovery/configuration"
+import {getNumberOfWorkspaceNodesForId, setViewIdMap} from '@react-discovery/workspace'
 import Kulturobjekt from './Kulturobjekt'
 import {MediaGrid} from '..'
 
@@ -29,6 +30,9 @@ interface IDefaultItemComponent {
 const typeField = ESCore.enums.FieldConstants.TYPE_FIELD
 
 const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElement => {
+  const optionsMenuActions = {
+    getNumberOfWorkspaceNodesForId, setViewIdMap
+  }
   const classes: any = useHitViewStyles({})
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
@@ -61,7 +65,7 @@ const KulturobjektExpanded: React.FC<IDefaultItemComponent> = (props): ReactElem
       </CardActions>
     )
   }
-  const optionsMenu = <HitViewOptionsMenu id={id}/>
+  const optionsMenu = <HitViewOptionsMenu actions={optionsMenuActions} id={id}/>
 
   return hit && (itemViewType === 'info' || viewType === 'expanded') ? (
     <Card className={classes.root} key={i}>

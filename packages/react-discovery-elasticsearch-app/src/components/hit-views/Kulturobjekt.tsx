@@ -10,6 +10,7 @@ import {
   getFirstManifestFromHit
 } from '@react-discovery/components'
 import {getHitComponentConfig, getItemViewType, getViewType} from "@react-discovery/configuration"
+import {getNumberOfWorkspaceNodesForId, setViewIdMap} from '@react-discovery/workspace'
 
 interface IDefaultItemComponent {
   classes: any;
@@ -20,6 +21,9 @@ interface IDefaultItemComponent {
 const typeField = ESCore.enums.FieldConstants.TYPE_FIELD
 
 const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
+  const optionsMenuActions = {
+    getNumberOfWorkspaceNodesForId, setViewIdMap
+  }
   const classes: any = useHitViewStyles({})
   const searchFields = ESCore.state.getSearchFields()
   const {hit, i} = props
@@ -72,7 +76,7 @@ const Kulturobjekt: React.FC<IDefaultItemComponent> = (props): ReactElement => {
         return defaultDisplay()
     }
   }
-  const optionsMenu = id && <HitViewOptionsMenu id={id}/>
+  const optionsMenu = id && <HitViewOptionsMenu actions={optionsMenuActions} id={id}/>
 
   return hit && viewType !== 'expanded' ? (
     <Card className={classes.root} key={i}>

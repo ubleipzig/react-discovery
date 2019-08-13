@@ -13,13 +13,13 @@ import {
   buildHighlightedValueForHit, getFirstManifestFromHit,
 } from "@react-discovery/components"
 import React, {ReactElement} from "react"
-import {getWorkspaceViewIdMap, setViewIdMap} from "@react-discovery/workspace"
 import {ESCore} from "@react-discovery/core"
 import {SimpleImageViewer} from "@react-discovery/iiif"
 import {getCurrentCollection} from "@react-discovery/configuration"
 import uuid from 'uuid'
 
 interface IDetailView {
+  actions: any;
   collection: string;
   id: string;
 }
@@ -58,10 +58,13 @@ const useStyles = makeStyles((theme: Theme): any =>
 )
 
 export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
+  const {getNumberOfWorkspaceNodesForId, getWorkspaceViewIdMap, setViewIdMap} = props.actions
   const addToWorkspaceButtonActions = {
     getWorkspaceViewIdMap, setViewIdMap
   }
-
+  const optionsMenuActions = {
+    getNumberOfWorkspaceNodesForId, setViewIdMap
+  }
   const classes: any = useStyles({})
   const currentCollection = getCurrentCollection()
   const defaultCollection = process.env.REACT_APP_SEARCH_API_COLLECTION
@@ -104,7 +107,7 @@ export const DetailView: React.FC<IDetailView> = (props): ReactElement => {
     )
   }
 
-  const optionsMenu = id && <HitViewOptionsMenu id={id}/>
+  const optionsMenu = id && <HitViewOptionsMenu actions={optionsMenuActions} id={id}/>
   const addButton = currentHit && <AddToWorkspaceButton actions={addToWorkspaceButtonActions} classes={classes} hit={currentHit} item={item}/>
   const buildDetailView = (): ReactElement => {
     return (

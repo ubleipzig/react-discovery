@@ -2,18 +2,22 @@ import '@react-discovery/i18n'
 import {AnyAction, Store, applyMiddleware, createStore} from "redux"
 import {DiscoveryApp, Landing, ResultsList, Settings, Workspace} from './components'
 import {Router, View} from 'react-navi'
+import {getNumberOfWorkspaceNodesForId, getWorkspaceViewIdMap, setViewIdMap} from "@react-discovery/workspace"
 import {mount, route} from 'navi'
 import thunkMiddleware, {ThunkMiddleware} from 'redux-thunk'
 import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from '@apollo/react-hooks';
+import {DetailView} from '@react-discovery/views'
 import {ElasticSearchProvider} from "@react-discovery/core"
 import {Provider} from 'react-redux'
 import React from "react"
 import ReactDOM from "react-dom"
-import {DetailView} from '@react-discovery/views'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {rootReducer} from "./state"
 
+const detailViewActions = {
+  getNumberOfWorkspaceNodesForId, getWorkspaceViewIdMap, setViewIdMap
+}
 const thunk: ThunkMiddleware<{}, AnyAction> = thunkMiddleware
 const routes =
   mount({
@@ -25,7 +29,7 @@ const routes =
       let id = req.params.id
       const collection = req.params.collection
       return {
-        view: <DiscoveryApp component={<DetailView collection={collection} id={id}/>}/>,
+        view: <DiscoveryApp component={<DetailView actions={detailViewActions} collection={collection} id={id}/>}/>,
       }
     }),
     '/search/:collection': route({
