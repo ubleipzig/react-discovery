@@ -16,6 +16,7 @@ export const ecodices: IConfig = {
           type: "grid"
         },
       ],
+      logo: "https://images.iiif.cloud/iiif/2/ecodices-logo.tif/full/170,/0/default.jpg",
       name: 'eCodices',
       primaryTypeField: "collections.keyword",
       refinementListFilters: {

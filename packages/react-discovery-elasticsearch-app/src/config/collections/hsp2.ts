@@ -74,6 +74,7 @@ export const hsp2: IConfig = {
           type: "list"
         },
       ],
+      logo: "https://f.hypotheses.org/wp-content/blogs.dir/1137/files/2019/07/Interim-Logo_HSP.jpg",
       name: 'Handschriftenportal',
       primaryTypeField: Domain.KULTUROBJEKT,
       refinementListFilters: {

@@ -4,6 +4,7 @@ export interface ICollection {
   docTypes?: IDocType[];
   hitComponents: IHitComponent[];
   initialFilter?: IFilters;
+  logo?: string;
   name: string;
   primaryTypeField: string;
   refinementListFilters: IRefinementListFilters;

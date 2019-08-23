@@ -16,6 +16,7 @@ export const getty: IConfig = {
           type: "grid"
         },
       ],
+      logo: "https://images.iiif.cloud/iiif/2/getty-logo.tif/full/170,/0/default.jpg",
       name: 'Getty',
       primaryTypeField: "collections.keyword",
       refinementListFilters: {

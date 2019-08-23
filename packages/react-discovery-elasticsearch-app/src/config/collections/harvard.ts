@@ -16,6 +16,7 @@ export const harvard: IConfig = {
           type: "grid"
         },
       ],
+      logo: "https://ids.lib.harvard.edu/ids/iiif/437958013/full/170,/0/native.jpg",
       name: 'Harvard University',
       primaryTypeField: "collections.keyword",
       refinementListFilters: {

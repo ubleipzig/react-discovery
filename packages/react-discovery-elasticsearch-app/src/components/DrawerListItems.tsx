@@ -1,5 +1,5 @@
 import {Badge, ListItem, ListItemIcon, ListItemText, Tooltip} from "@material-ui/core"
-import {Description, Home, PictureInPicture, Search, Settings} from "@material-ui/icons"
+import {Collections, Description, Home, PictureInPicture, Search, Settings} from "@material-ui/icons"
 import {NavLink, useCurrentRoute} from "react-navi"
 import React, {ReactElement, forwardRef, useEffect, useState} from "react"
 import {getCurrentSearchContext} from '@react-discovery/configuration'
@@ -24,26 +24,32 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
       text: 'Home'
     },
     {
-      id: 'search',
+      id: 'collections',
       index: 1,
+      path: '/collections',
+      text: 'Collections'
+    },
+    {
+      id: 'search',
+      index: 2,
       path: currentSearchContext,
       text: 'Search'
     },
     {
       id: 'workspace',
-      index: 2,
+      index: 3,
       path: '/workspace',
       text: 'Workspace'
     },
     {
       id: 'detail',
-      index: 3,
+      index: 4,
       path: '/detail',
       text: 'Detail'
     },
     {
       id: 'settings',
-      index: 4,
+      index: 5,
       path: '/settings',
       text: 'Settings'
     },
@@ -68,6 +74,8 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
     switch (item) {
       case 'home':
         return <Home/>
+      case 'collections':
+        return <Collections/>
       case 'search':
         return <Search/>
       case 'workspace':

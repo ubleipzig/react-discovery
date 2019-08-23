@@ -16,6 +16,7 @@ export const nga: IConfig = {
           type: "grid"
         },
       ],
+      logo: "https://images.iiif.cloud/iiif/2/nga-seal.tif/full/full/0/default.jpg",
       name: 'National Gallery of Art',
       primaryTypeField: "collections.keyword",
       refinementListFilters: {
