@@ -16,6 +16,7 @@ export const ox1: IConfig = {
           type: "grid"
         },
       ],
+      logo: "https://iiif.bodleian.ox.ac.uk/iiif/image/b83fe9b4-3ffb-4890-aa3f-7d551dfd8b38/full/170,/0/default.jpg",
       name: 'Oxford University',
       primaryTypeField: "collections.keyword",
       refinementListFilters: {

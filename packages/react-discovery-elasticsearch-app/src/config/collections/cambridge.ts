@@ -16,6 +16,7 @@ export const cambridge: IConfig = {
           type: "grid"
         },
       ],
+      logo: "https://images.iiif.cloud/iiif/2/cu_logo.tif/full/170,/0/default.jpg",
       name: 'Cambridge University',
       primaryTypeField: "collections.keyword",
       refinementListFilters: {

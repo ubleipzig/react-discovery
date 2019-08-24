@@ -14,6 +14,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {rootReducer} from "./state"
+import {Collections} from "./components/Collections"
 
 const detailViewActions = {
   getNumberOfWorkspaceNodesForId, getWorkspaceViewIdMap, setViewIdMap
@@ -24,6 +25,10 @@ const routes =
     '/': route({
       title: "Home",
       view: <DiscoveryApp component={<Landing />}/>,
+    }),
+    '/collections': route({
+      title: "Collections",
+      view: <DiscoveryApp component={<Collections />}/>,
     }),
     '/detail/:collection/:id': route((req): any => {
       let id = req.params.id

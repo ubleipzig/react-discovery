@@ -1,8 +1,8 @@
 import {IConfig} from "@react-discovery/configuration"
 
-export const getty: IConfig = {
+export const gallica: IConfig = {
   collections: {
-    gt3: {
+    ga2: {
       hitComponents: [
         {
           defaultOption: true,
@@ -16,23 +16,23 @@ export const getty: IConfig = {
           type: "grid"
         },
       ],
-      logo: "https://images.iiif.cloud/iiif/2/getty-logo.tif/full/170,/0/default.jpg",
-      name: 'Getty',
+      logo: "https://images.iiif.cloud/iiif/2/bnf.tif/full/170,/0/default.jpg",
+      name: 'Bibliothèque nationale de France',
       primaryTypeField: "collections.keyword",
       refinementListFilters: {
         1: {
-          field: "Place Created.keyword",
-          label: "Place",
+          field: "collection.keyword",
+          label: "Collection",
           size: 10
         },
         2: {
-          field: "Object Type.keyword",
-          label: "Object Type",
+          field: "Language.keyword",
+          label: "Language",
           size: 10
         },
         3: {
-          field: "Medium.keyword",
-          label: "Medium",
+          field: "Date.keyword",
+          label: "Date",
           size: 10
         },
       },
@@ -43,23 +43,83 @@ export const getty: IConfig = {
           type: null
         },
         {
-          field: "Artist",
-          label: "Artist",
+          field: "Creator",
+          label: "Creator",
           type: null
         },
         {
-          field: "Birthplace",
-          label: "Birthplace",
+          field: "Date",
+          label: "Date",
           type: null
         },
         {
-          field: "Collection",
-          label: "Collection",
+          field: "Digitisation funded by",
+          label: "Digitisation funded by",
           type: null
         },
         {
-          field: "Culture & Date",
-          label: "Culture & Date",
+          field: "Digitised by",
+          label: "Digitised by",
+          type: null
+        },
+        {
+          field: "Format",
+          label: "Format",
+          type: null
+        },
+        {
+          field: "Language",
+          label: "Language",
+          type: null
+        },
+        {
+          field: "Metadata Source",
+          label: "Metadata Source",
+          type: null
+        },
+        {
+          field: "Place",
+          label: "Place",
+          type: null
+        },
+        {
+          field: "Relation",
+          label: "Relation",
+          type: null
+        },
+        {
+          field: "Repository",
+          label: "Repository",
+          type: null
+        },
+        {
+          field: "Shelfmark",
+          label: "Shelfmark",
+          type: null
+        },
+        {
+          field: "Source Images",
+          label: "Source Images",
+          type: null
+        },
+        {
+          field: "Title",
+          label: "Title",
+          type: null
+        },
+        {
+          field: "Type",
+          label: "Type",
+          type: null
+        },
+        {
+          field: "attribution",
+          label: "attribution",
+          type: null
+        },
+        {
+          field: "collection",
+          label: "collection",
           type: null
         },
         {
@@ -68,23 +128,8 @@ export const getty: IConfig = {
           type: null
         },
         {
-          field: "Dimensions",
-          label: "Dimensions",
-          type: null
-        },
-        {
-          field: "Gallery Label (created)",
-          label: "Gallery Label (created)",
-          type: null
-        },
-        {
-          field: "Inscription",
-          label: "Inscription",
-          type: null
-        },
-        {
-          field: "Markings",
-          label: "Markings",
+          field: "license",
+          label: "license",
           type: null
         },
         {
@@ -93,48 +138,13 @@ export const getty: IConfig = {
           type: null
         },
         {
-          field: "Medium",
-          label: "Medium",
-          type: null
-        },
-        {
-          field: "Object Number",
-          label: "Object Number",
-          type: null
-        },
-        {
-          field: "Object Type",
-          label: "Object Type",
-          type: null
-        },
-        {
-          field: "Place Created",
-          label: "Place Created",
-          type: null
-        },
-        {
-          field: "Place Depicted",
-          label: "Place Depicted",
-          type: null
-        },
-        {
-          field: "Place Found",
-          label: "Place Found",
-          type: null
-        },
-        {
-          field: "Rights Statement",
-          label: "Rights Statement",
-          type: null
-        },
-        {
-          field: "Signed",
-          label: "Signed",
-          type: null
-        },
-        {
           field: "related",
           label: "related",
+          type: null
+        },
+        {
+          field: "seeAlso",
+          label: "seeAlso",
           type: null
         },
         {
@@ -146,27 +156,22 @@ export const getty: IConfig = {
           field: "title",
           label: "title",
           type: null
-        },
-        {
-          field: "within",
-          label: "within",
-          type: null
         }
       ],
       sortFields: [
         {
-          field: "title.keyword",
+          field: "Title.keyword",
           label: "Title",
           order: "asc"
         },
         {
-          field: "Artist.keyword",
-          label: "Artist",
+          field: "Creator.keyword",
+          label: "Creator",
           order: "asc"
         },
         {
-          field: "Object Number.keyword",
-          label: "Object Number",
+          field: "Date.keyword",
+          label: "Date",
           order: "asc"
         }
       ],

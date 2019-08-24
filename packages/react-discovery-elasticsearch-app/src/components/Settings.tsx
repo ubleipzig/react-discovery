@@ -1,6 +1,6 @@
 import {CollectionSelector, SizeSelector} from '.'
 import {FormatLineSpacing, Search} from "@material-ui/icons"
-import {List, ListItem, ListItemIcon, ListItemText, Typography, makeStyles} from "@material-ui/core"
+import {List, ListItem, ListItemIcon, ListItemText, makeStyles} from "@material-ui/core"
 import React, {ReactElement} from "react"
 import {useTranslation} from "react-i18next"
 

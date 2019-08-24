@@ -19,15 +19,22 @@ export const Landing: React.FC<any> = (): ReactElement => {
   const currentSearchcontext = getCurrentSearchContext()
   const cards = [
     {
-      imageSrc: 'https://iiif.bodleian.ox.ac.uk/iiif/image/8a62827b-95ec-483a-a49e-2c92fc741100/full/256,/0/default.jpg',
+      imageSrc: 'https://media.nga.gov/iiif/public/objects/4/3/8/4/3/43843-primary-0-nativeres.ptif/full/256,/0/default.jpg',
       index: 0,
+      linkPath: '/collections',
+      text: 'Collections',
+      title: 'View Collections',
+    },
+    {
+      imageSrc: 'https://iiif.bodleian.ox.ac.uk/iiif/image/8a62827b-95ec-483a-a49e-2c92fc741100/full/256,/0/default.jpg',
+      index: 1,
       linkPath: '/workspace',
       text: 'Workspace',
       title: 'View Workspace',
     },
     {
       imageSrc: 'https://iiif.bodleian.ox.ac.uk/iiif/image/b2c352ee-1356-4c8c-9c11-7c6d7f3587b2/full/256,/0/default.jpg',
-      index: 1,
+      index: 2,
       linkPath: currentSearchcontext,
       text: 'Search',
       title: 'Search',

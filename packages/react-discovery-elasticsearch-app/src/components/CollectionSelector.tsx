@@ -68,8 +68,8 @@ export const CollectionSelector: React.FC<any> = (): ReactElement => {
   }
   const indexMap = getIndexNames()
 
-  const buildSelectOptions = (): any => {
-    return Array.from(indexMap, ([key, value]) =>
+  const buildSelectOptions = (): ReactElement[] => {
+    return Array.from(indexMap, ([key, value]): ReactElement =>
       <MenuItem
         button={false}
         component='li'

@@ -1,8 +1,8 @@
 import {IConfig} from "@react-discovery/configuration"
 
-export const nga: IConfig = {
+export const wales: IConfig = {
   collections: {
-    nga2: {
+    wales1: {
       hitComponents: [
         {
           defaultOption: true,
@@ -16,18 +16,18 @@ export const nga: IConfig = {
           type: "grid"
         },
       ],
-      logo: "https://images.iiif.cloud/iiif/2/nga-seal.tif/full/full/0/default.jpg",
-      name: 'National Gallery of Art',
+      logo: "https://damsssl.llgc.org.uk/iiif/2.0/image/logo/full/170,/0/default.jpg",
+      name: 'Llyfrgell Genedlaethol Cymru',
       primaryTypeField: "collections.keyword",
       refinementListFilters: {
         1: {
-          field: "Artist.keyword",
-          label: "Artist",
+          field: "Author.keyword",
+          label: "Author",
           size: 10
         },
         2: {
-          field: "Creation Year.keyword",
-          label: "Creation Year",
+          field: "Date.keyword",
+          label: "Date",
           size: 10
         },
         3: {
@@ -43,23 +43,38 @@ export const nga: IConfig = {
           type: null
         },
         {
-          field: "title",
-          label: "title",
+          field: "Alternate Title",
+          label: "Alternate Title",
           type: null
         },
         {
-          field: "Accession Number",
-          label: "Accession Number",
+          field: "Author",
+          label: "Author",
           type: null
         },
         {
-          field: "Artist",
-          label: "Artist",
+          field: "Date",
+          label: "Date",
           type: null
         },
         {
-          field: "Creation Year",
-          label: "Creation Year",
+          field: "License",
+          label: "License",
+          type: null
+        },
+        {
+          field: "Permalink",
+          label: "Permalink",
+          type: null
+        },
+        {
+          field: "Physical Description",
+          label: "Physical Description",
+          type: null
+        },
+        {
+          field: "Repository",
+          label: "Repository",
           type: null
         },
         {
@@ -86,6 +101,11 @@ export const nga: IConfig = {
           field: "thumbnail",
           label: "thumbnail",
           type: null
+        },
+        {
+          field: "title",
+          label: "title",
+          type: null
         }
       ],
       sortFields: [
@@ -95,13 +115,13 @@ export const nga: IConfig = {
           order: "asc"
         },
         {
-          field: "Creation Year.keyword",
-          label: "Creation Year",
+          field: "Date.keyword",
+          label: "Date",
           order: "asc"
         },
         {
-          field: "Artist.keyword",
-          label: "Artist",
+          field: "Author.keyword",
+          label: "Author",
           order: "asc"
         }
       ],

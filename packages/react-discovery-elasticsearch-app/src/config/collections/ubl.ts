@@ -19,6 +19,7 @@ export const ubl: IConfig = {
       initialFilter: {
         "Sprache.keyword": ["lateinisch"]
       },
+      logo: "https://images.iiif.cloud/iiif/2/ubl-logo.tif/full/170,/0/default.jpg",
       name: 'Universitätsbibliothek Leipzig',
       primaryTypeField: "collections.keyword",
       refinementListFilters: {
