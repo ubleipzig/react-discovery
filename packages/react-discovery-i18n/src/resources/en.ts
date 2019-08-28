@@ -15,6 +15,7 @@ export const en = {
     setCollection: 'Set Collection',
     setSize: 'Set Result Size',
     showInner: 'Show Inner',
+    signout: 'Sign Out',
     simple: 'Simple',
     sortOrder: 'Sort Order',
     suggest: 'Suggest...',

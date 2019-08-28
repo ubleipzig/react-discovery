@@ -1,9 +1,9 @@
 import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
 import {
   setCurrentCollection,
-  setCurrentGridViewerObject,
+  setCurrentGridViewerObject, setCurrentImageId,
   setCurrentLanguage,
-  setCurrentSelectedTab,
+  setCurrentSelectedTab, setCurrentUser,
   setHitComponent,
   setIsPersisted,
   setItemViewType,
@@ -36,6 +36,14 @@ export const config = (initialState): ReducerBuilder<IConfig> => reducerWithInit
       ...state.itemViews,
       [id]: itemViewType,
     }
+  }))
+  .case(setCurrentImageId, (state, {currentImageId}): ReducerBuilder<IConfig> => ({
+    ...state,
+    currentImageId
+  }))
+  .case(setCurrentUser, (state, {currentUser}): ReducerBuilder<IConfig> => ({
+    ...state,
+    currentUser
   }))
   .case(setCurrentLanguage, (state, {currentLanguage}): ReducerBuilder<IConfig> => ({
     ...state,

@@ -38,6 +38,8 @@
     "@react-discovery/i18n": "file:../react-discovery-i18n",
     "@react-discovery/views": "file:../react-discovery-views",
     "@react-discovery/workspace": "file:../react-discovery-workspace",
+    "@use-firebase/app": "^0.3.2",
+    "@use-firebase/auth": "^0.3.3",
     "classnames": "^2.2.6",
     "clsx": "^1.0.4",
     "deepmerge": "^3.2.0",
