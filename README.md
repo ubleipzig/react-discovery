@@ -14,9 +14,12 @@
 
 ### Quick Start
 
-### Setup Firebase Project Configuration for Authentication
+#### Setup Firebase Project Configuration for Authentication
 [See Firebase Documents](https://firebase.google.com/docs/web/setup#config-object)
-The firebase configuration object is located in `react-discovery-elasticsearch-app/src/config/firebase`
+- The firebase configuration object is located in:
+ ```bash
+ $ react-discovery-elasticsearch-app/src/config/firebase
+ ```
 
 #### Create Environment
 - configure `search api host` and `collection` in `.env` file in elasticsearch-app root
