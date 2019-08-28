@@ -7,6 +7,8 @@ import {
 } from '@react-discovery/components'
 import React, {ReactElement} from 'react'
 import {Domain} from "@react-discovery/views"
+import {SignInButton} from "./SignInButton"
+import {useFirebaseAuth} from '@use-firebase/auth'
 
 export const useSearchAppBarStyles = makeStyles((theme): any => ({
   appBar: {
@@ -67,6 +69,7 @@ export const useSearchAppBarStyles = makeStyles((theme): any => ({
 export const SearchAppBar: React.FC<any> = (props): ReactElement => {
   const classes: any = useSearchAppBarStyles({})
   const {handleDrawerChange} = props
+  const {isSignedIn} = useFirebaseAuth()
 
   return (
     <AppBar
@@ -108,7 +111,7 @@ export const SearchAppBar: React.FC<any> = (props): ReactElement => {
               <Bookmark/>
             </Badge>
           </IconButton>
-          <ProfileMenu/>
+          {isSignedIn ? <ProfileMenu/> : <SignInButton/> }
         </div>
       </div>
     </AppBar>

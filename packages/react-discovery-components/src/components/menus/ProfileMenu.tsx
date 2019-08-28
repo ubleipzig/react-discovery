@@ -1,15 +1,42 @@
-import {IconButton, Menu, MenuItem} from "@material-ui/core"
-import React, {ReactElement} from "react"
+import {IconButton, Menu, MenuItem, makeStyles} from "@material-ui/core"
+import React, {ReactElement, useEffect} from "react"
 import {AccountCircle} from "@material-ui/icons"
+import {setCurrentUser} from '@react-discovery/configuration'
+import {useDispatch} from "react-redux"
+import {useFirebaseAuth} from '@use-firebase/auth'
 import {useTranslation} from "react-i18next"
 
+const useStyles = makeStyles(() => ({
+  avatar: {
+    borderRadius: '50%',
+    flexGrow: 0,
+    flexShrink: 0,
+    height: 36,
+    width: 36,
+    zIndex: 400,
+  },
+  error: {},
+  input: {
+    display: 'none',
+  },
+}))
+
 export const ProfileMenu: React.FC<any> = (): ReactElement => {
-  const {t} = useTranslation()
   const [anchorEl, setAnchorEl] = React.useState(null)
-
+  const classes = useStyles({});
+  const {user, signOut} = useFirebaseAuth()
+  const {displayName, photoURL} = user
   const isMenuOpen = Boolean(anchorEl)
+  const dispatch = useDispatch()
+  const {t} = useTranslation()
 
-  const handleProfileMenuOpen = (event): void => {
+  useEffect((): void => {
+    if (user) {
+      dispatch(setCurrentUser({currentUser: user}))
+    }
+  }, [dispatch, user])
+
+  const handleProfileMenuOpen = (event: any): void => {
     setAnchorEl(event.currentTarget)
   }
 
@@ -41,9 +68,9 @@ export const ProfileMenu: React.FC<any> = (): ReactElement => {
       <MenuItem
         button={true}
         component='div'
-        onClick={handleMenuClose}
+        onClick={signOut}
       >
-        {t('account')}
+        {t('signout')}
       </MenuItem>
     </Menu>
   )
@@ -58,7 +85,13 @@ export const ProfileMenu: React.FC<any> = (): ReactElement => {
         href=''
         onClick={handleProfileMenuOpen}
       >
-        <AccountCircle />
+        {photoURL ?
+          <img
+            className={classes.avatar}
+            alt={displayName}
+            src={photoURL}
+          /> : <AccountCircle />
+        }
       </IconButton>
       {renderMenu}
     </>

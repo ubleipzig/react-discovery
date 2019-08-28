@@ -29,6 +29,14 @@ export const getCurrentSearchContext = (): string => {
   return useSelector((state: any): string => state.config.rootContext + '/' + state.config.currentCollection)
 }
 
+export const getCurrentImageId = (): string => {
+  return useSelector((state: any): any => state.config && state.config.currentImageId)
+}
+
+export const getCurrentUser = (): {} => {
+  return useSelector((state: any): any => state.config && state.config.currentUser)
+}
+
 export const getDocTypes = (): IDocType[] => {
   return useSelector((state: any): IDocType[] => state.config.collections[state.config.currentCollection].docTypes)
 }

@@ -14,6 +14,7 @@ export const de = {
     search: 'Suche...',
     setCollection: 'Set Collection',
     setSize: 'Set Result Size',
+    signout: 'Abmelden',
     simple: 'Einfach',
     sortOrder: 'Sortierreihenfolge fest',
     suggest: 'Vorschlagen...',

@@ -22,3 +22,4 @@ export const rootConfig: IConfig = {
 }
 
 export const localConfig: any = deepmerge(rootConfig, collections)
+export * from './firebase'

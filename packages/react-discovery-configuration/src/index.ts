@@ -77,3 +77,13 @@ export interface ISortField {
   order: string;
   isSelected?: boolean;
 }
+
+export interface IUser {
+  uid: string;
+  displayName: string;
+  photoURL: string;
+  email?: string;
+  emailVerified: boolean;
+  isAnonymous: boolean;
+  phoneNumber?: string;
+}

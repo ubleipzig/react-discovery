@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-docker exec solr1 /opt/solr/bin/solr create_collection -c test04
-curl -X POST -H"Content-Type: application/json" http://localhost/solr/test04/update/json?commit=true --data-binary @test-data/test-data-04.json
+curl -X PUT "localhost:8000/hsp2" -H 'Content-Type: application/json' -d @test-data/hsp_mapping.json
+curl -X PUT "localhost:8000/_bulk" -H 'Content-Type: application/x-ndjson' --data-binary @test-data/test-data-09.txt

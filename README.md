@@ -14,12 +14,18 @@
 
 ### Quick Start
 
+### Setup Firebase Project Configuration for Authentication
+[See Firebase Documents](https://firebase.google.com/docs/web/setup#config-object)
+The firebase configuration object is located in `react-discovery-elasticsearch-app/src/config/firebase`
+
 #### Create Environment
 - configure `search api host` and `collection` in `.env` file in elasticsearch-app root
 ```yaml
 REACT_APP_SEARCH_API_HOST=http://localhost:8000/
 REACT_APP_SEARCH_API_COLLECTION=hsp2
+REACT_APP_FIREBASE_API_KEY=
 ```
+
 ##### Setup Test Elasticsearch Instance
 - start docker composition 
     ```bash

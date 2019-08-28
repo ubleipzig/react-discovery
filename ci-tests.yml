@@ -5,6 +5,7 @@ services:
     build:
       args:
         CIRCLE_BRANCH: $CIRCLE_BRANCH
+        REACT_APP_FIREBASE_API_KEY: $REACT_APP_FIREBASE_API_KEY
         REACT_APP_SEARCH_API_HOST: $REACT_APP_SEARCH_API_HOST
         REACT_APP_SEARCH_API_COLLECTION: $REACT_APP_SEARCH_API_COLLECTION
       context: ./packages/react-discovery-elasticsearch-app
