@@ -1,5 +1,6 @@
 {
   "env": {
-    "test-collection": "hsp2"
+    "test-collection": "hsp2",
+    "number": 100.0
   }
 }

@@ -1,4 +1,4 @@
-import {DiscoveryApp, Landing, ResultsList, Settings, Workspace} from "../components"
+import {DiscoveryApp, Landing, Library, ResultsList, Settings, Workspace} from "../components"
 import {getNumberOfWorkspaceNodesForId, getWorkspaceViewIdMap, setViewIdMap} from "@react-discovery/workspace"
 import {mount, route} from "navi"
 import {Collections} from "../components/Collections"
@@ -26,6 +26,11 @@ export const routes =
         view: <DiscoveryApp component={<DetailView actions={detailViewActions} collection={collection} id={id}/>}/>,
       }
     }),
+    '/library': route((): any => {
+      return {
+        view: <DiscoveryApp component={<Library/>}/>,
+      }
+    }),
     '/search/:collection': route({
       title: "React Discovery",
       view: <DiscoveryApp component={<ResultsList />}/>,
@@ -37,7 +42,7 @@ export const routes =
     }),
     '/workspace': route((): any => {
       return {
-        view: <DiscoveryApp component={<Workspace />}/>,
+        view: <DiscoveryApp component={<Workspace/>}/>,
       }
-    })
+    }),
   })

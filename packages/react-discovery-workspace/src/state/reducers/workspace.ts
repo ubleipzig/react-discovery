@@ -1,5 +1,5 @@
 import {ReducerBuilder, reducerWithInitialState} from 'typescript-fsa-reducers'
-import {removeViewId, setViewIdMap, setWorkspaceLayout} from "../actions"
+import {removeViewId, setViewIdMap, setWorkspaceLayout, setWorkspaceState} from "../actions"
 import {MosaicParent} from 'react-mosaic-component'
 import {omit} from 'lodash'
 import uuid from 'uuid'
@@ -27,4 +27,8 @@ export const workspace = (initialState): ReducerBuilder<IWorkspace> => reducerWi
   .case(removeViewId, (state, {id}): ReducerBuilder<IWorkspace> => ({
     ...state,
     viewIdMap: omit(state.viewIdMap, id)
+  }))
+  .case(setWorkspaceState, (state, {workspace}): ReducerBuilder<IWorkspace> => ({
+    ...state,
+    ...workspace,
   }))

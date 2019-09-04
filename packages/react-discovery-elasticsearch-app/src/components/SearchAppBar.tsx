@@ -1,13 +1,16 @@
-import {AppBar, Badge, IconButton, Typography, makeStyles} from '@material-ui/core'
-import {Bookmark, Menu} from '@material-ui/icons'
+import {AppBar, IconButton, Typography, makeStyles} from '@material-ui/core'
 import {
   LanguageSelectionMenu,
   ProfileMenu,
-  ResetButton, SearchBox,
+  ResetButton,
+  SearchBox,
 } from '@react-discovery/components'
 import React, {ReactElement} from 'react'
 import {Domain} from "@react-discovery/views"
+import {Menu} from '@material-ui/icons'
+import {SaveWorkspaceButton} from '.'
 import {SignInButton} from "./SignInButton"
+import {useCurrentRoute} from "react-navi"
 import {useFirebaseAuth} from '@use-firebase/auth'
 
 export const useSearchAppBarStyles = makeStyles((theme): any => ({
@@ -70,6 +73,10 @@ export const SearchAppBar: React.FC<any> = (props): ReactElement => {
   const classes: any = useSearchAppBarStyles({})
   const {handleDrawerChange} = props
   const {isSignedIn} = useFirebaseAuth()
+  const route = useCurrentRoute()
+  const pathname = route.url.pathname
+  const context = pathname.split('/')[1]
+  const isWorkspace = context === 'workspace'
 
   return (
     <AppBar
@@ -98,19 +105,8 @@ export const SearchAppBar: React.FC<any> = (props): ReactElement => {
         <SearchBox/>
         <div className={classes.sectionDesktop}>
           <ResetButton/>
+          {isWorkspace && isSignedIn ? <SaveWorkspaceButton/> : null}
           <LanguageSelectionMenu/>
-          <IconButton
-            className={classes.menuButton}
-            color="inherit"
-            href=''
-          >
-            <Badge
-              badgeContent={4}
-              color="secondary"
-            >
-              <Bookmark/>
-            </Badge>
-          </IconButton>
           {isSignedIn ? <ProfileMenu/> : <SignInButton/> }
         </div>
       </div>
