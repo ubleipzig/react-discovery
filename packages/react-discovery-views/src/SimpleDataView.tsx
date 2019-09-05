@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: Theme): any =>
     root: {
       backgroundColor: theme.palette.background.paper,
       display: 'flex-root',
-      marginBottom: '5px',
+      marginTop: '15px',
     },
   }),
 )
@@ -80,7 +80,7 @@ export const SimpleDataView: React.FC<ISimpleDataView> = (props): ReactElement =
     )
   }
 
-  const buildKulturObjekt = (): ReactElement => {
+  const buildDataView = (): ReactElement => {
     return (
       <Card className={classes.root}>
         <TitleIdHeader
@@ -116,6 +116,6 @@ export const SimpleDataView: React.FC<ISimpleDataView> = (props): ReactElement =
   }
 
   return docs && doc && searchFields ? (
-    buildKulturObjekt()
+    buildDataView()
   ) : null
 }

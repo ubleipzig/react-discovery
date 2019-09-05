@@ -32,7 +32,6 @@ export const LibraryFeed: React.FC<any> = (): ReactElement => {
   const {user} = useFirebaseAuth()
   const uid = (user && user.uid) || null
   const [value, setValue] = useValue('users/' + uid + '/workspaces', undefined, undefined) as any
-  const [removedValue, removeValue] = useValue('users/' + uid + '/workspaces', undefined, undefined) as any
   const classes: any = useStyles({})
   const clipboard = useClipboard({copiedTimeout: 600})
   const {t} = useTranslation('common')
@@ -47,7 +46,7 @@ export const LibraryFeed: React.FC<any> = (): ReactElement => {
   }
 
   const handleRemoveWorkspace = (value): void => {
-    removeValue({[value]: null})
+    setValue({[value]: null})
   }
 
   const buildSavedWorkspaces = (): ReactElement[] => {
