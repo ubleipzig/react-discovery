@@ -3,6 +3,7 @@ import {MoreVert, MoreVertOutlined} from "@material-ui/icons"
 import React, {ReactElement} from "react"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
+import {getCurrentCollection} from "@react-discovery/configuration"
 
 interface IHitViewOptionsMenu {
   actions: any;
@@ -19,6 +20,7 @@ const StyledBadge = withStyles((theme: Theme) => ({
 
 export const HitViewOptionsMenu: React.FC<IHitViewOptionsMenu> = (props): ReactElement => {
   const {actions, id} = props
+  const collection = getCurrentCollection()
   const {getNumberOfWorkspaceNodesForId, setViewIdMap} = actions
   const nodeCount = getNumberOfWorkspaceNodesForId(id)
   const {t} = useTranslation()
@@ -33,7 +35,7 @@ export const HitViewOptionsMenu: React.FC<IHitViewOptionsMenu> = (props): ReactE
   const handleAddToWorkspace = (key): void => {
     switch (key) {
       case 'addDataToWorkspace':
-        dispatch(setViewIdMap({id, type: 'data'}))
+        dispatch(setViewIdMap({collection, id, type: 'data'}))
     }
     setAnchorEl(null)
   }

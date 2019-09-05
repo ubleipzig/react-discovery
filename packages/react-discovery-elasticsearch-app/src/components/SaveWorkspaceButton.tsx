@@ -29,7 +29,7 @@ export const SaveWorkspaceButton: React.FC<IOverridableStyledComponent> = (props
   }
   const {t} = useTranslation('common')
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     setOpen(false);
   }
 

@@ -11,12 +11,13 @@ import {
   buildHighlightedValueForHit, getFirstManifestFromHit,
 } from "@react-discovery/components"
 import React, {ReactElement, useEffect} from "react"
-import {getCollectionByKey, getCurrentCollection} from "@react-discovery/configuration"
+import {getCollectionByKey} from "@react-discovery/configuration"
 import {ESCore} from "@react-discovery/core"
 import {Thumbnail} from "@react-discovery/iiif"
 import {useDispatch} from "react-redux"
 
 interface ISimpleDataView {
+  collection: string;
   id: string;
 }
 
@@ -43,16 +44,15 @@ const useStyles = makeStyles((theme: Theme): any =>
 
 export const SimpleDataView: React.FC<ISimpleDataView> = (props): ReactElement => {
   const classes: any = useStyles({})
-  const {id} = props
+  const {collection, id} = props
   const defaultCollection = process.env.REACT_APP_SEARCH_API_COLLECTION
   const dispatch = useDispatch()
   const docs = ESCore.state.getDocuments()
   const doc = Object.keys(docs).length ? docs[id] : null
   const docIndex = doc && doc._index
-  const currentCollectionObj = getCollectionByKey(docIndex)
-  const currentCollection = getCurrentCollection()
-  const url = buildDocumentUri(currentCollection, id)
-  const searchFields = currentCollectionObj && currentCollectionObj.searchFields
+  const collectionObj = getCollectionByKey(docIndex)
+  const url = buildDocumentUri(collection, id)
+  const searchFields = collectionObj && collectionObj.searchFields
   const title = doc && (buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, doc) || buildHighlightedValueForHit('title', doc))
   const manifest = doc && getFirstManifestFromHit(doc, Domain.MEDIA)
   const thumbnail = doc && doc._source && doc._source.thumbnail

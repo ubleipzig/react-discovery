@@ -4,6 +4,7 @@ import {IHit, usePrevious} from "@react-discovery/core"
 import {InnerHtmlValue, buildHighlightedValueForHit, getFirstManifestFromHit} from '@react-discovery/components'
 import React, {ReactElement, useEffect} from "react"
 import {getWorkspaceViewIdMap, setViewIdMap} from "@react-discovery/workspace"
+import {getCurrentCollection} from "@react-discovery/configuration"
 import {Domain} from "@react-discovery/views"
 import {Thumbnail} from "@react-discovery/iiif"
 import {useDispatch} from "react-redux"
@@ -77,6 +78,7 @@ const GridComponent: React.FC<IGridComponent> = (props: IGridComponent): ReactEl
   const classes: any = useStyles({})
   const dispatch = useDispatch()
   const {hit} = props
+  const collection = getCurrentCollection()
   const id = hit && (hit._source.id || hit.id)
   const title = buildHighlightedValueForHit('title', hit) || buildHighlightedValueForHit(Domain.DOC_TITLE_FIELD, hit)
   const manifest = hit && getFirstManifestFromHit(hit, Domain.MEDIA)
@@ -99,7 +101,7 @@ const GridComponent: React.FC<IGridComponent> = (props: IGridComponent): ReactEl
   }, [prevViewIdMap, viewIdMap])
 
   const handleAddToWorkspace = (manifest): void => {
-    dispatch(setViewIdMap({id, manifest, type: 'image'}))
+    dispatch(setViewIdMap({collection, id, manifest, type: 'image'}))
   }
 
   return (

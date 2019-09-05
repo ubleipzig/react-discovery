@@ -5,6 +5,7 @@ import React, {ReactElement, useEffect} from "react"
 import {Domain} from "./enum"
 import {useDispatch} from "react-redux"
 import {useTranslation} from "react-i18next"
+import {getCurrentCollection} from "@react-discovery/configuration"
 
 interface IAddToWorkspaceButton {
   actions: any;
@@ -31,6 +32,7 @@ const HoverButton = withStyles(() => ({
 
 export const AddToWorkspaceButton: React.FC<IAddToWorkspaceButton> = (props): ReactElement => {
   const {getWorkspaceViewIdMap, setViewIdMap} = props.actions
+  const collection = getCurrentCollection()
   const classes: any = props.classes || useStyles({})
   const {hit, item} = props
   const id = hit && (hit._source.id || hit.id)
@@ -49,7 +51,7 @@ export const AddToWorkspaceButton: React.FC<IAddToWorkspaceButton> = (props): Re
   }, [prevViewIdMap, viewIdMap])
 
   const handleAddToWorkspace = (manifest): void => {
-    dispatch(setViewIdMap({id, manifest, type: 'image'}))
+    dispatch(setViewIdMap({collection, id, manifest, type: 'image'}))
   }
 
   return (

@@ -11,12 +11,13 @@ import {
   makeStyles
 } from '@material-ui/core';
 import React, {ReactElement} from "react"
+import {NavLink} from "react-navi"
 import {useClipboard} from 'use-clipboard-copy'
 import {useFirebaseAuth} from '@use-firebase/auth'
 import {useTranslation} from "react-i18next"
 import {useValue} from "../hooks"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme): any => ({
   root: {
     marginTop: theme.spacing(3),
     overflowX: 'auto',
@@ -32,7 +33,7 @@ export const LibraryFeed: React.FC<any> = (): ReactElement => {
   const uid = (user && user.uid) || null
   const [value, setValue] = useValue('users/' + uid + '/workspaces', undefined, undefined) as any
   const [removedValue, removeValue] = useValue('users/' + uid + '/workspaces', undefined, undefined) as any
-  const classes = useStyles({})
+  const classes: any = useStyles({})
   const clipboard = useClipboard({copiedTimeout: 600})
   const {t} = useTranslation('common')
   const dtOptions = {
@@ -45,27 +46,28 @@ export const LibraryFeed: React.FC<any> = (): ReactElement => {
     year: 'numeric'
   }
 
-  const handleRemoveWorkspace = (value) => {
+  const handleRemoveWorkspace = (value): void => {
     removeValue({[value]: null})
   }
 
-  const buildSavedWorkspaces = () => {
+  const buildSavedWorkspaces = (): ReactElement[] => {
     if (value !== null) {
       return Object.entries(value).map(([k, v]) => {
         const date = new Date(parseInt(k))
         const formattedDate = new Intl.DateTimeFormat('default', dtOptions).format(date)
         const baseUrl = window.location.protocol + "//" + window.location.host;
         const url = `${baseUrl}/workspace?state=${v}`
+        const navLink = `/workspace?state=${v}`
         return (
           <TableRow key={k}>
             <TableCell>{formattedDate}</TableCell>
             <TableCell>
-              <IconButton href={url}><PictureInPicture/></IconButton>
+              <IconButton><NavLink href={navLink}><PictureInPicture/></NavLink></IconButton>
             </TableCell>
             <TableCell>
               <Tooltip
                 title={clipboard.copied ? t('copied') : t('copyLink')}>
-                <IconButton onClick={() => clipboard.copy(url)}><Link/></IconButton>
+                <IconButton onClick={(): void => clipboard.copy(url)}><Link/></IconButton>
               </Tooltip>
             </TableCell>
             <TableCell>
