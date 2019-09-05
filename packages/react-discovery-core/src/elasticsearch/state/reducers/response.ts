@@ -55,6 +55,10 @@ const buildNumFound = (result) => {
   return result.hits ? result.hits.total.value : null
 }
 
+const buildDocIdFromResult = (result) => {
+  return result && result._id
+}
+
 export const response = reducerWithInitialState(initialState)
   .case(fetchElasticSearchResponse.async.started, (state): IResponse => ({
     ...state,
@@ -83,7 +87,7 @@ export const response = reducerWithInitialState(initialState)
     ...state,
     docs: {
       ...state.docs,
-      [result._id]: result
+      [buildDocIdFromResult(result)]: result
     },
     updating: false,
     url: params.url,

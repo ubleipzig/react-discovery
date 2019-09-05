@@ -41,6 +41,7 @@
     "@use-firebase/app": "^0.3.2",
     "@use-firebase/auth": "^0.3.3",
     "classnames": "^2.2.6",
+    "use-clipboard-copy": "^0.1.1",
     "clsx": "^1.0.4",
     "deepmerge": "^3.2.0",
     "downshift": "^3.2.10",

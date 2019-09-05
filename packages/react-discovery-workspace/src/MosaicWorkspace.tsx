@@ -65,6 +65,7 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (props): ReactElement
 
   const renderTile = (id, path): ReactElement => {
     const dataId = Object.keys(viewIdMap).length && viewIdMap[id] && viewIdMap[id].id
+    const collection = Object.keys(viewIdMap).length && viewIdMap[id] && viewIdMap[id].collection
     const manifest = Object.keys(viewIdMap).length && viewIdMap[id] && viewIdMap[id].manifest
     const type = Object.keys(viewIdMap).length && viewIdMap[id] && viewIdMap[id].type
     const WindowAppBar = windowAppBar
@@ -74,12 +75,18 @@ export const MosaicWorkspace: React.FC<IWorkspaceMosaic> = (props): ReactElement
         path={path}
         renderToolbar={(): ReactElement =>
           <div className={classes.toolbarRoot}>
-            <WindowAppBar dataId={dataId} id={id} removeViewId={removeViewId}/>
+            <WindowAppBar
+              collection={collection}
+              dataId={dataId}
+              id={id}
+              removeViewId={removeViewId}
+            />
           </div>}
         title={`Window ${id}`}
       >
         <Suspense fallback={'loading'}>
           <Component
+            collection={collection}
             id={dataId}
             key={id}
             manifest={manifest}

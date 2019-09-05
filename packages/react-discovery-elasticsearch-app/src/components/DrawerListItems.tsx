@@ -1,5 +1,5 @@
 import {Badge, ListItem, ListItemIcon, ListItemText, Tooltip} from "@material-ui/core"
-import {Collections, Description, Home, PictureInPicture, Search, Settings} from "@material-ui/icons"
+import {Collections, Description, FolderSpecial, Home, PictureInPicture, Search, Settings} from "@material-ui/icons"
 import {NavLink, useCurrentRoute} from "react-navi"
 import React, {ReactElement, forwardRef, useEffect, useState} from "react"
 import {getCurrentSearchContext} from '@react-discovery/configuration'
@@ -42,14 +42,20 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
       text: 'Workspace'
     },
     {
-      id: 'detail',
+      id: 'library',
       index: 4,
+      path: '/library',
+      text: 'Library'
+    },
+    {
+      id: 'detail',
+      index: 5,
       path: '/detail',
       text: 'Detail'
     },
     {
       id: 'settings',
-      index: 5,
+      index: 6,
       path: '/settings',
       text: 'Settings'
     },
@@ -86,6 +92,10 @@ export const DrawerListItems: React.FC<any> = (): ReactElement => {
           >
             <PictureInPicture/>
           </Badge>
+        )
+      case 'library':
+        return (
+          <FolderSpecial/>
         )
       case 'detail':
         return <Description/>

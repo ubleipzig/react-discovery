@@ -11,12 +11,7 @@ if (!(currentCollection in collections)) {
 }
 
 const initialWorkspaceState = {
-  layout: {
-    direction: 'row',
-    first: "3809155f-56dc-4c6d-a097-4850bcb7e1d9",
-    second: "5c3a9c1d-263d-48d7-9739-34e2df12f125",
-    splitPercentage: 50,
-  },
+  layout: {},
   viewIdMap: {},
 }
 
